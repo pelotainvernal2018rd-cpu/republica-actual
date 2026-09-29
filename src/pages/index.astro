@@ -1,0 +1,528 @@
+---
+// ==================================================
+// REPÚBLICA ACTUAL - PORTADA
+// Astro + Supabase
+// ==================================================
+
+const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+let noticias = [];
+let errorConexion = '';
+
+try {
+  const endpoint =
+    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+
+  const respuesta = await fetch(endpoint, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      Accept: 'application/json'
+    }
+  });
+
+  if (!respuesta.ok) {
+    throw new Error(`HTTP ${respuesta.status}`);
+  }
+
+  noticias = await respuesta.json();
+
+} catch (error) {
+  console.error(error);
+  errorConexion = 'No se pudieron cargar las noticias.';
+}
+
+
+// ======================================================
+// FUNCIONES
+// ======================================================
+
+function limpiarHTML(html = '') {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<img[^>]*>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function resumen(contenido = '', limite = 210) {
+  const texto = limpiarHTML(contenido);
+
+  if (texto.length <= limite) {
+    return texto;
+  }
+
+  return texto.substring(0, limite).trim() + '...';
+}
+
+function obtenerCategoria(noticia) {
+  if (noticia.categoria) {
+    return noticia.categoria;
+  }
+
+  if (Array.isArray(noticia.etiquetas) && noticia.etiquetas.length) {
+    return noticia.etiquetas[0];
+  }
+
+  return 'Actualidad';
+}
+
+function enlaceNoticia(noticia) {
+  return `/noticia?id=${noticia.id}`;
+}
+---
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>República Actual</title>
+
+  <meta
+    name="description"
+    content="República Actual - Noticias de República Dominicana y el mundo."
+  />
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #102a43;
+    }
+
+
+    /* =========================================
+       BARRA SUPERIOR
+    ========================================= */
+
+    .topbar {
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+
+    /* =========================================
+       CABECERA
+    ========================================= */
+
+    header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 20px 24px;
+    }
+
+    .logo {
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 0;
+      color: #102d46;
+    }
+
+    .logo span {
+      color: #e52b32;
+    }
+
+    .slogan {
+      margin-top: 6px;
+      color: #63788b;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+
+    /* =========================================
+       MENÚ
+    ========================================= */
+
+    nav {
+      border-top: 1px solid #e3e7eb;
+      border-bottom: 3px solid #102d46;
+    }
+
+    .menu {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 30px;
+      padding: 14px 20px;
+      overflow-x: auto;
+    }
+
+    .menu a {
+      color: #102d46;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .menu a:hover {
+      color: #e52b32;
+    }
+
+
+    /* =========================================
+       CONTENEDOR
+    ========================================= */
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 20px 50px;
+    }
+
+
+    /* =========================================
+       EN PORTADA
+    ========================================= */
+
+    .franja {
+      background: #f3f5f7;
+      border-left: 4px solid #e52b32;
+      padding: 13px 15px;
+      margin-bottom: 34px;
+      font-size: 13px;
+    }
+
+    .franja strong {
+      color: #e52b32;
+      margin-right: 12px;
+    }
+
+
+    /* =========================================
+       TÍTULO SECCIÓN
+    ========================================= */
+
+    .titulo-seccion {
+      color: #e52b32;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      border-bottom: 1px solid #e1e6ea;
+      padding-bottom: 12px;
+      margin-bottom: 5px;
+    }
+
+
+    /* =========================================
+       LISTADO DE NOTICIAS
+    ========================================= */
+
+    .noticias {
+      max-width: 780px;
+    }
+
+    .noticia {
+      padding: 22px 0 28px;
+      border-bottom: 1px solid #e1e6ea;
+    }
+
+    .noticia h2 {
+      margin: 0 0 12px;
+      font-size: 27px;
+      line-height: 1.08;
+      letter-spacing: -.6px;
+    }
+
+    .noticia h2 a {
+      color: #102d46;
+      text-decoration: none;
+    }
+
+    .noticia h2 a:hover {
+      color: #e52b32;
+    }
+
+
+    /* =========================================
+       CUERPO TARJETA
+    ========================================= */
+
+    .noticia-cuerpo {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .noticia-imagen {
+      width: 210px;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .categoria {
+      color: #e52b32;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
+    }
+
+    .resumen {
+      color: #5f7180;
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 13px;
+    }
+
+    .leer {
+      color: #e52b32;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
+
+    .leer:hover {
+      text-decoration: underline;
+    }
+
+
+    /* =========================================
+       ERROR / VACÍO
+    ========================================= */
+
+    .mensaje {
+      padding: 30px 0;
+      color: #687986;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      margin-top: 50px;
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+
+
+    /* =========================================
+       MÓVIL
+    ========================================= */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding-top: 22px;
+      }
+
+      .logo {
+        font-size: 32px;
+      }
+
+      .menu {
+        gap: 22px;
+      }
+
+      main {
+        padding: 20px 16px 40px;
+      }
+
+      .noticia h2 {
+        font-size: 23px;
+      }
+
+      .noticia-cuerpo {
+        display: block;
+      }
+
+      .noticia-imagen {
+        width: 100%;
+        height: 220px;
+        margin-bottom: 15px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="topbar">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
+
+  <header>
+
+    <h1 class="logo">
+      REPÚBLICA<span>·</span>ACTUAL
+    </h1>
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
+    </div>
+
+  </header>
+
+
+  <nav>
+
+    <div class="menu">
+
+      <a href="/">Inicio</a>
+
+      <a href="/categoria/nacionales">Nacionales</a>
+
+      <a href="/categoria/politica">Política</a>
+
+      <a href="/categoria/economia">Economía</a>
+
+      <a href="/categoria/deportes">Deportes</a>
+
+      <a href="/categoria/entretenimiento">Entretenimiento</a>
+
+      <a href="/categoria/mundo">Mundo</a>
+
+      <a href="/categoria/tecnologia">Tecnología</a>
+
+    </div>
+
+  </nav>
+
+
+  <main>
+
+    <div class="franja">
+      <strong>EN PORTADA</strong>
+      Actualidad, contexto y las historias que marcan el día.
+    </div>
+
+
+    <h3 class="titulo-seccion">
+      Últimas publicaciones
+    </h3>
+
+
+    {
+      errorConexion ? (
+
+        <div class="mensaje">
+          {errorConexion}
+        </div>
+
+      ) : noticias.length === 0 ? (
+
+        <div class="mensaje">
+          No hay noticias publicadas todavía.
+        </div>
+
+      ) : (
+
+        <section class="noticias">
+
+          {
+            noticias.map((noticia) => (
+
+              <article class="noticia">
+
+                <h2>
+                  <a href={enlaceNoticia(noticia)}>
+                    {noticia.titulo}
+                  </a>
+                </h2>
+
+
+                <div class="noticia-cuerpo">
+
+                  {
+                    noticia.imagen && (
+
+                      <a href={enlaceNoticia(noticia)}>
+
+                        <img
+                          class="noticia-imagen"
+                          src={noticia.imagen}
+                          alt={noticia.titulo}
+                          loading="lazy"
+                        />
+
+                      </a>
+
+                    )
+                  }
+
+
+                  <div>
+
+                    <div
+  id="categoria"
+  class="categoria"
+></div>
+
+                    <p class="resumen">
+                      {resumen(noticia.contenido)}
+                    </p>
+
+                    <a
+                      class="leer"
+                      href={enlaceNoticia(noticia)}
+                    >
+                      Leer más →
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            ))
+          }
+
+        </section>
+
+      )
+    }
+
+  </main>
+
+
+  <footer>
+    © {new Date().getFullYear()} República Actual
+  </footer>
+
+</body>
+
+</html>

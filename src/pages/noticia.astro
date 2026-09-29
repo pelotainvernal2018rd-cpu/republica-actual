@@ -1,0 +1,362 @@
+---
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>República Actual</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #102d47;
+    }
+
+    .barra {
+      background: #102d47;
+      color: #ffffff;
+      text-align: center;
+      padding: 9px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    header {
+      max-width: 1080px;
+      margin: auto;
+      padding: 32px 20px 25px;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: #d71920;
+    }
+
+    .slogan {
+      margin-top: 5px;
+      color: #718297;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      border-top: 1px solid #e1e5e8;
+      border-bottom: 3px solid #102d47;
+      overflow-x: auto;
+    }
+
+    nav div {
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+      gap: 30px;
+      padding: 15px 20px;
+    }
+
+    nav a {
+      color: #102d47;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: 850px;
+      min-height: 500px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #d71920;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #estado {
+      color: #666;
+      font-size: 18px;
+      padding: 40px 0;
+    }
+
+    #noticia {
+      display: none;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      color: #102d47;
+      font-size: 40px;
+      line-height: 1.12;
+    }
+
+    .imagen-principal {
+      display: none;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      margin: 0 0 30px;
+    }
+
+    .contenido {
+      color: #333333;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .contenido p {
+      margin: 0 0 22px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 30px 20px;
+      background: #102d47;
+      color: #ffffff;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .logo {
+        font-size: 30px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .contenido {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="barra">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
+  <header>
+    <div class="logo">
+      REPÚBLICA<span>·</span>ACTUAL
+    </div>
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
+    </div>
+  </header>
+
+  <nav>
+    <div>
+      <a href="/">INICIO</a>
+      <a href="/">NACIONALES</a>
+      <a href="/">POLÍTICA</a>
+      <a href="/">ECONOMÍA</a>
+      <a href="/">DEPORTES</a>
+      <a href="/">ENTRETENIMIENTO</a>
+      <a href="/">MUNDO</a>
+      <a href="/">TECNOLOGÍA</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <a class="volver" href="/">
+      ← Volver a inicio
+    </a>
+
+    <div id="estado">
+      Cargando noticia...
+    </div>
+
+    <article id="noticia">
+
+      <h1 id="titulo"></h1>
+
+      <img
+        id="imagen"
+        class="imagen-principal"
+        alt=""
+      />
+
+      <div
+        id="contenido"
+        class="contenido"
+      ></div>
+
+    </article>
+
+  </main>
+
+  <footer>
+    © 2026 República Actual
+  </footer>
+
+
+  <script>
+    const SUPABASE_URL =
+      'https://kbghquvejqteiawdotqd.supabase.co';
+
+    const SUPABASE_KEY =
+      'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+
+    async function cargarNoticia() {
+
+      const estado =
+        document.getElementById('estado');
+
+      const articulo =
+        document.getElementById('noticia');
+
+      try {
+
+        const parametros =
+          new URLSearchParams(window.location.search);
+
+        const id =
+          parametros.get('id');
+
+        if (!id) {
+          estado.textContent =
+            'No se especificó la noticia.';
+          return;
+        }
+
+
+        const endpoint =
+          `${SUPABASE_URL}/rest/v1/noticias?id=eq.${encodeURIComponent(id)}&select=*`;
+
+
+        const respuesta =
+          await fetch(endpoint, {
+            method: 'GET',
+
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              Accept: 'application/json'
+            }
+          });
+
+
+        if (!respuesta.ok) {
+          throw new Error(
+            `Supabase HTTP ${respuesta.status}`
+          );
+        }
+
+
+        const datos =
+          await respuesta.json();
+
+
+        if (
+          !Array.isArray(datos) ||
+          datos.length === 0
+        ) {
+          estado.textContent =
+            'Esta noticia no fue encontrada.';
+          return;
+        }
+
+
+        const noticia = datos[0];
+
+
+        document.title =
+          `${noticia.titulo || 'Noticia'} | República Actual`;
+
+
+        document
+          .getElementById('titulo')
+          .textContent =
+            noticia.titulo || 'República Actual';
+
+
+        /* IMAGEN PRINCIPAL */
+        const imagen =
+          document.getElementById('imagen');
+
+        if (noticia.imagen) {
+
+          imagen.src =
+            noticia.imagen;
+
+          imagen.alt =
+            noticia.titulo || 'República Actual';
+
+          imagen.style.display =
+            'block';
+        }
+
+
+        /* CONTENIDO COMPLETO */
+        const contenedorTemporal =
+          document.createElement('div');
+
+        contenedorTemporal.innerHTML =
+          noticia.contenido || '';
+
+
+        /*
+          Quitamos las imágenes que vengan dentro
+          del contenido para evitar duplicados.
+          La imagen principal de arriba se conserva.
+        */
+        contenedorTemporal
+          .querySelectorAll('img')
+          .forEach((img) => img.remove());
+
+
+        document
+          .getElementById('contenido')
+          .innerHTML =
+            contenedorTemporal.innerHTML;
+
+
+        estado.style.display =
+          'none';
+
+        articulo.style.display =
+          'block';
+
+      } catch (error) {
+
+        console.error(
+          'ERROR CARGANDO NOTICIA:',
+          error
+        );
+
+        estado.textContent =
+          'No se pudo cargar la noticia.';
+      }
+    }
+
+
+    cargarNoticia();
+  </script>
+
+</body>
+</html>

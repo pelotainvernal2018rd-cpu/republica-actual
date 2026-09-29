@@ -1,0 +1,769 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { categoria: 'nacionales' } },
+    { params: { categoria: 'politica' } },
+    { params: { categoria: 'economia' } },
+    { params: { categoria: 'deportes' } },
+    { params: { categoria: 'entretenimiento' } },
+    { params: { categoria: 'mundo' } },
+    { params: { categoria: 'tecnologia' } }
+  ];
+}
+---
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title id="tituloPagina">República Actual</title>
+
+  <meta
+    name="description"
+    content="Noticias de República Actual"
+  />
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #102a43;
+    }
+
+
+    /* BARRA SUPERIOR */
+
+    .topbar {
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+
+    /* CABECERA */
+
+    header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 20px 24px;
+    }
+
+    .logo {
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 0;
+      color: #102d46;
+    }
+
+    .logo span {
+      color: #e52b32;
+    }
+
+    .slogan {
+      margin-top: 6px;
+      color: #63788b;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+
+    /* MENÚ */
+
+    nav {
+      border-top: 1px solid #e3e7eb;
+      border-bottom: 3px solid #102d46;
+    }
+
+    .menu {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 30px;
+      padding: 14px 20px;
+      overflow-x: auto;
+    }
+
+    .menu a {
+      color: #102d46;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .menu a:hover {
+      color: #e52b32;
+    }
+
+
+    /* CONTENIDO */
+
+    main {
+      max-width: 1100px;
+      min-height: 500px;
+      margin: auto;
+      padding: 35px 20px 50px;
+    }
+
+
+    /* TÍTULO DE CATEGORÍA */
+
+    .cabecera-categoria {
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e1e6ea;
+    }
+
+    .cabecera-categoria h1 {
+      margin: 0;
+      color: #e52b32;
+      text-transform: uppercase;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+
+    /* LISTADO */
+
+    .noticias {
+      max-width: 780px;
+    }
+
+    .noticia {
+      padding: 25px 0 28px;
+      border-bottom: 1px solid #e1e6ea;
+    }
+
+    .noticia h2 {
+      margin: 0 0 12px;
+      font-size: 27px;
+      line-height: 1.08;
+      letter-spacing: -.6px;
+    }
+
+  .noticia h2 a,
+.noticia h2 a:visited {
+  color: #102d46 !important;
+  text-decoration: none !important;
+}
+
+.noticia h2 a:hover {
+  color: #e52b32 !important;
+  text-decoration: none !important;
+}
+
+
+    /* CUERPO */
+
+    .noticia-cuerpo {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .noticia-imagen {
+      width: 210px;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .resumen {
+      color: #5f7180;
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 13px;
+    }
+
+    .leer {
+      color: #e52b32;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
+
+    .leer:hover {
+      text-decoration: underline;
+    }
+
+
+    /* MENSAJES */
+
+    .mensaje {
+      padding: 40px 0;
+      color: #687986;
+      font-size: 17px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 50px;
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+
+
+    /* MÓVIL */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding-top: 22px;
+      }
+
+      .logo {
+        font-size: 32px;
+      }
+
+      .menu {
+        gap: 22px;
+      }
+
+      main {
+        padding: 25px 16px 40px;
+      }
+
+      .cabecera-categoria h1 {
+        font-size: 21px;
+      }
+
+      .noticia h2 {
+        font-size: 23px;
+      }
+
+      .noticia-cuerpo {
+        display: block;
+      }
+
+      .noticia-imagen {
+        width: 100%;
+        height: 220px;
+        margin-bottom: 15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="topbar">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
+
+  <header>
+
+    <h1 class="logo">
+      REPÚBLICA<span>·</span>ACTUAL
+    </h1>
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
+    </div>
+
+  </header>
+
+
+  <nav>
+
+    <div class="menu">
+
+      <a href="/">Inicio</a>
+
+      <a href="/categoria/nacionales">
+        Nacionales
+      </a>
+
+      <a href="/categoria/politica">
+        Política
+      </a>
+
+      <a href="/categoria/economia">
+        Economía
+      </a>
+
+      <a href="/categoria/deportes">
+        Deportes
+      </a>
+
+      <a href="/categoria/entretenimiento">
+        Entretenimiento
+      </a>
+
+      <a href="/categoria/mundo">
+        Mundo
+      </a>
+
+      <a href="/categoria/tecnologia">
+        Tecnología
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main>
+
+    <div class="cabecera-categoria">
+
+      <h1 id="nombreCategoria">
+        Cargando...
+      </h1>
+
+    </div>
+
+
+    <div
+      id="mensaje"
+      class="mensaje"
+    >
+      Cargando noticias...
+    </div>
+
+
+    <section
+      id="listaNoticias"
+      class="noticias"
+    ></section>
+
+  </main>
+
+
+  <footer>
+    © 2026 República Actual
+  </footer>
+
+
+  <script>
+
+    const SUPABASE_URL =
+      'https://kbghquvejqteiawdotqd.supabase.co';
+
+    const SUPABASE_KEY =
+      'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+
+    /* ========================================
+       LIMPIAR HTML PARA EL RESUMEN
+    ======================================== */
+
+    function limpiarHTML(html = '') {
+
+      return html
+
+        .replace(
+          /<script[\s\S]*?<\/script>/gi,
+          ''
+        )
+
+        .replace(
+          /<style[\s\S]*?<\/style>/gi,
+          ''
+        )
+
+        .replace(
+          /<img[^>]*>/gi,
+          ''
+        )
+
+        .replace(
+          /<[^>]+>/g,
+          ' '
+        )
+
+        .replace(
+          /&nbsp;/g,
+          ' '
+        )
+
+        .replace(
+          /&amp;/g,
+          '&'
+        )
+
+        .replace(
+          /&quot;/g,
+          '"'
+        )
+
+        .replace(
+          /&#39;/g,
+          "'"
+        )
+
+        .replace(
+          /\s+/g,
+          ' '
+        )
+
+        .trim();
+    }
+
+
+    function resumen(
+      contenido = '',
+      limite = 210
+    ) {
+
+      const texto =
+        limpiarHTML(contenido);
+
+      if (texto.length <= limite) {
+        return texto;
+      }
+
+      return (
+        texto
+          .substring(0, limite)
+          .trim() + '...'
+      );
+    }
+
+
+    /* ========================================
+       NORMALIZAR TEXTO
+    ======================================== */
+
+    function normalizar(texto = '') {
+
+      return String(texto)
+
+        .normalize('NFD')
+
+        .replace(
+          /[\u0300-\u036f]/g,
+          ''
+        )
+
+        .toLowerCase()
+
+        .trim();
+    }
+
+
+    /* ========================================
+       OBTENER CATEGORÍA DE LA NOTICIA
+    ======================================== */
+
+    function obtenerCategoria(noticia) {
+
+      if (noticia.categoria) {
+        return normalizar(
+          noticia.categoria
+        );
+      }
+
+
+      if (
+        Array.isArray(noticia.etiquetas) &&
+        noticia.etiquetas.length > 0
+      ) {
+
+        return normalizar(
+          noticia.etiquetas[0]
+        );
+      }
+
+
+      return '';
+    }
+
+
+    /* ========================================
+       NOMBRE BONITO DE CATEGORÍA
+    ======================================== */
+
+    const nombresCategorias = {
+
+      nacionales:
+        'Nacionales',
+
+      politica:
+        'Política',
+
+      economia:
+        'Economía',
+
+      deportes:
+        'Deportes',
+
+      entretenimiento:
+        'Entretenimiento',
+
+      mundo:
+        'Mundo',
+
+      tecnologia:
+        'Tecnología'
+
+    };
+
+
+    /* ========================================
+       CARGAR NOTICIAS
+    ======================================== */
+
+    async function cargarCategoria() {
+
+      const mensaje =
+        document.getElementById(
+          'mensaje'
+        );
+
+      const lista =
+        document.getElementById(
+          'listaNoticias'
+        );
+
+      const nombreCategoria =
+        document.getElementById(
+          'nombreCategoria'
+        );
+
+
+      try {
+
+        /* OBTENER CATEGORÍA DE LA URL */
+
+        const partes =
+          window.location.pathname
+            .split('/')
+            .filter(Boolean);
+
+        const categoriaURL =
+          normalizar(
+            partes[
+              partes.length - 1
+            ] || ''
+          );
+
+
+        const nombre =
+          nombresCategorias[
+            categoriaURL
+          ] || categoriaURL;
+
+
+        nombreCategoria.textContent =
+          nombre;
+
+
+        document.title =
+          `${nombre} | República Actual`;
+
+
+        /* TRAER NOTICIAS */
+
+        const endpoint =
+          `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+
+
+        const respuesta =
+          await fetch(
+            endpoint,
+            {
+              headers: {
+
+                apikey:
+                  SUPABASE_KEY,
+
+                Authorization:
+                  `Bearer ${SUPABASE_KEY}`,
+
+                Accept:
+                  'application/json'
+
+              }
+            }
+          );
+
+
+        if (!respuesta.ok) {
+
+          throw new Error(
+            `Supabase HTTP ${respuesta.status}`
+          );
+
+        }
+
+
+        const todasLasNoticias =
+          await respuesta.json();
+
+
+        /* FILTRAR POR CATEGORÍA */
+
+        const noticias =
+          todasLasNoticias.filter(
+            (noticia) => {
+
+              return (
+                obtenerCategoria(
+                  noticia
+                ) === categoriaURL
+              );
+
+            }
+          );
+
+
+        /* SIN RESULTADOS */
+
+        if (
+          noticias.length === 0
+        ) {
+
+          mensaje.textContent =
+            `No hay noticias publicadas en ${nombre}.`;
+
+          return;
+
+        }
+
+
+        mensaje.style.display =
+          'none';
+
+
+        /* CREAR TARJETAS */
+
+        noticias.forEach(
+          (noticia) => {
+
+            const articulo =
+              document.createElement(
+                'article'
+              );
+
+
+            articulo.className =
+              'noticia';
+
+
+            const enlace =
+              `/noticia?id=${encodeURIComponent(
+                noticia.id
+              )}`;
+
+
+            let imagenHTML = '';
+
+
+            if (noticia.imagen) {
+
+              imagenHTML = `
+                <a href="${enlace}">
+                  <img
+                    class="noticia-imagen"
+                    src="${noticia.imagen}"
+                    alt=""
+                    loading="lazy"
+                  />
+                </a>
+              `;
+
+            }
+
+
+            articulo.innerHTML = `
+
+              <h2>
+
+                <a href="${enlace}">
+                  ${noticia.titulo || ''}
+                </a>
+
+              </h2>
+
+
+              <div class="noticia-cuerpo">
+
+                ${imagenHTML}
+
+
+                <div>
+
+                  <p class="resumen">
+                    ${resumen(
+                      noticia.contenido || ''
+                    )}
+                  </p>
+
+
+                  <a
+                    class="leer"
+                    href="${enlace}"
+                  >
+                    Leer más →
+                  </a>
+
+                </div>
+
+              </div>
+
+            `;
+
+
+            lista.appendChild(
+              articulo
+            );
+
+          }
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          'ERROR CATEGORÍA:',
+          error
+        );
+
+
+        mensaje.textContent =
+          'No se pudieron cargar las noticias.';
+
+      }
+
+    }
+
+
+    cargarCategoria();
+
+  </script>
+
+</body>
+
+</html>

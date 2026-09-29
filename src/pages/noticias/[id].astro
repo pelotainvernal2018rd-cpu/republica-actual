@@ -1,0 +1,304 @@
+---
+export const prerender = false;
+
+const SUPABASE_URL = 'https://kbhqhuvejqteiawdotqd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWlzjvg_yeSPpKfi';
+
+const { id } = Astro.params;
+
+let noticia = null;
+let error = '';
+
+try {
+  const endpoint =
+    `${SUPABASE_URL}/rest/v1/noticias?id=eq.${encodeURIComponent(id)}&select=*`;
+
+  const respuesta = await fetch(endpoint, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      Accept: 'application/json'
+    }
+  });
+
+  if (!respuesta.ok) {
+    throw new Error(`Supabase respondió HTTP ${respuesta.status}`);
+  }
+
+  const datos = await respuesta.json();
+
+  if (Array.isArray(datos) && datos.length > 0) {
+    noticia = datos[0];
+  } else {
+    error = 'Esta noticia no fue encontrada.';
+  }
+} catch (e) {
+  console.error('ERROR CARGANDO NOTICIA:', e);
+  error = 'No se pudo cargar la noticia.';
+}
+
+function obtenerCategoria(n) {
+  if (n?.categoria) return n.categoria;
+
+  if (Array.isArray(n?.etiquetas) && n.etiquetas.length) {
+    return n.etiquetas[0];
+  }
+
+  return 'Actualidad';
+}
+---
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    {noticia?.titulo
+      ? `${noticia.titulo} | República Actual`
+      : 'República Actual'}
+  </title>
+
+  <meta
+    name="description"
+    content="República Actual - Noticias de República Dominicana y el mundo."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #102d47;
+    }
+
+    .barra {
+      background: #102d47;
+      color: white;
+      text-align: center;
+      padding: 9px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    header {
+      max-width: 1080px;
+      margin: auto;
+      padding: 32px 20px 25px;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: #d71920;
+    }
+
+    .slogan {
+      margin-top: 5px;
+      color: #718297;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      border-top: 1px solid #e1e5e8;
+      border-bottom: 3px solid #102d47;
+      overflow-x: auto;
+    }
+
+    nav div {
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+      gap: 30px;
+      padding: 15px 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #102d47;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 0 20px;
+      min-height: 500px;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #d71920;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .categoria {
+      color: #d71920;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 1.1;
+      margin: 0 0 25px;
+      color: #102d47;
+    }
+
+    .imagen {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+      margin: 0 0 30px;
+    }
+
+    .contenido {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .contenido :global(p) {
+      margin: 0 0 22px;
+    }
+
+    .contenido :global(img) {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .error {
+      font-size: 20px;
+      color: #666;
+      padding: 50px 0;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #102d47;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .logo {
+        font-size: 30px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .contenido {
+        font-size: 17px;
+      }
+
+      header {
+        padding-top: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="barra">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
+  <header>
+    <div class="logo">
+      REPÚBLICA<span>·</span>ACTUAL
+    </div>
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
+    </div>
+  </header>
+
+  <nav>
+    <div>
+      <a href="/">INICIO</a>
+      <a href="/">NACIONALES</a>
+      <a href="/">POLÍTICA</a>
+      <a href="/">ECONOMÍA</a>
+      <a href="/">DEPORTES</a>
+      <a href="/">ENTRETENIMIENTO</a>
+      <a href="/">MUNDO</a>
+      <a href="/">TECNOLOGÍA</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <a class="volver" href="/">
+      ← Volver a inicio
+    </a>
+
+    {
+      noticia ? (
+        <article>
+
+          <div class="categoria">
+            {obtenerCategoria(noticia)}
+          </div>
+
+          <h1>{noticia.titulo}</h1>
+
+          {
+            noticia.imagen && (
+              <img
+                class="imagen"
+                src={noticia.imagen}
+                alt={noticia.titulo || 'República Actual'}
+              />
+            )
+          }
+
+          <div
+            class="contenido"
+            set:html={noticia.contenido || ''}
+          />
+
+        </article>
+      ) : (
+        <div class="error">
+          {error || 'Esta noticia no fue encontrada.'}
+        </div>
+      )
+    }
+
+  </main>
+
+  <footer>
+    © {new Date().getFullYear()} República Actual
+  </footer>
+
+</body>
+</html>
