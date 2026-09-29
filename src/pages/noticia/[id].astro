@@ -130,7 +130,7 @@ const contenido =
   );
 
 const canonical =
-  `https://republicaactual.net/noticia/${noticia.id}/`;
+  `https://republicaactual.net/noticia/${noticia.slug || noticia.id}/`;
 
 const fechaPublicacion =
   noticia.created_at || '';
@@ -255,7 +255,7 @@ const schema = {
 
   <meta
     name="twitter:card"
-    content="summary_large_image"
+    content="summary"
   />
 
   <meta
