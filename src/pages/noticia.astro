@@ -283,7 +283,135 @@
 
 
         const noticia = datos[0];
+// ===== SEO AUTOMÁTICO DE LA NOTICIA =====
 
+const tituloSEO =
+  noticia.titulo || 'República Actual';
+
+const descripcionSEO = (
+  noticia.descripcion ||
+  noticia.resumen ||
+  (noticia.contenido
+    ? noticia.contenido.replace(/<[^>]*>/g, '').substring(0, 160)
+    : 'Noticias de República Dominicana y el mundo.')
+).trim();
+
+const imagenSEO =
+  noticia.imagen || '';
+
+const urlSEO =
+  window.location.href;
+
+
+// TÍTULO
+document.title =
+  `${tituloSEO} | República Actual`;
+
+
+// DESCRIPCIÓN
+let metaDescription =
+  document.querySelector('meta[name="description"]');
+
+if (!metaDescription) {
+  metaDescription =
+    document.createElement('meta');
+
+  metaDescription.name = 'description';
+
+  document.head.appendChild(metaDescription);
+}
+
+metaDescription.content = descripcionSEO;
+
+
+// URL CANÓNICA
+let canonical =
+  document.querySelector('link[rel="canonical"]');
+
+if (!canonical) {
+  canonical =
+    document.createElement('link');
+
+  canonical.rel = 'canonical';
+
+  document.head.appendChild(canonical);
+}
+
+canonical.href = urlSEO;
+
+
+// OPEN GRAPH - TÍTULO
+let ogTitle =
+  document.querySelector('meta[property="og:title"]');
+
+if (!ogTitle) {
+  ogTitle = document.createElement('meta');
+  ogTitle.setAttribute('property', 'og:title');
+  document.head.appendChild(ogTitle);
+}
+
+ogTitle.content = tituloSEO;
+
+
+// OPEN GRAPH - DESCRIPCIÓN
+let ogDescription =
+  document.querySelector('meta[property="og:description"]');
+
+if (!ogDescription) {
+  ogDescription = document.createElement('meta');
+  ogDescription.setAttribute(
+    'property',
+    'og:description'
+  );
+  document.head.appendChild(ogDescription);
+}
+
+ogDescription.content = descripcionSEO;
+
+
+// OPEN GRAPH - IMAGEN
+if (imagenSEO) {
+
+  let ogImage =
+    document.querySelector('meta[property="og:image"]');
+
+  if (!ogImage) {
+    ogImage = document.createElement('meta');
+    ogImage.setAttribute(
+      'property',
+      'og:image'
+    );
+    document.head.appendChild(ogImage);
+  }
+
+  ogImage.content = imagenSEO;
+}
+
+
+// OPEN GRAPH - URL
+let ogUrl =
+  document.querySelector('meta[property="og:url"]');
+
+if (!ogUrl) {
+  ogUrl = document.createElement('meta');
+  ogUrl.setAttribute('property', 'og:url');
+  document.head.appendChild(ogUrl);
+}
+
+ogUrl.content = urlSEO;
+
+
+// TIPO DE CONTENIDO
+let ogType =
+  document.querySelector('meta[property="og:type"]');
+
+if (!ogType) {
+  ogType = document.createElement('meta');
+  ogType.setAttribute('property', 'og:type');
+  document.head.appendChild(ogType);
+}
+
+ogType.content = 'article';
 
         document.title =
           `${noticia.titulo || 'Noticia'} | República Actual`;
