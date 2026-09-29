@@ -39,16 +39,15 @@ const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
 
     const noticias = await respuesta.json();
 
-    return noticias.map((noticia) => ({
-      params: {
-        id: String(noticia.id)
-      },
+   return noticias.map((noticia) => ({
+  params: {
+    id: noticia.slug || String(noticia.id)
+  },
 
-      props: {
-        noticia
-      }
-    }));
-
+  props: {
+    noticia
+  }
+}));
   } catch (error) {
 
     console.error(
