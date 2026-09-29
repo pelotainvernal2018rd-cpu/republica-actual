@@ -183,11 +183,13 @@ export function getStaticPaths() {
     }
 
     .noticia-imagen {
-      width: 210px;
-      height: 150px;
-      object-fit: cover;
-      display: block;
-      background: #eee;
+  width: 210px !important;
+  max-width: 210px !important;
+  height: 150px !important;
+  object-fit: cover !important;
+  display: block;
+  background: #eee;
+
     }
 
     .resumen {
@@ -724,12 +726,7 @@ export function getStaticPaths() {
                   </p>
 
 
-                  <a
-                    class="leer"
-                    href="${enlace}"
-                  >
-                    Leer más →
-                  </a>
+                  
 
                 </div>
 
