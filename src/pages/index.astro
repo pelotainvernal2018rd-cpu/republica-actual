@@ -443,9 +443,53 @@ function enlaceNoticia(noticia) {
   <main>
 
     <div class="franja">
-      <strong>EN PORTADA</strong>
-      Actualidad, contexto y las historias que marcan el día.
-    </div>
+  <strong>ÚLTIMA HORA</strong>
+
+  <a
+    id="ticker-noticia"
+    href={noticias.length > 0 ? enlaceNoticia(noticias[0]) : "/"}
+  >
+    {noticias.length > 0 ? noticias[0].titulo : "República Actual"}
+  </a>
+</div>
+
+<script define:vars={{
+  tickerNoticias: noticias.slice(0, 6).map(n => ({
+    titulo: n.titulo,
+    enlace: enlaceNoticia(n)
+  }))
+}}>
+  const ticker = document.getElementById("ticker-noticia");
+
+  if (ticker && tickerNoticias.length > 1) {
+    let posicion = 0;
+
+    setInterval(() => {
+      posicion = (posicion + 1) % tickerNoticias.length;
+
+      ticker.style.opacity = "0";
+
+      setTimeout(() => {
+        ticker.textContent = tickerNoticias[posicion].titulo;
+        ticker.href = tickerNoticias[posicion].enlace;
+        ticker.style.opacity = "1";
+      }, 250);
+
+    }, 5000);
+  }
+</script>
+
+<style>
+  #ticker-noticia {
+    color: #102d46;
+    text-decoration: none;
+    transition: opacity .25s ease;
+  }
+
+  #ticker-noticia:hover {
+    color: #e52b32;
+  }
+</style>
 
 
     <h3 class="titulo-seccion">
