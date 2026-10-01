@@ -6,7 +6,7 @@ let noticias = [];
 
 try {
   const r = await fetch(
-    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc&limit=25`,
+    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc&limit=30`,
     {
       headers: {
         apikey: SUPABASE_KEY,
@@ -16,463 +16,436 @@ try {
   );
 
   if (r.ok) noticias = await r.json();
-} catch (e) {
-  console.error(e);
-}
+} catch {}
 
 const principal = noticias[0];
-const destacadas = noticias.slice(1, 5);
-const recientes = noticias.slice(5);
+const secundarias = noticias.slice(1, 4);
+const recientes = noticias.slice(4, 12);
+const populares = noticias.slice(12, 17);
 
-function texto(html = "") {
+function clean(html = "") {
   return String(html)
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<img[^>]*>/gi, "")
     .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function resumen(n, largo = 180) {
-  const t = texto(n?.contenido || "");
-  return t.length > largo ? t.substring(0, largo) + "..." : t;
+function desc(n, size = 150) {
+  const t = clean(n?.contenido || "");
+  return t.length > size ? t.slice(0, size) + "..." : t;
 }
 
-function categoria(n) {
+function cat(n) {
   return n?.categoria || "Actualidad";
 }
 
-function url(n) {
+function link(n) {
   return `/noticia?id=${n.id}`;
 }
 ---
 
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>República Actual 2.0 — Prueba</title>
-
-  <meta
-    name="description"
-    content="República Actual — noticias de República Dominicana y el mundo."
-  />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>República Actual 2.0</title>
+  <meta name="description" content="República Actual - Noticias de República Dominicana y el mundo." />
 </head>
 
 <body>
 
-<!-- BARRA SUPERIOR -->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <span>REPÚBLICA DOMINICANA Y EL MUNDO</span>
-    <span>Sobre nosotros · Contacto · Publicidad</span>
+<header class="top">
+  <div class="top-in">
+    <span>REPÚBLICA DOMINICANA · NOTICIAS DE ÚLTIMA HORA</span>
+    <span>Miércoles, 30 de septiembre de 2026</span>
   </div>
-</div>
-
-<!-- CABECERA -->
-<header class="container header">
-
-  <a href="/" class="logo">
-    <img
-      src="/republica-actual-logo.svg"
-      alt="República Actual"
-    />
-
-    <small>
-      LAS NOTICIAS DE HOY, SIEMPRE CONTIGO
-    </small>
-  </a>
-
-  <div class="empleo-banner">
-    <div>
-      <strong>TRABAJA EN<br />TU FUTURO</strong>
-    </div>
-
-    <a href="/categoria/empleate">
-      VER VACANTES →
-    </a>
-  </div>
-
 </header>
 
-<!-- MENÚ -->
-<nav class="nav">
-  <div class="container menu">
+<header class="brand">
+  <div class="brand-in">
 
-    <a class="activo" href="/">INICIO</a>
-    <a href="/categoria/nacionales">NACIONALES</a>
-    <a href="/categoria/politica">POLÍTICA</a>
-    <a href="/categoria/economia">ECONOMÍA</a>
-    <a href="/categoria/deportes">DEPORTES</a>
-    <a href="/categoria/mundo">MUNDO</a>
-    <a href="/categoria/entretenimiento">ENTRETENIMIENTO</a>
-    <a href="/categoria/empleate">EMPLÉATE</a>
-    <a href="/pagina/loterias">LOTERÍAS</a>
-    <a href="/categoria/tecnologia">TECNOLOGÍA</a>
+    <a href="/" class="logo">
+      <img src="/republica-actual-logo.svg" alt="República Actual" />
+      <span>NOTICIAS DE REPÚBLICA DOMINICANA Y EL MUNDO</span>
+    </a>
 
+    <div class="brand-tools">
+      <div class="weather-mini">
+        🌤️
+        <strong>RD AHORA</strong>
+        <small>Actualidad nacional</small>
+      </div>
+
+      <a href="/categoria/empleate" class="job-button">
+        💼 VER EMPLEOS
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<nav class="navigation">
+  <div class="nav-in">
+    <a class="home" href="/">⌂</a>
+    <a href="/categoria/nacionales">Nacionales</a>
+    <a href="/categoria/politica">Política</a>
+    <a href="/categoria/economia">Economía</a>
+    <a href="/categoria/deportes">Deportes</a>
+    <a href="/categoria/mundo">Mundo</a>
+    <a href="/categoria/entretenimiento">Entretenimiento</a>
+    <a href="/categoria/tecnologia">Tecnología</a>
+    <a href="/categoria/empleate">Empléate</a>
+    <a href="/pagina/loterias">Loterías</a>
   </div>
 </nav>
 
-<!-- ÚLTIMA HORA -->
-<div class="ultima">
-  <div class="container ultima-inner">
-    <strong>⚡ ÚLTIMA HORA</strong>
-
-    <span>
-      {principal?.titulo || "República Actual"}
-    </span>
+<div class="breaking">
+  <div class="breaking-in">
+    <strong>ÚLTIMA HORA</strong>
+    <span>{principal?.titulo || "Toda la actualidad en República Actual"}</span>
   </div>
 </div>
 
+<main>
 
-<main class="container">
+  <!-- HERO -->
+  <section class="hero-area">
 
-<!-- HERO -->
-<section class="hero-grid">
+    <div class="hero-main">
 
-  {
-    principal ? (
-      <a href={url(principal)} class="hero">
+      {principal ? (
+        <a href={link(principal)} class="hero-story">
 
-        {
-          principal.imagen && (
-            <img
-              src={principal.imagen}
-              alt={principal.titulo}
-            />
-          )
-        }
+          {principal.imagen && (
+            <img src={principal.imagen} alt={principal.titulo} />
+          )}
 
-        <div class="hero-overlay"></div>
+          <div class="hero-shade"></div>
 
-        <div class="hero-text">
+          <div class="hero-info">
+            <span class="label">{cat(principal)}</span>
 
-          <span>{categoria(principal)}</span>
+            <h1>{principal.titulo}</h1>
 
-          <h1>{principal.titulo}</h1>
+            <p>{desc(principal, 210)}</p>
 
-          <p>
-            {resumen(principal, 240)}
-          </p>
-
-          <b>LEER NOTICIA →</b>
-
-        </div>
-
-      </a>
-    ) : (
-      <div class="hero-vacio">
-        Esperando noticias...
-      </div>
-    )
-  }
-
-
-  <!-- RD AHORA -->
-  <aside class="rd-ahora">
-
-    <div class="titulo-box">
-      <h2>RD AHORA</h2>
-      <b>● EN VIVO</b>
-    </div>
-
-    <div class="mapa">
-      🇩🇴
-    </div>
-
-    <h3>Actualidad nacional</h3>
-
-    <div class="provincias">
-      <a href="/categoria/nacionales">Todas</a>
-      <a href="/categoria/santo-domingo">Santo Domingo</a>
-      <a href="/categoria/santiago">Santiago</a>
-      <a href="/categoria/la-vega">La Vega</a>
-      <a href="/categoria/puerto-plata">Puerto Plata</a>
-    </div>
-
-  </aside>
-
-</section>
-
-
-<!-- DESTACADAS -->
-<section class="seccion">
-
-  <div class="seccion-titulo">
-    <h2>Noticias destacadas</h2>
-    <a href="/">Ver todas →</a>
-  </div>
-
-  <div class="destacadas">
-
-    {
-      destacadas.map((n) => (
-        <a href={url(n)} class="card">
-
-          {
-            n.imagen ? (
-              <img
-                src={n.imagen}
-                alt={n.titulo}
-                loading="lazy"
-              />
-            ) : (
-              <div class="sin-imagen">
-                REPÚBLICA ACTUAL
-              </div>
-            )
-          }
-
-          <div class="card-text">
-
-            <span>{categoria(n)}</span>
-
-            <h3>{n.titulo}</h3>
-
-            <p>{resumen(n, 130)}</p>
-
+            <b>LEER MÁS →</b>
           </div>
 
         </a>
-      ))
-    }
+      ) : (
+        <div class="empty">Cargando noticias...</div>
+      )}
 
-  </div>
-
-</section>
-
-
-<!-- CONTENIDO -->
-<section class="contenido-grid">
-
-  <div>
-
-    <div class="seccion-titulo">
-      <h2>Noticias recientes</h2>
-      <a href="/">Más noticias →</a>
     </div>
 
-    <div class="lista">
+    <aside class="side-news">
 
-      {
-        recientes.map((n) => (
-          <a href={url(n)} class="noticia">
+      <div class="side-title">
+        <h2>ÚLTIMAS NOTICIAS</h2>
+        <span>EN VIVO</span>
+      </div>
 
-            {
-              n.imagen ? (
-                <img
-                  src={n.imagen}
-                  alt={n.titulo}
-                  loading="lazy"
-                />
-              ) : (
-                <div class="mini-logo">
-                  RA
-                </div>
-              )
-            }
+      {secundarias.map((n, i) => (
+        <a href={link(n)} class="side-item">
 
-            <div>
+          <div class="side-number">
+            0{i + 1}
+          </div>
 
-              <span>{categoria(n)}</span>
+          <div>
+            <small>{cat(n)}</small>
+            <h3>{n.titulo}</h3>
+          </div>
+
+        </a>
+      ))}
+
+    </aside>
+
+  </section>
+
+
+  <!-- RD AHORA -->
+  <section class="rd-now">
+
+    <div class="rd-heading">
+      <div>
+        <span>🇩🇴 REPÚBLICA DOMINICANA</span>
+        <h2>RD AHORA</h2>
+      </div>
+
+      <a href="/categoria/nacionales">VER TODAS →</a>
+    </div>
+
+    <div class="rd-grid">
+
+      <div class="rd-map">
+        <div>🇩🇴</div>
+        <strong>ACTUALIDAD<br />NACIONAL</strong>
+        <small>Noticias de todo el país</small>
+      </div>
+
+      <a href="/categoria/santo-domingo">
+        <strong>Santo Domingo</strong>
+        <span>Noticias →</span>
+      </a>
+
+      <a href="/categoria/santiago">
+        <strong>Santiago</strong>
+        <span>Noticias →</span>
+      </a>
+
+      <a href="/categoria/la-vega">
+        <strong>La Vega</strong>
+        <span>Noticias →</span>
+      </a>
+
+      <a href="/categoria/puerto-plata">
+        <strong>Puerto Plata</strong>
+        <span>Noticias →</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="layout">
+
+    <div class="news-column">
+
+      <div class="heading">
+        <h2>Noticias recientes</h2>
+        <a href="/">VER TODAS</a>
+      </div>
+
+      <div class="news-list">
+
+        {recientes.map((n) => (
+          <a href={link(n)} class="news-row">
+
+            {n.imagen ? (
+              <img src={n.imagen} alt={n.titulo} loading="lazy" />
+            ) : (
+              <div class="placeholder">RA</div>
+            )}
+
+            <div class="news-row-text">
+
+              <span>{cat(n)}</span>
 
               <h3>{n.titulo}</h3>
 
-              <p>{resumen(n, 150)}</p>
+              <p>{desc(n, 160)}</p>
+
+              <small>República Actual</small>
 
             </div>
 
           </a>
-        ))
-      }
+        ))}
 
-    </div>
-
-  </div>
-
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <div class="widget">
-
-      <h2>🌤 CLIMA EN RD</h2>
-
-      <strong class="temperatura">
-        --°C
-      </strong>
-
-      <p>Santo Domingo</p>
-
-      <small>
-        Módulo meteorológico automático.
-      </small>
+      </div>
 
     </div>
 
 
-    <div class="widget">
+    <!-- SIDEBAR -->
+    <aside class="right-column">
 
-      <h2>🔥 TEMAS DEL MOMENTO</h2>
+      <div class="box weather">
 
-      <ol>
-        <li>Actualidad nacional</li>
-        <li>Noticias de última hora</li>
-        <li>Economía</li>
-        <li>Deportes</li>
-        <li>Internacionales</li>
-      </ol>
+        <div class="box-head">
+          <h2>CLIMA EN RD</h2>
+          <span>☀️</span>
+        </div>
 
-    </div>
+        <strong>--°C</strong>
+
+        <p>Santo Domingo</p>
+
+        <div class="weather-days">
+          <span>Hoy<br />--°</span>
+          <span>Mañana<br />--°</span>
+          <span>Viernes<br />--°</span>
+        </div>
+
+      </div>
 
 
-    <div class="widget empleo">
+      <div class="box">
 
-      <small>💼 OPORTUNIDADES</small>
+        <div class="box-head">
+          <h2>🔥 LO MÁS LEÍDO</h2>
+        </div>
 
-      <h2>EMPLÉATE</h2>
+        <div class="popular">
 
-      <p>
-        Encuentra tu próximo empleo.
-      </p>
+          {populares.map((n, i) => (
+            <a href={link(n)}>
+              <b>{i + 1}</b>
+              <span>{n.titulo}</span>
+            </a>
+          ))}
+
+        </div>
+
+      </div>
+
+
+      <a href="/categoria/empleate" class="jobs">
+
+        <small>OPORTUNIDADES</small>
+
+        <h2>EMPLÉATE</h2>
+
+        <p>
+          Encuentra nuevas oportunidades
+          de trabajo.
+        </p>
+
+        <strong>VER VACANTES →</strong>
+
+      </a>
+
+    </aside>
+
+  </section>
+
+
+  <!-- EMPLEATE -->
+  <section class="module employment">
+
+    <div class="module-head">
+
+      <div>
+        <small>OPORTUNIDADES LABORALES</small>
+        <h2>EMPLÉATE</h2>
+      </div>
 
       <a href="/categoria/empleate">
-        VER VACANTES →
+        VER TODAS LAS VACANTES →
       </a>
 
     </div>
 
-  </aside>
+    <div class="employment-grid">
 
-</section>
+      <div>
+        <span>🇩🇴</span>
+        <h3>Empleos en República Dominicana</h3>
+        <p>Encuentra oportunidades laborales por provincia y área.</p>
+      </div>
 
+      <div>
+        <span>🌎</span>
+        <h3>Empleo en el extranjero</h3>
+        <p>Canadá, España, Estados Unidos y más.</p>
+      </div>
 
-<!-- MÓDULOS -->
-<section class="modulos">
+      <div class="apply">
+        <strong>¿BUSCAS EMPLEO?</strong>
+        <a href="/categoria/empleate">BUSCAR VACANTES</a>
+      </div>
 
-  <a href="/categoria/empleate" class="modulo azul">
-
-    <strong>💼</strong>
-
-    <div>
-      <small>OPORTUNIDADES</small>
-      <h2>EMPLÉATE</h2>
-      <p>
-        Vacantes en República Dominicana
-        y el extranjero.
-      </p>
     </div>
 
-  </a>
+  </section>
 
 
-  <a href="/pagina/loterias" class="modulo rojo">
+  <!-- LOTERIAS -->
+  <section class="module lottery">
 
-    <strong>🎱</strong>
+    <div class="module-head">
 
-    <div>
-      <small>RESULTADOS</small>
-      <h2>LOTERÍAS</h2>
-      <p>
-        República Dominicana y Estados Unidos.
-      </p>
+      <div>
+        <small>RESULTADOS</small>
+        <h2>LOTERÍAS</h2>
+      </div>
+
+      <a href="/pagina/loterias">
+        VER RESULTADOS →
+      </a>
+
     </div>
 
-  </a>
+    <div class="lottery-tabs">
+      <span class="selected">🇩🇴 República Dominicana</span>
+      <span>🇺🇸 Estados Unidos</span>
+      <span>Historial</span>
+      <span>Próximos sorteos</span>
+      <span>Estadísticas</span>
+    </div>
 
-</section>
+    <div class="lottery-cards">
 
+      <div>
+        <strong>🇩🇴</strong>
+        <h3>República Dominicana</h3>
+        <p>Resultados actualizados automáticamente.</p>
+        <a href="/pagina/loterias">VER RESULTADOS →</a>
+      </div>
 
-<!-- LOTERÍAS -->
-<section class="loterias">
+      <div>
+        <strong>🇺🇸</strong>
+        <h3>Estados Unidos</h3>
+        <p>Powerball, Mega Millions y más.</p>
+        <a href="/pagina/loterias">VER RESULTADOS →</a>
+      </div>
 
-  <div class="seccion-titulo">
+    </div>
 
-    <h2>Resultados de Loterías</h2>
-
-    <a href="/pagina/loterias">
-      Ver módulo completo →
-    </a>
-
-  </div>
-
-
-  <div class="tabs">
-
-    <span class="seleccionado">
-      🇩🇴 República Dominicana
-    </span>
-
-    <span>
-      🇺🇸 Estados Unidos
-    </span>
-
-    <span>
-      Historial
-    </span>
-
-    <span>
-      Próximos sorteos
-    </span>
-
-    <span>
-      Estadísticas
-    </span>
-
-  </div>
+  </section>
 
 
-  <div class="loteria-info">
+  <!-- DESTACADAS -->
+  <section class="featured">
 
-    <strong>
-      Módulo de resultados
-    </strong>
+    <div class="heading">
+      <h2>También te puede interesar</h2>
+    </div>
 
-    <p>
-      Aquí conectaremos los resultados reales
-      automáticamente. No se muestran números
-      inventados durante la prueba.
-    </p>
+    <div class="featured-grid">
 
-  </div>
+      {secundarias.map((n) => (
+        <a href={link(n)}>
 
-</section>
+          {n.imagen && (
+            <img src={n.imagen} alt={n.titulo} loading="lazy" />
+          )}
+
+          <span>{cat(n)}</span>
+
+          <h3>{n.titulo}</h3>
+
+        </a>
+      ))}
+
+    </div>
+
+  </section>
 
 </main>
 
 
-<!-- FOOTER -->
 <footer>
 
-  <div class="container footer">
+  <div class="footer-in">
 
     <div>
-
-      <img
-        src="/republica-actual-logo.svg"
-        alt="República Actual"
-      />
-
-      <p>
-        Las noticias de hoy,
-        siempre contigo.
-      </p>
-
+      <img src="/republica-actual-logo.svg" alt="República Actual" />
+      <p>Noticias de República Dominicana y el mundo.</p>
     </div>
 
     <div>
-
       <strong>REPÚBLICA ACTUAL 2.0</strong>
-
-      <p>
-        Versión de prueba.
-        La plantilla actual permanece intacta.
-      </p>
-
+      <p>Versión de prueba independiente de la página principal.</p>
     </div>
 
   </div>
@@ -491,44 +464,39 @@ function url(n) {
 
 body {
   margin: 0;
-  background: #f4f7fa;
+  background: #f1f4f7;
   color: #10263b;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-.container {
-  width: min(1180px, calc(100% - 32px));
+.top {
+  background: #091c2c;
+  color: #cbd5dd;
+  font-size: 11px;
+}
+
+.top-in {
+  width: min(1200px, calc(100% - 30px));
   margin: auto;
-}
-
-
-/* TOP */
-
-.topbar {
-  background: #102d46;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.topbar-inner {
-  min-height: 36px;
+  min-height: 34px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-
-/* HEADER */
-
-.header {
+.brand {
   background: white;
-  min-height: 150px;
+}
+
+.brand-in {
+  width: min(1200px, calc(100% - 30px));
+  min-height: 140px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -542,333 +510,348 @@ a {
 }
 
 .logo img {
-  width: 270px;
+  width: 285px;
+  height: auto;
 }
 
-.logo small {
-  color: #63788b;
-  font-size: 11px;
-  letter-spacing: 1.3px;
+.logo span {
+  font-size: 10px;
+  color: #6b7d8d;
+  letter-spacing: 1.2px;
   font-weight: bold;
 }
 
-.empleo-banner {
-  background: #102d46;
-  color: white;
-  border-radius: 12px;
-  padding: 16px 20px;
+.brand-tools {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-.empleo-banner strong {
-  font-size: 15px;
+.weather-mini {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3px 8px;
+  align-items: center;
+  padding: 10px 14px;
+  border-left: 1px solid #e2e7eb;
 }
 
-.empleo-banner a {
+.weather-mini small {
+  grid-column: 2;
+  color: #788996;
+}
+
+.job-button {
   background: #d73c37;
-  padding: 10px 13px;
+  color: white;
+  padding: 13px 17px;
   border-radius: 6px;
   font-size: 11px;
   font-weight: bold;
 }
 
-
-/* MENU */
-
-.nav {
+.navigation {
   background: #102d46;
-  border-bottom: 4px solid #d73c37;
 }
 
-.menu {
+.nav-in {
+  width: min(1200px, calc(100% - 30px));
+  margin: auto;
   display: flex;
-  gap: 25px;
+  gap: 23px;
   overflow-x: auto;
 }
 
-.menu a {
+.nav-in a {
   color: white;
+  padding: 15px 0;
   font-size: 12px;
   font-weight: bold;
-  padding: 15px 0;
   white-space: nowrap;
 }
 
-.menu a:hover,
-.menu .activo {
-  color: #ff716c;
+.nav-in a:hover,
+.nav-in .home {
+  color: #ff6b66;
 }
 
-
-/* ULTIMA */
-
-.ultima {
+.breaking {
   background: white;
-  border-bottom: 1px solid #e5e9ee;
+  border-bottom: 1px solid #dfe5e9;
 }
 
-.ultima-inner {
-  min-height: 45px;
+.breaking-in {
+  width: min(1200px, calc(100% - 30px));
+  margin: auto;
+  min-height: 43px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   font-size: 13px;
 }
 
-.ultima strong {
+.breaking strong {
   background: #d73c37;
   color: white;
   padding: 7px 10px;
-  border-radius: 5px;
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: .5px;
 }
-
-
-/* HERO */
 
 main {
-  padding: 25px 0 50px;
+  width: min(1200px, calc(100% - 30px));
+  margin: auto;
+  padding: 22px 0 55px;
 }
 
-.hero-grid {
+.hero-area {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 16px;
 }
 
-.hero {
+.hero-story {
+  min-height: 480px;
+  display: block;
   position: relative;
-  min-height: 430px;
-  border-radius: 14px;
   overflow: hidden;
+  border-radius: 4px;
   background: #102d46;
   color: white;
 }
 
-.hero img {
+.hero-story img {
   width: 100%;
-  height: 430px;
+  height: 480px;
   object-fit: cover;
+  display: block;
 }
 
-.hero-overlay {
+.hero-shade {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,.85),
-      rgba(0,0,0,.05)
-    );
+  background: linear-gradient(
+    transparent 20%,
+    rgba(0,0,0,.85) 100%
+  );
 }
 
-.hero-text {
+.hero-info {
   position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 25px;
+  bottom: 28px;
+  left: 30px;
+  right: 30px;
 }
 
-.hero-text > span {
+.hero-info .label {
+  display: inline-block;
   background: #d73c37;
-  color: white;
   padding: 6px 9px;
-  border-radius: 4px;
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.hero h1 {
-  font-size: clamp(28px,4vw,48px);
-  line-height: 1.03;
-  margin: 14px 0;
+.hero-info h1 {
+  max-width: 800px;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.04;
+  margin: 12px 0;
 }
 
-.hero p {
-  max-width: 700px;
+.hero-info p {
+  max-width: 720px;
+  color: #e0e6ea;
   line-height: 1.5;
-  color: #e5ebef;
-}
-
-.hero b {
-  font-size: 12px;
-}
-
-.hero-vacio {
-  min-height: 430px;
-  background: #102d46;
-  color: white;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-}
-
-
-/* RD AHORA */
-
-.rd-ahora {
-  background: white;
-  border: 1px solid #e1e7ec;
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.titulo-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.titulo-box h2 {
-  margin: 0;
-}
-
-.titulo-box b {
-  color: #159447;
-  font-size: 11px;
-}
-
-.mapa {
-  height: 190px;
-  margin: 18px 0;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: #e9f0f5;
-  font-size: 80px;
-}
-
-.provincias {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.provincias a {
-  border: 1px solid #e1e7ec;
-  padding: 9px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-
-/* SECCIONES */
-
-.seccion {
-  margin-top: 32px;
-}
-
-.seccion-titulo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 15px;
 }
 
-.seccion-titulo h2 {
-  margin: 0;
-  font-size: 22px;
+.hero-info b {
+  font-size: 11px;
 }
 
-.seccion-titulo a {
+.side-news {
+  background: white;
+  border: 1px solid #dde4e9;
+}
+
+.side-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 3px solid #d73c37;
+}
+
+.side-title h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.side-title span {
   color: #d73c37;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: bold;
 }
 
-
-/* CARDS */
-
-.destacadas {
+.side-item {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 15px;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+  padding: 17px;
+  border-bottom: 1px solid #edf0f2;
 }
 
-.card {
-  background: white;
-  border: 1px solid #e2e7ec;
-  border-radius: 12px;
-  overflow: hidden;
+.side-number {
+  color: #d73c37;
+  font-size: 22px;
+  font-weight: 900;
 }
 
-.card img,
-.sin-imagen {
-  width: 100%;
-  height: 175px;
-  object-fit: cover;
+.side-item small {
+  color: #d73c37;
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.sin-imagen {
-  display: grid;
-  place-items: center;
+.side-item h3 {
+  margin: 5px 0 0;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.rd-now {
+  margin-top: 20px;
   background: #102d46;
   color: white;
+  padding: 20px;
+}
+
+.rd-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rd-heading span,
+.module-head small {
+  color: #ff716c;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: .7px;
+}
+
+.rd-heading h2 {
+  margin: 5px 0 0;
+}
+
+.rd-heading a {
+  font-size: 10px;
   font-weight: bold;
 }
 
-.card-text {
+.rd-grid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4,1fr);
+  gap: 8px;
+}
+
+.rd-grid > a,
+.rd-map {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+  min-height: 115px;
   padding: 14px;
 }
 
-.card-text > span,
-.noticia span {
-  color: #d73c37;
+.rd-map {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  align-content: center;
+}
+
+.rd-map div {
+  font-size: 35px;
+  grid-row: span 2;
+}
+
+.rd-map strong {
+  font-size: 13px;
+}
+
+.rd-map small {
+  color: #aab9c4;
+}
+
+.rd-grid > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rd-grid > a strong {
+  font-size: 14px;
+}
+
+.rd-grid > a span {
+  color: #ff716c;
   font-size: 10px;
   font-weight: bold;
-  text-transform: uppercase;
 }
 
-.card h3 {
-  font-size: 17px;
-  line-height: 1.2;
-  margin: 7px 0;
-}
-
-.card p {
-  color: #667787;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-
-/* CONTENIDO */
-
-.contenido-grid {
+.layout {
   display: grid;
-  grid-template-columns: 2fr 330px;
-  gap: 25px;
-  margin-top: 35px;
+  grid-template-columns: 1fr 330px;
+  gap: 22px;
+  margin-top: 30px;
 }
 
-.lista {
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #102d46;
+  margin-bottom: 15px;
+}
+
+.heading h2 {
+  margin: 0;
+  padding-bottom: 9px;
+  font-size: 21px;
+}
+
+.heading a {
+  font-size: 10px;
+  color: #d73c37;
+  font-weight: bold;
+}
+
+.news-list {
   display: grid;
   gap: 12px;
 }
 
-.noticia {
+.news-row {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 190px 1fr;
   gap: 16px;
   background: white;
-  border: 1px solid #e2e7ec;
-  padding: 12px;
-  border-radius: 11px;
+  padding: 10px;
+  border: 1px solid #e0e6eb;
 }
 
-.noticia img,
-.mini-logo {
-  width: 180px;
-  height: 115px;
+.news-row img,
+.placeholder {
+  width: 190px;
+  height: 125px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-.mini-logo {
+.placeholder {
   background: #102d46;
   color: white;
   display: grid;
@@ -876,252 +859,437 @@ main {
   font-weight: bold;
 }
 
-.noticia h3 {
-  margin: 5px 0;
-  font-size: 19px;
+.news-row-text > span {
+  color: #d73c37;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.noticia p {
-  margin: 0;
-  color: #667787;
-  font-size: 13px;
+.news-row h3 {
+  font-size: 18px;
+  margin: 6px 0;
+  line-height: 1.2;
 }
 
+.news-row p {
+  color: #667887;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
 
-/* SIDEBAR */
+.news-row small {
+  color: #8a99a5;
+  font-size: 9px;
+}
 
-.sidebar {
+.right-column {
   display: grid;
-  gap: 16px;
+  gap: 15px;
   align-content: start;
 }
 
-.widget {
+.box {
   background: white;
-  border: 1px solid #e2e7ec;
-  border-radius: 12px;
+  border: 1px solid #dde4e9;
   padding: 18px;
 }
 
-.widget h2 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.temperatura {
-  font-size: 38px;
-}
-
-.widget li {
-  padding: 9px 0;
-  border-bottom: 1px solid #edf0f3;
-  font-weight: bold;
-}
-
-.empleo {
-  background: #102d46;
-  color: white;
-}
-
-.empleo small {
-  color: #ff716c;
-  font-weight: bold;
-}
-
-.empleo a {
-  display: inline-block;
-  background: #d73c37;
-  padding: 9px 12px;
-  border-radius: 7px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-
-/* MODULOS */
-
-.modulos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 28px;
-}
-
-.modulo {
-  color: white;
-  padding: 25px;
-  border-radius: 14px;
+.box-head {
   display: flex;
-  gap: 18px;
-  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #102d46;
+  margin-bottom: 14px;
 }
 
-.modulo > strong {
+.box-head h2 {
+  font-size: 16px;
+  margin: 0 0 9px;
+}
+
+.weather > strong {
   font-size: 40px;
 }
 
-.modulo h2 {
-  margin: 5px 0;
+.weather p {
+  margin: 5px 0 15px;
+  color: #657786;
 }
 
-.modulo p {
-  margin: 0;
+.weather-days {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  text-align: center;
+  border-top: 1px solid #e7ebee;
+  padding-top: 12px;
+  font-size: 10px;
 }
 
-.azul {
-  background: #102d46;
+.popular {
+  display: grid;
 }
 
-.rojo {
-  background: #d73c37;
-}
-
-
-/* LOTERIAS */
-
-.loterias {
-  background: white;
-  border: 1px solid #e2e7ec;
-  border-radius: 14px;
-  padding: 20px;
-  margin-top: 28px;
-}
-
-.tabs {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin: 15px 0;
-}
-
-.tabs span {
-  border: 1px solid #dfe5ea;
-  border-radius: 20px;
-  padding: 9px 13px;
-  font-size: 11px;
+.popular a {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf0f2;
+  font-size: 12px;
   font-weight: bold;
+}
+
+.popular b {
+  color: #d73c37;
+  font-size: 18px;
+}
+
+.jobs {
+  background: #d73c37;
+  color: white;
+  padding: 22px;
+}
+
+.jobs small {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.jobs h2 {
+  margin: 8px 0;
+}
+
+.jobs p {
+  color: #ffe8e7;
+  font-size: 12px;
+}
+
+.jobs strong {
+  font-size: 10px;
+}
+
+.module {
+  margin-top: 25px;
+  padding: 22px;
+}
+
+.employment {
+  background: white;
+  border-top: 5px solid #102d46;
+}
+
+.lottery {
+  background: #102d46;
+  color: white;
+}
+
+.module-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-head h2 {
+  margin: 4px 0 0;
+  font-size: 26px;
+}
+
+.module-head a {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.employment .module-head a {
+  color: #d73c37;
+}
+
+.employment-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.employment-grid > div {
+  border: 1px solid #e2e7ea;
+  padding: 18px;
+}
+
+.employment-grid span {
+  font-size: 28px;
+}
+
+.employment-grid h3 {
+  font-size: 15px;
+}
+
+.employment-grid p {
+  color: #687a88;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.apply {
+  background: #102d46;
+  color: white;
+}
+
+.apply a {
+  display: inline-block;
+  margin-top: 10px;
+  background: #d73c37;
+  padding: 9px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.lottery .module-head small {
+  color: #ff8c87;
+}
+
+.lottery-tabs {
+  display: flex;
+  gap: 7px;
+  margin: 18px 0;
+  overflow-x: auto;
+}
+
+.lottery-tabs span {
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 9px 12px;
+  border-radius: 20px;
+  font-size: 10px;
   white-space: nowrap;
 }
 
-.tabs .seleccionado {
+.lottery-tabs .selected {
   background: #d73c37;
-  color: white;
   border-color: #d73c37;
 }
 
-.loteria-info {
-  background: #f5f7f9;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
+.lottery-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.loteria-info p {
-  color: #667787;
+.lottery-cards > div {
+  background: rgba(255,255,255,.07);
+  padding: 18px;
 }
 
+.lottery-cards strong {
+  font-size: 28px;
+}
 
-/* FOOTER */
+.lottery-cards h3 {
+  margin: 8px 0;
+}
+
+.lottery-cards p {
+  color: #bac7d0;
+  font-size: 12px;
+}
+
+.lottery-cards a {
+  color: #ff817c;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.featured {
+  margin-top: 30px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.featured-grid a {
+  background: white;
+  border: 1px solid #e0e6eb;
+  padding-bottom: 14px;
+}
+
+.featured-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.featured-grid span,
+.featured-grid h3 {
+  margin-left: 14px;
+  margin-right: 14px;
+}
+
+.featured-grid span {
+  display: block;
+  color: #d73c37;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.featured-grid h3 {
+  font-size: 16px;
+  line-height: 1.25;
+}
 
 footer {
-  background: #102d46;
+  background: #091c2c;
   color: white;
   padding: 35px 0;
 }
 
-.footer {
+.footer-in {
+  width: min(1200px, calc(100% - 30px));
+  margin: auto;
   display: flex;
   justify-content: space-between;
   gap: 30px;
 }
 
-.footer img {
+.footer-in img {
   width: 220px;
   filter: brightness(0) invert(1);
 }
 
-.footer p {
-  color: #c9d4dc;
+.footer-in p {
+  color: #aebbc5;
+  font-size: 12px;
 }
 
+.empty {
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  background: #102d46;
+  color: white;
+}
 
-/* RESPONSIVE */
+@media(max-width:900px) {
 
-@media (max-width: 900px) {
-
-  .hero-grid,
-  .contenido-grid {
+  .hero-area,
+  .layout {
     grid-template-columns: 1fr;
   }
 
-  .destacadas {
+  .rd-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .rd-map {
+    grid-column: span 2;
+  }
+
+  .employment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .right-column {
     grid-template-columns: 1fr 1fr;
   }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 0;
+  .jobs {
+    grid-column: span 2;
   }
 
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
 
-  .container {
-    width: calc(100% - 20px);
-  }
-
-  .topbar-inner {
-    justify-content: center;
-  }
-
-  .topbar-inner span:last-child {
+  .top-in span:last-child {
     display: none;
+  }
+
+  .brand-in {
+    min-height: auto;
+    padding: 20px 0;
+    display: block;
   }
 
   .logo img {
-    width: 230px;
+    width: 235px;
   }
 
-  .empleo-banner {
-    width: 100%;
-    justify-content: space-between;
+  .brand-tools {
+    margin-top: 18px;
   }
 
-  .hero {
-    min-height: 390px;
-  }
-
-  .hero img {
-    height: 390px;
-  }
-
-  .destacadas,
-  .modulos {
-    grid-template-columns: 1fr;
-  }
-
-  .noticia {
-    grid-template-columns: 110px 1fr;
-  }
-
-  .noticia img,
-  .mini-logo {
-    width: 110px;
-    height: 90px;
-  }
-
-  .noticia h3 {
-    font-size: 15px;
-  }
-
-  .noticia p {
+  .weather-mini {
     display: none;
   }
 
-  .footer {
-    flex-direction: column;
+  .job-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-story,
+  .hero-story img,
+  .empty {
+    min-height: 390px;
+    height: 390px;
+  }
+
+  .hero-info {
+    left: 18px;
+    right: 18px;
+  }
+
+  .hero-info h1 {
+    font-size: 28px;
+  }
+
+  .rd-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rd-map {
+    grid-column: span 2;
+  }
+
+  .news-row {
+    grid-template-columns: 105px 1fr;
+  }
+
+  .news-row img,
+  .placeholder {
+    width: 105px;
+    height: 90px;
+  }
+
+  .news-row h3 {
+    font-size: 14px;
+  }
+
+  .news-row p {
+    display: none;
+  }
+
+  .right-column {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs {
+    grid-column: auto;
+  }
+
+  .lottery-cards,
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-head {
+    gap: 15px;
+  }
+
+  .footer-in {
+    display: block;
   }
 
 }
