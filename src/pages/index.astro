@@ -528,7 +528,11 @@ function enlaceNoticia(noticia) {
                           class="noticia-imagen"
                           src={noticia.imagen}
                           alt={noticia.titulo}
-                          loading="lazy"
+                          width="210"
+                          height="150"
+                          loading={noticias.indexOf(noticia) === 0 ? "eager" : "lazy"}
+                          fetchpriority={noticias.indexOf(noticia) === 0 ? "high" : "auto"}
+                          decoding="async"
                           referrerpolicy="no-referrer"
                         />
 
