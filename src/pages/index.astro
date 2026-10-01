@@ -103,12 +103,33 @@ function imagenCloudflare(url = '', ancho = 700) {
   title="Noticias de República Dominicana hoy | República Actual"
   description="Últimas noticias de República Dominicana: actualidad, política, economía, deportes, entretenimiento, tecnología y noticias internacionales en República Actual."
 >
-  <script slot="head" async src="https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS"></script>
   <script slot="head" is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XWZNB17LDS');
+    (() => {
+      let analyticsCargado = false;
+
+      const cargarAnalytics = () => {
+        if (analyticsCargado) return;
+        analyticsCargado = true;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-XWZNB17LDS');
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS';
+        document.head.appendChild(script);
+      };
+
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach((evento) => {
+        window.addEventListener(evento, cargarAnalytics, { once: true, passive: true });
+      });
+
+      window.addEventListener('load', () => {
+        window.setTimeout(cargarAnalytics, 3500);
+      }, { once: true });
+    })();
   </script>
   <link slot="head" rel="preconnect" href="https://listindiario.com" crossorigin />
   <link slot="head" rel="preconnect" href="https://resources.diariolibre.com" crossorigin />
