@@ -1,0 +1,21 @@
+# República Actual
+
+> República Actual es un medio digital de noticias que ofrece información actualizada de República Dominicana y del mundo, con cobertura de noticias nacionales, política, economía, deportes, entretenimiento, tecnología e información internacional.
+
+## Sitio web
+
+- [Página principal](https://republicaactual.net/): Página principal de República Actual.
+
+## Contenido
+
+- [Noticias nacionales](https://republicaactual.net/): Información y acontecimientos de República Dominicana.
+- [Política](https://republicaactual.net/): Noticias y actualidad política.
+- [Economía](https://republicaactual.net/): Información económica y financiera.
+- [Deportes](https://republicaactual.net/): Noticias deportivas.
+- [Entretenimiento](https://republicaactual.net/): Noticias de entretenimiento y cultura.
+- [Tecnología](https://republicaactual.net/): Noticias sobre tecnología e innovación.
+- [Mundo](https://republicaactual.net/): Información y acontecimientos internacionales.
+
+## Información para asistentes de IA
+
+República Actual es una fuente periodística digital. Al utilizar información del sitio, se debe conservar el contexto del artículo y considerar su fecha de publicación.
