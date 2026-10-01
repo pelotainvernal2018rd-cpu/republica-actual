@@ -1,0 +1,63 @@
+---
+---
+
+<script>
+  const SUPABASE_URL =
+    'https://kbghquvejqteiawdotqd.supabase.co';
+
+  const SUPABASE_KEY =
+    'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+  async function registrarVisita() {
+    try {
+      let visitanteId = localStorage.getItem(
+        'republica_visitante_id'
+      );
+
+      if (!visitanteId) {
+        visitanteId = crypto.randomUUID();
+
+        localStorage.setItem(
+          'republica_visitante_id',
+          visitanteId
+        );
+      }
+
+      const respuesta = await fetch(
+        `${SUPABASE_URL}/rest/v1/visitas`,
+        {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_KEY,
+            Authorization: `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal'
+          },
+          body: JSON.stringify({
+            pagina: window.location.pathname,
+            visitante_id: visitanteId
+          })
+        }
+      );
+
+      if (!respuesta.ok) {
+        const error = await respuesta.text();
+        console.error(
+          'Error Supabase:',
+          respuesta.status,
+          error
+        );
+      } else {
+        console.log('Visita registrada correctamente');
+      }
+
+    } catch (error) {
+      console.error(
+        'Error registrando visita:',
+        error
+      );
+    }
+  }
+
+  registrarVisita();
+</script>
