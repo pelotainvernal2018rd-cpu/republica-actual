@@ -93,6 +93,12 @@ function limpiarImagenesContenido(html = '') {
     .replace(/<img[^>]*>/gi, '');
 }
 
+// Optimiza la imagen principal con Cloudflare y conserva la original como respaldo.
+function imagenCloudflare(url = '', ancho = 1100) {
+  if (!/^https?:\/\//i.test(url)) return url;
+  return `/cdn-cgi/image/width=${ancho},quality=78,format=auto,fit=scale-down/${url}`;
+}
+
 
 function crearDescripcion(noticia) {
 
@@ -560,8 +566,16 @@ const schema = {
 
           <img
             class="imagen-principal"
-            src={imagen}
+            src={imagenCloudflare(imagen, 1100)}
             alt={titulo}
+            width="1100"
+            height="620"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            data-original={imagen}
+            onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221100%22 height=%22620%22 viewBox=%220 0 1100 620%22%3E%3Crect width=%221100%22 height=%22620%22 fill=%22%23eef1f4%22/%3E%3Ctext x=%22550%22 y=%22310%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2238%22 fill=%22%23102d47%22%3EREPÚBLICA ACTUAL%3C/text%3E%3C/svg%3E';}"
           />
 
         )
