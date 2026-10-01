@@ -1,0 +1,246 @@
+---
+const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+let noticias = [];
+let errorConexion = '';
+
+try {
+  const endpoint = `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+  const respuesta = await fetch(endpoint, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      Accept: 'application/json'
+    }
+  });
+  if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+  noticias = await respuesta.json();
+} catch (error) {
+  console.error(error);
+  errorConexion = 'No se pudieron cargar las noticias.';
+}
+
+function limpiarHTML(html = '') {
+  return String(html)
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<img[^>]*>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function resumen(c = '', limite = 170) {
+  const t = limpiarHTML(c);
+  return t.length > limite ? t.slice(0, limite).trim() + '...' : t;
+}
+function categoria(n) {
+  return n?.categoria || (Array.isArray(n?.etiquetas) ? n.etiquetas[0] : '') || 'Actualidad';
+}
+function enlace(n) {
+  return n ? `/noticia/${n.slug || n.id}/` : '#';
+}
+function imagen(n, seed = 'news') {
+  return n?.imagen || `https://picsum.photos/seed/${seed}/900/600`;
+}
+function fecha(n) {
+  if (!n?.created_at) return 'Reciente';
+  const d = new Date(n.created_at);
+  return new Intl.DateTimeFormat('es-DO', { day:'numeric', month:'short', year:'numeric' }).format(d);
+}
+
+const principal = noticias[0];
+const destacadas = noticias.slice(1, 5);
+const videos = noticias.filter(n => /<video|youtube|youtu\.be|vimeo/i.test(String(n.contenido || ''))).slice(0, 4);
+const videoCards = videos.length ? videos : noticias.slice(0, 4);
+const provincias = [
+  ['Santo Domingo', noticias[0]],
+  ['Santiago', noticias[1]],
+  ['La Vega', noticias[2]],
+  ['Puerto Plata', noticias[3]],
+  ['San Cristóbal', noticias[4]],
+];
+const evergreen = noticias.slice(5, 10);
+const relacionados = noticias.slice(1, 4);
+const timeline = noticias.slice(0, 5).reverse();
+const ticker = noticias.slice(0, 6);
+const temas = noticias.slice(0, 5);
+const ahora = new Date();
+const fechaCabecera = new Intl.DateTimeFormat('es-DO', {
+  weekday:'long', day:'numeric', month:'long', year:'numeric'
+}).format(ahora);
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Prueba nueva portada | República Actual</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#102a43}
+    a{color:inherit;text-decoration:none} img{display:block;width:100%}.wrap{max-width:1240px;margin:auto;padding:0 16px}
+    .top{background:#fff;border-bottom:1px solid #e5eaf0}.head{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}.mark{width:62px;height:52px;border-radius:8px;background:linear-gradient(135deg,#062e68 0 48%,#fff 48% 57%,#e52532 57%);position:relative;box-shadow:0 2px 8px #0002}.mark:after{content:"★";position:absolute;color:#fff;font-size:21px;left:21px;top:14px}
+    .brand b{font-size:27px;line-height:.9;color:#082e62}.brand b span{display:block;color:#e12532}.brand small{display:block;font-size:8px;font-weight:800;margin-top:6px;color:#5f6f7e}
+    .date{font-size:11px;background:#092d5e;color:#fff;padding:9px 13px;border-radius:15px;text-transform:capitalize}
+    .nav{background:#fff;border-bottom:1px solid #dfe6ee}.navin{display:flex;align-items:center;justify-content:center;overflow:auto}.nav a{padding:13px 17px;font-size:11px;font-weight:800;white-space:nowrap;border-bottom:3px solid transparent}.nav a:hover{color:#e21f2f;border-color:#e21f2f}
+    .ticker{background:#fff;border-bottom:1px solid #dfe6ee}.tickerin{display:flex;align-items:center;gap:12px;min-height:43px}.flash{background:#e51e2a;color:#fff;padding:8px 12px;border-radius:5px;font-size:11px;font-weight:900;white-space:nowrap}.ticker a{font-size:12px;font-weight:700;transition:.2s}.time{margin-left:auto;color:#7c8b99;font-size:10px;white-space:nowrap}
+    main{padding-top:15px;padding-bottom:40px}.hero-grid{display:grid;grid-template-columns:minmax(0,2.05fr) minmax(280px,.95fr) 245px;gap:12px}
+    .hero{position:relative;min-height:375px;border-radius:8px;overflow:hidden;background:#071a30}.hero img{height:375px;object-fit:cover;opacity:.88}.hero:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,#06101ddd)}
+    .hero-copy{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;color:#fff}.pill{display:inline-block;background:#e61e2e;color:#fff;font-size:9px;font-weight:900;padding:5px 7px;border-radius:3px}.hero h1{font-size:28px;line-height:1.05;margin:9px 0}.hero p{font-size:13px;line-height:1.45;margin:0;max-width:620px}.meta{font-size:9px;opacity:.8;margin-top:9px}
+    .rd-card,.sidebox,.section,.utility,.archive{background:#fff;border:1px solid #e0e7ef;border-radius:8px;overflow:hidden}.boxhead{display:flex;align-items:center;gap:7px;font-weight:900;color:#123e74;font-size:13px;padding:11px 12px;border-bottom:1px solid #edf0f4}.boxhead .more{margin-left:auto;font-size:9px;font-weight:700;border:1px solid #cfd9e5;border-radius:12px;padding:4px 8px}
+    .map{height:255px;background:#092f67;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden}.map:before{content:"REPÚBLICA DOMINICANA";font-size:13px;font-weight:900;letter-spacing:1px;border:2px solid #4f83bd;padding:40px 20px;border-radius:48% 52% 46% 54%;transform:rotate(-5deg);opacity:.9}.map-pin{position:absolute;background:#ed1f2e;padding:8px;border-radius:6px;right:24%;bottom:27%;font-size:10px;font-weight:800}.province-counts{display:grid;grid-template-columns:repeat(5,1fr);text-align:center;font-size:8px}.province-counts span{padding:9px 2px;border-right:1px solid #e5eaf0}.province-counts b{display:block;font-size:11px;margin-top:3px}
+    .rightcol{display:flex;flex-direction:column;gap:12px}.weather{padding:12px}.weather strong{font-size:25px}.weather-row{display:flex;align-items:center;gap:10px}.sun{font-size:35px}.forecast{display:flex;justify-content:space-between;margin-top:11px;font-size:9px;text-align:center}.forecast b{display:block;font-size:12px;margin-top:3px}
+    .trends ol{list-style:none;padding:6px 12px 12px;margin:0}.trends li{display:flex;gap:9px;padding:6px 0;font-size:11px;font-weight:700}.num{width:22px;height:22px;border-radius:50%;background:#f4f5f7;color:#e51e2a;display:grid;place-items:center;font-weight:900}
+    .four{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}.newsmini{background:#fff;border:1px solid #e1e7ee;border-radius:7px;overflow:hidden}.newsmini img{height:100px;object-fit:cover}.newsmini .pad{padding:8px}.newsmini h3{font-size:12px;line-height:1.25;margin:5px 0}.cat{font-size:8px;font-weight:900;color:#e51e2a;text-transform:uppercase}
+    .content-grid{display:grid;grid-template-columns:minmax(0,3fr) 1fr;gap:14px;margin-top:14px}.section{padding-bottom:12px}.section-body{padding:12px}
+    .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.video{position:relative}.video img{height:130px;object-fit:cover;border-radius:6px}.play{position:absolute;left:50%;top:47px;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#082f65;font-weight:900;box-shadow:0 2px 8px #0004}.video h3{font-size:11px;margin:7px 0}
+    .audio{padding:18px;text-align:center}.audio .audioicon{font-size:35px}.audio button{border:0;background:#083a80;color:#fff;border-radius:20px;padding:10px 22px;font-weight:800;width:100%;margin:12px 0}.wave{font-size:23px;letter-spacing:2px;color:#82b9df;overflow:hidden;white-space:nowrap}
+    .meaning{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.meaning-card{padding:13px;border:1px solid #e5eaf0;border-radius:8px;background:#fbfcfe}.meaning-card b{display:block;font-size:11px;margin-bottom:8px;color:#0b8b55}.meaning-card p{font-size:10px;line-height:1.4;margin:0;color:#526779}
+    .tools{padding:4px 12px 12px}.tool{padding:10px 2px;border-bottom:1px solid #edf0f4;font-size:10px;font-weight:700}.tool:last-child{border:0}
+    .lower-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:14px}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:18px 12px}.event{text-align:center;font-size:9px;position:relative}.event:before{content:"";display:block;width:11px;height:11px;background:#dbe2ea;border-radius:50%;margin:0 auto 8px}.event:last-child:before{background:#e51e2a}.event b{display:block;margin-bottom:4px}
+    .related{padding:10px}.related a{display:grid;grid-template-columns:55px 1fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #edf0f4;font-size:9px;font-weight:700}.related img{height:38px;object-fit:cover;border-radius:3px}
+    .province-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:11px}.province img{height:82px;object-fit:cover;border-radius:6px}.province{text-align:center;font-size:10px;font-weight:800}.province small{display:block;color:#718293;margin-top:3px}
+    .archive{padding-bottom:12px}.archive-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:12px}.archive select{width:100%;padding:8px;border:1px solid #d9e1e9;border-radius:5px;font-size:10px}.archive button{grid-column:1/-1;border:0;background:#073b82;color:#fff;border-radius:18px;padding:10px;font-size:10px;font-weight:800}
+    .evergreen{margin-top:14px}.ever-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;padding:12px}.ever img{height:90px;object-fit:cover;border-radius:6px}.ever h3{font-size:10px;line-height:1.25;margin:6px 0 2px}.ever p{font-size:9px;color:#758596;margin:0}
+    .error{padding:25px;background:#fff;border-radius:8px;color:#c11}
+    footer{background:#071a3d;color:#fff;text-align:center;padding:28px 15px;margin-top:30px;font-size:12px}
+    @media(max-width:950px){.hero-grid{grid-template-columns:2fr 1fr}.rightcol{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.content-grid{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:12px}.four,.video-grid,.meaning{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:650px){.head{min-height:76px}.brand b{font-size:21px}.mark{width:48px;height:42px}.date{display:none}.hero-grid,.lower-grid{grid-template-columns:1fr}.rightcol,.sidebar{grid-template-columns:1fr}.hero,.hero img{height:330px;min-height:330px}.hero h1{font-size:24px}.four,.video-grid,.meaning,.ever-grid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(5,120px);overflow:auto}.province-grid{grid-template-columns:repeat(5,145px);overflow:auto}.newsmini img{height:110px}.ticker .time{display:none}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap head">
+      <a class="brand" href="/">
+        <div class="mark"></div>
+        <div><b>REPÚBLICA <span>ACTUAL</span></b><small>LAS NOTICIAS DE HOY, SIEMPRE CONTIGO</small></div>
+      </a>
+      <div class="date">{fechaCabecera}</div>
+    </div>
+  </div>
+
+  <nav class="nav"><div class="wrap navin">
+    <a href="/">⌂ Inicio</a><a href="/categoria/nacionales">▣ Nacionales</a><a href="/categoria/politica">♜ Política</a>
+    <a href="/categoria/economia">▥ Economía</a><a href="/categoria/deportes">⚽ Deportes</a>
+    <a href="/categoria/entretenimiento">★ Entretenimiento</a><a href="/categoria/mundo">◉ Mundo</a><a href="/categoria/tecnologia">⌘ Tecnología</a>
+  </div></nav>
+
+  <div class="ticker"><div class="wrap tickerin">
+    <span class="flash">⚡ ÚLTIMA HORA</span>
+    <a id="ticker-link" href={principal ? enlace(principal) : '#'}>{principal?.titulo || 'República Actual'}</a>
+    <span class="time">Hace poco</span>
+  </div></div>
+
+  <script define:vars={{ tickerData: ticker.map(n => ({ titulo:n.titulo, href:enlace(n) })) }}>
+    const a=document.getElementById('ticker-link'); let i=0;
+    if(a && tickerData.length>1) setInterval(()=>{i=(i+1)%tickerData.length;a.style.opacity='0';setTimeout(()=>{a.textContent=tickerData[i].titulo;a.href=tickerData[i].href;a.style.opacity='1'},180)},5000);
+  </script>
+
+  <main class="wrap">
+    {errorConexion ? <div class="error">{errorConexion}</div> : (
+      <>
+        <div class="hero-grid">
+          <a class="hero" href={principal ? enlace(principal) : '#'}>
+            <img src={imagen(principal,'principal')} alt={principal?.titulo || 'República Actual'} />
+            <div class="hero-copy">
+              <span class="pill">{categoria(principal)}</span>
+              <h1>{principal?.titulo || 'República Actual'}</h1>
+              <p>{resumen(principal?.contenido || '',190)}</p>
+              <div class="meta">◷ {fecha(principal)}</div>
+            </div>
+          </a>
+
+          <section class="rd-card">
+            <div class="boxhead">◉ RD AHORA <span class="pill" style="margin-left:auto">● EN VIVO</span></div>
+            <div class="map"><span class="map-pin">Santo Domingo<br/>Noticias ahora</span></div>
+            <div class="province-counts"><span>Todas<b>{noticias.length}</b></span><span>Santiago<b>4</b></span><span>S.D.<b>5</b></span><span>La Vega<b>2</b></span><span>P. Plata<b>1</b></span></div>
+          </section>
+
+          <aside class="rightcol">
+            <section class="sidebox weather">
+              <div class="boxhead" style="padding:0 0 10px;border:0">☁ CLIMA EN RD</div>
+              <div class="weather-row"><span class="sun">🌤️</span><div><strong>28°C</strong><br/><small>Santo Domingo<br/>Parcialmente nublado</small></div></div>
+              <div class="forecast"><span>Mar<b>31°</b></span><span>Mié<b>32°</b></span><span>Jue<b>31°</b></span><span>Vie<b>30°</b></span></div>
+            </section>
+            <section class="sidebox trends">
+              <div class="boxhead">🔥 TEMAS DEL MOMENTO</div>
+              <ol>{temas.map((n,i)=><li><span class="num">{i+1}</span><a href={enlace(n)}>{categoria(n)}</a></li>)}</ol>
+            </section>
+          </aside>
+        </div>
+
+        <div class="four">
+          {destacadas.map((n,i)=><a class="newsmini" href={enlace(n)}><img src={imagen(n,`dest${i}`)} alt={n.titulo}/><div class="pad"><span class="cat">{categoria(n)}</span><h3>{n.titulo}</h3><div class="meta">◷ {fecha(n)}</div></div></a>)}
+        </div>
+
+        <div class="content-grid">
+          <section class="section">
+            <div class="boxhead">⚡ EN 60 SEGUNDOS <span class="more">Ver más →</span></div>
+            <div class="section-body video-grid">
+              {videoCards.map((n,i)=><a class="video" href={enlace(n)}><img src={imagen(n,`vid${i}`)} alt={n.titulo}/><span class="play">▶</span><h3>{n.titulo}</h3></a>)}
+            </div>
+          </section>
+          <aside class="sidebar">
+            <section class="sidebox audio">
+              <div class="audioicon">🎧</div><b>ESCUCHAR REPÚBLICA ACTUAL</b><p style="font-size:10px">Resumen de las principales noticias del día</p>
+              <button type="button">▶ Reproducir ahora</button><div class="wave">▂▅▃▆▂▇▃▅▂▆▃▇▂▅▃</div>
+            </section>
+          </aside>
+        </div>
+
+        <div class="content-grid">
+          <section class="section">
+            <div class="boxhead">💡 ¿QUÉ SIGNIFICA ESTO PARA MÍ? <span class="more">Ver más →</span></div>
+            <div class="section-body meaning">
+              <div class="meaning-card"><b>💰 TU DINERO</b><p>Cómo te afecta en tu economía personal.</p></div>
+              <div class="meaning-card"><b style="color:#e32b3b">🛡 TU SEGURIDAD</b><p>Impacto en tu comunidad y familia.</p></div>
+              <div class="meaning-card"><b style="color:#1769aa">📄 TUS TRÁMITES</b><p>Qué debes saber y qué puedes hacer.</p></div>
+              <div class="meaning-card"><b style="color:#8c3bc2">🚌 TU TRANSPORTE</b><p>Cambios en el tránsito y transporte público.</p></div>
+            </div>
+          </section>
+          <aside class="sidebox">
+            <div class="boxhead">⚙ HERRAMIENTAS ÚTILES</div>
+            <div class="tools"><div class="tool">▣ Tipo de cambio actualizado　›</div><div class="tool">☁ Estado del clima en tu provincia　›</div><div class="tool">▦ Calendario de días feriados　›</div><div class="tool">☎ Teléfonos de emergencia　›</div><div class="tool">⌂ Guías de trámites en RD　›</div></div>
+          </aside>
+        </div>
+
+        <div class="lower-grid">
+          <section class="section">
+            <div class="boxhead">◷ DESDE EL PRINCIPIO</div>
+            <div class="timeline">{timeline.map((n)=><a class="event" href={enlace(n)}><b>{fecha(n)}</b>{n.titulo?.slice(0,55)}</a>)}</div>
+          </section>
+          <section class="section">
+            <div class="boxhead">🔗 NOTICIAS RELACIONADAS</div>
+            <div class="related">{relacionados.map((n,i)=><a href={enlace(n)}><img src={imagen(n,`rel${i}`)} alt=""/><span>{n.titulo}</span></a>)}</div>
+          </section>
+        </div>
+
+        <div class="lower-grid">
+          <section class="section">
+            <div class="boxhead">📍 NOTICIAS POR PROVINCIA <span class="more">Ver todas →</span></div>
+            <div class="province-grid">{provincias.map(([nombre,n],i)=><a class="province" href={n?enlace(n):'#'}><img src={imagen(n,`prov${i}`)} alt={nombre}/>{nombre}<small>Ver noticias</small></a>)}</div>
+          </section>
+          <section class="archive">
+            <div class="boxhead">▣ ARCHIVO HISTÓRICO</div>
+            <div class="archive-controls"><select><option>Día</option><option>29</option></select><select><option>Mes</option><option>Septiembre</option></select><select><option>Año</option><option>2026</option></select><select><option>Hora</option><option>8:00 PM</option></select><button>Ver noticias de ese momento →</button></div>
+          </section>
+        </div>
+
+        <section class="section evergreen">
+          <div class="boxhead">♻ NOTICIAS QUE NO CADUCAN <span class="more">Ver más →</span></div>
+          <div class="ever-grid">{evergreen.map((n,i)=><a class="ever" href={enlace(n)}><img src={imagen(n,`ever${i}`)} alt={n.titulo}/><h3>{n.titulo}</h3><p>{resumen(n.contenido,70)}</p></a>)}</div>
+        </section>
+      </>
+    )}
+  </main>
+
+  <footer>© 2026 República Actual · Plantilla de prueba — la portada principal no ha sido modificada.</footer>
+</body>
+</html>
