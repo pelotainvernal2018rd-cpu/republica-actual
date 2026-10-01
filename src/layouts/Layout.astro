@@ -1,4 +1,7 @@
-<!doctype html>
+
+---
+import RegistrarVisita from '../components/RegistrarVisita.astro';
+---<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -9,8 +12,12 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
-	</body>
+
+  <RegistrarVisita />
+
+  <slot />
+
+</body>
 </html>
 
 <style>
