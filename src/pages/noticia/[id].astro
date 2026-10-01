@@ -141,6 +141,12 @@ const canonical =
 const fechaPublicacion =
   noticia.created_at || '';
 
+const fechaModificacion =
+  noticia.updated_at || noticia.modified_at || fechaPublicacion;
+
+const autorNombre =
+  noticia.autor || noticia.author || '';
+
 const categoria =
   noticia.categoria ||
   (
@@ -150,38 +156,49 @@ const categoria =
       : 'Actualidad'
   );
 
+const palabrasClave = Array.from(
+  new Set([
+    categoria,
+    ...(Array.isArray(noticia.etiquetas) ? noticia.etiquetas : [])
+  ].filter(Boolean))
+).join(', ');
+
 
 // ============================================================
 // DATOS ESTRUCTURADOS PARA GOOGLE
 // ============================================================
 
 const schema = {
-
   '@context': 'https://schema.org',
-
   '@type': 'NewsArticle',
-
   headline: titulo,
-
   description: descripcion,
-
-  mainEntityOfPage: canonical,
-
+  url: canonical,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonical
+  },
   datePublished: fechaPublicacion,
-
-  dateModified: fechaPublicacion,
-
+  dateModified: fechaModificacion,
+  articleSection: categoria,
+  ...(palabrasClave ? { keywords: palabrasClave } : {}),
+  isAccessibleForFree: true,
+  author: autorNombre
+    ? {
+        '@type': 'Person',
+        name: autorNombre
+      }
+    : {
+        '@type': 'Organization',
+        name: 'República Actual',
+        url: 'https://republicaactual.net/'
+      },
   publisher: {
     '@type': 'Organization',
     name: 'República Actual',
     url: 'https://republicaactual.net/'
   },
-
-  ...(imagen
-    ? {
-        image: [imagen]
-      }
-    : {})
+  ...(imagen ? { image: [imagen] } : {})
 };
 ---
 
@@ -218,6 +235,20 @@ const schema = {
     rel="canonical"
     href={canonical}
   />
+
+  {palabrasClave && (
+    <meta name="keywords" content={palabrasClave} />
+  )}
+
+  {fechaPublicacion && (
+    <meta property="article:published_time" content={fechaPublicacion} />
+  )}
+
+  {fechaModificacion && (
+    <meta property="article:modified_time" content={fechaModificacion} />
+  )}
+
+  <meta property="article:section" content={categoria} />
 
 
   <!-- OPEN GRAPH -->
