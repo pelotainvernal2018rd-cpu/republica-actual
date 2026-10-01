@@ -455,6 +455,44 @@
       background: #f3f6f9;
     }
 
+
+    /* MULTIMEDIA + TAMAÑO DE TEXTO */
+
+    .media-box {
+      border: 1px solid #d6dde5;
+      border-radius: 8px;
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .media-box input[type="file"] {
+      background: white;
+    }
+
+    .media-ayuda {
+      margin: 7px 0 0;
+      color: #718096;
+      font-size: 12px;
+    }
+
+    .media-preview {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .media-preview img,
+    .media-preview video {
+      display: block;
+      max-width: 100%;
+      max-height: 320px;
+      border-radius: 8px;
+      background: #0f172a;
+    }
+
+    #tamanoTexto {
+      min-width: 90px;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -805,15 +843,46 @@
               <div class="campo">
 
                 <label for="imagen">
-                  URL de imagen
+                  Imagen principal
                 </label>
 
                 <input
                   id="imagen"
                   type="url"
-                  placeholder="https://..."
+                  placeholder="https://... (opcional si subes una imagen)"
                 />
 
+              </div>
+
+            </div>
+
+
+            <div class="fila">
+
+              <div class="campo">
+                <label for="imagenArchivo">Subir imagen desde la PC</label>
+                <div class="media-box">
+                  <input
+                    id="imagenArchivo"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,image/gif"
+                  />
+                  <p class="media-ayuda">JPG, PNG, WEBP o GIF. Se subirá a Supabase Storage.</p>
+                  <div id="imagenPreview" class="media-preview"></div>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="videoArchivo">Subir video desde la PC</label>
+                <div class="media-box">
+                  <input
+                    id="videoArchivo"
+                    type="file"
+                    accept="video/mp4,video/webm,video/ogg"
+                  />
+                  <p class="media-ayuda">MP4, WEBM u OGG. El video se insertará dentro del contenido.</p>
+                  <div id="videoPreview" class="media-preview"></div>
+                </div>
               </div>
 
             </div>
@@ -830,6 +899,19 @@
                   <option value="p">Párrafo</option>
                   <option value="h2">Título H2</option>
                   <option value="h3">Subtítulo H3</option>
+                </select>
+                <select id="tamanoTexto" title="Tamaño de letra">
+                  <option value="">Tamaño</option>
+                  <option value="12px">12 px</option>
+                  <option value="14px">14 px</option>
+                  <option value="16px">16 px</option>
+                  <option value="18px">18 px</option>
+                  <option value="20px">20 px</option>
+                  <option value="24px">24 px</option>
+                  <option value="28px">28 px</option>
+                  <option value="32px">32 px</option>
+                  <option value="36px">36 px</option>
+                  <option value="48px">48 px</option>
                 </select>
                 <button type="button" data-cmd="bold" title="Negrita"><b>B</b></button>
                 <button type="button" data-cmd="italic" title="Cursiva"><i>I</i></button>
@@ -990,6 +1072,18 @@
 
     const imagen =
       document.getElementById('imagen');
+
+    const imagenArchivo =
+      document.getElementById('imagenArchivo');
+
+    const videoArchivo =
+      document.getElementById('videoArchivo');
+
+    const imagenPreview =
+      document.getElementById('imagenPreview');
+
+    const videoPreview =
+      document.getElementById('videoPreview');
 
     const contenido =
       document.getElementById('contenido');
@@ -1397,6 +1491,19 @@
 
       imagen.value = '';
 
+      if (imagenArchivo) imagenArchivo.value = '';
+      if (videoArchivo) videoArchivo.value = '';
+
+      if (imagenPreview) {
+        imagenPreview.innerHTML = '';
+        imagenPreview.style.display = 'none';
+      }
+
+      if (videoPreview) {
+        videoPreview.innerHTML = '';
+        videoPreview.style.display = 'none';
+      }
+
       contenido.innerHTML = '';
 
       tituloEditor.textContent =
@@ -1457,6 +1564,124 @@
     document.getElementById('limpiarFormato').addEventListener('click', () => {
       contenido.focus();
       document.execCommand('removeFormat', false, null);
+    });
+
+
+    document.getElementById('tamanoTexto').addEventListener('change', (event) => {
+      const size = event.target.value;
+      if (!size) return;
+
+      contenido.focus();
+
+      const seleccion = window.getSelection();
+      if (!seleccion || seleccion.rangeCount === 0 || seleccion.isCollapsed) {
+        mostrarMensajeNoticia('Selecciona primero el texto al que quieres cambiar el tamaño.', 'error');
+        event.target.value = '';
+        return;
+      }
+
+      document.execCommand('styleWithCSS', false, true);
+      document.execCommand('fontSize', false, '7');
+
+      contenido.querySelectorAll('font[size="7"]').forEach((font) => {
+        const span = document.createElement('span');
+        span.style.fontSize = size;
+        span.innerHTML = font.innerHTML;
+        font.replaceWith(span);
+      });
+
+      event.target.value = '';
+    });
+
+
+    function nombreArchivoSeguro(nombre) {
+      const punto = nombre.lastIndexOf('.');
+      const ext = punto >= 0 ? nombre.slice(punto).toLowerCase() : '';
+      const base = punto >= 0 ? nombre.slice(0, punto) : nombre;
+
+      return base
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 70) + ext;
+    }
+
+
+    async function subirArchivoMedia(archivo, carpeta) {
+      if (!archivo) return null;
+
+      const {
+        data: { session }
+      } = await supabase.auth.getSession();
+
+      if (!session) {
+        throw new Error('Tu sesión expiró. Inicia sesión nuevamente.');
+      }
+
+      const ruta =
+        `${session.user.id}/${carpeta}/${Date.now()}-${crypto.randomUUID()}-${nombreArchivoSeguro(archivo.name)}`;
+
+      const { error: uploadError } =
+        await supabase.storage
+          .from('media')
+          .upload(ruta, archivo, {
+            cacheControl: '3600',
+            upsert: false,
+            contentType: archivo.type || undefined
+          });
+
+      if (uploadError) throw uploadError;
+
+      const { data } =
+        supabase.storage
+          .from('media')
+          .getPublicUrl(ruta);
+
+      if (!data?.publicUrl) {
+        throw new Error('No se pudo obtener la URL pública del archivo.');
+      }
+
+      return data.publicUrl;
+    }
+
+
+    imagenArchivo?.addEventListener('change', () => {
+      const archivo = imagenArchivo.files?.[0];
+
+      if (!archivo) {
+        imagenPreview.innerHTML = '';
+        imagenPreview.style.display = 'none';
+        return;
+      }
+
+      const url = URL.createObjectURL(archivo);
+      imagenPreview.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = 'Vista previa de la imagen';
+      imagenPreview.appendChild(img);
+      imagenPreview.style.display = 'block';
+    });
+
+
+    videoArchivo?.addEventListener('change', () => {
+      const archivo = videoArchivo.files?.[0];
+
+      if (!archivo) {
+        videoPreview.innerHTML = '';
+        videoPreview.style.display = 'none';
+        return;
+      }
+
+      const url = URL.createObjectURL(archivo);
+      videoPreview.innerHTML = '';
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      videoPreview.appendChild(video);
+      videoPreview.style.display = 'block';
     });
 
     // Convierte Markdown básico pegado desde ChatGPT en HTML profesional.
@@ -1534,7 +1759,7 @@
       publicarButton.disabled = true;
       borradorButton.disabled = true;
 
-      const datos = {
+      let datos = {
 
         titulo: tituloTexto,
 
@@ -1555,6 +1780,28 @@
 
 
       try {
+
+        const nuevaImagen = imagenArchivo?.files?.[0] || null;
+        const nuevoVideo = videoArchivo?.files?.[0] || null;
+
+        if (nuevaImagen) {
+          mostrarMensajeNoticia('Subiendo imagen...', 'ok');
+          datos.imagen = await subirArchivoMedia(nuevaImagen, 'imagenes');
+        }
+
+        if (nuevoVideo) {
+          mostrarMensajeNoticia('Subiendo video...', 'ok');
+          const videoUrl = await subirArchivoMedia(nuevoVideo, 'videos');
+
+          datos.contenido += `
+            <div class="noticia-video" style="margin:24px 0;">
+              <video controls playsinline preload="metadata" style="display:block;width:100%;max-width:900px;margin:auto;border-radius:10px;">
+                <source src="${videoUrl}" type="${nuevoVideo.type || 'video/mp4'}">
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+          `;
+        }
 
         let error = null;
 
@@ -1619,7 +1866,7 @@
         console.error(error);
 
         mostrarMensajeNoticia(
-          'Ocurrió un error al guardar la noticia.',
+          `Ocurrió un error: ${error?.message || 'No se pudo guardar la noticia.'}`,
           'error'
         );
 
@@ -1873,39 +2120,46 @@
 
       const confirmar =
         confirm(
-          `¿Eliminar esta noticia?\n\n${noticia.titulo}`
+          `¿Eliminar esta noticia?
+
+${noticia.titulo}`
         );
 
-      if (!confirmar) {
-        return;
-      }
+      if (!confirmar) return;
 
+      try {
 
-      const {
-        error
-      } =
-        await supabase
-          .from('noticias')
-          .delete()
-          .eq('id', noticia.id);
+        const { data, error } =
+          await supabase
+            .from('noticias')
+            .delete()
+            .eq('id', noticia.id)
+            .select('id');
 
+        if (error) {
+          console.error(error);
+          alert(`No se pudo eliminar: ${error.message || 'error de Supabase'}`);
+          return;
+        }
 
-      if (error) {
+        if (!data || data.length === 0) {
+          alert(
+            'Supabase no eliminó la noticia. Revisa la política DELETE (RLS) de la tabla noticias.'
+          );
+          return;
+        }
+
+        await cargarNoticias();
+        await cargarEstadisticas();
+
+        alert('Noticia eliminada correctamente.');
+
+      } catch (error) {
 
         console.error(error);
-
-        alert(
-          'No se pudo eliminar la noticia.'
-        );
-
-        return;
+        alert(`No se pudo eliminar: ${error?.message || 'error desconocido'}`);
 
       }
-
-
-      await cargarNoticias();
-
-      await cargarEstadisticas();
 
     }
 
