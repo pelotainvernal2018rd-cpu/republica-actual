@@ -1,22 +1,83 @@
 ---
+const siteUrl = 'https://republicaactual.net/';
+const titulo = 'Quiénes somos | República Actual';
+const descripcion = 'Conoce República Actual, medio digital dedicado a informar sobre los acontecimientos de República Dominicana y el mundo.';
 ---
+
 <!doctype html>
 <html lang="es">
 <head>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiénes somos | República Actual</title>
-  <meta name="description" content="Conoce República Actual, medio digital dedicado a informar sobre los acontecimientos de República Dominicana y el mundo." />
-  <link rel="canonical" href="https://republicaactual.net/quienes-somos/" />
+
+  <title>{titulo}</title>
+  <meta name="description" content={descripcion} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`${siteUrl}quienes-somos/`} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="República Actual" />
+  <meta property="og:title" content={titulo} />
+  <meta property="og:description" content={descripcion} />
+  <meta property="og:url" content={`${siteUrl}quienes-somos/`} />
+
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#172033}
+    header{background:#fff;border-bottom:1px solid #e5e7eb}
+    .header-inner{max-width:1000px;margin:auto;padding:28px 20px}
+    .logo{display:inline-block;text-decoration:none;color:#071a3d;font-size:30px;font-weight:900;letter-spacing:-1.5px}
+    .logo span{color:#e60023}
+    nav{border-bottom:3px solid #102d46;background:#fff}
+    .menu{max-width:1000px;margin:auto;padding:13px 20px;display:flex;gap:25px;overflow-x:auto}
+    .menu a{color:#102d46;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap;text-transform:uppercase}
+    .menu a:hover{color:#e60023}
+    main{max-width:900px;margin:40px auto 60px;background:#fff;padding:45px}
+    .etiqueta{color:#e60023;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+    h1{font-size:38px;color:#071a3d;margin:0 0 28px;line-height:1.15}
+    h2{font-size:24px;color:#071a3d;margin:38px 0 14px}
+    p{font-size:17px;line-height:1.8;margin:0 0 20px}
+    ul{padding-left:25px;margin:0 0 25px}
+    li{font-size:17px;line-height:1.8;margin-bottom:8px}
+    .bloque{border-top:1px solid #e1e6ea;padding-top:8px}
+    .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
+    .volver:hover{color:#e60023}
+    footer{background:#102d46;color:#fff;text-align:center;padding:28px 20px;font-size:13px}
+    @media(max-width:700px){
+      .header-inner{padding:22px 20px}
+      .logo{font-size:27px}
+      main{margin:0;padding:32px 20px 45px}
+      h1{font-size:30px}
+      h2{font-size:21px}
+      p,li{font-size:16px}
+      .menu{gap:20px}
+    }
+  </style>
 </head>
 
 <body>
-  <main>
-    <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
+    </div>
+  </header>
 
+  <nav>
+    <div class="menu">
+      <a href="/">Inicio</a>
+      <a href="/categoria/nacionales/">Nacionales</a>
+      <a href="/categoria/politica/">Política</a>
+      <a href="/categoria/economia/">Economía</a>
+      <a href="/categoria/deportes/">Deportes</a>
+      <a href="/categoria/entretenimiento/">Entretenimiento</a>
+      <a href="/categoria/mundo/">Mundo</a>
+      <a href="/categoria/tecnologia/">Tecnología</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="etiqueta">República Actual</div>
     <h1>Quiénes somos</h1>
 
     <p>
@@ -31,28 +92,64 @@
       internacionales.
     </p>
 
-    <p>
-      Trabajamos para mantener una plataforma informativa moderna que permita a
-      nuestros lectores conocer los hechos y temas que forman parte de la actualidad.
-    </p>
+    <section class="bloque">
+      <h2>Nuestra misión</h2>
+      <p>
+        Trabajamos para mantener una plataforma informativa moderna que permita a
+        nuestros lectores conocer los hechos y temas que forman parte de la actualidad.
+      </p>
+      <p>
+        Nuestro compromiso es continuar desarrollando República Actual como un espacio
+        útil para quienes buscan mantenerse informados.
+      </p>
+    </section>
 
-    <p>
-      Nuestro compromiso es continuar desarrollando República Actual como un espacio
-      útil para quienes buscan mantenerse informados.
-    </p>
+    <section class="bloque">
+      <h2>Política editorial</h2>
+      <p>
+        República Actual procura presentar la información de forma clara, organizada
+        y comprensible. Los contenidos publicados se estructuran de acuerdo con las
+        distintas áreas informativas del medio y se actualizan cuando resulta necesario.
+      </p>
+      <p>
+        La presentación de una noticia busca distinguir los hechos informativos de
+        opiniones, análisis o declaraciones atribuidas a terceros.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>Fuentes y actualización</h2>
+      <p>
+        República Actual utiliza información procedente de distintas fuentes
+        informativas y recursos disponibles para la elaboración y actualización de
+        sus contenidos. Cuando una información requiere una actualización, el contenido
+        puede ser revisado y modificado.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>Correcciones</h2>
+      <p>
+        Si detectas un error factual o una información que necesite ser corregida,
+        puedes comunicarlo a República Actual a través de nuestros canales de contacto
+        para que pueda ser revisado.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>Contacto</h2>
+      <p>
+        Para consultas, comentarios o comunicaciones relacionadas con nuestros
+        contenidos, visita nuestra página de contacto.
+      </p>
+      <a class="volver" href="/contacto/">Ir a contacto →</a>
+    </section>
 
     <a class="volver" href="/">← Volver a República Actual</a>
   </main>
+
+  <footer>
+    © {new Date().getFullYear()} República Actual
+  </footer>
 </body>
 </html>
-
-<style>
-  body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#172033}
-  main{max-width:900px;margin:50px auto;background:white;padding:45px;box-sizing:border-box}
-  .logo{display:block;text-decoration:none;color:#071a3d;font-size:26px;font-weight:800;margin-bottom:45px}
-  .logo span{color:#e60023}
-  h1{font-size:36px;color:#071a3d;margin-bottom:30px}
-  p{font-size:17px;line-height:1.8;margin-bottom:20px}
-  .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
-  @media(max-width:700px){main{margin:0;padding:30px 20px}h1{font-size:30px}}
-</style>
