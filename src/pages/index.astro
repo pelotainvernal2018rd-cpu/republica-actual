@@ -33,6 +33,18 @@ try {
   errorConexion = 'No se pudieron cargar las noticias.';
 }
 const totalPaginas = Math.ceil(noticias.length / 10);
+const rutaActual = Astro.url.pathname;
+
+const paginaActual =
+  rutaActual.startsWith('/pagina/')
+    ? Number(rutaActual.split('/').filter(Boolean).pop()) || 1
+    : 1;
+
+const inicioPagina =
+  Math.floor((paginaActual - 1) / 5) * 5 + 1;
+
+const finPagina =
+  Math.min(inicioPagina + 4, totalPaginas);
 
 // ======================================================
 // FUNCIONES
@@ -589,15 +601,38 @@ function enlaceNoticia(noticia) {
 {
   totalPaginas > 1 && (
     <nav class="paginacion" aria-label="Páginas de noticias">
-      {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((pagina) =>
-        pagina === 1 ? (
-          <span class="activa">1</span>
-        ) : (
-          <a href={`/pagina/${pagina}/`}>{pagina}</a>
-        )
+
+      {paginaActual > 1 && (
+        <a href={paginaActual === 2 ? '/' : `/pagina/${paginaActual - 1}`}>
+          ←
+        </a>
       )}
 
-      <a href="/pagina/2/">Siguiente →</a>
+      {Array.from(
+        { length: finPagina - inicioPagina + 1 },
+        (_, i) => inicioPagina + i
+      ).map((pagina) => {
+        if (pagina === paginaActual) {
+          return <span class="activa">{pagina}</span>;
+        }
+
+        return (
+          <a href={pagina === 1 ? '/' : `/pagina/${pagina}`}>
+            {pagina}
+          </a>
+        );
+      })}
+
+      {finPagina < totalPaginas && (
+        <span class="puntos">…</span>
+      )}
+
+      {finPagina < totalPaginas && (
+        <a href={`/pagina/${finPagina + 1}`}>
+          →
+        </a>
+      )}
+
     </nav>
   )
 }

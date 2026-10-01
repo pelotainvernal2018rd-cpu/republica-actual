@@ -627,23 +627,35 @@ function enlaceNoticia(noticia) {
 
   {paginaActual > 1 && (
     <a href={paginaActual === 2 ? "/" : `/pagina/${paginaActual - 1}/`}>
-      ← Anterior
+      ←
     </a>
   )}
 
-  {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((pagina) =>
-    pagina === paginaActual ? (
-      <span class="activa">{pagina}</span>
-    ) : (
-      <a href={pagina === 1 ? "/" : `/pagina/${pagina}/`}>
-        {pagina}
-      </a>
+  {Array.from(
+    { length: totalPaginas },
+    (_, i) => i + 1
+  )
+    .slice(
+      Math.max(0, paginaActual - 3),
+      Math.max(0, paginaActual - 3) + 5
     )
+    .map((pagina) =>
+      pagina === paginaActual ? (
+        <span class="activa">{pagina}</span>
+      ) : (
+        <a href={pagina === 1 ? "/" : `/pagina/${pagina}/`}>
+          {pagina}
+        </a>
+      )
+    )}
+
+  {paginaActual + 2 < totalPaginas && (
+    <span class="puntos">…</span>
   )}
 
   {paginaActual < totalPaginas && (
     <a href={`/pagina/${paginaActual + 1}/`}>
-      Siguiente →
+      →
     </a>
   )}
 
