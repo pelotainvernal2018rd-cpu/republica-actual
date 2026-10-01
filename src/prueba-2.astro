@@ -1,0 +1,1129 @@
+---
+const SUPABASE_URL = "https://kbghquvejqteiawdotqd.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi";
+
+let noticias = [];
+
+try {
+  const r = await fetch(
+    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc&limit=25`,
+    {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`
+      }
+    }
+  );
+
+  if (r.ok) noticias = await r.json();
+} catch (e) {
+  console.error(e);
+}
+
+const principal = noticias[0];
+const destacadas = noticias.slice(1, 5);
+const recientes = noticias.slice(5);
+
+function texto(html = "") {
+  return String(html)
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<img[^>]*>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function resumen(n, largo = 180) {
+  const t = texto(n?.contenido || "");
+  return t.length > largo ? t.substring(0, largo) + "..." : t;
+}
+
+function categoria(n) {
+  return n?.categoria || "Actualidad";
+}
+
+function url(n) {
+  return `/noticia?id=${n.id}`;
+}
+---
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>República Actual 2.0 — Prueba</title>
+
+  <meta
+    name="description"
+    content="República Actual — noticias de República Dominicana y el mundo."
+  />
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>REPÚBLICA DOMINICANA Y EL MUNDO</span>
+    <span>Sobre nosotros · Contacto · Publicidad</span>
+  </div>
+</div>
+
+<!-- CABECERA -->
+<header class="container header">
+
+  <a href="/" class="logo">
+    <img
+      src="/republica-actual-logo.svg"
+      alt="República Actual"
+    />
+
+    <small>
+      LAS NOTICIAS DE HOY, SIEMPRE CONTIGO
+    </small>
+  </a>
+
+  <div class="empleo-banner">
+    <div>
+      <strong>TRABAJA EN<br />TU FUTURO</strong>
+    </div>
+
+    <a href="/categoria/empleate">
+      VER VACANTES →
+    </a>
+  </div>
+
+</header>
+
+<!-- MENÚ -->
+<nav class="nav">
+  <div class="container menu">
+
+    <a class="activo" href="/">INICIO</a>
+    <a href="/categoria/nacionales">NACIONALES</a>
+    <a href="/categoria/politica">POLÍTICA</a>
+    <a href="/categoria/economia">ECONOMÍA</a>
+    <a href="/categoria/deportes">DEPORTES</a>
+    <a href="/categoria/mundo">MUNDO</a>
+    <a href="/categoria/entretenimiento">ENTRETENIMIENTO</a>
+    <a href="/categoria/empleate">EMPLÉATE</a>
+    <a href="/pagina/loterias">LOTERÍAS</a>
+    <a href="/categoria/tecnologia">TECNOLOGÍA</a>
+
+  </div>
+</nav>
+
+<!-- ÚLTIMA HORA -->
+<div class="ultima">
+  <div class="container ultima-inner">
+    <strong>⚡ ÚLTIMA HORA</strong>
+
+    <span>
+      {principal?.titulo || "República Actual"}
+    </span>
+  </div>
+</div>
+
+
+<main class="container">
+
+<!-- HERO -->
+<section class="hero-grid">
+
+  {
+    principal ? (
+      <a href={url(principal)} class="hero">
+
+        {
+          principal.imagen && (
+            <img
+              src={principal.imagen}
+              alt={principal.titulo}
+            />
+          )
+        }
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-text">
+
+          <span>{categoria(principal)}</span>
+
+          <h1>{principal.titulo}</h1>
+
+          <p>
+            {resumen(principal, 240)}
+          </p>
+
+          <b>LEER NOTICIA →</b>
+
+        </div>
+
+      </a>
+    ) : (
+      <div class="hero-vacio">
+        Esperando noticias...
+      </div>
+    )
+  }
+
+
+  <!-- RD AHORA -->
+  <aside class="rd-ahora">
+
+    <div class="titulo-box">
+      <h2>RD AHORA</h2>
+      <b>● EN VIVO</b>
+    </div>
+
+    <div class="mapa">
+      🇩🇴
+    </div>
+
+    <h3>Actualidad nacional</h3>
+
+    <div class="provincias">
+      <a href="/categoria/nacionales">Todas</a>
+      <a href="/categoria/santo-domingo">Santo Domingo</a>
+      <a href="/categoria/santiago">Santiago</a>
+      <a href="/categoria/la-vega">La Vega</a>
+      <a href="/categoria/puerto-plata">Puerto Plata</a>
+    </div>
+
+  </aside>
+
+</section>
+
+
+<!-- DESTACADAS -->
+<section class="seccion">
+
+  <div class="seccion-titulo">
+    <h2>Noticias destacadas</h2>
+    <a href="/">Ver todas →</a>
+  </div>
+
+  <div class="destacadas">
+
+    {
+      destacadas.map((n) => (
+        <a href={url(n)} class="card">
+
+          {
+            n.imagen ? (
+              <img
+                src={n.imagen}
+                alt={n.titulo}
+                loading="lazy"
+              />
+            ) : (
+              <div class="sin-imagen">
+                REPÚBLICA ACTUAL
+              </div>
+            )
+          }
+
+          <div class="card-text">
+
+            <span>{categoria(n)}</span>
+
+            <h3>{n.titulo}</h3>
+
+            <p>{resumen(n, 130)}</p>
+
+          </div>
+
+        </a>
+      ))
+    }
+
+  </div>
+
+</section>
+
+
+<!-- CONTENIDO -->
+<section class="contenido-grid">
+
+  <div>
+
+    <div class="seccion-titulo">
+      <h2>Noticias recientes</h2>
+      <a href="/">Más noticias →</a>
+    </div>
+
+    <div class="lista">
+
+      {
+        recientes.map((n) => (
+          <a href={url(n)} class="noticia">
+
+            {
+              n.imagen ? (
+                <img
+                  src={n.imagen}
+                  alt={n.titulo}
+                  loading="lazy"
+                />
+              ) : (
+                <div class="mini-logo">
+                  RA
+                </div>
+              )
+            }
+
+            <div>
+
+              <span>{categoria(n)}</span>
+
+              <h3>{n.titulo}</h3>
+
+              <p>{resumen(n, 150)}</p>
+
+            </div>
+
+          </a>
+        ))
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="widget">
+
+      <h2>🌤 CLIMA EN RD</h2>
+
+      <strong class="temperatura">
+        --°C
+      </strong>
+
+      <p>Santo Domingo</p>
+
+      <small>
+        Módulo meteorológico automático.
+      </small>
+
+    </div>
+
+
+    <div class="widget">
+
+      <h2>🔥 TEMAS DEL MOMENTO</h2>
+
+      <ol>
+        <li>Actualidad nacional</li>
+        <li>Noticias de última hora</li>
+        <li>Economía</li>
+        <li>Deportes</li>
+        <li>Internacionales</li>
+      </ol>
+
+    </div>
+
+
+    <div class="widget empleo">
+
+      <small>💼 OPORTUNIDADES</small>
+
+      <h2>EMPLÉATE</h2>
+
+      <p>
+        Encuentra tu próximo empleo.
+      </p>
+
+      <a href="/categoria/empleate">
+        VER VACANTES →
+      </a>
+
+    </div>
+
+  </aside>
+
+</section>
+
+
+<!-- MÓDULOS -->
+<section class="modulos">
+
+  <a href="/categoria/empleate" class="modulo azul">
+
+    <strong>💼</strong>
+
+    <div>
+      <small>OPORTUNIDADES</small>
+      <h2>EMPLÉATE</h2>
+      <p>
+        Vacantes en República Dominicana
+        y el extranjero.
+      </p>
+    </div>
+
+  </a>
+
+
+  <a href="/pagina/loterias" class="modulo rojo">
+
+    <strong>🎱</strong>
+
+    <div>
+      <small>RESULTADOS</small>
+      <h2>LOTERÍAS</h2>
+      <p>
+        República Dominicana y Estados Unidos.
+      </p>
+    </div>
+
+  </a>
+
+</section>
+
+
+<!-- LOTERÍAS -->
+<section class="loterias">
+
+  <div class="seccion-titulo">
+
+    <h2>Resultados de Loterías</h2>
+
+    <a href="/pagina/loterias">
+      Ver módulo completo →
+    </a>
+
+  </div>
+
+
+  <div class="tabs">
+
+    <span class="seleccionado">
+      🇩🇴 República Dominicana
+    </span>
+
+    <span>
+      🇺🇸 Estados Unidos
+    </span>
+
+    <span>
+      Historial
+    </span>
+
+    <span>
+      Próximos sorteos
+    </span>
+
+    <span>
+      Estadísticas
+    </span>
+
+  </div>
+
+
+  <div class="loteria-info">
+
+    <strong>
+      Módulo de resultados
+    </strong>
+
+    <p>
+      Aquí conectaremos los resultados reales
+      automáticamente. No se muestran números
+      inventados durante la prueba.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container footer">
+
+    <div>
+
+      <img
+        src="/republica-actual-logo.svg"
+        alt="República Actual"
+      />
+
+      <p>
+        Las noticias de hoy,
+        siempre contigo.
+      </p>
+
+    </div>
+
+    <div>
+
+      <strong>REPÚBLICA ACTUAL 2.0</strong>
+
+      <p>
+        Versión de prueba.
+        La plantilla actual permanece intacta.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f7fa;
+  color: #10263b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin: auto;
+}
+
+
+/* TOP */
+
+.topbar {
+  background: #102d46;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.topbar-inner {
+  min-height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* HEADER */
+
+.header {
+  background: white;
+  min-height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.logo img {
+  width: 270px;
+}
+
+.logo small {
+  color: #63788b;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  font-weight: bold;
+}
+
+.empleo-banner {
+  background: #102d46;
+  color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.empleo-banner strong {
+  font-size: 15px;
+}
+
+.empleo-banner a {
+  background: #d73c37;
+  padding: 10px 13px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+/* MENU */
+
+.nav {
+  background: #102d46;
+  border-bottom: 4px solid #d73c37;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+}
+
+.menu a {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 15px 0;
+  white-space: nowrap;
+}
+
+.menu a:hover,
+.menu .activo {
+  color: #ff716c;
+}
+
+
+/* ULTIMA */
+
+.ultima {
+  background: white;
+  border-bottom: 1px solid #e5e9ee;
+}
+
+.ultima-inner {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.ultima strong {
+  background: #d73c37;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+
+/* HERO */
+
+main {
+  padding: 25px 0 50px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+.hero {
+  position: relative;
+  min-height: 430px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #102d46;
+  color: white;
+}
+
+.hero img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.85),
+      rgba(0,0,0,.05)
+    );
+}
+
+.hero-text {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 25px;
+}
+
+.hero-text > span {
+  background: #d73c37;
+  color: white;
+  padding: 6px 9px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(28px,4vw,48px);
+  line-height: 1.03;
+  margin: 14px 0;
+}
+
+.hero p {
+  max-width: 700px;
+  line-height: 1.5;
+  color: #e5ebef;
+}
+
+.hero b {
+  font-size: 12px;
+}
+
+.hero-vacio {
+  min-height: 430px;
+  background: #102d46;
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+}
+
+
+/* RD AHORA */
+
+.rd-ahora {
+  background: white;
+  border: 1px solid #e1e7ec;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.titulo-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo-box h2 {
+  margin: 0;
+}
+
+.titulo-box b {
+  color: #159447;
+  font-size: 11px;
+}
+
+.mapa {
+  height: 190px;
+  margin: 18px 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #e9f0f5;
+  font-size: 80px;
+}
+
+.provincias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.provincias a {
+  border: 1px solid #e1e7ec;
+  padding: 9px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+/* SECCIONES */
+
+.seccion {
+  margin-top: 32px;
+}
+
+.seccion-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.seccion-titulo h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.seccion-titulo a {
+  color: #d73c37;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* CARDS */
+
+.destacadas {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e2e7ec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card img,
+.sin-imagen {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+
+.sin-imagen {
+  display: grid;
+  place-items: center;
+  background: #102d46;
+  color: white;
+  font-weight: bold;
+}
+
+.card-text {
+  padding: 14px;
+}
+
+.card-text > span,
+.noticia span {
+  color: #d73c37;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 17px;
+  line-height: 1.2;
+  margin: 7px 0;
+}
+
+.card p {
+  color: #667787;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* CONTENIDO */
+
+.contenido-grid {
+  display: grid;
+  grid-template-columns: 2fr 330px;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.lista {
+  display: grid;
+  gap: 12px;
+}
+
+.noticia {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  background: white;
+  border: 1px solid #e2e7ec;
+  padding: 12px;
+  border-radius: 11px;
+}
+
+.noticia img,
+.mini-logo {
+  width: 180px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.mini-logo {
+  background: #102d46;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.noticia h3 {
+  margin: 5px 0;
+  font-size: 19px;
+}
+
+.noticia p {
+  margin: 0;
+  color: #667787;
+  font-size: 13px;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.widget {
+  background: white;
+  border: 1px solid #e2e7ec;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.widget h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.temperatura {
+  font-size: 38px;
+}
+
+.widget li {
+  padding: 9px 0;
+  border-bottom: 1px solid #edf0f3;
+  font-weight: bold;
+}
+
+.empleo {
+  background: #102d46;
+  color: white;
+}
+
+.empleo small {
+  color: #ff716c;
+  font-weight: bold;
+}
+
+.empleo a {
+  display: inline-block;
+  background: #d73c37;
+  padding: 9px 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+/* MODULOS */
+
+.modulos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.modulo {
+  color: white;
+  padding: 25px;
+  border-radius: 14px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.modulo > strong {
+  font-size: 40px;
+}
+
+.modulo h2 {
+  margin: 5px 0;
+}
+
+.modulo p {
+  margin: 0;
+}
+
+.azul {
+  background: #102d46;
+}
+
+.rojo {
+  background: #d73c37;
+}
+
+
+/* LOTERIAS */
+
+.loterias {
+  background: white;
+  border: 1px solid #e2e7ec;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 28px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.tabs span {
+  border: 1px solid #dfe5ea;
+  border-radius: 20px;
+  padding: 9px 13px;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tabs .seleccionado {
+  background: #d73c37;
+  color: white;
+  border-color: #d73c37;
+}
+
+.loteria-info {
+  background: #f5f7f9;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.loteria-info p {
+  color: #667787;
+}
+
+
+/* FOOTER */
+
+footer {
+  background: #102d46;
+  color: white;
+  padding: 35px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer img {
+  width: 220px;
+  filter: brightness(0) invert(1);
+}
+
+.footer p {
+  color: #c9d4dc;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .hero-grid,
+  .contenido-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destacadas {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .topbar-inner {
+    justify-content: center;
+  }
+
+  .topbar-inner span:last-child {
+    display: none;
+  }
+
+  .logo img {
+    width: 230px;
+  }
+
+  .empleo-banner {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero {
+    min-height: 390px;
+  }
+
+  .hero img {
+    height: 390px;
+  }
+
+  .destacadas,
+  .modulos {
+    grid-template-columns: 1fr;
+  }
+
+  .noticia {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .noticia img,
+  .mini-logo {
+    width: 110px;
+    height: 90px;
+  }
+
+  .noticia h3 {
+    font-size: 15px;
+  }
+
+  .noticia p {
+    display: none;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+}
+
+</style>
