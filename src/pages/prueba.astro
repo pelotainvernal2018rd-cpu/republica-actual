@@ -1,0 +1,1000 @@
+---
+const noticias = {
+  principal: {
+    categoria: "NACIONALES",
+    titulo: "República Actual presenta su nueva portada de noticias",
+    descripcion:
+      "Una nueva experiencia visual para mantenerte informado con las noticias más importantes de República Dominicana y el mundo.",
+    imagen:
+      "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=80",
+  },
+
+  laterales: [
+    {
+      categoria: "ECONOMÍA",
+      titulo: "Economía dominicana mantiene perspectivas positivas",
+      imagen:
+        "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      categoria: "DEPORTES",
+      titulo: "El deporte dominicano continúa destacándose",
+      imagen:
+        "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      categoria: "MUNDO",
+      titulo: "Estas son las noticias internacionales de hoy",
+      imagen:
+        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=500&q=80",
+    },
+  ],
+
+  masLeido: [
+    "Subsidio Aliméntate: cómo consultar si eres beneficiario",
+    "Pasaporte dominicano: requisitos y cómo renovarlo",
+    "Policía Nacional informa sobre nuevos operativos",
+    "Precio del dólar hoy en República Dominicana",
+    "Resultados de las loterías dominicanas de hoy",
+  ],
+
+  informacion: [
+    {
+      titulo: "Cómo renovar el pasaporte dominicano paso a paso",
+      imagen:
+        "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      titulo: "Requisitos para solicitar una visa de Estados Unidos",
+      imagen:
+        "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      titulo: "Cómo consultar y pagar una multa de tránsito",
+      imagen:
+        "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=500&q=80",
+    },
+  ],
+
+  categorias: [
+    {
+      nombre: "NACIONALES",
+      clase: "azul",
+      principal: "Gobierno anuncia nuevas obras y proyectos para el país",
+      imagen:
+        "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=700&q=80",
+      noticias: [
+        "Anuncian nuevas medidas para diferentes provincias",
+        "Autoridades ofrecen detalles de los nuevos proyectos",
+      ],
+    },
+    {
+      nombre: "POLÍTICA",
+      clase: "rojo",
+      principal: "Congreso conoce importantes iniciativas",
+      imagen:
+        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=700&q=80",
+      noticias: [
+        "Partidos reaccionan a las últimas decisiones",
+        "Analistas opinan sobre el panorama nacional",
+      ],
+    },
+    {
+      nombre: "ECONOMÍA",
+      clase: "verde",
+      principal: "El dólar mantiene estabilidad durante la jornada",
+      imagen:
+        "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=700&q=80",
+      noticias: [
+        "Banco Central publica nuevas informaciones",
+        "Nuevas inversiones llegan al país",
+      ],
+    },
+    {
+      nombre: "DEPORTES",
+      clase: "amarillo",
+      principal: "Peloteros dominicanos continúan brillando",
+      imagen:
+        "https://images.unsplash.com/photo-1508344928928-7165b67de128?auto=format&fit=crop&w=700&q=80",
+      noticias: [
+        "Equipos se preparan para la próxima jornada",
+        "RD brilla en competencias internacionales",
+      ],
+    },
+  ],
+};
+
+const secundarias = [
+  {
+    nombre: "MUNDO",
+    clase: "morado",
+    titulo: "Continúan las noticias que marcan la agenda internacional",
+    imagen:
+      "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    nombre: "ENTRETENIMIENTO",
+    clase: "rosa",
+    titulo: "Artistas dominicanos brillan dentro y fuera del país",
+    imagen:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    nombre: "SALUD",
+    clase: "turquesa",
+    titulo: "Recomendaciones para cuidar la salud esta semana",
+    imagen:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    nombre: "TECNOLOGÍA",
+    clase: "celeste",
+    titulo: "Las novedades tecnológicas que debes conocer",
+    imagen:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>República Actual - Nueva Portada</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f5f6f8;
+        color: #17202a;
+        font-family:
+          Arial,
+          Helvetica,
+          sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .topbar {
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .topbar-inner {
+        max-width: 1250px;
+        margin: auto;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #667085;
+      }
+
+      .header {
+        background: #fff;
+      }
+
+      .header-inner {
+        max-width: 1250px;
+        margin: auto;
+        padding: 24px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-icon {
+        width: 47px;
+        height: 47px;
+        border-radius: 7px;
+        background:
+          linear-gradient(90deg, #003876 50%, #d91e2b 50%);
+        position: relative;
+      }
+
+      .logo-icon::after {
+        content: "★";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 22px;
+      }
+
+      .logo-text strong {
+        display: block;
+        color: #062f5f;
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      .logo-text strong span {
+        color: #e1252f;
+      }
+
+      .logo-text small {
+        display: block;
+        margin-top: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #667085;
+      }
+
+      nav {
+        background: #052f5f;
+      }
+
+      .nav-inner {
+        max-width: 1250px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+      }
+
+      .nav-inner a {
+        color: white;
+        padding: 16px 13px;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .nav-inner a:hover {
+        background: #0b477f;
+      }
+
+      .nav-inner .guias {
+        color: #ffd12e;
+      }
+
+      .ticker {
+        background: white;
+        border-bottom: 1px solid #e4e7ec;
+      }
+
+      .ticker-inner {
+        max-width: 1250px;
+        margin: auto;
+        min-height: 50px;
+        padding: 7px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .ticker-label {
+        background: #ed1c24;
+        color: white;
+        padding: 10px 14px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .ticker-text {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      main {
+        max-width: 1250px;
+        margin: 20px auto 50px;
+        padding: 0 20px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+
+      .principal {
+        position: relative;
+        min-height: 440px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #111;
+      }
+
+      .principal img {
+        width: 100%;
+        height: 440px;
+        object-fit: cover;
+        opacity: 0.88;
+      }
+
+      .principal::after {
+        content: "";
+        position: absolute;
+        inset: 30% 0 0;
+        background:
+          linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.9)
+          );
+      }
+
+      .principal-content {
+        position: absolute;
+        z-index: 2;
+        left: 25px;
+        right: 25px;
+        bottom: 24px;
+        color: white;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 5px 8px;
+        background: #e51d2a;
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .principal h1 {
+        margin: 10px 0 7px;
+        font-size: 34px;
+        line-height: 1.05;
+      }
+
+      .principal p {
+        margin: 0;
+        max-width: 800px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .time {
+        margin-top: 10px;
+        font-size: 11px;
+        opacity: 0.8;
+      }
+
+      .side-news {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .side-card {
+        background: white;
+        border-radius: 7px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 12px;
+        min-height: 130px;
+        box-shadow: 0 1px 5px rgba(0,0,0,.05);
+      }
+
+      .side-card img {
+        height: 110px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .side-card .category {
+        font-size: 10px;
+        color: #667085;
+        font-weight: 800;
+      }
+
+      .side-card h3 {
+        margin: 6px 0;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      .three-columns {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+      }
+
+      .box {
+        background: white;
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 1px 5px rgba(0,0,0,.05);
+      }
+
+      .box-title {
+        margin: 0 0 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eaecf0;
+        font-size: 17px;
+      }
+
+      .red-title {
+        color: #d71920;
+      }
+
+      .green-title {
+        color: #159447;
+      }
+
+      .orange-title {
+        color: #e85c0d;
+      }
+
+      .ranking {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .ranking li {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f1f2;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .ranking-number {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ed1c24;
+        color: white;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+      }
+
+      .info-item {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .info-item img {
+        width: 90px;
+        height: 65px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .info-item strong {
+        font-size: 13px;
+        line-height: 1.3;
+      }
+
+      .development img {
+        height: 190px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .development h2 {
+        margin: 12px 0 5px;
+        font-size: 21px;
+      }
+
+      .development p {
+        color: #667085;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 25px;
+      }
+
+      .category-box {
+        background: white;
+        border-radius: 7px;
+        padding: 15px;
+        box-shadow: 0 1px 5px rgba(0,0,0,.05);
+      }
+
+      .category-heading {
+        font-size: 14px;
+        font-weight: 900;
+        padding-left: 8px;
+        border-left: 5px solid;
+        margin-bottom: 12px;
+      }
+
+      .azul {
+        color: #0783d1;
+        border-color: #0783d1;
+      }
+
+      .rojo {
+        color: #e01c2d;
+        border-color: #e01c2d;
+      }
+
+      .verde {
+        color: #169c3a;
+        border-color: #169c3a;
+      }
+
+      .amarillo {
+        color: #e6a700;
+        border-color: #e6a700;
+      }
+
+      .morado {
+        color: #7737d1;
+        border-color: #7737d1;
+      }
+
+      .rosa {
+        color: #e12a91;
+        border-color: #e12a91;
+      }
+
+      .turquesa {
+        color: #10a7a5;
+        border-color: #10a7a5;
+      }
+
+      .celeste {
+        color: #069bd7;
+        border-color: #069bd7;
+      }
+
+      .category-main img {
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .category-main h3 {
+        margin: 9px 0 13px;
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .mini-title {
+        border-top: 1px solid #eaecf0;
+        padding: 10px 0;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .secondary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .secondary-card {
+        background: white;
+        padding: 14px;
+        border-radius: 7px;
+      }
+
+      .secondary-card img {
+        height: 130px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .secondary-card h3 {
+        font-size: 14px;
+        line-height: 1.3;
+      }
+
+      .latest {
+        margin-top: 22px;
+        background: white;
+        border-radius: 8px;
+        padding: 18px;
+      }
+
+      .latest-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e7e7e7;
+        padding-bottom: 12px;
+      }
+
+      .latest-header h2 {
+        font-size: 17px;
+        margin: 0;
+        color: #123b67;
+      }
+
+      .latest-grid {
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      .latest-card {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .footer {
+        background: #052f5f;
+        color: white;
+        margin-top: 50px;
+        padding: 35px 20px;
+        text-align: center;
+      }
+
+      .footer strong {
+        font-size: 22px;
+      }
+
+      .footer p {
+        font-size: 12px;
+        opacity: .75;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .three-columns {
+          grid-template-columns: 1fr;
+        }
+
+        .categories-grid,
+        .secondary-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .principal,
+        .principal img {
+          min-height: 360px;
+          height: 360px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding: 0 12px;
+          margin-top: 12px;
+        }
+
+        .topbar-inner {
+          padding: 8px 12px;
+        }
+
+        .header-inner {
+          padding: 18px 12px;
+        }
+
+        .logo-text strong {
+          font-size: 23px;
+        }
+
+        .logo-icon {
+          width: 39px;
+          height: 39px;
+        }
+
+        .nav-inner {
+          padding: 0;
+        }
+
+        .nav-inner a {
+          padding: 13px 11px;
+          font-size: 11px;
+        }
+
+        .ticker-inner {
+          padding: 7px 12px;
+        }
+
+        .ticker-text {
+          font-size: 12px;
+        }
+
+        .principal,
+        .principal img {
+          height: 330px;
+          min-height: 330px;
+        }
+
+        .principal-content {
+          left: 16px;
+          right: 16px;
+          bottom: 17px;
+        }
+
+        .principal h1 {
+          font-size: 25px;
+        }
+
+        .principal p {
+          font-size: 13px;
+        }
+
+        .side-card {
+          grid-template-columns: 110px 1fr;
+        }
+
+        .side-card img {
+          height: 90px;
+        }
+
+        .categories-grid,
+        .secondary-grid,
+        .latest-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .category-main img,
+        .secondary-card img {
+          height: 190px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <span>República Dominicana</span>
+        <span>Noticias de hoy</span>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon"></div>
+
+          <div class="logo-text">
+            <strong>REPÚBLICA <span>ACTUAL</span></strong>
+            <small>NOTICIAS DE REPÚBLICA DOMINICANA Y EL MUNDO</small>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-inner">
+        <a href="/">INICIO</a>
+        <a href="/categoria/nacionales">NACIONALES</a>
+        <a href="/categoria/politica">POLÍTICA</a>
+        <a href="/categoria/economia">ECONOMÍA</a>
+        <a href="/categoria/deportes">DEPORTES</a>
+        <a href="/categoria/mundo">MUNDO</a>
+        <a href="/categoria/entretenimiento">ENTRETENIMIENTO</a>
+        <a href="/categoria/salud">SALUD</a>
+        <a href="/categoria/tecnologia">TECNOLOGÍA</a>
+        <a href="#" class="guias">GUÍAS</a>
+      </div>
+    </nav>
+
+    <section class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-label">● ÚLTIMA HORA</span>
+        <span class="ticker-text">
+          República Actual: últimas noticias de República Dominicana
+        </span>
+      </div>
+    </section>
+
+    <main>
+      <section class="hero">
+        <article class="principal">
+          <img
+            src={noticias.principal.imagen}
+            alt={noticias.principal.titulo}
+          />
+
+          <div class="principal-content">
+            <span class="tag">
+              {noticias.principal.categoria}
+            </span>
+
+            <h1>{noticias.principal.titulo}</h1>
+
+            <p>{noticias.principal.descripcion}</p>
+
+            <div class="time">◷ Hace 1 hora</div>
+          </div>
+        </article>
+
+        <div class="side-news">
+          {
+            noticias.laterales.map((item) => (
+              <article class="side-card">
+                <img src={item.imagen} alt={item.titulo} />
+
+                <div>
+                  <span class="category">
+                    {item.categoria}
+                  </span>
+
+                  <h3>{item.titulo}</h3>
+
+                  <div class="time">◷ Hace 2 horas</div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="three-columns">
+        <div class="box">
+          <h2 class="box-title red-title">
+            🔥 LO MÁS LEÍDO
+          </h2>
+
+          <ol class="ranking">
+            {
+              noticias.masLeido.map((titulo, index) => (
+                <li>
+                  <span class="ranking-number">
+                    {index + 1}
+                  </span>
+
+                  <span>{titulo}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+
+        <div class="box">
+          <h2 class="box-title green-title">
+            🌱 INFORMACIÓN ÚTIL
+          </h2>
+
+          {
+            noticias.informacion.map((item) => (
+              <article class="info-item">
+                <img src={item.imagen} alt={item.titulo} />
+                <strong>{item.titulo}</strong>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="box development">
+          <h2 class="box-title orange-title">
+            📈 EN DESARROLLO
+          </h2>
+
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+            alt="Noticia en desarrollo"
+          />
+
+          <h2>
+            República Actual sigue las noticias en desarrollo
+          </h2>
+
+          <p>
+            Mantente informado sobre los acontecimientos
+            importantes que ocurren durante el día.
+          </p>
+
+          <div class="time">◷ Actualizado recientemente</div>
+        </div>
+      </section>
+
+      <section class="categories-grid">
+        {
+          noticias.categorias.map((categoria) => (
+            <article class="category-box">
+              <div
+                class={`category-heading ${categoria.clase}`}
+              >
+                {categoria.nombre}
+              </div>
+
+              <div class="category-main">
+                <img
+                  src={categoria.imagen}
+                  alt={categoria.principal}
+                />
+
+                <h3>{categoria.principal}</h3>
+              </div>
+
+              {
+                categoria.noticias.map((titulo) => (
+                  <div class="mini-title">
+                    {titulo}
+                  </div>
+                ))
+              }
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="secondary-grid">
+        {
+          secundarias.map((item) => (
+            <article class="secondary-card">
+              <div
+                class={`category-heading ${item.clase}`}
+              >
+                {item.nombre}
+              </div>
+
+              <img src={item.imagen} alt={item.titulo} />
+
+              <h3>{item.titulo}</h3>
+
+              <div class="time">◷ Hace algunas horas</div>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="latest">
+        <div class="latest-header">
+          <h2>◷ ÚLTIMAS NOTICIAS</h2>
+          <span>Ver todas →</span>
+        </div>
+
+        <div class="latest-grid">
+          <article class="latest-card">
+            Nuevos programas y servicios son anunciados en el país
+          </article>
+
+          <article class="latest-card">
+            Autoridades ofrecen importantes informaciones
+          </article>
+
+          <article class="latest-card">
+            Anuncian mejoras en diferentes servicios públicos
+          </article>
+
+          <article class="latest-card">
+            República Dominicana participa en encuentro internacional
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <strong>REPÚBLICA ACTUAL</strong>
+
+      <p>
+        Noticias de República Dominicana y el mundo
+      </p>
+    </footer>
+  </body>
+</html>
