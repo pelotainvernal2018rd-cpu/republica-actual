@@ -90,6 +90,13 @@ function obtenerCategoria(noticia) {
 function enlaceNoticia(noticia) {
   return `/noticia/${noticia.slug || noticia.id}/`;
 }
+
+// Optimiza imágenes remotas mediante Cloudflare Image Transformations.
+// Si la URL no es HTTP(S), conserva la imagen original.
+function imagenCloudflare(url = '', ancho = 700) {
+  if (!/^https?:\/\//i.test(url)) return url;
+  return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=cover/${url}`;
+}
 ---
 
 <Layout
@@ -533,7 +540,8 @@ function enlaceNoticia(noticia) {
 
                         <img
                           class="noticia-imagen"
-                          src={noticia.imagen}
+                          src={imagenCloudflare(noticia.imagen, 420)}
+                          srcset={`${imagenCloudflare(noticia.imagen, 420)} 420w, ${imagenCloudflare(noticia.imagen, 700)} 700w`}
                           alt={noticia.titulo}
                           width="210"
                           height="150"
