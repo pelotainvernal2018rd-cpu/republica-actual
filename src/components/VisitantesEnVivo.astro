@@ -1,0 +1,166 @@
+---
+---
+
+<div class="visitantes-en-vivo" id="visitantes-en-vivo">
+  <span class="punto"></span>
+
+  <span>
+    <strong id="contador">1</strong>
+    <span id="texto">persona está leyendo ahora</span>
+  </span>
+</div>
+
+<style>
+  .visitantes-en-vivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f3f5f7;
+    border-left: 3px solid #16a34a;
+    padding: 8px 12px;
+    margin: 14px 0 20px;
+    color: #334e68;
+    font-size: 13px;
+    border-radius: 3px;
+  }
+
+  .punto {
+    width: 9px;
+    height: 9px;
+    background: #16a34a;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulsar 1.5s infinite;
+  }
+
+  @keyframes pulsar {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: .4;
+      transform: scale(.8);
+    }
+  }
+
+  #contador {
+    color: #102d46;
+  }
+</style>
+
+<script is:inline>
+  const SUPABASE_URL =
+    'https://kbghquvejqteiawdotqd.supabase.co';
+
+  const SUPABASE_KEY =
+    'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+
+  const contador =
+    document.getElementById('contador');
+
+  const texto =
+    document.getElementById('texto');
+
+  async function iniciarVisitantes() {
+    try {
+      const { createClient } =
+        await import(
+          'https://esm.sh/@supabase/supabase-js@2'
+        );
+
+      const supabase =
+        createClient(
+          SUPABASE_URL,
+          SUPABASE_KEY
+        );
+
+      const visitanteId =
+        crypto.randomUUID();
+
+      const canal =
+        supabase.channel(
+          'republica-actual-visitantes',
+          {
+            config: {
+              presence: {
+                key: visitanteId
+              }
+            }
+          }
+        );
+
+      function actualizarContador() {
+        const estado =
+          canal.presenceState();
+
+        let total = 0;
+
+        Object.values(estado).forEach(
+          (usuarios) => {
+            total += usuarios.length;
+          }
+        );
+
+        if (total < 1) {
+          total = 1;
+        }
+
+        if (contador) {
+          contador.textContent =
+            total.toString();
+        }
+
+        if (texto) {
+          texto.textContent =
+            total === 1
+              ? 'persona está leyendo ahora'
+              : 'personas están leyendo ahora';
+        }
+      }
+
+      canal
+        .on(
+          'presence',
+          { event: 'sync' },
+          actualizarContador
+        )
+        .on(
+          'presence',
+          { event: 'join' },
+          actualizarContador
+        )
+        .on(
+          'presence',
+          { event: 'leave' },
+          actualizarContador
+        )
+        .subscribe(async (status) => {
+          if (status === 'SUBSCRIBED') {
+            await canal.track({
+              online_at:
+                new Date().toISOString()
+            });
+
+            actualizarContador();
+          }
+        });
+
+      window.addEventListener(
+        'beforeunload',
+        () => {
+          canal.untrack();
+        }
+      );
+
+    } catch (error) {
+      console.error(
+        'Error del contador:',
+        error
+      );
+    }
+  }
+
+  iniciarVisitantes();
+</script>
