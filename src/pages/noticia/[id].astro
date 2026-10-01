@@ -39,15 +39,15 @@ const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
 
     const noticias = await respuesta.json();
 
-   return noticias.map((noticia) => ({
-  params: {
-    id: noticia.slug || String(noticia.id)
-  },
-
-  props: {
-    noticia
-  }
-}));
+   return noticias.map((noticia) => {
+  const categoriaActual = noticia.categoria || (Array.isArray(noticia.etiquetas) && noticia.etiquetas.length ? noticia.etiquetas[0] : 'Actualidad');
+  const relacionadas = noticias.filter((otra) => {
+    if (String(otra.id) === String(noticia.id)) return false;
+    const categoriaOtra = otra.categoria || (Array.isArray(otra.etiquetas) && otra.etiquetas.length ? otra.etiquetas[0] : 'Actualidad');
+    return categoriaOtra === categoriaActual;
+  }).slice(0, 4);
+  return { params: { id: noticia.slug || String(noticia.id) }, props: { noticia, relacionadas } };
+});
   } catch (error) {
 
     console.error(
@@ -64,7 +64,7 @@ const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
 // DATOS DE LA NOTICIA
 // ============================================================
 
-const { noticia } = Astro.props;
+const { noticia, relacionadas = [] } = Astro.props;
 
 
 // ============================================================
@@ -466,6 +466,15 @@ const schema = {
     }
 
 
+    /* NOTICIAS RELACIONADAS */
+    .relacionadas { margin-top: 38px; padding-top: 28px; border-top: 1px solid #e5e7eb; }
+    .relacionadas h2 { margin: 0 0 18px; color: #102d47; font-size: 24px; }
+    .relacionadas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .relacionada { display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; color: #102d47; text-decoration: none; background: #fff; }
+    .relacionada:hover { border-color: #d71920; }
+    .relacionada-titulo { display: block; font-size: 16px; font-weight: 700; line-height: 1.35; }
+    @media (max-width: 700px) { .relacionadas-grid { grid-template-columns: 1fr; } }
+
     /* =========================================
        FOOTER
     ========================================= */
@@ -616,6 +625,19 @@ const schema = {
         class="contenido"
         set:html={contenido}
       />
+
+      {relacionadas.length > 0 && (
+        <section class="relacionadas" aria-labelledby="relacionadas-titulo">
+          <h2 id="relacionadas-titulo">Noticias relacionadas</h2>
+          <div class="relacionadas-grid">
+            {relacionadas.map((relacionada) => (
+              <a class="relacionada" href={`/noticia/${relacionada.slug || relacionada.id}/`}>
+                <span class="relacionada-titulo">{relacionada.titulo}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 <!-- BOTONES PARA COMPARTIR -->
 <div class="compartir-noticia">
   <span>Compartir:</span>
