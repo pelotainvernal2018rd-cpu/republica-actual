@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://republicaactual.net/sitemap.xml
+Sitemap: https://republicaactual.net/news-sitemap.xml
