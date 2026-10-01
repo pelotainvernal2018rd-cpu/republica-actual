@@ -377,6 +377,16 @@
       color: #718096;
     }
 
+    #herramientasNoticias input,
+    #herramientasNoticias select {
+      margin: 0;
+    }
+
+    #resultadoVacio {
+      border: 1px dashed #d6dde5;
+      border-radius: 8px;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -1051,6 +1061,129 @@
     );
 
 
+
+    /* =========================
+       BUSCADOR Y FILTROS
+    ========================== */
+
+    let filtroActual = 'todas';
+    let textoBusqueda = '';
+
+    function aplicarFiltrosNoticias() {
+      const tarjetas = document.querySelectorAll('.noticia-admin');
+      let visibles = 0;
+
+      tarjetas.forEach((tarjeta) => {
+        const tituloTarjeta =
+          (tarjeta.dataset.titulo || '').toLowerCase();
+
+        const estadoTarjeta =
+          tarjeta.dataset.estado || '';
+
+        const coincideTexto =
+          !textoBusqueda ||
+          tituloTarjeta.includes(textoBusqueda);
+
+        const coincideEstado =
+          filtroActual === 'todas' ||
+          estadoTarjeta === filtroActual;
+
+        const mostrar =
+          coincideTexto && coincideEstado;
+
+        tarjeta.style.display =
+          mostrar ? 'flex' : 'none';
+
+        if (mostrar) visibles++;
+      });
+
+      const vacio = document.getElementById('resultadoVacio');
+
+      if (vacio) {
+        vacio.style.display =
+          visibles === 0 ? 'block' : 'none';
+      }
+    }
+
+    function crearHerramientasNoticias() {
+      const lista = document.getElementById('listaNoticias');
+
+      if (!lista) return;
+
+      let herramientas =
+        document.getElementById('herramientasNoticias');
+
+      if (herramientas) return;
+
+      herramientas = document.createElement('div');
+      herramientas.id = 'herramientasNoticias';
+      herramientas.style.cssText =
+        'display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;';
+
+      herramientas.innerHTML = `
+        <input
+          id="buscarNoticias"
+          type="search"
+          placeholder="🔎 Buscar noticia..."
+          style="flex:1;min-width:220px;"
+        />
+
+        <select
+          id="filtroEstado"
+          style="width:auto;min-width:170px;"
+        >
+          <option value="todas">Todas</option>
+          <option value="publicadas">Publicadas</option>
+          <option value="borradores">Borradores</option>
+        </select>
+
+        <button
+          type="button"
+          class="btn btn-gris"
+          id="actualizarNoticias"
+        >
+          🔄 Actualizar
+        </button>
+      `;
+
+      lista.parentElement.insertBefore(
+        herramientas,
+        lista
+      );
+
+      const vacio = document.createElement('div');
+      vacio.id = 'resultadoVacio';
+      vacio.className = 'cargando';
+      vacio.textContent = 'No se encontraron noticias.';
+      vacio.style.display = 'none';
+      lista.parentElement.appendChild(vacio);
+
+      document
+        .getElementById('buscarNoticias')
+        .addEventListener('input', (event) => {
+          textoBusqueda =
+            event.target.value.trim().toLowerCase();
+
+          aplicarFiltrosNoticias();
+        });
+
+      document
+        .getElementById('filtroEstado')
+        .addEventListener('change', (event) => {
+          filtroActual = event.target.value;
+          aplicarFiltrosNoticias();
+        });
+
+      document
+        .getElementById('actualizarNoticias')
+        .addEventListener('click', async () => {
+          await cargarNoticias();
+          await cargarEstadisticas();
+        });
+    }
+
+    crearHerramientasNoticias();
+
     /* =========================
        NAVEGACION
     ========================== */
@@ -1418,6 +1551,14 @@
         contenedor.className =
           'noticia-admin';
 
+        contenedor.dataset.titulo =
+          (noticia.titulo || '').toLowerCase();
+
+        contenedor.dataset.estado =
+          noticia.publicado
+            ? 'publicadas'
+            : 'borradores';
+
 
         const info =
           document.createElement('div');
@@ -1507,6 +1648,8 @@
         );
 
       });
+
+      aplicarFiltrosNoticias();
 
     }
 
