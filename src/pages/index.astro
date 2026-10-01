@@ -103,6 +103,13 @@ function enlaceNoticia(noticia) {
     gtag('js', new Date());
     gtag('config', 'G-XWZNB17LDS');
   </script>
+  <link slot="head" rel="preconnect" href="https://listindiario.com" crossorigin />
+  <link slot="head" rel="preconnect" href="https://resources.diariolibre.com" crossorigin />
+  <link slot="head" rel="preconnect" href="https://cdn.deultimominuto.com" crossorigin />
+  <link slot="head" rel="dns-prefetch" href="//listindiario.com" />
+  <link slot="head" rel="dns-prefetch" href="//resources.diariolibre.com" />
+  <link slot="head" rel="dns-prefetch" href="//cdn.deultimominuto.com" />
+
   <meta slot="head" name="google-adsense-account" content="ca-pub-8245405038839408" />
   <script slot="head" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
 
@@ -530,6 +537,7 @@ function enlaceNoticia(noticia) {
                           alt={noticia.titulo}
                           width="210"
                           height="150"
+                          sizes="(max-width: 700px) calc(100vw - 32px), 210px"
                           loading={noticias.indexOf(noticia) === 0 ? "eager" : "lazy"}
                           fetchpriority={noticias.indexOf(noticia) === 0 ? "high" : "auto"}
                           decoding="async"
