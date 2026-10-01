@@ -4,7 +4,7 @@
 // Astro + Supabase
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
-import RegistrarVisita from '../components/RegistrarVisita.astro';
+import Layout from '../layouts/Layout.astro';
 const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
 
@@ -92,53 +92,21 @@ function enlaceNoticia(noticia) {
 }
 ---
 
-<!doctype html>
-<html lang="es">
+<Layout
+  title="Noticias de República Dominicana hoy | República Actual"
+  description="Últimas noticias de República Dominicana: actualidad, política, economía, deportes, entretenimiento, tecnología y noticias internacionales en República Actual."
+>
+  <script slot="head" async src="https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS"></script>
+  <script slot="head" is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XWZNB17LDS');
+  </script>
+  <meta slot="head" name="google-adsense-account" content="ca-pub-8245405038839408" />
+  <script slot="head" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
 
-
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XWZNB17LDS');
-</script>
-<meta name="google-adsense-account" content="ca-pub-8245405038839408">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>República Actual | Noticias de República Dominicana y el mundo</title>
-
-  <meta
-    name="description"
-    content="República Actual - Noticias de República Dominicana y el mundo."
-  />
-
-<link rel="canonical" href="https://republicaactual.net/" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="República Actual" />
-<meta property="og:title" content="República Actual | Noticias de República Dominicana y el mundo" />
-<meta property="og:description" content="Actualidad, noticias y acontecimientos de República Dominicana y el mundo." />
-<meta property="og:url" content="https://republicaactual.net/" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="República Actual | Noticias de República Dominicana y el mundo" />
-<meta name="twitter:description" content="Actualidad, noticias y acontecimientos de República Dominicana y el mundo." />
-
-<meta name="robots" content="index, follow" />
-
-
-  <style>
+<style>
 
     * {
       box-sizing: border-box;
@@ -415,10 +383,7 @@ function enlaceNoticia(noticia) {
     }
 
   </style>
-</head>
 
-
-<body>
 
   <div class="topbar">
     INFORMACIÓN CON CONTEXTO Y CLARIDAD
@@ -667,7 +632,6 @@ function enlaceNoticia(noticia) {
 
   </div>
   <VisitantesEnVivo />
-  <RegistrarVisita />
 </footer>
 
 <style>
@@ -754,6 +718,4 @@ function enlaceNoticia(noticia) {
   color: #ffffff;
 }
 </style>
-</body>
-
-</html>
+</Layout>

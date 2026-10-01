@@ -1,30 +1,186 @@
-
 ---
 import RegistrarVisita from '../components/RegistrarVisita.astro';
----<!doctype html>
-<html lang="en">
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	canonical?: string;
+}
+
+const {
+	title = 'República Actual | Noticias de República Dominicana y el Mundo',
+	description = 'República Actual: últimas noticias de República Dominicana sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad nacional e internacional.',
+	image = '/logo.png',
+	canonical
+} = Astro.props;
+
+const siteUrl = 'https://republicaactual.net';
+
+const canonicalURL =
+	canonical ||
+	new URL(Astro.url.pathname, siteUrl).toString();
+
+const imageURL = image.startsWith('http')
+	? image
+	: new URL(image, siteUrl).toString();
+
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'NewsMediaOrganization',
+	'@id': `${siteUrl}/#organization`,
+	name: 'República Actual',
+	alternateName: 'Republica Actual',
+	url: siteUrl,
+	logo: {
+		'@type': 'ImageObject',
+		url: `${siteUrl}/logo.png`
+	},
+	description:
+		'Medio digital de noticias de República Dominicana con información nacional e internacional sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad.',
+	areaServed: {
+		'@type': 'Country',
+		name: 'República Dominicana'
+	}
+};
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	'@id': `${siteUrl}/#website`,
+	url: siteUrl,
+	name: 'República Actual',
+	alternateName: 'Republica Actual',
+	description:
+		'Noticias de República Dominicana y el mundo.',
+	publisher: {
+		'@id': `${siteUrl}/#organization`
+	},
+	inLanguage: 'es-DO'
+};
+---
+
+<!doctype html>
+
+<html lang="es-DO">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+
+		<!-- TÍTULO SEO -->
+		<title>{title}</title>
+
+		<!-- DESCRIPCIÓN SEO -->
+		<meta
+			name="description"
+			content={description}
+		/>
+
+		<!-- INDEXACIÓN -->
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+
+		<meta name="googlebot" content="index, follow" />
+
+		<!-- CANONICAL -->
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- FAVICON -->
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="/favicon.ico"
+		/>
+
+		<!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="República Actual" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={imageURL} />
+		<meta property="og:locale" content="es_DO" />
+
+		<!-- X / TWITTER -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageURL} />
+
+		<!-- INFORMACIÓN DEL SITIO -->
+		<meta
+			name="application-name"
+			content="República Actual"
+		/>
+
+		<meta
+			name="author"
+			content="República Actual"
+		/>
+
+		<meta
+			name="theme-color"
+			content="#ffffff"
+		/>
+
+		<!-- DATOS ESTRUCTURADOS DEL MEDIO -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(organizationSchema)}
+		/>
+
+		<!-- DATOS ESTRUCTURADOS DEL SITIO -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(websiteSchema)}
+		/>
+
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
+		<slot name="head" />
 	</head>
+
 	<body>
 
-  <RegistrarVisita />
+		<RegistrarVisita />
 
-  <slot />
+		<slot />
 
-</body>
+	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+
+	html {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		min-height: 100%;
+	}
+
 	body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
 	}
+
+	* {
+		box-sizing: border-box;
+	}
+
 </style>
