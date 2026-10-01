@@ -387,6 +387,74 @@
       border-radius: 8px;
     }
 
+    /* EDITOR PROFESIONAL */
+
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid #d6dde5;
+      border-bottom: 0;
+      border-radius: 7px 7px 0 0;
+      background: #f8fafc;
+    }
+
+    .editor-toolbar button,
+    .editor-toolbar select,
+    .editor-toolbar input[type="color"] {
+      width: auto;
+      min-width: 38px;
+      height: 36px;
+      padding: 6px 9px;
+      border: 1px solid #d6dde5;
+      border-radius: 5px;
+      background: white;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .editor-toolbar input[type="color"] {
+      padding: 3px;
+    }
+
+    #contenido {
+      min-height: 360px;
+      border: 1px solid #d6dde5;
+      border-radius: 0 0 7px 7px;
+      padding: 18px;
+      outline: none;
+      background: white;
+      color: #111827;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    #contenido:focus {
+      border-color: #102d46;
+    }
+
+    #contenido h2 {
+      color: #102d46;
+      font-size: 25px;
+      margin: 28px 0 10px;
+    }
+
+    #contenido h3 {
+      color: #102d46;
+      font-size: 21px;
+      margin: 24px 0 8px;
+    }
+
+    #contenido p { margin: 0 0 16px; }
+    #contenido ul, #contenido ol { padding-left: 28px; }
+    #contenido blockquote {
+      margin: 18px 0;
+      padding: 12px 16px;
+      border-left: 4px solid #102d46;
+      background: #f3f6f9;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -757,11 +825,32 @@
                 Contenido
               </label>
 
-              <textarea
+              <div class="editor-toolbar" id="editorToolbar">
+                <select id="formatoTexto" title="Formato">
+                  <option value="p">Párrafo</option>
+                  <option value="h2">Título H2</option>
+                  <option value="h3">Subtítulo H3</option>
+                </select>
+                <button type="button" data-cmd="bold" title="Negrita"><b>B</b></button>
+                <button type="button" data-cmd="italic" title="Cursiva"><i>I</i></button>
+                <button type="button" data-cmd="underline" title="Subrayado"><u>U</u></button>
+                <input type="color" id="colorTexto" value="#111827" title="Color del texto" />
+                <button type="button" data-cmd="insertUnorderedList" title="Lista">• Lista</button>
+                <button type="button" data-cmd="insertOrderedList" title="Lista numerada">1. Lista</button>
+                <button type="button" data-cmd="justifyLeft" title="Alinear izquierda">⬅</button>
+                <button type="button" data-cmd="justifyCenter" title="Centrar">↔</button>
+                <button type="button" data-cmd="justifyRight" title="Alinear derecha">➡</button>
+                <button type="button" id="insertarEnlace" title="Insertar enlace">🔗</button>
+                <button type="button" id="limpiarFormato" title="Limpiar formato">Tx</button>
+              </div>
+
+              <div
                 id="contenido"
-                placeholder="Escribe aquí el contenido de la noticia..."
-                required
-              ></textarea>
+                contenteditable="true"
+                role="textbox"
+                aria-multiline="true"
+                data-placeholder="Escribe aquí el contenido de la noticia..."
+              ></div>
 
             </div>
 
@@ -1308,7 +1397,7 @@
 
       imagen.value = '';
 
-      contenido.value = '';
+      contenido.innerHTML = '';
 
       tituloEditor.textContent =
         '📝 Nueva noticia';
@@ -1337,6 +1426,89 @@
 
 
     /* =========================
+       EDITOR VISUAL
+    ========================== */
+
+    document.querySelectorAll('#editorToolbar [data-cmd]').forEach((boton) => {
+      boton.addEventListener('click', () => {
+        contenido.focus();
+        document.execCommand(boton.dataset.cmd, false, null);
+      });
+    });
+
+    document.getElementById('formatoTexto').addEventListener('change', (event) => {
+      contenido.focus();
+      document.execCommand('formatBlock', false, event.target.value);
+      event.target.value = 'p';
+    });
+
+    document.getElementById('colorTexto').addEventListener('input', (event) => {
+      contenido.focus();
+      document.execCommand('foreColor', false, event.target.value);
+    });
+
+    document.getElementById('insertarEnlace').addEventListener('click', () => {
+      const url = prompt('Pega la URL del enlace:');
+      if (!url) return;
+      contenido.focus();
+      document.execCommand('createLink', false, url);
+    });
+
+    document.getElementById('limpiarFormato').addEventListener('click', () => {
+      contenido.focus();
+      document.execCommand('removeFormat', false, null);
+    });
+
+    // Convierte Markdown básico pegado desde ChatGPT en HTML profesional.
+    function markdownAHtml(texto) {
+      const lineas = texto.replace(/\r/g, '').split('\n');
+      let html = '';
+      let enLista = false;
+      let tipoLista = '';
+
+      const inline = (t) => t
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+      const cerrarLista = () => {
+        if (enLista) { html += `</${tipoLista}>`; enLista = false; tipoLista = ''; }
+      };
+
+      for (const original of lineas) {
+        const linea = original.trim();
+        if (!linea) { cerrarLista(); continue; }
+
+        if (linea.startsWith('### ')) { cerrarLista(); html += `<h3>${inline(linea.slice(4))}</h3>`; continue; }
+        if (linea.startsWith('## ')) { cerrarLista(); html += `<h2>${inline(linea.slice(3))}</h2>`; continue; }
+        if (linea.startsWith('# ')) { cerrarLista(); html += `<h2>${inline(linea.slice(2))}</h2>`; continue; }
+
+        const bullet = linea.match(/^[-*]\s+(.+)/);
+        const numbered = linea.match(/^\d+[.)]\s+(.+)/);
+        if (bullet || numbered) {
+          const tipo = bullet ? 'ul' : 'ol';
+          if (!enLista || tipoLista !== tipo) { cerrarLista(); html += `<${tipo}>`; enLista = true; tipoLista = tipo; }
+          html += `<li>${inline((bullet || numbered)[1])}</li>`;
+          continue;
+        }
+
+        cerrarLista();
+        html += `<p>${inline(linea)}</p>`;
+      }
+      cerrarLista();
+      return html;
+    }
+
+    contenido.addEventListener('paste', (event) => {
+      const texto = event.clipboardData?.getData('text/plain') || '';
+      if (!texto) return;
+      if (/^#{1,3}\s|\*\*.+\*\*|^[-*]\s/m.test(texto)) {
+        event.preventDefault();
+        document.execCommand('insertHTML', false, markdownAHtml(texto));
+      }
+    });
+
+    /* =========================
        GUARDAR NOTICIA
     ========================== */
 
@@ -1346,7 +1518,7 @@
         titulo.value.trim();
 
       const contenidoTexto =
-        contenido.value.trim();
+        contenido.innerHTML.trim();
 
       if (!tituloTexto || !contenidoTexto) {
 
@@ -1414,7 +1586,7 @@
           console.error(error);
 
           mostrarMensajeNoticia(
-            'No se pudo guardar la noticia. Revisa los permisos de Supabase.',
+            `No se pudo guardar: ${error.message || 'error de Supabase'}`,
             'error'
           );
 
@@ -1672,7 +1844,7 @@
       imagen.value =
         noticia.imagen || '';
 
-      contenido.value =
+      contenido.innerHTML =
         noticia.contenido || '';
 
       tituloEditor.textContent =
