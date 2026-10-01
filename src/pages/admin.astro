@@ -493,6 +493,47 @@
       min-width: 90px;
     }
 
+
+    /* EDITOR AVANZADO */
+
+    #contenido img,
+    #contenido video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin: 18px auto;
+    }
+
+    #contenido .media-seleccionado {
+      outline: 3px solid #2563eb;
+      outline-offset: 3px;
+    }
+
+    .media-controls {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      padding: 10px;
+      border: 1px solid #d6dde5;
+      border-radius: 7px;
+      background: #f8fafc;
+    }
+
+    .media-controls.activo {
+      display: flex;
+    }
+
+    .media-controls button,
+    .media-controls select {
+      width: auto;
+      min-width: 70px;
+      padding: 8px 10px;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -924,6 +965,10 @@
                 <button type="button" data-cmd="justifyRight" title="Alinear derecha">➡</button>
                 <button type="button" id="insertarEnlace" title="Insertar enlace">🔗</button>
                 <button type="button" id="limpiarFormato" title="Limpiar formato">Tx</button>
+                <button type="button" id="deshacer" title="Deshacer">↶</button>
+                <button type="button" id="rehacer" title="Rehacer">↷</button>
+                <button type="button" id="insertarImagenEditor" title="Insertar imagen dentro del texto">🖼️ Imagen</button>
+                <button type="button" id="insertarVideoEditor" title="Insertar video dentro del texto">🎬 Video</button>
               </div>
 
               <div
@@ -933,6 +978,20 @@
                 aria-multiline="true"
                 data-placeholder="Escribe aquí el contenido de la noticia..."
               ></div>
+
+              <div id="mediaControls" class="media-controls">
+                <strong>Elemento seleccionado:</strong>
+                <select id="mediaTamano" title="Tamaño">
+                  <option value="25%">25%</option>
+                  <option value="50%">50%</option>
+                  <option value="75%">75%</option>
+                  <option value="100%">100%</option>
+                </select>
+                <button type="button" class="btn btn-gris" id="mediaIzquierda">⬅ Izquierda</button>
+                <button type="button" class="btn btn-gris" id="mediaCentro">↔ Centro</button>
+                <button type="button" class="btn btn-gris" id="mediaDerecha">➡ Derecha</button>
+                <button type="button" class="btn btn-rojo" id="mediaEliminar">🗑️ Eliminar</button>
+              </div>
 
             </div>
 
@@ -1505,6 +1564,8 @@
       }
 
       contenido.innerHTML = '';
+      mediaSeleccionado = null;
+      document.getElementById('mediaControls')?.classList.remove('activo');
 
       tituloEditor.textContent =
         '📝 Nueva noticia';
@@ -1684,6 +1745,111 @@
       videoPreview.style.display = 'block';
     });
 
+
+    /* =========================
+       EDITOR AVANZADO DE MEDIOS
+    ========================== */
+
+    let mediaSeleccionado = null;
+
+    const mediaControls = document.getElementById('mediaControls');
+    const mediaTamano = document.getElementById('mediaTamano');
+
+    function seleccionarMedia(elemento) {
+      contenido.querySelectorAll('.media-seleccionado')
+        .forEach((el) => el.classList.remove('media-seleccionado'));
+
+      mediaSeleccionado = elemento;
+
+      if (!elemento) {
+        mediaControls?.classList.remove('activo');
+        return;
+      }
+
+      elemento.classList.add('media-seleccionado');
+      mediaControls?.classList.add('activo');
+
+      const ancho = elemento.style.width || '100%';
+      if ([...mediaTamano.options].some(o => o.value === ancho)) {
+        mediaTamano.value = ancho;
+      }
+    }
+
+    contenido.addEventListener('click', (event) => {
+      const objetivo = event.target;
+      if (objetivo instanceof HTMLImageElement ||
+          objetivo instanceof HTMLVideoElement) {
+        event.preventDefault();
+        seleccionarMedia(objetivo);
+      } else {
+        seleccionarMedia(null);
+      }
+    });
+
+    mediaTamano?.addEventListener('change', () => {
+      if (!mediaSeleccionado) return;
+      mediaSeleccionado.style.width = mediaTamano.value;
+      mediaSeleccionado.style.maxWidth = '100%';
+      mediaSeleccionado.style.height = 'auto';
+    });
+
+    document.getElementById('mediaIzquierda')?.addEventListener('click', () => {
+      if (!mediaSeleccionado) return;
+      mediaSeleccionado.style.marginLeft = '0';
+      mediaSeleccionado.style.marginRight = 'auto';
+    });
+
+    document.getElementById('mediaCentro')?.addEventListener('click', () => {
+      if (!mediaSeleccionado) return;
+      mediaSeleccionado.style.marginLeft = 'auto';
+      mediaSeleccionado.style.marginRight = 'auto';
+    });
+
+    document.getElementById('mediaDerecha')?.addEventListener('click', () => {
+      if (!mediaSeleccionado) return;
+      mediaSeleccionado.style.marginLeft = 'auto';
+      mediaSeleccionado.style.marginRight = '0';
+    });
+
+    document.getElementById('mediaEliminar')?.addEventListener('click', () => {
+      if (!mediaSeleccionado) return;
+      mediaSeleccionado.remove();
+      mediaSeleccionado = null;
+      mediaControls?.classList.remove('activo');
+      contenido.focus();
+    });
+
+    document.getElementById('deshacer')?.addEventListener('click', () => {
+      contenido.focus();
+      document.execCommand('undo');
+    });
+
+    document.getElementById('rehacer')?.addEventListener('click', () => {
+      contenido.focus();
+      document.execCommand('redo');
+    });
+
+    function insertarHtmlEnCursor(html) {
+      contenido.focus();
+      document.execCommand('insertHTML', false, html);
+    }
+
+    document.getElementById('insertarImagenEditor')?.addEventListener('click', () => {
+      const url = prompt('Pega la URL de la imagen:');
+      if (!url) return;
+      insertarHtmlEnCursor(
+        `<img src="${url.replace(/"/g, '&quot;')}" alt="" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;border-radius:8px;">`
+      );
+    });
+
+    document.getElementById('insertarVideoEditor')?.addEventListener('click', () => {
+      const url = prompt('Pega la URL del video:');
+      if (!url) return;
+      insertarHtmlEnCursor(
+        `<video src="${url.replace(/"/g, '&quot;')}" controls playsinline preload="metadata" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;border-radius:8px;"></video>`
+      );
+    });
+
     // Convierte Markdown básico pegado desde ChatGPT en HTML profesional.
     function markdownAHtml(texto) {
       const lineas = texto.replace(/\r/g, '').split('\n');
@@ -1741,6 +1907,9 @@
 
       const tituloTexto =
         titulo.value.trim();
+
+      contenido.querySelectorAll('.media-seleccionado')
+        .forEach((el) => el.classList.remove('media-seleccionado'));
 
       const contenidoTexto =
         contenido.innerHTML.trim();
