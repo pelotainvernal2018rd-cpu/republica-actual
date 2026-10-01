@@ -1,1000 +1,246 @@
 ---
-const noticias = {
-  principal: {
-    categoria: "NACIONALES",
-    titulo: "República Actual presenta su nueva portada de noticias",
-    descripcion:
-      "Una nueva experiencia visual para mantenerte informado con las noticias más importantes de República Dominicana y el mundo.",
-    imagen:
-      "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=80",
-  },
+const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
 
-  laterales: [
-    {
-      categoria: "ECONOMÍA",
-      titulo: "Economía dominicana mantiene perspectivas positivas",
-      imagen:
-        "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      categoria: "DEPORTES",
-      titulo: "El deporte dominicano continúa destacándose",
-      imagen:
-        "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      categoria: "MUNDO",
-      titulo: "Estas son las noticias internacionales de hoy",
-      imagen:
-        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=500&q=80",
-    },
-  ],
+let noticias = [];
+let errorConexion = '';
 
-  masLeido: [
-    "Subsidio Aliméntate: cómo consultar si eres beneficiario",
-    "Pasaporte dominicano: requisitos y cómo renovarlo",
-    "Policía Nacional informa sobre nuevos operativos",
-    "Precio del dólar hoy en República Dominicana",
-    "Resultados de las loterías dominicanas de hoy",
-  ],
+try {
+  const endpoint = `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+  const respuesta = await fetch(endpoint, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      Accept: 'application/json'
+    }
+  });
+  if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+  noticias = await respuesta.json();
+} catch (error) {
+  console.error(error);
+  errorConexion = 'No se pudieron cargar las noticias.';
+}
 
-  informacion: [
-    {
-      titulo: "Cómo renovar el pasaporte dominicano paso a paso",
-      imagen:
-        "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      titulo: "Requisitos para solicitar una visa de Estados Unidos",
-      imagen:
-        "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      titulo: "Cómo consultar y pagar una multa de tránsito",
-      imagen:
-        "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=500&q=80",
-    },
-  ],
+function limpiarHTML(html = '') {
+  return String(html)
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<img[^>]*>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function resumen(c = '', limite = 170) {
+  const t = limpiarHTML(c);
+  return t.length > limite ? t.slice(0, limite).trim() + '...' : t;
+}
+function categoria(n) {
+  return n?.categoria || (Array.isArray(n?.etiquetas) ? n.etiquetas[0] : '') || 'Actualidad';
+}
+function enlace(n) {
+  return n ? `/noticia/${n.slug || n.id}/` : '#';
+}
+function imagen(n, seed = 'news') {
+  return n?.imagen || `https://picsum.photos/seed/${seed}/900/600`;
+}
+function fecha(n) {
+  if (!n?.created_at) return 'Reciente';
+  const d = new Date(n.created_at);
+  return new Intl.DateTimeFormat('es-DO', { day:'numeric', month:'short', year:'numeric' }).format(d);
+}
 
-  categorias: [
-    {
-      nombre: "NACIONALES",
-      clase: "azul",
-      principal: "Gobierno anuncia nuevas obras y proyectos para el país",
-      imagen:
-        "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=700&q=80",
-      noticias: [
-        "Anuncian nuevas medidas para diferentes provincias",
-        "Autoridades ofrecen detalles de los nuevos proyectos",
-      ],
-    },
-    {
-      nombre: "POLÍTICA",
-      clase: "rojo",
-      principal: "Congreso conoce importantes iniciativas",
-      imagen:
-        "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=700&q=80",
-      noticias: [
-        "Partidos reaccionan a las últimas decisiones",
-        "Analistas opinan sobre el panorama nacional",
-      ],
-    },
-    {
-      nombre: "ECONOMÍA",
-      clase: "verde",
-      principal: "El dólar mantiene estabilidad durante la jornada",
-      imagen:
-        "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=700&q=80",
-      noticias: [
-        "Banco Central publica nuevas informaciones",
-        "Nuevas inversiones llegan al país",
-      ],
-    },
-    {
-      nombre: "DEPORTES",
-      clase: "amarillo",
-      principal: "Peloteros dominicanos continúan brillando",
-      imagen:
-        "https://images.unsplash.com/photo-1508344928928-7165b67de128?auto=format&fit=crop&w=700&q=80",
-      noticias: [
-        "Equipos se preparan para la próxima jornada",
-        "RD brilla en competencias internacionales",
-      ],
-    },
-  ],
-};
-
-const secundarias = [
-  {
-    nombre: "MUNDO",
-    clase: "morado",
-    titulo: "Continúan las noticias que marcan la agenda internacional",
-    imagen:
-      "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    nombre: "ENTRETENIMIENTO",
-    clase: "rosa",
-    titulo: "Artistas dominicanos brillan dentro y fuera del país",
-    imagen:
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    nombre: "SALUD",
-    clase: "turquesa",
-    titulo: "Recomendaciones para cuidar la salud esta semana",
-    imagen:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    nombre: "TECNOLOGÍA",
-    clase: "celeste",
-    titulo: "Las novedades tecnológicas que debes conocer",
-    imagen:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-  },
+const principal = noticias[0];
+const destacadas = noticias.slice(1, 5);
+const videos = noticias.filter(n => /<video|youtube|youtu\.be|vimeo/i.test(String(n.contenido || ''))).slice(0, 4);
+const videoCards = videos.length ? videos : noticias.slice(0, 4);
+const provincias = [
+  ['Santo Domingo', noticias[0]],
+  ['Santiago', noticias[1]],
+  ['La Vega', noticias[2]],
+  ['Puerto Plata', noticias[3]],
+  ['San Cristóbal', noticias[4]],
 ];
+const evergreen = noticias.slice(5, 10);
+const relacionados = noticias.slice(1, 4);
+const timeline = noticias.slice(0, 5).reverse();
+const ticker = noticias.slice(0, 6);
+const temas = noticias.slice(0, 5);
+const ahora = new Date();
+const fechaCabecera = new Intl.DateTimeFormat('es-DO', {
+  weekday:'long', day:'numeric', month:'long', year:'numeric'
+}).format(ahora);
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
-    <title>República Actual - Nueva Portada</title>
-
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background: #f5f6f8;
-        color: #17202a;
-        font-family:
-          Arial,
-          Helvetica,
-          sans-serif;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      img {
-        display: block;
-        width: 100%;
-      }
-
-      .topbar {
-        background: #fff;
-        border-bottom: 1px solid #e5e7eb;
-      }
-
-      .topbar-inner {
-        max-width: 1250px;
-        margin: auto;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #667085;
-      }
-
-      .header {
-        background: #fff;
-      }
-
-      .header-inner {
-        max-width: 1250px;
-        margin: auto;
-        padding: 24px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .logo-icon {
-        width: 47px;
-        height: 47px;
-        border-radius: 7px;
-        background:
-          linear-gradient(90deg, #003876 50%, #d91e2b 50%);
-        position: relative;
-      }
-
-      .logo-icon::after {
-        content: "★";
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: white;
-        font-size: 22px;
-      }
-
-      .logo-text strong {
-        display: block;
-        color: #062f5f;
-        font-size: 30px;
-        line-height: 1;
-        letter-spacing: -1px;
-      }
-
-      .logo-text strong span {
-        color: #e1252f;
-      }
-
-      .logo-text small {
-        display: block;
-        margin-top: 5px;
-        font-size: 10px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        color: #667085;
-      }
-
-      nav {
-        background: #052f5f;
-      }
-
-      .nav-inner {
-        max-width: 1250px;
-        margin: auto;
-        padding: 0 20px;
-        display: flex;
-        align-items: center;
-        overflow-x: auto;
-      }
-
-      .nav-inner a {
-        color: white;
-        padding: 16px 13px;
-        font-size: 13px;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .nav-inner a:hover {
-        background: #0b477f;
-      }
-
-      .nav-inner .guias {
-        color: #ffd12e;
-      }
-
-      .ticker {
-        background: white;
-        border-bottom: 1px solid #e4e7ec;
-      }
-
-      .ticker-inner {
-        max-width: 1250px;
-        margin: auto;
-        min-height: 50px;
-        padding: 7px 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .ticker-label {
-        background: #ed1c24;
-        color: white;
-        padding: 10px 14px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: 800;
-        white-space: nowrap;
-      }
-
-      .ticker-text {
-        font-size: 14px;
-        font-weight: 700;
-      }
-
-      main {
-        max-width: 1250px;
-        margin: 20px auto 50px;
-        padding: 0 20px;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 20px;
-      }
-
-      .principal {
-        position: relative;
-        min-height: 440px;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #111;
-      }
-
-      .principal img {
-        width: 100%;
-        height: 440px;
-        object-fit: cover;
-        opacity: 0.88;
-      }
-
-      .principal::after {
-        content: "";
-        position: absolute;
-        inset: 30% 0 0;
-        background:
-          linear-gradient(
-            transparent,
-            rgba(0, 0, 0, 0.9)
-          );
-      }
-
-      .principal-content {
-        position: absolute;
-        z-index: 2;
-        left: 25px;
-        right: 25px;
-        bottom: 24px;
-        color: white;
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 5px 8px;
-        background: #e51d2a;
-        border-radius: 3px;
-        font-size: 11px;
-        font-weight: 800;
-      }
-
-      .principal h1 {
-        margin: 10px 0 7px;
-        font-size: 34px;
-        line-height: 1.05;
-      }
-
-      .principal p {
-        margin: 0;
-        max-width: 800px;
-        font-size: 15px;
-        line-height: 1.5;
-      }
-
-      .time {
-        margin-top: 10px;
-        font-size: 11px;
-        opacity: 0.8;
-      }
-
-      .side-news {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .side-card {
-        background: white;
-        border-radius: 7px;
-        padding: 10px;
-        display: grid;
-        grid-template-columns: 130px 1fr;
-        gap: 12px;
-        min-height: 130px;
-        box-shadow: 0 1px 5px rgba(0,0,0,.05);
-      }
-
-      .side-card img {
-        height: 110px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .side-card .category {
-        font-size: 10px;
-        color: #667085;
-        font-weight: 800;
-      }
-
-      .side-card h3 {
-        margin: 6px 0;
-        font-size: 16px;
-        line-height: 1.25;
-      }
-
-      .three-columns {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 18px;
-      }
-
-      .box {
-        background: white;
-        border-radius: 8px;
-        padding: 18px;
-        box-shadow: 0 1px 5px rgba(0,0,0,.05);
-      }
-
-      .box-title {
-        margin: 0 0 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #eaecf0;
-        font-size: 17px;
-      }
-
-      .red-title {
-        color: #d71920;
-      }
-
-      .green-title {
-        color: #159447;
-      }
-
-      .orange-title {
-        color: #e85c0d;
-      }
-
-      .ranking {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .ranking li {
-        display: grid;
-        grid-template-columns: 30px 1fr;
-        gap: 8px;
-        padding: 8px 0;
-        border-bottom: 1px solid #f0f1f2;
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .ranking-number {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: #ed1c24;
-        color: white;
-        display: grid;
-        place-items: center;
-        font-size: 12px;
-      }
-
-      .info-item {
-        display: grid;
-        grid-template-columns: 90px 1fr;
-        gap: 10px;
-        margin-bottom: 12px;
-      }
-
-      .info-item img {
-        width: 90px;
-        height: 65px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .info-item strong {
-        font-size: 13px;
-        line-height: 1.3;
-      }
-
-      .development img {
-        height: 190px;
-        object-fit: cover;
-        border-radius: 6px;
-      }
-
-      .development h2 {
-        margin: 12px 0 5px;
-        font-size: 21px;
-      }
-
-      .development p {
-        color: #667085;
-        font-size: 13px;
-        line-height: 1.5;
-      }
-
-      .categories-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-        margin-top: 25px;
-      }
-
-      .category-box {
-        background: white;
-        border-radius: 7px;
-        padding: 15px;
-        box-shadow: 0 1px 5px rgba(0,0,0,.05);
-      }
-
-      .category-heading {
-        font-size: 14px;
-        font-weight: 900;
-        padding-left: 8px;
-        border-left: 5px solid;
-        margin-bottom: 12px;
-      }
-
-      .azul {
-        color: #0783d1;
-        border-color: #0783d1;
-      }
-
-      .rojo {
-        color: #e01c2d;
-        border-color: #e01c2d;
-      }
-
-      .verde {
-        color: #169c3a;
-        border-color: #169c3a;
-      }
-
-      .amarillo {
-        color: #e6a700;
-        border-color: #e6a700;
-      }
-
-      .morado {
-        color: #7737d1;
-        border-color: #7737d1;
-      }
-
-      .rosa {
-        color: #e12a91;
-        border-color: #e12a91;
-      }
-
-      .turquesa {
-        color: #10a7a5;
-        border-color: #10a7a5;
-      }
-
-      .celeste {
-        color: #069bd7;
-        border-color: #069bd7;
-      }
-
-      .category-main img {
-        height: 150px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .category-main h3 {
-        margin: 9px 0 13px;
-        font-size: 15px;
-        line-height: 1.3;
-      }
-
-      .mini-title {
-        border-top: 1px solid #eaecf0;
-        padding: 10px 0;
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .secondary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-        margin-top: 18px;
-      }
-
-      .secondary-card {
-        background: white;
-        padding: 14px;
-        border-radius: 7px;
-      }
-
-      .secondary-card img {
-        height: 130px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .secondary-card h3 {
-        font-size: 14px;
-        line-height: 1.3;
-      }
-
-      .latest {
-        margin-top: 22px;
-        background: white;
-        border-radius: 8px;
-        padding: 18px;
-      }
-
-      .latest-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #e7e7e7;
-        padding-bottom: 12px;
-      }
-
-      .latest-header h2 {
-        font-size: 17px;
-        margin: 0;
-        color: #123b67;
-      }
-
-      .latest-grid {
-        margin-top: 15px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-      }
-
-      .latest-card {
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .footer {
-        background: #052f5f;
-        color: white;
-        margin-top: 50px;
-        padding: 35px 20px;
-        text-align: center;
-      }
-
-      .footer strong {
-        font-size: 22px;
-      }
-
-      .footer p {
-        font-size: 12px;
-        opacity: .75;
-      }
-
-      @media (max-width: 900px) {
-        .hero,
-        .three-columns {
-          grid-template-columns: 1fr;
-        }
-
-        .categories-grid,
-        .secondary-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .principal,
-        .principal img {
-          min-height: 360px;
-          height: 360px;
-        }
-      }
-
-      @media (max-width: 600px) {
-        main {
-          padding: 0 12px;
-          margin-top: 12px;
-        }
-
-        .topbar-inner {
-          padding: 8px 12px;
-        }
-
-        .header-inner {
-          padding: 18px 12px;
-        }
-
-        .logo-text strong {
-          font-size: 23px;
-        }
-
-        .logo-icon {
-          width: 39px;
-          height: 39px;
-        }
-
-        .nav-inner {
-          padding: 0;
-        }
-
-        .nav-inner a {
-          padding: 13px 11px;
-          font-size: 11px;
-        }
-
-        .ticker-inner {
-          padding: 7px 12px;
-        }
-
-        .ticker-text {
-          font-size: 12px;
-        }
-
-        .principal,
-        .principal img {
-          height: 330px;
-          min-height: 330px;
-        }
-
-        .principal-content {
-          left: 16px;
-          right: 16px;
-          bottom: 17px;
-        }
-
-        .principal h1 {
-          font-size: 25px;
-        }
-
-        .principal p {
-          font-size: 13px;
-        }
-
-        .side-card {
-          grid-template-columns: 110px 1fr;
-        }
-
-        .side-card img {
-          height: 90px;
-        }
-
-        .categories-grid,
-        .secondary-grid,
-        .latest-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .category-main img,
-        .secondary-card img {
-          height: 190px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="topbar">
-      <div class="topbar-inner">
-        <span>República Dominicana</span>
-        <span>Noticias de hoy</span>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Prueba nueva portada | República Actual</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#102a43}
+    a{color:inherit;text-decoration:none} img{display:block;width:100%}.wrap{max-width:1240px;margin:auto;padding:0 16px}
+    .top{background:#fff;border-bottom:1px solid #e5eaf0}.head{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}.mark{width:62px;height:52px;border-radius:8px;background:linear-gradient(135deg,#062e68 0 48%,#fff 48% 57%,#e52532 57%);position:relative;box-shadow:0 2px 8px #0002}.mark:after{content:"★";position:absolute;color:#fff;font-size:21px;left:21px;top:14px}
+    .brand b{font-size:27px;line-height:.9;color:#082e62}.brand b span{display:block;color:#e12532}.brand small{display:block;font-size:8px;font-weight:800;margin-top:6px;color:#5f6f7e}
+    .date{font-size:11px;background:#092d5e;color:#fff;padding:9px 13px;border-radius:15px;text-transform:capitalize}
+    .nav{background:#fff;border-bottom:1px solid #dfe6ee}.navin{display:flex;align-items:center;justify-content:center;overflow:auto}.nav a{padding:13px 17px;font-size:11px;font-weight:800;white-space:nowrap;border-bottom:3px solid transparent}.nav a:hover{color:#e21f2f;border-color:#e21f2f}
+    .ticker{background:#fff;border-bottom:1px solid #dfe6ee}.tickerin{display:flex;align-items:center;gap:12px;min-height:43px}.flash{background:#e51e2a;color:#fff;padding:8px 12px;border-radius:5px;font-size:11px;font-weight:900;white-space:nowrap}.ticker a{font-size:12px;font-weight:700;transition:.2s}.time{margin-left:auto;color:#7c8b99;font-size:10px;white-space:nowrap}
+    main{padding-top:15px;padding-bottom:40px}.hero-grid{display:grid;grid-template-columns:minmax(0,2.05fr) minmax(280px,.95fr) 245px;gap:12px}
+    .hero{position:relative;min-height:375px;border-radius:8px;overflow:hidden;background:#071a30}.hero img{height:375px;object-fit:cover;opacity:.88}.hero:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,#06101ddd)}
+    .hero-copy{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;color:#fff}.pill{display:inline-block;background:#e61e2e;color:#fff;font-size:9px;font-weight:900;padding:5px 7px;border-radius:3px}.hero h1{font-size:28px;line-height:1.05;margin:9px 0}.hero p{font-size:13px;line-height:1.45;margin:0;max-width:620px}.meta{font-size:9px;opacity:.8;margin-top:9px}
+    .rd-card,.sidebox,.section,.utility,.archive{background:#fff;border:1px solid #e0e7ef;border-radius:8px;overflow:hidden}.boxhead{display:flex;align-items:center;gap:7px;font-weight:900;color:#123e74;font-size:13px;padding:11px 12px;border-bottom:1px solid #edf0f4}.boxhead .more{margin-left:auto;font-size:9px;font-weight:700;border:1px solid #cfd9e5;border-radius:12px;padding:4px 8px}
+    .map{height:255px;background:#092f67;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden}.map:before{content:"REPÚBLICA DOMINICANA";font-size:13px;font-weight:900;letter-spacing:1px;border:2px solid #4f83bd;padding:40px 20px;border-radius:48% 52% 46% 54%;transform:rotate(-5deg);opacity:.9}.map-pin{position:absolute;background:#ed1f2e;padding:8px;border-radius:6px;right:24%;bottom:27%;font-size:10px;font-weight:800}.province-counts{display:grid;grid-template-columns:repeat(5,1fr);text-align:center;font-size:8px}.province-counts span{padding:9px 2px;border-right:1px solid #e5eaf0}.province-counts b{display:block;font-size:11px;margin-top:3px}
+    .rightcol{display:flex;flex-direction:column;gap:12px}.weather{padding:12px}.weather strong{font-size:25px}.weather-row{display:flex;align-items:center;gap:10px}.sun{font-size:35px}.forecast{display:flex;justify-content:space-between;margin-top:11px;font-size:9px;text-align:center}.forecast b{display:block;font-size:12px;margin-top:3px}
+    .trends ol{list-style:none;padding:6px 12px 12px;margin:0}.trends li{display:flex;gap:9px;padding:6px 0;font-size:11px;font-weight:700}.num{width:22px;height:22px;border-radius:50%;background:#f4f5f7;color:#e51e2a;display:grid;place-items:center;font-weight:900}
+    .four{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}.newsmini{background:#fff;border:1px solid #e1e7ee;border-radius:7px;overflow:hidden}.newsmini img{height:100px;object-fit:cover}.newsmini .pad{padding:8px}.newsmini h3{font-size:12px;line-height:1.25;margin:5px 0}.cat{font-size:8px;font-weight:900;color:#e51e2a;text-transform:uppercase}
+    .content-grid{display:grid;grid-template-columns:minmax(0,3fr) 1fr;gap:14px;margin-top:14px}.section{padding-bottom:12px}.section-body{padding:12px}
+    .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.video{position:relative}.video img{height:130px;object-fit:cover;border-radius:6px}.play{position:absolute;left:50%;top:47px;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#082f65;font-weight:900;box-shadow:0 2px 8px #0004}.video h3{font-size:11px;margin:7px 0}
+    .audio{padding:18px;text-align:center}.audio .audioicon{font-size:35px}.audio button{border:0;background:#083a80;color:#fff;border-radius:20px;padding:10px 22px;font-weight:800;width:100%;margin:12px 0}.wave{font-size:23px;letter-spacing:2px;color:#82b9df;overflow:hidden;white-space:nowrap}
+    .meaning{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.meaning-card{padding:13px;border:1px solid #e5eaf0;border-radius:8px;background:#fbfcfe}.meaning-card b{display:block;font-size:11px;margin-bottom:8px;color:#0b8b55}.meaning-card p{font-size:10px;line-height:1.4;margin:0;color:#526779}
+    .tools{padding:4px 12px 12px}.tool{padding:10px 2px;border-bottom:1px solid #edf0f4;font-size:10px;font-weight:700}.tool:last-child{border:0}
+    .lower-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:14px}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:18px 12px}.event{text-align:center;font-size:9px;position:relative}.event:before{content:"";display:block;width:11px;height:11px;background:#dbe2ea;border-radius:50%;margin:0 auto 8px}.event:last-child:before{background:#e51e2a}.event b{display:block;margin-bottom:4px}
+    .related{padding:10px}.related a{display:grid;grid-template-columns:55px 1fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #edf0f4;font-size:9px;font-weight:700}.related img{height:38px;object-fit:cover;border-radius:3px}
+    .province-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:11px}.province img{height:82px;object-fit:cover;border-radius:6px}.province{text-align:center;font-size:10px;font-weight:800}.province small{display:block;color:#718293;margin-top:3px}
+    .archive{padding-bottom:12px}.archive-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:12px}.archive select{width:100%;padding:8px;border:1px solid #d9e1e9;border-radius:5px;font-size:10px}.archive button{grid-column:1/-1;border:0;background:#073b82;color:#fff;border-radius:18px;padding:10px;font-size:10px;font-weight:800}
+    .evergreen{margin-top:14px}.ever-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;padding:12px}.ever img{height:90px;object-fit:cover;border-radius:6px}.ever h3{font-size:10px;line-height:1.25;margin:6px 0 2px}.ever p{font-size:9px;color:#758596;margin:0}
+    .error{padding:25px;background:#fff;border-radius:8px;color:#c11}
+    footer{background:#071a3d;color:#fff;text-align:center;padding:28px 15px;margin-top:30px;font-size:12px}
+    @media(max-width:950px){.hero-grid{grid-template-columns:2fr 1fr}.rightcol{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.content-grid{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:12px}.four,.video-grid,.meaning{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:650px){.head{min-height:76px}.brand b{font-size:21px}.mark{width:48px;height:42px}.date{display:none}.hero-grid,.lower-grid{grid-template-columns:1fr}.rightcol,.sidebar{grid-template-columns:1fr}.hero,.hero img{height:330px;min-height:330px}.hero h1{font-size:24px}.four,.video-grid,.meaning,.ever-grid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(5,120px);overflow:auto}.province-grid{grid-template-columns:repeat(5,145px);overflow:auto}.newsmini img{height:110px}.ticker .time{display:none}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap head">
+      <a class="brand" href="/">
+        <div class="mark"></div>
+        <div><b>REPÚBLICA <span>ACTUAL</span></b><small>LAS NOTICIAS DE HOY, SIEMPRE CONTIGO</small></div>
+      </a>
+      <div class="date">{fechaCabecera}</div>
     </div>
+  </div>
 
-    <header class="header">
-      <div class="header-inner">
-        <a href="/" class="logo">
-          <div class="logo-icon"></div>
+  <nav class="nav"><div class="wrap navin">
+    <a href="/">⌂ Inicio</a><a href="/categoria/nacionales">▣ Nacionales</a><a href="/categoria/politica">♜ Política</a>
+    <a href="/categoria/economia">▥ Economía</a><a href="/categoria/deportes">⚽ Deportes</a>
+    <a href="/categoria/entretenimiento">★ Entretenimiento</a><a href="/categoria/mundo">◉ Mundo</a><a href="/categoria/tecnologia">⌘ Tecnología</a>
+  </div></nav>
 
-          <div class="logo-text">
-            <strong>REPÚBLICA <span>ACTUAL</span></strong>
-            <small>NOTICIAS DE REPÚBLICA DOMINICANA Y EL MUNDO</small>
-          </div>
-        </a>
-      </div>
-    </header>
+  <div class="ticker"><div class="wrap tickerin">
+    <span class="flash">⚡ ÚLTIMA HORA</span>
+    <a id="ticker-link" href={principal ? enlace(principal) : '#'}>{principal?.titulo || 'República Actual'}</a>
+    <span class="time">Hace poco</span>
+  </div></div>
 
-    <nav>
-      <div class="nav-inner">
-        <a href="/">INICIO</a>
-        <a href="/categoria/nacionales">NACIONALES</a>
-        <a href="/categoria/politica">POLÍTICA</a>
-        <a href="/categoria/economia">ECONOMÍA</a>
-        <a href="/categoria/deportes">DEPORTES</a>
-        <a href="/categoria/mundo">MUNDO</a>
-        <a href="/categoria/entretenimiento">ENTRETENIMIENTO</a>
-        <a href="/categoria/salud">SALUD</a>
-        <a href="/categoria/tecnologia">TECNOLOGÍA</a>
-        <a href="#" class="guias">GUÍAS</a>
-      </div>
-    </nav>
+  <script define:vars={{ tickerData: ticker.map(n => ({ titulo:n.titulo, href:enlace(n) })) }}>
+    const a=document.getElementById('ticker-link'); let i=0;
+    if(a && tickerData.length>1) setInterval(()=>{i=(i+1)%tickerData.length;a.style.opacity='0';setTimeout(()=>{a.textContent=tickerData[i].titulo;a.href=tickerData[i].href;a.style.opacity='1'},180)},5000);
+  </script>
 
-    <section class="ticker">
-      <div class="ticker-inner">
-        <span class="ticker-label">● ÚLTIMA HORA</span>
-        <span class="ticker-text">
-          República Actual: últimas noticias de República Dominicana
-        </span>
-      </div>
-    </section>
+  <main class="wrap">
+    {errorConexion ? <div class="error">{errorConexion}</div> : (
+      <>
+        <div class="hero-grid">
+          <a class="hero" href={principal ? enlace(principal) : '#'}>
+            <img src={imagen(principal,'principal')} alt={principal?.titulo || 'República Actual'} />
+            <div class="hero-copy">
+              <span class="pill">{categoria(principal)}</span>
+              <h1>{principal?.titulo || 'República Actual'}</h1>
+              <p>{resumen(principal?.contenido || '',190)}</p>
+              <div class="meta">◷ {fecha(principal)}</div>
+            </div>
+          </a>
 
-    <main>
-      <section class="hero">
-        <article class="principal">
-          <img
-            src={noticias.principal.imagen}
-            alt={noticias.principal.titulo}
-          />
+          <section class="rd-card">
+            <div class="boxhead">◉ RD AHORA <span class="pill" style="margin-left:auto">● EN VIVO</span></div>
+            <div class="map"><span class="map-pin">Santo Domingo<br/>Noticias ahora</span></div>
+            <div class="province-counts"><span>Todas<b>{noticias.length}</b></span><span>Santiago<b>4</b></span><span>S.D.<b>5</b></span><span>La Vega<b>2</b></span><span>P. Plata<b>1</b></span></div>
+          </section>
 
-          <div class="principal-content">
-            <span class="tag">
-              {noticias.principal.categoria}
-            </span>
-
-            <h1>{noticias.principal.titulo}</h1>
-
-            <p>{noticias.principal.descripcion}</p>
-
-            <div class="time">◷ Hace 1 hora</div>
-          </div>
-        </article>
-
-        <div class="side-news">
-          {
-            noticias.laterales.map((item) => (
-              <article class="side-card">
-                <img src={item.imagen} alt={item.titulo} />
-
-                <div>
-                  <span class="category">
-                    {item.categoria}
-                  </span>
-
-                  <h3>{item.titulo}</h3>
-
-                  <div class="time">◷ Hace 2 horas</div>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <section class="three-columns">
-        <div class="box">
-          <h2 class="box-title red-title">
-            🔥 LO MÁS LEÍDO
-          </h2>
-
-          <ol class="ranking">
-            {
-              noticias.masLeido.map((titulo, index) => (
-                <li>
-                  <span class="ranking-number">
-                    {index + 1}
-                  </span>
-
-                  <span>{titulo}</span>
-                </li>
-              ))
-            }
-          </ol>
+          <aside class="rightcol">
+            <section class="sidebox weather">
+              <div class="boxhead" style="padding:0 0 10px;border:0">☁ CLIMA EN RD</div>
+              <div class="weather-row"><span class="sun">🌤️</span><div><strong>28°C</strong><br/><small>Santo Domingo<br/>Parcialmente nublado</small></div></div>
+              <div class="forecast"><span>Mar<b>31°</b></span><span>Mié<b>32°</b></span><span>Jue<b>31°</b></span><span>Vie<b>30°</b></span></div>
+            </section>
+            <section class="sidebox trends">
+              <div class="boxhead">🔥 TEMAS DEL MOMENTO</div>
+              <ol>{temas.map((n,i)=><li><span class="num">{i+1}</span><a href={enlace(n)}>{categoria(n)}</a></li>)}</ol>
+            </section>
+          </aside>
         </div>
 
-        <div class="box">
-          <h2 class="box-title green-title">
-            🌱 INFORMACIÓN ÚTIL
-          </h2>
-
-          {
-            noticias.informacion.map((item) => (
-              <article class="info-item">
-                <img src={item.imagen} alt={item.titulo} />
-                <strong>{item.titulo}</strong>
-              </article>
-            ))
-          }
+        <div class="four">
+          {destacadas.map((n,i)=><a class="newsmini" href={enlace(n)}><img src={imagen(n,`dest${i}`)} alt={n.titulo}/><div class="pad"><span class="cat">{categoria(n)}</span><h3>{n.titulo}</h3><div class="meta">◷ {fecha(n)}</div></div></a>)}
         </div>
 
-        <div class="box development">
-          <h2 class="box-title orange-title">
-            📈 EN DESARROLLO
-          </h2>
-
-          <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-            alt="Noticia en desarrollo"
-          />
-
-          <h2>
-            República Actual sigue las noticias en desarrollo
-          </h2>
-
-          <p>
-            Mantente informado sobre los acontecimientos
-            importantes que ocurren durante el día.
-          </p>
-
-          <div class="time">◷ Actualizado recientemente</div>
-        </div>
-      </section>
-
-      <section class="categories-grid">
-        {
-          noticias.categorias.map((categoria) => (
-            <article class="category-box">
-              <div
-                class={`category-heading ${categoria.clase}`}
-              >
-                {categoria.nombre}
-              </div>
-
-              <div class="category-main">
-                <img
-                  src={categoria.imagen}
-                  alt={categoria.principal}
-                />
-
-                <h3>{categoria.principal}</h3>
-              </div>
-
-              {
-                categoria.noticias.map((titulo) => (
-                  <div class="mini-title">
-                    {titulo}
-                  </div>
-                ))
-              }
-            </article>
-          ))
-        }
-      </section>
-
-      <section class="secondary-grid">
-        {
-          secundarias.map((item) => (
-            <article class="secondary-card">
-              <div
-                class={`category-heading ${item.clase}`}
-              >
-                {item.nombre}
-              </div>
-
-              <img src={item.imagen} alt={item.titulo} />
-
-              <h3>{item.titulo}</h3>
-
-              <div class="time">◷ Hace algunas horas</div>
-            </article>
-          ))
-        }
-      </section>
-
-      <section class="latest">
-        <div class="latest-header">
-          <h2>◷ ÚLTIMAS NOTICIAS</h2>
-          <span>Ver todas →</span>
+        <div class="content-grid">
+          <section class="section">
+            <div class="boxhead">⚡ EN 60 SEGUNDOS <span class="more">Ver más →</span></div>
+            <div class="section-body video-grid">
+              {videoCards.map((n,i)=><a class="video" href={enlace(n)}><img src={imagen(n,`vid${i}`)} alt={n.titulo}/><span class="play">▶</span><h3>{n.titulo}</h3></a>)}
+            </div>
+          </section>
+          <aside class="sidebar">
+            <section class="sidebox audio">
+              <div class="audioicon">🎧</div><b>ESCUCHAR REPÚBLICA ACTUAL</b><p style="font-size:10px">Resumen de las principales noticias del día</p>
+              <button type="button">▶ Reproducir ahora</button><div class="wave">▂▅▃▆▂▇▃▅▂▆▃▇▂▅▃</div>
+            </section>
+          </aside>
         </div>
 
-        <div class="latest-grid">
-          <article class="latest-card">
-            Nuevos programas y servicios son anunciados en el país
-          </article>
-
-          <article class="latest-card">
-            Autoridades ofrecen importantes informaciones
-          </article>
-
-          <article class="latest-card">
-            Anuncian mejoras en diferentes servicios públicos
-          </article>
-
-          <article class="latest-card">
-            República Dominicana participa en encuentro internacional
-          </article>
+        <div class="content-grid">
+          <section class="section">
+            <div class="boxhead">💡 ¿QUÉ SIGNIFICA ESTO PARA MÍ? <span class="more">Ver más →</span></div>
+            <div class="section-body meaning">
+              <div class="meaning-card"><b>💰 TU DINERO</b><p>Cómo te afecta en tu economía personal.</p></div>
+              <div class="meaning-card"><b style="color:#e32b3b">🛡 TU SEGURIDAD</b><p>Impacto en tu comunidad y familia.</p></div>
+              <div class="meaning-card"><b style="color:#1769aa">📄 TUS TRÁMITES</b><p>Qué debes saber y qué puedes hacer.</p></div>
+              <div class="meaning-card"><b style="color:#8c3bc2">🚌 TU TRANSPORTE</b><p>Cambios en el tránsito y transporte público.</p></div>
+            </div>
+          </section>
+          <aside class="sidebox">
+            <div class="boxhead">⚙ HERRAMIENTAS ÚTILES</div>
+            <div class="tools"><div class="tool">▣ Tipo de cambio actualizado　›</div><div class="tool">☁ Estado del clima en tu provincia　›</div><div class="tool">▦ Calendario de días feriados　›</div><div class="tool">☎ Teléfonos de emergencia　›</div><div class="tool">⌂ Guías de trámites en RD　›</div></div>
+          </aside>
         </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <strong>REPÚBLICA ACTUAL</strong>
+        <div class="lower-grid">
+          <section class="section">
+            <div class="boxhead">◷ DESDE EL PRINCIPIO</div>
+            <div class="timeline">{timeline.map((n)=><a class="event" href={enlace(n)}><b>{fecha(n)}</b>{n.titulo?.slice(0,55)}</a>)}</div>
+          </section>
+          <section class="section">
+            <div class="boxhead">🔗 NOTICIAS RELACIONADAS</div>
+            <div class="related">{relacionados.map((n,i)=><a href={enlace(n)}><img src={imagen(n,`rel${i}`)} alt=""/><span>{n.titulo}</span></a>)}</div>
+          </section>
+        </div>
 
-      <p>
-        Noticias de República Dominicana y el mundo
-      </p>
-    </footer>
-  </body>
+        <div class="lower-grid">
+          <section class="section">
+            <div class="boxhead">📍 NOTICIAS POR PROVINCIA <span class="more">Ver todas →</span></div>
+            <div class="province-grid">{provincias.map(([nombre,n],i)=><a class="province" href={n?enlace(n):'#'}><img src={imagen(n,`prov${i}`)} alt={nombre}/>{nombre}<small>Ver noticias</small></a>)}</div>
+          </section>
+          <section class="archive">
+            <div class="boxhead">▣ ARCHIVO HISTÓRICO</div>
+            <div class="archive-controls"><select><option>Día</option><option>29</option></select><select><option>Mes</option><option>Septiembre</option></select><select><option>Año</option><option>2026</option></select><select><option>Hora</option><option>8:00 PM</option></select><button>Ver noticias de ese momento →</button></div>
+          </section>
+        </div>
+
+        <section class="section evergreen">
+          <div class="boxhead">♻ NOTICIAS QUE NO CADUCAN <span class="more">Ver más →</span></div>
+          <div class="ever-grid">{evergreen.map((n,i)=><a class="ever" href={enlace(n)}><img src={imagen(n,`ever${i}`)} alt={n.titulo}/><h3>{n.titulo}</h3><p>{resumen(n.contenido,70)}</p></a>)}</div>
+        </section>
+      </>
+    )}
+  </main>
+
+  <footer>© 2026 República Actual · Plantilla de prueba — la portada principal no ha sido modificada.</footer>
+</body>
 </html>
