@@ -1,7 +1,7 @@
 ---
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -9,9 +9,7 @@
   <title>Administración | República Actual</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -20,18 +18,11 @@
       color: #102d46;
     }
 
-    button,
-    input,
-    textarea,
-    select {
-      font-family: inherit;
+    button, input, select {
+      font: inherit;
     }
 
-    .oculto {
-      display: none !important;
-    }
-
-    /* LOGIN */
+    .oculto { display: none !important; }
 
     #login {
       min-height: 100vh;
@@ -41,80 +32,64 @@
       padding: 20px;
     }
 
+    .login-box,
+    .panel {
+      background: white;
+      border: 1px solid #e0e6ec;
+      border-radius: 12px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.06);
+    }
+
     .login-box {
       width: 100%;
       max-width: 420px;
-      background: white;
-      padding: 35px;
-      border-radius: 12px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.08);
+      padding: 34px;
     }
 
     .logo {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .logo h1 {
       margin: 0;
       font-size: 27px;
-      font-weight: 800;
-      color: #102d46;
     }
 
-    .logo h1 span {
-      color: #e52b32;
-    }
+    .logo span { color: #e52b32; }
 
     .logo p {
-      margin: 8px 0 0;
       color: #718096;
       font-size: 13px;
     }
 
-    .login-box h2 {
-      margin: 0 0 20px;
-    }
-
     label {
       display: block;
-      margin-bottom: 7px;
       font-size: 13px;
       font-weight: 700;
+      margin-bottom: 7px;
     }
 
-    input,
-    textarea,
-    select {
+    .campo { margin-bottom: 17px; }
+
+    input, select {
       width: 100%;
       border: 1px solid #d6dde5;
       border-radius: 7px;
       padding: 12px;
-      font-size: 14px;
-      outline: none;
       background: white;
+      outline: none;
     }
 
     input:focus,
-    textarea:focus,
     select:focus {
       border-color: #102d46;
-    }
-
-    textarea {
-      min-height: 220px;
-      resize: vertical;
-    }
-
-    .campo {
-      margin-bottom: 17px;
     }
 
     .btn {
       border: 0;
       border-radius: 7px;
       padding: 11px 16px;
-      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -122,10 +97,6 @@
     .btn-principal {
       background: #102d46;
       color: white;
-    }
-
-    .btn-principal:hover {
-      background: #173d5d;
     }
 
     .btn-rojo {
@@ -144,12 +115,12 @@
     }
 
     .mensaje {
+      display: none;
       margin-top: 14px;
       padding: 11px;
-      border-radius: 6px;
+      border-radius: 7px;
       font-size: 13px;
       text-align: center;
-      display: none;
     }
 
     .mensaje.error {
@@ -164,23 +135,17 @@
       color: #166534;
     }
 
-    /* ADMIN */
-
-    #admin {
-      min-height: 100vh;
-    }
-
     .topbar {
-      background: #102d46;
-      color: white;
-      padding: 16px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
+      background: #102d46;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
     }
 
     .topbar h1 {
@@ -188,9 +153,7 @@
       font-size: 20px;
     }
 
-    .topbar small {
-      color: #cbd8e4;
-    }
+    .topbar small { color: #cbd8e4; }
 
     .contenedor {
       max-width: 1200px;
@@ -198,23 +161,21 @@
       padding: 25px;
     }
 
-    /* MENU */
-
     .menu {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     .menu button {
       border: 1px solid #d6dde5;
       background: white;
       color: #102d46;
-      padding: 10px 16px;
+      padding: 10px 15px;
       border-radius: 7px;
-      cursor: pointer;
       font-weight: 700;
+      cursor: pointer;
     }
 
     .menu button.activo {
@@ -222,47 +183,37 @@
       color: white;
     }
 
-    /* ESTADISTICAS */
-
     .estadisticas {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-bottom: 25px;
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     .stat {
       background: white;
       border: 1px solid #e0e6ec;
       border-radius: 10px;
-      padding: 20px;
+      padding: 18px;
     }
 
-    .stat .numero {
+    .stat b {
       display: block;
-      font-size: 30px;
-      font-weight: 800;
-      margin-bottom: 5px;
+      font-size: 29px;
     }
 
-    .stat .texto {
+    .stat span {
+      font-size: 12px;
       color: #718096;
-      font-size: 13px;
     }
-
-    /* TARJETAS */
 
     .panel {
-      background: white;
-      border: 1px solid #e0e6ec;
-      border-radius: 10px;
-      padding: 24px;
+      padding: 22px;
       margin-bottom: 20px;
     }
 
     .panel h2 {
-      margin-top: 0;
-      font-size: 20px;
+      margin: 0 0 20px;
     }
 
     .fila {
@@ -271,123 +222,12 @@
       gap: 18px;
     }
 
-    /* BOTONES */
-
     .acciones {
       display: flex;
       gap: 9px;
       flex-wrap: wrap;
       margin-top: 18px;
     }
-
-    /* NOTICIAS */
-
-    .noticia-admin {
-      border: 1px solid #e0e6ec;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .noticia-info {
-      min-width: 0;
-    }
-
-    .noticia-info h3 {
-      margin: 0 0 7px;
-      font-size: 16px;
-    }
-
-    .noticia-info p {
-      margin: 0;
-      color: #718096;
-      font-size: 12px;
-    }
-
-    .estado {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 4px 8px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .estado-publicado {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .estado-borrador {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .acciones-noticia {
-      display: flex;
-      gap: 7px;
-      flex-shrink: 0;
-    }
-
-    /* VISITANTES */
-
-    .visitantes {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #f3f5f7;
-      border-left: 4px solid #16a34a;
-      padding: 18px;
-      border-radius: 7px;
-    }
-
-    .punto {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #16a34a;
-      animation: pulsar 1.5s infinite;
-    }
-
-    @keyframes pulsar {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: .4;
-        transform: scale(.8);
-      }
-    }
-
-    .visitantes strong {
-      font-size: 25px;
-    }
-
-    /* CARGANDO */
-
-    .cargando {
-      text-align: center;
-      padding: 30px;
-      color: #718096;
-    }
-
-    #herramientasNoticias input,
-    #herramientasNoticias select {
-      margin: 0;
-    }
-
-    #resultadoVacio {
-      border: 1px dashed #d6dde5;
-      border-radius: 8px;
-    }
-
-    /* EDITOR PROFESIONAL */
 
     .editor-toolbar {
       display: flex;
@@ -401,176 +241,173 @@
     }
 
     .editor-toolbar button,
-    .editor-toolbar select,
-    .editor-toolbar input[type="color"] {
+    .editor-toolbar select {
       width: auto;
-      min-width: 38px;
-      height: 36px;
-      padding: 6px 9px;
+      padding: 7px 9px;
       border: 1px solid #d6dde5;
       border-radius: 5px;
       background: white;
       cursor: pointer;
-      font-weight: 700;
-    }
-
-    .editor-toolbar input[type="color"] {
-      padding: 3px;
     }
 
     #contenido {
-      min-height: 360px;
+      min-height: 380px;
       border: 1px solid #d6dde5;
       border-radius: 0 0 7px 7px;
       padding: 18px;
       outline: none;
-      background: white;
-      color: #111827;
       font-size: 17px;
-      line-height: 1.75;
-    }
-
-    #contenido:focus {
-      border-color: #102d46;
-    }
-
-    #contenido h2 {
-      color: #102d46;
-      font-size: 25px;
-      margin: 28px 0 10px;
-    }
-
-    #contenido h3 {
-      color: #102d46;
-      font-size: 21px;
-      margin: 24px 0 8px;
-    }
-
-    #contenido p { margin: 0 0 16px; }
-    #contenido ul, #contenido ol { padding-left: 28px; }
-    #contenido blockquote {
-      margin: 18px 0;
-      padding: 12px 16px;
-      border-left: 4px solid #102d46;
-      background: #f3f6f9;
-    }
-
-
-    /* MULTIMEDIA + TAMAÑO DE TEXTO */
-
-    .media-box {
-      border: 1px solid #d6dde5;
-      border-radius: 8px;
-      padding: 14px;
-      background: #f8fafc;
-    }
-
-    .media-box input[type="file"] {
+      line-height: 1.7;
+      color: #111827;
       background: white;
     }
-
-    .media-ayuda {
-      margin: 7px 0 0;
-      color: #718096;
-      font-size: 12px;
-    }
-
-    .media-preview {
-      margin-top: 12px;
-      display: none;
-    }
-
-    .media-preview img,
-    .media-preview video {
-      display: block;
-      max-width: 100%;
-      max-height: 320px;
-      border-radius: 8px;
-      background: #0f172a;
-    }
-
-    #tamanoTexto {
-      min-width: 90px;
-    }
-
-
-    /* EDITOR AVANZADO */
 
     #contenido img,
     #contenido video {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      cursor: pointer;
       display: block;
       margin: 18px auto;
+      border-radius: 8px;
     }
 
-    #contenido .media-seleccionado {
-      outline: 3px solid #2563eb;
-      outline-offset: 3px;
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
     }
 
-    .media-controls {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-      padding: 10px;
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
       border: 1px solid #d6dde5;
-      border-radius: 7px;
+      border-radius: 9px;
+      padding: 14px;
       background: #f8fafc;
     }
 
-    .media-controls.activo {
-      display: flex;
-    }
-
-    .media-controls button,
-    .media-controls select {
+    .check input {
       width: auto;
-      min-width: 70px;
-      padding: 8px 10px;
+      margin-top: 3px;
     }
 
-    /* RESPONSIVE */
+    .check label { margin: 0; }
 
-    @media (max-width: 900px) {
-      .estadisticas {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .check small {
+      display: block;
+      color: #718096;
+      margin-top: 4px;
+      font-weight: normal;
     }
 
-    @media (max-width: 700px) {
-      .contenedor {
-        padding: 15px;
-      }
+    .herramientas {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
 
-      .fila {
-        grid-template-columns: 1fr;
-      }
+    .herramientas input {
+      flex: 1;
+      min-width: 220px;
+    }
 
+    .herramientas select {
+      width: auto;
+      min-width: 170px;
+    }
+
+    .noticia {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid #e0e6ec;
+      border-radius: 9px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .noticia h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: #718096;
+    }
+
+    .badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 7px;
+      border-radius: 20px;
+      background: #e9eef3;
+    }
+
+    .pub {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .draft {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .util {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .portada {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .noticia-acciones {
+      display: flex;
+      gap: 7px;
+      flex-shrink: 0;
+    }
+
+    .cargando {
+      text-align: center;
+      padding: 28px;
+      color: #718096;
+    }
+
+    @media (max-width: 800px) {
       .estadisticas {
         grid-template-columns: 1fr 1fr;
       }
 
-      .noticia-admin {
-        flex-direction: column;
-        align-items: stretch;
+      .fila,
+      .checks {
+        grid-template-columns: 1fr;
       }
 
-      .acciones-noticia {
+      .noticia {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .noticia-acciones {
         width: 100%;
       }
 
-      .acciones-noticia button {
+      .noticia-acciones button {
         flex: 1;
-      }
-
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
@@ -578,949 +415,2140 @@
 
 <body>
 
-  <!-- =========================
-       LOGIN
-  ========================== -->
+<section id="login">
+  <div class="login-box">
 
-  <section id="login">
-
-    <div class="login-box">
-
-      <div class="logo">
-        <h1>REPÚBLICA<span>•</span>ACTUAL</h1>
-        <p>Panel de administración</p>
-      </div>
-
-      <h2>Iniciar sesión</h2>
-
-      <form id="loginForm">
-
-        <div class="campo">
-          <label for="email">Correo electrónico</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="admin@republicaactual.net"
-            required
-          />
-        </div>
-
-        <div class="campo">
-          <label for="password">Contraseña</label>
-          <input
-            id="password"
-            type="password"
-            required
-          />
-        </div>
-
-        <button
-          class="btn btn-principal"
-          id="loginButton"
-          type="submit"
-          style="width:100%;"
-        >
-          Entrar al panel
-        </button>
-
-        <div id="loginMensaje" class="mensaje"></div>
-
-      </form>
-
+    <div class="logo">
+      <h1>REPÚBLICA<span>•</span>ACTUAL</h1>
+      <p>Panel de administración</p>
     </div>
 
-  </section>
+    <h2>Iniciar sesión</h2>
 
+    <form id="loginForm">
 
-  <!-- =========================
-       ADMIN
-  ========================== -->
+      <div class="campo">
+        <label>Correo electrónico</label>
+        <input id="email" type="email" required />
+      </div>
 
-  <section id="admin" class="oculto">
-
-    <header class="topbar">
-
-      <div>
-        <h1>República Actual — Administración</h1>
-        <small id="usuarioAdmin"></small>
+      <div class="campo">
+        <label>Contraseña</label>
+        <input id="password" type="password" required />
       </div>
 
       <button
-        class="btn btn-rojo"
-        id="cerrarSesion"
+        id="loginButton"
+        class="btn btn-principal"
+        style="width:100%"
       >
-        Cerrar sesión
+        Entrar al panel
       </button>
 
-    </header>
+      <div id="loginMensaje" class="mensaje"></div>
+
+    </form>
+  </div>
+</section>
 
 
-    <div class="contenedor">
+<section id="admin" class="oculto">
 
-      <!-- MENU -->
+  <header class="topbar">
 
-      <nav class="menu">
+    <div>
+      <h1>República Actual — Administración</h1>
+      <small id="usuarioAdmin"></small>
+    </div>
 
-        <button
-          class="activo"
-          data-seccion="inicio"
-        >
-          📊 Resumen
-        </button>
+    <button id="cerrarSesion" class="btn btn-rojo">
+      Cerrar sesión
+    </button>
 
-        <button
-          data-seccion="crear"
-        >
-          📝 Publicar noticia
-        </button>
+  </header>
 
-        <button
-          data-seccion="noticias"
-        >
-          📰 Noticias
-        </button>
+  <main class="contenedor">
 
-      </nav>
+    <nav class="menu">
+      <button class="activo" data-seccion="inicio">
+        📊 Resumen
+      </button>
+
+      <button data-seccion="crear">
+        📝 Publicar
+      </button>
+
+      <button data-seccion="noticias">
+        📰 Noticias
+      </button>
+    </nav>
 
 
-      <!-- =========================
-           RESUMEN
-      ========================== -->
+    <section id="seccion-inicio">
 
-      <div id="seccion-inicio">
+      <div class="estadisticas">
 
-        <div class="estadisticas">
-
-          <div class="stat">
-            <span
-              class="numero"
-              id="totalPublicadas"
-            >
-              0
-            </span>
-
-            <span class="texto">
-              Noticias publicadas
-            </span>
-          </div>
-
-          <div class="stat">
-            <span
-              class="numero"
-              id="totalBorradores"
-            >
-              0
-            </span>
-
-            <span class="texto">
-              Borradores
-            </span>
-          </div>
-
-          <div class="stat">
-            <span
-              class="numero"
-              id="totalNoticias"
-            >
-              0
-            </span>
-
-            <span class="texto">
-              Total de noticias
-            </span>
-          </div>
-
-          <div class="stat">
-            <span
-              class="numero"
-              id="totalVisitantes"
-            >
-              1
-            </span>
-
-            <span class="texto">
-              Visitantes en vivo
-            </span>
-          </div>
-
+        <div class="stat">
+          <b id="totalPublicadas">0</b>
+          <span>Publicadas</span>
         </div>
 
-
-        <div class="panel">
-
-          <h2>👥 Visitantes en vivo</h2>
-
-          <div class="visitantes">
-
-            <span class="punto"></span>
-
-            <div>
-              <strong id="visitantesNumero">
-                1
-              </strong>
-
-              <div>
-                personas navegando ahora
-              </div>
-            </div>
-
-          </div>
-
+        <div class="stat">
+          <b id="totalBorradores">0</b>
+          <span>Borradores</span>
         </div>
 
+        <div class="stat">
+          <b id="totalNoticias">0</b>
+          <span>Total</span>
+        </div>
 
-        <div class="panel">
-
-          <h2>📌 Acciones rápidas</h2>
-
-          <div class="acciones">
-
-            <button
-              class="btn btn-principal"
-              id="irCrear"
-            >
-              📝 Crear noticia
-            </button>
-
-            <button
-              class="btn btn-gris"
-              id="irNoticias"
-            >
-              📰 Administrar noticias
-            </button>
-
-          </div>
-
+        <div class="stat">
+          <b id="totalUtil">0</b>
+          <span>República Útil</span>
         </div>
 
       </div>
 
+      <div class="panel">
+        <h2>📌 Acciones rápidas</h2>
 
-      <!-- =========================
-           CREAR / EDITAR
-      ========================== -->
+        <div class="acciones">
 
-      <div
-        id="seccion-crear"
-        class="oculto"
-      >
+          <button class="btn btn-principal" id="irCrear">
+            📝 Crear entrada
+          </button>
 
-        <div class="panel">
+          <button class="btn btn-gris" id="irNoticias">
+            📰 Administrar noticias
+          </button>
 
-          <h2 id="tituloEditor">
-            📝 Nueva noticia
-          </h2>
+        </div>
+      </div>
 
-          <form id="noticiaForm">
+    </section>
 
-            <input
-              type="hidden"
-              id="noticiaId"
-            />
+
+    <section id="seccion-crear" class="oculto">
+
+      <div class="panel">
+
+        <h2 id="tituloEditor">
+          📝 Nueva entrada
+        </h2>
+
+        <form id="noticiaForm">
+
+          <input type="hidden" id="noticiaId" />
+
+          <div class="campo">
+            <label>Título</label>
+            <input id="titulo" required />
+          </div>
+
+          <div class="fila">
 
             <div class="campo">
+              <label>Categoría</label>
 
-              <label for="titulo">
-                Título
-              </label>
+              <select id="categoria">
+                <option>Nacionales</option>
+                <option>Política</option>
+                <option>Economía</option>
+                <option>Deportes</option>
+                <option>Entretenimiento</option>
+                <option>Mundo</option>
+                <option>Tecnología</option>
+                <option>Actualidad</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label>Imagen principal (URL)</label>
+              <input
+                id="imagen"
+                type="url"
+                placeholder="https://..."
+              />
+            </div>
+
+          </div>
+
+
+          <div class="checks">
+
+            <div class="check">
 
               <input
-                id="titulo"
-                type="text"
-                placeholder="Escribe el título de la noticia"
-                required
+                id="republicaUtil"
+                type="checkbox"
               />
 
-            </div>
+              <label for="republicaUtil">
+                🇩🇴 República Útil
 
-
-            <div class="fila">
-
-              <div class="campo">
-
-                <label for="categoria">
-                  Categoría
-                </label>
-
-                <select id="categoria">
-
-                  <option value="Nacionales">
-                    Nacionales
-                  </option>
-
-                  <option value="Política">
-                    Política
-                  </option>
-
-                  <option value="Economía">
-                    Economía
-                  </option>
-
-                  <option value="Deportes">
-                    Deportes
-                  </option>
-
-                  <option value="Entretenimiento">
-                    Entretenimiento
-                  </option>
-
-                  <option value="Mundo">
-                    Mundo
-                  </option>
-
-                  <option value="Tecnología">
-                    Tecnología
-                  </option>
-
-                  <option value="Actualidad">
-                    Actualidad
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="campo">
-
-                <label for="imagen">
-                  Imagen principal
-                </label>
-
-                <input
-                  id="imagen"
-                  type="url"
-                  placeholder="https://... (opcional si subes una imagen)"
-                />
-
-              </div>
-
-            </div>
-
-
-            <div class="fila">
-
-              <div class="campo">
-                <label for="imagenArchivo">Subir imagen desde la PC</label>
-                <div class="media-box">
-                  <input
-                    id="imagenArchivo"
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp,image/gif"
-                  />
-                  <p class="media-ayuda">Subida directa temporalmente desactivada durante la migración. Usa el campo URL de imagen.</p>
-                  <div id="imagenPreview" class="media-preview"></div>
-                </div>
-              </div>
-
-              <div class="campo">
-                <label for="videoArchivo">Subir video desde la PC</label>
-                <div class="media-box">
-                  <input
-                    id="videoArchivo"
-                    type="file"
-                    accept="video/mp4,video/webm,video/ogg"
-                  />
-                  <p class="media-ayuda">MP4, WEBM u OGG. El video se insertará dentro del contenido.</p>
-                  <div id="videoPreview" class="media-preview"></div>
-                </div>
-              </div>
-
-            </div>
-
-
-            <div class="campo">
-
-              <label for="contenido">
-                Contenido
+                <small>
+                  Incluye esta entrada en la sección permanente República Útil.
+                </small>
               </label>
 
-              <div class="editor-toolbar" id="editorToolbar">
-                <select id="formatoTexto" title="Formato">
-                  <option value="p">Párrafo</option>
-                  <option value="h2">Título H2</option>
-                  <option value="h3">Subtítulo H3</option>
-                </select>
-                <select id="tamanoTexto" title="Tamaño de letra">
-                  <option value="">Tamaño</option>
-                  <option value="12px">12 px</option>
-                  <option value="14px">14 px</option>
-                  <option value="16px">16 px</option>
-                  <option value="18px">18 px</option>
-                  <option value="20px">20 px</option>
-                  <option value="24px">24 px</option>
-                  <option value="28px">28 px</option>
-                  <option value="32px">32 px</option>
-                  <option value="36px">36 px</option>
-                  <option value="48px">48 px</option>
-                </select>
-                <button type="button" data-cmd="bold" title="Negrita"><b>B</b></button>
-                <button type="button" data-cmd="italic" title="Cursiva"><i>I</i></button>
-                <button type="button" data-cmd="underline" title="Subrayado"><u>U</u></button>
-                <input type="color" id="colorTexto" value="#111827" title="Color del texto" />
-                <button type="button" data-cmd="insertUnorderedList" title="Lista">• Lista</button>
-                <button type="button" data-cmd="insertOrderedList" title="Lista numerada">1. Lista</button>
-                <button type="button" data-cmd="justifyLeft" title="Alinear izquierda">⬅</button>
-                <button type="button" data-cmd="justifyCenter" title="Centrar">↔</button>
-                <button type="button" data-cmd="justifyRight" title="Alinear derecha">➡</button>
-                <button type="button" id="insertarEnlace" title="Insertar enlace">🔗</button>
-                <button type="button" id="limpiarFormato" title="Limpiar formato">Tx</button>
-                <button type="button" id="deshacer" title="Deshacer">↶</button>
-                <button type="button" id="rehacer" title="Rehacer">↷</button>
-                <button type="button" id="insertarImagenEditor" title="Insertar imagen dentro del texto">🖼️ Imagen</button>
-                <button type="button" id="insertarVideoEditor" title="Insertar video dentro del texto">🎬 Video</button>
-              </div>
-
-              <div
-                id="contenido"
-                contenteditable="true"
-                role="textbox"
-                aria-multiline="true"
-                data-placeholder="Escribe aquí el contenido de la noticia..."
-              ></div>
-
-              <div id="mediaControls" class="media-controls">
-                <strong>Elemento seleccionado:</strong>
-                <select id="mediaTamano" title="Tamaño">
-                  <option value="25%">25%</option>
-                  <option value="50%">50%</option>
-                  <option value="75%">75%</option>
-                  <option value="100%">100%</option>
-                </select>
-                <button type="button" class="btn btn-gris" id="mediaIzquierda">⬅ Izquierda</button>
-                <button type="button" class="btn btn-gris" id="mediaCentro">↔ Centro</button>
-                <button type="button" class="btn btn-gris" id="mediaDerecha">➡ Derecha</button>
-                <button type="button" class="btn btn-rojo" id="mediaEliminar">🗑️ Eliminar</button>
-              </div>
-
             </div>
 
 
-            <div class="acciones">
+            <div class="check">
 
-              <button
-                type="submit"
-                class="btn btn-verde"
-                id="publicarButton"
-              >
-                🚀 Publicar noticia
+              <input
+                id="republicaUtilPortada"
+                type="checkbox"
+                disabled
+              />
+
+              <label for="republicaUtilPortada">
+                ⭐ Mostrar en portada
+
+                <small>
+                  Destaca esta entrada de República Útil en la página principal.
+                </small>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label>Contenido</label>
+
+            <div class="editor-toolbar">
+
+              <select id="formato">
+                <option value="p">Párrafo</option>
+                <option value="h2">Título H2</option>
+                <option value="h3">Subtítulo H3</option>
+              </select>
+
+              <button type="button" data-cmd="bold">
+                <b>B</b>
               </button>
 
-              <button
-                type="button"
-                class="btn btn-gris"
-                id="borradorButton"
-              >
-                💾 Guardar borrador
+              <button type="button" data-cmd="italic">
+                <i>I</i>
               </button>
 
-              <button
-                type="button"
-                class="btn btn-gris"
-                id="cancelarEdicion"
-              >
-                Cancelar
+              <button type="button" data-cmd="underline">
+                <u>U</u>
+              </button>
+
+              <button type="button" data-cmd="insertUnorderedList">
+                • Lista
+              </button>
+
+              <button type="button" data-cmd="insertOrderedList">
+                1. Lista
+              </button>
+
+              <button type="button" id="enlace">
+                🔗
+              </button>
+
+              <button type="button" id="imagenEditor">
+                🖼️ Imagen
+              </button>
+
+              <button type="button" id="videoEditor">
+                🎬 Video
+              </button>
+
+              <button type="button" data-cmd="undo">
+                ↶
+              </button>
+
+              <button type="button" data-cmd="redo">
+                ↷
               </button>
 
             </div>
 
             <div
-              id="noticiaMensaje"
-              class="mensaje"
+              id="contenido"
+              contenteditable="true"
             ></div>
-
-          </form>
-
-        </div>
-
-      </div>
-
-
-      <!-- =========================
-           NOTICIAS
-      ========================== -->
-
-      <div
-        id="seccion-noticias"
-        class="oculto"
-      >
-
-        <div class="panel">
-
-          <h2>📰 Noticias</h2>
-
-          <div id="listaNoticias">
-
-            <div class="cargando">
-              Cargando noticias...
-            </div>
 
           </div>
 
+
+          <div class="acciones">
+
+            <button
+              id="publicarButton"
+              class="btn btn-verde"
+            >
+              🚀 Publicar
+            </button>
+
+            <button
+              type="button"
+              id="borradorButton"
+              class="btn btn-gris"
+            >
+              💾 Guardar borrador
+            </button>
+
+            <button
+              type="button"
+              id="cancelar"
+              class="btn btn-gris"
+            >
+              Cancelar
+            </button>
+
+          </div>
+
+          <div
+            id="noticiaMensaje"
+            class="mensaje"
+          ></div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <section
+      id="seccion-noticias"
+      class="oculto"
+    >
+
+      <div class="panel">
+
+        <h2>📰 Noticias</h2>
+
+        <div class="herramientas">
+
+          <input
+            id="buscar"
+            type="search"
+            placeholder="🔎 Buscar noticia..."
+          />
+
+          <select id="filtro">
+            <option value="todas">Todas</option>
+            <option value="publicadas">Publicadas</option>
+            <option value="borradores">Borradores</option>
+            <option value="util">República Útil</option>
+          </select>
+
+          <button
+            id="actualizar"
+            class="btn btn-gris"
+          >
+            🔄 Actualizar
+          </button>
+
+        </div>
+
+        <div id="listaNoticias">
+          <div class="cargando">
+            Cargando...
+          </div>
         </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+  </main>
+
+</section>
 
 
-  <script>
-    /* =========================================================
-       REPÚBLICA ACTUAL — ADMIN
-       Firebase Authentication + Cloud Firestore (REST)
-       Sin dependencia de Supabase para noticias ni autenticación.
-       ========================================================= */
+<script>
 
-    const FIREBASE_API_KEY = import.meta.env.PUBLIC_FIREBASE_API_KEY;
-    const FIREBASE_PROJECT_ID = import.meta.env.PUBLIC_FIREBASE_PROJECT_ID;
-    const AUTH_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
-    const REFRESH_URL = `https://securetoken.googleapis.com/v1/token?key=${FIREBASE_API_KEY}`;
-    const FIRESTORE_BASE = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
+  /*
+   * FIREBASE
+   * Usamos directamente la configuración pública del proyecto.
+   * Ya no dependemos de PUBLIC_FIREBASE_API_KEY en Cloudflare.
+   */
 
-    const login = document.getElementById('login');
-    const admin = document.getElementById('admin');
-    const loginForm = document.getElementById('loginForm');
-    const loginButton = document.getElementById('loginButton');
-    const loginMensaje = document.getElementById('loginMensaje');
-    const cerrarSesion = document.getElementById('cerrarSesion');
-    const usuarioAdmin = document.getElementById('usuarioAdmin');
-    const noticiaForm = document.getElementById('noticiaForm');
-    const noticiaMensaje = document.getElementById('noticiaMensaje');
-    const listaNoticias = document.getElementById('listaNoticias');
-    const tituloEditor = document.getElementById('tituloEditor');
-    const noticiaId = document.getElementById('noticiaId');
-    const titulo = document.getElementById('titulo');
-    const categoria = document.getElementById('categoria');
-    const imagen = document.getElementById('imagen');
-    const imagenArchivo = document.getElementById('imagenArchivo');
-    const videoArchivo = document.getElementById('videoArchivo');
-    const imagenPreview = document.getElementById('imagenPreview');
-    const videoPreview = document.getElementById('videoPreview');
-    const contenido = document.getElementById('contenido');
-    const publicarButton = document.getElementById('publicarButton');
-    const borradorButton = document.getElementById('borradorButton');
-    const cancelarEdicion = document.getElementById('cancelarEdicion');
+  const FIREBASE_API_KEY =
+    'AIzaSyDZ39oMmjrcQ64X6jKCBisDdicH5H0goW4';
 
-    let sesionFirebase = null;
-    let noticiasCache = [];
-    let noticiaEditando = null;
-    let filtroActual = 'todas';
-    let textoBusqueda = '';
-    let mediaSeleccionado = null;
+  const FIREBASE_PROJECT_ID =
+    'republica-actual';
 
-    // Firebase Storage exige un plan que este proyecto no tiene actualmente.
-    // Se mantiene la opción de URL y se evita enviar archivos a Supabase.
-    if (imagenArchivo) imagenArchivo.disabled = true;
-    if (videoArchivo) videoArchivo.disabled = true;
-    document.querySelectorAll('.media-ayuda').forEach((p) => {
-      if (p.closest('.campo')?.querySelector('#imagenArchivo, #videoArchivo')) {
-        p.textContent = 'Subida directa temporalmente desactivada. Usa una URL de imagen/video mientras terminamos la migración de almacenamiento.';
-      }
-    });
+  const AUTH_URL =
+    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
 
-    function mostrarLogin() {
-      login.classList.remove('oculto');
-      admin.classList.add('oculto');
+  const REFRESH_URL =
+    `https://securetoken.googleapis.com/v1/token?key=${FIREBASE_API_KEY}`;
+
+  const FIRESTORE_BASE =
+    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
+
+
+  const $ = (id) =>
+    document.getElementById(id);
+
+  let sesion = null;
+  let noticias = [];
+  let editando = null;
+
+
+  function mensaje(
+    elemento,
+    texto,
+    tipo = 'error'
+  ) {
+
+    elemento.textContent = texto;
+    elemento.className =
+      `mensaje ${tipo}`;
+
+  }
+
+
+  function mostrarAdmin(activo) {
+
+    $('login').classList.toggle(
+      'oculto',
+      activo
+    );
+
+    $('admin').classList.toggle(
+      'oculto',
+      !activo
+    );
+
+  }
+
+
+  function guardarSesion(data) {
+
+    sesion = {
+
+      idToken:
+        data.idToken,
+
+      refreshToken:
+        data.refreshToken,
+
+      email:
+        data.email || '',
+
+      expiresAt:
+        Date.now() +
+        Number(data.expiresIn || 3600) *
+        1000 -
+        60000
+
+    };
+
+    sessionStorage.setItem(
+      'ra_admin_session',
+      JSON.stringify(sesion)
+    );
+
+  }
+
+
+  async function renovarSesion() {
+
+    if (!sesion?.refreshToken) {
+      throw new Error(
+        'Sesión vencida'
+      );
     }
 
-    function mostrarAdmin() {
-      login.classList.add('oculto');
-      admin.classList.remove('oculto');
-    }
+    const body =
+      new URLSearchParams({
 
-    function mensajeLogin(texto, tipo = 'error') {
-      loginMensaje.textContent = texto;
-      loginMensaje.className = `mensaje ${tipo}`;
-    }
+        grant_type:
+          'refresh_token',
 
-    function guardarSesion(data) {
-      sesionFirebase = {
-        idToken: data.idToken,
-        refreshToken: data.refreshToken,
-        email: data.email || '',
-        localId: data.localId || '',
-        expiresAt: Date.now() + (Number(data.expiresIn || 3600) * 1000) - 60000
-      };
-      sessionStorage.setItem('ra_firebase_session', JSON.stringify(sesionFirebase));
-    }
+        refresh_token:
+          sesion.refreshToken
 
-    function borrarSesion() {
-      sesionFirebase = null;
-      sessionStorage.removeItem('ra_firebase_session');
-    }
-
-    async function refrescarSesion() {
-      if (!sesionFirebase?.refreshToken) throw new Error('Sesión vencida');
-      const body = new URLSearchParams({
-        grant_type: 'refresh_token',
-        refresh_token: sesionFirebase.refreshToken
       });
-      const r = await fetch(REFRESH_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body
-      });
-      const data = await r.json();
-      if (!r.ok) throw new Error(data?.error?.message || 'No se pudo renovar la sesión');
-      sesionFirebase = {
-        ...sesionFirebase,
-        idToken: data.id_token,
-        refreshToken: data.refresh_token || sesionFirebase.refreshToken,
-        localId: data.user_id || sesionFirebase.localId,
-        expiresAt: Date.now() + (Number(data.expires_in || 3600) * 1000) - 60000
-      };
-      sessionStorage.setItem('ra_firebase_session', JSON.stringify(sesionFirebase));
-      return sesionFirebase.idToken;
-    }
 
-    async function obtenerToken() {
-      if (!sesionFirebase) throw new Error('Debes iniciar sesión.');
-      if (Date.now() >= Number(sesionFirebase.expiresAt || 0)) return refrescarSesion();
-      return sesionFirebase.idToken;
-    }
 
-    loginForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      loginButton.disabled = true;
-      loginButton.textContent = 'Entrando...';
-      try {
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
-        const r = await fetch(AUTH_URL, {
+    const respuesta =
+      await fetch(
+        REFRESH_URL,
+        {
+
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password, returnSecureToken: true })
-        });
-        const data = await r.json();
-        if (!r.ok) throw new Error(data?.error?.message || 'LOGIN_ERROR');
-        guardarSesion(data);
-        usuarioAdmin.textContent = data.email || email;
-        loginMensaje.className = 'mensaje';
-        mostrarAdmin();
-        await cargarTodo();
-      } catch (error) {
-        console.error(error);
-        mensajeLogin('Correo o contraseña incorrectos.');
-      } finally {
-        loginButton.disabled = false;
-        loginButton.textContent = 'Entrar al panel';
-      }
-    });
 
-    cerrarSesion.addEventListener('click', () => {
-      borrarSesion();
-      mostrarLogin();
-    });
+          headers: {
+            'Content-Type':
+              'application/x-www-form-urlencoded'
+          },
 
-    async function comprobarSesion() {
-      try {
-        const guardada = sessionStorage.getItem('ra_firebase_session');
-        if (!guardada) return mostrarLogin();
-        sesionFirebase = JSON.parse(guardada);
-        await obtenerToken();
-        usuarioAdmin.textContent = sesionFirebase.email || '';
-        mostrarAdmin();
-        await cargarTodo();
-      } catch (e) {
-        console.error(e);
-        borrarSesion();
-        mostrarLogin();
-      }
+          body
+
+        }
+      );
+
+
+    const data =
+      await respuesta.json();
+
+
+    if (!respuesta.ok) {
+
+      throw new Error(
+        data?.error?.message ||
+        'No se pudo renovar la sesión'
+      );
+
     }
 
-    function valorFirestore(v) {
-      if (!v || typeof v !== 'object') return null;
-      if ('nullValue' in v) return null;
-      if ('stringValue' in v) return v.stringValue;
-      if ('booleanValue' in v) return v.booleanValue;
-      if ('integerValue' in v) return Number(v.integerValue);
-      if ('doubleValue' in v) return Number(v.doubleValue);
-      if ('timestampValue' in v) return v.timestampValue;
-      if ('arrayValue' in v) return (v.arrayValue.values || []).map(valorFirestore);
-      if ('mapValue' in v) {
-        return Object.fromEntries(Object.entries(v.mapValue.fields || {}).map(([k, val]) => [k, valorFirestore(val)]));
+
+    sesion = {
+
+      ...sesion,
+
+      idToken:
+        data.id_token,
+
+      refreshToken:
+        data.refresh_token ||
+        sesion.refreshToken,
+
+      expiresAt:
+        Date.now() +
+        Number(data.expires_in || 3600) *
+        1000 -
+        60000
+
+    };
+
+
+    sessionStorage.setItem(
+      'ra_admin_session',
+      JSON.stringify(sesion)
+    );
+
+
+    return sesion.idToken;
+
+  }
+
+
+  async function obtenerToken() {
+
+    if (!sesion) {
+
+      throw new Error(
+        'Debes iniciar sesión'
+      );
+
+    }
+
+
+    if (
+      Date.now() >=
+      sesion.expiresAt
+    ) {
+
+      return renovarSesion();
+
+    }
+
+
+    return sesion.idToken;
+
+  }
+
+
+  $('loginForm')
+    .addEventListener(
+      'submit',
+      async (event) => {
+
+        event.preventDefault();
+
+        $('loginButton').disabled =
+          true;
+
+        $('loginButton').textContent =
+          'Entrando...';
+
+
+        try {
+
+          const respuesta =
+            await fetch(
+              AUTH_URL,
+              {
+
+                method: 'POST',
+
+                headers: {
+                  'Content-Type':
+                    'application/json'
+                },
+
+                body:
+                  JSON.stringify({
+
+                    email:
+                      $('email')
+                        .value
+                        .trim(),
+
+                    password:
+                      $('password')
+                        .value,
+
+                    returnSecureToken:
+                      true
+
+                  })
+
+              }
+            );
+
+
+          const data =
+            await respuesta.json();
+
+
+          if (!respuesta.ok) {
+
+            throw new Error(
+              data?.error?.message ||
+              'LOGIN_ERROR'
+            );
+
+          }
+
+
+          guardarSesion(data);
+
+          $('usuarioAdmin')
+            .textContent =
+            data.email || '';
+
+          mostrarAdmin(true);
+
+          await cargarTodo();
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          mensaje(
+            $('loginMensaje'),
+            'No se pudo iniciar sesión. Revisa el correo y la contraseña.'
+          );
+
+        } finally {
+
+          $('loginButton').disabled =
+            false;
+
+          $('loginButton').textContent =
+            'Entrar al panel';
+
+        }
+
       }
+    );
+
+
+  $('cerrarSesion').onclick =
+    () => {
+
+      sesion = null;
+
+      sessionStorage.removeItem(
+        'ra_admin_session'
+      );
+
+      mostrarAdmin(false);
+
+    };
+
+
+  function valorFirestore(v) {
+
+    if (!v || typeof v !== 'object')
       return null;
+
+    if ('nullValue' in v)
+      return null;
+
+    if ('stringValue' in v)
+      return v.stringValue;
+
+    if ('booleanValue' in v)
+      return v.booleanValue;
+
+    if ('integerValue' in v)
+      return Number(v.integerValue);
+
+    if ('doubleValue' in v)
+      return Number(v.doubleValue);
+
+    if ('timestampValue' in v)
+      return v.timestampValue;
+
+    if ('arrayValue' in v)
+      return (
+        v.arrayValue.values || []
+      ).map(valorFirestore);
+
+    if ('mapValue' in v) {
+
+      return Object.fromEntries(
+
+        Object.entries(
+          v.mapValue.fields || {}
+        ).map(
+          ([key, value]) => [
+            key,
+            valorFirestore(value)
+          ]
+        )
+
+      );
+
     }
 
-    function documentoFirestore(doc) {
-      const data = {};
-      for (const [k, v] of Object.entries(doc.fields || {})) data[k] = valorFirestore(v);
-      if (data.id == null && doc.name) data.id = Number(doc.name.split('/').pop()) || doc.name.split('/').pop();
-      return data;
+    return null;
+
+  }
+
+
+  function convertirDocumento(doc) {
+
+    const data = {};
+
+    for (
+      const [key, value]
+      of Object.entries(
+        doc.fields || {}
+      )
+    ) {
+
+      data[key] =
+        valorFirestore(value);
+
     }
 
-    function aValorFirestore(v) {
-      if (v === null || v === undefined) return { nullValue: null };
-      if (typeof v === 'boolean') return { booleanValue: v };
-      if (typeof v === 'number') return Number.isInteger(v) ? { integerValue: String(v) } : { doubleValue: v };
-      if (Array.isArray(v)) return { arrayValue: { values: v.map(aValorFirestore) } };
-      if (typeof v === 'object') {
-        return { mapValue: { fields: Object.fromEntries(Object.entries(v).map(([k, val]) => [k, aValorFirestore(val)])) } };
+
+    if (
+      data.id == null &&
+      doc.name
+    ) {
+
+      const id =
+        doc.name
+          .split('/')
+          .pop();
+
+      data.id =
+        Number(id) || id;
+
+    }
+
+
+    return data;
+
+  }
+
+
+  function aValorFirestore(valor) {
+
+    if (
+      valor === null ||
+      valor === undefined
+    ) {
+
+      return {
+        nullValue: null
+      };
+
+    }
+
+
+    if (
+      typeof valor === 'boolean'
+    ) {
+
+      return {
+        booleanValue: valor
+      };
+
+    }
+
+
+    if (
+      typeof valor === 'number'
+    ) {
+
+      if (
+        Number.isInteger(valor)
+      ) {
+
+        return {
+          integerValue:
+            String(valor)
+        };
+
       }
-      return { stringValue: String(v) };
+
+      return {
+        doubleValue: valor
+      };
+
     }
 
-    function aDocumentoFirestore(data) {
-      return { fields: Object.fromEntries(Object.entries(data).map(([k, v]) => [k, aValorFirestore(v)])) };
-    }
 
-    async function firestoreFetch(url, options = {}) {
-      const token = await obtenerToken();
-      const r = await fetch(url, {
-        ...options,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-          ...(options.headers || {})
+    if (
+      Array.isArray(valor)
+    ) {
+
+      return {
+
+        arrayValue: {
+
+          values:
+            valor.map(
+              aValorFirestore
+            )
+
         }
-      });
-      let data = null;
-      const text = await r.text();
-      if (text) {
-        try { data = JSON.parse(text); } catch { data = text; }
-      }
-      if (!r.ok) {
-        if (r.status === 401) {
-          await refrescarSesion();
-          return firestoreFetch(url, options);
+
+      };
+
+    }
+
+
+    if (
+      typeof valor === 'object'
+    ) {
+
+      return {
+
+        mapValue: {
+
+          fields:
+            Object.fromEntries(
+
+              Object.entries(valor)
+                .map(
+                  ([key, value]) => [
+                    key,
+                    aValorFirestore(value)
+                  ]
+                )
+
+            )
+
         }
-        throw new Error(data?.error?.message || `Firestore HTTP ${r.status}`);
+
+      };
+
+    }
+
+
+    return {
+      stringValue:
+        String(valor)
+    };
+
+  }
+
+
+  function crearDocumentoFirestore(
+    datos
+  ) {
+
+    return {
+
+      fields:
+        Object.fromEntries(
+
+          Object.entries(datos)
+            .map(
+              ([key, value]) => [
+                key,
+                aValorFirestore(value)
+              ]
+            )
+
+        )
+
+    };
+
+  }
+
+
+  async function firestoreFetch(
+    url,
+    options = {}
+  ) {
+
+    const token =
+      await obtenerToken();
+
+
+    const respuesta =
+      await fetch(
+        url,
+        {
+
+          ...options,
+
+          headers: {
+
+            'Content-Type':
+              'application/json',
+
+            Authorization:
+              `Bearer ${token}`,
+
+            ...(options.headers || {})
+
+          }
+
+        }
+      );
+
+
+    const texto =
+      await respuesta.text();
+
+    let data = null;
+
+
+    if (texto) {
+
+      try {
+
+        data =
+          JSON.parse(texto);
+
+      } catch {
+
+        data = texto;
+
       }
-      return data;
+
     }
 
-    async function obtenerTodasLasNoticias() {
-      const todas = [];
-      let pageToken = '';
-      do {
-        const params = new URLSearchParams({ pageSize: '1000' });
-        if (pageToken) params.set('pageToken', pageToken);
-        const data = await firestoreFetch(`${FIRESTORE_BASE}/noticias?${params}`);
-        (data?.documents || []).forEach((doc) => todas.push(documentoFirestore(doc)));
-        pageToken = data?.nextPageToken || '';
-      } while (pageToken);
-      todas.sort((a, b) => (Date.parse(b.created_at || '') || 0) - (Date.parse(a.created_at || '') || 0));
-      noticiasCache = todas;
-      return todas;
+
+    if (!respuesta.ok) {
+
+      if (
+        respuesta.status === 401
+      ) {
+
+        await renovarSesion();
+
+        return firestoreFetch(
+          url,
+          options
+        );
+
+      }
+
+
+      throw new Error(
+        data?.error?.message ||
+        `Firestore HTTP ${respuesta.status}`
+      );
+
     }
 
-    async function guardarDocumento(id, datos) {
-      return firestoreFetch(`${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`, {
+
+    return data;
+
+  }
+
+
+  async function obtenerNoticias() {
+
+    const todas = [];
+
+    let pageToken = '';
+
+
+    do {
+
+      const params =
+        new URLSearchParams({
+          pageSize: '1000'
+        });
+
+
+      if (pageToken) {
+
+        params.set(
+          'pageToken',
+          pageToken
+        );
+
+      }
+
+
+      const data =
+        await firestoreFetch(
+
+          `${FIRESTORE_BASE}/noticias?${params}`
+
+        );
+
+
+      (
+        data?.documents || []
+      ).forEach(
+
+        documento => {
+
+          todas.push(
+            convertirDocumento(
+              documento
+            )
+          );
+
+        }
+
+      );
+
+
+      pageToken =
+        data?.nextPageToken || '';
+
+
+    } while (pageToken);
+
+
+    todas.sort(
+      (a, b) =>
+
+        (
+          Date.parse(
+            b.created_at || ''
+          ) || 0
+        )
+
+        -
+
+        (
+          Date.parse(
+            a.created_at || ''
+          ) || 0
+        )
+    );
+
+
+    noticias = todas;
+
+    return todas;
+
+  }
+
+
+  async function guardarDocumento(
+    id,
+    datos
+  ) {
+
+    return firestoreFetch(
+
+      `${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`,
+
+      {
+
         method: 'PATCH',
-        body: JSON.stringify(aDocumentoFirestore(datos))
-      });
+
+        body:
+          JSON.stringify(
+            crearDocumentoFirestore(
+              datos
+            )
+          )
+
+      }
+
+    );
+
+  }
+
+
+  async function borrarDocumento(id) {
+
+    return firestoreFetch(
+
+      `${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`,
+
+      {
+        method: 'DELETE'
+      }
+
+    );
+
+  }
+
+
+  function crearSlug(texto) {
+
+    return String(texto || '')
+
+      .normalize('NFD')
+
+      .replace(
+        /[\u0300-\u036f]/g,
+        ''
+      )
+
+      .toLowerCase()
+
+      .trim()
+
+      .replace(
+        /[^a-z0-9]+/g,
+        '-'
+      )
+
+      .replace(
+        /^-+|-+$/g,
+        ''
+      );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      '.menu button'
+    )
+    .forEach(
+
+      boton => {
+
+        boton.onclick =
+          () => {
+
+            cambiarSeccion(
+              boton.dataset.seccion
+            );
+
+          };
+
+      }
+
+    );
+
+
+  function cambiarSeccion(
+    seccion
+  ) {
+
+    [
+      'inicio',
+      'crear',
+      'noticias'
+    ].forEach(
+
+      nombre => {
+
+        $(
+          `seccion-${nombre}`
+        ).classList.toggle(
+          'oculto',
+          nombre !== seccion
+        );
+
+      }
+
+    );
+
+
+    document
+      .querySelectorAll(
+        '.menu button'
+      )
+      .forEach(
+
+        boton => {
+
+          boton.classList.toggle(
+
+            'activo',
+
+            boton.dataset.seccion ===
+            seccion
+
+          );
+
+        }
+
+      );
+
+
+    if (
+      seccion === 'noticias'
+    ) {
+
+      renderizarNoticias();
+
     }
 
-    async function borrarDocumento(id) {
-      return firestoreFetch(`${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`, { method: 'DELETE' });
-    }
+  }
 
-    function aplicarFiltrosNoticias() {
-      const tarjetas = document.querySelectorAll('.noticia-admin');
-      let visibles = 0;
-      tarjetas.forEach((tarjeta) => {
-        const coincideTexto = !textoBusqueda || (tarjeta.dataset.titulo || '').toLowerCase().includes(textoBusqueda);
-        const coincideEstado = filtroActual === 'todas' || tarjeta.dataset.estado === filtroActual;
-        const mostrar = coincideTexto && coincideEstado;
-        tarjeta.style.display = mostrar ? 'flex' : 'none';
-        if (mostrar) visibles++;
-      });
-      const vacio = document.getElementById('resultadoVacio');
-      if (vacio) vacio.style.display = visibles === 0 ? 'block' : 'none';
-    }
 
-    function crearHerramientasNoticias() {
-      const lista = document.getElementById('listaNoticias');
-      if (!lista || document.getElementById('herramientasNoticias')) return;
-      const herramientas = document.createElement('div');
-      herramientas.id = 'herramientasNoticias';
-      herramientas.style.cssText = 'display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;';
-      herramientas.innerHTML = `
-        <input id="buscarNoticias" type="search" placeholder="🔎 Buscar noticia..." style="flex:1;min-width:220px;" />
-        <select id="filtroEstado" style="width:auto;min-width:170px;">
-          <option value="todas">Todas</option><option value="publicadas">Publicadas</option><option value="borradores">Borradores</option>
-        </select>
-        <button type="button" class="btn btn-gris" id="actualizarNoticias">🔄 Actualizar</button>`;
-      lista.parentElement.insertBefore(herramientas, lista);
-      const vacio = document.createElement('div');
-      vacio.id = 'resultadoVacio';
-      vacio.className = 'cargando';
-      vacio.textContent = 'No se encontraron noticias.';
-      vacio.style.display = 'none';
-      lista.parentElement.appendChild(vacio);
-      document.getElementById('buscarNoticias').addEventListener('input', (e) => { textoBusqueda = e.target.value.trim().toLowerCase(); aplicarFiltrosNoticias(); });
-      document.getElementById('filtroEstado').addEventListener('change', (e) => { filtroActual = e.target.value; aplicarFiltrosNoticias(); });
-      document.getElementById('actualizarNoticias').addEventListener('click', async () => { await cargarNoticias(); await cargarEstadisticas(); });
-    }
-    crearHerramientasNoticias();
+  $('irCrear').onclick =
+    () => {
 
-    const botonesMenu = document.querySelectorAll('.menu button');
-    botonesMenu.forEach((boton) => boton.addEventListener('click', () => cambiarSeccion(boton.dataset.seccion)));
+      limpiarEditor();
 
-    function cambiarSeccion(seccion) {
-      document.getElementById('seccion-inicio').classList.toggle('oculto', seccion !== 'inicio');
-      document.getElementById('seccion-crear').classList.toggle('oculto', seccion !== 'crear');
-      document.getElementById('seccion-noticias').classList.toggle('oculto', seccion !== 'noticias');
-      botonesMenu.forEach((boton) => boton.classList.toggle('activo', boton.dataset.seccion === seccion));
-      if (seccion === 'noticias') cargarNoticias();
-    }
+      cambiarSeccion(
+        'crear'
+      );
 
-    document.getElementById('irCrear').addEventListener('click', () => { limpiarEditor(); cambiarSeccion('crear'); });
-    document.getElementById('irNoticias').addEventListener('click', () => cambiarSeccion('noticias'));
+    };
 
-    function crearSlug(texto) {
-      return texto.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    }
 
-    function limpiarEditor() {
-      noticiaId.value = '';
-      noticiaEditando = null;
-      titulo.value = '';
-      categoria.value = 'Nacionales';
-      imagen.value = '';
-      contenido.innerHTML = '';
-      mediaSeleccionado = null;
-      document.getElementById('mediaControls')?.classList.remove('activo');
-      tituloEditor.textContent = '📝 Nueva noticia';
-      publicarButton.textContent = '🚀 Publicar noticia';
-      noticiaMensaje.className = 'mensaje';
-      noticiaMensaje.textContent = '';
-    }
+  $('irNoticias').onclick =
+    () => {
 
-    cancelarEdicion.addEventListener('click', () => { limpiarEditor(); cambiarSeccion('inicio'); });
+      cambiarSeccion(
+        'noticias'
+      );
 
-    document.querySelectorAll('#editorToolbar [data-cmd]').forEach((boton) => boton.addEventListener('click', () => { contenido.focus(); document.execCommand(boton.dataset.cmd, false, null); }));
-    document.getElementById('formatoTexto').addEventListener('change', (e) => { contenido.focus(); document.execCommand('formatBlock', false, e.target.value); e.target.value = 'p'; });
-    document.getElementById('colorTexto').addEventListener('input', (e) => { contenido.focus(); document.execCommand('foreColor', false, e.target.value); });
-    document.getElementById('insertarEnlace').addEventListener('click', () => { const url = prompt('Pega la URL del enlace:'); if (url) { contenido.focus(); document.execCommand('createLink', false, url); } });
-    document.getElementById('limpiarFormato').addEventListener('click', () => { contenido.focus(); document.execCommand('removeFormat', false, null); });
-    document.getElementById('tamanoTexto').addEventListener('change', (event) => {
-      const size = event.target.value; if (!size) return; contenido.focus();
-      const seleccion = window.getSelection();
-      if (!seleccion || seleccion.rangeCount === 0 || seleccion.isCollapsed) { mostrarMensajeNoticia('Selecciona primero el texto al que quieres cambiar el tamaño.', 'error'); event.target.value = ''; return; }
-      document.execCommand('styleWithCSS', false, true); document.execCommand('fontSize', false, '7');
-      contenido.querySelectorAll('font[size="7"]').forEach((font) => { const span = document.createElement('span'); span.style.fontSize = size; span.innerHTML = font.innerHTML; font.replaceWith(span); });
-      event.target.value = '';
+    };
+
+
+  $('cancelar').onclick =
+    () => {
+
+      limpiarEditor();
+
+      cambiarSeccion(
+        'inicio'
+      );
+
+    };
+
+
+  $('republicaUtil')
+    .onchange =
+    () => {
+
+      const activo =
+        $('republicaUtil')
+          .checked;
+
+
+      $('republicaUtilPortada')
+        .disabled =
+        !activo;
+
+
+      if (!activo) {
+
+        $('republicaUtilPortada')
+          .checked =
+          false;
+
+      }
+
+    };
+
+
+  function limpiarEditor() {
+
+    editando = null;
+
+    $('noticiaId').value = '';
+
+    $('titulo').value = '';
+
+    $('categoria').value =
+      'Nacionales';
+
+    $('imagen').value = '';
+
+    $('contenido').innerHTML = '';
+
+    $('republicaUtil')
+      .checked =
+      false;
+
+    $('republicaUtilPortada')
+      .checked =
+      false;
+
+    $('republicaUtilPortada')
+      .disabled =
+      true;
+
+    $('tituloEditor')
+      .textContent =
+      '📝 Nueva entrada';
+
+    $('noticiaMensaje')
+      .className =
+      'mensaje';
+
+  }
+
+
+  function editarNoticia(
+    noticia
+  ) {
+
+    editando = {
+      ...noticia
+    };
+
+
+    $('noticiaId').value =
+      noticia.id || '';
+
+    $('titulo').value =
+      noticia.titulo || '';
+
+    $('categoria').value =
+      noticia.categoria ||
+      'Nacionales';
+
+    $('imagen').value =
+      noticia.imagen || '';
+
+    $('contenido').innerHTML =
+      noticia.contenido || '';
+
+
+    $('republicaUtil')
+      .checked =
+      noticia.republica_util ===
+      true;
+
+
+    $('republicaUtilPortada')
+      .checked =
+      noticia.republica_util_portada ===
+      true;
+
+
+    $('republicaUtilPortada')
+      .disabled =
+      !$('republicaUtil').checked;
+
+
+    $('tituloEditor')
+      .textContent =
+      '✏️ Editar entrada';
+
+
+    cambiarSeccion(
+      'crear'
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
 
-    const mediaControls = document.getElementById('mediaControls');
-    const mediaTamano = document.getElementById('mediaTamano');
-    function seleccionarMedia(elemento) {
-      contenido.querySelectorAll('.media-seleccionado').forEach((el) => el.classList.remove('media-seleccionado'));
-      mediaSeleccionado = elemento;
-      if (!elemento) return mediaControls?.classList.remove('activo');
-      elemento.classList.add('media-seleccionado'); mediaControls?.classList.add('activo');
-      const ancho = elemento.style.width || '100%'; if ([...mediaTamano.options].some(o => o.value === ancho)) mediaTamano.value = ancho;
+  }
+
+
+  document
+    .querySelectorAll(
+      '[data-cmd]'
+    )
+    .forEach(
+
+      boton => {
+
+        boton.onclick =
+          () => {
+
+            $('contenido')
+              .focus();
+
+            document.execCommand(
+              boton.dataset.cmd,
+              false,
+              null
+            );
+
+          };
+
+      }
+
+    );
+
+
+  $('formato').onchange =
+    event => {
+
+      $('contenido').focus();
+
+      document.execCommand(
+        'formatBlock',
+        false,
+        event.target.value
+      );
+
+      event.target.value =
+        'p';
+
+    };
+
+
+  $('enlace').onclick =
+    () => {
+
+      const url =
+        prompt(
+          'Pega la URL del enlace:'
+        );
+
+      if (!url) return;
+
+      $('contenido').focus();
+
+      document.execCommand(
+        'createLink',
+        false,
+        url
+      );
+
+    };
+
+
+  $('imagenEditor').onclick =
+    () => {
+
+      const url =
+        prompt(
+          'Pega la URL de la imagen:'
+        );
+
+      if (!url) return;
+
+
+      $('contenido').focus();
+
+
+      const segura =
+        url.replace(
+          /"/g,
+          '&quot;'
+        );
+
+
+      document.execCommand(
+
+        'insertHTML',
+
+        false,
+
+        `<img src="${segura}" alt="" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;">`
+
+      );
+
+    };
+
+
+  $('videoEditor').onclick =
+    () => {
+
+      const url =
+        prompt(
+          'Pega la URL del video:'
+        );
+
+      if (!url) return;
+
+
+      $('contenido').focus();
+
+
+      const segura =
+        url.replace(
+          /"/g,
+          '&quot;'
+        );
+
+
+      document.execCommand(
+
+        'insertHTML',
+
+        false,
+
+        `<video src="${segura}" controls playsinline style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;"></video>`
+
+      );
+
+    };
+
+
+  async function guardarEntrada(
+    publicado
+  ) {
+
+    const titulo =
+      $('titulo')
+        .value
+        .trim();
+
+
+    const contenido =
+      $('contenido')
+        .innerHTML
+        .trim();
+
+
+    if (
+      !titulo ||
+      !contenido
+    ) {
+
+      mensaje(
+        $('noticiaMensaje'),
+        'Título y contenido son obligatorios.'
+      );
+
+      return;
+
     }
-    contenido.addEventListener('click', (e) => { const o = e.target; if (o instanceof HTMLImageElement || o instanceof HTMLVideoElement) { e.preventDefault(); seleccionarMedia(o); } else seleccionarMedia(null); });
-    mediaTamano?.addEventListener('change', () => { if (!mediaSeleccionado) return; mediaSeleccionado.style.width = mediaTamano.value; mediaSeleccionado.style.maxWidth = '100%'; mediaSeleccionado.style.height = 'auto'; });
-    document.getElementById('mediaIzquierda')?.addEventListener('click', () => { if (!mediaSeleccionado) return; mediaSeleccionado.style.marginLeft='0'; mediaSeleccionado.style.marginRight='auto'; });
-    document.getElementById('mediaCentro')?.addEventListener('click', () => { if (!mediaSeleccionado) return; mediaSeleccionado.style.marginLeft='auto'; mediaSeleccionado.style.marginRight='auto'; });
-    document.getElementById('mediaDerecha')?.addEventListener('click', () => { if (!mediaSeleccionado) return; mediaSeleccionado.style.marginLeft='auto'; mediaSeleccionado.style.marginRight='0'; });
-    document.getElementById('mediaEliminar')?.addEventListener('click', () => { if (!mediaSeleccionado) return; mediaSeleccionado.remove(); mediaSeleccionado=null; mediaControls?.classList.remove('activo'); contenido.focus(); });
-    document.getElementById('deshacer')?.addEventListener('click', () => { contenido.focus(); document.execCommand('undo'); });
-    document.getElementById('rehacer')?.addEventListener('click', () => { contenido.focus(); document.execCommand('redo'); });
-    function insertarHtmlEnCursor(html) { contenido.focus(); document.execCommand('insertHTML', false, html); }
-    document.getElementById('insertarImagenEditor')?.addEventListener('click', () => { const url=prompt('Pega la URL de la imagen:'); if(url) insertarHtmlEnCursor(`<img src="${url.replace(/"/g,'&quot;')}" alt="" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;border-radius:8px;">`); });
-    document.getElementById('insertarVideoEditor')?.addEventListener('click', () => { const url=prompt('Pega la URL del video:'); if(url) insertarHtmlEnCursor(`<video src="${url.replace(/"/g,'&quot;')}" controls playsinline preload="metadata" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;border-radius:8px;"></video>`); });
 
-    function markdownAHtml(texto) {
-      const lineas=texto.replace(/\r/g,'').split('\n'); let html='', enLista=false, tipoLista='';
-      const inline=(t)=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
-      const cerrar=()=>{if(enLista){html+=`</${tipoLista}>`;enLista=false;tipoLista='';}};
-      for(const original of lineas){const linea=original.trim();if(!linea){cerrar();continue;}if(linea.startsWith('### ')){cerrar();html+=`<h3>${inline(linea.slice(4))}</h3>`;continue;}if(linea.startsWith('## ')){cerrar();html+=`<h2>${inline(linea.slice(3))}</h2>`;continue;}if(linea.startsWith('# ')){cerrar();html+=`<h2>${inline(linea.slice(2))}</h2>`;continue;}const bullet=linea.match(/^[-*]\s+(.+)/), numbered=linea.match(/^\d+[.)]\s+(.+)/);if(bullet||numbered){const tipo=bullet?'ul':'ol';if(!enLista||tipoLista!==tipo){cerrar();html+=`<${tipo}>`;enLista=true;tipoLista=tipo;}html+=`<li>${inline((bullet||numbered)[1])}</li>`;continue;}cerrar();html+=`<p>${inline(linea)}</p>`;}cerrar();return html;
+
+    $('publicarButton')
+      .disabled =
+      true;
+
+    $('borradorButton')
+      .disabled =
+      true;
+
+
+    try {
+
+      let id =
+        $('noticiaId').value;
+
+
+      if (!id) {
+
+        const ids =
+          noticias
+
+            .map(
+              noticia =>
+                Number(
+                  noticia.id
+                )
+            )
+
+            .filter(
+              Number.isFinite
+            );
+
+
+        id =
+          String(
+
+            (
+              ids.length
+                ? Math.max(...ids)
+                : 0
+            ) + 1
+
+          );
+
+      }
+
+
+      const datos = {
+
+        ...(editando || {}),
+
+        id:
+          Number(id),
+
+        titulo,
+
+        slug:
+          crearSlug(titulo),
+
+        imagen:
+          $('imagen')
+            .value
+            .trim() ||
+          null,
+
+        contenido,
+
+        categoria:
+          $('categoria').value,
+
+        publicado,
+
+        republica_util:
+          $('republicaUtil')
+            .checked,
+
+        republica_util_portada:
+          $('republicaUtil')
+            .checked &&
+          $('republicaUtilPortada')
+            .checked,
+
+        created_at:
+          editando?.created_at ||
+          new Date()
+            .toISOString()
+
+      };
+
+
+      await guardarDocumento(
+        id,
+        datos
+      );
+
+
+      mensaje(
+
+        $('noticiaMensaje'),
+
+        publicado
+          ? 'Entrada publicada correctamente.'
+          : 'Borrador guardado correctamente.',
+
+        'ok'
+
+      );
+
+
+      await obtenerNoticias();
+
+
+      setTimeout(
+        () => {
+
+          limpiarEditor();
+
+          actualizarEstadisticas();
+
+          cambiarSeccion(
+            'noticias'
+          );
+
+        },
+        500
+      );
+
+
+    } catch (error) {
+
+      console.error(error);
+
+
+      mensaje(
+
+        $('noticiaMensaje'),
+
+        `No se pudo guardar: ${error.message}`
+
+      );
+
+
+    } finally {
+
+      $('publicarButton')
+        .disabled =
+        false;
+
+      $('borradorButton')
+        .disabled =
+        false;
+
     }
-    contenido.addEventListener('paste',(e)=>{const texto=e.clipboardData?.getData('text/plain')||'';if(texto&&/^#{1,3}\s|\*\*.+\*\*|^[-*]\s/m.test(texto)){e.preventDefault();document.execCommand('insertHTML',false,markdownAHtml(texto));}});
 
-    function mostrarMensajeNoticia(texto, tipo) { noticiaMensaje.textContent=texto; noticiaMensaje.className=`mensaje ${tipo}`; }
+  }
 
-    async function guardarNoticia(publicar) {
-      const tituloTexto=titulo.value.trim();
-      contenido.querySelectorAll('.media-seleccionado').forEach((el)=>el.classList.remove('media-seleccionado'));
-      const contenidoTexto=contenido.innerHTML.trim();
-      if(!tituloTexto||!contenidoTexto){mostrarMensajeNoticia('El título y el contenido son obligatorios.','error');return;}
-      publicarButton.disabled=true; borradorButton.disabled=true;
-      try {
-        let id;
-        if(noticiaId.value){ id=String(noticiaId.value); }
-        else { const ids=noticiasCache.map(n=>Number(n.id)).filter(Number.isFinite); id=String((ids.length?Math.max(...ids):0)+1); }
-        const datos={
-          ...(noticiaEditando || {}),
-          id:Number(id), titulo:tituloTexto, slug:crearSlug(tituloTexto), imagen:imagen.value.trim()||null,
-          contenido:contenidoTexto, categoria:categoria.value, publicado:publicar,
-          created_at:noticiaEditando?.created_at || new Date().toISOString()
-        };
-        await guardarDocumento(id,datos);
-        mostrarMensajeNoticia(publicar?'Noticia publicada correctamente.':'Borrador guardado correctamente.','ok');
-        setTimeout(async()=>{limpiarEditor();await cargarTodo();cambiarSeccion('noticias');},600);
-      } catch(error){console.error(error);mostrarMensajeNoticia(`No se pudo guardar: ${error?.message||'error de Firestore'}`,'error');}
-      finally{publicarButton.disabled=false;borradorButton.disabled=false;}
+
+  $('noticiaForm')
+    .onsubmit =
+    event => {
+
+      event.preventDefault();
+
+      guardarEntrada(true);
+
+    };
+
+
+  $('borradorButton')
+    .onclick =
+    () => {
+
+      guardarEntrada(false);
+
+    };
+
+
+  function renderizarNoticias() {
+
+    const busqueda =
+      $('buscar')
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const filtro =
+      $('filtro').value;
+
+
+    const resultados =
+      noticias.filter(
+
+        noticia => {
+
+          const coincideTexto =
+
+            !busqueda ||
+
+            String(
+              noticia.titulo || ''
+            )
+              .toLowerCase()
+              .includes(
+                busqueda
+              );
+
+
+          let coincideFiltro =
+            true;
+
+
+          if (
+            filtro ===
+            'publicadas'
+          ) {
+
+            coincideFiltro =
+              noticia.publicado ===
+              true;
+
+          }
+
+
+          if (
+            filtro ===
+            'borradores'
+          ) {
+
+            coincideFiltro =
+              noticia.publicado !==
+              true;
+
+          }
+
+
+          if (
+            filtro ===
+            'util'
+          ) {
+
+            coincideFiltro =
+              noticia.republica_util ===
+              true;
+
+          }
+
+
+          return (
+            coincideTexto &&
+            coincideFiltro
+          );
+
+        }
+
+      );
+
+
+    $('listaNoticias')
+      .innerHTML =
+      '';
+
+
+    if (
+      !resultados.length
+    ) {
+
+      $('listaNoticias')
+        .innerHTML =
+        '<div class="cargando">No se encontraron entradas.</div>';
+
+      return;
+
     }
-    noticiaForm.addEventListener('submit',async(e)=>{e.preventDefault();await guardarNoticia(true);});
-    borradorButton.addEventListener('click',async()=>guardarNoticia(false));
 
-    async function cargarNoticias() {
-      listaNoticias.innerHTML='<div class="cargando">Cargando noticias...</div>';
-      try {
-        const data=await obtenerTodasLasNoticias();
-        if(!data.length){listaNoticias.innerHTML='<div class="cargando">No hay noticias todavía.</div>';return;}
-        listaNoticias.innerHTML='';
-        data.forEach((noticia)=>{
-          const contenedor=document.createElement('div');contenedor.className='noticia-admin';contenedor.dataset.titulo=(noticia.titulo||'').toLowerCase();contenedor.dataset.estado=noticia.publicado?'publicadas':'borradores';
-          const info=document.createElement('div');info.className='noticia-info';
-          const h3=document.createElement('h3');h3.textContent=noticia.titulo||'Sin título';
-          const p=document.createElement('p');p.textContent=`${noticia.categoria||'Sin categoría'} · ${noticia.slug||''}`;
-          const estado=document.createElement('span');estado.className=noticia.publicado?'estado estado-publicado':'estado estado-borrador';estado.textContent=noticia.publicado?'PUBLICADA':'BORRADOR';
-          info.append(h3,p,estado);
-          const acciones=document.createElement('div');acciones.className='acciones-noticia';
-          const editar=document.createElement('button');editar.className='btn btn-gris';editar.textContent='✏️ Editar';editar.addEventListener('click',()=>editarNoticia(noticia));
-          const eliminar=document.createElement('button');eliminar.className='btn btn-rojo';eliminar.textContent='🗑️ Eliminar';eliminar.addEventListener('click',()=>eliminarNoticia(noticia));
-          acciones.append(editar,eliminar);contenedor.append(info,acciones);listaNoticias.appendChild(contenedor);
-        });
-        aplicarFiltrosNoticias();
-      } catch(error){console.error(error);listaNoticias.innerHTML='<div class="cargando">No se pudieron cargar las noticias.</div>';}
+
+    resultados.forEach(
+
+      noticia => {
+
+        const contenedor =
+          document.createElement(
+            'div'
+          );
+
+        contenedor.className =
+          'noticia';
+
+
+        const izquierda =
+          document.createElement(
+            'div'
+          );
+
+
+        const titulo =
+          document.createElement(
+            'h3'
+          );
+
+        titulo.textContent =
+          noticia.titulo ||
+          'Sin título';
+
+
+        const meta =
+          document.createElement(
+            'div'
+          );
+
+        meta.className =
+          'meta';
+
+        meta.textContent =
+          `${noticia.categoria || 'Sin categoría'} · ${noticia.slug || ''}`;
+
+
+        const badges =
+          document.createElement(
+            'div'
+          );
+
+        badges.className =
+          'badges';
+
+
+        const estado =
+          document.createElement(
+            'span'
+          );
+
+        estado.className =
+          `badge ${
+            noticia.publicado
+              ? 'pub'
+              : 'draft'
+          }`;
+
+        estado.textContent =
+          noticia.publicado
+            ? 'PUBLICADA'
+            : 'BORRADOR';
+
+
+        badges.append(
+          estado
+        );
+
+
+        if (
+          noticia.republica_util
+        ) {
+
+          const badge =
+            document.createElement(
+              'span'
+            );
+
+          badge.className =
+            'badge util';
+
+          badge.textContent =
+            'REPÚBLICA ÚTIL';
+
+          badges.append(
+            badge
+          );
+
+        }
+
+
+        if (
+          noticia.republica_util_portada
+        ) {
+
+          const badge =
+            document.createElement(
+              'span'
+            );
+
+          badge.className =
+            'badge portada';
+
+          badge.textContent =
+            '⭐ PORTADA';
+
+          badges.append(
+            badge
+          );
+
+        }
+
+
+        izquierda.append(
+          titulo,
+          meta,
+          badges
+        );
+
+
+        const acciones =
+          document.createElement(
+            'div'
+          );
+
+        acciones.className =
+          'noticia-acciones';
+
+
+        const editar =
+          document.createElement(
+            'button'
+          );
+
+        editar.className =
+          'btn btn-gris';
+
+        editar.textContent =
+          '✏️ Editar';
+
+        editar.onclick =
+          () => {
+
+            editarNoticia(
+              noticia
+            );
+
+          };
+
+
+        const eliminar =
+          document.createElement(
+            'button'
+          );
+
+        eliminar.className =
+          'btn btn-rojo';
+
+        eliminar.textContent =
+          '🗑️ Eliminar';
+
+
+        eliminar.onclick =
+          async () => {
+
+            if (
+
+              !confirm(
+                `¿Eliminar esta entrada?\n\n${noticia.titulo}`
+              )
+
+            ) {
+
+              return;
+
+            }
+
+
+            try {
+
+              await borrarDocumento(
+                noticia.id
+              );
+
+              await cargarTodo();
+
+
+            } catch (error) {
+
+              console.error(
+                error
+              );
+
+              alert(
+                `No se pudo eliminar: ${error.message}`
+              );
+
+            }
+
+          };
+
+
+        acciones.append(
+          editar,
+          eliminar
+        );
+
+
+        contenedor.append(
+          izquierda,
+          acciones
+        );
+
+
+        $('listaNoticias')
+          .append(
+            contenedor
+          );
+
+      }
+
+    );
+
+  }
+
+
+  $('buscar').oninput =
+    renderizarNoticias;
+
+
+  $('filtro').onchange =
+    renderizarNoticias;
+
+
+  $('actualizar').onclick =
+    cargarTodo;
+
+
+  function actualizarEstadisticas() {
+
+    $('totalNoticias')
+      .textContent =
+      noticias.length;
+
+
+    $('totalPublicadas')
+      .textContent =
+      noticias.filter(
+        noticia =>
+          noticia.publicado ===
+          true
+      ).length;
+
+
+    $('totalBorradores')
+      .textContent =
+      noticias.filter(
+        noticia =>
+          noticia.publicado !==
+          true
+      ).length;
+
+
+    $('totalUtil')
+      .textContent =
+      noticias.filter(
+        noticia =>
+          noticia.republica_util ===
+          true
+      ).length;
+
+  }
+
+
+  async function cargarTodo() {
+
+    await obtenerNoticias();
+
+    actualizarEstadisticas();
+
+    renderizarNoticias();
+
+  }
+
+
+  async function iniciar() {
+
+    try {
+
+      const guardada =
+        sessionStorage.getItem(
+          'ra_admin_session'
+        );
+
+
+      if (!guardada) {
+
+        mostrarAdmin(false);
+
+        return;
+
+      }
+
+
+      sesion =
+        JSON.parse(
+          guardada
+        );
+
+
+      await obtenerToken();
+
+
+      $('usuarioAdmin')
+        .textContent =
+        sesion.email || '';
+
+
+      mostrarAdmin(true);
+
+
+      await cargarTodo();
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      sesion = null;
+
+      sessionStorage.removeItem(
+        'ra_admin_session'
+      );
+
+      mostrarAdmin(false);
+
     }
 
-    function editarNoticia(noticia) {
-      noticiaEditando={...noticia};noticiaId.value=noticia.id||'';titulo.value=noticia.titulo||'';categoria.value=noticia.categoria||'Nacionales';imagen.value=noticia.imagen||'';contenido.innerHTML=noticia.contenido||'';
-      tituloEditor.textContent='✏️ Editar noticia';publicarButton.textContent=noticia.publicado?'🚀 Actualizar noticia':'🚀 Publicar noticia';cambiarSeccion('crear');window.scrollTo({top:0,behavior:'smooth'});
-    }
+  }
 
-    async function eliminarNoticia(noticia) {
-      if(!confirm(`¿Eliminar esta noticia?\n\n${noticia.titulo}`))return;
-      try{await borrarDocumento(noticia.id);await cargarTodo();alert('Noticia eliminada correctamente.');}
-      catch(error){console.error(error);alert(`No se pudo eliminar: ${error?.message||'error de Firestore'}`);}
-    }
 
-    async function cargarEstadisticas() {
-      try{
-        const data=noticiasCache.length?noticiasCache:await obtenerTodasLasNoticias();
-        const total=data.length, publicadas=data.filter(n=>n.publicado===true).length, borradores=total-publicadas;
-        document.getElementById('totalNoticias').textContent=total;
-        document.getElementById('totalPublicadas').textContent=publicadas;
-        document.getElementById('totalBorradores').textContent=borradores;
-      }catch(error){console.error(error);}
-    }
+  iniciar();
 
-    // Presencia en vivo de Supabase retirada. Se deja el panel neutral hasta integrar Analytics.
-    function actualizarVisitantes(){
-      document.getElementById('totalVisitantes').textContent='—';
-      document.getElementById('visitantesNumero').textContent='—';
-    }
-
-    async function cargarTodo(){
-      await obtenerTodasLasNoticias();
-      await cargarEstadisticas();
-      await cargarNoticias();
-      actualizarVisitantes();
-    }
-
-    comprobarSesion();
-  </script>
-
+</script>
 
 </body>
 </html>
