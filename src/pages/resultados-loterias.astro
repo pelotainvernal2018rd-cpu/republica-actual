@@ -2,502 +2,146 @@
 import Layout from '../layouts/Layout.astro';
 
 const hoy = new Intl.DateTimeFormat('es-DO', {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   timeZone: 'America/Santo_Domingo'
 }).format(new Date());
-
-const loterias = [
-  { nombre:'Lotería Nacional', grupo:'rd', horario:'Noche', numeros:['98','53','75'] },
-  { nombre:'LEIDSA', grupo:'rd', horario:'Noche', numeros:['28','57','48'] },
-  { nombre:'Lotería Real', grupo:'rd', horario:'Mediodía', numeros:['40','19','05'] },
-  { nombre:'Loteka', grupo:'rd', horario:'Noche', numeros:['12','03','98'] },
-  { nombre:'La Primera', grupo:'rd', horario:'Mediodía', numeros:['82','93','86'] },
-  { nombre:'La Suerte', grupo:'rd', horario:'Mediodía', numeros:['11','27','98'] },
-  { nombre:'LoteDom', grupo:'rd', horario:'Mediodía', numeros:['84','25','19'] },
-
-  { nombre:'King Lottery', grupo:'otras', horario:'Mediodía', numeros:['07','75','13'] },
-  { nombre:'Anguila', grupo:'otras', horario:'Noche', numeros:['49','84','79'] },
-  { nombre:'New York Día', grupo:'usa', horario:'Tarde', numeros:['01','34','65'] },
-  { nombre:'New York Noche', grupo:'usa', horario:'Noche', numeros:['46','78','15'] },
-  { nombre:'Florida Día', grupo:'usa', horario:'Tarde', numeros:['88','53','62'] },
-  { nombre:'Florida Noche', grupo:'usa', horario:'Noche', numeros:['28','15','57'] },
-  { nombre:'Americanas (New Jersey Noche)', grupo:'usa', horario:'Noche', numeros:['48','53','43'] },
-  { nombre:'Haití Bolet', grupo:'otras', horario:'Noche', numeros:['15','18','40'] }
-];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'República Actual',
-      item: 'https://republicaactual.net/'
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Resultados de Loterías',
-      item: 'https://republicaactual.net/resultados-loterias/'
-    }
+    { '@type': 'ListItem', position: 1, name: 'República Actual', item: 'https://republicaactual.net/' },
+    { '@type': 'ListItem', position: 2, name: 'Resultados de Loterías', item: 'https://republicaactual.net/resultados-loterias/' }
   ]
 };
 ---
-
 <Layout
   title="Resultados de Loterías de Hoy en RD | República Actual"
   description="Resultados de loterías de hoy en República Dominicana. Consulta Lotería Nacional, LEIDSA, Loteka, Lotería Real, La Primera, La Suerte, LoteDom, New York, Florida y más."
 >
-
 <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
 <main class="pagina-loterias">
-
-  <section class="hero">
-    <div class="contenedor">
-
-      <nav class="breadcrumb">
-        <a href="/">Inicio</a>
-        <span>›</span>
-        <span>Resultados de Loterías</span>
-      </nav>
-
-      <span class="etiqueta">RESULTADOS ACTUALIZADOS</span>
-
-      <h1>Resultados de Loterías de Hoy</h1>
-
-      <p class="intro">
-        Consulta los resultados de las principales loterías de
-        República Dominicana, Estados Unidos y otros sorteos
-        populares.
-      </p>
-
-      <div class="fecha">
-        📅 {hoy}
-      </div>
-
-    </div>
-  </section>
-
+  <section class="hero"><div class="contenedor">
+    <nav class="breadcrumb"><a href="/">Inicio</a><span>›</span><span>Resultados de Loterías</span></nav>
+    <span class="etiqueta">RESULTADOS ACTUALIZADOS</span>
+    <h1>Resultados de Loterías de Hoy</h1>
+    <p class="intro">Consulta los resultados de las principales loterías de República Dominicana, Estados Unidos y otros sorteos populares.</p>
+    <div class="fecha">📅 {hoy}</div>
+  </div></section>
 
   <div class="contenedor cuerpo">
-
     <section class="barra-estado">
-
-      <div>
-        <span class="live"></span>
-        <strong>Últimos resultados cargados: 1 de octubre de 2026</strong>
-      </div>
-
-      <span id="ultima-actualizacion">
-        Preparado para actualización automática
-      </span>
-
+      <div><span class="live"></span><strong id="estado-resultados">Consultando resultados...</strong></div>
+      <span id="ultima-actualizacion">Conectando con Firestore</span>
     </section>
-
 
     <section class="herramientas">
-
-      <div class="buscador">
-        <span>🔎</span>
-
-        <input
-          id="buscar-loteria"
-          type="search"
-          placeholder="Buscar lotería..."
-          aria-label="Buscar lotería"
-        />
-      </div>
-
+      <div class="buscador"><span>🔎</span><input id="buscar-loteria" type="search" placeholder="Buscar lotería..." aria-label="Buscar lotería" /></div>
       <div class="filtros">
-        <button class="activo" data-filtro="Todas">Todas</button>
-        <button data-filtro="Mañana">Mañana</button>
-        <button data-filtro="Mediodía">Mediodía</button>
-        <button data-filtro="Tarde">Tarde</button>
-        <button data-filtro="Noche">Noche</button>
+        <button class="activo" data-filtro="Todas">Todas</button><button data-filtro="Mañana">Mañana</button><button data-filtro="Mediodía">Mediodía</button><button data-filtro="Tarde">Tarde</button><button data-filtro="Noche">Noche</button>
       </div>
-
     </section>
 
-
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-          <span class="icono">🇩🇴</span>
-          <div>
-            <h2>Loterías de República Dominicana</h2>
-            <p>Resultados de los principales sorteos dominicanos.</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'rd')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-                    <span>Resultado del 1 de octubre de 2026</span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
-                </div>
-
-
-                <div class="numeros">
-
-                  {
-                    loteria.numeros.map((numero, i) => (
-
-                      <div class="numero">
-
-                        <strong>
-                          {numero}
-                        </strong>
-
-                        <span>
-                          {i === 0 ? '1ro' : i === 1 ? '2do' : '3ro'}
-                        </span>
-
-                      </div>
-
-                    ))
-                  }
-
-                </div>
-
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ✓ Resultado publicado
-                  </span>
-                </div>
-
-              </article>
-
-            ))
-        }
-
-      </div>
-
-    </section>
-
-
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-          <span class="icono">🇺🇸</span>
-
-          <div>
-            <h2>Resultados New York y Florida</h2>
-            <p>
-              Sorteos estadounidenses consultados diariamente
-              desde República Dominicana.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'usa')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-                    <span>Resultado del 1 de octubre de 2026</span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
-                </div>
-
-
-                <div class="numeros">
-
-                  {
-                    loteria.numeros.map((numero, i) => (
-
-                      <div class="numero">
-
-                        <strong>
-                          {numero}
-                        </strong>
-
-                        <span>
-                          {i === 0 ? '1ro' : i === 1 ? '2do' : '3ro'}
-                        </span>
-
-                      </div>
-
-                    ))
-                  }
-
-                </div>
-
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ✓ Resultado publicado
-                  </span>
-                </div>
-
-              </article>
-
-            ))
-        }
-
-      </div>
-
-    </section>
-
-
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-          <span class="icono">🌎</span>
-
-          <div>
-            <h2>Otros sorteos populares</h2>
-            <p>
-              Resultados adicionales consultados por jugadores
-              de República Dominicana.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'otras')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-                    <span>Resultado del 1 de octubre de 2026</span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
-                </div>
-
-
-                <div class="numeros">
-
-                  {
-                    loteria.numeros.map((numero, i) => (
-
-                      <div class="numero">
-
-                        <strong>
-                          {numero}
-                        </strong>
-
-                        <span>
-                          {i === 0 ? '1ro' : i === 1 ? '2do' : '3ro'}
-                        </span>
-
-                      </div>
-
-                    ))
-                  }
-
-                </div>
-
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ✓ Resultado publicado
-                  </span>
-                </div>
-
-              </article>
-
-            ))
-        }
-
-      </div>
-
-    </section>
-
+    <section class="bloque"><div class="titulo-seccion"><div><span class="icono">🇩🇴</span><div><h2>Loterías de República Dominicana</h2><p>Resultados de los principales sorteos dominicanos.</p></div></div></div><div class="grid" id="grid-rd"></div></section>
+    <section class="bloque"><div class="titulo-seccion"><div><span class="icono">🇺🇸</span><div><h2>Resultados New York y Florida</h2><p>Sorteos estadounidenses consultados diariamente desde República Dominicana.</p></div></div></div><div class="grid" id="grid-usa"></div></section>
+    <section class="bloque"><div class="titulo-seccion"><div><span class="icono">🌎</span><div><h2>Otros sorteos populares</h2><p>Resultados adicionales consultados por jugadores de República Dominicana.</p></div></div></div><div class="grid" id="grid-otras"></div></section>
 
     <section class="seo">
-
-      <h2>
-        Resultados de loterías de hoy en República Dominicana
-      </h2>
-
-      <p>
-        En República Actual puedes consultar los resultados de
-        las loterías de hoy de República Dominicana de manera
-        rápida y organizada. Esta sección reúne los números
-        ganadores de los principales sorteos nacionales e
-        internacionales consultados por los dominicanos.
-      </p>
-
-      <p>
-        Aquí podrás encontrar resultados de la Lotería Nacional,
-        LEIDSA, Loteka, Lotería Real, La Primera, La Suerte y
-        LoteDom, además de resultados de New York, Florida,
-        King Lottery, Anguila y otros sorteos populares.
-      </p>
-
-
+      <h2>Resultados de loterías de hoy en República Dominicana</h2>
+      <p>En República Actual puedes consultar los resultados de las loterías de hoy de República Dominicana de manera rápida y organizada. Esta sección reúne los números ganadores de los principales sorteos nacionales e internacionales consultados por los dominicanos.</p>
+      <p>Aquí podrás encontrar resultados de la Lotería Nacional, LEIDSA, Loteka, Lotería Real, La Primera, La Suerte y LoteDom, además de resultados de New York, Florida, King Lottery, Anguila y otros sorteos populares.</p>
       <h2>¿A qué hora se actualizan los resultados?</h2>
-
-      <p>
-        Los resultados se actualizarán durante el día a medida
-        que sean publicados los diferentes sorteos. Cada tarjeta
-        indicará cuándo un resultado se encuentre disponible.
-      </p>
-
-
+      <p>Los resultados se actualizan durante el día a medida que sean publicados los diferentes sorteos. Cada tarjeta indica cuándo un resultado se encuentra disponible.</p>
       <h2>Resultados de loterías dominicanas</h2>
-
-      <p>
-        República Actual organizará los resultados por lotería
-        y horario para facilitar la consulta desde teléfonos,
-        computadoras y otros dispositivos. También podrás buscar
-        rápidamente una lotería utilizando el buscador disponible
-        en esta página.
-      </p>
-
-
-      <div class="aviso">
-        <strong>Importante:</strong>
-        Los resultados mostrados en República Actual tienen
-        carácter informativo. Para reclamaciones, validación de
-        jugadas o pago de premios debe utilizarse siempre el
-        resultado oficial de la entidad correspondiente.
-      </div>
-
+      <p>República Actual organiza los resultados por lotería y horario para facilitar la consulta desde teléfonos, computadoras y otros dispositivos. También puedes buscar rápidamente una lotería utilizando el buscador disponible en esta página.</p>
+      <div class="aviso"><strong>Importante:</strong> Los resultados mostrados en República Actual tienen carácter informativo. Para reclamaciones, validación de jugadas o pago de premios debe utilizarse siempre el resultado oficial de la entidad correspondiente.</div>
     </section>
-
   </div>
-
 </main>
 
-
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    var buscador = document.getElementById('buscar-loteria');
-    var tarjetas = Array.prototype.slice.call(
-      document.querySelectorAll('.tarjeta')
-    );
+(function () {
+  var PROJECT_ID = 'republica-actual';
+  var ENDPOINT = 'https://firestore.googleapis.com/v1/projects/' + PROJECT_ID + '/databases/(default)/documents/resultados_loterias?pageSize=200';
 
-    var botones = Array.prototype.slice.call(
-      document.querySelectorAll('[data-filtro]')
-    );
+  var base = [
+    {id:'loteria-nacional',nombre:'Lotería Nacional',grupo:'rd',horario:'Noche'},
+    {id:'leidsa',nombre:'LEIDSA',grupo:'rd',horario:'Noche'},
+    {id:'loteria-real',nombre:'Lotería Real',grupo:'rd',horario:'Mediodía'},
+    {id:'loteka',nombre:'Loteka',grupo:'rd',horario:'Noche'},
+    {id:'la-primera',nombre:'La Primera',grupo:'rd',horario:'Mediodía'},
+    {id:'la-suerte',nombre:'La Suerte',grupo:'rd',horario:'Mediodía'},
+    {id:'lotedom',nombre:'LoteDom',grupo:'rd',horario:'Mediodía'},
+    {id:'king-lottery',nombre:'King Lottery',grupo:'otras',horario:'Mediodía'},
+    {id:'anguila',nombre:'Anguila',grupo:'otras',horario:'Noche'},
+    {id:'new-york-dia',nombre:'New York Día',grupo:'usa',horario:'Tarde'},
+    {id:'new-york-noche',nombre:'New York Noche',grupo:'usa',horario:'Noche'},
+    {id:'florida-dia',nombre:'Florida Día',grupo:'usa',horario:'Tarde'},
+    {id:'florida-noche',nombre:'Florida Noche',grupo:'usa',horario:'Noche'},
+    {id:'americanas-new-jersey-noche',nombre:'Americanas (New Jersey Noche)',grupo:'usa',horario:'Noche'},
+    {id:'haiti-bolet',nombre:'Haití Bolet',grupo:'otras',horario:'Noche'}
+  ];
 
-    var filtroActual = 'Todas';
-
-    function aplicarFiltros() {
-      var texto = '';
-
-      if (buscador) {
-        texto = String(buscador.value || '')
-          .toLowerCase()
-          .trim();
-      }
-
-      tarjetas.forEach(function (tarjeta) {
-        var nombre = String(
-          tarjeta.getAttribute('data-nombre') || ''
-        );
-
-        var horario = String(
-          tarjeta.getAttribute('data-horario') || ''
-        );
-
-        var coincideNombre =
-          nombre.indexOf(texto) !== -1;
-
-        var coincideHorario =
-          filtroActual === 'Todas' ||
-          horario === filtroActual;
-
-        tarjeta.style.display =
-          coincideNombre && coincideHorario
-            ? ''
-            : 'none';
-      });
+  function val(v) {
+    if (!v || typeof v !== 'object') return null;
+    if ('stringValue' in v) return v.stringValue;
+    if ('booleanValue' in v) return v.booleanValue;
+    if ('integerValue' in v) return Number(v.integerValue);
+    if ('doubleValue' in v) return Number(v.doubleValue);
+    if ('timestampValue' in v) return v.timestampValue;
+    if ('arrayValue' in v) return (v.arrayValue.values || []).map(val);
+    return null;
+  }
+  function decode(doc) {
+    var x = { _id: String(doc.name || '').split('/').pop() };
+    Object.keys(doc.fields || {}).forEach(function(k){ x[k] = val(doc.fields[k]); });
+    return x;
+  }
+  function normal(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim(); }
+  function fechaBonita(f) {
+    if (!f) return 'Resultado pendiente';
+    var d = new Date(f);
+    if (isNaN(d.getTime())) {
+      var p = String(f).split('-');
+      if (p.length === 3) d = new Date(Number(p[0]), Number(p[1])-1, Number(p[2]), 12, 0, 0);
     }
+    if (isNaN(d.getTime())) return String(f);
+    return new Intl.DateTimeFormat('es-DO',{day:'numeric',month:'long',year:'numeric',timeZone:'America/Santo_Domingo'}).format(d);
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];}); }
+  function tarjeta(l) {
+    var nums = Array.isArray(l.numeros) ? l.numeros.filter(function(n){return n !== null && n !== '';}) : [];
+    var publicado = nums.length > 0;
+    var bolas = publicado ? nums.map(function(n,i){ return '<div class="numero"><strong>'+esc(String(n).padStart(2,'0'))+'</strong><span>'+(i===0?'1ro':i===1?'2do':i===2?'3ro':(i+1)+'to')+'</span></div>'; }).join('') : '<div style="padding:12px;color:#7b8490;font-weight:700">Esperando resultado oficial</div>';
+    return '<article class="tarjeta" data-nombre="'+esc(normal(l.nombre))+'" data-horario="'+esc(l.horario || '')+'"><div class="cabecera"><div><h3>'+esc(l.nombre)+'</h3><span>'+(publicado?'Resultado del '+esc(fechaBonita(l.fecha)):'Resultado pendiente')+'</span></div><span class="hora">'+esc(l.horario || '')+'</span></div><div class="numeros">'+bolas+'</div><div class="pie"><span class="pendiente">'+(publicado?'✓ Resultado publicado':'⏳ Pendiente')+'</span></div></article>';
+  }
+  function pintar(datos) {
+    var porId = {}, porNombre = {};
+    datos.forEach(function(x){ porId[x._id]=x; porNombre[normal(x.nombre)]=x; });
+    var lista = base.map(function(b){ var x=porId[b.id] || porNombre[normal(b.nombre)] || {}; return Object.assign({},b,x,{nombre:x.nombre||b.nombre,grupo:x.grupo||b.grupo,horario:x.horario||b.horario}); });
+    ['rd','usa','otras'].forEach(function(g){ var el=document.getElementById('grid-'+g); if(el) el.innerHTML=lista.filter(function(x){return x.grupo===g;}).map(tarjeta).join(''); });
+    window.__tarjetasLoterias = Array.prototype.slice.call(document.querySelectorAll('.tarjeta'));
+    aplicarFiltros();
+    var publicados=lista.filter(function(x){return Array.isArray(x.numeros)&&x.numeros.length;}).length;
+    document.getElementById('estado-resultados').textContent='Resultados disponibles: '+publicados+' de '+lista.length;
+    var actualizados=datos.map(function(x){return x.actualizado||x.updated_at||'';}).filter(Boolean).sort().reverse();
+    document.getElementById('ultima-actualizacion').textContent=actualizados.length?'Última actualización: '+new Intl.DateTimeFormat('es-DO',{dateStyle:'short',timeStyle:'short',timeZone:'America/Santo_Domingo'}).format(new Date(actualizados[0])):'Actualización automática activa';
+  }
 
-    if (buscador) {
-      buscador.addEventListener(
-        'input',
-        aplicarFiltros
-      );
-    }
+  var filtroActual='Todas';
+  function aplicarFiltros(){
+    var buscador=document.getElementById('buscar-loteria');
+    var texto=normal(buscador ? buscador.value : '');
+    (window.__tarjetasLoterias || []).forEach(function(t){var nombre=String(t.getAttribute('data-nombre')||'');var horario=String(t.getAttribute('data-horario')||'');t.style.display=(nombre.indexOf(texto)!==-1&&(filtroActual==='Todas'||horario===filtroActual))?'':'none';});
+  }
+  var buscador=document.getElementById('buscar-loteria'); if(buscador) buscador.addEventListener('input',aplicarFiltros);
+  Array.prototype.slice.call(document.querySelectorAll('[data-filtro]')).forEach(function(b){b.addEventListener('click',function(){filtroActual=b.getAttribute('data-filtro')||'Todas';document.querySelectorAll('[data-filtro]').forEach(function(x){x.classList.remove('activo');});b.classList.add('activo');aplicarFiltros();});});
 
-    botones.forEach(function (boton) {
-      boton.addEventListener('click', function () {
-        filtroActual =
-          boton.getAttribute('data-filtro') ||
-          'Todas';
-
-        botones.forEach(function (otroBoton) {
-          otroBoton.classList.remove('activo');
-        });
-
-        boton.classList.add('activo');
-
-        aplicarFiltros();
-      });
-    });
-  });
+  pintar([]);
+  fetch(ENDPOINT,{headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw new Error('Firestore '+r.status);return r.json();}).then(function(d){pintar((d.documents||[]).map(decode));}).catch(function(e){console.error('Resultados loterías:',e);document.getElementById('estado-resultados').textContent='Resultados temporalmente no disponibles';document.getElementById('ultima-actualizacion').textContent='Intenta nuevamente en unos minutos';});
+})();
 </script>
-
 
 <style>
 
