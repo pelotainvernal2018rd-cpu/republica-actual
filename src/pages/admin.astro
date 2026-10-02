@@ -534,6 +534,37 @@
       padding: 8px 10px;
     }
 
+    /* REPÚBLICA ÚTIL */
+
+    .opciones-especiales {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 6px 0 18px;
+    }
+
+    .opcion-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #d6dde5;
+      border-radius: 8px;
+      background: #f8fafc;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .opcion-check input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      flex: 0 0 auto;
+    }
+
+    .opcion-check strong { display: block; margin-bottom: 3px; }
+    .opcion-check span { color: #718096; font-size: 12px; font-weight: 400; line-height: 1.4; }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -548,6 +579,10 @@
       }
 
       .fila {
+        grid-template-columns: 1fr;
+      }
+
+      .opciones-especiales {
         grid-template-columns: 1fr;
       }
 
@@ -996,6 +1031,18 @@
             </div>
 
 
+            <div class="opciones-especiales">
+              <label class="opcion-check" for="republicaUtil">
+                <input type="checkbox" id="republicaUtil" />
+                <span><strong>🇩🇴 República Útil</strong>Guardar esta entrada dentro de la sección permanente República Útil.</span>
+              </label>
+
+              <label class="opcion-check" for="republicaUtilPortada">
+                <input type="checkbox" id="republicaUtilPortada" />
+                <span><strong>⭐ Mostrar en portada</strong>Destacar esta entrada de República Útil en la página principal.</span>
+              </label>
+            </div>
+
             <div class="acciones">
 
               <button
@@ -1102,6 +1149,8 @@
     const publicarButton = document.getElementById('publicarButton');
     const borradorButton = document.getElementById('borradorButton');
     const cancelarEdicion = document.getElementById('cancelarEdicion');
+    const republicaUtil = document.getElementById('republicaUtil');
+    const republicaUtilPortada = document.getElementById('republicaUtilPortada');
 
     let sesionFirebase = null;
     let noticiasCache = [];
@@ -1382,6 +1431,8 @@
       categoria.value = 'Nacionales';
       imagen.value = '';
       contenido.innerHTML = '';
+      republicaUtil.checked = false;
+      republicaUtilPortada.checked = false;
       mediaSeleccionado = null;
       document.getElementById('mediaControls')?.classList.remove('activo');
       tituloEditor.textContent = '📝 Nueva noticia';
@@ -1391,6 +1442,13 @@
     }
 
     cancelarEdicion.addEventListener('click', () => { limpiarEditor(); cambiarSeccion('inicio'); });
+
+    republicaUtilPortada.addEventListener('change', () => {
+      if (republicaUtilPortada.checked) republicaUtil.checked = true;
+    });
+    republicaUtil.addEventListener('change', () => {
+      if (!republicaUtil.checked) republicaUtilPortada.checked = false;
+    });
 
     document.querySelectorAll('#editorToolbar [data-cmd]').forEach((boton) => boton.addEventListener('click', () => { contenido.focus(); document.execCommand(boton.dataset.cmd, false, null); }));
     document.getElementById('formatoTexto').addEventListener('change', (e) => { contenido.focus(); document.execCommand('formatBlock', false, e.target.value); e.target.value = 'p'; });
@@ -1451,6 +1509,7 @@
           ...(noticiaEditando || {}),
           id:Number(id), titulo:tituloTexto, slug:crearSlug(tituloTexto), imagen:imagen.value.trim()||null,
           contenido:contenidoTexto, categoria:categoria.value, publicado:publicar,
+          republica_util:republicaUtil.checked, republica_util_portada:republicaUtilPortada.checked,
           created_at:noticiaEditando?.created_at || new Date().toISOString()
         };
         await guardarDocumento(id,datos);
@@ -1475,6 +1534,8 @@
           const p=document.createElement('p');p.textContent=`${noticia.categoria||'Sin categoría'} · ${noticia.slug||''}`;
           const estado=document.createElement('span');estado.className=noticia.publicado?'estado estado-publicado':'estado estado-borrador';estado.textContent=noticia.publicado?'PUBLICADA':'BORRADOR';
           info.append(h3,p,estado);
+          if(noticia.republica_util===true){const ru=document.createElement('span');ru.className='estado';ru.style.cssText='background:#dbeafe;color:#1e40af;margin-left:6px;';ru.textContent='REPÚBLICA ÚTIL';info.appendChild(ru);}
+          if(noticia.republica_util_portada===true){const rp=document.createElement('span');rp.className='estado';rp.style.cssText='background:#fef3c7;color:#92400e;margin-left:6px;';rp.textContent='⭐ PORTADA';info.appendChild(rp);}
           const acciones=document.createElement('div');acciones.className='acciones-noticia';
           const editar=document.createElement('button');editar.className='btn btn-gris';editar.textContent='✏️ Editar';editar.addEventListener('click',()=>editarNoticia(noticia));
           const eliminar=document.createElement('button');eliminar.className='btn btn-rojo';eliminar.textContent='🗑️ Eliminar';eliminar.addEventListener('click',()=>eliminarNoticia(noticia));
@@ -1485,7 +1546,7 @@
     }
 
     function editarNoticia(noticia) {
-      noticiaEditando={...noticia};noticiaId.value=noticia.id||'';titulo.value=noticia.titulo||'';categoria.value=noticia.categoria||'Nacionales';imagen.value=noticia.imagen||'';contenido.innerHTML=noticia.contenido||'';
+      noticiaEditando={...noticia};noticiaId.value=noticia.id||'';titulo.value=noticia.titulo||'';categoria.value=noticia.categoria||'Nacionales';imagen.value=noticia.imagen||'';contenido.innerHTML=noticia.contenido||'';republicaUtil.checked=noticia.republica_util===true;republicaUtilPortada.checked=noticia.republica_util_portada===true;
       tituloEditor.textContent='✏️ Editar noticia';publicarButton.textContent=noticia.publicado?'🚀 Actualizar noticia':'🚀 Publicar noticia';cambiarSeccion('crear');window.scrollTo({top:0,behavior:'smooth'});
     }
 
