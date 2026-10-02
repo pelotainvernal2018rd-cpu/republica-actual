@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const hoyISO = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'America/Santo_Domingo',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+}).format(new Date());
+
 const hoy = new Intl.DateTimeFormat('es-DO', {
   weekday: 'long',
   day: 'numeric',
@@ -8,6 +15,27 @@ const hoy = new Intl.DateTimeFormat('es-DO', {
   year: 'numeric',
   timeZone: 'America/Santo_Domingo'
 }).format(new Date());
+
+const loterias = [
+  { id:'loteria-nacional-noche', nombre:'Lotería Nacional', grupo:'rd', horario:'Noche' },
+  { id:'leidsa-noche', nombre:'LEIDSA', grupo:'rd', horario:'Noche' },
+  { id:'loteria-real-mediodia', nombre:'Lotería Real', grupo:'rd', horario:'Mediodía' },
+  { id:'loteka-noche', nombre:'Loteka', grupo:'rd', horario:'Noche' },
+  { id:'la-primera-mediodia', nombre:'La Primera', grupo:'rd', horario:'Mediodía' },
+  { id:'la-suerte-mediodia', nombre:'La Suerte', grupo:'rd', horario:'Mediodía' },
+  { id:'lotedom-mediodia', nombre:'LoteDom', grupo:'rd', horario:'Mediodía' },
+
+  { id:'king-lottery-mediodia', nombre:'King Lottery', grupo:'otras', horario:'Mediodía' },
+  { id:'anguila-noche', nombre:'Anguila', grupo:'otras', horario:'Noche' },
+
+  { id:'new-york-dia', nombre:'New York Día', grupo:'usa', horario:'Tarde' },
+  { id:'new-york-noche', nombre:'New York Noche', grupo:'usa', horario:'Noche' },
+  { id:'florida-dia', nombre:'Florida Día', grupo:'usa', horario:'Tarde' },
+  { id:'florida-noche', nombre:'Florida Noche', grupo:'usa', horario:'Noche' },
+  { id:'new-jersey-noche', nombre:'Americanas (New Jersey Noche)', grupo:'usa', horario:'Noche' },
+
+  { id:'haiti-bolet-noche', nombre:'Haití Bolet', grupo:'otras', horario:'Noche' }
+];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -34,10 +62,7 @@ const schema = {
   description="Resultados de loterías de hoy en República Dominicana. Consulta Lotería Nacional, LEIDSA, Loteka, Lotería Real, La Primera, La Suerte, LoteDom, New York, Florida y más."
 >
 
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify(schema)}
-></script>
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
 <main class="pagina-loterias">
 
@@ -50,9 +75,7 @@ const schema = {
         <span>Resultados de Loterías</span>
       </nav>
 
-      <span class="etiqueta">
-        RESULTADOS ACTUALIZADOS
-      </span>
+      <span class="etiqueta">RESULTADOS ACTUALIZADOS</span>
 
       <h1>Resultados de Loterías de Hoy</h1>
 
@@ -78,12 +101,12 @@ const schema = {
         <span class="live"></span>
 
         <strong id="estado-resultados">
-          Cargando resultados...
+          Resultados de hoy: esperando sorteos
         </strong>
       </div>
 
       <span id="ultima-actualizacion">
-        Actualización automática
+        Actualización automática cada 5 minutos
       </span>
 
     </section>
@@ -92,7 +115,6 @@ const schema = {
     <section class="herramientas">
 
       <div class="buscador">
-
         <span>🔎</span>
 
         <input
@@ -101,35 +123,14 @@ const schema = {
           placeholder="Buscar lotería..."
           aria-label="Buscar lotería"
         />
-
       </div>
 
-
       <div class="filtros">
-
-        <button
-          class="activo"
-          data-filtro="Todas"
-        >
-          Todas
-        </button>
-
-        <button data-filtro="Mañana">
-          Mañana
-        </button>
-
-        <button data-filtro="Mediodía">
-          Mediodía
-        </button>
-
-        <button data-filtro="Tarde">
-          Tarde
-        </button>
-
-        <button data-filtro="Noche">
-          Noche
-        </button>
-
+        <button class="activo" data-filtro="Todas">Todas</button>
+        <button data-filtro="Mañana">Mañana</button>
+        <button data-filtro="Mediodía">Mediodía</button>
+        <button data-filtro="Tarde">Tarde</button>
+        <button data-filtro="Noche">Noche</button>
       </div>
 
     </section>
@@ -143,22 +144,74 @@ const schema = {
           <span class="icono">🇩🇴</span>
 
           <div>
-            <h2>
-              Loterías de República Dominicana
-            </h2>
-
-            <p>
-              Resultados de los principales sorteos dominicanos.
-            </p>
+            <h2>Loterías de República Dominicana</h2>
+            <p>Resultados de los principales sorteos dominicanos.</p>
           </div>
 
         </div>
       </div>
 
-      <div
-        class="grid"
-        id="grid-rd"
-      ></div>
+      <div class="grid">
+
+        {
+          loterias
+            .filter(l => l.grupo === 'rd')
+            .map(loteria => (
+
+              <article
+                class="tarjeta"
+                data-id={loteria.id}
+                data-nombre={loteria.nombre.toLowerCase()}
+                data-horario={loteria.horario}
+              >
+
+                <div class="cabecera">
+
+                  <div>
+                    <h3>{loteria.nombre}</h3>
+
+                    <span class="fecha-resultado">
+                      Resultado de hoy pendiente
+                    </span>
+                  </div>
+
+                  <span class="hora">
+                    {loteria.horario}
+                  </span>
+
+                </div>
+
+                <div class="numeros">
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>1ro</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>2do</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>3ro</span>
+                  </div>
+
+                </div>
+
+                <div class="pie">
+                  <span class="pendiente">
+                    ⏳ Pendiente de resultado
+                  </span>
+                </div>
+
+              </article>
+
+            ))
+        }
+
+      </div>
 
     </section>
 
@@ -171,9 +224,7 @@ const schema = {
           <span class="icono">🇺🇸</span>
 
           <div>
-            <h2>
-              Resultados New York y Florida
-            </h2>
+            <h2>Resultados New York y Florida</h2>
 
             <p>
               Sorteos estadounidenses consultados diariamente
@@ -184,10 +235,67 @@ const schema = {
         </div>
       </div>
 
-      <div
-        class="grid"
-        id="grid-usa"
-      ></div>
+      <div class="grid">
+
+        {
+          loterias
+            .filter(l => l.grupo === 'usa')
+            .map(loteria => (
+
+              <article
+                class="tarjeta"
+                data-id={loteria.id}
+                data-nombre={loteria.nombre.toLowerCase()}
+                data-horario={loteria.horario}
+              >
+
+                <div class="cabecera">
+
+                  <div>
+                    <h3>{loteria.nombre}</h3>
+
+                    <span class="fecha-resultado">
+                      Resultado de hoy pendiente
+                    </span>
+                  </div>
+
+                  <span class="hora">
+                    {loteria.horario}
+                  </span>
+
+                </div>
+
+                <div class="numeros">
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>1ro</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>2do</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>3ro</span>
+                  </div>
+
+                </div>
+
+                <div class="pie">
+                  <span class="pendiente">
+                    ⏳ Pendiente de resultado
+                  </span>
+                </div>
+
+              </article>
+
+            ))
+        }
+
+      </div>
 
     </section>
 
@@ -200,9 +308,7 @@ const schema = {
           <span class="icono">🌎</span>
 
           <div>
-            <h2>
-              Otros sorteos populares
-            </h2>
+            <h2>Otros sorteos populares</h2>
 
             <p>
               Resultados adicionales consultados por jugadores
@@ -213,10 +319,67 @@ const schema = {
         </div>
       </div>
 
-      <div
-        class="grid"
-        id="grid-otras"
-      ></div>
+      <div class="grid">
+
+        {
+          loterias
+            .filter(l => l.grupo === 'otras')
+            .map(loteria => (
+
+              <article
+                class="tarjeta"
+                data-id={loteria.id}
+                data-nombre={loteria.nombre.toLowerCase()}
+                data-horario={loteria.horario}
+              >
+
+                <div class="cabecera">
+
+                  <div>
+                    <h3>{loteria.nombre}</h3>
+
+                    <span class="fecha-resultado">
+                      Resultado de hoy pendiente
+                    </span>
+                  </div>
+
+                  <span class="hora">
+                    {loteria.horario}
+                  </span>
+
+                </div>
+
+                <div class="numeros">
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>1ro</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>2do</span>
+                  </div>
+
+                  <div class="numero">
+                    <strong>--</strong>
+                    <span>3ro</span>
+                  </div>
+
+                </div>
+
+                <div class="pie">
+                  <span class="pendiente">
+                    ⏳ Pendiente de resultado
+                  </span>
+                </div>
+
+              </article>
+
+            ))
+        }
+
+      </div>
 
     </section>
 
@@ -242,37 +405,30 @@ const schema = {
         King Lottery, Anguila y otros sorteos populares.
       </p>
 
-
-      <h2>
-        ¿A qué hora se actualizan los resultados?
-      </h2>
+      <h2>¿A qué hora se actualizan los resultados?</h2>
 
       <p>
-        Los resultados se actualizan durante el día a medida
-        que son publicados los diferentes sorteos.
+        Los resultados se actualizarán durante el día a medida
+        que sean publicados los diferentes sorteos. Cada tarjeta
+        indicará cuándo un resultado se encuentre disponible.
       </p>
 
-
-      <h2>
-        Resultados de loterías dominicanas
-      </h2>
+      <h2>Resultados de loterías dominicanas</h2>
 
       <p>
-        República Actual organiza los resultados por lotería
+        República Actual organizará los resultados por lotería
         y horario para facilitar la consulta desde teléfonos,
-        computadoras y otros dispositivos.
+        computadoras y otros dispositivos. También podrás buscar
+        rápidamente una lotería utilizando el buscador disponible
+        en esta página.
       </p>
-
 
       <div class="aviso">
-
         <strong>Importante:</strong>
-
         Los resultados mostrados en República Actual tienen
         carácter informativo. Para reclamaciones, validación de
         jugadas o pago de premios debe utilizarse siempre el
         resultado oficial de la entidad correspondiente.
-
       </div>
 
     </section>
@@ -282,463 +438,554 @@ const schema = {
 </main>
 
 
-<script is:inline>
+<script define:vars={{ hoyISO }} is:inline>
 
-document.addEventListener(
-  'DOMContentLoaded',
-  function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-    var PROJECT_ID =
-      'republica-actual';
+  var PROJECT_ID = 'republica-actual';
 
-    var FIRESTORE_URL =
-      'https://firestore.googleapis.com/v1/projects/' +
-      PROJECT_ID +
-      '/databases/(default)/documents/resultados_loterias?pageSize=300';
+  var FIRESTORE_URL =
+    'https://firestore.googleapis.com/v1/projects/' +
+    PROJECT_ID +
+    '/databases/(default)/documents/resultados_loterias?pageSize=300';
+
+  var buscador =
+    document.getElementById('buscar-loteria');
+
+  var botones =
+    Array.prototype.slice.call(
+      document.querySelectorAll('[data-filtro]')
+    );
+
+  var tarjetas =
+    Array.prototype.slice.call(
+      document.querySelectorAll('.tarjeta')
+    );
+
+  var filtroActual = 'Todas';
 
 
-    var buscador =
-      document.getElementById(
-        'buscar-loteria'
+  function valorFirestore(valor) {
+
+    if (!valor) return null;
+
+    if ('stringValue' in valor) {
+      return valor.stringValue;
+    }
+
+    if ('booleanValue' in valor) {
+      return valor.booleanValue;
+    }
+
+    if ('integerValue' in valor) {
+      return Number(valor.integerValue);
+    }
+
+    if ('doubleValue' in valor) {
+      return Number(valor.doubleValue);
+    }
+
+    if (valor.arrayValue) {
+      return (valor.arrayValue.values || [])
+        .map(valorFirestore);
+    }
+
+    return null;
+  }
+
+
+  function documentoAObjeto(doc) {
+
+    var salida = {};
+
+    var fields = doc.fields || {};
+
+    Object.keys(fields).forEach(function (key) {
+      salida[key] = valorFirestore(fields[key]);
+    });
+
+    salida.__id =
+      String(doc.name || '').split('/').pop();
+
+    return salida;
+  }
+
+
+  function normalizar(texto) {
+
+    return String(texto || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+
+  function fechaBonita(fecha) {
+
+    var partes = String(fecha || '').split('-');
+
+    if (partes.length !== 3) {
+      return fecha;
+    }
+
+    var fechaLocal = new Date(
+      Number(partes[0]),
+      Number(partes[1]) - 1,
+      Number(partes[2])
+    );
+
+    return new Intl.DateTimeFormat(
+      'es-DO',
+      {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }
+    ).format(fechaLocal);
+  }
+
+
+  /*
+   * Esta función relaciona el resultado real
+   * de Firestore con UNA de las 15 tarjetas.
+   *
+   * Lo más importante:
+   * solamente acepta documentos DE HOY.
+   */
+  function buscarResultadoParaTarjeta(
+    tarjeta,
+    resultados
+  ) {
+
+    var id =
+      tarjeta.getAttribute('data-id') || '';
+
+    var nombre =
+      normalizar(
+        tarjeta.getAttribute('data-nombre')
       );
 
-    var botones =
-      Array.prototype.slice.call(
-        document.querySelectorAll(
-          '[data-filtro]'
-        )
-      );
-
-    var filtroActual =
-      'Todas';
+    var horario =
+      tarjeta.getAttribute('data-horario') || '';
 
 
-    function valorFirestore(valor) {
+    var candidatos =
+      resultados.filter(function (r) {
 
-      if (!valor) return null;
+        var fecha =
+          String(
+            r.fecha ||
+            r.fecha_resultado ||
+            ''
+          );
 
-      if (
-        Object.prototype.hasOwnProperty.call(
-          valor,
-          'stringValue'
-        )
-      ) {
-        return valor.stringValue;
-      }
+        if (fecha !== hoyISO) {
+          return false;
+        }
 
-      if (
-        Object.prototype.hasOwnProperty.call(
-          valor,
-          'booleanValue'
-        )
-      ) {
-        return valor.booleanValue;
-      }
+        var operador =
+          normalizar(r.operador);
 
-      if (
-        Object.prototype.hasOwnProperty.call(
-          valor,
-          'integerValue'
-        )
-      ) {
-        return Number(
-          valor.integerValue
-        );
-      }
+        var sorteo =
+          normalizar(
+            r.sorteo ||
+            r.nombre
+          );
 
-      if (
-        Object.prototype.hasOwnProperty.call(
-          valor,
-          'doubleValue'
-        )
-      ) {
-        return Number(
-          valor.doubleValue
-        );
-      }
+        var texto =
+          operador + ' ' + sorteo;
 
-      if (valor.arrayValue) {
+        if (
+          id === 'loteria-nacional-noche'
+        ) {
+          return (
+            texto.indexOf('loteria nacional') !== -1 &&
+            (
+              normalizar(r.horario) === 'noche' ||
+              sorteo.indexOf('nacional') !== -1
+            )
+          );
+        }
 
-        return (
-          valor.arrayValue.values || []
-        ).map(
-          valorFirestore
-        );
-      }
+        if (id === 'leidsa-noche') {
+          return (
+            texto.indexOf('leidsa') !== -1 &&
+            (
+              sorteo.indexOf('quiniela') !== -1 ||
+              normalizar(r.horario) === 'noche'
+            )
+          );
+        }
 
+        if (
+          id === 'loteria-real-mediodia'
+        ) {
+          return (
+            texto.indexOf('loteria real') !== -1 &&
+            (
+              normalizar(r.horario) === 'mediodia' ||
+              sorteo.indexOf('quiniela real') !== -1
+            )
+          );
+        }
+
+        if (id === 'loteka-noche') {
+          return (
+            texto.indexOf('loteka') !== -1 &&
+            (
+              sorteo.indexOf('quiniela') !== -1 ||
+              normalizar(r.horario) === 'noche'
+            )
+          );
+        }
+
+        if (
+          id === 'la-primera-mediodia'
+        ) {
+          return (
+            texto.indexOf('la primera') !== -1 &&
+            (
+              normalizar(r.horario) === 'mediodia' ||
+              sorteo.indexOf('primera dia') !== -1 ||
+              sorteo.indexOf('primera mediodia') !== -1
+            )
+          );
+        }
+
+        if (
+          id === 'la-suerte-mediodia'
+        ) {
+          return (
+            texto.indexOf('la suerte') !== -1 &&
+            (
+              normalizar(r.horario) === 'mediodia' ||
+              sorteo.indexOf('quiniela') !== -1
+            )
+          );
+        }
+
+        if (
+          id === 'lotedom-mediodia'
+        ) {
+          return (
+            texto.indexOf('lotedom') !== -1 &&
+            (
+              sorteo.indexOf('quiniela') !== -1 ||
+              normalizar(r.horario) === 'mediodia'
+            )
+          );
+        }
+
+        if (
+          id === 'king-lottery-mediodia'
+        ) {
+          return (
+            texto.indexOf('king lottery') !== -1 &&
+            (
+              normalizar(r.horario) === 'mediodia' ||
+              texto.indexOf('12 30') !== -1
+            )
+          );
+        }
+
+        if (id === 'anguila-noche') {
+          return (
+            texto.indexOf('anguila') !== -1 &&
+            normalizar(r.horario) === 'noche'
+          );
+        }
+
+        if (id === 'new-york-dia') {
+          return (
+            texto.indexOf('new york') !== -1 &&
+            (
+              normalizar(r.horario) === 'tarde' ||
+              normalizar(r.horario) === 'mediodia' ||
+              sorteo.indexOf('midday') !== -1 ||
+              sorteo.indexOf('dia') !== -1
+            )
+          );
+        }
+
+        if (id === 'new-york-noche') {
+          return (
+            texto.indexOf('new york') !== -1 &&
+            (
+              normalizar(r.horario) === 'noche' ||
+              sorteo.indexOf('evening') !== -1
+            )
+          );
+        }
+
+        if (id === 'florida-dia') {
+          return (
+            texto.indexOf('florida') !== -1 &&
+            (
+              normalizar(r.horario) === 'tarde' ||
+              normalizar(r.horario) === 'mediodia' ||
+              sorteo.indexOf('midday') !== -1 ||
+              sorteo.indexOf('dia') !== -1
+            )
+          );
+        }
+
+        if (id === 'florida-noche') {
+          return (
+            texto.indexOf('florida') !== -1 &&
+            (
+              normalizar(r.horario) === 'noche' ||
+              sorteo.indexOf('evening') !== -1
+            )
+          );
+        }
+
+        if (id === 'new-jersey-noche') {
+          return (
+            texto.indexOf('new jersey') !== -1 &&
+            (
+              normalizar(r.horario) === 'noche' ||
+              sorteo.indexOf('evening') !== -1
+            )
+          );
+        }
+
+        if (
+          id === 'haiti-bolet-noche'
+        ) {
+          return (
+            (
+              texto.indexOf('haiti') !== -1 ||
+              texto.indexOf('bolet') !== -1
+            ) &&
+            normalizar(r.horario) === 'noche'
+          );
+        }
+
+        return texto.indexOf(nombre) !== -1;
+      });
+
+
+    if (!candidatos.length) {
       return null;
     }
 
 
-    function documentoAObjeto(doc) {
+    /*
+     * Solo aceptamos resultados con mínimo
+     * tres números válidos.
+     */
+    candidatos =
+      candidatos.filter(function (r) {
 
-      var salida = {};
+        return (
+          Array.isArray(r.numeros) &&
+          r.numeros.length >= 3
+        );
+      });
 
-      var fields =
-        doc.fields || {};
 
-      Object.keys(fields)
-        .forEach(function(key) {
+    if (!candidatos.length) {
+      return null;
+    }
 
-          salida[key] =
-            valorFirestore(
-              fields[key]
+
+    return candidatos[0];
+  }
+
+
+  function actualizarTarjeta(
+    tarjeta,
+    resultado
+  ) {
+
+    if (!resultado) {
+      return;
+    }
+
+    var numeros =
+      resultado.numeros.slice(0, 3);
+
+    var circulos =
+      tarjeta.querySelectorAll(
+        '.numero strong'
+      );
+
+    numeros.forEach(function (numero, i) {
+
+      if (circulos[i]) {
+
+        circulos[i].textContent =
+          String(numero)
+            .padStart(2, '0');
+      }
+    });
+
+
+    var fecha =
+      tarjeta.querySelector(
+        '.fecha-resultado'
+      );
+
+    if (fecha) {
+
+      fecha.textContent =
+        'Resultado del ' +
+        fechaBonita(hoyISO);
+    }
+
+
+    var estado =
+      tarjeta.querySelector(
+        '.pendiente'
+      );
+
+    if (estado) {
+
+      estado.textContent =
+        '✓ Resultado publicado';
+
+      estado.classList.add(
+        'publicado'
+      );
+    }
+  }
+
+
+  function aplicarFiltros() {
+
+    var texto = '';
+
+    if (buscador) {
+
+      texto =
+        String(
+          buscador.value || ''
+        )
+          .toLowerCase()
+          .trim();
+    }
+
+
+    tarjetas.forEach(function (tarjeta) {
+
+      var nombre =
+        String(
+          tarjeta.getAttribute(
+            'data-nombre'
+          ) || ''
+        );
+
+
+      var horario =
+        String(
+          tarjeta.getAttribute(
+            'data-horario'
+          ) || ''
+        );
+
+
+      var coincideNombre =
+        nombre.indexOf(texto) !== -1;
+
+
+      var coincideHorario =
+        filtroActual === 'Todas' ||
+        horario === filtroActual;
+
+
+      tarjeta.style.display =
+        coincideNombre &&
+        coincideHorario
+          ? ''
+          : 'none';
+    });
+  }
+
+
+  fetch(FIRESTORE_URL)
+
+    .then(function (respuesta) {
+
+      if (!respuesta.ok) {
+
+        throw new Error(
+          'Firestore HTTP ' +
+          respuesta.status
+        );
+      }
+
+      return respuesta.json();
+    })
+
+    .then(function (data) {
+
+      var resultados =
+        (data.documents || [])
+          .map(documentoAObjeto);
+
+
+      /*
+       * DOBLE PROTECCIÓN:
+       * eliminamos aquí todo lo que no sea hoy.
+       */
+      var resultadosHoy =
+        resultados.filter(function (r) {
+
+          var fecha =
+            String(
+              r.fecha ||
+              r.fecha_resultado ||
+              ''
             );
 
+          return fecha === hoyISO;
         });
 
-      return salida;
-    }
 
+      var publicados = 0;
 
-    function escapar(texto) {
 
-      return String(texto || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
+      tarjetas.forEach(function (tarjeta) {
 
-
-    function fechaBonita(fecha) {
-
-      if (!fecha) return '';
-
-      var partes =
-        String(fecha).split('-');
-
-      if (partes.length !== 3) {
-        return fecha;
-      }
-
-      var d = new Date(
-        Number(partes[0]),
-        Number(partes[1]) - 1,
-        Number(partes[2])
-      );
-
-      return new Intl.DateTimeFormat(
-        'es-DO',
-        {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        }
-      ).format(d);
-    }
-
-
-    function crearTarjeta(resultado) {
-
-      var numeros =
-        Array.isArray(resultado.numeros)
-          ? resultado.numeros
-          : [];
-
-
-      var numerosHTML =
-        numeros.map(
-          function(numero, i) {
-
-            var etiqueta =
-              i === 0
-                ? '1ro'
-                : i === 1
-                ? '2do'
-                : i === 2
-                ? '3ro'
-                : '';
-
-            return (
-              '<div class="numero">' +
-                '<strong>' +
-                  escapar(numero) +
-                '</strong>' +
-                (
-                  etiqueta
-                    ? '<span>' +
-                        etiqueta +
-                      '</span>'
-                    : ''
-                ) +
-              '</div>'
-            );
-
-          }
-        ).join('');
-
-
-      var articulo =
-        document.createElement(
-          'article'
-        );
-
-
-      articulo.className =
-        'tarjeta';
-
-
-      articulo.setAttribute(
-        'data-nombre',
-        (
-          String(
-            resultado.operador || ''
-          ) +
-          ' ' +
-          String(
-            resultado.sorteo || ''
-          )
-        ).toLowerCase()
-      );
-
-
-      articulo.setAttribute(
-        'data-horario',
-        resultado.horario || ''
-      );
-
-
-      articulo.innerHTML =
-        '<div class="cabecera">' +
-
-          '<div>' +
-
-            '<h3>' +
-              escapar(
-                resultado.sorteo ||
-                resultado.nombre ||
-                resultado.operador
-              ) +
-            '</h3>' +
-
-            '<span>' +
-              escapar(
-                resultado.operador || ''
-              ) +
-              (
-                resultado.fecha
-                  ? ' · Resultado del ' +
-                    escapar(
-                      fechaBonita(
-                        resultado.fecha
-                      )
-                    )
-                  : ''
-              ) +
-            '</span>' +
-
-          '</div>' +
-
-          '<span class="hora">' +
-            escapar(
-              resultado.horario ||
-              resultado.hora ||
-              'Resultado'
-            ) +
-          '</span>' +
-
-        '</div>' +
-
-        '<div class="numeros">' +
-          numerosHTML +
-        '</div>' +
-
-        '<div class="pie">' +
-
-          '<span class="pendiente">' +
-            '✓ Resultado publicado' +
-          '</span>' +
-
-        '</div>';
-
-
-      return articulo;
-    }
-
-
-    function aplicarFiltros() {
-
-      var texto = '';
-
-      if (buscador) {
-
-        texto =
-          String(
-            buscador.value || ''
-          )
-            .toLowerCase()
-            .trim();
-      }
-
-
-      var tarjetas =
-        Array.prototype.slice.call(
-          document.querySelectorAll(
-            '.tarjeta'
-          )
-        );
-
-
-      tarjetas.forEach(
-        function(tarjeta) {
-
-          var nombre =
-            String(
-              tarjeta.getAttribute(
-                'data-nombre'
-              ) || ''
-            );
-
-
-          var horario =
-            String(
-              tarjeta.getAttribute(
-                'data-horario'
-              ) || ''
-            );
-
-
-          var coincideNombre =
-            nombre.indexOf(
-              texto
-            ) !== -1;
-
-
-          var coincideHorario =
-            filtroActual === 'Todas' ||
-            horario === filtroActual;
-
-
-          tarjeta.style.display =
-            coincideNombre &&
-            coincideHorario
-              ? ''
-              : 'none';
-
-        }
-      );
-    }
-
-
-    function ordenarResultados(
-      resultados
-    ) {
-
-      return resultados.sort(
-        function(a, b) {
-
-          var operadorA =
-            String(
-              a.operador || ''
-            );
-
-          var operadorB =
-            String(
-              b.operador || ''
-            );
-
-          var comparacion =
-            operadorA.localeCompare(
-              operadorB,
-              'es'
-            );
-
-          if (comparacion !== 0) {
-            return comparacion;
-          }
-
-          return String(
-            a.sorteo || ''
-          ).localeCompare(
-            String(
-              b.sorteo || ''
-            ),
-            'es'
+        var resultado =
+          buscarResultadoParaTarjeta(
+            tarjeta,
+            resultadosHoy
           );
 
+
+        if (resultado) {
+
+          actualizarTarjeta(
+            tarjeta,
+            resultado
+          );
+
+          publicados++;
         }
-      );
-    }
+      });
 
-
-    function pintar(
-      resultados
-    ) {
-
-      var gridRD =
-        document.getElementById(
-          'grid-rd'
-        );
-
-      var gridUSA =
-        document.getElementById(
-          'grid-usa'
-        );
-
-      var gridOtras =
-        document.getElementById(
-          'grid-otras'
-        );
-
-
-      gridRD.innerHTML = '';
-      gridUSA.innerHTML = '';
-      gridOtras.innerHTML = '';
-
-
-      ordenarResultados(
-        resultados
-      ).forEach(
-        function(resultado) {
-
-          var tarjeta =
-            crearTarjeta(
-              resultado
-            );
-
-
-          if (
-            resultado.grupo === 'usa'
-          ) {
-
-            gridUSA.appendChild(
-              tarjeta
-            );
-
-          } else if (
-            resultado.grupo === 'otras'
-          ) {
-
-            gridOtras.appendChild(
-              tarjeta
-            );
-
-          } else {
-
-            gridRD.appendChild(
-              tarjeta
-            );
-
-          }
-
-        }
-      );
-
-
-      aplicarFiltros();
-    }
-
-
-    function actualizarEstado(
-      resultados
-    ) {
 
       var estado =
         document.getElementById(
           'estado-resultados'
         );
+
+
+      if (estado) {
+
+        estado.textContent =
+          publicados > 0
+            ? 'Resultados de hoy disponibles: ' +
+              publicados +
+              ' de ' +
+              tarjetas.length
+            : 'Resultados de hoy: esperando sorteos';
+      }
+
 
       var actualizacion =
         document.getElementById(
@@ -746,164 +993,83 @@ document.addEventListener(
         );
 
 
+      if (actualizacion) {
+
+        actualizacion.textContent =
+          'Actualización automática activa';
+      }
+
+    })
+
+    .catch(function (error) {
+
+      console.error(
+        'Error cargando resultados:',
+        error
+      );
+
+
+      var estado =
+        document.getElementById(
+          'estado-resultados'
+        );
+
+
       if (estado) {
 
         estado.textContent =
-          'Resultados disponibles: ' +
-          resultados.length;
-
+          'Resultados temporalmente no disponibles';
       }
 
-
-      var fechas =
-        resultados
-          .map(function(r) {
-            return r.fecha || '';
-          })
-          .filter(Boolean)
-          .sort()
-          .reverse();
+    });
 
 
-      if (
-        actualizacion &&
-        fechas.length
-      ) {
+  if (buscador) {
 
-        actualizacion.textContent =
-          'Últimos resultados: ' +
-          fechaBonita(
-            fechas[0]
-          );
-
-      }
-    }
+    buscador.addEventListener(
+      'input',
+      aplicarFiltros
+    );
+  }
 
 
-    fetch(FIRESTORE_URL)
+  botones.forEach(function (boton) {
 
-      .then(function(respuesta) {
+    boton.addEventListener(
+      'click',
+      function () {
 
-        if (!respuesta.ok) {
-
-          throw new Error(
-            'Firestore HTTP ' +
-            respuesta.status
-          );
-        }
-
-        return respuesta.json();
-
-      })
-
-      .then(function(data) {
-
-        var documentos =
-          data.documents || [];
+        filtroActual =
+          boton.getAttribute(
+            'data-filtro'
+          ) ||
+          'Todas';
 
 
-        var resultados =
-          documentos
-            .map(
-              documentoAObjeto
-            )
-            .filter(
-              function(resultado) {
+        botones.forEach(
+          function (otroBoton) {
 
-                return (
-                  resultado.publicado !==
-                  false
-                );
-
-              }
-            );
-
-
-        pintar(
-          resultados
-        );
-
-
-        actualizarEstado(
-          resultados
-        );
-
-      })
-
-      .catch(function(error) {
-
-        console.error(
-          'Error cargando loterías:',
-          error
-        );
-
-
-        var estado =
-          document.getElementById(
-            'estado-resultados'
-          );
-
-
-        if (estado) {
-
-          estado.textContent =
-            'No fue posible cargar los resultados';
-
-        }
-
-      });
-
-
-    if (buscador) {
-
-      buscador.addEventListener(
-        'input',
-        aplicarFiltros
-      );
-
-    }
-
-
-    botones.forEach(
-      function(boton) {
-
-        boton.addEventListener(
-          'click',
-          function() {
-
-            filtroActual =
-              boton.getAttribute(
-                'data-filtro'
-              ) ||
-              'Todas';
-
-
-            botones.forEach(
-              function(otro) {
-
-                otro.classList.remove(
-                  'activo'
-                );
-
-              }
-            );
-
-
-            boton.classList.add(
+            otroBoton.classList.remove(
               'activo'
             );
-
-
-            aplicarFiltros();
-
           }
         );
 
+
+        boton.classList.add(
+          'activo'
+        );
+
+
+        aplicarFiltros();
       }
     );
+  });
 
-  }
-);
+
+  aplicarFiltros();
+
+});
 
 </script>
 
@@ -1143,7 +1309,6 @@ document.addEventListener(
 .numeros {
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
   gap:18px;
   padding:23px 10px;
 }
@@ -1181,12 +1346,17 @@ document.addEventListener(
 }
 
 .pendiente {
-  background:#e8f7ee;
-  color:#176b3a;
+  background:#fff3cd;
+  color:#7a5a00;
   padding:5px 7px;
   border-radius:5px;
   font-size:11px;
   font-weight:700;
+}
+
+.pendiente.publicado {
+  background:#e8f7ee;
+  color:#176b3a;
 }
 
 .seo {
@@ -1222,6 +1392,7 @@ document.addEventListener(
   color:#4f5a67;
 }
 
+
 @media(max-width:950px) {
 
   .grid {
@@ -1230,6 +1401,7 @@ document.addEventListener(
   }
 
 }
+
 
 @media(max-width:650px) {
 
