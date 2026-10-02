@@ -10,22 +10,22 @@ const hoy = new Intl.DateTimeFormat('es-DO', {
 }).format(new Date());
 
 const loterias = [
-  { nombre:'Lotería Nacional', grupo:'rd', horario:'Tarde', numeros:['--','--','--'] },
-  { nombre:'LEIDSA', grupo:'rd', horario:'Noche', numeros:['--','--','--'] },
-  { nombre:'Lotería Real', grupo:'rd', horario:'Mediodía', numeros:['--','--','--'] },
-  { nombre:'Loteka', grupo:'rd', horario:'Noche', numeros:['--','--','--'] },
-  { nombre:'La Primera', grupo:'rd', horario:'Mediodía', numeros:['--','--','--'] },
-  { nombre:'La Suerte', grupo:'rd', horario:'Mediodía', numeros:['--','--','--'] },
-  { nombre:'LoteDom', grupo:'rd', horario:'Tarde', numeros:['--','--','--'] },
+  { nombre:'Lotería Nacional', grupo:'rd', horario:'Noche', numeros:['98','53','75'] },
+  { nombre:'LEIDSA', grupo:'rd', horario:'Noche', numeros:['28','57','48'] },
+  { nombre:'Lotería Real', grupo:'rd', horario:'Mediodía', numeros:['40','19','05'] },
+  { nombre:'Loteka', grupo:'rd', horario:'Noche', numeros:['12','03','98'] },
+  { nombre:'La Primera', grupo:'rd', horario:'Mediodía', numeros:['82','93','86'] },
+  { nombre:'La Suerte', grupo:'rd', horario:'Mediodía', numeros:['11','27','98'] },
+  { nombre:'LoteDom', grupo:'rd', horario:'Mediodía', numeros:['84','25','19'] },
 
-  { nombre:'King Lottery', grupo:'otras', horario:'Tarde', numeros:['--','--','--'] },
-  { nombre:'Anguila', grupo:'otras', horario:'Mañana', numeros:['--','--','--'] },
-  { nombre:'New York Día', grupo:'usa', horario:'Tarde', numeros:['--','--','--'] },
-  { nombre:'New York Noche', grupo:'usa', horario:'Noche', numeros:['--','--','--'] },
-  { nombre:'Florida Día', grupo:'usa', horario:'Tarde', numeros:['--','--','--'] },
-  { nombre:'Florida Noche', grupo:'usa', horario:'Noche', numeros:['--','--','--'] },
-  { nombre:'Americanas', grupo:'usa', horario:'Noche', numeros:['--','--','--'] },
-  { nombre:'Haití Bolet', grupo:'otras', horario:'Noche', numeros:['--','--','--'] }
+  { nombre:'King Lottery', grupo:'otras', horario:'Mediodía', numeros:['07','75','13'] },
+  { nombre:'Anguila', grupo:'otras', horario:'Noche', numeros:['49','84','79'] },
+  { nombre:'New York Día', grupo:'usa', horario:'Tarde', numeros:['01','34','65'] },
+  { nombre:'New York Noche', grupo:'usa', horario:'Noche', numeros:['46','78','15'] },
+  { nombre:'Florida Día', grupo:'usa', horario:'Tarde', numeros:['88','53','62'] },
+  { nombre:'Florida Noche', grupo:'usa', horario:'Noche', numeros:['28','15','57'] },
+  { nombre:'Americanas (New Jersey Noche)', grupo:'usa', horario:'Noche', numeros:['48','53','43'] },
+  { nombre:'Haití Bolet', grupo:'otras', horario:'Noche', numeros:['15','18','40'] }
 ];
 
 const schema = {
@@ -48,10 +48,10 @@ const schema = {
 };
 ---
 
-<Layout>
+<Layout
   title="Resultados de Loterías de Hoy en RD | República Actual"
   description="Resultados de loterías de hoy en República Dominicana. Consulta Lotería Nacional, LEIDSA, Loteka, Lotería Real, La Primera, La Suerte, LoteDom, New York, Florida y más."
-> </Layout>
+>
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
@@ -90,11 +90,11 @@ const schema = {
 
       <div>
         <span class="live"></span>
-        <strong>Resultados de hoy</strong>
+        <strong>Últimos resultados cargados: 1 de octubre de 2026</strong>
       </div>
 
       <span id="ultima-actualizacion">
-        Actualización automática
+        Preparado para actualización automática
       </span>
 
     </section>
@@ -154,7 +154,7 @@ const schema = {
 
                   <div>
                     <h3>{loteria.nombre}</h3>
-                    <span>Resultado de hoy</span>
+                    <span>Resultado del 1 de octubre de 2026</span>
                   </div>
 
                   <span class="hora">
@@ -189,7 +189,7 @@ const schema = {
 
                 <div class="pie">
                   <span class="pendiente">
-                    ⏱ Esperando resultado
+                    ✓ Resultado publicado
                   </span>
                 </div>
 
@@ -238,7 +238,7 @@ const schema = {
 
                   <div>
                     <h3>{loteria.nombre}</h3>
-                    <span>Resultado de hoy</span>
+                    <span>Resultado del 1 de octubre de 2026</span>
                   </div>
 
                   <span class="hora">
@@ -273,7 +273,7 @@ const schema = {
 
                 <div class="pie">
                   <span class="pendiente">
-                    ⏱ Esperando resultado
+                    ✓ Resultado publicado
                   </span>
                 </div>
 
@@ -322,7 +322,7 @@ const schema = {
 
                   <div>
                     <h3>{loteria.nombre}</h3>
-                    <span>Resultado de hoy</span>
+                    <span>Resultado del 1 de octubre de 2026</span>
                   </div>
 
                   <span class="hora">
@@ -357,7 +357,7 @@ const schema = {
 
                 <div class="pie">
                   <span class="pendiente">
-                    ⏱ Esperando resultado
+                    ✓ Resultado publicado
                   </span>
                 </div>
 
@@ -497,8 +497,6 @@ const schema = {
     });
   });
 </script>
-
-
 
 
 <style>
@@ -773,8 +771,8 @@ const schema = {
   }
 
   .pendiente {
-    background:#fff4cf;
-    color:#806300;
+    background:#e8f7ee;
+    color:#176b3a;
     padding:5px 7px;
     border-radius:5px;
     font-size:11px;
@@ -871,3 +869,5 @@ const schema = {
   }
 
 </style>
+
+</Layout>
