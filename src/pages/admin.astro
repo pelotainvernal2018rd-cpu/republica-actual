@@ -1,7 +1,7 @@
 ---
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,9 @@
   <title>Administración | República Actual</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -18,11 +20,18 @@
       color: #102d46;
     }
 
-    button, input, select {
-      font: inherit;
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
     }
 
-    .oculto { display: none !important; }
+    .oculto {
+      display: none !important;
+    }
+
+    /* LOGIN */
 
     #login {
       min-height: 100vh;
@@ -32,64 +41,80 @@
       padding: 20px;
     }
 
-    .login-box,
-    .panel {
-      background: white;
-      border: 1px solid #e0e6ec;
-      border-radius: 12px;
-      box-shadow: 0 8px 28px rgba(0,0,0,.06);
-    }
-
     .login-box {
       width: 100%;
       max-width: 420px;
-      padding: 34px;
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.08);
     }
 
     .logo {
       text-align: center;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
     }
 
     .logo h1 {
       margin: 0;
       font-size: 27px;
+      font-weight: 800;
+      color: #102d46;
     }
 
-    .logo span { color: #e52b32; }
+    .logo h1 span {
+      color: #e52b32;
+    }
 
     .logo p {
+      margin: 8px 0 0;
       color: #718096;
       font-size: 13px;
     }
 
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 7px;
+    .login-box h2 {
+      margin: 0 0 20px;
     }
 
-    .campo { margin-bottom: 17px; }
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-    input, select {
+    input,
+    textarea,
+    select {
       width: 100%;
       border: 1px solid #d6dde5;
       border-radius: 7px;
       padding: 12px;
-      background: white;
+      font-size: 14px;
       outline: none;
+      background: white;
     }
 
     input:focus,
+    textarea:focus,
     select:focus {
       border-color: #102d46;
+    }
+
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+    }
+
+    .campo {
+      margin-bottom: 17px;
     }
 
     .btn {
       border: 0;
       border-radius: 7px;
       padding: 11px 16px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -97,6 +122,10 @@
     .btn-principal {
       background: #102d46;
       color: white;
+    }
+
+    .btn-principal:hover {
+      background: #173d5d;
     }
 
     .btn-rojo {
@@ -115,12 +144,12 @@
     }
 
     .mensaje {
-      display: none;
       margin-top: 14px;
       padding: 11px;
-      border-radius: 7px;
+      border-radius: 6px;
       font-size: 13px;
       text-align: center;
+      display: none;
     }
 
     .mensaje.error {
@@ -135,17 +164,23 @@
       color: #166534;
     }
 
+    /* ADMIN */
+
+    #admin {
+      min-height: 100vh;
+    }
+
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
       background: #102d46;
       color: white;
-      padding: 16px 24px;
+      padding: 16px 25px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .topbar h1 {
@@ -153,7 +188,9 @@
       font-size: 20px;
     }
 
-    .topbar small { color: #cbd8e4; }
+    .topbar small {
+      color: #cbd8e4;
+    }
 
     .contenedor {
       max-width: 1200px;
@@ -161,21 +198,23 @@
       padding: 25px;
     }
 
+    /* MENU */
+
     .menu {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      margin-bottom: 25px;
     }
 
     .menu button {
       border: 1px solid #d6dde5;
       background: white;
       color: #102d46;
-      padding: 10px 15px;
+      padding: 10px 16px;
       border-radius: 7px;
-      font-weight: 700;
       cursor: pointer;
+      font-weight: 700;
     }
 
     .menu button.activo {
@@ -183,37 +222,47 @@
       color: white;
     }
 
+    /* ESTADISTICAS */
+
     .estadisticas {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 15px;
+      margin-bottom: 25px;
     }
 
     .stat {
       background: white;
       border: 1px solid #e0e6ec;
       border-radius: 10px;
-      padding: 18px;
+      padding: 20px;
     }
 
-    .stat b {
+    .stat .numero {
       display: block;
-      font-size: 29px;
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 5px;
     }
 
-    .stat span {
-      font-size: 12px;
+    .stat .texto {
       color: #718096;
+      font-size: 13px;
     }
+
+    /* TARJETAS */
 
     .panel {
-      padding: 22px;
+      background: white;
+      border: 1px solid #e0e6ec;
+      border-radius: 10px;
+      padding: 24px;
       margin-bottom: 20px;
     }
 
     .panel h2 {
-      margin: 0 0 20px;
+      margin-top: 0;
+      font-size: 20px;
     }
 
     .fila {
@@ -229,6 +278,113 @@
       margin-top: 18px;
     }
 
+    /* NOTICIAS */
+
+    .noticia-admin {
+      border: 1px solid #e0e6ec;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .noticia-info {
+      min-width: 0;
+    }
+
+    .noticia-info h3 {
+      margin: 0 0 7px;
+      font-size: 16px;
+    }
+
+    .noticia-info p {
+      margin: 0;
+      color: #718096;
+      font-size: 12px;
+    }
+
+    .estado {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .estado-publicado {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .estado-borrador {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .acciones-noticia {
+      display: flex;
+      gap: 7px;
+      flex-shrink: 0;
+    }
+
+    /* VISITANTES */
+
+    .visitantes {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f3f5f7;
+      border-left: 4px solid #16a34a;
+      padding: 18px;
+      border-radius: 7px;
+    }
+
+    .punto {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: pulsar 1.5s infinite;
+    }
+
+    @keyframes pulsar {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(.8);
+      }
+    }
+
+    .visitantes strong {
+      font-size: 25px;
+    }
+
+    .cargando {
+      text-align: center;
+      padding: 30px;
+      color: #718096;
+    }
+
+    #herramientasNoticias input,
+    #herramientasNoticias select {
+      margin: 0;
+    }
+
+    #resultadoVacio {
+      border: 1px dashed #d6dde5;
+      border-radius: 8px;
+    }
+
+    /* EDITOR */
+
     .editor-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -241,173 +397,325 @@
     }
 
     .editor-toolbar button,
-    .editor-toolbar select {
+    .editor-toolbar select,
+    .editor-toolbar input[type="color"] {
       width: auto;
-      padding: 7px 9px;
+      min-width: 38px;
+      height: 36px;
+      padding: 6px 9px;
       border: 1px solid #d6dde5;
       border-radius: 5px;
       background: white;
       cursor: pointer;
+      font-weight: 700;
+    }
+
+    .editor-toolbar input[type="color"] {
+      padding: 3px;
     }
 
     #contenido {
-      min-height: 380px;
-      border: 1px solid #d6dde5;
-      border-radius: 0 0 7px 7px;
-      padding: 18px;
+      min-height: 520px;
+      border: 1px solid #d8e0ea;
+      border-radius: 0 0 14px 14px;
+      padding: 28px;
       outline: none;
-      font-size: 17px;
-      line-height: 1.7;
-      color: #111827;
       background: white;
+      color: #172033;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    #contenido:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.10);
+    }
+
+    #contenido h2 {
+      color: #102d46;
+      font-size: 25px;
+      margin: 28px 0 10px;
+    }
+
+    #contenido h3 {
+      color: #102d46;
+      font-size: 21px;
+      margin: 24px 0 8px;
+    }
+
+    #contenido p {
+      margin: 0 0 16px;
+    }
+
+    #contenido ul,
+    #contenido ol {
+      padding-left: 28px;
+    }
+
+    #contenido blockquote {
+      margin: 18px 0;
+      padding: 12px 16px;
+      border-left: 4px solid #102d46;
+      background: #f3f6f9;
+    }
+
+    /* MULTIMEDIA */
+
+    .media-box {
+      border: 1px solid #d6dde5;
+      border-radius: 8px;
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .media-box input[type="file"] {
+      background: white;
+    }
+
+    .media-ayuda {
+      margin: 7px 0 0;
+      color: #718096;
+      font-size: 12px;
+    }
+
+    .media-preview {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .media-preview img,
+    .media-preview video {
+      display: block;
+      max-width: 100%;
+      max-height: 320px;
+      border-radius: 8px;
+      background: #0f172a;
     }
 
     #contenido img,
     #contenido video {
       max-width: 100%;
       height: auto;
+      border-radius: 8px;
+      cursor: pointer;
       display: block;
       margin: 18px auto;
-      border-radius: 8px;
     }
 
-    .checks {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 18px 0;
+    #contenido .media-seleccionado {
+      outline: 3px solid #2563eb;
+      outline-offset: 3px;
     }
 
-    .check {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+    .media-controls {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      padding: 10px;
       border: 1px solid #d6dde5;
-      border-radius: 9px;
-      padding: 14px;
+      border-radius: 7px;
       background: #f8fafc;
     }
 
-    .check input {
-      width: auto;
-      margin-top: 3px;
-    }
-
-    .check label { margin: 0; }
-
-    .check small {
-      display: block;
-      color: #718096;
-      margin-top: 4px;
-      font-weight: normal;
-    }
-
-    .herramientas {
+    .media-controls.activo {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
     }
 
-    .herramientas input {
-      flex: 1;
-      min-width: 220px;
-    }
-
-    .herramientas select {
+    .media-controls button,
+    .media-controls select {
       width: auto;
-      min-width: 170px;
+      min-width: 70px;
+      padding: 8px 10px;
     }
 
-    .noticia {
+    /* ADMIN PRO */
+
+    #seccion-crear .panel {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(15,23,42,.08);
+    }
+
+    #tituloEditor {
+      font-size: 24px;
+      letter-spacing: -.02em;
+      margin-bottom: 22px;
+    }
+
+    .editor-toolbar {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      border-radius: 14px 14px 0 0;
+      background: rgba(248,250,252,.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 18px rgba(15,23,42,.06);
+    }
+
+    .seo-panel,
+    .destino-panel {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid #dbe4ee;
+      border-radius: 14px;
+      background: linear-gradient(180deg,#fbfdff 0%,#f7faff 100%);
+    }
+
+    .seo-panel-title,
+    .destino-titulo {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      border: 1px solid #e0e6ec;
-      border-radius: 9px;
-      padding: 15px;
-      margin-bottom: 10px;
+      align-items: flex-start;
+      margin-bottom: 14px;
     }
 
-    .noticia h3 {
-      margin: 0 0 6px;
+    .seo-panel-title strong,
+    .destino-titulo strong {
+      display: block;
       font-size: 16px;
+      color: #10213d;
     }
 
-    .meta {
+    .seo-panel-title span,
+    .destino-titulo span {
+      display: block;
+      margin-top: 3px;
       font-size: 12px;
       color: #718096;
     }
 
-    .badges {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .badge {
-      font-size: 10px;
-      font-weight: 800;
-      padding: 4px 7px;
-      border-radius: 20px;
-      background: #e9eef3;
-    }
-
-    .pub {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .draft {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .util {
-      background: #dbeafe;
-      color: #1d4ed8;
-    }
-
-    .portada {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .noticia-acciones {
-      display: flex;
-      gap: 7px;
-      flex-shrink: 0;
-    }
-
-    .cargando {
-      text-align: center;
-      padding: 28px;
+    .contador-seo,
+    .ayuda-seo {
+      display: block;
+      margin-top: 6px;
       color: #718096;
+      font-size: 11px;
+      text-align: right;
     }
 
-    @media (max-width: 800px) {
+    #metaDescripcion {
+      resize: vertical;
+      min-height: 88px;
+    }
+
+    .opcion-feed {
+      border-left: 4px solid #2563eb !important;
+    }
+
+    .opcion-util {
+      border-left: 4px solid #dc2626 !important;
+    }
+
+    .opcion-portada {
+      border-left: 4px solid #f59e0b !important;
+    }
+
+    .acciones {
+      position: sticky;
+      bottom: 10px;
+      z-index: 18;
+      padding: 12px;
+      border: 1px solid #dbe4ee;
+      border-radius: 14px;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 28px rgba(15,23,42,.12);
+    }
+
+    #publicarButton {
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .btn:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    /* DESTINOS */
+
+    .opciones-especiales {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 6px 0 18px;
+    }
+
+    .opcion-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #d6dde5;
+      border-radius: 8px;
+      background: #f8fafc;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .opcion-check input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      flex: 0 0 auto;
+    }
+
+    .opcion-check strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .opcion-check span {
+      color: #718096;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .estadisticas {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .contenedor {
+        padding: 15px;
+      }
+
+      .fila {
+        grid-template-columns: 1fr;
+      }
+
       .estadisticas {
         grid-template-columns: 1fr 1fr;
       }
 
-      .fila,
-      .checks {
+      .opciones-especiales {
         grid-template-columns: 1fr;
       }
 
-      .noticia {
-        align-items: stretch;
+      .noticia-admin {
         flex-direction: column;
+        align-items: stretch;
       }
 
-      .noticia-acciones {
+      .acciones-noticia {
         width: 100%;
       }
 
-      .noticia-acciones button {
+      .acciones-noticia button {
         flex: 1;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -415,643 +723,1723 @@
 
 <body>
 
-<section id="login">
-  <div class="login-box">
+  <!-- LOGIN -->
 
-    <div class="logo">
-      <h1>REPÚBLICA<span>•</span>ACTUAL</h1>
-      <p>Panel de administración</p>
-    </div>
+  <section id="login">
 
-    <h2>Iniciar sesión</h2>
+    <div class="login-box">
 
-    <form id="loginForm">
-
-      <div class="campo">
-        <label>Correo electrónico</label>
-        <input id="email" type="email" required />
+      <div class="logo">
+        <h1>REPÚBLICA<span>•</span>ACTUAL</h1>
+        <p>Panel de administración</p>
       </div>
 
-      <div class="campo">
-        <label>Contraseña</label>
-        <input id="password" type="password" required />
+      <h2>Iniciar sesión</h2>
+
+      <form id="loginForm">
+
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="admin@republicaactual.net"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <input
+            id="password"
+            type="password"
+            required
+          />
+        </div>
+
+        <button
+          class="btn btn-principal"
+          id="loginButton"
+          type="submit"
+          style="width:100%;"
+        >
+          Entrar al panel
+        </button>
+
+        <div id="loginMensaje" class="mensaje"></div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- ADMIN -->
+
+  <section id="admin" class="oculto">
+
+    <header class="topbar">
+
+      <div>
+        <h1>República Actual — Administración</h1>
+        <small id="usuarioAdmin"></small>
       </div>
 
       <button
-        id="loginButton"
-        class="btn btn-principal"
-        style="width:100%"
+        class="btn btn-rojo"
+        id="cerrarSesion"
       >
-        Entrar al panel
+        Cerrar sesión
       </button>
 
-      <div id="loginMensaje" class="mensaje"></div>
+    </header>
 
-    </form>
-  </div>
-</section>
+    <div class="contenedor">
 
+      <nav class="menu">
 
-<section id="admin" class="oculto">
+        <button class="activo" data-seccion="inicio">
+          📊 Resumen
+        </button>
 
-  <header class="topbar">
+        <button data-seccion="crear">
+          📝 Publicar noticia
+        </button>
 
-    <div>
-      <h1>República Actual — Administración</h1>
-      <small id="usuarioAdmin"></small>
-    </div>
+        <button data-seccion="noticias">
+          📰 Noticias
+        </button>
 
-    <button id="cerrarSesion" class="btn btn-rojo">
-      Cerrar sesión
-    </button>
+      </nav>
 
-  </header>
+      <!-- RESUMEN -->
 
-  <main class="contenedor">
+      <div id="seccion-inicio">
 
-    <nav class="menu">
-      <button class="activo" data-seccion="inicio">
-        📊 Resumen
-      </button>
+        <div class="estadisticas">
 
-      <button data-seccion="crear">
-        📝 Publicar
-      </button>
-
-      <button data-seccion="noticias">
-        📰 Noticias
-      </button>
-    </nav>
-
-
-    <section id="seccion-inicio">
-
-      <div class="estadisticas">
-
-        <div class="stat">
-          <b id="totalPublicadas">0</b>
-          <span>Publicadas</span>
-        </div>
-
-        <div class="stat">
-          <b id="totalBorradores">0</b>
-          <span>Borradores</span>
-        </div>
-
-        <div class="stat">
-          <b id="totalNoticias">0</b>
-          <span>Total</span>
-        </div>
-
-        <div class="stat">
-          <b id="totalUtil">0</b>
-          <span>República Útil</span>
-        </div>
-
-      </div>
-
-      <div class="panel">
-        <h2>📌 Acciones rápidas</h2>
-
-        <div class="acciones">
-
-          <button class="btn btn-principal" id="irCrear">
-            📝 Crear entrada
-          </button>
-
-          <button class="btn btn-gris" id="irNoticias">
-            📰 Administrar noticias
-          </button>
-
-        </div>
-      </div>
-
-    </section>
-
-
-    <section id="seccion-crear" class="oculto">
-
-      <div class="panel">
-
-        <h2 id="tituloEditor">
-          📝 Nueva entrada
-        </h2>
-
-        <form id="noticiaForm">
-
-          <input type="hidden" id="noticiaId" />
-
-          <div class="campo">
-            <label>Título</label>
-            <input id="titulo" required />
+          <div class="stat">
+            <span class="numero" id="totalPublicadas">0</span>
+            <span class="texto">Noticias publicadas</span>
           </div>
 
-          <div class="fila">
+          <div class="stat">
+            <span class="numero" id="totalBorradores">0</span>
+            <span class="texto">Borradores</span>
+          </div>
+
+          <div class="stat">
+            <span class="numero" id="totalNoticias">0</span>
+            <span class="texto">Total de noticias</span>
+          </div>
+
+          <div class="stat">
+            <span class="numero" id="totalVisitantes">1</span>
+            <span class="texto">Visitantes en vivo</span>
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <h2>👥 Visitantes en vivo</h2>
+
+          <div class="visitantes">
+
+            <span class="punto"></span>
+
+            <div>
+              <strong id="visitantesNumero">1</strong>
+              <div>personas navegando ahora</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <h2>📌 Acciones rápidas</h2>
+
+          <div class="acciones">
+
+            <button
+              class="btn btn-principal"
+              id="irCrear"
+            >
+              📝 Crear noticia
+            </button>
+
+            <button
+              class="btn btn-gris"
+              id="irNoticias"
+            >
+              📰 Administrar noticias
+            </button>
+
+          </div>
+
+        </div>
+
+              </div>
+
+      <!-- CREAR / EDITAR -->
+
+      <div id="seccion-crear" class="oculto">
+
+        <div class="panel">
+
+          <h2 id="tituloEditor">📝 Nueva noticia</h2>
+
+          <form id="noticiaForm">
+
+            <input type="hidden" id="noticiaId" />
 
             <div class="campo">
-              <label>Categoría</label>
-
-              <select id="categoria">
-                <option>Nacionales</option>
-                <option>Política</option>
-                <option>Economía</option>
-                <option>Deportes</option>
-                <option>Entretenimiento</option>
-                <option>Mundo</option>
-                <option>Tecnología</option>
-                <option>Actualidad</option>
-              </select>
+              <label for="titulo">Título</label>
+              <input
+                id="titulo"
+                type="text"
+                placeholder="Escribe el título de la noticia"
+                required
+              />
             </div>
+
+            <div class="fila">
+
+              <div class="campo">
+                <label for="categoria">Categoría</label>
+
+                <select id="categoria">
+                  <option value="Nacionales">Nacionales</option>
+                  <option value="Política">Política</option>
+                  <option value="Economía">Economía</option>
+                  <option value="Deportes">Deportes</option>
+                  <option value="Entretenimiento">Entretenimiento</option>
+                  <option value="Mundo">Mundo</option>
+                  <option value="Tecnología">Tecnología</option>
+                  <option value="Actualidad">Actualidad</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label for="imagen">Imagen principal</label>
+
+                <input
+                  id="imagen"
+                  type="url"
+                  placeholder="https://..."
+                />
+              </div>
+
+            </div>
+
+            <!-- SEO -->
+
+            <div class="seo-panel">
+
+              <div class="seo-panel-title">
+                <div>
+                  <strong>🔎 SEO y posicionamiento</strong>
+                  <span>
+                    Optimiza esta publicación para Google y búsquedas internas.
+                  </span>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="tituloSeo">Título SEO</label>
+
+                <input
+                  id="tituloSeo"
+                  type="text"
+                  maxlength="70"
+                  placeholder="Título optimizado para buscadores"
+                />
+
+                <small
+                  id="tituloSeoContador"
+                  class="contador-seo"
+                >
+                  0 / 70
+                </small>
+              </div>
+
+              <div class="campo">
+                <label for="metaDescripcion">
+                  Meta descripción
+                </label>
+
+                <textarea
+                  id="metaDescripcion"
+                  maxlength="170"
+                  rows="3"
+                  placeholder="Descripción breve para Google y redes sociales"
+                ></textarea>
+
+                <small
+                  id="metaContador"
+                  class="contador-seo"
+                >
+                  0 / 170
+                </small>
+              </div>
+
+              <div class="campo">
+                <label for="etiquetasSeo">
+                  Keywords / Etiquetas SEO
+                </label>
+
+                <input
+                  id="etiquetasSeo"
+                  type="text"
+                  placeholder="Ej.: pasaporte dominicano, requisitos pasaporte, trámites RD"
+                />
+
+                <small class="ayuda-seo">
+                  Separa las palabras clave por comas.
+                </small>
+              </div>
+
+            </div>
+
+            <!-- EDITOR -->
 
             <div class="campo">
-              <label>Imagen principal (URL)</label>
-              <input
-                id="imagen"
-                type="url"
-                placeholder="https://..."
-              />
+
+              <label>Contenido</label>
+
+              <div
+                class="editor-toolbar"
+                id="editorToolbar"
+              >
+
+                <select
+                  id="formatoTexto"
+                  title="Formato"
+                >
+                  <option value="p">Párrafo</option>
+                  <option value="h2">Título H2</option>
+                  <option value="h3">Subtítulo H3</option>
+                </select>
+
+                <select
+                  id="tamanoTexto"
+                  title="Tamaño"
+                >
+                  <option value="">Tamaño</option>
+                  <option value="12px">12 px</option>
+                  <option value="14px">14 px</option>
+                  <option value="16px">16 px</option>
+                  <option value="18px">18 px</option>
+                  <option value="20px">20 px</option>
+                  <option value="24px">24 px</option>
+                  <option value="28px">28 px</option>
+                  <option value="32px">32 px</option>
+                  <option value="36px">36 px</option>
+                  <option value="48px">48 px</option>
+                </select>
+
+                <button
+                  type="button"
+                  data-cmd="bold"
+                  title="Negrita"
+                >
+                  <b>B</b>
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="italic"
+                  title="Cursiva"
+                >
+                  <i>I</i>
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="underline"
+                  title="Subrayado"
+                >
+                  <u>U</u>
+                </button>
+
+                <input
+                  type="color"
+                  id="colorTexto"
+                  value="#111827"
+                  title="Color"
+                />
+
+                <button
+                  type="button"
+                  data-cmd="insertUnorderedList"
+                >
+                  • Lista
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="insertOrderedList"
+                >
+                  1. Lista
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="justifyLeft"
+                >
+                  ⬅
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="justifyCenter"
+                >
+                  ↔
+                </button>
+
+                <button
+                  type="button"
+                  data-cmd="justifyRight"
+                >
+                  ➡
+                </button>
+
+                <button
+                  type="button"
+                  id="insertarEnlace"
+                >
+                  🔗 Enlace
+                </button>
+
+                <button
+                  type="button"
+                  id="insertarImagenEditor"
+                >
+                  🖼️ Imagen
+                </button>
+
+                <button
+                  type="button"
+                  id="insertarVideoEditor"
+                >
+                  🎬 Video
+                </button>
+
+                <button
+                  type="button"
+                  id="limpiarFormato"
+                >
+                  Tx
+                </button>
+
+                <button
+                  type="button"
+                  id="deshacer"
+                >
+                  ↶
+                </button>
+
+                <button
+                  type="button"
+                  id="rehacer"
+                >
+                  ↷
+                </button>
+
+              </div>
+
+              <div
+                id="contenido"
+                contenteditable="true"
+                role="textbox"
+                aria-multiline="true"
+              ></div>
+
+              <!-- CONTROLES DE IMAGEN / VIDEO -->
+
+              <div
+                id="mediaControls"
+                class="media-controls"
+              >
+
+                <strong>Imagen / video seleccionado:</strong>
+
+                <select id="mediaTamano">
+                  <option value="25%">25%</option>
+                  <option value="50%">50%</option>
+                  <option value="75%">75%</option>
+                  <option value="100%">100%</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="btn btn-gris"
+                  id="mediaIzquierda"
+                >
+                  ⬅ Izquierda
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-gris"
+                  id="mediaCentro"
+                >
+                  ↔ Centro
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-gris"
+                  id="mediaDerecha"
+                >
+                  ➡ Derecha
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-rojo"
+                  id="mediaEliminar"
+                >
+                  🗑️ Eliminar
+                </button>
+
+              </div>
+
             </div>
 
-          </div>
+            <!-- DESTINO -->
 
+            <div class="destino-panel">
 
-          <div class="checks">
+              <div class="destino-titulo">
 
-            <div class="check">
+                <div>
+                  <strong>📍 Destino de publicación</strong>
+                  <span>
+                    Puedes publicar en el feed normal, República Útil o ambos.
+                  </span>
+                </div>
 
-              <input
-                id="republicaUtil"
-                type="checkbox"
-              />
+              </div>
 
-              <label for="republicaUtil">
-                🇩🇴 República Útil
+              <div class="opciones-especiales">
 
-                <small>
-                  Incluye esta entrada en la sección permanente República Útil.
-                </small>
-              </label>
+                <label
+                  class="opcion-check opcion-feed"
+                  for="feedPrincipal"
+                >
+
+                  <input
+                    type="checkbox"
+                    id="feedPrincipal"
+                    checked
+                  />
+
+                  <span>
+                    <strong>📰 Feed principal</strong>
+                    Publicación normal en el flujo principal de República Actual.
+                  </span>
+
+                </label>
+
+                <label
+                  class="opcion-check opcion-util"
+                  for="republicaUtil"
+                >
+
+                  <input
+                    type="checkbox"
+                    id="republicaUtil"
+                  />
+
+                  <span>
+                    <strong>🇩🇴 República Útil</strong>
+                    Entrada evergreen para la sección permanente República Útil.
+                  </span>
+
+                </label>
+
+                <label
+                  class="opcion-check opcion-portada"
+                  for="republicaUtilPortada"
+                >
+
+                  <input
+                    type="checkbox"
+                    id="republicaUtilPortada"
+                  />
+
+                  <span>
+                    <strong>⭐ Mostrar también en portada</strong>
+                    Selecciona esta entrada de República Útil para la página principal.
+                  </span>
+
+                </label>
+
+              </div>
 
             </div>
 
+            <!-- ACCIONES -->
 
-            <div class="check">
+            <div class="acciones">
 
-              <input
-                id="republicaUtilPortada"
-                type="checkbox"
-                disabled
-              />
-
-              <label for="republicaUtilPortada">
-                ⭐ Mostrar en portada
-
-                <small>
-                  Destaca esta entrada de República Útil en la página principal.
-                </small>
-              </label>
-
-            </div>
-
-          </div>
-
-
-          <div class="campo">
-
-            <label>Contenido</label>
-
-            <div class="editor-toolbar">
-
-              <select id="formato">
-                <option value="p">Párrafo</option>
-                <option value="h2">Título H2</option>
-                <option value="h3">Subtítulo H3</option>
-              </select>
-
-              <button type="button" data-cmd="bold">
-                <b>B</b>
+              <button
+                type="submit"
+                class="btn btn-verde"
+                id="publicarButton"
+              >
+                🚀 PUBLICAR AHORA
               </button>
 
-              <button type="button" data-cmd="italic">
-                <i>I</i>
+              <button
+                type="button"
+                class="btn btn-gris"
+                id="borradorButton"
+              >
+                💾 Guardar borrador
               </button>
 
-              <button type="button" data-cmd="underline">
-                <u>U</u>
-              </button>
-
-              <button type="button" data-cmd="insertUnorderedList">
-                • Lista
-              </button>
-
-              <button type="button" data-cmd="insertOrderedList">
-                1. Lista
-              </button>
-
-              <button type="button" id="enlace">
-                🔗
-              </button>
-
-              <button type="button" id="imagenEditor">
-                🖼️ Imagen
-              </button>
-
-              <button type="button" id="videoEditor">
-                🎬 Video
-              </button>
-
-              <button type="button" data-cmd="undo">
-                ↶
-              </button>
-
-              <button type="button" data-cmd="redo">
-                ↷
+              <button
+                type="button"
+                class="btn btn-gris"
+                id="cancelarEdicion"
+              >
+                Cancelar
               </button>
 
             </div>
 
             <div
-              id="contenido"
-              contenteditable="true"
+              id="noticiaMensaje"
+              class="mensaje"
             ></div>
 
-          </div>
+          </form>
 
+        </div>
 
-          <div class="acciones">
+      </div>
 
-            <button
-              id="publicarButton"
-              class="btn btn-verde"
-            >
-              🚀 Publicar
-            </button>
+      <!-- NOTICIAS -->
 
-            <button
-              type="button"
-              id="borradorButton"
-              class="btn btn-gris"
-            >
-              💾 Guardar borrador
-            </button>
+      <div
+        id="seccion-noticias"
+        class="oculto"
+      >
 
-            <button
-              type="button"
-              id="cancelar"
-              class="btn btn-gris"
-            >
-              Cancelar
-            </button>
+        <div class="panel">
+
+          <h2>📰 Administrar noticias</h2>
+
+          <div
+            id="herramientasNoticias"
+            class="fila"
+            style="margin-bottom:18px;"
+          >
+
+            <div>
+              <label for="buscarNoticias">
+                Buscar
+              </label>
+
+              <input
+                id="buscarNoticias"
+                type="search"
+                placeholder="Buscar por título..."
+              />
+            </div>
+
+            <div>
+              <label for="filtrarEstado">
+                Estado
+              </label>
+
+              <select id="filtrarEstado">
+                <option value="todas">
+                  Todas
+                </option>
+
+                <option value="publicadas">
+                  Publicadas
+                </option>
+
+                <option value="borradores">
+                  Borradores
+                </option>
+
+                <option value="republica-util">
+                  República Útil
+                </option>
+              </select>
+            </div>
 
           </div>
 
           <div
-            id="noticiaMensaje"
-            class="mensaje"
-          ></div>
-
-        </form>
-
-      </div>
-
-    </section>
-
-
-    <section
-      id="seccion-noticias"
-      class="oculto"
-    >
-
-      <div class="panel">
-
-        <h2>📰 Noticias</h2>
-
-        <div class="herramientas">
-
-          <input
-            id="buscar"
-            type="search"
-            placeholder="🔎 Buscar noticia..."
-          />
-
-          <select id="filtro">
-            <option value="todas">Todas</option>
-            <option value="publicadas">Publicadas</option>
-            <option value="borradores">Borradores</option>
-            <option value="util">República Útil</option>
-          </select>
-
-          <button
-            id="actualizar"
-            class="btn btn-gris"
+            id="listaNoticias"
+            class="cargando"
           >
-            🔄 Actualizar
-          </button>
-
-        </div>
-
-        <div id="listaNoticias">
-          <div class="cargando">
-            Cargando...
+            Cargando noticias...
           </div>
+
+          <div
+            id="resultadoVacio"
+            class="oculto"
+            style="text-align:center;padding:25px;color:#718096;"
+          >
+            No se encontraron noticias.
+          </div>
+
         </div>
 
       </div>
 
-    </section>
+    </div>
 
-  </main>
+  </section>
 
-</section>
+  <script>
 
+    /* ======================================================
+       FIREBASE
+       ====================================================== */
 
-<script>
+    const FIREBASE_API_KEY =
+      'AIzaSyDZ39oMmjrcQ64X6jKCBisDdicH5H0goW4';
 
-  /*
-   * FIREBASE
-   * Usamos directamente la configuración pública del proyecto.
-   * Ya no dependemos de PUBLIC_FIREBASE_API_KEY en Cloudflare.
-   */
+    const FIREBASE_PROJECT_ID =
+      'republica-actual';
 
-  const FIREBASE_API_KEY =
-    'AIzaSyDZ39oMmjrcQ64X6jKCBisDdicH5H0goW4';
+    const FIREBASE_AUTH_URL =
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
 
-  const FIREBASE_PROJECT_ID =
-    'republica-actual';
+    const FIRESTORE_BASE =
+      `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
 
-  const AUTH_URL =
-    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
+    let sesion = null;
 
-  const REFRESH_URL =
-    `https://securetoken.googleapis.com/v1/token?key=${FIREBASE_API_KEY}`;
+    let noticiasCache = [];
 
-  const FIRESTORE_BASE =
-    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
+    let noticiaEditando = null;
 
+    let mediaSeleccionado = null;
 
-  const $ = (id) =>
-    document.getElementById(id);
+    /* ======================================================
+       ELEMENTOS
+       ====================================================== */
 
-  let sesion = null;
-  let noticias = [];
-  let editando = null;
+    const login =
+      document.getElementById('login');
 
+    const admin =
+      document.getElementById('admin');
 
-  function mensaje(
-    elemento,
-    texto,
-    tipo = 'error'
-  ) {
+    const loginForm =
+      document.getElementById('loginForm');
 
-    elemento.textContent = texto;
-    elemento.className =
-      `mensaje ${tipo}`;
+    const loginButton =
+      document.getElementById('loginButton');
 
-  }
+    const loginMensaje =
+      document.getElementById('loginMensaje');
 
+    const usuarioAdmin =
+      document.getElementById('usuarioAdmin');
 
-  function mostrarAdmin(activo) {
+    const cerrarSesion =
+      document.getElementById('cerrarSesion');
 
-    $('login').classList.toggle(
-      'oculto',
-      activo
-    );
+    const noticiaForm =
+      document.getElementById('noticiaForm');
 
-    $('admin').classList.toggle(
-      'oculto',
-      !activo
-    );
+    const noticiaId =
+      document.getElementById('noticiaId');
 
-  }
+    const titulo =
+      document.getElementById('titulo');
 
+    const categoria =
+      document.getElementById('categoria');
 
-  function guardarSesion(data) {
+    const imagen =
+      document.getElementById('imagen');
 
-    sesion = {
+    const contenido =
+      document.getElementById('contenido');
 
-      idToken:
-        data.idToken,
+    const feedPrincipal =
+      document.getElementById('feedPrincipal');
 
-      refreshToken:
-        data.refreshToken,
+    const republicaUtil =
+      document.getElementById('republicaUtil');
 
-      email:
-        data.email || '',
+    const republicaUtilPortada =
+      document.getElementById('republicaUtilPortada');
 
-      expiresAt:
-        Date.now() +
-        Number(data.expiresIn || 3600) *
-        1000 -
-        60000
+    const tituloSeo =
+      document.getElementById('tituloSeo');
 
-    };
+    const metaDescripcion =
+      document.getElementById('metaDescripcion');
 
-    sessionStorage.setItem(
-      'ra_admin_session',
-      JSON.stringify(sesion)
-    );
+    const etiquetasSeo =
+      document.getElementById('etiquetasSeo');
 
-  }
+    const tituloSeoContador =
+      document.getElementById('tituloSeoContador');
 
+    const metaContador =
+      document.getElementById('metaContador');
 
-  async function renovarSesion() {
+    const publicarButton =
+      document.getElementById('publicarButton');
 
-    if (!sesion?.refreshToken) {
-      throw new Error(
-        'Sesión vencida'
+    const borradorButton =
+      document.getElementById('borradorButton');
+
+    const cancelarEdicion =
+      document.getElementById('cancelarEdicion');
+
+    const noticiaMensaje =
+      document.getElementById('noticiaMensaje');
+
+    const listaNoticias =
+      document.getElementById('listaNoticias');
+
+    const resultadoVacio =
+      document.getElementById('resultadoVacio');
+
+    const buscarNoticias =
+      document.getElementById('buscarNoticias');
+
+    const filtrarEstado =
+      document.getElementById('filtrarEstado');
+
+    const tituloEditor =
+      document.getElementById('tituloEditor');
+
+    const mediaControls =
+      document.getElementById('mediaControls');
+
+    const mediaTamano =
+      document.getElementById('mediaTamano');
+
+    /* ======================================================
+       SESIÓN
+       ====================================================== */
+
+    function guardarSesion(data) {
+
+      sesion = {
+        idToken: data.idToken,
+        refreshToken: data.refreshToken,
+        email: data.email,
+        localId: data.localId,
+        expiresAt:
+          Date.now() +
+          Number(data.expiresIn || 3600) * 1000
+      };
+
+      sessionStorage.setItem(
+        'ra_admin_session',
+        JSON.stringify(sesion)
       );
+
     }
 
-    const body =
-      new URLSearchParams({
+    function cargarSesion() {
 
-        grant_type:
-          'refresh_token',
+      try {
 
-        refresh_token:
-          sesion.refreshToken
+        const guardada =
+          sessionStorage.getItem(
+            'ra_admin_session'
+          );
 
-      });
+        if (!guardada) {
+          return null;
+        }
 
+        return JSON.parse(guardada);
 
-    const respuesta =
-      await fetch(
-        REFRESH_URL,
+      } catch {
+
+        return null;
+
+      }
+
+    }
+
+    function borrarSesion() {
+
+      sesion = null;
+
+      sessionStorage.removeItem(
+        'ra_admin_session'
+      );
+
+    }
+
+    async function iniciarSesion(
+      email,
+      password
+    ) {
+
+      const respuesta =
+        await fetch(
+          FIREBASE_AUTH_URL,
+          {
+            method: 'POST',
+
+            headers: {
+              'Content-Type':
+                'application/json'
+            },
+
+            body: JSON.stringify({
+              email,
+              password,
+              returnSecureToken: true
+            })
+          }
+        );
+
+      const data =
+        await respuesta.json();
+
+      if (!respuesta.ok) {
+
+        throw new Error(
+          data?.error?.message ||
+          'No se pudo iniciar sesión'
+        );
+
+      }
+
+      guardarSesion(data);
+
+      return data;
+
+    }
+
+    async function refrescarSesion() {
+
+      if (!sesion?.refreshToken) {
+        throw new Error(
+          'La sesión expiró'
+        );
+      }
+
+      const url =
+        `https://securetoken.googleapis.com/v1/token?key=${FIREBASE_API_KEY}`;
+
+      const body =
+        new URLSearchParams({
+          grant_type:
+            'refresh_token',
+
+          refresh_token:
+            sesion.refreshToken
+        });
+
+      const respuesta =
+        await fetch(
+          url,
+          {
+            method: 'POST',
+
+            headers: {
+              'Content-Type':
+                'application/x-www-form-urlencoded'
+            },
+
+            body
+          }
+        );
+
+      const data =
+        await respuesta.json();
+
+      if (!respuesta.ok) {
+
+        borrarSesion();
+
+        throw new Error(
+          'La sesión expiró'
+        );
+
+      }
+
+      sesion.idToken =
+        data.id_token;
+
+      sesion.refreshToken =
+        data.refresh_token;
+
+      sesion.expiresAt =
+        Date.now() +
+        Number(
+          data.expires_in || 3600
+        ) * 1000;
+
+      sessionStorage.setItem(
+        'ra_admin_session',
+        JSON.stringify(sesion)
+      );
+
+    }
+
+    async function obtenerToken() {
+
+      if (!sesion) {
+        throw new Error(
+          'No hay sesión activa'
+        );
+      }
+
+      if (
+        Date.now() >
+        Number(sesion.expiresAt || 0) -
+        60000
+      ) {
+
+        await refrescarSesion();
+
+      }
+
+      return sesion.idToken;
+
+    }
+
+    /* ======================================================
+       FIRESTORE
+       ====================================================== */
+
+    function valorFirestore(valor) {
+
+      if (valor === null ||
+          valor === undefined) {
+
+        return {
+          nullValue: null
+        };
+
+      }
+
+      if (
+        Array.isArray(valor)
+      ) {
+
+        return {
+          arrayValue: {
+            values:
+              valor.map(
+                valorFirestore
+              )
+          }
+        };
+
+      }
+
+      if (
+        typeof valor ===
+        'boolean'
+      ) {
+
+        return {
+          booleanValue:
+            valor
+        };
+
+      }
+
+      if (
+        typeof valor ===
+        'number'
+      ) {
+
+        return Number.isInteger(valor)
+          ? {
+              integerValue:
+                String(valor)
+            }
+          : {
+              doubleValue:
+                valor
+            };
+
+      }
+
+      if (
+        typeof valor ===
+        'object'
+      ) {
+
+        const fields = {};
+
+        for (
+          const [clave, item]
+          of Object.entries(valor)
+        ) {
+
+          fields[clave] =
+            valorFirestore(item);
+
+        }
+
+        return {
+          mapValue: {
+            fields
+          }
+        };
+
+      }
+
+      return {
+        stringValue:
+          String(valor)
+      };
+
+    }
+
+    function camposFirestore(objeto) {
+
+      const fields = {};
+
+      for (
+        const [clave, valor]
+        of Object.entries(objeto)
+      ) {
+
+        fields[clave] =
+          valorFirestore(valor);
+
+      }
+
+      return fields;
+
+    }
+
+    function leerValorFirestore(valor) {
+
+      if (!valor) {
+        return null;
+      }
+
+      if (
+        'stringValue'
+        in valor
+      ) {
+        return valor.stringValue;
+      }
+
+      if (
+        'integerValue'
+        in valor
+      ) {
+        return Number(
+          valor.integerValue
+        );
+      }
+
+      if (
+        'doubleValue'
+        in valor
+      ) {
+        return Number(
+          valor.doubleValue
+        );
+      }
+
+      if (
+        'booleanValue'
+        in valor
+      ) {
+        return valor.booleanValue;
+      }
+
+      if (
+        'timestampValue'
+        in valor
+      ) {
+        return valor.timestampValue;
+      }
+
+      if (
+        'nullValue'
+        in valor
+      ) {
+        return null;
+      }
+
+      if (
+        'arrayValue'
+        in valor
+      ) {
+
+        return (
+          valor.arrayValue.values ||
+          []
+        ).map(
+          leerValorFirestore
+        );
+
+      }
+
+      if (
+        'mapValue'
+        in valor
+      ) {
+
+        const salida = {};
+
+        const fields =
+          valor.mapValue.fields ||
+          {};
+
+        for (
+          const [clave, item]
+          of Object.entries(fields)
+        ) {
+
+          salida[clave] =
+            leerValorFirestore(item);
+
+        }
+
+        return salida;
+
+      }
+
+      return null;
+
+    }
+
+    function documentoAObjeto(
+      documento
+    ) {
+
+      const salida = {};
+
+      const fields =
+        documento.fields ||
+        {};
+
+      for (
+        const [clave, valor]
+        of Object.entries(fields)
+      ) {
+
+        salida[clave] =
+          leerValorFirestore(valor);
+
+      }
+
+      salida.__documentName =
+        documento.name;
+
+      salida.__documentId =
+        documento.name
+          ?.split('/')
+          .pop();
+
+      return salida;
+
+    }
+
+    async function obtenerTodasLasNoticias() {
+
+      const token =
+        await obtenerToken();
+
+      const respuesta =
+        await fetch(
+          `${FIRESTORE_BASE}/noticias?pageSize=1000`,
+          {
+            headers: {
+              Authorization:
+                `Bearer ${token}`
+            }
+          }
+        );
+
+      if (!respuesta.ok) {
+
+        const texto =
+          await respuesta.text();
+
+        throw new Error(
+          texto ||
+          `Firestore ${respuesta.status}`
+        );
+
+      }
+
+      const data =
+        await respuesta.json();
+
+      return (
+        data.documents || []
+      )
+        .map(documentoAObjeto)
+        .sort(
+          (a, b) =>
+            (
+              Date.parse(
+                b.created_at || ''
+              ) || 0
+            ) -
+            (
+              Date.parse(
+                a.created_at || ''
+              ) || 0
+            )
+        );
+
+    }
+
+    async function guardarDocumento(
+      id,
+      datos
+    ) {
+
+      const token =
+        await obtenerToken();
+
+      const respuesta =
+        await fetch(
+          `${FIRESTORE_BASE}/noticias/${encodeURIComponent(id)}`,
+          {
+            method: 'PATCH',
+
+            headers: {
+              Authorization:
+                `Bearer ${token}`,
+
+              'Content-Type':
+                'application/json'
+            },
+
+            body:
+              JSON.stringify({
+                fields:
+                  camposFirestore(datos)
+              })
+          }
+        );
+
+      if (!respuesta.ok) {
+
+        const texto =
+          await respuesta.text();
+
+        throw new Error(
+          texto ||
+          `Firestore ${respuesta.status}`
+        );
+
+      }
+
+      return documentoAObjeto(
+        await respuesta.json()
+      );
+
+    }
+
+    async function borrarDocumento(id) {
+
+      const token =
+        await obtenerToken();
+
+      const respuesta =
+        await fetch(
+          `${FIRESTORE_BASE}/noticias/${encodeURIComponent(id)}`,
+          {
+            method: 'DELETE',
+
+            headers: {
+              Authorization:
+                `Bearer ${token}`
+            }
+          }
+        );
+
+      if (
+        !respuesta.ok &&
+        respuesta.status !== 404
+      ) {
+
+        const texto =
+          await respuesta.text();
+
+        throw new Error(
+          texto ||
+          `Firestore ${respuesta.status}`
+        );
+
+      }
+
+      return true;
+
+    }
+
+    /* ======================================================
+       UTILIDADES
+       ====================================================== */
+
+    function crearSlug(texto) {
+
+      return String(
+        texto || ''
+      )
+        .normalize('NFD')
+        .replace(
+          /[\u0300-\u036f]/g,
+          ''
+        )
+        .toLowerCase()
+        .trim()
+        .replace(
+          /[^a-z0-9]+/g,
+          '-'
+        )
+        .replace(
+          /^-+|-+$/g,
+          ''
+        );
+
+    }
+
+    function escaparHtml(texto) {
+
+      return String(
+        texto ?? ''
+      )
+        .replace(
+          /&/g,
+          '&amp;'
+        )
+        .replace(
+          /</g,
+          '&lt;'
+        )
+        .replace(
+          />/g,
+          '&gt;'
+        )
+        .replace(
+          /"/g,
+          '&quot;'
+        )
+        .replace(
+          /'/g,
+          '&#039;'
+        );
+
+    }
+
+    function formatearFecha(fecha) {
+
+      if (!fecha) {
+        return '';
+      }
+
+      const d =
+        new Date(fecha);
+
+      if (
+        Number.isNaN(
+          d.getTime()
+        )
+      ) {
+        return '';
+      }
+
+      return new Intl.DateTimeFormat(
+        'es-DO',
         {
+          dateStyle:
+            'medium',
 
-          method: 'POST',
+          timeStyle:
+            'short'
+        }
+      ).format(d);
 
-          headers: {
-            'Content-Type':
-              'application/x-www-form-urlencoded'
-          },
+    }
 
-          body
+    function mostrarMensajeNoticia(
+      texto,
+      tipo
+    ) {
+
+      noticiaMensaje.textContent =
+        texto;
+
+      noticiaMensaje.className =
+        `mensaje ${tipo}`;
+
+    }
+
+    function actualizarContadoresSeo() {
+
+      if (
+        tituloSeoContador &&
+        tituloSeo
+      ) {
+
+        tituloSeoContador.textContent =
+          `${tituloSeo.value.length} / 70`;
+
+      }
+
+      if (
+        metaContador &&
+        metaDescripcion
+      ) {
+
+        metaContador.textContent =
+          `${metaDescripcion.value.length} / 170`;
+
+      }
+
+    }
+
+    tituloSeo?.addEventListener(
+      'input',
+      actualizarContadoresSeo
+    );
+
+    metaDescripcion?.addEventListener(
+      'input',
+      actualizarContadoresSeo
+    );
+
+    function obtenerEtiquetasSeo() {
+
+      return [
+        ...new Set(
+          (
+            etiquetasSeo?.value ||
+            ''
+          )
+            .split(',')
+            .map(
+              valor =>
+                valor.trim()
+            )
+            .filter(Boolean)
+        )
+      ];
+
+    }
+
+    function reemplazarEnCache(
+      noticia
+    ) {
+
+      const id =
+        String(noticia.id);
+
+      const indice =
+        noticiasCache.findIndex(
+          item =>
+            String(item.id) === id
+        );
+
+      if (indice >= 0) {
+
+        noticiasCache[indice] =
+          noticia;
+
+      } else {
+
+        noticiasCache.unshift(
+          noticia
+        );
+
+      }
+
+      noticiasCache.sort(
+        (a, b) =>
+          (
+            Date.parse(
+              b.created_at || ''
+            ) || 0
+          ) -
+          (
+            Date.parse(
+              a.created_at || ''
+            ) || 0
+          )
+      );
+
+    }
+
+    function quitarDeCache(id) {
+
+      noticiasCache =
+        noticiasCache.filter(
+          noticia =>
+            String(noticia.id) !==
+            String(id)
+        );
+
+    }
+
+    /* ======================================================
+       NAVEGACIÓN DEL ADMIN
+       ====================================================== */
+
+    function cambiarSeccion(
+      seccion
+    ) {
+
+      document
+        .querySelectorAll(
+          '[id^="seccion-"]'
+        )
+        .forEach(
+          elemento =>
+            elemento.classList.add(
+              'oculto'
+            )
+        );
+
+      const destino =
+        document.getElementById(
+          `seccion-${seccion}`
+        );
+
+      destino?.classList.remove(
+        'oculto'
+      );
+
+      document
+        .querySelectorAll(
+          '.menu button'
+        )
+        .forEach(
+          boton =>
+            boton.classList.toggle(
+              'activo',
+              boton.dataset.seccion ===
+                seccion
+            )
+        );
+
+    }
+
+    document
+      .querySelectorAll(
+        '.menu button'
+      )
+      .forEach(
+        boton => {
+
+          boton.addEventListener(
+            'click',
+            () => {
+
+              cambiarSeccion(
+                boton.dataset.seccion
+              );
+
+            }
+          );
 
         }
       );
 
+    document
+      .getElementById(
+        'irCrear'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
 
-    const data =
-      await respuesta.json();
+          limpiarEditor();
 
+          cambiarSeccion(
+            'crear'
+          );
 
-    if (!respuesta.ok) {
-
-      throw new Error(
-        data?.error?.message ||
-        'No se pudo renovar la sesión'
+        }
       );
 
-    }
+    document
+      .getElementById(
+        'irNoticias'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
 
+          cambiarSeccion(
+            'noticias'
+          );
 
-    sesion = {
-
-      ...sesion,
-
-      idToken:
-        data.id_token,
-
-      refreshToken:
-        data.refresh_token ||
-        sesion.refreshToken,
-
-      expiresAt:
-        Date.now() +
-        Number(data.expires_in || 3600) *
-        1000 -
-        60000
-
-    };
-
-
-    sessionStorage.setItem(
-      'ra_admin_session',
-      JSON.stringify(sesion)
-    );
-
-
-    return sesion.idToken;
-
-  }
-
-
-  async function obtenerToken() {
-
-    if (!sesion) {
-
-      throw new Error(
-        'Debes iniciar sesión'
+        }
       );
 
-    }
+    /* ======================================================
+       LOGIN
+       ====================================================== */
 
-
-    if (
-      Date.now() >=
-      sesion.expiresAt
-    ) {
-
-      return renovarSesion();
-
-    }
-
-
-    return sesion.idToken;
-
-  }
-
-
-  $('loginForm')
-    .addEventListener(
+    loginForm.addEventListener(
       'submit',
-      async (event) => {
+      async evento => {
 
-        event.preventDefault();
+        evento.preventDefault();
 
-        $('loginButton').disabled =
+        loginButton.disabled =
           true;
 
-        $('loginButton').textContent =
+        loginButton.textContent =
           'Entrando...';
 
+        loginMensaje.className =
+          'mensaje';
 
         try {
 
-          const respuesta =
-            await fetch(
-              AUTH_URL,
-              {
+          await iniciarSesion(
+            document
+              .getElementById(
+                'email'
+              )
+              .value
+              .trim(),
 
-                method: 'POST',
+            document
+              .getElementById(
+                'password'
+              )
+              .value
+          );
 
-                headers: {
-                  'Content-Type':
-                    'application/json'
-                },
-
-                body:
-                  JSON.stringify({
-
-                    email:
-                      $('email')
-                        .value
-                        .trim(),
-
-                    password:
-                      $('password')
-                        .value,
-
-                    returnSecureToken:
-                      true
-
-                  })
-
-              }
-            );
-
-
-          const data =
-            await respuesta.json();
-
-
-          if (!respuesta.ok) {
-
-            throw new Error(
-              data?.error?.message ||
-              'LOGIN_ERROR'
-            );
-
-          }
-
-
-          guardarSesion(data);
-
-          $('usuarioAdmin')
-            .textContent =
-            data.email || '';
-
-          mostrarAdmin(true);
-
-          await cargarTodo();
-
+          await entrarAdmin();
 
         } catch (error) {
 
           console.error(error);
 
-          mensaje(
-            $('loginMensaje'),
-            'No se pudo iniciar sesión. Revisa el correo y la contraseña.'
-          );
+          loginMensaje.textContent =
+            'No se pudo iniciar sesión. Revisa el correo y la contraseña.';
+
+          loginMensaje.className =
+            'mensaje error';
 
         } finally {
 
-          $('loginButton').disabled =
+          loginButton.disabled =
             false;
 
-          $('loginButton').textContent =
+          loginButton.textContent =
             'Entrar al panel';
 
         }
@@ -1059,1496 +2447,1962 @@
       }
     );
 
+    cerrarSesion.addEventListener(
+      'click',
+      () => {
 
-  $('cerrarSesion').onclick =
-    () => {
+        borrarSesion();
 
-      sesion = null;
+        admin.classList.add(
+          'oculto'
+        );
 
-      sessionStorage.removeItem(
-        'ra_admin_session'
-      );
-
-      mostrarAdmin(false);
-
-    };
-
-
-  function valorFirestore(v) {
-
-    if (!v || typeof v !== 'object')
-      return null;
-
-    if ('nullValue' in v)
-      return null;
-
-    if ('stringValue' in v)
-      return v.stringValue;
-
-    if ('booleanValue' in v)
-      return v.booleanValue;
-
-    if ('integerValue' in v)
-      return Number(v.integerValue);
-
-    if ('doubleValue' in v)
-      return Number(v.doubleValue);
-
-    if ('timestampValue' in v)
-      return v.timestampValue;
-
-    if ('arrayValue' in v)
-      return (
-        v.arrayValue.values || []
-      ).map(valorFirestore);
-
-    if ('mapValue' in v) {
-
-      return Object.fromEntries(
-
-        Object.entries(
-          v.mapValue.fields || {}
-        ).map(
-          ([key, value]) => [
-            key,
-            valorFirestore(value)
-          ]
-        )
-
-      );
-
-    }
-
-    return null;
-
-  }
-
-
-  function convertirDocumento(doc) {
-
-    const data = {};
-
-    for (
-      const [key, value]
-      of Object.entries(
-        doc.fields || {}
-      )
-    ) {
-
-      data[key] =
-        valorFirestore(value);
-
-    }
-
-
-    if (
-      data.id == null &&
-      doc.name
-    ) {
-
-      const id =
-        doc.name
-          .split('/')
-          .pop();
-
-      data.id =
-        Number(id) || id;
-
-    }
-
-
-    return data;
-
-  }
-
-
-  function aValorFirestore(valor) {
-
-    if (
-      valor === null ||
-      valor === undefined
-    ) {
-
-      return {
-        nullValue: null
-      };
-
-    }
-
-
-    if (
-      typeof valor === 'boolean'
-    ) {
-
-      return {
-        booleanValue: valor
-      };
-
-    }
-
-
-    if (
-      typeof valor === 'number'
-    ) {
-
-      if (
-        Number.isInteger(valor)
-      ) {
-
-        return {
-          integerValue:
-            String(valor)
-        };
-
-      }
-
-      return {
-        doubleValue: valor
-      };
-
-    }
-
-
-    if (
-      Array.isArray(valor)
-    ) {
-
-      return {
-
-        arrayValue: {
-
-          values:
-            valor.map(
-              aValorFirestore
-            )
-
-        }
-
-      };
-
-    }
-
-
-    if (
-      typeof valor === 'object'
-    ) {
-
-      return {
-
-        mapValue: {
-
-          fields:
-            Object.fromEntries(
-
-              Object.entries(valor)
-                .map(
-                  ([key, value]) => [
-                    key,
-                    aValorFirestore(value)
-                  ]
-                )
-
-            )
-
-        }
-
-      };
-
-    }
-
-
-    return {
-      stringValue:
-        String(valor)
-    };
-
-  }
-
-
-  function crearDocumentoFirestore(
-    datos
-  ) {
-
-    return {
-
-      fields:
-        Object.fromEntries(
-
-          Object.entries(datos)
-            .map(
-              ([key, value]) => [
-                key,
-                aValorFirestore(value)
-              ]
-            )
-
-        )
-
-    };
-
-  }
-
-
-  async function firestoreFetch(
-    url,
-    options = {}
-  ) {
-
-    const token =
-      await obtenerToken();
-
-
-    const respuesta =
-      await fetch(
-        url,
-        {
-
-          ...options,
-
-          headers: {
-
-            'Content-Type':
-              'application/json',
-
-            Authorization:
-              `Bearer ${token}`,
-
-            ...(options.headers || {})
-
-          }
-
-        }
-      );
-
-
-    const texto =
-      await respuesta.text();
-
-    let data = null;
-
-
-    if (texto) {
-
-      try {
-
-        data =
-          JSON.parse(texto);
-
-      } catch {
-
-        data = texto;
-
-      }
-
-    }
-
-
-    if (!respuesta.ok) {
-
-      if (
-        respuesta.status === 401
-      ) {
-
-        await renovarSesion();
-
-        return firestoreFetch(
-          url,
-          options
+        login.classList.remove(
+          'oculto'
         );
 
       }
-
-
-      throw new Error(
-        data?.error?.message ||
-        `Firestore HTTP ${respuesta.status}`
-      );
-
-    }
-
-
-    return data;
-
-  }
-
-
-  async function obtenerNoticias() {
-
-    const todas = [];
-
-    let pageToken = '';
-
-
-    do {
-
-      const params =
-        new URLSearchParams({
-          pageSize: '1000'
-        });
-
-
-      if (pageToken) {
-
-        params.set(
-          'pageToken',
-          pageToken
-        );
-
-      }
-
-
-      const data =
-        await firestoreFetch(
-
-          `${FIRESTORE_BASE}/noticias?${params}`
-
-        );
-
-
-      (
-        data?.documents || []
-      ).forEach(
-
-        documento => {
-
-          todas.push(
-            convertirDocumento(
-              documento
-            )
-          );
-
-        }
-
-      );
-
-
-      pageToken =
-        data?.nextPageToken || '';
-
-
-    } while (pageToken);
-
-
-    todas.sort(
-      (a, b) =>
-
-        (
-          Date.parse(
-            b.created_at || ''
-          ) || 0
-        )
-
-        -
-
-        (
-          Date.parse(
-            a.created_at || ''
-          ) || 0
-        )
     );
 
+    async function entrarAdmin() {
 
-    noticias = todas;
-
-    return todas;
-
-  }
-
-
-  async function guardarDocumento(
-    id,
-    datos
-  ) {
-
-    return firestoreFetch(
-
-      `${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`,
-
-      {
-
-        method: 'PATCH',
-
-        body:
-          JSON.stringify(
-            crearDocumentoFirestore(
-              datos
-            )
-          )
-
-      }
-
-    );
-
-  }
-
-
-  async function borrarDocumento(id) {
-
-    return firestoreFetch(
-
-      `${FIRESTORE_BASE}/noticias/${encodeURIComponent(String(id))}`,
-
-      {
-        method: 'DELETE'
-      }
-
-    );
-
-  }
-
-
-  function crearSlug(texto) {
-
-    return String(texto || '')
-
-      .normalize('NFD')
-
-      .replace(
-        /[\u0300-\u036f]/g,
-        ''
-      )
-
-      .toLowerCase()
-
-      .trim()
-
-      .replace(
-        /[^a-z0-9]+/g,
-        '-'
-      )
-
-      .replace(
-        /^-+|-+$/g,
-        ''
+      login.classList.add(
+        'oculto'
       );
 
-  }
-
-
-  document
-    .querySelectorAll(
-      '.menu button'
-    )
-    .forEach(
-
-      boton => {
-
-        boton.onclick =
-          () => {
-
-            cambiarSeccion(
-              boton.dataset.seccion
-            );
-
-          };
-
-      }
-
-    );
-
-
-  function cambiarSeccion(
-    seccion
-  ) {
-
-    [
-      'inicio',
-      'crear',
-      'noticias'
-    ].forEach(
-
-      nombre => {
-
-        $(
-          `seccion-${nombre}`
-        ).classList.toggle(
-          'oculto',
-          nombre !== seccion
-        );
-
-      }
-
-    );
-
-
-    document
-      .querySelectorAll(
-        '.menu button'
-      )
-      .forEach(
-
-        boton => {
-
-          boton.classList.toggle(
-
-            'activo',
-
-            boton.dataset.seccion ===
-            seccion
-
-          );
-
-        }
-
+      admin.classList.remove(
+        'oculto'
       );
 
-
-    if (
-      seccion === 'noticias'
-    ) {
-
-      renderizarNoticias();
-
-    }
-
-  }
-
-
-  $('irCrear').onclick =
-    () => {
-
-      limpiarEditor();
-
-      cambiarSeccion(
-        'crear'
-      );
-
-    };
-
-
-  $('irNoticias').onclick =
-    () => {
-
-      cambiarSeccion(
-        'noticias'
-      );
-
-    };
-
-
-  $('cancelar').onclick =
-    () => {
-
-      limpiarEditor();
+      usuarioAdmin.textContent =
+        sesion?.email || '';
 
       cambiarSeccion(
         'inicio'
       );
 
-    };
-
-
-  $('republicaUtil')
-    .onchange =
-    () => {
-
-      const activo =
-        $('republicaUtil')
-          .checked;
-
-
-      $('republicaUtilPortada')
-        .disabled =
-        !activo;
-
-
-      if (!activo) {
-
-        $('republicaUtilPortada')
-          .checked =
-          false;
-
-      }
-
-    };
-
-
-  function limpiarEditor() {
-
-    editando = null;
-
-    $('noticiaId').value = '';
-
-    $('titulo').value = '';
-
-    $('categoria').value =
-      'Nacionales';
-
-    $('imagen').value = '';
-
-    $('contenido').innerHTML = '';
-
-    $('republicaUtil')
-      .checked =
-      false;
-
-    $('republicaUtilPortada')
-      .checked =
-      false;
-
-    $('republicaUtilPortada')
-      .disabled =
-      true;
-
-    $('tituloEditor')
-      .textContent =
-      '📝 Nueva entrada';
-
-    $('noticiaMensaje')
-      .className =
-      'mensaje';
-
-  }
-
-
-  function editarNoticia(
-    noticia
-  ) {
-
-    editando = {
-      ...noticia
-    };
-
-
-    $('noticiaId').value =
-      noticia.id || '';
-
-    $('titulo').value =
-      noticia.titulo || '';
-
-    $('categoria').value =
-      noticia.categoria ||
-      'Nacionales';
-
-    $('imagen').value =
-      noticia.imagen || '';
-
-    $('contenido').innerHTML =
-      noticia.contenido || '';
-
-
-    $('republicaUtil')
-      .checked =
-      noticia.republica_util ===
-      true;
-
-
-    $('republicaUtilPortada')
-      .checked =
-      noticia.republica_util_portada ===
-      true;
-
-
-    $('republicaUtilPortada')
-      .disabled =
-      !$('republicaUtil').checked;
-
-
-    $('tituloEditor')
-      .textContent =
-      '✏️ Editar entrada';
-
-
-    cambiarSeccion(
-      'crear'
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
-  }
-
-
-  document
-    .querySelectorAll(
-      '[data-cmd]'
-    )
-    .forEach(
-
-      boton => {
-
-        boton.onclick =
-          () => {
-
-            $('contenido')
-              .focus();
-
-            document.execCommand(
-              boton.dataset.cmd,
-              false,
-              null
-            );
-
-          };
-
-      }
-
-    );
-
-
-  $('formato').onchange =
-    event => {
-
-      $('contenido').focus();
-
-      document.execCommand(
-        'formatBlock',
-        false,
-        event.target.value
-      );
-
-      event.target.value =
-        'p';
-
-    };
-
-
-  $('enlace').onclick =
-    () => {
-
-      const url =
-        prompt(
-          'Pega la URL del enlace:'
-        );
-
-      if (!url) return;
-
-      $('contenido').focus();
-
-      document.execCommand(
-        'createLink',
-        false,
-        url
-      );
-
-    };
-
-
-  $('imagenEditor').onclick =
-    () => {
-
-      const url =
-        prompt(
-          'Pega la URL de la imagen:'
-        );
-
-      if (!url) return;
-
-
-      $('contenido').focus();
-
-
-      const segura =
-        url.replace(
-          /"/g,
-          '&quot;'
-        );
-
-
-      document.execCommand(
-
-        'insertHTML',
-
-        false,
-
-        `<img src="${segura}" alt="" style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;">`
-
-      );
-
-    };
-
-
-  $('videoEditor').onclick =
-    () => {
-
-      const url =
-        prompt(
-          'Pega la URL del video:'
-        );
-
-      if (!url) return;
-
-
-      $('contenido').focus();
-
-
-      const segura =
-        url.replace(
-          /"/g,
-          '&quot;'
-        );
-
-
-      document.execCommand(
-
-        'insertHTML',
-
-        false,
-
-        `<video src="${segura}" controls playsinline style="width:100%;max-width:100%;height:auto;margin:18px auto;display:block;"></video>`
-
-      );
-
-    };
-
-
-  async function guardarEntrada(
-    publicado
-  ) {
-
-    const titulo =
-      $('titulo')
-        .value
-        .trim();
-
-
-    const contenido =
-      $('contenido')
-        .innerHTML
-        .trim();
-
-
-    if (
-      !titulo ||
-      !contenido
-    ) {
-
-      mensaje(
-        $('noticiaMensaje'),
-        'Título y contenido son obligatorios.'
-      );
-
-      return;
+      await cargarTodo();
 
     }
 
+    /* ======================================================
+       CARGA PRINCIPAL
+       ====================================================== */
 
-    $('publicarButton')
-      .disabled =
-      true;
+    async function cargarTodo() {
 
-    $('borradorButton')
-      .disabled =
-      true;
+      try {
 
+        noticiasCache =
+          await obtenerTodasLasNoticias();
 
-    try {
+        renderNoticias();
 
-      let id =
-        $('noticiaId').value;
+        actualizarEstadisticas();
 
+      } catch (error) {
 
-      if (!id) {
+        console.error(error);
 
-        const ids =
-          noticias
+        listaNoticias.innerHTML =
+          '<div class="mensaje error" style="display:block;">No se pudieron cargar las noticias.</div>';
 
-            .map(
-              noticia =>
-                Number(
-                  noticia.id
-                )
-            )
+      }
 
-            .filter(
-              Number.isFinite
-            );
+    }
 
+    async function cargarNoticias() {
 
-        id =
+      if (
+        !noticiasCache.length
+      ) {
+
+        noticiasCache =
+          await obtenerTodasLasNoticias();
+
+      }
+
+      renderNoticias();
+
+    }
+
+    async function cargarEstadisticas() {
+
+      actualizarEstadisticas();
+
+    }
+
+    function actualizarEstadisticas() {
+
+      const publicadas =
+        noticiasCache.filter(
+          noticia =>
+            noticia.publicado ===
+            true
+        ).length;
+
+      const borradores =
+        noticiasCache.filter(
+          noticia =>
+            noticia.publicado !==
+            true
+        ).length;
+
+      document
+        .getElementById(
+          'totalPublicadas'
+        )
+        .textContent =
+          String(publicadas);
+
+      document
+        .getElementById(
+          'totalBorradores'
+        )
+        .textContent =
+          String(borradores);
+
+      document
+        .getElementById(
+          'totalNoticias'
+        )
+        .textContent =
           String(
-
-            (
-              ids.length
-                ? Math.max(...ids)
-                : 0
-            ) + 1
-
+            noticiasCache.length
           );
-
-      }
-
-
-      const datos = {
-
-        ...(editando || {}),
-
-        id:
-          Number(id),
-
-        titulo,
-
-        slug:
-          crearSlug(titulo),
-
-        imagen:
-          $('imagen')
-            .value
-            .trim() ||
-          null,
-
-        contenido,
-
-        categoria:
-          $('categoria').value,
-
-        publicado,
-
-        republica_util:
-          $('republicaUtil')
-            .checked,
-
-        republica_util_portada:
-          $('republicaUtil')
-            .checked &&
-          $('republicaUtilPortada')
-            .checked,
-
-        created_at:
-          editando?.created_at ||
-          new Date()
-            .toISOString()
-
-      };
-
-
-      await guardarDocumento(
-        id,
-        datos
-      );
-
-
-      mensaje(
-
-        $('noticiaMensaje'),
-
-        publicado
-          ? 'Entrada publicada correctamente.'
-          : 'Borrador guardado correctamente.',
-
-        'ok'
-
-      );
-
-
-      await obtenerNoticias();
-
-
-      setTimeout(
-        () => {
-
-          limpiarEditor();
-
-          actualizarEstadisticas();
-
-          cambiarSeccion(
-            'noticias'
-          );
-
-        },
-        500
-      );
-
-
-    } catch (error) {
-
-      console.error(error);
-
-
-      mensaje(
-
-        $('noticiaMensaje'),
-
-        `No se pudo guardar: ${error.message}`
-
-      );
-
-
-    } finally {
-
-      $('publicarButton')
-        .disabled =
-        false;
-
-      $('borradorButton')
-        .disabled =
-        false;
 
     }
 
-  }
+        /* ======================================================
+       LISTADO DE NOTICIAS
+       ====================================================== */
 
+    function obtenerNoticiasFiltradas() {
 
-  $('noticiaForm')
-    .onsubmit =
-    event => {
+      const busqueda =
+        (
+          buscarNoticias?.value ||
+          ''
+        )
+          .trim()
+          .toLowerCase();
 
-      event.preventDefault();
+      const estado =
+        filtrarEstado?.value ||
+        'todas';
 
-      guardarEntrada(true);
-
-    };
-
-
-  $('borradorButton')
-    .onclick =
-    () => {
-
-      guardarEntrada(false);
-
-    };
-
-
-  function renderizarNoticias() {
-
-    const busqueda =
-      $('buscar')
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    const filtro =
-      $('filtro').value;
-
-
-    const resultados =
-      noticias.filter(
-
+      return noticiasCache.filter(
         noticia => {
 
-          const coincideTexto =
-
+          const coincideBusqueda =
             !busqueda ||
-
             String(
               noticia.titulo || ''
             )
               .toLowerCase()
-              .includes(
-                busqueda
-              );
+              .includes(busqueda);
 
-
-          let coincideFiltro =
+          let coincideEstado =
             true;
 
-
           if (
-            filtro ===
+            estado ===
             'publicadas'
           ) {
 
-            coincideFiltro =
+            coincideEstado =
               noticia.publicado ===
               true;
 
           }
 
-
           if (
-            filtro ===
+            estado ===
             'borradores'
           ) {
 
-            coincideFiltro =
+            coincideEstado =
               noticia.publicado !==
               true;
 
           }
 
-
           if (
-            filtro ===
-            'util'
+            estado ===
+            'republica-util'
           ) {
 
-            coincideFiltro =
+            coincideEstado =
               noticia.republica_util ===
               true;
 
           }
 
-
           return (
-            coincideTexto &&
-            coincideFiltro
+            coincideBusqueda &&
+            coincideEstado
           );
 
         }
-
       );
-
-
-    $('listaNoticias')
-      .innerHTML =
-      '';
-
-
-    if (
-      !resultados.length
-    ) {
-
-      $('listaNoticias')
-        .innerHTML =
-        '<div class="cargando">No se encontraron entradas.</div>';
-
-      return;
 
     }
 
+    function renderNoticias() {
 
-    resultados.forEach(
+      const noticias =
+        obtenerNoticiasFiltradas();
 
-      noticia => {
+      listaNoticias.className =
+        '';
 
-        const contenedor =
-          document.createElement(
-            'div'
+      listaNoticias.innerHTML =
+        '';
+
+      if (!noticias.length) {
+
+        resultadoVacio
+          .classList
+          .remove(
+            'oculto'
           );
-
-        contenedor.className =
-          'noticia';
-
-
-        const izquierda =
-          document.createElement(
-            'div'
-          );
-
-
-        const titulo =
-          document.createElement(
-            'h3'
-          );
-
-        titulo.textContent =
-          noticia.titulo ||
-          'Sin título';
-
-
-        const meta =
-          document.createElement(
-            'div'
-          );
-
-        meta.className =
-          'meta';
-
-        meta.textContent =
-          `${noticia.categoria || 'Sin categoría'} · ${noticia.slug || ''}`;
-
-
-        const badges =
-          document.createElement(
-            'div'
-          );
-
-        badges.className =
-          'badges';
-
-
-        const estado =
-          document.createElement(
-            'span'
-          );
-
-        estado.className =
-          `badge ${
-            noticia.publicado
-              ? 'pub'
-              : 'draft'
-          }`;
-
-        estado.textContent =
-          noticia.publicado
-            ? 'PUBLICADA'
-            : 'BORRADOR';
-
-
-        badges.append(
-          estado
-        );
-
-
-        if (
-          noticia.republica_util
-        ) {
-
-          const badge =
-            document.createElement(
-              'span'
-            );
-
-          badge.className =
-            'badge util';
-
-          badge.textContent =
-            'REPÚBLICA ÚTIL';
-
-          badges.append(
-            badge
-          );
-
-        }
-
-
-        if (
-          noticia.republica_util_portada
-        ) {
-
-          const badge =
-            document.createElement(
-              'span'
-            );
-
-          badge.className =
-            'badge portada';
-
-          badge.textContent =
-            '⭐ PORTADA';
-
-          badges.append(
-            badge
-          );
-
-        }
-
-
-        izquierda.append(
-          titulo,
-          meta,
-          badges
-        );
-
-
-        const acciones =
-          document.createElement(
-            'div'
-          );
-
-        acciones.className =
-          'noticia-acciones';
-
-
-        const editar =
-          document.createElement(
-            'button'
-          );
-
-        editar.className =
-          'btn btn-gris';
-
-        editar.textContent =
-          '✏️ Editar';
-
-        editar.onclick =
-          () => {
-
-            editarNoticia(
-              noticia
-            );
-
-          };
-
-
-        const eliminar =
-          document.createElement(
-            'button'
-          );
-
-        eliminar.className =
-          'btn btn-rojo';
-
-        eliminar.textContent =
-          '🗑️ Eliminar';
-
-
-        eliminar.onclick =
-          async () => {
-
-            if (
-
-              !confirm(
-                `¿Eliminar esta entrada?\n\n${noticia.titulo}`
-              )
-
-            ) {
-
-              return;
-
-            }
-
-
-            try {
-
-              await borrarDocumento(
-                noticia.id
-              );
-
-              await cargarTodo();
-
-
-            } catch (error) {
-
-              console.error(
-                error
-              );
-
-              alert(
-                `No se pudo eliminar: ${error.message}`
-              );
-
-            }
-
-          };
-
-
-        acciones.append(
-          editar,
-          eliminar
-        );
-
-
-        contenedor.append(
-          izquierda,
-          acciones
-        );
-
-
-        $('listaNoticias')
-          .append(
-            contenedor
-          );
-
-      }
-
-    );
-
-  }
-
-
-  $('buscar').oninput =
-    renderizarNoticias;
-
-
-  $('filtro').onchange =
-    renderizarNoticias;
-
-
-  $('actualizar').onclick =
-    cargarTodo;
-
-
-  function actualizarEstadisticas() {
-
-    $('totalNoticias')
-      .textContent =
-      noticias.length;
-
-
-    $('totalPublicadas')
-      .textContent =
-      noticias.filter(
-        noticia =>
-          noticia.publicado ===
-          true
-      ).length;
-
-
-    $('totalBorradores')
-      .textContent =
-      noticias.filter(
-        noticia =>
-          noticia.publicado !==
-          true
-      ).length;
-
-
-    $('totalUtil')
-      .textContent =
-      noticias.filter(
-        noticia =>
-          noticia.republica_util ===
-          true
-      ).length;
-
-  }
-
-
-  async function cargarTodo() {
-
-    await obtenerNoticias();
-
-    actualizarEstadisticas();
-
-    renderizarNoticias();
-
-  }
-
-
-  async function iniciar() {
-
-    try {
-
-      const guardada =
-        sessionStorage.getItem(
-          'ra_admin_session'
-        );
-
-
-      if (!guardada) {
-
-        mostrarAdmin(false);
 
         return;
 
       }
 
-
-      sesion =
-        JSON.parse(
-          guardada
+      resultadoVacio
+        .classList
+        .add(
+          'oculto'
         );
 
+      const fragmento =
+        document.createDocumentFragment();
 
-      await obtenerToken();
+      noticias.forEach(
+        noticia => {
 
+          const tarjeta =
+            document.createElement(
+              'article'
+            );
 
-      $('usuarioAdmin')
-        .textContent =
-        sesion.email || '';
+          tarjeta.className =
+            'noticia-admin';
 
+          const info =
+            document.createElement(
+              'div'
+            );
 
-      mostrarAdmin(true);
+          info.className =
+            'noticia-info';
 
+          const tituloNoticia =
+            document.createElement(
+              'h3'
+            );
 
-      await cargarTodo();
+          tituloNoticia.textContent =
+            noticia.titulo ||
+            'Sin título';
 
+          const meta =
+            document.createElement(
+              'p'
+            );
 
-    } catch (error) {
+          const destinos = [];
 
-      console.error(error);
+          if (
+            noticia.feed_principal !==
+            false
+          ) {
 
-      sesion = null;
+            destinos.push(
+              'Feed principal'
+            );
 
-      sessionStorage.removeItem(
-        'ra_admin_session'
+          }
+
+          if (
+            noticia.republica_util ===
+            true
+          ) {
+
+            destinos.push(
+              'República Útil'
+            );
+
+          }
+
+          if (
+            noticia.republica_util_portada ===
+            true
+          ) {
+
+            destinos.push(
+              'Portada'
+            );
+
+          }
+
+          meta.textContent =
+            [
+              noticia.categoria ||
+                'Sin categoría',
+
+              formatearFecha(
+                noticia.created_at
+              ),
+
+              destinos.join(' · ')
+            ]
+              .filter(Boolean)
+              .join(' — ');
+
+          const estado =
+            document.createElement(
+              'span'
+            );
+
+          estado.className =
+            noticia.publicado ===
+            true
+              ? 'estado estado-publicado'
+              : 'estado estado-borrador';
+
+          estado.textContent =
+            noticia.publicado ===
+            true
+              ? 'Publicado'
+              : 'Borrador';
+
+          info.appendChild(
+            tituloNoticia
+          );
+
+          info.appendChild(
+            meta
+          );
+
+          info.appendChild(
+            estado
+          );
+
+          const acciones =
+            document.createElement(
+              'div'
+            );
+
+          acciones.className =
+            'acciones-noticia';
+
+          const editar =
+            document.createElement(
+              'button'
+            );
+
+          editar.type =
+            'button';
+
+          editar.className =
+            'btn btn-gris';
+
+          editar.textContent =
+            '✏️ Editar';
+
+          editar.addEventListener(
+            'click',
+            () => {
+
+              editarNoticia(
+                noticia
+              );
+
+            }
+          );
+
+          const eliminar =
+            document.createElement(
+              'button'
+            );
+
+          eliminar.type =
+            'button';
+
+          eliminar.className =
+            'btn btn-rojo';
+
+          eliminar.textContent =
+            '🗑️';
+
+          eliminar.addEventListener(
+            'click',
+            () => {
+
+              eliminarNoticia(
+                noticia,
+                tarjeta
+              );
+
+            }
+          );
+
+          acciones.appendChild(
+            editar
+          );
+
+          acciones.appendChild(
+            eliminar
+          );
+
+          tarjeta.appendChild(
+            info
+          );
+
+          tarjeta.appendChild(
+            acciones
+          );
+
+          fragmento.appendChild(
+            tarjeta
+          );
+
+        }
       );
 
-      mostrarAdmin(false);
+      listaNoticias.appendChild(
+        fragmento
+      );
 
     }
 
-  }
+    buscarNoticias
+      ?.addEventListener(
+        'input',
+        renderNoticias
+      );
 
+    filtrarEstado
+      ?.addEventListener(
+        'change',
+        renderNoticias
+      );
 
-  iniciar();
+    /* ======================================================
+       EDITAR NOTICIA
+       ====================================================== */
 
-</script>
+    function editarNoticia(
+      noticia
+    ) {
+
+      noticiaEditando =
+        noticia;
+
+      noticiaId.value =
+        String(
+          noticia.id ?? ''
+        );
+
+      titulo.value =
+        noticia.titulo ||
+        '';
+
+      categoria.value =
+        noticia.categoria ||
+        'Nacionales';
+
+      imagen.value =
+        noticia.imagen ||
+        '';
+
+      contenido.innerHTML =
+        noticia.contenido ||
+        '';
+
+      if (feedPrincipal) {
+
+        feedPrincipal.checked =
+          noticia.feed_principal !==
+          false;
+
+      }
+
+      if (republicaUtil) {
+
+        republicaUtil.checked =
+          noticia.republica_util ===
+          true;
+
+      }
+
+      if (
+        republicaUtilPortada
+      ) {
+
+        republicaUtilPortada.checked =
+          noticia.republica_util_portada ===
+          true;
+
+      }
+
+      if (tituloSeo) {
+
+        tituloSeo.value =
+          noticia.titulo_seo ||
+          noticia.titulo ||
+          '';
+
+      }
+
+      if (metaDescripcion) {
+
+        metaDescripcion.value =
+          noticia.meta_descripcion ||
+          '';
+
+      }
+
+      if (etiquetasSeo) {
+
+        const etiquetas =
+          Array.isArray(
+            noticia.keywords
+          )
+            ? noticia.keywords
+            : Array.isArray(
+                noticia.etiquetas
+              )
+              ? noticia.etiquetas
+              : [];
+
+        etiquetasSeo.value =
+          etiquetas.join(', ');
+
+      }
+
+      actualizarContadoresSeo();
+
+      tituloEditor.textContent =
+        '✏️ Editar noticia';
+
+      publicarButton.textContent =
+        noticia.publicado === true
+          ? '🚀 ACTUALIZAR PUBLICACIÓN'
+          : '🚀 PUBLICAR AHORA';
+
+      seleccionarMedia(
+        null
+      );
+
+      cambiarSeccion(
+        'crear'
+      );
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+    }
+
+    /* ======================================================
+       LIMPIAR EDITOR
+       ====================================================== */
+
+    function limpiarEditor() {
+
+      noticiaEditando =
+        null;
+
+      noticiaId.value =
+        '';
+
+      titulo.value =
+        '';
+
+      categoria.value =
+        'Nacionales';
+
+      imagen.value =
+        '';
+
+      contenido.innerHTML =
+        '';
+
+      if (feedPrincipal) {
+
+        feedPrincipal.checked =
+          true;
+
+      }
+
+      if (republicaUtil) {
+
+        republicaUtil.checked =
+          false;
+
+      }
+
+      if (
+        republicaUtilPortada
+      ) {
+
+        republicaUtilPortada.checked =
+          false;
+
+      }
+
+      if (tituloSeo) {
+
+        tituloSeo.value =
+          '';
+
+      }
+
+      if (metaDescripcion) {
+
+        metaDescripcion.value =
+          '';
+
+      }
+
+      if (etiquetasSeo) {
+
+        etiquetasSeo.value =
+          '';
+
+      }
+
+      tituloEditor.textContent =
+        '📝 Nueva noticia';
+
+      publicarButton.textContent =
+        '🚀 PUBLICAR AHORA';
+
+      noticiaMensaje.className =
+        'mensaje';
+
+      noticiaMensaje.textContent =
+        '';
+
+      seleccionarMedia(
+        null
+      );
+
+      actualizarContadoresSeo();
+
+    }
+
+    cancelarEdicion
+      ?.addEventListener(
+        'click',
+        () => {
+
+          limpiarEditor();
+
+          cambiarSeccion(
+            'noticias'
+          );
+
+        }
+      );
+
+    /* ======================================================
+       DESTINOS
+       ====================================================== */
+
+    republicaUtilPortada
+      ?.addEventListener(
+        'change',
+        () => {
+
+          if (
+            republicaUtilPortada.checked &&
+            republicaUtil
+          ) {
+
+            republicaUtil.checked =
+              true;
+
+          }
+
+        }
+      );
+
+    republicaUtil
+      ?.addEventListener(
+        'change',
+        () => {
+
+          if (
+            !republicaUtil.checked &&
+            republicaUtilPortada
+          ) {
+
+            republicaUtilPortada.checked =
+              false;
+
+          }
+
+        }
+      );
+
+    /* ======================================================
+       PUBLICAR / GUARDAR
+       ====================================================== */
+
+    async function guardarNoticia(
+      publicar
+    ) {
+
+      const tituloTexto =
+        titulo.value.trim();
+
+      seleccionarMedia(
+        null
+      );
+
+      const contenidoTexto =
+        contenido.innerHTML.trim();
+
+      if (
+        !tituloTexto ||
+        !contenidoTexto
+      ) {
+
+        mostrarMensajeNoticia(
+          'El título y el contenido son obligatorios.',
+          'error'
+        );
+
+        return;
+
+      }
+
+      if (
+        !feedPrincipal?.checked &&
+        !republicaUtil?.checked
+      ) {
+
+        mostrarMensajeNoticia(
+          'Selecciona Feed principal, República Útil o ambos.',
+          'error'
+        );
+
+        return;
+
+      }
+
+      publicarButton.disabled =
+        true;
+
+      borradorButton.disabled =
+        true;
+
+      const textoBoton =
+        publicarButton.textContent;
+
+      publicarButton.textContent =
+        publicar
+          ? '⏳ PUBLICANDO...'
+          : '⏳ GUARDANDO...';
+
+      try {
+
+        let id;
+
+        if (
+          noticiaId.value
+        ) {
+
+          id =
+            String(
+              noticiaId.value
+            );
+
+        } else {
+
+          const ids =
+            noticiasCache
+              .map(
+                noticia =>
+                  Number(
+                    noticia.id
+                  )
+              )
+              .filter(
+                Number.isFinite
+              );
+
+          id =
+            String(
+              (
+                ids.length
+                  ? Math.max(
+                      ...ids
+                    )
+                  : 0
+              ) + 1
+            );
+
+        }
+
+        const ahora =
+          new Date()
+            .toISOString();
+
+        const etiquetas =
+          obtenerEtiquetasSeo();
+
+        const datos = {
+
+          ...(
+            noticiaEditando ||
+            {}
+          ),
+
+          id:
+            Number(id),
+
+          titulo:
+            tituloTexto,
+
+          slug:
+            crearSlug(
+              tituloTexto
+            ),
+
+          imagen:
+            imagen.value
+              .trim() ||
+            null,
+
+          contenido:
+            contenidoTexto,
+
+          categoria:
+            categoria.value,
+
+          publicado:
+            publicar,
+
+          feed_principal:
+            feedPrincipal
+              ? feedPrincipal.checked
+              : true,
+
+          republica_util:
+            republicaUtil
+              ? republicaUtil.checked
+              : false,
+
+          republica_util_portada:
+            republicaUtilPortada
+              ? republicaUtilPortada.checked
+              : false,
+
+          titulo_seo:
+            tituloSeo
+              ?.value
+              .trim() ||
+            tituloTexto,
+
+          meta_descripcion:
+            metaDescripcion
+              ?.value
+              .trim() ||
+            '',
+
+          keywords:
+            etiquetas,
+
+          etiquetas:
+            etiquetas,
+
+          created_at:
+            noticiaEditando
+              ?.created_at ||
+            ahora,
+
+          updated_at:
+            ahora
+
+        };
+
+        /*
+         * IMPORTANTE:
+         * Solo hacemos UNA escritura a Firestore.
+         * No volvemos a descargar toda la colección.
+         */
+
+        await guardarDocumento(
+          id,
+          datos
+        );
+
+        reemplazarEnCache(
+          datos
+        );
+
+        renderNoticias();
+
+        actualizarEstadisticas();
+
+        mostrarMensajeNoticia(
+          publicar
+            ? '✅ Publicación guardada correctamente.'
+            : '✅ Borrador guardado correctamente.',
+          'ok'
+        );
+
+        /*
+         * Dejamos el mensaje visible brevemente,
+         * pero NO hacemos otra consulta a Firestore.
+         */
+
+        await new Promise(
+          resolver =>
+            setTimeout(
+              resolver,
+              350
+            )
+        );
+
+        limpiarEditor();
+
+        cambiarSeccion(
+          'noticias'
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        mostrarMensajeNoticia(
+          `No se pudo guardar: ${
+            error?.message ||
+            'error de Firestore'
+          }`,
+          'error'
+        );
+
+      } finally {
+
+        publicarButton.disabled =
+          false;
+
+        borradorButton.disabled =
+          false;
+
+        publicarButton.textContent =
+          noticiaEditando
+            ? '🚀 ACTUALIZAR PUBLICACIÓN'
+            : '🚀 PUBLICAR AHORA';
+
+      }
+
+    }
+
+    noticiaForm
+      .addEventListener(
+        'submit',
+        async evento => {
+
+          evento.preventDefault();
+
+          await guardarNoticia(
+            true
+          );
+
+        }
+      );
+
+    borradorButton
+      ?.addEventListener(
+        'click',
+        async () => {
+
+          await guardarNoticia(
+            false
+          );
+
+        }
+      );
+
+    /* ======================================================
+       BORRAR RÁPIDO
+       ====================================================== */
+
+    async function eliminarNoticia(
+      noticia,
+      tarjeta
+    ) {
+
+      const confirmar =
+        window.confirm(
+          `¿Eliminar definitivamente "${noticia.titulo || 'esta noticia'}"?`
+        );
+
+      if (!confirmar) {
+        return;
+      }
+
+      tarjeta?.style.setProperty(
+        'opacity',
+        '.45'
+      );
+
+      tarjeta?.style.setProperty(
+        'pointer-events',
+        'none'
+      );
+
+      try {
+
+        await borrarDocumento(
+          noticia.id
+        );
+
+        quitarDeCache(
+          noticia.id
+        );
+
+        tarjeta?.remove();
+
+        actualizarEstadisticas();
+
+        if (
+          !obtenerNoticiasFiltradas()
+            .length
+        ) {
+
+          resultadoVacio
+            .classList
+            .remove(
+              'oculto'
+            );
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        tarjeta?.style.removeProperty(
+          'opacity'
+        );
+
+        tarjeta?.style.removeProperty(
+          'pointer-events'
+        );
+
+        alert(
+          `No se pudo eliminar: ${
+            error?.message ||
+            'error de Firestore'
+          }`
+        );
+
+      }
+
+    }
+
+    /* ======================================================
+       EDITOR RICO
+       ====================================================== */
+
+    function ejecutarComando(
+      comando,
+      valor = null
+    ) {
+
+      contenido.focus();
+
+      document.execCommand(
+        comando,
+        false,
+        valor
+      );
+
+    }
+
+    document
+      .querySelectorAll(
+        '[data-cmd]'
+      )
+      .forEach(
+        boton => {
+
+          boton.addEventListener(
+            'mousedown',
+            evento => {
+
+              evento.preventDefault();
+
+            }
+          );
+
+          boton.addEventListener(
+            'click',
+            () => {
+
+              ejecutarComando(
+                boton.dataset.cmd
+              );
+
+            }
+          );
+
+        }
+      );
+
+    document
+      .getElementById(
+        'formatoTexto'
+      )
+      ?.addEventListener(
+        'change',
+        evento => {
+
+          const valor =
+            evento.target.value;
+
+          if (!valor) {
+            return;
+          }
+
+          ejecutarComando(
+            'formatBlock',
+            valor
+          );
+
+        }
+      );
+
+    document
+      .getElementById(
+        'tamanoTexto'
+      )
+      ?.addEventListener(
+        'change',
+        evento => {
+
+          const tamano =
+            evento.target.value;
+
+          if (!tamano) {
+            return;
+          }
+
+          contenido.focus();
+
+          document.execCommand(
+            'fontSize',
+            false,
+            '7'
+          );
+
+          contenido
+            .querySelectorAll(
+              'font[size="7"]'
+            )
+            .forEach(
+              elemento => {
+
+                elemento.removeAttribute(
+                  'size'
+                );
+
+                elemento.style.fontSize =
+                  tamano;
+
+              }
+            );
+
+          evento.target.value =
+            '';
+
+        }
+      );
+
+    document
+      .getElementById(
+        'colorTexto'
+      )
+      ?.addEventListener(
+        'input',
+        evento => {
+
+          ejecutarComando(
+            'foreColor',
+            evento.target.value
+          );
+
+        }
+      );
+
+    document
+      .getElementById(
+        'limpiarFormato'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          ejecutarComando(
+            'removeFormat'
+          );
+
+        }
+      );
+
+    document
+      .getElementById(
+        'deshacer'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          ejecutarComando(
+            'undo'
+          );
+
+        }
+      );
+
+    document
+      .getElementById(
+        'rehacer'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          ejecutarComando(
+            'redo'
+          );
+
+        }
+      );
+
+    /* ======================================================
+       ENLACES
+       ====================================================== */
+
+    document
+      .getElementById(
+        'insertarEnlace'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          const url =
+            window.prompt(
+              'Pega la dirección del enlace:'
+            );
+
+          if (!url) {
+            return;
+          }
+
+          ejecutarComando(
+            'createLink',
+            url
+          );
+
+          contenido
+            .querySelectorAll(
+              'a'
+            )
+            .forEach(
+              enlace => {
+
+                enlace.target =
+                  '_blank';
+
+                enlace.rel =
+                  'noopener noreferrer';
+
+              }
+            );
+
+        }
+      );
+
+    /* ======================================================
+       INSERTAR IMAGEN
+       ====================================================== */
+
+    document
+      .getElementById(
+        'insertarImagenEditor'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          const url =
+            window.prompt(
+              'Pega la URL de la imagen:'
+            );
+
+          if (!url) {
+            return;
+          }
+
+          contenido.focus();
+
+          const html =
+            `
+              <img
+                src="${escaparHtml(url)}"
+                alt=""
+                loading="lazy"
+                style="
+                  width:75%;
+                  max-width:100%;
+                  height:auto;
+                  display:block;
+                  margin:18px auto;
+                "
+              >
+              <p><br></p>
+            `;
+
+          document.execCommand(
+            'insertHTML',
+            false,
+            html
+          );
+
+        }
+      );
+
+    /* ======================================================
+       INSERTAR VIDEO
+       ====================================================== */
+
+    document
+      .getElementById(
+        'insertarVideoEditor'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          const url =
+            window.prompt(
+              'Pega la URL del video o de YouTube:'
+            );
+
+          if (!url) {
+            return;
+          }
+
+          contenido.focus();
+
+          let html = '';
+
+          const youtube =
+            url.match(
+              /(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/
+            );
+
+          if (youtube) {
+
+            const id =
+              youtube[1];
+
+            html =
+              `
+                <div
+                  style="
+                    position:relative;
+                    width:100%;
+                    padding-top:56.25%;
+                    margin:20px auto;
+                  "
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/${escaparHtml(id)}"
+                    title="Video"
+                    loading="lazy"
+                    allowfullscreen
+                    style="
+                      position:absolute;
+                      inset:0;
+                      width:100%;
+                      height:100%;
+                      border:0;
+                      border-radius:8px;
+                    "
+                  ></iframe>
+                </div>
+                <p><br></p>
+              `;
+
+          } else {
+
+            html =
+              `
+                <video
+                  controls
+                  preload="metadata"
+                  style="
+                    width:100%;
+                    max-width:100%;
+                    display:block;
+                    margin:20px auto;
+                  "
+                >
+                  <source
+                    src="${escaparHtml(url)}"
+                  >
+                </video>
+                <p><br></p>
+              `;
+
+          }
+
+          document.execCommand(
+            'insertHTML',
+            false,
+            html
+          );
+
+        }
+      );
+
+    /* ======================================================
+       SELECCIÓN DE IMÁGENES Y VIDEOS
+       ====================================================== */
+
+    function seleccionarMedia(
+      elemento
+    ) {
+
+      if (
+        mediaSeleccionado
+      ) {
+
+        mediaSeleccionado
+          .classList
+          .remove(
+            'media-seleccionado'
+          );
+
+      }
+
+      mediaSeleccionado =
+        elemento;
+
+      if (!elemento) {
+
+        mediaControls
+          ?.classList
+          .remove(
+            'activo'
+          );
+
+        return;
+
+      }
+
+      elemento
+        .classList
+        .add(
+          'media-seleccionado'
+        );
+
+      mediaControls
+        ?.classList
+        .add(
+          'activo'
+        );
+
+      const ancho =
+        elemento.style.width ||
+        '100%';
+
+      const opciones =
+        [
+          '25%',
+          '50%',
+          '75%',
+          '100%'
+        ];
+
+      if (
+        opciones.includes(
+          ancho
+        )
+      ) {
+
+        mediaTamano.value =
+          ancho;
+
+      }
+
+    }
+
+    contenido.addEventListener(
+      'click',
+      evento => {
+
+        const objetivo =
+          evento.target;
+
+        if (
+          objetivo instanceof
+            HTMLImageElement ||
+          objetivo instanceof
+            HTMLVideoElement
+        ) {
+
+          seleccionarMedia(
+            objetivo
+          );
+
+          return;
+
+        }
+
+        if (
+          objetivo.closest(
+            'iframe'
+          )
+        ) {
+
+          return;
+
+        }
+
+        seleccionarMedia(
+          null
+        );
+
+      }
+    );
+
+    mediaTamano
+      ?.addEventListener(
+        'change',
+        () => {
+
+          if (
+            !mediaSeleccionado
+          ) {
+            return;
+          }
+
+          mediaSeleccionado
+            .style
+            .width =
+              mediaTamano.value;
+
+          mediaSeleccionado
+            .style
+            .maxWidth =
+              '100%';
+
+          mediaSeleccionado
+            .style
+            .height =
+              'auto';
+
+        }
+      );
+
+    document
+      .getElementById(
+        'mediaIzquierda'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          if (
+            !mediaSeleccionado
+          ) {
+            return;
+          }
+
+          mediaSeleccionado
+            .style
+            .display =
+              'block';
+
+          mediaSeleccionado
+            .style
+            .marginLeft =
+              '0';
+
+          mediaSeleccionado
+            .style
+            .marginRight =
+              'auto';
+
+        }
+      );
+
+    document
+      .getElementById(
+        'mediaCentro'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          if (
+            !mediaSeleccionado
+          ) {
+            return;
+          }
+
+          mediaSeleccionado
+            .style
+            .display =
+              'block';
+
+          mediaSeleccionado
+            .style
+            .marginLeft =
+              'auto';
+
+          mediaSeleccionado
+            .style
+            .marginRight =
+              'auto';
+
+        }
+      );
+
+    document
+      .getElementById(
+        'mediaDerecha'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          if (
+            !mediaSeleccionado
+          ) {
+            return;
+          }
+
+          mediaSeleccionado
+            .style
+            .display =
+              'block';
+
+          mediaSeleccionado
+            .style
+            .marginLeft =
+              'auto';
+
+          mediaSeleccionado
+            .style
+            .marginRight =
+              '0';
+
+        }
+      );
+
+    document
+      .getElementById(
+        'mediaEliminar'
+      )
+      ?.addEventListener(
+        'click',
+        () => {
+
+          if (
+            !mediaSeleccionado
+          ) {
+            return;
+          }
+
+          const elemento =
+            mediaSeleccionado;
+
+          seleccionarMedia(
+            null
+          );
+
+          elemento.remove();
+
+        }
+      );
+
+    /* ======================================================
+       ATAJOS DEL EDITOR
+       ====================================================== */
+
+    contenido.addEventListener(
+      'keydown',
+      evento => {
+
+        if (
+          evento.ctrlKey &&
+          evento.key.toLowerCase() ===
+            'b'
+        ) {
+
+          evento.preventDefault();
+
+          ejecutarComando(
+            'bold'
+          );
+
+        }
+
+        if (
+          evento.ctrlKey &&
+          evento.key.toLowerCase() ===
+            'i'
+        ) {
+
+          evento.preventDefault();
+
+          ejecutarComando(
+            'italic'
+          );
+
+        }
+
+        if (
+          evento.ctrlKey &&
+          evento.key.toLowerCase() ===
+            'u'
+        ) {
+
+          evento.preventDefault();
+
+          ejecutarComando(
+            'underline'
+          );
+
+        }
+
+      }
+    );
+
+    /* ======================================================
+       PEGADO LIMPIO
+       ====================================================== */
+
+    contenido.addEventListener(
+      'paste',
+      evento => {
+
+        const html =
+          evento.clipboardData
+            ?.getData(
+              'text/html'
+            );
+
+        const texto =
+          evento.clipboardData
+            ?.getData(
+              'text/plain'
+            );
+
+        if (!html) {
+
+          if (!texto) {
+            return;
+          }
+
+          evento.preventDefault();
+
+          const seguro =
+            escaparHtml(
+              texto
+            )
+              .replace(
+                /\n\n+/g,
+                '</p><p>'
+              )
+              .replace(
+                /\n/g,
+                '<br>'
+              );
+
+          document.execCommand(
+            'insertHTML',
+            false,
+            `<p>${seguro}</p>`
+          );
+
+          return;
+
+        }
+
+        evento.preventDefault();
+
+        const temporal =
+          document.createElement(
+            'div'
+          );
+
+        temporal.innerHTML =
+          html;
+
+        temporal
+          .querySelectorAll(
+            'script,style,link,meta,object,embed'
+          )
+          .forEach(
+            elemento =>
+              elemento.remove()
+          );
+
+        temporal
+          .querySelectorAll(
+            '*'
+          )
+          .forEach(
+            elemento => {
+
+              [
+                'onclick',
+                'onload',
+                'onerror',
+                'onmouseover'
+              ].forEach(
+                atributo =>
+                  elemento.removeAttribute(
+                    atributo
+                  )
+              );
+
+            }
+          );
+
+        document.execCommand(
+          'insertHTML',
+          false,
+          temporal.innerHTML
+        );
+
+      }
+    );
+
+    /* ======================================================
+       VISITANTES SIMPLES
+       ====================================================== */
+
+    function actualizarVisitantes() {
+
+      /*
+       * Este número es solamente visual mientras
+       * conectamos Analytics/estadísticas reales.
+       */
+
+      const actual =
+        Number(
+          document
+            .getElementById(
+              'visitantesNumero'
+            )
+            ?.textContent ||
+          1
+        );
+
+      document
+        .getElementById(
+          'visitantesNumero'
+        )
+        .textContent =
+          String(
+            Math.max(
+              1,
+              actual
+            )
+          );
+
+      document
+        .getElementById(
+          'totalVisitantes'
+        )
+        .textContent =
+          String(
+            Math.max(
+              1,
+              actual
+            )
+          );
+
+    }
+
+    actualizarVisitantes();
+
+    /* ======================================================
+       RESTAURAR SESIÓN
+       ====================================================== */
+
+    (async function iniciar() {
+
+      sesion =
+        cargarSesion();
+
+      if (!sesion) {
+
+        login.classList.remove(
+          'oculto'
+        );
+
+        admin.classList.add(
+          'oculto'
+        );
+
+        return;
+
+      }
+
+      try {
+
+        await obtenerToken();
+
+        await entrarAdmin();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        borrarSesion();
+
+        admin.classList.add(
+          'oculto'
+        );
+
+        login.classList.remove(
+          'oculto'
+        );
+
+      }
+
+    })();
+
+  </script>
 
 </body>
 </html>
