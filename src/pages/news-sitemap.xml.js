@@ -8,6 +8,7 @@ const SITE_URL = 'https://republicaactual.net';
 const PUBLICATION_NAME = 'República Actual';
 const PUBLICATION_LANGUAGE = 'es';
 
+
 function escaparXML(valor = '') {
   return String(valor)
     .replace(/&/g, '&amp;')
@@ -17,88 +18,172 @@ function escaparXML(valor = '') {
     .replace(/'/g, '&apos;');
 }
 
+
 export async function GET() {
+
   let noticias = [];
 
   try {
-    // Google News solo necesita las noticias recientes.
-    // Tomamos las publicadas durante las últimas 48 horas.
+
+    // ========================================================
+    // GOOGLE NEWS
+    // Incluimos únicamente noticias publicadas
+    // durante las últimas 48 horas.
+    // ========================================================
+
     const limite = new Date(
       Date.now() - 48 * 60 * 60 * 1000
     ).toISOString();
 
+
+    // IMPORTANTE:
+    // Ahora también solicitamos el SLUG.
     const endpoint =
       `${SUPABASE_URL}/rest/v1/noticias` +
-      `?select=id,titulo,created_at` +
+      `?select=id,slug,titulo,created_at` +
       `&publicado=eq.true` +
       `&created_at=gte.${encodeURIComponent(limite)}` +
       `&order=created_at.desc`;
 
+
     const respuesta = await fetch(endpoint, {
+
       headers: {
         apikey: SUPABASE_KEY,
         Authorization: `Bearer ${SUPABASE_KEY}`,
         Accept: 'application/json'
       }
+
     });
 
+
     if (!respuesta.ok) {
+
       throw new Error(
         `Supabase respondió ${respuesta.status}`
       );
+
     }
+
 
     noticias = await respuesta.json();
 
+
   } catch (error) {
+
     console.error(
       'Error generando News Sitemap:',
       error
     );
+
   }
 
+
+  // ==========================================================
+  // GENERAR NOTICIAS
+  // ==========================================================
+
   const noticiasXML = noticias
+
     .filter(
       (noticia) =>
-        noticia.id &&
         noticia.titulo &&
-        noticia.created_at
+        noticia.created_at &&
+        (noticia.slug || noticia.id)
     )
+
     .map((noticia) => {
+
+
+      // ======================================================
+      // URL CANÓNICA
+      //
+      // Usamos SLUG como primera opción.
+      // El ID queda solamente como respaldo por seguridad.
+      // ======================================================
+
+      const identificador =
+        noticia.slug || noticia.id;
+
+
       const url =
-        `${SITE_URL}/noticia/${noticia.id}/`;
+        `${SITE_URL}/noticia/${identificador}/`;
+
 
       const fecha =
-        new Date(noticia.created_at).toISOString();
+        new Date(
+          noticia.created_at
+        ).toISOString();
+
 
       return `
   <url>
     <loc>${escaparXML(url)}</loc>
+
     <news:news>
+
       <news:publication>
-        <news:name>${escaparXML(PUBLICATION_NAME)}</news:name>
+
+        <news:name>${escaparXML(
+          PUBLICATION_NAME
+        )}</news:name>
+
         <news:language>${PUBLICATION_LANGUAGE}</news:language>
+
       </news:publication>
+
       <news:publication_date>${fecha}</news:publication_date>
-      <news:title>${escaparXML(noticia.titulo)}</news:title>
+
+      <news:title>${escaparXML(
+        noticia.titulo
+      )}</news:title>
+
     </news:news>
+
   </url>`;
+
     })
+
     .join('');
+
+
+  // ==========================================================
+  // XML FINAL
+  // ==========================================================
 
   const sitemap =
 `<?xml version="1.0" encoding="UTF-8"?>
+
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
 ${noticiasXML}
+
 </urlset>`;
 
-  return new Response(sitemap, {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=300'
+
+  // ==========================================================
+  // RESPUESTA
+  // ==========================================================
+
+  return new Response(
+    sitemap,
+    {
+
+      status: 200,
+
+      headers: {
+
+        'Content-Type':
+          'application/xml; charset=utf-8',
+
+        'Cache-Control':
+          'public, max-age=300'
+
+      }
+
     }
-  });
+  );
+
 }
