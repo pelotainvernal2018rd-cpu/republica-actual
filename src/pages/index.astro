@@ -5,8 +5,8 @@
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-const PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || "republica-actual";
-const API_KEY = import.meta.env.FIREBASE_API_KEY;
+const PROJECT_ID = import.meta.env.PUBLIC_FIREBASE_PROJECT_ID || import.meta.env.FIREBASE_PROJECT_ID || "republica-actual";
+const API_KEY = import.meta.env.PUBLIC_FIREBASE_API_KEY || import.meta.env.FIREBASE_API_KEY;
 
 let noticias = [];
 let errorConexion = '';
