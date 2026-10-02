@@ -428,87 +428,75 @@ const schema = {
 </main>
 
 
-<script>
-
-  const buscador =
-    document.querySelector('#buscar-loteria');
-
-  const tarjetas =
-    Array.from(
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var buscador = document.getElementById('buscar-loteria');
+    var tarjetas = Array.prototype.slice.call(
       document.querySelectorAll('.tarjeta')
     );
 
-  const botones =
-    Array.from(
+    var botones = Array.prototype.slice.call(
       document.querySelectorAll('[data-filtro]')
     );
 
-  let filtroActual = 'Todas';
+    var filtroActual = 'Todas';
 
+    function aplicarFiltros() {
+      var texto = '';
 
-  function aplicarFiltros() {
+      if (buscador) {
+        texto = String(buscador.value || '')
+          .toLowerCase()
+          .trim();
+      }
 
-    const texto =
-      buscador?.value
-        .toLowerCase()
-        .trim() || '';
-
-
-    tarjetas.forEach((tarjeta) => {
-
-      const nombre =
-        tarjeta.dataset.nombre || '';
-
-      const horario =
-        tarjeta.dataset.horario || '';
-
-
-      const coincideNombre =
-        nombre.includes(texto);
-
-      const coincideHorario =
-        filtroActual === 'Todas' ||
-        horario === filtroActual;
-
-
-      tarjeta.style.display =
-        coincideNombre &&
-        coincideHorario
-          ? ''
-          : 'none';
-
-    });
-
-  }
-
-
-  buscador?.addEventListener(
-    'input',
-    aplicarFiltros
-  );
-
-
-  botones.forEach((boton) => {
-
-    boton.addEventListener(
-      'click',
-      () => {
-
-        filtroActual =
-          boton.dataset.filtro || 'Todas';
-
-        botones.forEach(
-          b => b.classList.remove('activo')
+      tarjetas.forEach(function (tarjeta) {
+        var nombre = String(
+          tarjeta.getAttribute('data-nombre') || ''
         );
+
+        var horario = String(
+          tarjeta.getAttribute('data-horario') || ''
+        );
+
+        var coincideNombre =
+          nombre.indexOf(texto) !== -1;
+
+        var coincideHorario =
+          filtroActual === 'Todas' ||
+          horario === filtroActual;
+
+        tarjeta.style.display =
+          coincideNombre && coincideHorario
+            ? ''
+            : 'none';
+      });
+    }
+
+    if (buscador) {
+      buscador.addEventListener(
+        'input',
+        aplicarFiltros
+      );
+    }
+
+    botones.forEach(function (boton) {
+      boton.addEventListener('click', function () {
+        filtroActual =
+          boton.getAttribute('data-filtro') ||
+          'Todas';
+
+        botones.forEach(function (otroBoton) {
+          otroBoton.classList.remove('activo');
+        });
 
         boton.classList.add('activo');
 
         aplicarFiltros();
-
-      }
-    );
-
+      });
+    });
   });
+</script>
 
 </script>
 
