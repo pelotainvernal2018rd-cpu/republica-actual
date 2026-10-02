@@ -1,1453 +1,249 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const hoyISO = new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'America/Santo_Domingo',
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit'
-}).format(new Date());
-
 const hoy = new Intl.DateTimeFormat('es-DO', {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   timeZone: 'America/Santo_Domingo'
 }).format(new Date());
 
-const loterias = [
-  { id:'loteria-nacional-noche', nombre:'Lotería Nacional', grupo:'rd', horario:'Noche' },
-  { id:'leidsa-noche', nombre:'LEIDSA', grupo:'rd', horario:'Noche' },
-  { id:'loteria-real-mediodia', nombre:'Lotería Real', grupo:'rd', horario:'Mediodía' },
-  { id:'loteka-noche', nombre:'Loteka', grupo:'rd', horario:'Noche' },
-  { id:'la-primera-mediodia', nombre:'La Primera', grupo:'rd', horario:'Mediodía' },
-  { id:'la-suerte-mediodia', nombre:'La Suerte', grupo:'rd', horario:'Mediodía' },
-  { id:'lotedom-mediodia', nombre:'LoteDom', grupo:'rd', horario:'Mediodía' },
+const operadores = [
+  'Todas','LEIDSA','Lotería Nacional','Loteka','Lotería Real','La Primera','La Suerte','LoteDom',
+  'Anguila','King Lottery','New York','Florida','Powerball','Mega Millions'
+];
 
-  { id:'king-lottery-mediodia', nombre:'King Lottery', grupo:'otras', horario:'Mediodía' },
-  { id:'anguila-noche', nombre:'Anguila', grupo:'otras', horario:'Noche' },
-
-  { id:'new-york-dia', nombre:'New York Día', grupo:'usa', horario:'Tarde' },
-  { id:'new-york-noche', nombre:'New York Noche', grupo:'usa', horario:'Noche' },
-  { id:'florida-dia', nombre:'Florida Día', grupo:'usa', horario:'Tarde' },
-  { id:'florida-noche', nombre:'Florida Noche', grupo:'usa', horario:'Noche' },
-  { id:'new-jersey-noche', nombre:'Americanas (New Jersey Noche)', grupo:'usa', horario:'Noche' },
-
-  { id:'haiti-bolet-noche', nombre:'Haití Bolet', grupo:'otras', horario:'Noche' }
+const juegos = [
+  {id:'loteria-nacional-noche', operador:'Lotería Nacional', juego:'Lotería Nacional Noche', horario:'Noche', hora:'9:00 PM'},
+  {id:'leidsa-noche', operador:'LEIDSA', juego:'Quiniela LEIDSA', horario:'Noche', hora:'8:55 PM'},
+  {id:'loteria-real-mediodia', operador:'Lotería Real', juego:'Quiniela Real', horario:'Mediodía', hora:'12:55 PM'},
+  {id:'loteka-noche', operador:'Loteka', juego:'Quiniela Loteka', horario:'Noche', hora:'7:55 PM'},
+  {id:'loteka-mega-chances', operador:'Loteka', juego:'Mega Chances', horario:'Noche', hora:'7:55 PM'},
+  {id:'loteka-megalotto', operador:'Loteka', juego:'MegaLotto', horario:'Noche', hora:'7:55 PM'},
+  {id:'loteka-chance-express', operador:'Loteka', juego:'Chance Express', horario:'Tarde', hora:'5:15 PM'},
+  {id:'la-primera-noche', operador:'La Primera', juego:'La Primera Noche', horario:'Noche', hora:'7:50 PM'},
+  {id:'la-primera-loto5', operador:'La Primera', juego:'Loto 5', horario:'Noche', hora:'7:50 PM'},
+  {id:'la-suerte-mediodia', operador:'La Suerte', juego:'La Suerte', horario:'Mediodía', hora:''},
+  {id:'lotedom-mediodia', operador:'LoteDom', juego:'Quiniela LoteDom', horario:'Noche', hora:'8:00 PM'},
+  {id:'lotedom-quemaito', operador:'LoteDom', juego:'El Quemaito Mayor', horario:'Noche', hora:'8:00 PM'},
+  {id:'king-lottery-mediodia', operador:'King Lottery', juego:'King Lottery', horario:'Noche', hora:'7:30 PM'},
+  {id:'anguila-noche', operador:'Anguila', juego:'Anguila', horario:'Noche', hora:''},
+  {id:'new-york-dia', operador:'New York', juego:'New York Día', horario:'Tarde', hora:''},
+  {id:'new-york-noche', operador:'New York', juego:'New York Noche', horario:'Noche', hora:''},
+  {id:'florida-dia', operador:'Florida', juego:'Florida Día', horario:'Tarde', hora:''},
+  {id:'florida-noche', operador:'Florida', juego:'Florida Noche', horario:'Noche', hora:'9:45 PM'},
+  {id:'powerball', operador:'Powerball', juego:'Powerball', horario:'Noche', hora:''},
+  {id:'mega-millions', operador:'Mega Millions', juego:'Mega Millions', horario:'Noche', hora:''}
 ];
 
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'República Actual',
-      item: 'https://republicaactual.net/'
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Resultados de Loterías',
-      item: 'https://republicaactual.net/resultados-loterias/'
-    }
-  ]
+  '@context':'https://schema.org', '@type':'WebPage',
+  name:'Resultados de Loterías de Hoy',
+  url:'https://republicaactual.net/resultados-loterias/',
+  description:'Resultados de loterías de hoy en República Dominicana, New York, Florida y otros sorteos.'
 };
 ---
 
-<Layout
-  title="Resultados de Loterías de Hoy en RD | República Actual"
-  description="Resultados de loterías de hoy en República Dominicana. Consulta Lotería Nacional, LEIDSA, Loteka, Lotería Real, La Primera, La Suerte, LoteDom, New York, Florida y más."
->
-
+<Layout title="Resultados de Loterías de Hoy en RD | República Actual" description="Resultados de loterías de hoy en República Dominicana. Consulta LEIDSA, Lotería Nacional, Loteka, Lotería Real, La Primera, La Suerte, LoteDom, New York, Florida y más.">
 <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
-<main class="pagina-loterias">
-
+<main class="lottery-page">
   <section class="hero">
-    <div class="contenedor">
-
-      <nav class="breadcrumb">
-        <a href="/">Inicio</a>
-        <span>›</span>
-        <span>Resultados de Loterías</span>
-      </nav>
-
-      <span class="etiqueta">RESULTADOS ACTUALIZADOS</span>
-
-      <h1>Resultados de Loterías de Hoy</h1>
-
-      <p class="intro">
-        Consulta los resultados de las principales loterías de
-        República Dominicana, Estados Unidos y otros sorteos
-        populares.
-      </p>
-
-      <div class="fecha">
-        📅 {hoy}
+    <div class="wrap">
+      <nav class="crumb"><a href="/">Inicio</a><span>›</span><span>Resultados de Loterías</span></nav>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">REPÚBLICA ACTUAL • LOTERÍAS</span>
+          <h1>Resultados de las loterías de hoy</h1>
+          <p class="today">{hoy}</p>
+          <p class="lead">Consulta en un solo lugar los sorteos dominicanos y los principales resultados internacionales.</p>
+        </div>
+        <div class="next-box">
+          <span class="next-label">PRÓXIMO SORTEO</span>
+          <strong id="proximo-nombre">Calculando...</strong>
+          <span id="proximo-hora">Horario de República Dominicana</span>
+        </div>
       </div>
-
     </div>
   </section>
 
-
-  <div class="contenedor cuerpo">
-
-    <section class="barra-estado">
-
-      <div>
-        <span class="live"></span>
-
-        <strong id="estado-resultados">
-          Resultados de hoy: esperando sorteos
-        </strong>
-      </div>
-
-      <span id="ultima-actualizacion">
-        Actualización automática cada 5 minutos
-      </span>
-
+  <div class="wrap content">
+    <section class="statusbar">
+      <div><span class="pulse"></span><strong>Resultados en actualización automática</strong></div>
+      <span id="ultima-actualizacion">Consultando resultados...</span>
     </section>
 
-
-    <section class="herramientas">
-
-      <div class="buscador">
-        <span>🔎</span>
-
-        <input
-          id="buscar-loteria"
-          type="search"
-          placeholder="Buscar lotería..."
-          aria-label="Buscar lotería"
-        />
+    <section class="filters-panel">
+      <div class="filter-title">Filtrar por operador</div>
+      <div class="operator-scroll" id="operadores">
+        {operadores.map((op, i) => <button class:list={['operator-btn', {active:i===0}]} data-operador={op}>{op}</button>)}
       </div>
-
-      <div class="filtros">
-        <button class="activo" data-filtro="Todas">Todas</button>
-        <button data-filtro="Mañana">Mañana</button>
-        <button data-filtro="Mediodía">Mediodía</button>
-        <button data-filtro="Tarde">Tarde</button>
-        <button data-filtro="Noche">Noche</button>
-      </div>
-
-    </section>
-
-
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-
-          <span class="icono">🇩🇴</span>
-
-          <div>
-            <h2>Loterías de República Dominicana</h2>
-            <p>Resultados de los principales sorteos dominicanos.</p>
-          </div>
-
+      <div class="schedule-row">
+        <strong>Horario</strong>
+        <div class="schedule-buttons">
+          {['Todas','Mañana','Mediodía','Tarde','Noche'].map((h,i) => <button class:list={['schedule-btn',{active:i===0}]} data-horario={h}>{h}</button>)}
         </div>
       </div>
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'rd')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-id={loteria.id}
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-
-                    <span class="fecha-resultado">
-                      Resultado de hoy pendiente
-                    </span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
-                </div>
-
-                <div class="numeros">
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>1ro</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>2do</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>3ro</span>
-                  </div>
-
-                </div>
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ⏳ Pendiente de resultado
-                  </span>
-                </div>
-
-              </article>
-
-            ))
-        }
-
-      </div>
-
     </section>
 
+    <section class="results-head">
+      <div><h2>Últimos resultados</h2><p>Los sorteos pendientes se actualizan automáticamente cuando son confirmados.</p></div>
+      <div class="search"><span>⌕</span><input id="buscar" type="search" placeholder="Buscar lotería o sorteo" /></div>
+    </section>
 
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-
-          <span class="icono">🇺🇸</span>
-
-          <div>
-            <h2>Resultados New York y Florida</h2>
-
-            <p>
-              Sorteos estadounidenses consultados diariamente
-              desde República Dominicana.
-            </p>
+    <div id="resultados" class="operator-groups">
+      {Array.from(new Set(juegos.map(j=>j.operador))).map(operador => (
+        <section class="operator-group" data-grupo-operador={operador}>
+          <div class="operator-heading">
+            <div class="operator-mark">{operador.slice(0,2).toUpperCase()}</div>
+            <div><h2>{operador}</h2><span>{juegos.filter(j=>j.operador===operador).length} sorteos disponibles</span></div>
           </div>
-
-        </div>
-      </div>
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'usa')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-id={loteria.id}
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-
-                    <span class="fecha-resultado">
-                      Resultado de hoy pendiente
-                    </span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
+          <div class="cards-grid">
+            {juegos.filter(j=>j.operador===operador).map(j => (
+              <article class="result-card" data-id={j.id} data-operador={j.operador} data-juego={j.juego} data-horario={j.horario} data-hora={j.hora}>
+                <div class="card-top">
+                  <div><h3>{j.juego}</h3><span class="meta"><b>{j.horario}</b>{j.hora ? ` · ${j.hora}` : ''}</span></div>
+                  <span class="state pending">Pendiente</span>
                 </div>
-
-                <div class="numeros">
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>1ro</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>2do</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>3ro</span>
-                  </div>
-
-                </div>
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ⏳ Pendiente de resultado
-                  </span>
-                </div>
-
+                <div class="balls"><span>--</span><span>--</span><span>--</span></div>
+                <div class="card-bottom"><span class="result-date">Esperando resultado de hoy</span><span class="verified">⏳</span></div>
               </article>
-
-            ))
-        }
-
-      </div>
-
-    </section>
-
-
-    <section class="bloque">
-
-      <div class="titulo-seccion">
-        <div>
-
-          <span class="icono">🌎</span>
-
-          <div>
-            <h2>Otros sorteos populares</h2>
-
-            <p>
-              Resultados adicionales consultados por jugadores
-              de República Dominicana.
-            </p>
+            ))}
           </div>
+        </section>
+      ))}
+    </div>
 
-        </div>
-      </div>
-
-      <div class="grid">
-
-        {
-          loterias
-            .filter(l => l.grupo === 'otras')
-            .map(loteria => (
-
-              <article
-                class="tarjeta"
-                data-id={loteria.id}
-                data-nombre={loteria.nombre.toLowerCase()}
-                data-horario={loteria.horario}
-              >
-
-                <div class="cabecera">
-
-                  <div>
-                    <h3>{loteria.nombre}</h3>
-
-                    <span class="fecha-resultado">
-                      Resultado de hoy pendiente
-                    </span>
-                  </div>
-
-                  <span class="hora">
-                    {loteria.horario}
-                  </span>
-
-                </div>
-
-                <div class="numeros">
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>1ro</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>2do</span>
-                  </div>
-
-                  <div class="numero">
-                    <strong>--</strong>
-                    <span>3ro</span>
-                  </div>
-
-                </div>
-
-                <div class="pie">
-                  <span class="pendiente">
-                    ⏳ Pendiente de resultado
-                  </span>
-                </div>
-
-              </article>
-
-            ))
-        }
-
-      </div>
-
+    <section class="seo-box">
+      <h2>Resultados de loterías de hoy en República Dominicana</h2>
+      <p>República Actual reúne los resultados de las principales loterías consultadas por jugadores dominicanos. Esta página se actualiza automáticamente a medida que los sorteos son confirmados.</p>
+      <p><strong>Importante:</strong> los resultados publicados tienen carácter informativo. Para validar jugadas, reclamar o cobrar premios debe utilizarse siempre la información oficial de la entidad correspondiente.</p>
     </section>
-
-
-    <section class="seo">
-
-      <h2>
-        Resultados de loterías de hoy en República Dominicana
-      </h2>
-
-      <p>
-        En República Actual puedes consultar los resultados de
-        las loterías de hoy de República Dominicana de manera
-        rápida y organizada. Esta sección reúne los números
-        ganadores de los principales sorteos nacionales e
-        internacionales consultados por los dominicanos.
-      </p>
-
-      <p>
-        Aquí podrás encontrar resultados de la Lotería Nacional,
-        LEIDSA, Loteka, Lotería Real, La Primera, La Suerte y
-        LoteDom, además de resultados de New York, Florida,
-        King Lottery, Anguila y otros sorteos populares.
-      </p>
-
-      <h2>¿A qué hora se actualizan los resultados?</h2>
-
-      <p>
-        Los resultados se actualizarán durante el día a medida
-        que sean publicados los diferentes sorteos. Cada tarjeta
-        indicará cuándo un resultado se encuentre disponible.
-      </p>
-
-      <h2>Resultados de loterías dominicanas</h2>
-
-      <p>
-        República Actual organizará los resultados por lotería
-        y horario para facilitar la consulta desde teléfonos,
-        computadoras y otros dispositivos. También podrás buscar
-        rápidamente una lotería utilizando el buscador disponible
-        en esta página.
-      </p>
-
-      <div class="aviso">
-        <strong>Importante:</strong>
-        Los resultados mostrados en República Actual tienen
-        carácter informativo. Para reclamaciones, validación de
-        jugadas o pago de premios debe utilizarse siempre el
-        resultado oficial de la entidad correspondiente.
-      </div>
-
-    </section>
-
   </div>
-
 </main>
 
+<script>
+  const PROJECT_ID = 'republica-actual';
+  const COLLECTION = 'resultados_loterias';
+  const API = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${COLLECTION}?pageSize=300`;
 
-<script define:vars={{ hoyISO }} is:inline>
+  let filtroOperador = 'Todas';
+  let filtroHorario = 'Todas';
 
-document.addEventListener('DOMContentLoaded', function () {
+  function hoyRD() {
+    return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Santo_Domingo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  }
 
-  var PROJECT_ID = 'republica-actual';
-
-  var FIRESTORE_URL =
-    'https://firestore.googleapis.com/v1/projects/' +
-    PROJECT_ID +
-    '/databases/(default)/documents/resultados_loterias?pageSize=300';
-
-  var buscador =
-    document.getElementById('buscar-loteria');
-
-  var botones =
-    Array.prototype.slice.call(
-      document.querySelectorAll('[data-filtro]')
-    );
-
-  var tarjetas =
-    Array.prototype.slice.call(
-      document.querySelectorAll('.tarjeta')
-    );
-
-  var filtroActual = 'Todas';
-
-
-  function valorFirestore(valor) {
-
-    if (!valor) return null;
-
-    if ('stringValue' in valor) {
-      return valor.stringValue;
-    }
-
-    if ('booleanValue' in valor) {
-      return valor.booleanValue;
-    }
-
-    if ('integerValue' in valor) {
-      return Number(valor.integerValue);
-    }
-
-    if ('doubleValue' in valor) {
-      return Number(valor.doubleValue);
-    }
-
-    if (valor.arrayValue) {
-      return (valor.arrayValue.values || [])
-        .map(valorFirestore);
-    }
-
+  function decode(v) {
+    if (!v) return null;
+    if ('stringValue' in v) return v.stringValue;
+    if ('booleanValue' in v) return v.booleanValue;
+    if ('integerValue' in v) return Number(v.integerValue);
+    if ('doubleValue' in v) return Number(v.doubleValue);
+    if ('timestampValue' in v) return v.timestampValue;
+    if ('arrayValue' in v) return (v.arrayValue.values || []).map(decode);
+    if ('mapValue' in v) return decodeFields(v.mapValue.fields || {});
     return null;
   }
+  function decodeFields(fields) { const out={}; for (const [k,v] of Object.entries(fields||{})) out[k]=decode(v); return out; }
 
-
-  function documentoAObjeto(doc) {
-
-    var salida = {};
-
-    var fields = doc.fields || {};
-
-    Object.keys(fields).forEach(function (key) {
-      salida[key] = valorFirestore(fields[key]);
-    });
-
-    salida.__id =
-      String(doc.name || '').split('/').pop();
-
-    return salida;
-  }
-
-
-  function normalizar(texto) {
-
-    return String(texto || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
-
-
-  function fechaBonita(fecha) {
-
-    var partes = String(fecha || '').split('-');
-
-    if (partes.length !== 3) {
-      return fecha;
-    }
-
-    var fechaLocal = new Date(
-      Number(partes[0]),
-      Number(partes[1]) - 1,
-      Number(partes[2])
-    );
-
-    return new Intl.DateTimeFormat(
-      'es-DO',
-      {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      }
-    ).format(fechaLocal);
-  }
-
-
-  /*
-   * Esta función relaciona el resultado real
-   * de Firestore con UNA de las 15 tarjetas.
-   *
-   * Lo más importante:
-   * solamente acepta documentos DE HOY.
-   */
-  function buscarResultadoParaTarjeta(
-    tarjeta,
-    resultados
-  ) {
-
-    var id =
-      tarjeta.getAttribute('data-id') || '';
-
-    var nombre =
-      normalizar(
-        tarjeta.getAttribute('data-nombre')
-      );
-
-    var horario =
-      tarjeta.getAttribute('data-horario') || '';
-
-
-    var candidatos =
-      resultados.filter(function (r) {
-
-        var fecha =
-          String(
-            r.fecha ||
-            r.fecha_resultado ||
-            ''
-          );
-
-        if (fecha !== hoyISO) {
-          return false;
-        }
-
-        var operador =
-          normalizar(r.operador);
-
-        var sorteo =
-          normalizar(
-            r.sorteo ||
-            r.nombre
-          );
-
-        var texto =
-          operador + ' ' + sorteo;
-
-        if (
-          id === 'loteria-nacional-noche'
-        ) {
-          return (
-            texto.indexOf('loteria nacional') !== -1 &&
-            (
-              normalizar(r.horario) === 'noche' ||
-              sorteo.indexOf('nacional') !== -1
-            )
-          );
-        }
-
-        if (id === 'leidsa-noche') {
-          return (
-            texto.indexOf('leidsa') !== -1 &&
-            (
-              sorteo.indexOf('quiniela') !== -1 ||
-              normalizar(r.horario) === 'noche'
-            )
-          );
-        }
-
-        if (
-          id === 'loteria-real-mediodia'
-        ) {
-          return (
-            texto.indexOf('loteria real') !== -1 &&
-            (
-              normalizar(r.horario) === 'mediodia' ||
-              sorteo.indexOf('quiniela real') !== -1
-            )
-          );
-        }
-
-        if (id === 'loteka-noche') {
-          return (
-            texto.indexOf('loteka') !== -1 &&
-            (
-              sorteo.indexOf('quiniela') !== -1 ||
-              normalizar(r.horario) === 'noche'
-            )
-          );
-        }
-
-        if (
-          id === 'la-primera-mediodia'
-        ) {
-          return (
-            texto.indexOf('la primera') !== -1 &&
-            (
-              normalizar(r.horario) === 'mediodia' ||
-              sorteo.indexOf('primera dia') !== -1 ||
-              sorteo.indexOf('primera mediodia') !== -1
-            )
-          );
-        }
-
-        if (
-          id === 'la-suerte-mediodia'
-        ) {
-          return (
-            texto.indexOf('la suerte') !== -1 &&
-            (
-              normalizar(r.horario) === 'mediodia' ||
-              sorteo.indexOf('quiniela') !== -1
-            )
-          );
-        }
-
-        if (
-          id === 'lotedom-mediodia'
-        ) {
-          return (
-            texto.indexOf('lotedom') !== -1 &&
-            (
-              sorteo.indexOf('quiniela') !== -1 ||
-              normalizar(r.horario) === 'mediodia'
-            )
-          );
-        }
-
-        if (
-          id === 'king-lottery-mediodia'
-        ) {
-          return (
-            texto.indexOf('king lottery') !== -1 &&
-            (
-              normalizar(r.horario) === 'mediodia' ||
-              texto.indexOf('12 30') !== -1
-            )
-          );
-        }
-
-        if (id === 'anguila-noche') {
-          return (
-            texto.indexOf('anguila') !== -1 &&
-            normalizar(r.horario) === 'noche'
-          );
-        }
-
-        if (id === 'new-york-dia') {
-          return (
-            texto.indexOf('new york') !== -1 &&
-            (
-              normalizar(r.horario) === 'tarde' ||
-              normalizar(r.horario) === 'mediodia' ||
-              sorteo.indexOf('midday') !== -1 ||
-              sorteo.indexOf('dia') !== -1
-            )
-          );
-        }
-
-        if (id === 'new-york-noche') {
-          return (
-            texto.indexOf('new york') !== -1 &&
-            (
-              normalizar(r.horario) === 'noche' ||
-              sorteo.indexOf('evening') !== -1
-            )
-          );
-        }
-
-        if (id === 'florida-dia') {
-          return (
-            texto.indexOf('florida') !== -1 &&
-            (
-              normalizar(r.horario) === 'tarde' ||
-              normalizar(r.horario) === 'mediodia' ||
-              sorteo.indexOf('midday') !== -1 ||
-              sorteo.indexOf('dia') !== -1
-            )
-          );
-        }
-
-        if (id === 'florida-noche') {
-          return (
-            texto.indexOf('florida') !== -1 &&
-            (
-              normalizar(r.horario) === 'noche' ||
-              sorteo.indexOf('evening') !== -1
-            )
-          );
-        }
-
-        if (id === 'new-jersey-noche') {
-          return (
-            texto.indexOf('new jersey') !== -1 &&
-            (
-              normalizar(r.horario) === 'noche' ||
-              sorteo.indexOf('evening') !== -1
-            )
-          );
-        }
-
-        if (
-          id === 'haiti-bolet-noche'
-        ) {
-          return (
-            (
-              texto.indexOf('haiti') !== -1 ||
-              texto.indexOf('bolet') !== -1
-            ) &&
-            normalizar(r.horario) === 'noche'
-          );
-        }
-
-        return texto.indexOf(nombre) !== -1;
-      });
-
-
-    if (!candidatos.length) {
-      return null;
-    }
-
-
-    /*
-     * Solo aceptamos resultados con mínimo
-     * tres números válidos.
-     */
-    candidatos =
-      candidatos.filter(function (r) {
-
-        return (
-          Array.isArray(r.numeros) &&
-          r.numeros.length >= 3
-        );
-      });
-
-
-    if (!candidatos.length) {
-      return null;
-    }
-
-
-    return candidatos[0];
-  }
-
-
-  function actualizarTarjeta(
-    tarjeta,
-    resultado
-  ) {
-
-    if (!resultado) {
-      return;
-    }
-
-    var numeros =
-      resultado.numeros.slice(0, 3);
-
-    var circulos =
-      tarjeta.querySelectorAll(
-        '.numero strong'
-      );
-
-    numeros.forEach(function (numero, i) {
-
-      if (circulos[i]) {
-
-        circulos[i].textContent =
-          String(numero)
-            .padStart(2, '0');
-      }
-    });
-
-
-    var fecha =
-      tarjeta.querySelector(
-        '.fecha-resultado'
-      );
-
-    if (fecha) {
-
-      fecha.textContent =
-        'Resultado del ' +
-        fechaBonita(hoyISO);
-    }
-
-
-    var estado =
-      tarjeta.querySelector(
-        '.pendiente'
-      );
-
-    if (estado) {
-
-      estado.textContent =
-        '✓ Resultado publicado';
-
-      estado.classList.add(
-        'publicado'
-      );
-    }
-  }
-
+  function normal(s='') { return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim(); }
 
   function aplicarFiltros() {
-
-    var texto = '';
-
-    if (buscador) {
-
-      texto =
-        String(
-          buscador.value || ''
-        )
-          .toLowerCase()
-          .trim();
-    }
-
-
-    tarjetas.forEach(function (tarjeta) {
-
-      var nombre =
-        String(
-          tarjeta.getAttribute(
-            'data-nombre'
-          ) || ''
-        );
-
-
-      var horario =
-        String(
-          tarjeta.getAttribute(
-            'data-horario'
-          ) || ''
-        );
-
-
-      var coincideNombre =
-        nombre.indexOf(texto) !== -1;
-
-
-      var coincideHorario =
-        filtroActual === 'Todas' ||
-        horario === filtroActual;
-
-
-      tarjeta.style.display =
-        coincideNombre &&
-        coincideHorario
-          ? ''
-          : 'none';
+    const q = normal(document.querySelector('#buscar')?.value || '');
+    document.querySelectorAll('.result-card').forEach(card => {
+      const op = card.getAttribute('data-operador') || '';
+      const hor = card.getAttribute('data-horario') || '';
+      const texto = normal((card.getAttribute('data-juego')||'')+' '+op);
+      const okOp = filtroOperador==='Todas' || op===filtroOperador;
+      const okHor = filtroHorario==='Todas' || hor===filtroHorario;
+      card.style.display = okOp && okHor && (!q || texto.includes(q)) ? '' : 'none';
+    });
+    document.querySelectorAll('.operator-group').forEach(group => {
+      const visibles = [...group.querySelectorAll('.result-card')].some(c => c.style.display !== 'none');
+      group.style.display = visibles ? '' : 'none';
     });
   }
 
+  document.querySelectorAll('.operator-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.operator-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    filtroOperador = btn.getAttribute('data-operador') || 'Todas'; aplicarFiltros();
+  }));
+  document.querySelectorAll('.schedule-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.schedule-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    filtroHorario = btn.getAttribute('data-horario') || 'Todas'; aplicarFiltros();
+  }));
+  document.querySelector('#buscar')?.addEventListener('input', aplicarFiltros);
 
-  fetch(FIRESTORE_URL)
+  function candidatosPara(card, docs) {
+    const id = card.getAttribute('data-id') || '';
+    const operador = normal(card.getAttribute('data-operador') || '');
+    const juego = normal(card.getAttribute('data-juego') || '');
+    const hoy = hoyRD();
+    return docs.filter(r => {
+      const fecha = String(r.fecha || r.fecha_resultado || '');
+      if (fecha !== hoy) return false;
+      if (r.verificado_hoy !== true) return false;
+      if (!Array.isArray(r.numeros) || !r.numeros.length) return false;
+      if (r.__id === id) return true;
+      return normal(r.operador || r.loteria || '') === operador && normal(r.sorteo || r.juego || '') === juego;
+    });
+  }
 
-    .then(function (respuesta) {
+  function pintar(card, r) {
+    const nums = (r.numeros || []).map(n=>String(n).padStart(2,'0'));
+    const balls = card.querySelector('.balls');
+    if (balls) balls.innerHTML = nums.map(n=>`<span>${n}</span>`).join('');
+    const state = card.querySelector('.state');
+    if (state) { state.textContent='Publicado'; state.classList.remove('pending'); state.classList.add('published'); }
+    const date = card.querySelector('.result-date');
+    if (date) date.textContent = 'Resultado confirmado de hoy';
+    const verified = card.querySelector('.verified'); if (verified) verified.textContent='✓ Verificado';
+  }
 
-      if (!respuesta.ok) {
-
-        throw new Error(
-          'Firestore HTTP ' +
-          respuesta.status
-        );
-      }
-
-      return respuesta.json();
-    })
-
-    .then(function (data) {
-
-      var resultados =
-        (data.documents || [])
-          .map(documentoAObjeto);
-
-
-      /*
-       * DOBLE PROTECCIÓN:
-       * eliminamos aquí todo lo que no sea hoy.
-       */
-      var resultadosHoy =
-        resultados.filter(function (r) {
-
-          var fecha =
-            String(
-              r.fecha ||
-              r.fecha_resultado ||
-              ''
-            );
-
-          return fecha === hoyISO;
-        });
-
-
-      var publicados = 0;
-
-
-      tarjetas.forEach(function (tarjeta) {
-
-        var resultado =
-          buscarResultadoParaTarjeta(
-            tarjeta,
-            resultadosHoy
-          );
-
-
-        if (resultado) {
-
-          actualizarTarjeta(
-            tarjeta,
-            resultado
-          );
-
-          publicados++;
-        }
+  async function cargar() {
+    try {
+      const res = await fetch(API,{cache:'no-store'});
+      if (!res.ok) throw new Error('Firestore '+res.status);
+      const data = await res.json();
+      const docs = (data.documents || []).map(d => ({__id:d.name.split('/').pop(), ...decodeFields(d.fields||{})}));
+      let publicados=0;
+      document.querySelectorAll('.result-card').forEach(card => {
+        const cand = candidatosPara(card,docs);
+        if (cand.length) { pintar(card,cand[0]); publicados++; }
       });
-
-
-      var estado =
-        document.getElementById(
-          'estado-resultados'
-        );
-
-
-      if (estado) {
-
-        estado.textContent =
-          publicados > 0
-            ? 'Resultados de hoy disponibles: ' +
-              publicados +
-              ' de ' +
-              tarjetas.length
-            : 'Resultados de hoy: esperando sorteos';
-      }
-
-
-      var actualizacion =
-        document.getElementById(
-          'ultima-actualizacion'
-        );
-
-
-      if (actualizacion) {
-
-        actualizacion.textContent =
-          'Actualización automática activa';
-      }
-
-    })
-
-    .catch(function (error) {
-
-      console.error(
-        'Error cargando resultados:',
-        error
-      );
-
-
-      var estado =
-        document.getElementById(
-          'estado-resultados'
-        );
-
-
-      if (estado) {
-
-        estado.textContent =
-          'Resultados temporalmente no disponibles';
-      }
-
-    });
-
-
-  if (buscador) {
-
-    buscador.addEventListener(
-      'input',
-      aplicarFiltros
-    );
+      const u=document.querySelector('#ultima-actualizacion');
+      if(u) u.textContent = publicados ? `${publicados} sorteos confirmados hoy` : 'Esperando los sorteos de hoy';
+    } catch(e) {
+      const u=document.querySelector('#ultima-actualizacion'); if(u) u.textContent='No fue posible actualizar en este momento';
+      console.error(e);
+    }
   }
 
+  function calcularProximo() {
+    const ahora = new Date();
+    const partes = new Intl.DateTimeFormat('en-US',{timeZone:'America/Santo_Domingo',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(ahora);
+    const h=Number(partes.find(p=>p.type==='hour')?.value||0), m=Number(partes.find(p=>p.type==='minute')?.value||0), actual=h*60+m;
+    const items=[...document.querySelectorAll('.result-card')].map(c=>{
+      const t=c.getAttribute('data-hora')||''; const mt=t.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i); if(!mt)return null;
+      let hh=Number(mt[1]); const mm=Number(mt[2]); const ap=mt[3].toUpperCase(); if(ap==='PM'&&hh!==12)hh+=12; if(ap==='AM'&&hh===12)hh=0;
+      return {c,min:hh*60+mm,t};
+    }).filter(Boolean).filter(x=>x.min>=actual).sort((a,b)=>a.min-b.min);
+    const n=document.querySelector('#proximo-nombre'), hEl=document.querySelector('#proximo-hora');
+    if(items.length){n.textContent=items[0].c.getAttribute('data-juego')||'Próximo sorteo'; hEl.textContent=items[0].t+' · hora RD';}
+    else {n.textContent='Sorteos del día finalizados'; hEl.textContent='Consulta nuevamente mañana';}
+  }
 
-  botones.forEach(function (boton) {
-
-    boton.addEventListener(
-      'click',
-      function () {
-
-        filtroActual =
-          boton.getAttribute(
-            'data-filtro'
-          ) ||
-          'Todas';
-
-
-        botones.forEach(
-          function (otroBoton) {
-
-            otroBoton.classList.remove(
-              'activo'
-            );
-          }
-        );
-
-
-        boton.classList.add(
-          'activo'
-        );
-
-
-        aplicarFiltros();
-      }
-    );
-  });
-
-
-  aplicarFiltros();
-
-});
-
+  calcularProximo(); cargar(); setInterval(cargar, 120000);
 </script>
 
-
 <style>
-
-.pagina-loterias {
-  background:#f5f6f8;
-  min-height:100vh;
-  color:#162235;
-}
-
-.contenedor {
-  width:min(1180px,calc(100% - 32px));
-  margin:auto;
-}
-
-.hero {
-  background:
-    linear-gradient(
-      135deg,
-      #061a31,
-      #0a3765 55%,
-      #07518c
-    );
-  color:white;
-  padding:32px 0 42px;
-}
-
-.breadcrumb {
-  display:flex;
-  gap:8px;
-  font-size:14px;
-  margin-bottom:22px;
-  color:#cbd7e4;
-}
-
-.breadcrumb a {
-  color:white;
-  text-decoration:none;
-}
-
-.etiqueta {
-  display:inline-block;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.8px;
-  background:#e71d36;
-  padding:6px 9px;
-  border-radius:5px;
-  margin-bottom:12px;
-}
-
-.hero h1 {
-  font-size:clamp(31px,5vw,50px);
-  line-height:1.08;
-  margin:0;
-  font-weight:900;
-}
-
-.intro {
-  max-width:720px;
-  font-size:17px;
-  line-height:1.6;
-  color:#dce6ef;
-  margin:14px 0;
-}
-
-.fecha {
-  display:inline-flex;
-  padding:9px 12px;
-  border-radius:7px;
-  background:rgba(255,255,255,.11);
-  font-size:14px;
-  text-transform:capitalize;
-}
-
-.cuerpo {
-  padding-top:24px;
-  padding-bottom:60px;
-}
-
-.barra-estado {
-  background:white;
-  border:1px solid #e4e8ed;
-  border-radius:10px;
-  padding:14px 17px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:13px;
-  margin-bottom:16px;
-}
-
-.barra-estado div {
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.live {
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#19a75a;
-  box-shadow:0 0 0 5px #e0f5e9;
-}
-
-#ultima-actualizacion {
-  color:#697381;
-}
-
-.herramientas {
-  display:flex;
-  gap:15px;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-}
-
-.buscador {
-  background:white;
-  border:1px solid #dfe4e9;
-  border-radius:9px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:0 12px;
-  width:300px;
-}
-
-.buscador input {
-  border:0;
-  outline:0;
-  width:100%;
-  padding:12px 0;
-  font-size:14px;
-  background:transparent;
-}
-
-.filtros {
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.filtros button {
-  border:1px solid #dce2e8;
-  background:white;
-  color:#435064;
-  padding:9px 13px;
-  border-radius:7px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.filtros button.activo {
-  background:#0a3d70;
-  color:white;
-  border-color:#0a3d70;
-}
-
-.bloque {
-  margin-bottom:38px;
-}
-
-.titulo-seccion {
-  margin-bottom:16px;
-}
-
-.titulo-seccion > div {
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.icono {
-  font-size:28px;
-}
-
-.titulo-seccion h2 {
-  margin:0;
-  font-size:23px;
-  color:#12243b;
-}
-
-.titulo-seccion p {
-  margin:4px 0 0;
-  color:#6b7581;
-  font-size:13px;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-  gap:15px;
-}
-
-.tarjeta {
-  background:white;
-  border:1px solid #e1e5e9;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 3px 13px rgba(0,0,0,.045);
-}
-
-.cabecera {
-  padding:16px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  border-bottom:1px solid #edf0f2;
-}
-
-.cabecera h3 {
-  margin:0 0 4px;
-  font-size:17px;
-  color:#12243b;
-}
-
-.cabecera div span {
-  font-size:12px;
-  color:#7b8490;
-}
-
-.hora {
-  height:max-content;
-  background:#eef4fa;
-  color:#19507e;
-  padding:5px 8px;
-  border-radius:5px;
-  font-size:11px;
-  font-weight:800;
-}
-
-.numeros {
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  padding:23px 10px;
-}
-
-.numero {
-  text-align:center;
-}
-
-.numero strong {
-  width:58px;
-  height:58px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:50%;
-  background:
-    linear-gradient(145deg,#0b548f,#072c51);
-  color:white;
-  font-size:21px;
-  box-shadow:0 6px 13px rgba(7,44,81,.18);
-}
-
-.numero span {
-  display:block;
-  margin-top:5px;
-  font-size:11px;
-  font-weight:700;
-  color:#7a838d;
-}
-
-.pie {
-  padding:11px 15px;
-  background:#fafbfc;
-  border-top:1px solid #edf0f2;
-}
-
-.pendiente {
-  background:#fff3cd;
-  color:#7a5a00;
-  padding:5px 7px;
-  border-radius:5px;
-  font-size:11px;
-  font-weight:700;
-}
-
-.pendiente.publicado {
-  background:#e8f7ee;
-  color:#176b3a;
-}
-
-.seo {
-  background:white;
-  border:1px solid #e2e6ea;
-  border-radius:12px;
-  padding:30px;
-  margin-top:20px;
-}
-
-.seo h2 {
-  font-size:22px;
-  margin:25px 0 10px;
-  color:#12243b;
-}
-
-.seo h2:first-child {
-  margin-top:0;
-}
-
-.seo p {
-  color:#525e6c;
-  line-height:1.75;
-  margin:0 0 12px;
-}
-
-.aviso {
-  margin-top:22px;
-  background:#f4f7fa;
-  border-left:4px solid #0a3d70;
-  padding:16px;
-  line-height:1.6;
-  color:#4f5a67;
-}
-
-
-@media(max-width:950px) {
-
-  .grid {
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-  }
-
-}
-
-
-@media(max-width:650px) {
-
-  .contenedor {
-    width:min(100% - 22px,1180px);
-  }
-
-  .hero {
-    padding:25px 0 30px;
-  }
-
-  .herramientas {
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .buscador {
-    width:auto;
-  }
-
-  .filtros {
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:3px;
-  }
-
-  .filtros button {
-    flex:0 0 auto;
-  }
-
-  .grid {
-    grid-template-columns:1fr;
-  }
-
-  .barra-estado {
-    flex-direction:column;
-    align-items:flex-start;
-    gap:7px;
-  }
-
-  .seo {
-    padding:20px;
-  }
-
-}
-
+  :global(body){background:#f5f7fb}.lottery-page{color:#152033}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+  .hero{background:linear-gradient(135deg,#071d3d 0%,#0b3972 62%,#1168a7 100%);color:#fff;padding:24px 0 38px;border-bottom:5px solid #e63946}
+  .crumb{display:flex;gap:9px;align-items:center;font-size:13px;margin-bottom:28px;color:#c9d8ec}.crumb a{color:#fff;text-decoration:none}.hero-grid{display:grid;grid-template-columns:1fr 330px;gap:30px;align-items:end}.eyebrow{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.11em;color:#9ed7ff;margin-bottom:10px}.hero h1{font-size:clamp(31px,4vw,48px);line-height:1.05;margin:0 0 9px}.today{text-transform:capitalize;font-weight:800;margin:0 0 12px;color:#d9e9fb}.lead{max-width:700px;margin:0;color:#d2e1f2;line-height:1.6}.next-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:7px;backdrop-filter:blur(8px)}.next-label{font-size:11px;font-weight:900;letter-spacing:.1em;color:#9ed7ff}.next-box strong{font-size:20px}.next-box span:last-child{font-size:13px;color:#d9e9fb}
+  .content{padding:20px 0 50px}.statusbar{background:#fff;border:1px solid #e0e6ef;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 3px 14px rgba(18,42,76,.05);font-size:14px}.statusbar>div{display:flex;align-items:center;gap:9px}.pulse{width:9px;height:9px;border-radius:50%;background:#18a558;box-shadow:0 0 0 5px #e3f7eb}.statusbar>span{color:#66758b}
+  .filters-panel{margin-top:18px;background:#fff;border:1px solid #e0e6ef;border-radius:14px;padding:18px;box-shadow:0 3px 14px rgba(18,42,76,.04)}.filter-title{font-size:13px;font-weight:900;margin-bottom:10px}.operator-scroll{display:flex;gap:8px;overflow:auto;padding-bottom:6px}.operator-btn,.schedule-btn{border:1px solid #dce3ec;background:#f8fafc;color:#304158;border-radius:999px;padding:9px 14px;font-weight:800;white-space:nowrap;cursor:pointer}.operator-btn.active,.schedule-btn.active{background:#0b3972;color:#fff;border-color:#0b3972}.schedule-row{border-top:1px solid #edf0f4;margin-top:12px;padding-top:14px;display:flex;align-items:center;gap:18px}.schedule-buttons{display:flex;gap:8px;flex-wrap:wrap}
+  .results-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:30px 0 16px}.results-head h2{font-size:27px;margin:0 0 5px}.results-head p{margin:0;color:#68778b}.search{width:300px;background:#fff;border:1px solid #dce3ec;border-radius:10px;padding:0 12px;display:flex;align-items:center}.search input{width:100%;border:0;outline:0;padding:12px;background:transparent}
+  .operator-group{margin:0 0 26px}.operator-heading{display:flex;align-items:center;gap:12px;margin-bottom:12px}.operator-mark{width:45px;height:45px;border-radius:12px;background:#e9f2ff;color:#0b3972;display:grid;place-items:center;font-weight:950}.operator-heading h2{font-size:20px;margin:0 0 2px}.operator-heading span{font-size:12px;color:#748197}.cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.result-card{background:#fff;border:1px solid #dfe5ed;border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(20,46,80,.055);transition:.18s}.result-card:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(20,46,80,.09)}.card-top{display:flex;justify-content:space-between;gap:12px}.card-top h3{font-size:16px;margin:0 0 5px}.meta{font-size:12px;color:#68778b}.meta b{color:#0b3972}.state{height:max-content;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900}.state.pending{background:#fff4d8;color:#936500}.state.published{background:#e2f7ea;color:#11723d}.balls{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.balls span{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#0b3972;color:#fff;font-size:19px;font-weight:950;box-shadow:inset 0 -4px 0 rgba(0,0,0,.13)}.card-bottom{border-top:1px solid #edf0f4;padding-top:11px;display:flex;justify-content:space-between;gap:10px;color:#758398;font-size:11px}.verified{font-weight:900;color:#11723d}
+  .seo-box{background:#fff;border:1px solid #e0e6ef;border-radius:14px;padding:24px;margin-top:32px;line-height:1.7}.seo-box h2{margin-top:0;color:#0b3972}.seo-box p:last-child{margin-bottom:0}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.next-box{max-width:430px}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:640px){.wrap{width:min(100% - 22px,1180px)}.hero{padding-top:18px}.hero h1{font-size:32px}.statusbar,.results-head,.schedule-row{align-items:flex-start;flex-direction:column}.search{width:100%}.cards-grid{grid-template-columns:1fr}.filters-panel{padding:14px}.operator-scroll{margin-right:-14px}.balls span{width:46px;height:46px}.card-bottom{flex-direction:column}.results-head{margin-top:24px}}
 </style>
-
-</Layout>
