@@ -235,8 +235,8 @@ const schema = {
   calcularProximo(); cargar(); setInterval(cargar, 120000);
 </script>
 
-<style>
-  :global(body){background:#f5f7fb}.lottery-page{color:#152033}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+<style is:global>
+  body{background:#f5f7fb}.lottery-page{color:#152033}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
   .hero{background:linear-gradient(135deg,#071d3d 0%,#0b3972 62%,#1168a7 100%);color:#fff;padding:24px 0 38px;border-bottom:5px solid #e63946}
   .crumb{display:flex;gap:9px;align-items:center;font-size:13px;margin-bottom:28px;color:#c9d8ec}.crumb a{color:#fff;text-decoration:none}.hero-grid{display:grid;grid-template-columns:1fr 330px;gap:30px;align-items:end}.eyebrow{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.11em;color:#9ed7ff;margin-bottom:10px}.hero h1{font-size:clamp(31px,4vw,48px);line-height:1.05;margin:0 0 9px}.today{text-transform:capitalize;font-weight:800;margin:0 0 12px;color:#d9e9fb}.lead{max-width:700px;margin:0;color:#d2e1f2;line-height:1.6}.next-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:7px;backdrop-filter:blur(8px)}.next-label{font-size:11px;font-weight:900;letter-spacing:.1em;color:#9ed7ff}.next-box strong{font-size:20px}.next-box span:last-child{font-size:13px;color:#d9e9fb}
   .content{padding:20px 0 50px}.statusbar{background:#fff;border:1px solid #e0e6ef;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 3px 14px rgba(18,42,76,.05);font-size:14px}.statusbar>div{display:flex;align-items:center;gap:9px}.pulse{width:9px;height:9px;border-radius:50%;background:#18a558;box-shadow:0 0 0 5px #e3f7eb}.statusbar>span{color:#66758b}
