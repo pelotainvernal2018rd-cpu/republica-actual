@@ -519,6 +519,16 @@ const noPasanDeModa = noticias
       line-height: 1.45;
     }
 
+    .evergreen-vacio {
+      grid-column: 1 / -1;
+      padding: 28px 20px;
+      border: 1px dashed #ccd5dd;
+      background: #f8fafb;
+      color: #6a7986;
+      text-align: center;
+      font-size: 14px;
+    }
+
 
     /* =========================================
        ERROR / VACÍO
@@ -827,8 +837,7 @@ const noPasanDeModa = noticias
             </nav>
           )}
 
-          {noPasanDeModa.length > 0 && (
-            <section class="evergreen" aria-labelledby="no-pasan-de-moda">
+          <section class="evergreen" aria-labelledby="no-pasan-de-moda">
               <div class="evergreen-encabezado">
                 <h2 id="no-pasan-de-moda">No pasan de moda</h2>
                 <span>Guías · Historia · RD</span>
@@ -866,33 +875,16 @@ const noPasanDeModa = noticias
                     </div>
                   </article>
                 ))}
+                {noPasanDeModa.length === 0 && (
+                  <div class="evergreen-vacio">
+                    Aquí aparecerán las entradas que marques manualmente como “No pasan de moda”.
+                  </div>
+                )}
               </div>
             </section>
           )}
 
-          {totalPaginas > 1 && (
-            <nav class="paginacion" aria-label="Páginas de noticias">
-              {Array.from(
-                { length: finPagina - inicioPagina + 1 },
-                (_, i) => inicioPagina + i
-              ).map((pagina) => {
-                if (pagina === paginaActual) {
-                  return <span class="activa">{pagina}</span>;
-                }
-                return (
-                  <a href={pagina === 1 ? '/' : `/pagina/${pagina}`}>
-                    {pagina}
-                  </a>
-                );
-              })}
-
-              {finPagina < totalPaginas && <span class="puntos">…</span>}
-              {finPagina < totalPaginas && (
-                <a href={`/pagina/${finPagina + 1}`}>→</a>
-              )}
-            </nav>
-          )}
-        </>
+                  </>
       )
     }
 
