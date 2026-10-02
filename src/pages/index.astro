@@ -75,11 +75,11 @@ function imagenCloudflare(url = '', ancho = 700) {
 const noticiaPrincipal = noticias[0] || null;
 const noticiasPrincipales = noticias.slice(1, 7);
 
-// NO PASAN DE MODA: exclusivamente manual.
+// REPÚBLICA ÚTIL: exclusivamente manual.
 // Una entrada solo aparece aquí cuando se marca de forma explícita
-// con la categoría o etiqueta "No pasan de moda".
+// con la categoría o etiqueta "República Útil".
 // Las noticias automáticas NO entran por palabras del título.
-function esNoPasanDeModaManual(noticia) {
+function esRepublicaUtilManual(noticia) {
   const categoria = String(noticia.categoria || '')
     .trim()
     .toLowerCase();
@@ -91,13 +91,15 @@ function esNoPasanDeModaManual(noticia) {
         .map(e => e.trim().toLowerCase());
 
   return (
-    categoria === 'no pasan de moda' ||
-    etiquetas.includes('no pasan de moda')
+    categoria === 'república útil' ||
+    categoria === 'republica util' ||
+    etiquetas.includes('república útil') ||
+    etiquetas.includes('republica util')
   );
 }
 
-const noPasanDeModa = noticias
-  .filter(esNoPasanDeModaManual)
+const republicaUtilPortada = noticias
+  .filter(esRepublicaUtilManual)
   .slice(0, 9);
 ---
 
@@ -429,7 +431,7 @@ const noPasanDeModa = noticias
     }
 
     /* =========================================
-       NO PASAN DE MODA: 9 HORIZONTALES
+       REPÚBLICA ÚTIL: 9 DESTACADAS EN PORTADA
     ========================================= */
 
     .evergreen {
@@ -837,14 +839,14 @@ const noPasanDeModa = noticias
             </nav>
           )}
 
-          <section class="evergreen" aria-labelledby="no-pasan-de-moda">
+          <section class="evergreen" aria-labelledby="republica-util">
               <div class="evergreen-encabezado">
-                <h2 id="no-pasan-de-moda">No pasan de moda</h2>
-                <span>Guías · Historia · RD</span>
+                <h2 id="republica-util">República Útil</h2>
+                <span>Guías · Trámites · Turismo · RD</span>
               </div>
 
               <div class="evergreen-grid">
-                {noPasanDeModa.map((noticia) => (
+                {republicaUtilPortada.map((noticia) => (
                   <article class="evergreen-item">
                     {noticia.imagen && (
                       <a href={enlaceNoticia(noticia)}>
@@ -875,9 +877,9 @@ const noPasanDeModa = noticias
                     </div>
                   </article>
                 ))}
-                {noPasanDeModa.length === 0 && (
+                {republicaUtilPortada.length === 0 && (
                   <div class="evergreen-vacio">
-                    Aquí aparecerán las entradas que marques manualmente como “No pasan de moda”.
+                    Aquí aparecerán las entradas de “República Útil” que marques manualmente para mostrar en portada.
                   </div>
                 )}
               </div>
