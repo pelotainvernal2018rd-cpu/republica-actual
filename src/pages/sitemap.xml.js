@@ -1,123 +1,126 @@
-const FIREBASE_PROJECT_ID =
-  import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+import { cargarNoticiasPublicadas } from '../lib/noticias-firestore.js';
 
-function valorFirestore(field = {}) {
-  if ('stringValue' in field) return field.stringValue;
-  if ('integerValue' in field) return Number(field.integerValue);
-  if ('doubleValue' in field) return Number(field.doubleValue);
-  if ('booleanValue' in field) return field.booleanValue;
-  if ('timestampValue' in field) return field.timestampValue;
-  if ('nullValue' in field) return null;
-  if ('arrayValue' in field) return (field.arrayValue.values || []).map(valorFirestore);
-  if ('mapValue' in field) {
-    return Object.fromEntries(
-      Object.entries(field.mapValue.fields || {}).map(([k, v]) => [k, valorFirestore(v)])
-    );
-  }
-  return '';
+const SITE = 'https://republicaactual.net';
+
+function escaparXML(valor = '') {
+  return String(valor)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 
-function documentoFirestore(doc = {}) {
-  const datos = Object.fromEntries(
-    Object.entries(doc.fields || {}).map(([k, v]) => [k, valorFirestore(v)])
-  );
-  if (!datos.id && doc.name) datos.id = doc.name.split('/').pop();
-  return datos;
+function fechaValida(fecha) {
+  if (!fecha) return null;
+
+  const d = new Date(fecha);
+
+  if (Number.isNaN(d.getTime())) {
+    return null;
+  }
+
+  return d.toISOString();
 }
 
 export async function GET() {
   const urlsFijas = [
-    'https://republicaactual.net/',
-    'https://republicaactual.net/categoria/nacionales/',
-    'https://republicaactual.net/categoria/politica/',
-    'https://republicaactual.net/categoria/economia/',
-    'https://republicaactual.net/categoria/deportes/',
-    'https://republicaactual.net/categoria/entretenimiento/',
-    'https://republicaactual.net/categoria/mundo/',
-    'https://republicaactual.net/categoria/tecnologia/',
-    'https://republicaactual.net/quienes-somos/',
-    'https://republicaactual.net/contacto/',
-    'https://republicaactual.net/politica-de-privacidad/',
-    'https://republicaactual.net/terminos-y-condiciones/'
+    '/',
+    '/categoria/nacionales/',
+    '/categoria/politica/',
+    '/categoria/economia/',
+    '/categoria/deportes/',
+    '/categoria/entretenimiento/',
+    '/categoria/mundo/',
+    '/categoria/tecnologia/',
+    '/quienes-somos/',
+    '/contacto/',
+    '/politica-de-privacidad/',
+    '/terminos-y-condiciones/'
   ];
 
-  let noticias = [];
-
   try {
-    const endpoint =
-      `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
+    const noticias =
+      await cargarNoticiasPublicadas();
 
-    const respuesta = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        structuredQuery: {
-          from: [{ collectionId: 'noticias' }],
-          where: {
-            fieldFilter: {
-              field: { fieldPath: 'publicado' },
-              op: 'EQUAL',
-              value: { booleanValue: true }
-            }
-          }
-        }
-      })
-    });
+    const urlsNoticias =
+      noticias
+        .filter(
+          (noticia) =>
+            noticia.slug ||
+            noticia.id
+        )
+        .map((noticia) => {
+          const ruta =
+            `/noticia/${noticia.slug || noticia.id}/`;
 
-    if (!respuesta.ok) {
-      throw new Error(`Firestore respondió ${respuesta.status}: ${await respuesta.text()}`);
-    }
+          return {
+            loc: `${SITE}${ruta}`,
 
-    const resultado = await respuesta.json();
+            lastmod:
+              fechaValida(
+                noticia.updated_at ||
+                noticia.modified_at ||
+                noticia.created_at
+              )
+          };
+        });
 
-    noticias = resultado
-      .filter((fila) => fila.document)
-      .map((fila) => documentoFirestore(fila.document))
-      .sort(
-        (a, b) =>
-          (Date.parse(b.created_at || '') || 0) -
-          (Date.parse(a.created_at || '') || 0)
-      );
-  } catch (error) {
-    console.error('Error generando sitemap desde Firestore:', error);
-  }
-
-  const paginasXML = urlsFijas
-    .map((url) => `
+    const xmlFijas =
+      urlsFijas
+        .map((ruta) => {
+          return `
   <url>
-    <loc>${url}</loc>
-  </url>`)
-    .join('');
-
-  const noticiasXML = noticias
-    .map((noticia) => {
-      const identificador = noticia.slug || noticia.id;
-      if (!identificador) return '';
-
-      const url =
-        `https://republicaactual.net/noticia/${identificador}/`;
-
-      const fecha = noticia.created_at
-        ? new Date(noticia.created_at).toISOString()
-        : null;
-
-      return `
-  <url>
-    <loc>${url}</loc>
-    ${fecha ? `<lastmod>${fecha}</lastmod>` : ''}
+    <loc>${escaparXML(`${SITE}${ruta}`)}</loc>
   </url>`;
-    })
-    .join('');
+        })
+        .join('');
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paginasXML}
-${noticiasXML}
+    const xmlNoticias =
+      urlsNoticias
+        .map((item) => {
+          return `
+  <url>
+    <loc>${escaparXML(item.loc)}</loc>${
+      item.lastmod
+        ? `
+    <lastmod>${escaparXML(item.lastmod)}</lastmod>`
+        : ''
+    }
+  </url>`;
+        })
+        .join('');
+
+    const xml =
+`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${xmlFijas}${xmlNoticias}
 </urlset>`;
 
-  return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8'
-    }
-  });
+    return new Response(xml, {
+      status: 200,
+
+      headers: {
+        'Content-Type':
+          'application/xml; charset=utf-8'
+      }
+    });
+
+  } catch (error) {
+    console.error(
+      'Error generando sitemap:',
+      error
+    );
+
+    return new Response(
+      '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>',
+      {
+        status: 500,
+
+        headers: {
+          'Content-Type':
+            'application/xml; charset=utf-8'
+        }
+      }
+    );
+  }
 }

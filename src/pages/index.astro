@@ -1,99 +1,26 @@
 ---
 // ==================================================
 // REPÚBLICA ACTUAL - PORTADA
-// Astro + Firestore
+// Astro + Firestore optimizado
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-const PROJECT_ID = import.meta.env.PUBLIC_FIREBASE_PROJECT_ID || import.meta.env.FIREBASE_PROJECT_ID || "republica-actual";
-const API_KEY = import.meta.env.PUBLIC_FIREBASE_API_KEY || import.meta.env.FIREBASE_API_KEY;
+import { cargarNoticiasPublicadas } from '../lib/noticias-firestore.js';
 
 let noticias = [];
 let errorConexion = '';
 
-function firestoreValue(v) {
-  if (!v || typeof v !== 'object') return null;
-  if ('stringValue' in v) return v.stringValue;
-  if ('integerValue' in v) return Number(v.integerValue);
-  if ('doubleValue' in v) return Number(v.doubleValue);
-  if ('booleanValue' in v) return Boolean(v.booleanValue);
-  if ('timestampValue' in v) return v.timestampValue;
-  if ('nullValue' in v) return null;
-  if ('arrayValue' in v) return (v.arrayValue?.values || []).map(firestoreValue);
-  if ('mapValue' in v) return firestoreFields(v.mapValue?.fields || {});
-  return null;
-}
-
-function firestoreFields(fields = {}) {
-  const obj = {};
-  for (const [key, value] of Object.entries(fields)) {
-    obj[key] = firestoreValue(value);
-  }
-  return obj;
-}
-
 try {
-  const endpoint =
-    `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}` +
-    `/databases/(default)/documents:runQuery?key=${encodeURIComponent(API_KEY || '')}`;
-
-  const respuesta = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      structuredQuery: {
-        from: [{ collectionId: 'noticias' }],
-        where: {
-          fieldFilter: {
-            field: { fieldPath: 'publicado' },
-            op: 'EQUAL',
-            value: { booleanValue: true }
-          }
-        },
-        limit: 1000
-      }
-    })
-  });
-
-  if (!respuesta.ok) {
-    const detalle = await respuesta.text();
-    throw new Error(`Firestore HTTP ${respuesta.status}: ${detalle}`);
-  }
-
-  const filas = await respuesta.json();
-
-  noticias = filas
-    .filter((fila) => fila.document)
-    .map((fila) => {
-      const documento = fila.document;
-      const datos = firestoreFields(documento.fields || {});
-      const docId = String(documento.name || '').split('/').pop();
-      return { ...datos, id: datos.id ?? docId };
-    })
-    .sort((a, b) => {
-      const fechaA = Date.parse(a.created_at || '') || 0;
-      const fechaB = Date.parse(b.created_at || '') || 0;
-      return fechaB - fechaA;
-    });
-
+  noticias = await cargarNoticiasPublicadas();
 } catch (error) {
   console.error(error);
   errorConexion = 'No se pudieron cargar las noticias.';
 }
 
 const totalPaginas = Math.ceil(noticias.length / 10);
-const rutaActual = Astro.url.pathname;
-
-const paginaActual =
-  rutaActual.startsWith('/pagina/')
-    ? Number(rutaActual.split('/').filter(Boolean).pop()) || 1
-    : 1;
-
-const inicioPagina =
-  Math.floor((paginaActual - 1) / 5) * 5 + 1;
-
-const finPagina =
-  Math.min(inicioPagina + 4, totalPaginas);
+const paginaActual = 1;
+const inicioPagina = 1;
+const finPagina = Math.min(5, totalPaginas);
 
 // ======================================================
 // FUNCIONES
@@ -139,8 +66,6 @@ function enlaceNoticia(noticia) {
   return `/noticia/${noticia.slug || noticia.id}/`;
 }
 
-// Optimiza imágenes remotas mediante Cloudflare Image Transformations.
-// Si la URL no es HTTP(S), conserva la imagen original.
 function imagenCloudflare(url = '', ancho = 700) {
   if (!/^https?:\/\//i.test(url)) return url;
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=cover/${url}`;

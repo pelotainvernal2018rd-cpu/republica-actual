@@ -1,77 +1,214 @@
 ---
-const FIREBASE_PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+import { cargarNoticiasPublicadas } from '../../lib/noticias-firestore.js';
+
+
+// ============================================================
+// CONFIGURACIÓN SEO DE CATEGORÍAS
+// ============================================================
 
 const categorias = {
+
   nacionales: {
     nombre: 'Nacionales',
     titulo: 'Noticias Nacionales de República Dominicana | República Actual',
     descripcion: 'Últimas noticias nacionales de República Dominicana: actualidad, sociedad, sucesos y acontecimientos del país en República Actual.'
   },
+
   politica: {
     nombre: 'Política',
     titulo: 'Noticias de Política de República Dominicana | República Actual',
     descripcion: 'Últimas noticias de política de República Dominicana, Gobierno, Congreso y actualidad política en República Actual.'
   },
+
   economia: {
     nombre: 'Economía',
     titulo: 'Noticias de Economía de República Dominicana | República Actual',
     descripcion: 'Noticias de economía, finanzas, negocios y actividad económica de República Dominicana en República Actual.'
   },
+
   deportes: {
     nombre: 'Deportes',
     titulo: 'Noticias de Deportes de República Dominicana | República Actual',
     descripcion: 'Últimas noticias deportivas de República Dominicana y el mundo: béisbol, baloncesto y más en República Actual.'
   },
+
   entretenimiento: {
     nombre: 'Entretenimiento',
     titulo: 'Noticias de Entretenimiento | República Actual',
     descripcion: 'Últimas noticias de entretenimiento, música, televisión, espectáculos y cultura en República Actual.'
   },
+
   mundo: {
     nombre: 'Mundo',
     titulo: 'Noticias Internacionales y del Mundo | República Actual',
     descripcion: 'Últimas noticias internacionales y acontecimientos del mundo explicados en República Actual.'
   },
+
   tecnologia: {
     nombre: 'Tecnología',
     titulo: 'Noticias de Tecnología | República Actual',
     descripcion: 'Últimas noticias de tecnología, innovación, internet, inteligencia artificial y tendencias digitales en República Actual.'
   }
+
 };
 
-export function getStaticPaths() {
-  return [
-    { params: { categoria: 'nacionales' } },
-    { params: { categoria: 'politica' } },
-    { params: { categoria: 'economia' } },
-    { params: { categoria: 'deportes' } },
-    { params: { categoria: 'entretenimiento' } },
-    { params: { categoria: 'mundo' } },
-    { params: { categoria: 'tecnologia' } }
-  ];
-}
 
-const categoriaURL = Astro.params.categoria || 'nacionales';
-const seo = categorias[categoriaURL] || categorias.nacionales;
+// ============================================================
+// FUNCIONES
+// ============================================================
 
 function normalizar(texto = '') {
+
   return String(texto)
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .trim();
+
 }
 
+
 function obtenerCategoria(noticia) {
-  if (noticia.categoria) return normalizar(noticia.categoria);
-  if (Array.isArray(noticia.etiquetas) && noticia.etiquetas.length > 0) {
-    return normalizar(noticia.etiquetas[0]);
+
+  if (noticia.categoria) {
+    return normalizar(noticia.categoria);
   }
+
+  if (
+    Array.isArray(noticia.etiquetas) &&
+    noticia.etiquetas.length > 0
+  ) {
+
+    return normalizar(
+      noticia.etiquetas[0]
+    );
+
+  }
+
   return '';
 }
 
+
+// ============================================================
+// RUTAS ESTÁTICAS
+// ============================================================
+
+export async function getStaticPaths() {
+
+  // IMPORTANTE:
+  // Astro ejecuta getStaticPaths en un contexto aislado.
+  // Por eso definimos aquí las categorías necesarias
+  // para generar las rutas.
+
+  const categoriasRutas = [
+    'nacionales',
+    'politica',
+    'economia',
+    'deportes',
+    'entretenimiento',
+    'mundo',
+    'tecnologia'
+  ];
+
+
+  const normalizarRuta = (texto = '') => {
+
+    return String(texto)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
+
+  };
+
+
+  const obtenerCategoriaRuta = (noticia) => {
+
+    if (noticia.categoria) {
+
+      return normalizarRuta(
+        noticia.categoria
+      );
+
+    }
+
+
+    if (
+      Array.isArray(noticia.etiquetas) &&
+      noticia.etiquetas.length > 0
+    ) {
+
+      return normalizarRuta(
+        noticia.etiquetas[0]
+      );
+
+    }
+
+
+    return '';
+
+  };
+
+
+  const todas =
+    await cargarNoticiasPublicadas();
+
+
+  return categoriasRutas.map(
+    (categoria) => {
+
+      const noticias =
+        todas.filter(
+          (noticia) =>
+            obtenerCategoriaRuta(noticia) ===
+            normalizarRuta(categoria)
+        );
+
+
+      return {
+
+        params: {
+          categoria
+        },
+
+        props: {
+          noticias
+        }
+
+      };
+
+    }
+  );
+
+}
+
+
+// ============================================================
+// DATOS DE LA PÁGINA
+// ============================================================
+
+const categoriaURL =
+  Astro.params.categoria ||
+  'nacionales';
+
+
+const seo =
+  categorias[categoriaURL] ||
+  categorias.nacionales;
+
+
+const {
+  noticias = []
+} = Astro.props;
+
+
+// ============================================================
+// FUNCIONES DE CONTENIDO
+// ============================================================
+
 function limpiarHTML(html = '') {
-  return html
+
+  return String(html)
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<img[^>]*>/gi, '')
@@ -82,221 +219,578 @@ function limpiarHTML(html = '') {
     .replace(/&#39;/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
+
 }
 
-function resumen(contenido = '', limite = 210) {
-  const texto = limpiarHTML(contenido);
-  return texto.length <= limite ? texto : texto.substring(0, limite).trim() + '...';
+
+function resumen(
+  contenido = '',
+  limite = 210
+) {
+
+  const texto =
+    limpiarHTML(contenido);
+
+
+  return texto.length <= limite
+    ? texto
+    : texto
+        .substring(0, limite)
+        .trim() + '...';
+
 }
 
-function imagenCloudflare(url = '', ancho = 420) {
-  if (!/^https?:\/\//i.test(url)) return url;
+
+function imagenCloudflare(
+  url = '',
+  ancho = 420
+) {
+
+  if (!/^https?:\/\//i.test(url)) {
+    return url;
+  }
+
+
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=scale-down/${url}`;
+
 }
 
-let noticias = [];
 
-function valorFirestore(field = {}) {
-  if ('stringValue' in field) return field.stringValue;
-  if ('integerValue' in field) return Number(field.integerValue);
-  if ('doubleValue' in field) return Number(field.doubleValue);
-  if ('booleanValue' in field) return field.booleanValue;
-  if ('timestampValue' in field) return field.timestampValue;
-  if ('nullValue' in field) return null;
-  if ('arrayValue' in field) {
-    return (field.arrayValue.values || []).map(valorFirestore);
-  }
-  if ('mapValue' in field) {
-    return Object.fromEntries(
-      Object.entries(field.mapValue.fields || {}).map(([clave, valor]) => [clave, valorFirestore(valor)])
-    );
-  }
-  return '';
-}
-
-function documentoFirestore(doc = {}) {
-  const datos = Object.fromEntries(
-    Object.entries(doc.fields || {}).map(([clave, valor]) => [clave, valorFirestore(valor)])
-  );
-
-  if (!datos.id && doc.name) {
-    datos.id = doc.name.split('/').pop();
-  }
-
-  return datos;
-}
-
-try {
-  const endpoint =
-    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
-
-  const respuesta = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      structuredQuery: {
-        from: [{ collectionId: 'noticias' }],
-        where: {
-          fieldFilter: {
-            field: { fieldPath: 'publicado' },
-            op: 'EQUAL',
-            value: { booleanValue: true }
-          }
-        }
-      }
-    })
-  });
-
-  if (!respuesta.ok) {
-    throw new Error(`Firestore respondió ${respuesta.status}: ${await respuesta.text()}`);
-  }
-
-  const resultado = await respuesta.json();
-
-  const todas = resultado
-    .filter((fila) => fila.document)
-    .map((fila) => documentoFirestore(fila.document))
-    .sort(
-      (a, b) =>
-        (Date.parse(b.created_at || '') || 0) -
-        (Date.parse(a.created_at || '') || 0)
-    );
-
-  noticias = todas.filter(
-    (noticia) => obtenerCategoria(noticia) === normalizar(categoriaURL)
-  );
-} catch (error) {
-  console.error('ERROR CATEGORÍA FIRESTORE:', error);
-}
-
-const canonical = `https://republicaactual.net/categoria/${categoriaURL}/`;
+const canonical =
+  `https://republicaactual.net/categoria/${categoriaURL}/`;
 ---
 
 <!doctype html>
+
 <html lang="es">
+
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
+
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
+    crossorigin="anonymous">
+  </script>
+
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
 
   <title>{seo.titulo}</title>
-  <meta name="description" content={seo.descripcion} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonical} />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="República Actual" />
-  <meta property="og:title" content={seo.titulo} />
-  <meta property="og:description" content={seo.descripcion} />
-  <meta property="og:url" content={canonical} />
+
+  <meta
+    name="description"
+    content={seo.descripcion}
+  />
+
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+
+  <link
+    rel="canonical"
+    href={canonical}
+  />
+
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+
+  <meta
+    property="og:site_name"
+    content="República Actual"
+  />
+
+
+  <meta
+    property="og:title"
+    content={seo.titulo}
+  />
+
+
+  <meta
+    property="og:description"
+    content={seo.descripcion}
+  />
+
+
+  <meta
+    property="og:url"
+    content={canonical}
+  />
+
 
   <style>
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:Arial,Helvetica,sans-serif; background:#fff; color:#102a43; }
-    .topbar { background:#102d46; color:white; text-align:center; padding:8px 15px; font-size:12px; font-weight:700; letter-spacing:.5px; }
-    header { max-width:1100px; margin:auto; padding:28px 20px 24px; }
-    .logo { font-size:43px; font-weight:900; letter-spacing:-2px; margin:0; color:#102d46; text-decoration:none; display:inline-block; }
-    .logo span { color:#e52b32; }
-    .slogan { margin-top:6px; color:#63788b; font-size:13px; letter-spacing:1.5px; }
-    nav { border-top:1px solid #e3e7eb; border-bottom:3px solid #102d46; }
-    .menu { max-width:1100px; margin:auto; display:flex; gap:30px; padding:14px 20px; overflow-x:auto; }
-    .menu a { color:#102d46; text-decoration:none; text-transform:uppercase; font-size:13px; font-weight:800; white-space:nowrap; }
-    .menu a:hover { color:#e52b32; }
-    main { max-width:1100px; min-height:500px; margin:auto; padding:35px 20px 50px; }
-    .cabecera-categoria { margin-bottom:10px; padding-bottom:15px; border-bottom:1px solid #e1e6ea; }
-    .cabecera-categoria h1 { margin:0; color:#e52b32; text-transform:uppercase; font-size:24px; letter-spacing:1px; }
-    .descripcion-categoria { max-width:780px; color:#63788b; font-size:15px; line-height:1.6; margin:10px 0 0; }
-    .noticias { max-width:780px; }
-    .noticia { padding:25px 0 28px; border-bottom:1px solid #e1e6ea; }
-    .noticia h2 { margin:0 0 12px; font-size:27px; line-height:1.08; letter-spacing:-.6px; }
-    .noticia h2 a,.noticia h2 a:visited { color:#102d46; text-decoration:none; }
-    .noticia h2 a:hover { color:#e52b32; }
-    .noticia-cuerpo { display:grid; grid-template-columns:210px 1fr; gap:18px; align-items:start; }
-    .noticia-imagen { width:210px; max-width:210px; height:150px; object-fit:cover; display:block; background:#eee; }
-    .resumen { color:#5f7180; font-size:15px; line-height:1.7; margin:0; }
-    .mensaje { padding:40px 0; color:#687986; font-size:17px; }
-    footer { margin-top:50px; background:#102d46; color:white; text-align:center; padding:28px 20px; font-size:13px; }
+
+    * {
+      box-sizing:border-box;
+    }
+
+
+    body {
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#fff;
+      color:#102a43;
+    }
+
+
+    .topbar {
+      background:#102d46;
+      color:white;
+      text-align:center;
+      padding:8px 15px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+
+
+    header {
+      max-width:1100px;
+      margin:auto;
+      padding:28px 20px 24px;
+    }
+
+
+    .logo {
+      font-size:43px;
+      font-weight:900;
+      letter-spacing:-2px;
+      margin:0;
+      color:#102d46;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+
+    .logo span {
+      color:#e52b32;
+    }
+
+
+    .slogan {
+      margin-top:6px;
+      color:#63788b;
+      font-size:13px;
+      letter-spacing:1.5px;
+    }
+
+
+    nav {
+      border-top:1px solid #e3e7eb;
+      border-bottom:3px solid #102d46;
+    }
+
+
+    .menu {
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      gap:30px;
+      padding:14px 20px;
+      overflow-x:auto;
+    }
+
+
+    .menu a {
+      color:#102d46;
+      text-decoration:none;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+
+    .menu a:hover {
+      color:#e52b32;
+    }
+
+
+    main {
+      max-width:1100px;
+      min-height:500px;
+      margin:auto;
+      padding:35px 20px 50px;
+    }
+
+
+    .cabecera-categoria {
+      margin-bottom:10px;
+      padding-bottom:15px;
+      border-bottom:1px solid #e1e6ea;
+    }
+
+
+    .cabecera-categoria h1 {
+      margin:0;
+      color:#e52b32;
+      text-transform:uppercase;
+      font-size:24px;
+      letter-spacing:1px;
+    }
+
+
+    .descripcion-categoria {
+      max-width:780px;
+      color:#63788b;
+      font-size:15px;
+      line-height:1.6;
+      margin:10px 0 0;
+    }
+
+
+    .noticias {
+      max-width:780px;
+    }
+
+
+    .noticia {
+      padding:25px 0 28px;
+      border-bottom:1px solid #e1e6ea;
+    }
+
+
+    .noticia h2 {
+      margin:0 0 12px;
+      font-size:27px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+
+
+    .noticia h2 a,
+    .noticia h2 a:visited {
+      color:#102d46;
+      text-decoration:none;
+    }
+
+
+    .noticia h2 a:hover {
+      color:#e52b32;
+    }
+
+
+    .noticia-cuerpo {
+      display:grid;
+      grid-template-columns:210px 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+
+    .noticia-imagen {
+      width:210px;
+      max-width:210px;
+      height:150px;
+      object-fit:cover;
+      display:block;
+      background:#eee;
+    }
+
+
+    .resumen {
+      color:#5f7180;
+      font-size:15px;
+      line-height:1.7;
+      margin:0;
+    }
+
+
+    .mensaje {
+      padding:40px 0;
+      color:#687986;
+      font-size:17px;
+    }
+
+
+    footer {
+      margin-top:50px;
+      background:#102d46;
+      color:white;
+      text-align:center;
+      padding:28px 20px;
+      font-size:13px;
+    }
+
 
     @media (max-width:700px) {
-      header { padding-top:22px; }
-      .logo { font-size:32px; }
-      .menu { gap:22px; }
-      main { padding:25px 16px 40px; }
-      .cabecera-categoria h1 { font-size:21px; }
-      .noticia h2 { font-size:23px; }
-      .noticia-cuerpo { display:block; }
-      .noticia-imagen { width:100%; max-width:100%; height:220px; margin-bottom:15px; object-fit:cover; }
+
+      header {
+        padding-top:22px;
+      }
+
+
+      .logo {
+        font-size:32px;
+      }
+
+
+      .menu {
+        gap:22px;
+      }
+
+
+      main {
+        padding:25px 16px 40px;
+      }
+
+
+      .cabecera-categoria h1 {
+        font-size:21px;
+      }
+
+
+      .noticia h2 {
+        font-size:23px;
+      }
+
+
+      .noticia-cuerpo {
+        display:block;
+      }
+
+
+      .noticia-imagen {
+        width:100%;
+        max-width:100%;
+        height:220px;
+        margin-bottom:15px;
+        object-fit:cover;
+      }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
-  <div class="topbar">INFORMACIÓN CON CONTEXTO Y CLARIDAD</div>
+
+
+  <div class="topbar">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
 
   <header>
-    <a class="logo" href="/">REPÚBLICA<span>·</span>ACTUAL</a>
-    <div class="slogan">LO QUE PASA. LO QUE IMPORTA.</div>
+
+    <a
+      class="logo"
+      href="/"
+    >
+      REPÚBLICA<span>·</span>ACTUAL
+    </a>
+
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
+    </div>
+
   </header>
 
+
   <nav>
+
     <div class="menu">
-      <a href="/">Inicio</a>
-      <a href="/categoria/nacionales/">Nacionales</a>
-      <a href="/categoria/politica/">Política</a>
-      <a href="/categoria/economia/">Economía</a>
-      <a href="/categoria/deportes/">Deportes</a>
-      <a href="/categoria/entretenimiento/">Entretenimiento</a>
-      <a href="/categoria/mundo/">Mundo</a>
-      <a href="/categoria/tecnologia/">Tecnología</a>
+
+      <a href="/">
+        Inicio
+      </a>
+
+
+      <a href="/categoria/nacionales/">
+        Nacionales
+      </a>
+
+
+      <a href="/categoria/politica/">
+        Política
+      </a>
+
+
+      <a href="/categoria/economia/">
+        Economía
+      </a>
+
+
+      <a href="/categoria/deportes/">
+        Deportes
+      </a>
+
+
+      <a href="/categoria/entretenimiento/">
+        Entretenimiento
+      </a>
+
+
+      <a href="/categoria/mundo/">
+        Mundo
+      </a>
+
+
+      <a href="/categoria/tecnologia/">
+        Tecnología
+      </a>
+
     </div>
+
   </nav>
 
+
   <main>
+
+
     <div class="cabecera-categoria">
-      <h1>{seo.nombre}</h1>
-      <p class="descripcion-categoria">{seo.descripcion}</p>
+
+      <h1>
+        {seo.nombre}
+      </h1>
+
+
+      <p class="descripcion-categoria">
+        {seo.descripcion}
+      </p>
+
     </div>
+
 
     {
       noticias.length === 0 ? (
-        <div class="mensaje">No hay noticias publicadas en {seo.nombre}.</div>
+
+        <div class="mensaje">
+          No hay noticias publicadas en {seo.nombre}.
+        </div>
+
       ) : (
+
         <section class="noticias">
-          {noticias.map((noticia, index) => {
-            const enlace = `/noticia/${noticia.slug || noticia.id}/`;
-            return (
-              <article class="noticia">
-                <h2><a href={enlace}>{noticia.titulo || ''}</a></h2>
-                <div class="noticia-cuerpo">
-                  {noticia.imagen && (
-                    <a href={enlace}>
-                      <img
-                        class="noticia-imagen"
-                        src={imagenCloudflare(noticia.imagen, 420)}
-                        data-original={noticia.imagen}
-                        alt={noticia.titulo || `Noticia de ${seo.nombre}`}
-                        width="210"
-                        height="150"
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        fetchpriority={index === 0 ? 'high' : 'auto'}
-                        decoding="async"
-                        referrerpolicy="no-referrer"
-                        onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
-                      />
-                    </a>
-                  )}
-                  <div>
-                    <p class="resumen">{resumen(noticia.contenido || noticia.descripcion || '')}</p>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+
+          {
+            noticias.map(
+              (noticia, index) => {
+
+                const enlace =
+                  `/noticia/${noticia.slug || noticia.id}/`;
+
+
+                return (
+
+                  <article class="noticia">
+
+                    <h2>
+
+                      <a href={enlace}>
+                        {noticia.titulo || ''}
+                      </a>
+
+                    </h2>
+
+
+                    <div class="noticia-cuerpo">
+
+                      {
+                        noticia.imagen && (
+
+                          <a href={enlace}>
+
+                            <img
+                              class="noticia-imagen"
+
+                              src={imagenCloudflare(
+                                noticia.imagen,
+                                420
+                              )}
+
+                              data-original={noticia.imagen}
+
+                              alt={
+                                noticia.titulo ||
+                                `Noticia de ${seo.nombre}`
+                              }
+
+                              width="210"
+
+                              height="150"
+
+                              loading={
+                                index === 0
+                                  ? 'eager'
+                                  : 'lazy'
+                              }
+
+                              fetchpriority={
+                                index === 0
+                                  ? 'high'
+                                  : 'auto'
+                              }
+
+                              decoding="async"
+
+                              referrerpolicy="no-referrer"
+
+                              onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
+                            />
+
+                          </a>
+
+                        )
+                      }
+
+
+                      <div>
+
+                        <p class="resumen">
+                          {
+                            resumen(
+                              noticia.contenido ||
+                              noticia.descripcion ||
+                              ''
+                            )
+                          }
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                );
+
+              }
+            )
+          }
+
         </section>
+
       )
     }
+
+
   </main>
 
-  <footer>© {new Date().getFullYear()} República Actual</footer>
+
+  <footer>
+    © {new Date().getFullYear()} República Actual
+  </footer>
+
+
 </body>
+
 </html>

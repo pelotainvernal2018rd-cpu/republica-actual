@@ -1,120 +1,121 @@
 ---
-const FIREBASE_PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
-const POR_PAGINA = 10;
+import { cargarNoticiasPublicadas } from '../../lib/noticias-firestore.js';
+
+
+// ============================================================
+// GENERAR PÁGINAS ESTÁTICAS
+// ============================================================
 
 export async function getStaticPaths() {
-  const projectId = import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
-  const endpoint =
-    `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery`;
 
-  const respuesta = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      structuredQuery: {
-        from: [{ collectionId: 'noticias' }],
-        where: {
-          fieldFilter: {
-            field: { fieldPath: 'publicado' },
-            op: 'EQUAL',
-            value: { booleanValue: true }
-          }
-        }
-      }
-    })
-  });
+  // IMPORTANTE:
+  // Esta constante debe estar dentro de getStaticPaths()
+  // porque Astro ejecuta esta función en un contexto aislado.
 
-  if (!respuesta.ok) {
-    throw new Error(`Firestore getStaticPaths respondió ${respuesta.status}: ${await respuesta.text()}`);
-  }
+  const POR_PAGINA = 10;
 
-  const resultado = await respuesta.json();
-  const totalNoticias = resultado.filter((fila) => fila.document).length;
-  const totalPaginas = Math.max(1, Math.ceil(totalNoticias / 10));
 
-  return Array.from({ length: Math.max(0, totalPaginas - 1) }, (_, i) => ({
-    params: { pagina: String(i + 2) }
-  }));
-}
+  const todas =
+    await cargarNoticiasPublicadas();
 
-function valorFirestore(field = {}) {
-  if ('stringValue' in field) return field.stringValue;
-  if ('integerValue' in field) return Number(field.integerValue);
-  if ('doubleValue' in field) return Number(field.doubleValue);
-  if ('booleanValue' in field) return field.booleanValue;
-  if ('timestampValue' in field) return field.timestampValue;
-  if ('nullValue' in field) return null;
-  if ('arrayValue' in field) return (field.arrayValue.values || []).map(valorFirestore);
-  if ('mapValue' in field) {
-    return Object.fromEntries(
-      Object.entries(field.mapValue.fields || {}).map(([k, v]) => [k, valorFirestore(v)])
+
+  const totalPaginas =
+    Math.max(
+      1,
+      Math.ceil(
+        todas.length /
+        POR_PAGINA
+      )
     );
-  }
-  return '';
-}
 
-function documentoFirestore(doc = {}) {
-  const datos = Object.fromEntries(
-    Object.entries(doc.fields || {}).map(([k, v]) => [k, valorFirestore(v)])
+
+  // La página 1 es "/".
+  // Aquí solamente generamos:
+  // /pagina/2/
+  // /pagina/3/
+  // etc.
+
+  return Array.from(
+
+    {
+      length:
+        Math.max(
+          0,
+          totalPaginas - 1
+        )
+    },
+
+    (_, i) => {
+
+      const pagina =
+        i + 2;
+
+
+      const inicio =
+        (pagina - 1) *
+        POR_PAGINA;
+
+
+      return {
+
+        params: {
+          pagina:
+            String(pagina)
+        },
+
+        props: {
+
+          noticias:
+            todas.slice(
+              inicio,
+              inicio + POR_PAGINA
+            ),
+
+          totalPaginas
+
+        }
+
+      };
+
+    }
+
   );
-  if (!datos.id && doc.name) datos.id = doc.name.split('/').pop();
-  return datos;
+
 }
 
-async function cargarNoticiasPublicadas() {
-  const endpoint =
-    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
 
-  const respuesta = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      structuredQuery: {
-        from: [{ collectionId: 'noticias' }],
-        where: {
-          fieldFilter: {
-            field: { fieldPath: 'publicado' },
-            op: 'EQUAL',
-            value: { booleanValue: true }
-          }
-        }
-      }
-    })
-  });
+// ============================================================
+// DATOS DE LA PÁGINA
+// ============================================================
 
-  if (!respuesta.ok) {
-    throw new Error(`Firestore respondió ${respuesta.status}: ${await respuesta.text()}`);
-  }
+const paginaActual =
+  Math.max(
+    2,
+    Number.parseInt(
+      Astro.params.pagina || '2',
+      10
+    ) || 2
+  );
 
-  const resultado = await respuesta.json();
 
-  return resultado
-    .filter((fila) => fila.document)
-    .map((fila) => documentoFirestore(fila.document))
-    .sort(
-      (a, b) =>
-        (Date.parse(b.created_at || '') || 0) -
-        (Date.parse(a.created_at || '') || 0)
-    );
-}
+const {
+  noticias = [],
+  totalPaginas = 1
+} = Astro.props;
 
-const paginaActual = Math.max(2, Number.parseInt(Astro.params.pagina || '2', 10) || 2);
 
-let todas = [];
-try {
-  todas = await cargarNoticiasPublicadas();
-} catch (error) {
-  console.error('ERROR PAGINACIÓN FIRESTORE:', error);
-}
+console.log(
+  `Página ${paginaActual}/${totalPaginas}: ${noticias.length} noticias recibidas desde getStaticPaths`
+);
 
-const totalPaginas = Math.max(1, Math.ceil(todas.length / POR_PAGINA));
-const inicio = (paginaActual - 1) * POR_PAGINA;
-const noticias = todas.slice(inicio, inicio + POR_PAGINA);
 
-console.log(`Firestore: página ${paginaActual}/${totalPaginas} cargada con ${noticias.length} noticias`);
+// ============================================================
+// FUNCIONES
+// ============================================================
 
 function limpiarHTML(html = '') {
-  return html
+
+  return String(html)
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<img[^>]*>/gi, '')
@@ -125,154 +126,713 @@ function limpiarHTML(html = '') {
     .replace(/&#39;/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
+
 }
 
-function resumen(contenido = '', limite = 210) {
-  const texto = limpiarHTML(contenido);
-  return texto.length <= limite ? texto : texto.substring(0, limite).trim() + '...';
+
+function resumen(
+  contenido = '',
+  limite = 210
+) {
+
+  const texto =
+    limpiarHTML(contenido);
+
+
+  return texto.length <= limite
+    ? texto
+    : texto
+        .substring(
+          0,
+          limite
+        )
+        .trim() + '...';
+
 }
 
-function imagenCloudflare(url = '', ancho = 420) {
-  if (!/^https?:\/\//i.test(url)) return url;
+
+function imagenCloudflare(
+  url = '',
+  ancho = 420
+) {
+
+  if (!/^https?:\/\//i.test(url)) {
+    return url;
+  }
+
+
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=scale-down/${url}`;
+
 }
 
-const canonical = `https://republicaactual.net/pagina/${paginaActual}/`;
-const tituloSEO = `Noticias recientes - Página ${paginaActual} | República Actual`;
-const descripcionSEO = `Últimas noticias de República Dominicana y el mundo en República Actual. Página ${paginaActual}.`;
+
+// ============================================================
+// SEO
+// ============================================================
+
+const canonical =
+  `https://republicaactual.net/pagina/${paginaActual}/`;
+
+
+const tituloSEO =
+  `Noticias recientes - Página ${paginaActual} | República Actual`;
+
+
+const descripcionSEO =
+  `Últimas noticias de República Dominicana y el mundo en República Actual. Página ${paginaActual}.`;
 ---
+
 <!doctype html>
+
 <html lang="es">
+
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
+
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
+    crossorigin="anonymous">
+  </script>
+
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+
   <title>{tituloSEO}</title>
-  <meta name="description" content={descripcionSEO} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonical} />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="República Actual" />
-  <meta property="og:title" content={tituloSEO} />
-  <meta property="og:description" content={descripcionSEO} />
-  <meta property="og:url" content={canonical} />
+
+
+  <meta
+    name="description"
+    content={descripcionSEO}
+  />
+
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+
+  <link
+    rel="canonical"
+    href={canonical}
+  />
+
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+
+  <meta
+    property="og:site_name"
+    content="República Actual"
+  />
+
+
+  <meta
+    property="og:title"
+    content={tituloSEO}
+  />
+
+
+  <meta
+    property="og:description"
+    content={descripcionSEO}
+  />
+
+
+  <meta
+    property="og:url"
+    content={canonical}
+  />
+
 
   <style>
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial,Helvetica,sans-serif; background:#fff; color:#102a43; }
-    .topbar { background:#102d46; color:white; text-align:center; padding:8px 15px; font-size:12px; font-weight:700; letter-spacing:.5px; }
-    header { max-width:1100px; margin:auto; padding:28px 20px 24px; }
-    .logo { font-size:43px; font-weight:900; letter-spacing:-2px; margin:0; color:#102d46; text-decoration:none; display:inline-block; }
-    .logo span { color:#e52b32; }
-    .slogan { margin-top:6px; color:#63788b; font-size:13px; letter-spacing:1.5px; }
-    nav { border-top:1px solid #e3e7eb; border-bottom:3px solid #102d46; }
-    .menu { max-width:1100px; margin:auto; display:flex; gap:30px; padding:14px 20px; overflow-x:auto; }
-    .menu a { color:#102d46; text-decoration:none; text-transform:uppercase; font-size:13px; font-weight:800; white-space:nowrap; }
-    .menu a:hover { color:#e52b32; }
-    main { max-width:1100px; min-height:500px; margin:auto; padding:35px 20px 50px; }
-    .cabecera { margin-bottom:10px; padding-bottom:15px; border-bottom:1px solid #e1e6ea; }
-    .cabecera h1 { margin:0; color:#e52b32; text-transform:uppercase; font-size:24px; letter-spacing:1px; }
-    .noticias { max-width:780px; }
-    .noticia { padding:25px 0 28px; border-bottom:1px solid #e1e6ea; }
-    .noticia h2 { margin:0 0 12px; font-size:27px; line-height:1.08; letter-spacing:-.6px; }
-    .noticia h2 a,.noticia h2 a:visited { color:#102d46; text-decoration:none; }
-    .noticia h2 a:hover { color:#e52b32; }
-    .noticia-cuerpo { display:grid; grid-template-columns:210px 1fr; gap:18px; align-items:start; }
-    .noticia-imagen { width:210px; max-width:210px; height:150px; object-fit:cover; display:block; background:#eee; }
-    .resumen { color:#5f7180; font-size:15px; line-height:1.7; margin:0; }
-    .paginacion { max-width:780px; display:flex; flex-wrap:wrap; gap:8px; margin-top:30px; }
-    .paginacion a,.paginacion span { min-width:38px; height:38px; display:flex; align-items:center; justify-content:center; padding:0 12px; border:1px solid #d9e0e5; text-decoration:none; color:#102d46; font-weight:700; border-radius:4px; }
-    .paginacion a:hover { border-color:#e52b32; color:#e52b32; }
-    .paginacion .actual { background:#102d46; color:#fff; border-color:#102d46; }
-    .mensaje { padding:40px 0; color:#687986; font-size:17px; }
-    footer { margin-top:50px; background:#102d46; color:white; text-align:center; padding:28px 20px; font-size:13px; }
-    @media (max-width:700px) {
-      header { padding-top:22px; }
-      .logo { font-size:32px; }
-      .menu { gap:22px; }
-      main { padding:25px 16px 40px; }
-      .noticia h2 { font-size:23px; }
-      .noticia-cuerpo { display:block; }
-      .noticia-imagen { width:100%; max-width:100%; height:220px; margin-bottom:15px; object-fit:cover; }
+
+    * {
+      box-sizing:border-box;
     }
+
+
+    body {
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#fff;
+      color:#102a43;
+    }
+
+
+    .topbar {
+      background:#102d46;
+      color:white;
+      text-align:center;
+      padding:8px 15px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+
+
+    header {
+      max-width:1100px;
+      margin:auto;
+      padding:28px 20px 24px;
+    }
+
+
+    .logo {
+      font-size:43px;
+      font-weight:900;
+      letter-spacing:-2px;
+      margin:0;
+      color:#102d46;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+
+    .logo span {
+      color:#e52b32;
+    }
+
+
+    .slogan {
+      margin-top:6px;
+      color:#63788b;
+      font-size:13px;
+      letter-spacing:1.5px;
+    }
+
+
+    nav {
+      border-top:1px solid #e3e7eb;
+      border-bottom:3px solid #102d46;
+    }
+
+
+    .menu {
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      gap:30px;
+      padding:14px 20px;
+      overflow-x:auto;
+    }
+
+
+    .menu a {
+      color:#102d46;
+      text-decoration:none;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+
+    .menu a:hover {
+      color:#e52b32;
+    }
+
+
+    main {
+      max-width:1100px;
+      min-height:500px;
+      margin:auto;
+      padding:35px 20px 50px;
+    }
+
+
+    .cabecera {
+      margin-bottom:10px;
+      padding-bottom:15px;
+      border-bottom:1px solid #e1e6ea;
+    }
+
+
+    .cabecera h1 {
+      margin:0;
+      color:#e52b32;
+      text-transform:uppercase;
+      font-size:24px;
+      letter-spacing:1px;
+    }
+
+
+    .noticias {
+      max-width:780px;
+    }
+
+
+    .noticia {
+      padding:25px 0 28px;
+      border-bottom:1px solid #e1e6ea;
+    }
+
+
+    .noticia h2 {
+      margin:0 0 12px;
+      font-size:27px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+
+
+    .noticia h2 a,
+    .noticia h2 a:visited {
+      color:#102d46;
+      text-decoration:none;
+    }
+
+
+    .noticia h2 a:hover {
+      color:#e52b32;
+    }
+
+
+    .noticia-cuerpo {
+      display:grid;
+      grid-template-columns:210px 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+
+    .noticia-imagen {
+      width:210px;
+      max-width:210px;
+      height:150px;
+      object-fit:cover;
+      display:block;
+      background:#eee;
+    }
+
+
+    .resumen {
+      color:#5f7180;
+      font-size:15px;
+      line-height:1.7;
+      margin:0;
+    }
+
+
+    .paginacion {
+      max-width:780px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:30px;
+    }
+
+
+    .paginacion a,
+    .paginacion span {
+      min-width:38px;
+      height:38px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 12px;
+      border:1px solid #d9e0e5;
+      text-decoration:none;
+      color:#102d46;
+      font-weight:700;
+      border-radius:4px;
+    }
+
+
+    .paginacion a:hover {
+      border-color:#e52b32;
+      color:#e52b32;
+    }
+
+
+    .paginacion .actual {
+      background:#102d46;
+      color:#fff;
+      border-color:#102d46;
+    }
+
+
+    .mensaje {
+      padding:40px 0;
+      color:#687986;
+      font-size:17px;
+    }
+
+
+    footer {
+      margin-top:50px;
+      background:#102d46;
+      color:white;
+      text-align:center;
+      padding:28px 20px;
+      font-size:13px;
+    }
+
+
+    @media (max-width:700px) {
+
+      header {
+        padding-top:22px;
+      }
+
+
+      .logo {
+        font-size:32px;
+      }
+
+
+      .menu {
+        gap:22px;
+      }
+
+
+      main {
+        padding:25px 16px 40px;
+      }
+
+
+      .noticia h2 {
+        font-size:23px;
+      }
+
+
+      .noticia-cuerpo {
+        display:block;
+      }
+
+
+      .noticia-imagen {
+        width:100%;
+        max-width:100%;
+        height:220px;
+        margin-bottom:15px;
+        object-fit:cover;
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
-  <div class="topbar">INFORMACIÓN CON CONTEXTO Y CLARIDAD</div>
+
+
+  <div class="topbar">
+    INFORMACIÓN CON CONTEXTO Y CLARIDAD
+  </div>
+
+
   <header>
-    <a class="logo" href="/">REPÚBLICA<span>·</span>ACTUAL</a>
-    <div class="slogan">LO QUE PASA. LO QUE IMPORTA.</div>
-  </header>
-  <nav>
-    <div class="menu">
-      <a href="/">Inicio</a>
-      <a href="/categoria/nacionales/">Nacionales</a>
-      <a href="/categoria/politica/">Política</a>
-      <a href="/categoria/economia/">Economía</a>
-      <a href="/categoria/deportes/">Deportes</a>
-      <a href="/categoria/entretenimiento/">Entretenimiento</a>
-      <a href="/categoria/mundo/">Mundo</a>
-      <a href="/categoria/tecnologia/">Tecnología</a>
-    </div>
-  </nav>
-  <main>
-    <div class="cabecera">
-      <h1>Últimas noticias — Página {paginaActual}</h1>
+
+    <a
+      class="logo"
+      href="/"
+    >
+      REPÚBLICA<span>·</span>ACTUAL
+    </a>
+
+
+    <div class="slogan">
+      LO QUE PASA. LO QUE IMPORTA.
     </div>
 
-    {noticias.length === 0 ? (
-      <div class="mensaje">No hay noticias disponibles en esta página.</div>
-    ) : (
-      <section class="noticias">
-        {noticias.map((noticia, index) => {
-          const enlace = `/noticia/${noticia.slug || noticia.id}/`;
-          return (
-            <article class="noticia">
-              <h2><a href={enlace}>{noticia.titulo || ''}</a></h2>
-              <div class="noticia-cuerpo">
-                {noticia.imagen && (
-                  <a href={enlace}>
-                    <img
-                      class="noticia-imagen"
-                      src={imagenCloudflare(noticia.imagen, 420)}
-                      data-original={noticia.imagen}
-                      alt={noticia.titulo || 'Noticia de República Actual'}
-                      width="210"
-                      height="150"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      fetchpriority={index === 0 ? 'high' : 'auto'}
-                      decoding="async"
-                      referrerpolicy="no-referrer"
-                      onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
-                    />
-                  </a>
-                )}
-                <div><p class="resumen">{resumen(noticia.contenido || noticia.descripcion || '')}</p></div>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-    )}
+  </header>
+
+
+  <nav>
+
+    <div class="menu">
+
+      <a href="/">
+        Inicio
+      </a>
+
+
+      <a href="/categoria/nacionales/">
+        Nacionales
+      </a>
+
+
+      <a href="/categoria/politica/">
+        Política
+      </a>
+
+
+      <a href="/categoria/economia/">
+        Economía
+      </a>
+
+
+      <a href="/categoria/deportes/">
+        Deportes
+      </a>
+
+
+      <a href="/categoria/entretenimiento/">
+        Entretenimiento
+      </a>
+
+
+      <a href="/categoria/mundo/">
+        Mundo
+      </a>
+
+
+      <a href="/categoria/tecnologia/">
+        Tecnología
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main>
+
+
+    <div class="cabecera">
+
+      <h1>
+        Últimas noticias — Página {paginaActual}
+      </h1>
+
+    </div>
+
+
+    {
+      noticias.length === 0 ? (
+
+        <div class="mensaje">
+          No hay noticias disponibles en esta página.
+        </div>
+
+      ) : (
+
+        <section class="noticias">
+
+          {
+            noticias.map(
+              (noticia, index) => {
+
+                const enlace =
+                  `/noticia/${noticia.slug || noticia.id}/`;
+
+
+                return (
+
+                  <article class="noticia">
+
+                    <h2>
+
+                      <a href={enlace}>
+                        {noticia.titulo || ''}
+                      </a>
+
+                    </h2>
+
+
+                    <div class="noticia-cuerpo">
+
+                      {
+                        noticia.imagen && (
+
+                          <a href={enlace}>
+
+                            <img
+                              class="noticia-imagen"
+
+                              src={imagenCloudflare(
+                                noticia.imagen,
+                                420
+                              )}
+
+                              data-original={noticia.imagen}
+
+                              alt={
+                                noticia.titulo ||
+                                'Noticia de República Actual'
+                              }
+
+                              width="210"
+
+                              height="150"
+
+                              loading={
+                                index === 0
+                                  ? 'eager'
+                                  : 'lazy'
+                              }
+
+                              fetchpriority={
+                                index === 0
+                                  ? 'high'
+                                  : 'auto'
+                              }
+
+                              decoding="async"
+
+                              referrerpolicy="no-referrer"
+
+                              onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
+                            />
+
+                          </a>
+
+                        )
+                      }
+
+
+                      <div>
+
+                        <p class="resumen">
+                          {
+                            resumen(
+                              noticia.contenido ||
+                              noticia.descripcion ||
+                              ''
+                            )
+                          }
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                );
+
+              }
+            )
+          }
+
+        </section>
+
+      )
+    }
+
 
     <div class="paginacion">
-      {paginaActual > 2 ? <a href={`/pagina/${paginaActual - 1}/`}>←</a> : <a href="/">←</a>}
-      {Array.from({ length: totalPaginas }, (_, i) => i + 1)
-        .filter((p) => p === 1 || p === totalPaginas || Math.abs(p - paginaActual) <= 2)
-        .map((p, i, arr) => {
-          const anterior = arr[i - 1];
-          return (
-            <>
-              {anterior && p - anterior > 1 && <span>…</span>}
-              {p === paginaActual
-                ? <span class="actual">{p}</span>
-                : <a href={p === 1 ? '/' : `/pagina/${p}/`}>{p}</a>}
-            </>
-          );
-        })}
-      {paginaActual < totalPaginas && <a href={`/pagina/${paginaActual + 1}/`}>→</a>}
+
+      {
+        paginaActual > 2
+          ? (
+              <a
+                href={`/pagina/${paginaActual - 1}/`}
+              >
+                ←
+              </a>
+            )
+          : (
+              <a href="/">
+                ←
+              </a>
+            )
+      }
+
+
+      {
+        Array.from(
+          {
+            length:
+              totalPaginas
+          },
+          (_, i) =>
+            i + 1
+        )
+
+        .filter(
+          (p) =>
+            p === 1 ||
+            p === totalPaginas ||
+            Math.abs(
+              p - paginaActual
+            ) <= 2
+        )
+
+        .map(
+          (p, i, arr) => {
+
+            const anterior =
+              arr[i - 1];
+
+
+            return (
+              <>
+
+                {
+                  anterior &&
+                  p - anterior > 1 &&
+                  <span>…</span>
+                }
+
+
+                {
+                  p === paginaActual
+
+                    ? (
+                        <span class="actual">
+                          {p}
+                        </span>
+                      )
+
+                    : (
+                        <a
+                          href={
+                            p === 1
+                              ? '/'
+                              : `/pagina/${p}/`
+                          }
+                        >
+                          {p}
+                        </a>
+                      )
+                }
+
+              </>
+            );
+
+          }
+        )
+      }
+
+
+      {
+        paginaActual <
+        totalPaginas && (
+
+          <a
+            href={`/pagina/${paginaActual + 1}/`}
+          >
+            →
+          </a>
+
+        )
+      }
+
     </div>
+
+
   </main>
-  <footer>© {new Date().getFullYear()} República Actual</footer>
+
+
+  <footer>
+    © {new Date().getFullYear()} República Actual
+  </footer>
+
+
 </body>
+
 </html>
