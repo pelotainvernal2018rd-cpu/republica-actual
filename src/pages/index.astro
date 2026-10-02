@@ -72,37 +72,32 @@ function imagenCloudflare(url = '', ancho = 700) {
 }
 
 // 6 noticias principales de portada
-const noticiasPrincipales = noticias.slice(0, 6);
+const noticiaPrincipal = noticias[0] || null;
+const noticiasPrincipales = noticias.slice(1, 7);
 
-// Contenido evergreen para "NO PASAN DE MODA".
-// Prioriza categoría/etiqueta explícita y también temas útiles de larga duración.
-function esEvergreen(noticia) {
-  const categoria = String(noticia.categoria || '').toLowerCase();
+// NO PASAN DE MODA: exclusivamente manual.
+// Una entrada solo aparece aquí cuando se marca de forma explícita
+// con la categoría o etiqueta "No pasan de moda".
+// Las noticias automáticas NO entran por palabras del título.
+function esNoPasanDeModaManual(noticia) {
+  const categoria = String(noticia.categoria || '')
+    .trim()
+    .toLowerCase();
+
   const etiquetas = Array.isArray(noticia.etiquetas)
-    ? noticia.etiquetas.join(' ').toLowerCase()
-    : String(noticia.etiquetas || '').toLowerCase();
-  const titulo = String(noticia.titulo || '').toLowerCase();
+    ? noticia.etiquetas.map(e => String(e).trim().toLowerCase())
+    : String(noticia.etiquetas || '')
+        .split(',')
+        .map(e => e.trim().toLowerCase());
 
-  const marcaEvergreen =
-    categoria.includes('no pasan de moda') ||
-    categoria.includes('evergreen') ||
-    etiquetas.includes('no pasan de moda') ||
-    etiquetas.includes('evergreen');
-
-  const temasEvergreen = [
-    'cómo ', 'como ', 'requisitos', 'pasos', 'guía', 'guia',
-    'historia', 'playa', 'playas', 'turismo', 'turístico', 'turistico',
-    'república dominicana', 'republica dominicana', 'samaná', 'samana',
-    'punta cana', 'puerto plata', 'zona colonial', 'pasaporte',
-    'licencia', 'acta de nacimiento', 'aeropuerto', 'provincia'
-  ];
-
-  return marcaEvergreen || temasEvergreen.some(tema => titulo.includes(tema));
+  return (
+    categoria === 'no pasan de moda' ||
+    etiquetas.includes('no pasan de moda')
+  );
 }
 
 const noPasanDeModa = noticias
-  .filter(esEvergreen)
-  .filter(n => !noticiasPrincipales.some(p => String(p.id) === String(n.id)))
+  .filter(esNoPasanDeModaManual)
   .slice(0, 9);
 ---
 
@@ -284,7 +279,7 @@ const noPasanDeModa = noticias
 
 
     /* =========================================
-       PORTADA MODERNA: 6 NOTICIAS
+       PORTADA MODERNA
     ========================================= */
 
     .noticias {
@@ -292,30 +287,76 @@ const noPasanDeModa = noticias
       max-width: none;
     }
 
+    .principal {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      min-height: 330px;
+      margin: 20px 0 22px;
+      border: 1px solid #e1e6ea;
+      background: #fff;
+      box-shadow: 0 5px 18px rgba(16,45,70,.07);
+      overflow: hidden;
+    }
+
+    .principal-imagen-enlace {
+      display: block;
+      min-height: 330px;
+      background: #eef1f4;
+      overflow: hidden;
+    }
+
+    .principal-imagen {
+      width: 100%;
+      height: 100%;
+      min-height: 330px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .principal-contenido {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .principal h2 {
+      margin: 0 0 13px;
+      font-size: 31px;
+      line-height: 1.08;
+      letter-spacing: -.7px;
+    }
+
+    .principal h2 a {
+      color: #102d46;
+      text-decoration: none;
+    }
+
+    .principal h2 a:hover {
+      color: #e52b32;
+    }
+
     .noticias-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 20px;
+      gap: 16px;
     }
 
     .noticia {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      min-height: 145px;
       border: 1px solid #e1e6ea;
       background: #fff;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(16,45,70,.06);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .noticia:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(16,45,70,.10);
+      box-shadow: 0 3px 12px rgba(16,45,70,.05);
     }
 
     .noticia-imagen-enlace {
       display: block;
-      width: 100%;
-      height: 230px;
+      width: 170px;
+      height: 100%;
+      min-height: 145px;
       overflow: hidden;
       background: #eef1f4;
     }
@@ -323,24 +364,21 @@ const noPasanDeModa = noticias
     .noticia-imagen {
       width: 100%;
       height: 100%;
+      min-height: 145px;
       object-fit: cover;
       display: block;
-      transition: transform .3s ease;
-    }
-
-    .noticia:hover .noticia-imagen {
-      transform: scale(1.025);
     }
 
     .noticia-contenido {
-      padding: 18px 20px 21px;
+      min-width: 0;
+      padding: 14px 15px;
     }
 
     .noticia h2 {
-      margin: 0 0 10px;
-      font-size: 23px;
-      line-height: 1.16;
-      letter-spacing: -.45px;
+      margin: 0 0 7px;
+      font-size: 18px;
+      line-height: 1.18;
+      letter-spacing: -.25px;
     }
 
     .noticia h2 a {
@@ -356,21 +394,21 @@ const noPasanDeModa = noticias
       color: #e52b32;
       text-transform: uppercase;
       font-weight: 800;
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+      font-size: 10px;
+      letter-spacing: .9px;
+      margin-bottom: 6px;
     }
 
     .resumen {
       color: #5f7180;
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0 0 14px;
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 0 0 9px;
     }
 
     .leer {
       color: #e52b32;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 800;
       text-decoration: none;
       text-transform: uppercase;
@@ -379,6 +417,15 @@ const noPasanDeModa = noticias
 
     .leer:hover {
       text-decoration: underline;
+    }
+
+    .paginacion-portada {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 30px 0 8px;
+      flex-wrap: wrap;
     }
 
     /* =========================================
@@ -525,17 +572,49 @@ const noPasanDeModa = noticias
         padding: 20px 16px 40px;
       }
 
-      .noticias-grid {
+      .principal {
         grid-template-columns: 1fr;
-        gap: 18px;
+        min-height: 0;
       }
 
-      .noticia h2 {
-        font-size: 22px;
+      .principal-imagen-enlace,
+      .principal-imagen {
+        min-height: 230px;
+        height: 230px;
+      }
+
+      .principal-contenido {
+        padding: 20px;
+      }
+
+      .principal h2 {
+        font-size: 25px;
+      }
+
+      .noticias-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .noticia {
+        grid-template-columns: 125px minmax(0, 1fr);
+        min-height: 125px;
       }
 
       .noticia-imagen-enlace {
-        height: 220px;
+        width: 125px;
+        min-height: 125px;
+      }
+
+      .noticia-imagen {
+        min-height: 125px;
+      }
+
+      .noticia h2 {
+        font-size: 16px;
+      }
+
+      .noticia .resumen {
+        display: none;
       }
 
       .evergreen-grid {
@@ -672,49 +751,81 @@ const noPasanDeModa = noticias
       ) : (
         <>
           <section class="noticias" aria-label="Últimas publicaciones">
-            <div class="noticias-grid">
-              {
-                noticiasPrincipales.map((noticia, indice) => (
-                  <article class="noticia">
-                    {noticia.imagen && (
-                      <a class="noticia-imagen-enlace" href={enlaceNoticia(noticia)}>
-                        <img
-                          class="noticia-imagen"
-                          src={imagenCloudflare(noticia.imagen, 700)}
-                          srcset={`${imagenCloudflare(noticia.imagen, 520)} 520w, ${imagenCloudflare(noticia.imagen, 800)} 800w`}
-                          alt={noticia.titulo}
-                          width="700"
-                          height="460"
-                          sizes="(max-width: 700px) calc(100vw - 32px), 530px"
-                          loading={indice === 0 ? "eager" : "lazy"}
-                          fetchpriority={indice === 0 ? "high" : "auto"}
-                          decoding="async"
-                          referrerpolicy="no-referrer"
-                          data-original={noticia.imagen}
-                          onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.removeAttribute('srcset');this.src=this.dataset.original;}else{this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22700%22 height=%22460%22 viewBox=%220 0 700 460%22%3E%3Crect width=%22700%22 height=%22460%22 fill=%22%23eef1f4%22/%3E%3Ctext x=%22350%22 y=%22230%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%23102d46%22%3EREPÚBLICA ACTUAL%3C/text%3E%3C/svg%3E';}"
-                        />
-                      </a>
-                    )}
+            {noticiaPrincipal && (
+              <article class="principal">
+                {noticiaPrincipal.imagen && (
+                  <a class="principal-imagen-enlace" href={enlaceNoticia(noticiaPrincipal)}>
+                    <img
+                      class="principal-imagen"
+                      src={imagenCloudflare(noticiaPrincipal.imagen, 900)}
+                      alt={noticiaPrincipal.titulo}
+                      width="760"
+                      height="500"
+                      loading="eager"
+                      fetchpriority="high"
+                      decoding="async"
+                      referrerpolicy="no-referrer"
+                      data-original={noticiaPrincipal.imagen}
+                      onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}"
+                    />
+                  </a>
+                )}
+                <div class="principal-contenido">
+                  <div class="categoria">{obtenerCategoria(noticiaPrincipal)}</div>
+                  <h2>
+                    <a href={enlaceNoticia(noticiaPrincipal)}>
+                      {noticiaPrincipal.titulo}
+                    </a>
+                  </h2>
+                  <p class="resumen">{resumen(noticiaPrincipal.contenido, 230)}</p>
+                  <a class="leer" href={enlaceNoticia(noticiaPrincipal)}>Leer más →</a>
+                </div>
+              </article>
+            )}
 
-                    <div class="noticia-contenido">
-                      <div class="categoria">{obtenerCategoria(noticia)}</div>
-                      <h2>
-                        <a href={enlaceNoticia(noticia)}>
-                          {noticia.titulo}
-                        </a>
-                      </h2>
-                      <p class="resumen">
-                        {resumen(noticia.contenido, 150)}
-                      </p>
-                      <a class="leer" href={enlaceNoticia(noticia)}>
-                        Leer más →
-                      </a>
-                    </div>
-                  </article>
-                ))
-              }
+            <div class="noticias-grid">
+              {noticiasPrincipales.map((noticia) => (
+                <article class="noticia">
+                  {noticia.imagen && (
+                    <a class="noticia-imagen-enlace" href={enlaceNoticia(noticia)}>
+                      <img
+                        class="noticia-imagen"
+                        src={imagenCloudflare(noticia.imagen, 420)}
+                        alt={noticia.titulo}
+                        width="170"
+                        height="145"
+                        loading="lazy"
+                        decoding="async"
+                        referrerpolicy="no-referrer"
+                        data-original={noticia.imagen}
+                        onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}"
+                      />
+                    </a>
+                  )}
+                  <div class="noticia-contenido">
+                    <div class="categoria">{obtenerCategoria(noticia)}</div>
+                    <h2><a href={enlaceNoticia(noticia)}>{noticia.titulo}</a></h2>
+                    <p class="resumen">{resumen(noticia.contenido, 90)}</p>
+                    <a class="leer" href={enlaceNoticia(noticia)}>Leer más →</a>
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
+
+          {totalPaginas > 1 && (
+            <nav class="paginacion paginacion-portada" aria-label="Páginas de noticias">
+              {Array.from(
+                { length: finPagina - inicioPagina + 1 },
+                (_, i) => inicioPagina + i
+              ).map((pagina) => {
+                if (pagina === paginaActual) return <span class="activa">{pagina}</span>;
+                return <a href={pagina === 1 ? '/' : `/pagina/${pagina}/`}>{pagina}</a>;
+              })}
+              {finPagina < totalPaginas && <span class="puntos">…</span>}
+              {finPagina < totalPaginas && <a href={`/pagina/${finPagina + 1}/`}>→</a>}
+            </nav>
+          )}
 
           {noPasanDeModa.length > 0 && (
             <section class="evergreen" aria-labelledby="no-pasan-de-moda">

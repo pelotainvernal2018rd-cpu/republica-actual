@@ -166,6 +166,13 @@ function imagenCloudflare(
 }
 
 
+function obtenerCategoria(noticia) {
+  if (noticia.categoria) return noticia.categoria;
+  if (Array.isArray(noticia.etiquetas) && noticia.etiquetas.length) return noticia.etiquetas[0];
+  return 'Actualidad';
+}
+
+
 // ============================================================
 // SEO
 // ============================================================
@@ -368,23 +375,63 @@ const descripcionSEO =
 
 
     .noticias {
-      max-width:780px;
+      width:100%;
+      max-width:none;
     }
 
+    .noticias-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-top:20px;
+    }
 
     .noticia {
-      padding:25px 0 28px;
-      border-bottom:1px solid #e1e6ea;
+      display:grid;
+      grid-template-columns:170px minmax(0,1fr);
+      min-height:145px;
+      border:1px solid #e1e6ea;
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 3px 12px rgba(16,45,70,.05);
     }
 
+    .noticia-imagen-enlace {
+      display:block;
+      width:170px;
+      min-height:145px;
+      overflow:hidden;
+      background:#eef1f4;
+    }
+
+    .noticia-imagen {
+      width:100%;
+      height:100%;
+      min-height:145px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .noticia-contenido {
+      min-width:0;
+      padding:14px 15px;
+    }
+
+    .categoria {
+      color:#e52b32;
+      text-transform:uppercase;
+      font-weight:800;
+      font-size:10px;
+      letter-spacing:.9px;
+      margin-bottom:6px;
+    }
 
     .noticia h2 {
-      margin:0 0 12px;
-      font-size:27px;
-      line-height:1.08;
-      letter-spacing:-.6px;
+      margin:0 0 7px;
+      font-size:18px;
+      line-height:1.18;
+      letter-spacing:-.25px;
     }
-
 
     .noticia h2 a,
     .noticia h2 a:visited {
@@ -392,46 +439,23 @@ const descripcionSEO =
       text-decoration:none;
     }
 
-
-    .noticia h2 a:hover {
-      color:#e52b32;
-    }
-
-
-    .noticia-cuerpo {
-      display:grid;
-      grid-template-columns:210px 1fr;
-      gap:18px;
-      align-items:start;
-    }
-
-
-    .noticia-imagen {
-      width:210px;
-      max-width:210px;
-      height:150px;
-      object-fit:cover;
-      display:block;
-      background:#eee;
-    }
-
+    .noticia h2 a:hover { color:#e52b32; }
 
     .resumen {
       color:#5f7180;
-      font-size:15px;
-      line-height:1.7;
+      font-size:12px;
+      line-height:1.45;
       margin:0;
     }
 
-
     .paginacion {
-      max-width:780px;
+      width:100%;
       display:flex;
+      justify-content:center;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:30px;
+      margin:30px 0 10px;
     }
-
 
     .paginacion a,
     .paginacion span {
@@ -448,17 +472,15 @@ const descripcionSEO =
       border-radius:4px;
     }
 
-
     .paginacion a:hover {
       border-color:#e52b32;
       color:#e52b32;
     }
 
-
     .paginacion .actual {
-      background:#102d46;
+      background:#e52b32;
       color:#fff;
-      border-color:#102d46;
+      border-color:#e52b32;
     }
 
 
@@ -501,22 +523,30 @@ const descripcionSEO =
       }
 
 
-      .noticia h2 {
-        font-size:23px;
+      .noticias-grid {
+        grid-template-columns:1fr;
       }
 
-
-      .noticia-cuerpo {
-        display:block;
+      .noticia {
+        grid-template-columns:125px minmax(0,1fr);
+        min-height:125px;
       }
 
+      .noticia-imagen-enlace {
+        width:125px;
+        min-height:125px;
+      }
 
       .noticia-imagen {
-        width:100%;
-        max-width:100%;
-        height:220px;
-        margin-bottom:15px;
-        object-fit:cover;
+        min-height:125px;
+      }
+
+      .noticia h2 {
+        font-size:16px;
+      }
+
+      .resumen {
+        display:none;
       }
 
     }
@@ -579,6 +609,10 @@ const descripcionSEO =
         Deportes
       </a>
 
+      <a href="/resultados-loterias/">
+        Loterías
+      </a>
+
 
       <a href="/categoria/entretenimiento/">
         Entretenimiento
@@ -621,103 +655,41 @@ const descripcionSEO =
       ) : (
 
         <section class="noticias">
+          <div class="noticias-grid">
+            {noticias.map((noticia, index) => {
+              const enlace = `/noticia/${noticia.slug || noticia.id}/`;
 
-          {
-            noticias.map(
-              (noticia, index) => {
+              return (
+                <article class="noticia">
+                  {noticia.imagen && (
+                    <a class="noticia-imagen-enlace" href={enlace}>
+                      <img
+                        class="noticia-imagen"
+                        src={imagenCloudflare(noticia.imagen, 420)}
+                        data-original={noticia.imagen}
+                        alt={noticia.titulo || 'Noticia de República Actual'}
+                        width="170"
+                        height="145"
+                        loading={index < 2 ? 'eager' : 'lazy'}
+                        fetchpriority={index === 0 ? 'high' : 'auto'}
+                        decoding="async"
+                        referrerpolicy="no-referrer"
+                        onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
+                      />
+                    </a>
+                  )}
 
-                const enlace =
-                  `/noticia/${noticia.slug || noticia.id}/`;
-
-
-                return (
-
-                  <article class="noticia">
-
-                    <h2>
-
-                      <a href={enlace}>
-                        {noticia.titulo || ''}
-                      </a>
-
-                    </h2>
-
-
-                    <div class="noticia-cuerpo">
-
-                      {
-                        noticia.imagen && (
-
-                          <a href={enlace}>
-
-                            <img
-                              class="noticia-imagen"
-
-                              src={imagenCloudflare(
-                                noticia.imagen,
-                                420
-                              )}
-
-                              data-original={noticia.imagen}
-
-                              alt={
-                                noticia.titulo ||
-                                'Noticia de República Actual'
-                              }
-
-                              width="210"
-
-                              height="150"
-
-                              loading={
-                                index === 0
-                                  ? 'eager'
-                                  : 'lazy'
-                              }
-
-                              fetchpriority={
-                                index === 0
-                                  ? 'high'
-                                  : 'auto'
-                              }
-
-                              decoding="async"
-
-                              referrerpolicy="no-referrer"
-
-                              onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
-                            />
-
-                          </a>
-
-                        )
-                      }
-
-
-                      <div>
-
-                        <p class="resumen">
-                          {
-                            resumen(
-                              noticia.contenido ||
-                              noticia.descripcion ||
-                              ''
-                            )
-                          }
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                  </article>
-
-                );
-
-              }
-            )
-          }
-
+                  <div class="noticia-contenido">
+                    <div class="categoria">{obtenerCategoria(noticia)}</div>
+                    <h2><a href={enlace}>{noticia.titulo || ''}</a></h2>
+                    <p class="resumen">
+                      {resumen(noticia.contenido || noticia.descripcion || '', 90)}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </section>
 
       )
