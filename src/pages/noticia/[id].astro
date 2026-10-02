@@ -2,40 +2,98 @@
 // ============================================================
 // REPÚBLICA ACTUAL
 // NOTICIA INDIVIDUAL RENDERIZADA POR ASTRO
-// Ruta: /noticia/ID/
-// ============================================================
-
-
-// ============================================================
-// GENERAR TODAS LAS RUTAS DE NOTICIAS PUBLICADAS
+// FIRESTORE
+// Ruta principal: /noticia/SLUG/
+// Ruta antigua: /noticia/ID/ -> 301 al slug
 // ============================================================
 
 export async function getStaticPaths() {
-  const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+  const FIREBASE_PROJECT_ID =
+    import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+
+  function valorFirestore(field = {}) {
+    if ('stringValue' in field) return field.stringValue;
+    if ('integerValue' in field) return Number(field.integerValue);
+    if ('doubleValue' in field) return Number(field.doubleValue);
+    if ('booleanValue' in field) return field.booleanValue;
+    if ('timestampValue' in field) return field.timestampValue;
+    if ('nullValue' in field) return null;
+
+    if ('arrayValue' in field) {
+      return (field.arrayValue.values || []).map(valorFirestore);
+    }
+
+    if ('mapValue' in field) {
+      return Object.fromEntries(
+        Object.entries(field.mapValue.fields || {}).map(
+          ([clave, valor]) => [clave, valorFirestore(valor)]
+        )
+      );
+    }
+
+    return '';
+  }
+
+  function documentoFirestore(doc = {}) {
+    const datos = Object.fromEntries(
+      Object.entries(doc.fields || {}).map(
+        ([clave, valor]) => [clave, valorFirestore(valor)]
+      )
+    );
+
+    if (!datos.id && doc.name) {
+      datos.id = doc.name.split('/').pop();
+    }
+
+    return datos;
+  }
 
   try {
     const endpoint =
-      `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+      `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
 
     const respuesta = await fetch(endpoint, {
+      method: 'POST',
       headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        Accept: 'application/json'
-      }
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        structuredQuery: {
+          from: [{ collectionId: 'noticias' }],
+          where: {
+            fieldFilter: {
+              field: { fieldPath: 'publicado' },
+              op: 'EQUAL',
+              value: { booleanValue: true }
+            }
+          }
+        }
+      })
     });
 
     if (!respuesta.ok) {
       console.error(
-        'Error Supabase getStaticPaths:',
-        respuesta.status
+        'Error Firestore getStaticPaths:',
+        respuesta.status,
+        await respuesta.text()
       );
-
       return [];
     }
 
-    const noticias = await respuesta.json();
+    const resultado = await respuesta.json();
+
+    const noticias = resultado
+      .filter((fila) => fila.document)
+      .map((fila) => documentoFirestore(fila.document))
+      .sort(
+        (a, b) =>
+          (Date.parse(b.created_at || '') || 0) -
+          (Date.parse(a.created_at || '') || 0)
+      );
+
+    console.log(
+      `Firestore: ${noticias.length} noticias publicadas para rutas individuales`
+    );
 
     return noticias.flatMap((noticia) => {
       const categoriaActual =
@@ -66,12 +124,6 @@ export async function getStaticPaths() {
         })
         .slice(0, 4);
 
-      // ========================================================
-      // RUTA PRINCIPAL ACTUAL CON SLUG
-      // Ejemplo:
-      // /noticia/titulo-de-la-noticia/
-      // ========================================================
-
       const rutaPrincipal = {
         params: {
           id: noticia.slug || String(noticia.id)
@@ -82,14 +134,6 @@ export async function getStaticPaths() {
           redirigirA: null
         }
       };
-
-      // ========================================================
-      // RUTA ANTIGUA NUMÉRICA
-      // Ejemplo:
-      // /noticia/156/
-      //
-      // Esta ruta redirigirá hacia el slug actual.
-      // ========================================================
 
       const rutaAntigua =
         noticia.slug &&
@@ -113,7 +157,7 @@ export async function getStaticPaths() {
 
   } catch (error) {
     console.error(
-      'Error generando noticias:',
+      'Error generando noticias desde Firestore:',
       error
     );
 

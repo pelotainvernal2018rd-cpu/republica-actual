@@ -1,38 +1,86 @@
 ---
 // ==================================================
 // REPÚBLICA ACTUAL - PORTADA
-// Astro + Supabase
+// Astro + Firestore
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+const PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || "republica-actual";
+const API_KEY = import.meta.env.FIREBASE_API_KEY;
 
 let noticias = [];
 let errorConexion = '';
 
+function firestoreValue(v) {
+  if (!v || typeof v !== 'object') return null;
+  if ('stringValue' in v) return v.stringValue;
+  if ('integerValue' in v) return Number(v.integerValue);
+  if ('doubleValue' in v) return Number(v.doubleValue);
+  if ('booleanValue' in v) return Boolean(v.booleanValue);
+  if ('timestampValue' in v) return v.timestampValue;
+  if ('nullValue' in v) return null;
+  if ('arrayValue' in v) return (v.arrayValue?.values || []).map(firestoreValue);
+  if ('mapValue' in v) return firestoreFields(v.mapValue?.fields || {});
+  return null;
+}
+
+function firestoreFields(fields = {}) {
+  const obj = {};
+  for (const [key, value] of Object.entries(fields)) {
+    obj[key] = firestoreValue(value);
+  }
+  return obj;
+}
+
 try {
   const endpoint =
-    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
+    `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}` +
+    `/databases/(default)/documents:runQuery?key=${encodeURIComponent(API_KEY || '')}`;
 
   const respuesta = await fetch(endpoint, {
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
-      Accept: 'application/json'
-    }
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      structuredQuery: {
+        from: [{ collectionId: 'noticias' }],
+        where: {
+          fieldFilter: {
+            field: { fieldPath: 'publicado' },
+            op: 'EQUAL',
+            value: { booleanValue: true }
+          }
+        },
+        limit: 1000
+      }
+    })
   });
 
   if (!respuesta.ok) {
-    throw new Error(`HTTP ${respuesta.status}`);
+    const detalle = await respuesta.text();
+    throw new Error(`Firestore HTTP ${respuesta.status}: ${detalle}`);
   }
 
-  noticias = await respuesta.json();
+  const filas = await respuesta.json();
+
+  noticias = filas
+    .filter((fila) => fila.document)
+    .map((fila) => {
+      const documento = fila.document;
+      const datos = firestoreFields(documento.fields || {});
+      const docId = String(documento.name || '').split('/').pop();
+      return { ...datos, id: datos.id ?? docId };
+    })
+    .sort((a, b) => {
+      const fechaA = Date.parse(a.created_at || '') || 0;
+      const fechaB = Date.parse(b.created_at || '') || 0;
+      return fechaB - fechaA;
+    });
 
 } catch (error) {
   console.error(error);
   errorConexion = 'No se pudieron cargar las noticias.';
 }
+
 const totalPaginas = Math.ceil(noticias.length / 10);
 const rutaActual = Astro.url.pathname;
 

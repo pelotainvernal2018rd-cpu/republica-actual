@@ -1,26 +1,129 @@
 ---
-const SUPABASE_URL = "https://kbghquvejqteiawdotqd.supabase.co";
-const SUPABASE_KEY = "sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi";
+const PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || "republica-actual";
+const API_KEY = import.meta.env.FIREBASE_API_KEY;
 
 let noticias = [];
 
-try {
-  const r = await fetch(
-    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc&limit=30`,
-    {
-      headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`
-      }
-    }
-  );
+function firestoreValue(v) {
+  if (!v || typeof v !== "object") return null;
+  if ("stringValue" in v) return v.stringValue;
+  if ("integerValue" in v) return Number(v.integerValue);
+  if ("doubleValue" in v) return Number(v.doubleValue);
+  if ("booleanValue" in v) return Boolean(v.booleanValue);
+  if ("timestampValue" in v) return v.timestampValue;
+  if ("nullValue" in v) return null;
+  if ("arrayValue" in v) return (v.arrayValue?.values || []).map(firestoreValue);
+  if ("mapValue" in v) return firestoreFields(v.mapValue?.fields || {});
+  return null;
+}
 
-  if (r.ok) noticias = await r.json();
-} catch {}
+function firestoreFields(fields = {}) {
+  const obj = {};
+  for (const [key, value] of Object.entries(fields)) {
+    obj[key] = firestoreValue(value);
+  }
+  return obj;
+}
+
+try {
+  const url =
+    `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}` +
+    `/databases/(default)/documents:runQuery?key=${encodeURIComponent(API_KEY || "")}`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      structuredQuery: {
+        from: [{ collectionId: "noticias" }],
+        where: {
+          fieldFilter: {
+            field: { fieldPath: "publicado" },
+            op: "EQUAL",
+            value: { booleanValue: true }
+          }
+        },
+        limit: 100
+      }
+    })
+  });
+
+  if (!response.ok) {
+    const detalle = await response.text();
+    throw new Error(`Firestore REST ${response.status}: ${detalle}`);
+  }
+
+  const rows = await response.json();
+
+  noticias = rows
+    .filter((row) => row.document)
+    .map((row) => {
+      const doc = row.document;
+      const parsed = firestoreFields(doc.fields || {});
+      const docId = String(doc.name || "").split("/").pop();
+
+      return {
+        ...parsed,
+        id: parsed.id ?? docId
+      };
+    })
+    .sort((a, b) => {
+      const fechaA = Date.parse(a.created_at || "") || 0;
+      const fechaB = Date.parse(b.created_at || "") || 0;
+      return fechaB - fechaA;
+    })
+    .slice(0, 30);
+
+  console.log(`Firestore REST: ${noticias.length} noticias publicadas cargadas`);
+} catch (error) {
+  console.error("ERROR FIRESTORE REST:", error);
+}
+
+
+let empleos = [];
+
+try {
+  const jobsUrl =
+    `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}` +
+    `/databases/(default)/documents:runQuery?key=${encodeURIComponent(API_KEY || "")}`;
+
+  const jobsResponse = await fetch(jobsUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      structuredQuery: {
+        from: [{ collectionId: "empleos" }],
+        orderBy: [{ field: { fieldPath: "created_at" }, direction: "DESCENDING" }],
+        limit: 2
+      }
+    })
+  });
+
+  if (jobsResponse.ok) {
+    const rows = await jobsResponse.json();
+    empleos = rows
+      .filter((row) => row.document)
+      .map((row) => {
+        const doc = row.document;
+        const parsed = firestoreFields(doc.fields || {});
+        return { ...parsed, docId: String(doc.name || "").split("/").pop() };
+      });
+  } else {
+    console.error("ERROR EMPLEOS FIRESTORE:", await jobsResponse.text());
+  }
+} catch (error) {
+  console.error("ERROR CARGANDO EMPLEOS:", error);
+}
+
+function empleoLink(e) {
+  return e?.url || e?.url_fuente || "#";
+}
 
 const principal = noticias[0];
 const secundarias = noticias.slice(1, 4);
-const recientes = noticias.slice(4, 12);
+const recientes = noticias.slice(4, 10);
 const populares = noticias.slice(12, 17);
 
 function clean(html = "") {
@@ -170,46 +273,34 @@ function link(n) {
   </section>
 
 
-  <!-- RD AHORA -->
+  <!-- DESTACADAS DEL DÍA -->
   <section class="rd-now">
 
     <div class="rd-heading">
       <div>
         <span>🇩🇴 REPÚBLICA DOMINICANA</span>
-        <h2>RD AHORA</h2>
+        <h2>DESTACADAS DEL DÍA</h2>
       </div>
 
-      <a href="/categoria/nacionales">VER TODAS →</a>
+      <a href="/">VER TODAS →</a>
     </div>
 
-    <div class="rd-grid">
-
-      <div class="rd-map">
-        <div>🇩🇴</div>
-        <strong>ACTUALIDAD<br />NACIONAL</strong>
-        <small>Noticias de todo el país</small>
-      </div>
-
-      <a href="/categoria/santo-domingo">
-        <strong>Santo Domingo</strong>
-        <span>Noticias →</span>
-      </a>
-
-      <a href="/categoria/santiago">
-        <strong>Santiago</strong>
-        <span>Noticias →</span>
-      </a>
-
-      <a href="/categoria/la-vega">
-        <strong>La Vega</strong>
-        <span>Noticias →</span>
-      </a>
-
-      <a href="/categoria/puerto-plata">
-        <strong>Puerto Plata</strong>
-        <span>Noticias →</span>
-      </a>
-
+    <div class="rd-grid destacadas-dia">
+      {noticias.slice(1, 6).map((n, i) => (
+        <a href={link(n)} class={i === 0 ? "destacada-card principal-dia" : "destacada-card"}>
+          {n.imagen ? (
+            <img src={n.imagen} alt={n.titulo} loading="lazy" />
+          ) : (
+            <div class="destacada-placeholder">RA</div>
+          )}
+          <div class="destacada-overlay"></div>
+          <div class="destacada-texto">
+            <span>{cat(n)}</span>
+            <h3>{n.titulo}</h3>
+            <small>LEER NOTICIA →</small>
+          </div>
+        </a>
+      ))}
     </div>
 
   </section>
@@ -252,6 +343,15 @@ function link(n) {
         ))}
 
       </div>
+
+      <nav class="pagination" aria-label="Paginación de noticias recientes">
+        <a class="active" href="/pagina/1">1</a>
+        <a href="/pagina/2">2</a>
+        <a href="/pagina/3">3</a>
+        <a href="/pagina/4">4</a>
+        <a href="/pagina/5">5</a>
+        <a class="next" href="/pagina/2">SIGUIENTE →</a>
+      </nav>
 
     </div>
 
@@ -335,23 +435,36 @@ function link(n) {
 
     </div>
 
-    <div class="employment-grid">
+    <div class="employment-grid jobs-recent-grid">
 
-      <div>
-        <span>🇩🇴</span>
-        <h3>Empleos en República Dominicana</h3>
-        <p>Encuentra oportunidades laborales por provincia y área.</p>
-      </div>
+      {empleos.length ? empleos.map((e) => (
+        <a href={empleoLink(e)} class="job-card">
+          <small>VACANTE RECIENTE</small>
+          <h3>{e.titulo || "Oportunidad laboral"}</h3>
+          <p>
+            {[e.empresa, e.ubicacion, e.tipoEmpleo].filter(Boolean).join(" · ")}
+          </p>
+          <strong>VER VACANTE →</strong>
+        </a>
+      )) : (
+        <>
+          <div class="job-card">
+            <small>VACANTES</small>
+            <h3>Esperando nuevas oportunidades</h3>
+            <p>Las dos vacantes más recientes aparecerán aquí automáticamente.</p>
+          </div>
+          <div class="job-card">
+            <small>EMPLÉATE</small>
+            <h3>Oportunidades laborales</h3>
+            <p>Conectado con la colección de empleos de República Actual.</p>
+          </div>
+        </>
+      )}
 
-      <div>
-        <span>🌎</span>
-        <h3>Empleo en el extranjero</h3>
-        <p>Canadá, España, Estados Unidos y más.</p>
-      </div>
-
-      <div class="apply">
-        <strong>¿BUSCAS EMPLEO?</strong>
-        <a href="/categoria/empleate">BUSCAR VACANTES</a>
+      <div class="jobs-more">
+        <small>OPORTUNIDADES LABORALES</small>
+        <h3>¿Buscas empleo?</h3>
+        <a href="/empleos">VER MÁS EMPLEOS →</a>
       </div>
 
     </div>
@@ -408,21 +521,24 @@ function link(n) {
   <section class="featured">
 
     <div class="heading">
-      <h2>También te puede interesar</h2>
+      <h2>NUNCA PASAN DE MODA</h2>
     </div>
 
-    <div class="featured-grid">
+    <div class="featured-grid evergreen-grid">
 
-      {secundarias.map((n) => (
-        <a href={link(n)}>
+      {noticias.slice(0, 8).map((n) => (
+        <a href={link(n)} class="evergreen-card">
 
-          {n.imagen && (
+          {n.imagen ? (
             <img src={n.imagen} alt={n.titulo} loading="lazy" />
+          ) : (
+            <div class="evergreen-placeholder">RA</div>
           )}
 
-          <span>{cat(n)}</span>
-
-          <h3>{n.titulo}</h3>
+          <div class="evergreen-copy">
+            <span>{cat(n)}</span>
+            <h3>{n.titulo}</h3>
+          </div>
 
         </a>
       ))}
@@ -801,6 +917,75 @@ main {
   color: #ff716c;
   font-size: 10px;
   font-weight: bold;
+}
+
+
+.destacadas-dia {
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+}
+
+.destacada-card {
+  min-height: 190px !important;
+  padding: 0 !important;
+  position: relative;
+  overflow: hidden;
+  display: block !important;
+  background: #17344e !important;
+}
+
+.destacada-card img,
+.destacada-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destacada-placeholder {
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+}
+
+.destacada-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 15%, rgba(4, 18, 30, .92) 100%);
+}
+
+.destacada-texto {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+}
+
+.destacada-texto span {
+  color: #ff716c;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.destacada-texto h3 {
+  margin: 6px 0 9px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.22;
+}
+
+.principal-dia .destacada-texto h3 {
+  font-size: 18px;
+}
+
+.destacada-texto small {
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
 }
 
 .layout {
@@ -1292,6 +1477,251 @@ footer {
     display: block;
   }
 
+}
+
+
+/* Ajustes República Actual 2.0 */
+.pagination {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+.pagination a {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #d9e1e7;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.pagination a.active {
+  background: #102d46;
+  border-color: #102d46;
+  color: white;
+}
+
+.pagination .next {
+  width: auto;
+  color: #d73c37;
+}
+
+.jobs-recent-grid {
+  grid-template-columns: 1fr 1fr .8fr;
+}
+
+.job-card {
+  display: block;
+  border: 1px solid #e2e7ea;
+  padding: 18px;
+  background: white;
+}
+
+.job-card small,
+.jobs-more small {
+  color: #d73c37;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.job-card h3,
+.jobs-more h3 {
+  margin: 8px 0;
+}
+
+.job-card strong {
+  color: #d73c37;
+  font-size: 10px;
+}
+
+.jobs-more {
+  background: #102d46;
+  color: white;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.jobs-more a {
+  margin-top: 8px;
+  background: #d73c37;
+  color: white;
+  padding: 11px 14px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.evergreen-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.evergreen-card {
+  min-width: 0;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  min-height: 105px;
+  background: white;
+  border: 1px solid #e0e6eb;
+}
+
+.evergreen-card img,
+.evergreen-placeholder {
+  width: 105px;
+  height: 105px;
+  object-fit: cover;
+}
+
+.evergreen-placeholder {
+  display: grid;
+  place-items: center;
+  background: #102d46;
+  color: white;
+  font-weight: 900;
+}
+
+.evergreen-copy {
+  padding: 10px;
+  min-width: 0;
+}
+
+.evergreen-copy span {
+  display: block;
+  margin: 0 0 6px !important;
+  color: #d73c37;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.evergreen-copy h3 {
+  margin: 0 !important;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+@media(max-width:900px) {
+  .evergreen-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jobs-recent-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .jobs-more {
+    grid-column: span 2;
+  }
+}
+
+@media(max-width:600px) {
+  .evergreen-grid,
+  .jobs-recent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-more {
+    grid-column: auto;
+  }
+
+  .pagination .next {
+    flex-basis: auto;
+  }
+}
+
+
+/* Evergreen compacto */
+.evergreen-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.evergreen-card {
+  display: grid !important;
+  grid-template-columns: 86px minmax(0, 1fr) !important;
+  min-height: 86px !important;
+  height: 86px !important;
+  overflow: hidden !important;
+}
+
+.evergreen-card img,
+.evergreen-placeholder {
+  width: 86px !important;
+  height: 86px !important;
+  object-fit: cover !important;
+}
+
+.evergreen-copy {
+  padding: 8px 9px !important;
+}
+
+.evergreen-copy span {
+  margin-bottom: 5px !important;
+  font-size: 7px !important;
+}
+
+.evergreen-copy h3 {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Paginación limpia */
+.pagination {
+  margin: 22px 0 4px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.pagination a {
+  text-decoration: none !important;
+  border: 1px solid #d7dee5 !important;
+  border-radius: 4px !important;
+  background: #fff !important;
+  color: #102d46 !important;
+  min-width: 36px !important;
+  height: 36px !important;
+  padding: 0 10px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+.pagination a.active {
+  background: #102d46 !important;
+  color: #fff !important;
+  border-color: #102d46 !important;
+}
+
+.pagination .next {
+  min-width: auto !important;
+  color: #d73c37 !important;
+}
+
+@media(max-width:900px) {
+  .evergreen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media(max-width:600px) {
+  .evergreen-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 </style>

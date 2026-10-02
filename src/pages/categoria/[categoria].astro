@@ -1,6 +1,5 @@
 ---
-const SUPABASE_URL = 'https://kbghquvejqteiawdotqd.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_ld7ydSagUVERw0yphWzjvg_yeSPpKfi';
+const FIREBASE_PROJECT_ID = import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
 
 const categorias = {
   nacionales: {
@@ -97,26 +96,77 @@ function imagenCloudflare(url = '', ancho = 420) {
 
 let noticias = [];
 
-try {
-  const endpoint =
-    `${SUPABASE_URL}/rest/v1/noticias?select=*&publicado=eq.true&order=created_at.desc`;
-
-  const respuesta = await fetch(endpoint, {
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
-      Accept: 'application/json'
-    }
-  });
-
-  if (respuesta.ok) {
-    const todas = await respuesta.json();
-    noticias = todas.filter(
-      (noticia) => obtenerCategoria(noticia) === normalizar(categoriaURL)
+function valorFirestore(field = {}) {
+  if ('stringValue' in field) return field.stringValue;
+  if ('integerValue' in field) return Number(field.integerValue);
+  if ('doubleValue' in field) return Number(field.doubleValue);
+  if ('booleanValue' in field) return field.booleanValue;
+  if ('timestampValue' in field) return field.timestampValue;
+  if ('nullValue' in field) return null;
+  if ('arrayValue' in field) {
+    return (field.arrayValue.values || []).map(valorFirestore);
+  }
+  if ('mapValue' in field) {
+    return Object.fromEntries(
+      Object.entries(field.mapValue.fields || {}).map(([clave, valor]) => [clave, valorFirestore(valor)])
     );
   }
+  return '';
+}
+
+function documentoFirestore(doc = {}) {
+  const datos = Object.fromEntries(
+    Object.entries(doc.fields || {}).map(([clave, valor]) => [clave, valorFirestore(valor)])
+  );
+
+  if (!datos.id && doc.name) {
+    datos.id = doc.name.split('/').pop();
+  }
+
+  return datos;
+}
+
+try {
+  const endpoint =
+    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
+
+  const respuesta = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      structuredQuery: {
+        from: [{ collectionId: 'noticias' }],
+        where: {
+          fieldFilter: {
+            field: { fieldPath: 'publicado' },
+            op: 'EQUAL',
+            value: { booleanValue: true }
+          }
+        }
+      }
+    })
+  });
+
+  if (!respuesta.ok) {
+    throw new Error(`Firestore respondió ${respuesta.status}: ${await respuesta.text()}`);
+  }
+
+  const resultado = await respuesta.json();
+
+  const todas = resultado
+    .filter((fila) => fila.document)
+    .map((fila) => documentoFirestore(fila.document))
+    .sort(
+      (a, b) =>
+        (Date.parse(b.created_at || '') || 0) -
+        (Date.parse(a.created_at || '') || 0)
+    );
+
+  noticias = todas.filter(
+    (noticia) => obtenerCategoria(noticia) === normalizar(categoriaURL)
+  );
 } catch (error) {
-  console.error('ERROR CATEGORÍA:', error);
+  console.error('ERROR CATEGORÍA FIRESTORE:', error);
 }
 
 const canonical = `https://republicaactual.net/categoria/${categoriaURL}/`;
