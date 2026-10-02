@@ -27,8 +27,10 @@ export async function GET() {
 
   try {
 
+    // IMPORTANTE:
+    // Ahora pedimos también el slug.
     const endpoint =
-      `${SUPABASE_URL}/rest/v1/noticias?select=id,created_at&publicado=eq.true&order=created_at.desc`;
+      `${SUPABASE_URL}/rest/v1/noticias?select=id,slug,created_at&publicado=eq.true&order=created_at.desc`;
 
     const respuesta =
       await fetch(endpoint, {
@@ -54,6 +56,10 @@ export async function GET() {
   }
 
 
+  // =========================================================
+  // PÁGINAS FIJAS
+  // =========================================================
+
   const paginasXML =
     urlsFijas
       .map((url) => `
@@ -63,12 +69,27 @@ export async function GET() {
       .join('');
 
 
+  // =========================================================
+  // NOTICIAS
+  // =========================================================
+  //
+  // PRIORIDAD:
+  // 1. slug
+  // 2. id solamente como respaldo
+  //
+  // Ejemplo correcto:
+  // /noticia/titulo-de-la-noticia/
+  // =========================================================
+
   const noticiasXML =
     noticias
       .map((noticia) => {
 
+        const identificador =
+          noticia.slug || noticia.id;
+
         const url =
-          `https://republicaactual.net/noticia/${noticia.id}/`;
+          `https://republicaactual.net/noticia/${identificador}/`;
 
         const fecha =
           noticia.created_at
@@ -89,6 +110,10 @@ export async function GET() {
       })
       .join('');
 
+
+  // =========================================================
+  // XML FINAL
+  // =========================================================
 
   const sitemap =
 `<?xml version="1.0" encoding="UTF-8"?>
