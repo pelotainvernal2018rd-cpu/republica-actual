@@ -15,7 +15,6 @@ const RUN_AGGREGATION =
 // ============================================================
 
 function valorFirestore(field = {}) {
-
   if ('stringValue' in field) {
     return field.stringValue;
   }
@@ -41,24 +40,18 @@ function valorFirestore(field = {}) {
   }
 
   if ('arrayValue' in field) {
-    return (
-      field.arrayValue.values || []
-    ).map(valorFirestore);
+    return (field.arrayValue.values || []).map(valorFirestore);
   }
 
   if ('mapValue' in field) {
-
     return Object.fromEntries(
-      Object.entries(
-        field.mapValue.fields || {}
-      ).map(
+      Object.entries(field.mapValue.fields || {}).map(
         ([clave, valor]) => [
           clave,
           valorFirestore(valor)
         ]
       )
     );
-
   }
 
   return '';
@@ -70,11 +63,8 @@ function valorFirestore(field = {}) {
 // ============================================================
 
 function documentoFirestore(doc = {}) {
-
   const datos = Object.fromEntries(
-    Object.entries(
-      doc.fields || {}
-    ).map(
+    Object.entries(doc.fields || {}).map(
       ([clave, valor]) => [
         clave,
         valorFirestore(valor)
@@ -90,12 +80,10 @@ function documentoFirestore(doc = {}) {
     ) &&
     doc.name
   ) {
-
     datos.id =
       doc.name
         .split('/')
         .pop();
-
   }
 
   return datos;
@@ -107,7 +95,6 @@ function documentoFirestore(doc = {}) {
 // ============================================================
 
 async function ejecutarQuery(structuredQuery) {
-
   const respuesta =
     await fetch(
       RUN_QUERY,
@@ -125,112 +112,139 @@ async function ejecutarQuery(structuredQuery) {
     );
 
   if (!respuesta.ok) {
-
     const detalle =
       await respuesta.text();
 
     throw new Error(
       `Firestore respondió ${respuesta.status}: ${detalle}`
     );
-
   }
 
   const resultado =
     await respuesta.json();
 
   return resultado
-
     .filter(
       (fila) =>
         fila.document
     )
-
     .map(
       (fila) =>
         documentoFirestore(
           fila.document
         )
     );
-
 }
 
 
 // ============================================================
-// CARGAR NOTICIAS PUBLICADAS
+// ÚLTIMAS PUBLICACIONES / FEED PRINCIPAL
 // ============================================================
-// NO descarga toda la colección.
-// Por defecto carga solamente 20.
+//
+// IMPORTANTE:
+//
+// Las publicaciones manuales que tengan:
+// feed_principal: false
+//
+// NO aparecen en Últimas publicaciones.
+//
+// Las noticias antiguas que todavía no tengan el campo
+// feed_principal siguen apareciendo normalmente.
+//
+// Esto evita desaparecer las noticias automáticas antiguas.
 // ============================================================
 
 export async function cargarNoticiasPublicadas(
   limite = 20
 ) {
-
   const cantidad =
     Math.max(
       1,
       Number(limite) || 20
     );
 
-  return ejecutarQuery({
+  /*
+   * Pedimos un pequeño margen adicional.
+   *
+   * Después eliminamos únicamente las publicaciones
+   * que tengan feed_principal === false.
+   *
+   * De esta manera:
+   *
+   * feed_principal === true      -> aparece
+   * feed_principal inexistente   -> aparece
+   * feed_principal === false     -> NO aparece
+   */
+  const cantidadConsulta =
+    Math.max(
+      cantidad * 2,
+      40
+    );
 
-    from: [
-      {
-        collectionId: 'noticias'
-      }
-    ],
+  const noticias =
+    await ejecutarQuery({
 
-    where: {
-
-      fieldFilter: {
-
-        field: {
-          fieldPath: 'publicado'
-        },
-
-        op: 'EQUAL',
-
-        value: {
-          booleanValue: true
+      from: [
+        {
+          collectionId: 'noticias'
         }
+      ],
 
-      }
+      where: {
+        fieldFilter: {
+          field: {
+            fieldPath: 'publicado'
+          },
 
-    },
+          op: 'EQUAL',
 
-    orderBy: [
-      {
-        field: {
-          fieldPath: 'created_at'
-        },
+          value: {
+            booleanValue: true
+          }
+        }
+      },
 
-        direction: 'DESCENDING'
-      }
-    ],
+      orderBy: [
+        {
+          field: {
+            fieldPath: 'created_at'
+          },
 
-    limit: cantidad
+          direction: 'DESCENDING'
+        }
+      ],
 
-  });
+      limit: cantidadConsulta
+    });
 
+  return noticias
+    .filter(
+      (noticia) =>
+        noticia.feed_principal !== false
+    )
+    .slice(
+      0,
+      cantidad
+    );
 }
 
 
 // ============================================================
-// REPÚBLICA ÚTIL
+// REPÚBLICA ÚTIL - PORTADA
 // ============================================================
-// Consulta independiente.
-// Ya NO depende de que la noticia esté entre las últimas 20.
 //
-// El administrador guarda:
-// republica_util_portada: true
+// Consulta completamente independiente.
 //
-// Solo descargamos las entradas necesarias para esa sección.
+// Solo aparecen aquí publicaciones que tengan:
+//
+// publicado = true
+// republica_util_portada = true
+//
 // ============================================================
 
 export async function cargarRepublicaUtilPortada(
   limite = 9
 ) {
-
   const cantidad =
     Math.max(
       1,
@@ -246,16 +260,12 @@ export async function cargarRepublicaUtilPortada(
     ],
 
     where: {
-
       compositeFilter: {
-
         op: 'AND',
 
         filters: [
-
           {
             fieldFilter: {
-
               field: {
                 fieldPath: 'publicado'
               },
@@ -265,13 +275,11 @@ export async function cargarRepublicaUtilPortada(
               value: {
                 booleanValue: true
               }
-
             }
           },
 
           {
             fieldFilter: {
-
               field: {
                 fieldPath: 'republica_util_portada'
               },
@@ -281,14 +289,10 @@ export async function cargarRepublicaUtilPortada(
               value: {
                 booleanValue: true
               }
-
             }
           }
-
         ]
-
       }
-
     },
 
     orderBy: [
@@ -302,26 +306,23 @@ export async function cargarRepublicaUtilPortada(
     ],
 
     limit: cantidad
-
   });
-
 }
 
 
 // ============================================================
 // CONTAR NOTICIAS PUBLICADAS
 // ============================================================
-// Firestore hace COUNT.
-// No descarga las 400+ noticias para conocer el total.
+//
+// Se mantiene el COUNT optimizado de Firestore.
+//
 // ============================================================
 
 export async function contarNoticiasPublicadas() {
-
   const respuesta =
     await fetch(
       RUN_AGGREGATION,
       {
-
         method: 'POST',
 
         headers: {
@@ -329,39 +330,27 @@ export async function contarNoticiasPublicadas() {
         },
 
         body: JSON.stringify({
-
           structuredAggregationQuery: {
-
             structuredQuery: {
-
               from: [
                 {
-                  collectionId:
-                    'noticias'
+                  collectionId: 'noticias'
                 }
               ],
 
               where: {
-
                 fieldFilter: {
-
                   field: {
-                    fieldPath:
-                      'publicado'
+                    fieldPath: 'publicado'
                   },
 
-                  op:
-                    'EQUAL',
+                  op: 'EQUAL',
 
                   value: {
-                    booleanValue:
-                      true
+                    booleanValue: true
                   }
-
                 }
-
               }
-
             },
 
             aggregations: [
@@ -370,23 +359,18 @@ export async function contarNoticiasPublicadas() {
                 count: {}
               }
             ]
-
           }
-
         })
-
       }
     );
 
   if (!respuesta.ok) {
-
     const detalle =
       await respuesta.text();
 
     throw new Error(
       `Firestore conteo respondió ${respuesta.status}: ${detalle}`
     );
-
   }
 
   const resultado =
@@ -412,21 +396,18 @@ export async function contarNoticiasPublicadas() {
     0;
 
   return Number(valor) || 0;
-
 }
 
 
 // ============================================================
-// CARGAR LOTE
+// CARGAR LOTE PARA PAGINACIÓN
 // ============================================================
 
 async function cargarLote(
   limite = 100,
   cursorCreatedAt = null
 ) {
-
   const structuredQuery = {
-
     from: [
       {
         collectionId: 'noticias'
@@ -434,9 +415,7 @@ async function cargarLote(
     ],
 
     where: {
-
       fieldFilter: {
-
         field: {
           fieldPath: 'publicado'
         },
@@ -446,9 +425,7 @@ async function cargarLote(
         value: {
           booleanValue: true
         }
-
       }
-
     },
 
     orderBy: [
@@ -466,14 +443,10 @@ async function cargarLote(
         1,
         Number(limite) || 100
       )
-
   };
 
-
   if (cursorCreatedAt) {
-
     structuredQuery.startAt = {
-
       before: false,
 
       values: [
@@ -482,29 +455,89 @@ async function cargarLote(
             String(cursorCreatedAt)
         }
       ]
-
     };
-
   }
-
 
   return ejecutarQuery(
     structuredQuery
   );
-
 }
 
 
 // ============================================================
 // DATOS PARA PAGINACIÓN ESTÁTICA
 // ============================================================
+//
+// También excluimos las publicaciones que tengan:
+//
+// feed_principal === false
+//
+// Así una publicación exclusiva de República Útil tampoco
+// aparece posteriormente en /pagina/2, /pagina/3, etc.
+//
+// ============================================================
 
 export async function cargarNoticiasParaPaginacion(
   porPagina = 10
 ) {
+  const totalPublicadas =
+    await contarNoticiasPublicadas();
+
+  const todas = [];
+
+  let cursor = null;
+
+  const TAMANO_LOTE = 100;
+
+  while (
+    todas.length < totalPublicadas
+  ) {
+    const lote =
+      await cargarLote(
+        TAMANO_LOTE,
+        cursor
+      );
+
+    if (!lote.length) {
+      break;
+    }
+
+    /*
+     * Compatibilidad:
+     *
+     * true      = feed
+     * sin campo = feed antiguo
+     * false     = fuera del feed
+     */
+    const loteFeed =
+      lote.filter(
+        (noticia) =>
+          noticia.feed_principal !== false
+      );
+
+    todas.push(
+      ...loteFeed
+    );
+
+    const ultima =
+      lote[
+        lote.length - 1
+      ];
+
+    cursor =
+      ultima?.created_at ||
+      null;
+
+    if (
+      !cursor ||
+      lote.length < TAMANO_LOTE
+    ) {
+      break;
+    }
+  }
 
   const total =
-    await contarNoticiasPublicadas();
+    todas.length;
 
   const totalPaginas =
     Math.max(
@@ -514,87 +547,26 @@ export async function cargarNoticiasParaPaginacion(
       )
     );
 
-
   if (total <= porPagina) {
-
     return {
-
       paginas: [],
-
       totalPaginas,
-
       total
-
     };
-
   }
-
-
-  const todas = [];
-
-  let cursor = null;
-
-  const TAMANO_LOTE = 100;
-
-
-  while (
-    todas.length < total
-  ) {
-
-    const lote =
-      await cargarLote(
-        TAMANO_LOTE,
-        cursor
-      );
-
-
-    if (!lote.length) {
-      break;
-    }
-
-
-    todas.push(
-      ...lote
-    );
-
-
-    const ultima =
-      lote[
-        lote.length - 1
-      ];
-
-
-    cursor =
-      ultima?.created_at ||
-      null;
-
-
-    if (
-      !cursor ||
-      lote.length < TAMANO_LOTE
-    ) {
-      break;
-    }
-
-  }
-
 
   const paginas = [];
-
 
   for (
     let pagina = 2;
     pagina <= totalPaginas;
     pagina++
   ) {
-
     const inicio =
       (pagina - 1) *
       porPagina;
 
-
     paginas.push({
-
       pagina,
 
       noticias:
@@ -602,20 +574,12 @@ export async function cargarNoticiasParaPaginacion(
           inicio,
           inicio + porPagina
         )
-
     });
-
   }
 
-
   return {
-
     paginas,
-
     totalPaginas,
-
     total
-
   };
-
 }
