@@ -1,5 +1,7 @@
 ---
-import { cargarNoticiasPublicadas } from '../../lib/noticias-firestore.js';
+import {
+  cargarNoticiasParaPaginacion
+} from '../../lib/noticias-firestore.js';
 
 
 // ============================================================
@@ -8,77 +10,34 @@ import { cargarNoticiasPublicadas } from '../../lib/noticias-firestore.js';
 
 export async function getStaticPaths() {
 
-  // IMPORTANTE:
-  // Esta constante debe estar dentro de getStaticPaths()
-  // porque Astro ejecuta esta función en un contexto aislado.
-
   const POR_PAGINA = 10;
 
-
-  const todas =
-    await cargarNoticiasPublicadas();
-
-
-  const totalPaginas =
-    Math.max(
-      1,
-      Math.ceil(
-        todas.length /
-        POR_PAGINA
-      )
+  const {
+    paginas,
+    totalPaginas
+  } =
+    await cargarNoticiasParaPaginacion(
+      POR_PAGINA
     );
 
 
-  // La página 1 es "/".
-  // Aquí solamente generamos:
-  // /pagina/2/
-  // /pagina/3/
-  // etc.
+  return paginas.map(
+    ({
+      pagina,
+      noticias
+    }) => ({
 
-  return Array.from(
+      params: {
+        pagina:
+          String(pagina)
+      },
 
-    {
-      length:
-        Math.max(
-          0,
-          totalPaginas - 1
-        )
-    },
+      props: {
+        noticias,
+        totalPaginas
+      }
 
-    (_, i) => {
-
-      const pagina =
-        i + 2;
-
-
-      const inicio =
-        (pagina - 1) *
-        POR_PAGINA;
-
-
-      return {
-
-        params: {
-          pagina:
-            String(pagina)
-        },
-
-        props: {
-
-          noticias:
-            todas.slice(
-              inicio,
-              inicio + POR_PAGINA
-            ),
-
-          totalPaginas
-
-        }
-
-      };
-
-    }
-
+    })
   );
 
 }
@@ -105,7 +64,7 @@ const {
 
 
 console.log(
-  `Página ${paginaActual}/${totalPaginas}: ${noticias.length} noticias recibidas desde getStaticPaths`
+  `Página ${paginaActual}/${totalPaginas}: ${noticias.length} noticias`
 );
 
 
@@ -116,15 +75,52 @@ console.log(
 function limpiarHTML(html = '') {
 
   return String(html)
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<img[^>]*>/gi, '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/\s+/g, ' ')
+
+    .replace(
+      /<script[\s\S]*?<\/script>/gi,
+      ''
+    )
+
+    .replace(
+      /<style[\s\S]*?<\/style>/gi,
+      ''
+    )
+
+    .replace(
+      /<img[^>]*>/gi,
+      ''
+    )
+
+    .replace(
+      /<[^>]+>/g,
+      ' '
+    )
+
+    .replace(
+      /&nbsp;/g,
+      ' '
+    )
+
+    .replace(
+      /&amp;/g,
+      '&'
+    )
+
+    .replace(
+      /&quot;/g,
+      '"'
+    )
+
+    .replace(
+      /&#39;/g,
+      "'"
+    )
+
+    .replace(
+      /\s+/g,
+      ' '
+    )
+
     .trim();
 
 }
@@ -136,11 +132,15 @@ function resumen(
 ) {
 
   const texto =
-    limpiarHTML(contenido);
+    limpiarHTML(
+      contenido
+    );
 
 
   return texto.length <= limite
+
     ? texto
+
     : texto
         .substring(
           0,
@@ -156,8 +156,14 @@ function imagenCloudflare(
   ancho = 420
 ) {
 
-  if (!/^https?:\/\//i.test(url)) {
+  if (
+    !/^https?:\/\//i.test(
+      url
+    )
+  ) {
+
     return url;
+
   }
 
 
@@ -166,10 +172,33 @@ function imagenCloudflare(
 }
 
 
-function obtenerCategoria(noticia) {
-  if (noticia.categoria) return noticia.categoria;
-  if (Array.isArray(noticia.etiquetas) && noticia.etiquetas.length) return noticia.etiquetas[0];
+function obtenerCategoria(
+  noticia
+) {
+
+  if (
+    noticia.categoria
+  ) {
+
+    return noticia.categoria;
+
+  }
+
+
+  if (
+    Array.isArray(
+      noticia.etiquetas
+    ) &&
+    noticia.etiquetas.length
+  ) {
+
+    return noticia.etiquetas[0];
+
+  }
+
+
   return 'Actualidad';
+
 }
 
 
@@ -211,7 +240,9 @@ const descripcionSEO =
   />
 
 
-  <title>{tituloSEO}</title>
+  <title>
+    {tituloSEO}
+  </title>
 
 
   <meta
@@ -265,288 +296,309 @@ const descripcionSEO =
   <style>
 
     * {
-      box-sizing:border-box;
+      box-sizing: border-box;
     }
 
 
     body {
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:#fff;
-      color:#102a43;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #102a43;
     }
 
 
     .topbar {
-      background:#102d46;
-      color:white;
-      text-align:center;
-      padding:8px 15px;
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.5px;
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
     }
 
 
     header {
-      max-width:1100px;
-      margin:auto;
-      padding:28px 20px 24px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 20px 24px;
     }
 
 
     .logo {
-      font-size:43px;
-      font-weight:900;
-      letter-spacing:-2px;
-      margin:0;
-      color:#102d46;
-      text-decoration:none;
-      display:inline-block;
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 0;
+      color: #102d46;
+      text-decoration: none;
+      display: inline-block;
     }
 
 
     .logo span {
-      color:#e52b32;
+      color: #e52b32;
     }
 
 
     .slogan {
-      margin-top:6px;
-      color:#63788b;
-      font-size:13px;
-      letter-spacing:1.5px;
+      margin-top: 6px;
+      color: #63788b;
+      font-size: 13px;
+      letter-spacing: 1.5px;
     }
 
 
     nav {
-      border-top:1px solid #e3e7eb;
-      border-bottom:3px solid #102d46;
+      border-top: 1px solid #e3e7eb;
+      border-bottom: 3px solid #102d46;
     }
 
 
     .menu {
-      max-width:1100px;
-      margin:auto;
-      display:flex;
-      gap:30px;
-      padding:14px 20px;
-      overflow-x:auto;
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 30px;
+      padding: 14px 20px;
+      overflow-x: auto;
     }
 
 
     .menu a {
-      color:#102d46;
-      text-decoration:none;
-      text-transform:uppercase;
-      font-size:13px;
-      font-weight:800;
-      white-space:nowrap;
+      color: #102d46;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
 
     .menu a:hover {
-      color:#e52b32;
+      color: #e52b32;
     }
 
 
     main {
-      max-width:1100px;
-      min-height:500px;
-      margin:auto;
-      padding:35px 20px 50px;
+      max-width: 1100px;
+      min-height: 500px;
+      margin: auto;
+      padding: 35px 20px 50px;
     }
 
 
     .cabecera {
-      margin-bottom:10px;
-      padding-bottom:15px;
-      border-bottom:1px solid #e1e6ea;
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e1e6ea;
     }
 
 
     .cabecera h1 {
-      margin:0;
-      color:#e52b32;
-      text-transform:uppercase;
-      font-size:24px;
-      letter-spacing:1px;
+      margin: 0;
+      color: #e52b32;
+      text-transform: uppercase;
+      font-size: 24px;
+      letter-spacing: 1px;
     }
 
 
     .noticias {
-      width:100%;
-      max-width:none;
+      width: 100%;
+      max-width: none;
     }
+
 
     .noticias-grid {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-      margin-top:20px;
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 16px;
+      margin-top: 20px;
     }
+
 
     .noticia {
-      display:grid;
-      grid-template-columns:170px minmax(0,1fr);
-      min-height:145px;
-      border:1px solid #e1e6ea;
-      background:#fff;
-      overflow:hidden;
-      box-shadow:0 3px 12px rgba(16,45,70,.05);
+      display: grid;
+      grid-template-columns: 170px minmax(0,1fr);
+      min-height: 145px;
+      border: 1px solid #e1e6ea;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(16,45,70,.05);
     }
+
 
     .noticia-imagen-enlace {
-      display:block;
-      width:170px;
-      min-height:145px;
-      overflow:hidden;
-      background:#eef1f4;
+      display: block;
+      width: 170px;
+      min-height: 145px;
+      overflow: hidden;
+      background: #eef1f4;
     }
+
 
     .noticia-imagen {
-      width:100%;
-      height:100%;
-      min-height:145px;
-      object-fit:cover;
-      display:block;
+      width: 100%;
+      height: 100%;
+      min-height: 145px;
+      object-fit: cover;
+      display: block;
     }
+
 
     .noticia-contenido {
-      min-width:0;
-      padding:14px 15px;
+      min-width: 0;
+      padding: 14px 15px;
     }
+
 
     .categoria {
-      color:#e52b32;
-      text-transform:uppercase;
-      font-weight:800;
-      font-size:10px;
-      letter-spacing:.9px;
-      margin-bottom:6px;
+      color: #e52b32;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 10px;
+      letter-spacing: .9px;
+      margin-bottom: 6px;
     }
 
+
     .noticia h2 {
-      margin:0 0 7px;
-      font-size:18px;
-      line-height:1.18;
-      letter-spacing:-.25px;
+      margin: 0 0 7px;
+      font-size: 18px;
+      line-height: 1.18;
+      letter-spacing: -.25px;
     }
+
 
     .noticia h2 a,
     .noticia h2 a:visited {
-      color:#102d46;
-      text-decoration:none;
+      color: #102d46;
+      text-decoration: none;
     }
 
-    .noticia h2 a:hover { color:#e52b32; }
+
+    .noticia h2 a:hover {
+      color: #e52b32;
+    }
+
 
     .resumen {
-      color:#5f7180;
-      font-size:12px;
-      line-height:1.45;
-      margin:0;
+      color: #5f7180;
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 0;
     }
 
+
     .paginacion {
-      width:100%;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:30px 0 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 30px 0 10px;
     }
+
 
     .paginacion a,
     .paginacion span {
-      min-width:38px;
-      height:38px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 12px;
-      border:1px solid #d9e0e5;
-      text-decoration:none;
-      color:#102d46;
-      font-weight:700;
-      border-radius:4px;
+      min-width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid #d9e0e5;
+      text-decoration: none;
+      color: #102d46;
+      font-weight: 700;
+      border-radius: 4px;
     }
+
 
     .paginacion a:hover {
-      border-color:#e52b32;
-      color:#e52b32;
+      border-color: #e52b32;
+      color: #e52b32;
     }
 
+
     .paginacion .actual {
-      background:#e52b32;
-      color:#fff;
-      border-color:#e52b32;
+      background: #e52b32;
+      color: #fff;
+      border-color: #e52b32;
     }
 
 
     .mensaje {
-      padding:40px 0;
-      color:#687986;
-      font-size:17px;
+      padding: 40px 0;
+      color: #687986;
+      font-size: 17px;
     }
 
 
     footer {
-      margin-top:50px;
-      background:#102d46;
-      color:white;
-      text-align:center;
-      padding:28px 20px;
-      font-size:13px;
+      margin-top: 50px;
+      background: #102d46;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
     }
 
 
-    @media (max-width:700px) {
+    @media (max-width: 700px) {
 
       header {
-        padding-top:22px;
+        padding-top: 22px;
       }
 
 
       .logo {
-        font-size:32px;
+        font-size: 32px;
       }
 
 
       .menu {
-        gap:22px;
+        gap: 22px;
       }
 
 
       main {
-        padding:25px 16px 40px;
+        padding: 25px 16px 40px;
       }
 
 
       .noticias-grid {
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
       }
+
 
       .noticia {
-        grid-template-columns:125px minmax(0,1fr);
-        min-height:125px;
+        grid-template-columns: 125px minmax(0,1fr);
+        min-height: 125px;
       }
+
 
       .noticia-imagen-enlace {
-        width:125px;
-        min-height:125px;
+        width: 125px;
+        min-height: 125px;
       }
+
 
       .noticia-imagen {
-        min-height:125px;
+        min-height: 125px;
       }
+
 
       .noticia h2 {
-        font-size:16px;
+        font-size: 16px;
       }
 
+
       .resumen {
-        display:none;
+        display: none;
       }
 
     }
@@ -589,21 +641,17 @@ const descripcionSEO =
         Inicio
       </a>
 
-
       <a href="/categoria/nacionales/">
         Nacionales
       </a>
-
 
       <a href="/categoria/politica/">
         Política
       </a>
 
-
       <a href="/categoria/economia/">
         Economía
       </a>
-
 
       <a href="/categoria/deportes/">
         Deportes
@@ -613,16 +661,13 @@ const descripcionSEO =
         Loterías
       </a>
 
-
       <a href="/categoria/entretenimiento/">
         Entretenimiento
       </a>
 
-
       <a href="/categoria/mundo/">
         Mundo
       </a>
-
 
       <a href="/categoria/tecnologia/">
         Tecnología
@@ -655,41 +700,89 @@ const descripcionSEO =
       ) : (
 
         <section class="noticias">
+
           <div class="noticias-grid">
-            {noticias.map((noticia, index) => {
-              const enlace = `/noticia/${noticia.slug || noticia.id}/`;
 
-              return (
-                <article class="noticia">
-                  {noticia.imagen && (
-                    <a class="noticia-imagen-enlace" href={enlace}>
-                      <img
-                        class="noticia-imagen"
-                        src={imagenCloudflare(noticia.imagen, 420)}
-                        data-original={noticia.imagen}
-                        alt={noticia.titulo || 'Noticia de República Actual'}
-                        width="170"
-                        height="145"
-                        loading={index < 2 ? 'eager' : 'lazy'}
-                        fetchpriority={index === 0 ? 'high' : 'auto'}
-                        decoding="async"
-                        referrerpolicy="no-referrer"
-                        onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
-                      />
-                    </a>
-                  )}
+            {
+              noticias.map(
+                (noticia, index) => {
 
-                  <div class="noticia-contenido">
-                    <div class="categoria">{obtenerCategoria(noticia)}</div>
-                    <h2><a href={enlace}>{noticia.titulo || ''}</a></h2>
-                    <p class="resumen">
-                      {resumen(noticia.contenido || noticia.descripcion || '', 90)}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
+                  const enlace =
+                    `/noticia/${noticia.slug || noticia.id}/`;
+
+                  return (
+
+                    <article class="noticia">
+
+                      {
+                        noticia.imagen && (
+
+                          <a
+                            class="noticia-imagen-enlace"
+                            href={enlace}
+                          >
+
+                            <img
+                              class="noticia-imagen"
+                              src={imagenCloudflare(noticia.imagen, 420)}
+                              data-original={noticia.imagen}
+                              alt={noticia.titulo || 'Noticia de República Actual'}
+                              width="170"
+                              height="145"
+                              loading={index < 2 ? 'eager' : 'lazy'}
+                              fetchpriority={index === 0 ? 'high' : 'auto'}
+                              decoding="async"
+                              referrerpolicy="no-referrer"
+                              onerror="if(this.dataset.fallbackStage!=='original'){this.dataset.fallbackStage='original';this.src=this.dataset.original;}else{this.onerror=null;this.style.display='none';}"
+                            />
+
+                          </a>
+
+                        )
+                      }
+
+
+                      <div class="noticia-contenido">
+
+                        <div class="categoria">
+                          {obtenerCategoria(noticia)}
+                        </div>
+
+
+                        <h2>
+
+                          <a href={enlace}>
+                            {noticia.titulo || ''}
+                          </a>
+
+                        </h2>
+
+
+                        <p class="resumen">
+
+                          {
+                            resumen(
+                              noticia.contenido ||
+                              noticia.descripcion ||
+                              '',
+                              90
+                            )
+                          }
+
+                        </p>
+
+                      </div>
+
+                    </article>
+
+                  );
+
+                }
+              )
+            }
+
           </div>
+
         </section>
 
       )
@@ -700,17 +793,23 @@ const descripcionSEO =
 
       {
         paginaActual > 2
+
           ? (
+
               <a
                 href={`/pagina/${paginaActual - 1}/`}
               >
                 ←
               </a>
+
             )
+
           : (
+
               <a href="/">
                 ←
               </a>
+
             )
       }
 
@@ -755,12 +854,15 @@ const descripcionSEO =
                   p === paginaActual
 
                     ? (
+
                         <span class="actual">
                           {p}
                         </span>
+
                       )
 
                     : (
+
                         <a
                           href={
                             p === 1
@@ -770,6 +872,7 @@ const descripcionSEO =
                         >
                           {p}
                         </a>
+
                       )
                 }
 

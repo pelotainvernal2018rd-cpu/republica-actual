@@ -5,19 +5,25 @@
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-import { cargarNoticiasPublicadas } from '../lib/noticias-firestore.js';
+import { cargarNoticiasPublicadas, contarNoticiasPublicadas } from '../lib/noticias-firestore.js';
 
 let noticias = [];
+let totalNoticias = 0;
 let errorConexion = '';
 
 try {
-  noticias = await cargarNoticiasPublicadas();
+  const [noticiasRecientes, total] = await Promise.all([
+    cargarNoticiasPublicadas(20),
+    contarNoticiasPublicadas()
+  ]);
+  noticias = noticiasRecientes;
+  totalNoticias = total;
 } catch (error) {
   console.error(error);
   errorConexion = 'No se pudieron cargar las noticias.';
 }
 
-const totalPaginas = Math.ceil(noticias.length / 10);
+const totalPaginas = Math.max(1, Math.ceil(totalNoticias / 10));
 const paginaActual = 1;
 const inicioPagina = 1;
 const finPagina = Math.min(5, totalPaginas);

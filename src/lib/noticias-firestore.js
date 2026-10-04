@@ -3,7 +3,11 @@ const FIREBASE_PROJECT_ID =
   import.meta.env.FIREBASE_PROJECT_ID ||
   'republica-actual';
 
-let promesaNoticias = null;
+const RUN_QUERY =
+  `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
+
+const RUN_AGGREGATION =
+  `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runAggregationQuery`;
 
 
 // ============================================================
@@ -82,7 +86,6 @@ function documentoFirestore(doc = {}) {
 
   );
 
-
   if (
     (
       datos.id === undefined ||
@@ -99,69 +102,186 @@ function documentoFirestore(doc = {}) {
 
   }
 
-
   return datos;
 }
 
 
 // ============================================================
-// CONSULTA ÚNICA A FIRESTORE
+// EJECUTAR CONSULTA
 // ============================================================
 
-async function consultarFirestore() {
-
-  console.log(
-    'Firestore: realizando carga central de noticias publicadas...'
-  );
-
-
-  const endpoint =
-    `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
-
+async function ejecutarQuery(structuredQuery) {
 
   const respuesta =
     await fetch(
-      endpoint,
+      RUN_QUERY,
+      {
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          structuredQuery
+        })
+      }
+    );
+
+  if (!respuesta.ok) {
+
+    const detalle =
+      await respuesta.text();
+
+    throw new Error(
+      `Firestore respondió ${respuesta.status}: ${detalle}`
+    );
+
+  }
+
+  const resultado =
+    await respuesta.json();
+
+  return resultado
+
+    .filter(
+      (fila) =>
+        fila.document
+    )
+
+    .map(
+      (fila) =>
+        documentoFirestore(
+          fila.document
+        )
+    );
+
+}
+
+
+// ============================================================
+// CARGAR NOTICIAS PUBLICADAS
+// ============================================================
+// IMPORTANTE:
+// Ya NO descarga toda la colección.
+// Por defecto carga solamente 20.
+// ============================================================
+
+export async function cargarNoticiasPublicadas(
+  limite = 20
+) {
+
+  const cantidad =
+    Math.max(
+      1,
+      Number(limite) || 20
+    );
+
+  return ejecutarQuery({
+
+    from: [
+      {
+        collectionId: 'noticias'
+      }
+    ],
+
+    where: {
+
+      fieldFilter: {
+
+        field: {
+          fieldPath: 'publicado'
+        },
+
+        op: 'EQUAL',
+
+        value: {
+          booleanValue: true
+        }
+
+      }
+
+    },
+
+    orderBy: [
+      {
+        field: {
+          fieldPath: 'created_at'
+        },
+
+        direction: 'DESCENDING'
+      }
+    ],
+
+    limit: cantidad
+
+  });
+
+}
+
+
+// ============================================================
+// CONTAR NOTICIAS PUBLICADAS
+// ============================================================
+// Firestore hace COUNT.
+// No descarga las 400+ noticias solo para conocer el total.
+// ============================================================
+
+export async function contarNoticiasPublicadas() {
+
+  const respuesta =
+    await fetch(
+      RUN_AGGREGATION,
       {
 
         method: 'POST',
 
         headers: {
-          'Content-Type':
-            'application/json'
+          'Content-Type': 'application/json'
         },
 
         body: JSON.stringify({
 
-          structuredQuery: {
+          structuredAggregationQuery: {
 
-            from: [
-              {
-                collectionId:
-                  'noticias'
-              }
-            ],
+            structuredQuery: {
 
-            where: {
+              from: [
+                {
+                  collectionId:
+                    'noticias'
+                }
+              ],
 
-              fieldFilter: {
+              where: {
 
-                field: {
-                  fieldPath:
-                    'publicado'
-                },
+                fieldFilter: {
 
-                op:
-                  'EQUAL',
+                  field: {
+                    fieldPath:
+                      'publicado'
+                  },
 
-                value: {
-                  booleanValue:
-                    true
+                  op:
+                    'EQUAL',
+
+                  value: {
+                    booleanValue:
+                      true
+                  }
+
                 }
 
               }
 
-            }
+            },
+
+            aggregations: [
+              {
+                alias: 'total',
+                count: {}
+              }
+            ]
 
           }
 
@@ -170,93 +290,239 @@ async function consultarFirestore() {
       }
     );
 
-
   if (!respuesta.ok) {
 
     const detalle =
       await respuesta.text();
 
-
     throw new Error(
-      `Firestore respondió ${respuesta.status}: ${detalle}`
+      `Firestore conteo respondió ${respuesta.status}: ${detalle}`
     );
 
   }
-
 
   const resultado =
     await respuesta.json();
 
+  const valor =
+    resultado?.[0]
+      ?.result
+      ?.aggregateFields
+      ?.total
+      ?.integerValue
+    ??
+    resultado?.[0]
+      ?.result
+      ?.aggregateFields
+      ?.total
+      ?.doubleValue
+    ??
+    0;
 
-  const noticias =
-    resultado
-
-      .filter(
-        (fila) =>
-          fila.document
-      )
-
-      .map(
-        (fila) =>
-          documentoFirestore(
-            fila.document
-          )
-      )
-
-      .sort(
-        (a, b) =>
-          (
-            Date.parse(
-              b.created_at || ''
-            ) || 0
-          )
-          -
-          (
-            Date.parse(
-              a.created_at || ''
-            ) || 0
-          )
-      );
-
-
-  console.log(
-    `Firestore: carga central completada con ${noticias.length} noticias.`
-  );
-
-
-  return noticias;
+  return Number(valor) || 0;
 }
 
 
 // ============================================================
-// FUNCIÓN CENTRAL EXPORTADA
+// CARGAR LOTE
 // ============================================================
 
-export function cargarNoticiasPublicadas() {
+async function cargarLote(
+  limite = 100,
+  cursorCreatedAt = null
+) {
 
-  if (!promesaNoticias) {
+  const structuredQuery = {
 
-    promesaNoticias =
-      consultarFirestore()
-        .catch(
-          (error) => {
+    from: [
+      {
+        collectionId: 'noticias'
+      }
+    ],
 
-            promesaNoticias =
-              null;
+    where: {
 
-            throw error;
+      fieldFilter: {
 
-          }
-        );
+        field: {
+          fieldPath: 'publicado'
+        },
 
-  } else {
+        op: 'EQUAL',
 
-    console.log(
-      'Firestore: reutilizando noticias ya cargadas.'
-    );
+        value: {
+          booleanValue: true
+        }
+
+      }
+
+    },
+
+    orderBy: [
+      {
+        field: {
+          fieldPath: 'created_at'
+        },
+
+        direction: 'DESCENDING'
+      }
+    ],
+
+    limit:
+      Math.max(
+        1,
+        Number(limite) || 100
+      )
+
+  };
+
+
+  if (cursorCreatedAt) {
+
+    structuredQuery.startAt = {
+
+      before: false,
+
+      values: [
+        {
+          stringValue:
+            String(cursorCreatedAt)
+        }
+      ]
+
+    };
 
   }
 
 
-  return promesaNoticias;
+  return ejecutarQuery(
+    structuredQuery
+  );
+
+}
+
+
+// ============================================================
+// DATOS PARA PAGINACIÓN ESTÁTICA
+// ============================================================
+
+export async function cargarNoticiasParaPaginacion(
+  porPagina = 10
+) {
+
+  const total =
+    await contarNoticiasPublicadas();
+
+  const totalPaginas =
+    Math.max(
+      1,
+      Math.ceil(
+        total / porPagina
+      )
+    );
+
+
+  if (total <= porPagina) {
+
+    return {
+
+      paginas: [],
+
+      totalPaginas,
+
+      total
+
+    };
+
+  }
+
+
+  const todas = [];
+
+  let cursor = null;
+
+  const TAMANO_LOTE = 100;
+
+
+  while (
+    todas.length < total
+  ) {
+
+    const lote =
+      await cargarLote(
+        TAMANO_LOTE,
+        cursor
+      );
+
+
+    if (!lote.length) {
+      break;
+    }
+
+
+    todas.push(
+      ...lote
+    );
+
+
+    const ultima =
+      lote[
+        lote.length - 1
+      ];
+
+
+    cursor =
+      ultima?.created_at ||
+      null;
+
+
+    if (
+      !cursor ||
+      lote.length < TAMANO_LOTE
+    ) {
+      break;
+    }
+
+  }
+
+
+  const paginas = [];
+
+
+  for (
+    let pagina = 2;
+    pagina <= totalPaginas;
+    pagina++
+  ) {
+
+    const inicio =
+      (pagina - 1) *
+      porPagina;
+
+
+    paginas.push({
+
+      pagina,
+
+      noticias:
+        todas.slice(
+          inicio,
+          inicio + porPagina
+        )
+
+    });
+
+  }
+
+
+  return {
+
+    paginas,
+
+    totalPaginas,
+
+    total
+
+  };
+
 }
