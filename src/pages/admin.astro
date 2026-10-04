@@ -2008,6 +2008,13 @@
 
     }
 
+    /* ======================================================
+       CARGA OPTIMIZADA DE NOTICIAS
+       - Antes: descargaba hasta 1000 documentos al abrir admin.
+       - Ahora: solo carga las 100 noticias más recientes.
+       - Esto reduce drásticamente las lecturas de Firestore.
+       ====================================================== */
+
     async function obtenerTodasLasNoticias() {
 
       const token =
@@ -2015,12 +2022,41 @@
 
       const respuesta =
         await fetch(
-          `${FIRESTORE_BASE}/noticias?pageSize=1000`,
+          `${FIRESTORE_BASE}:runQuery`,
           {
+            method: 'POST',
+
             headers: {
               Authorization:
-                `Bearer ${token}`
-            }
+                `Bearer ${token}`,
+
+              'Content-Type':
+                'application/json'
+            },
+
+            body: JSON.stringify({
+              structuredQuery: {
+                from: [
+                  {
+                    collectionId:
+                      'noticias'
+                  }
+                ],
+
+                orderBy: [
+                  {
+                    field: {
+                      fieldPath:
+                        'created_at'
+                    },
+                    direction:
+                      'DESCENDING'
+                  }
+                ],
+
+                limit: 100
+              }
+            })
           }
         );
 
@@ -2036,13 +2072,20 @@
 
       }
 
-      const data =
+      const filas =
         await respuesta.json();
 
-      return (
-        data.documents || []
-      )
-        .map(documentoAObjeto)
+      return filas
+        .filter(
+          fila =>
+            fila.document
+        )
+        .map(
+          fila =>
+            documentoAObjeto(
+              fila.document
+            )
+        )
         .sort(
           (a, b) =>
             (
