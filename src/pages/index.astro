@@ -85,7 +85,12 @@ function obtenerImagen(noticia = {}) {
     noticia.imagen_principal ||
     noticia.image ||
     noticia.image_url ||
-    ''
+    (
+      noticia.republica_util === true &&
+      noticia.slug
+        ? `/evergreen/${noticia.slug}.webp`
+        : ''
+    )
   );
 }
 // 11 noticias en Ultimas publicaciones: 1 principal + 10 adicionales
