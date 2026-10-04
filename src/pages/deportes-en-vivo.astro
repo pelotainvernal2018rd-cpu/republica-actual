@@ -9,424 +9,197 @@ const deportes = [
   { id: "nfl", nombre: "NFL", icono: "🏈" },
   { id: "futbol", nombre: "Fútbol", icono: "⚽" },
 ];
-
-const partidos = [
-  {
-    deporte: "mlb",
-    liga: "MLB",
-    estado: "EN VIVO",
-    detalle: "7.º inning",
-    visitante: "New York Yankees",
-    local: "Boston Red Sox",
-    visitanteCorto: "NYY",
-    localCorto: "BOS",
-    marcadorVisitante: 4,
-    marcadorLocal: 3,
-    hora: "En vivo",
-    video: false
-  },
-  {
-    deporte: "nba",
-    liga: "NBA",
-    estado: "PRÓXIMO",
-    detalle: "8:00 PM",
-    visitante: "Los Angeles Lakers",
-    local: "Boston Celtics",
-    visitanteCorto: "LAL",
-    localCorto: "BOS",
-    marcadorVisitante: "-",
-    marcadorLocal: "-",
-    hora: "8:00 PM",
-    video: false
-  },
-  {
-    deporte: "futbol",
-    liga: "FÚTBOL",
-    estado: "PRÓXIMO",
-    detalle: "9:00 PM",
-    visitante: "Real Madrid",
-    local: "Barcelona",
-    visitanteCorto: "RMA",
-    localCorto: "BAR",
-    marcadorVisitante: "-",
-    marcadorLocal: "-",
-    hora: "9:00 PM",
-    video: false
-  }
-];
 ---
 
 <Layout title="Deportes en Vivo | República Actual">
-
 <main class="sports-page">
-
-  <!-- HERO -->
   <section class="sports-hero">
     <div class="hero-inner">
-
       <div>
         <span class="section-label">REPÚBLICA ACTUAL</span>
-
-        <h1>
-          Deportes
-          <span>EN VIVO</span>
-        </h1>
-
-        <p>
-          Marcadores, partidos, resultados y transmisiones deportivas
-          desde un solo lugar.
-        </p>
+        <h1>Deportes <span>EN VIVO</span></h1>
+        <p>Marcadores, partidos y resultados de MLB, LIDOM, NBA, NFL y fútbol desde un solo lugar.</p>
       </div>
-
-      <div class="live-indicator">
-        <span class="live-dot"></span>
-        ACTUALIZACIÓN EN VIVO
-      </div>
-
+      <div class="live-indicator"><span class="live-dot"></span> ACTUALIZACIÓN EN VIVO</div>
     </div>
   </section>
 
-
-  <!-- NAVEGACIÓN DEPORTES -->
   <section class="sports-nav">
-
     <div class="nav-scroll">
-
       {deportes.map((deporte) => (
-        <button
-          class:list={[
-            "sport-filter",
-            deporte.id === "todos" && "active"
-          ]}
-          data-sport={deporte.id}
-        >
-          <span>{deporte.icono}</span>
-          {deporte.nombre}
+        <button class:list={["sport-filter", deporte.id === "todos" && "active"]} data-sport={deporte.id}>
+          <span>{deporte.icono}</span> {deporte.nombre}
         </button>
       ))}
-
     </div>
-
   </section>
 
-
-  <!-- CONTENIDO -->
   <div class="sports-container">
-
-    <!-- PARTIDO DESTACADO -->
-    <section class="featured-section">
-
+    <section class="featured-section" id="featured-section" hidden>
       <div class="section-heading">
-
-        <div>
-          <span class="live-dot"></span>
-          EN VIVO AHORA
-        </div>
-
-        <span class="update-text">
-          Marcadores actualizados automáticamente
-        </span>
-
+        <div><span class="live-dot"></span> EN VIVO AHORA</div>
+        <span class="update-text">Marcadores actualizados automáticamente</span>
       </div>
 
-
-      <article class="featured-game" data-sport="mlb">
-
+      <article class="featured-game">
         <div class="game-top">
-
-          <div class="league">
-            ⚾ MLB
-          </div>
-
-          <div class="live-badge">
-            <span></span>
-            EN VIVO
-          </div>
-
+          <div class="league" id="featured-league">DEPORTE</div>
+          <div class="live-badge"><span></span> EN VIVO</div>
         </div>
-
-
         <div class="game-main">
-
           <div class="team">
-
-            <div class="team-logo">
-              NY
-            </div>
-
-            <div class="team-name">
-              <strong>New York Yankees</strong>
-              <span>NYY</span>
-            </div>
-
+            <div class="team-logo" id="featured-away-logo"></div>
+            <div class="team-name"><strong id="featured-away"></strong><span id="featured-away-abbr"></span></div>
           </div>
-
-
           <div class="score-center">
-
-            <div class="inning">
-              7.º INNING
-            </div>
-
-            <div class="score">
-              <strong>4</strong>
-              <span>—</span>
-              <strong>3</strong>
-            </div>
-
-            <div class="game-status">
-              Partido en progreso
-            </div>
-
+            <div class="inning" id="featured-detail"></div>
+            <div class="score"><strong id="featured-away-score">-</strong><span>—</span><strong id="featured-home-score">-</strong></div>
+            <div class="game-status">Partido en progreso</div>
           </div>
-
-
           <div class="team team-right">
-
-            <div class="team-logo">
-              BOS
-            </div>
-
-            <div class="team-name">
-              <strong>Boston Red Sox</strong>
-              <span>BOS</span>
-            </div>
-
+            <div class="team-logo" id="featured-home-logo"></div>
+            <div class="team-name"><strong id="featured-home"></strong><span id="featured-home-abbr"></span></div>
           </div>
-
         </div>
 
-
-        <!-- REPRODUCTOR -->
         <div class="player-area">
-
           <div class="player-placeholder">
-
-            <div class="player-icon">
-              ▶
-            </div>
-
+            <div class="player-icon">▶</div>
             <h3>Transmisión del partido</h3>
-
-            <p>
-              El reproductor aparecerá aquí cuando exista
-              una señal disponible para este encuentro.
-            </p>
-
+            <p>El reproductor aparecerá aquí cuando exista una transmisión autorizada disponible para este encuentro.</p>
           </div>
-
         </div>
-
 
         <div class="game-footer">
-
-          <div>
-            <span>●</span>
-            Marcador en vivo
-          </div>
-
-          <div>
-            República Actual Deportes
-          </div>
-
+          <div><span>●</span> Marcador en vivo</div>
+          <div>República Actual Deportes</div>
         </div>
-
       </article>
-
     </section>
 
-
-    <!-- PARTIDOS -->
     <section class="games-section">
-
       <div class="games-title">
-
-        <div>
-          <span>📅</span>
-
-          <div>
-            <h2>Partidos de hoy</h2>
-            <p>Calendario deportivo</p>
-          </div>
-
-        </div>
-
-
+        <div><span>📅</span><div><h2>Partidos de hoy</h2><p id="sports-date">Calendario deportivo</p></div></div>
         <div class="status-tabs">
-
-          <button class="status-active">
-            Todos
-          </button>
-
-          <button>
-            En vivo
-          </button>
-
-          <button>
-            Próximos
-          </button>
-
-          <button>
-            Finalizados
-          </button>
-
+          <button class="status-active" data-status="todos">Todos</button>
+          <button data-status="live">En vivo</button>
+          <button data-status="pre">Próximos</button>
+          <button data-status="post">Finalizados</button>
         </div>
-
       </div>
-
-
-      <div class="games-grid">
-
-        {partidos.map((partido) => (
-
-          <article
-            class="game-card"
-            data-sport={partido.deporte}
-          >
-
-            <div class="card-header">
-
-              <span class="league-small">
-                {partido.liga}
-              </span>
-
-              <span
-                class:list={[
-                  "game-state",
-                  partido.estado === "EN VIVO" && "is-live"
-                ]}
-              >
-                {partido.estado}
-              </span>
-
-            </div>
-
-
-            <div class="card-teams">
-
-              <div class="small-team">
-
-                <div class="mini-logo">
-                  {partido.visitanteCorto}
-                </div>
-
-                <span>
-                  {partido.visitante}
-                </span>
-
-                <strong>
-                  {partido.marcadorVisitante}
-                </strong>
-
-              </div>
-
-
-              <div class="small-team">
-
-                <div class="mini-logo">
-                  {partido.localCorto}
-                </div>
-
-                <span>
-                  {partido.local}
-                </span>
-
-                <strong>
-                  {partido.marcadorLocal}
-                </strong>
-
-              </div>
-
-            </div>
-
-
-            <div class="card-footer">
-
-              <span>
-                {partido.detalle}
-              </span>
-
-              {
-                partido.estado === "EN VIVO"
-                ? (
-                  <button class="watch-button">
-                    ▶ Ver partido
-                  </button>
-                )
-                : (
-                  <span class="game-time">
-                    {partido.hora}
-                  </span>
-                )
-              }
-
-            </div>
-
-          </article>
-
-        ))}
-
+      <div class="games-grid" id="games-grid">
+        <div class="loading-sports">Cargando marcadores deportivos…</div>
       </div>
-
+      <p class="source-note">Los datos se actualizan automáticamente. Los horarios se muestran en hora de República Dominicana.</p>
     </section>
 
-
-    <!-- PRÓXIMAMENTE -->
     <section class="coming-section">
-
-      <div class="coming-icon">
-        📺
-      </div>
-
-      <div>
-        <h2>Más deportes, más acción</h2>
-
-        <p>
-          República Actual Deportes incorporará nuevos partidos,
-          resultados y competiciones automáticamente.
-        </p>
-      </div>
-
+      <div class="coming-icon">📺</div>
+      <div><h2>Más deportes, más acción</h2><p>MLB, LIDOM, NBA, NFL y las principales competiciones de fútbol en una sola sección.</p></div>
     </section>
-
   </div>
-
 </main>
 
-
 <script>
+  const grid = document.getElementById("games-grid");
+  const filtros = document.querySelectorAll(".sport-filter");
+  const statusButtons = document.querySelectorAll(".status-tabs button");
+  const featured = document.getElementById("featured-section");
+  let juegos = [];
+  let deporteActivo = "todos";
+  let estadoActivo = "todos";
 
-const filtros = document.querySelectorAll(".sport-filter");
-const tarjetas = document.querySelectorAll(".game-card");
+  const esc = (v = "") => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const logo = (url, abbr) => url ? `<img src="${esc(url)}" alt="" loading="lazy">` : esc(abbr || "—");
 
-filtros.forEach((boton) => {
+  function horaRD(fecha) {
+    if (!fecha) return "";
+    return new Intl.DateTimeFormat("es-DO", {timeZone:"America/Santo_Domingo", hour:"numeric", minute:"2-digit"}).format(new Date(fecha));
+  }
 
-  boton.addEventListener("click", () => {
+  function estadoTexto(j) {
+    if (j.state === "live") return "EN VIVO";
+    if (j.state === "post") return "FINAL";
+    return "PRÓXIMO";
+  }
 
-    filtros.forEach((b) => b.classList.remove("active"));
+  function render() {
+    const visibles = juegos.filter(j =>
+      (deporteActivo === "todos" || j.deporte === deporteActivo) &&
+      (estadoActivo === "todos" || j.state === estadoActivo)
+    );
 
-    boton.classList.add("active");
+    if (!visibles.length) {
+      grid.innerHTML = `<div class="empty-sports">No hay partidos para este filtro en este momento.</div>`;
+    } else {
+      grid.innerHTML = visibles.map(j => `
+        <article class="game-card" data-sport="${esc(j.deporte)}">
+          <div class="card-header">
+            <span class="league-small">${esc(j.liga)}</span>
+            <span class="game-state ${j.state === "live" ? "is-live" : ""}">${estadoTexto(j)}</span>
+          </div>
+          <div class="card-teams">
+            <div class="small-team">
+              <div class="mini-logo">${logo(j.visitante.logo, j.visitante.abbr)}</div>
+              <span>${esc(j.visitante.nombre)}</span><strong>${esc(j.visitante.score ?? "-")}</strong>
+            </div>
+            <div class="small-team">
+              <div class="mini-logo">${logo(j.local.logo, j.local.abbr)}</div>
+              <span>${esc(j.local.nombre)}</span><strong>${esc(j.local.score ?? "-")}</strong>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>${esc(j.detalle || (j.state === "pre" ? horaRD(j.fecha) : estadoTexto(j)))}</span>
+            <span class="game-time">${j.state === "pre" ? horaRD(j.fecha) : estadoTexto(j)}</span>
+          </div>
+        </article>`).join("");
+    }
 
-    const deporte = boton.getAttribute("data-sport");
+    const enVivo = juegos.find(j => j.state === "live" && (deporteActivo === "todos" || j.deporte === deporteActivo));
+    if (!enVivo) {
+      featured.hidden = true;
+      return;
+    }
+    featured.hidden = false;
+    document.getElementById("featured-league").textContent = `${enVivo.icono || "🏆"} ${enVivo.liga}`;
+    document.getElementById("featured-away").textContent = enVivo.visitante.nombre;
+    document.getElementById("featured-home").textContent = enVivo.local.nombre;
+    document.getElementById("featured-away-abbr").textContent = enVivo.visitante.abbr || "";
+    document.getElementById("featured-home-abbr").textContent = enVivo.local.abbr || "";
+    document.getElementById("featured-away-score").textContent = enVivo.visitante.score ?? "-";
+    document.getElementById("featured-home-score").textContent = enVivo.local.score ?? "-";
+    document.getElementById("featured-detail").textContent = enVivo.detalle || "EN VIVO";
+    document.getElementById("featured-away-logo").innerHTML = logo(enVivo.visitante.logo, enVivo.visitante.abbr);
+    document.getElementById("featured-home-logo").innerHTML = logo(enVivo.local.logo, enVivo.local.abbr);
+  }
 
-    tarjetas.forEach((tarjeta) => {
+  async function cargar() {
+    try {
+      const r = await fetch("/api/deportes", {cache:"no-store"});
+      if (!r.ok) throw new Error("No se pudieron cargar los deportes");
+      const data = await r.json();
+      juegos = Array.isArray(data.juegos) ? data.juegos : [];
+      document.getElementById("sports-date").textContent =
+        new Intl.DateTimeFormat("es-DO",{timeZone:"America/Santo_Domingo",weekday:"long",day:"numeric",month:"long"}).format(new Date());
+      render();
+    } catch (e) {
+      grid.innerHTML = `<div class="error-sports">No fue posible actualizar los marcadores. Intentaremos nuevamente automáticamente.</div>`;
+    }
+  }
 
-      const tipo = tarjeta.getAttribute("data-sport");
+  filtros.forEach(b => b.addEventListener("click", () => {
+    filtros.forEach(x => x.classList.remove("active")); b.classList.add("active");
+    deporteActivo = b.dataset.sport || "todos"; render();
+  }));
 
-      if (deporte === "todos" || deporte === tipo) {
-        tarjeta.style.display = "";
-      } else {
-        tarjeta.style.display = "none";
-      }
+  statusButtons.forEach(b => b.addEventListener("click", () => {
+    statusButtons.forEach(x => x.classList.remove("status-active")); b.classList.add("status-active");
+    estadoActivo = b.dataset.status || "todos"; render();
+  }));
 
-    });
-
-  });
-
-});
-
+  cargar();
+  setInterval(cargar, 60000);
 </script>
-
 
 <style>
 
@@ -1291,6 +1064,16 @@ filtros.forEach((boton) => {
 
 }
 
+</style>
+
+<style>
+  .loading-sports,.empty-sports,.error-sports{grid-column:1/-1;padding:28px;text-align:center;background:#fff;border:1px solid #e6e9ed;border-radius:13px;color:#657080}
+  .team-logo img,.mini-logo img{width:100%;height:100%;object-fit:contain}
+  .team-logo,.mini-logo{overflow:hidden;padding:5px}
+  .featured-section[hidden]{display:none}
+  .game-card[hidden]{display:none}
+  .source-note{margin-top:18px;color:#8a94a3;font-size:11px;text-align:center}
+  .date-line{font-size:11px;color:#8993a2;margin-top:4px}
 </style>
 
 </Layout>
