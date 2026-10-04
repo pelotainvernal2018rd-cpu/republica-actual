@@ -2050,10 +2050,35 @@
       );
     }
 
-    async function guardarDocumento(id, datos) {
-      const data = await apiNoticiasGitHub('PUT', { id: String(id), noticia: datos });
-      return data.noticia;
-    }
+   async function guardarDocumento(id, datos) {
+
+  const esEdicion =
+    Boolean(noticiaEditando) ||
+    Boolean(noticiaId.value);
+
+  const metodo =
+    esEdicion
+      ? 'PUT'
+      : 'POST';
+
+  const body =
+    esEdicion
+      ? {
+          id: String(id),
+          noticia: datos
+        }
+      : {
+          noticia: datos
+        };
+
+  const data =
+    await apiNoticiasGitHub(
+      metodo,
+      body
+    );
+
+  return data.noticia;
+}
 
     async function borrarDocumento(id) {
       await apiNoticiasGitHub('DELETE', { id: String(id) });
