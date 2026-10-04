@@ -927,9 +927,49 @@
 
                 <input
                   id="imagen"
-                  type="url"
-                  placeholder="https://..."
+                  type="text"
+                  placeholder="https://... o sube una imagen desde tu PC"
                 />
+
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;">
+                  <label
+                    for="imagenArchivo"
+                    class="btn btn-gris"
+                    style="margin:0;cursor:pointer;display:inline-block;"
+                  >
+                    📁 Subir desde PC
+                  </label>
+
+                  <input
+                    id="imagenArchivo"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    style="display:none;"
+                  />
+
+                  <button
+                    id="quitarImagenPrincipal"
+                    type="button"
+                    class="btn btn-rojo"
+                    style="display:none;"
+                  >
+                    🗑️ Quitar imagen
+                  </button>
+                </div>
+
+                <div
+                  id="imagenPrincipalPreviewBox"
+                  style="display:none;margin-top:10px;"
+                >
+                  <img
+                    id="imagenPrincipalPreview"
+                    alt="Vista previa de la imagen principal"
+                    style="width:100%;max-width:420px;max-height:230px;object-fit:cover;border-radius:8px;border:1px solid #d6dde5;"
+                  />
+                  <small style="display:block;margin-top:6px;color:#718096;">
+                    Vista previa de la imagen principal
+                  </small>
+                </div>
               </div>
 
             </div>
@@ -1472,6 +1512,18 @@
 
     const imagen =
       document.getElementById('imagen');
+
+    const imagenArchivo =
+      document.getElementById('imagenArchivo');
+
+    const quitarImagenPrincipal =
+      document.getElementById('quitarImagenPrincipal');
+
+    const imagenPrincipalPreviewBox =
+      document.getElementById('imagenPrincipalPreviewBox');
+
+    const imagenPrincipalPreview =
+      document.getElementById('imagenPrincipalPreview');
 
     const contenido =
       document.getElementById('contenido');
@@ -2997,6 +3049,257 @@
       );
 
     /* ======================================================
+       IMAGEN PRINCIPAL DESDE PC
+       ====================================================== */
+
+    function actualizarPreviewImagenPrincipal() {
+
+      const src =
+        imagen?.value?.trim() ||
+        '';
+
+      if (!src) {
+
+        if (imagenPrincipalPreviewBox) {
+          imagenPrincipalPreviewBox.style.display =
+            'none';
+        }
+
+        if (quitarImagenPrincipal) {
+          quitarImagenPrincipal.style.display =
+            'none';
+        }
+
+        if (imagenPrincipalPreview) {
+          imagenPrincipalPreview.removeAttribute('src');
+        }
+
+        return;
+      }
+
+      if (imagenPrincipalPreview) {
+
+        imagenPrincipalPreview.src =
+          src;
+
+        imagenPrincipalPreview.onerror =
+          () => {
+
+            if (imagenPrincipalPreviewBox) {
+              imagenPrincipalPreviewBox.style.display =
+                'none';
+            }
+
+          };
+
+        imagenPrincipalPreview.onload =
+          () => {
+
+            if (imagenPrincipalPreviewBox) {
+              imagenPrincipalPreviewBox.style.display =
+                'block';
+            }
+
+          };
+
+      }
+
+      if (quitarImagenPrincipal) {
+        quitarImagenPrincipal.style.display =
+          'inline-block';
+      }
+
+    }
+
+    async function comprimirImagenPrincipal(archivo) {
+
+      if (!archivo?.type?.startsWith('image/')) {
+        throw new Error('Selecciona un archivo de imagen válido.');
+      }
+
+      const dataUrl =
+        await new Promise(
+          (resolver, rechazar) => {
+
+            const lector =
+              new FileReader();
+
+            lector.onload =
+              () => resolver(lector.result);
+
+            lector.onerror =
+              () => rechazar(
+                new Error('No se pudo leer la imagen.')
+              );
+
+            lector.readAsDataURL(archivo);
+
+          }
+        );
+
+      const foto =
+        await new Promise(
+          (resolver, rechazar) => {
+
+            const img =
+              new Image();
+
+            img.onload =
+              () => resolver(img);
+
+            img.onerror =
+              () => rechazar(
+                new Error('No se pudo procesar la imagen.')
+              );
+
+            img.src = dataUrl;
+
+          }
+        );
+
+      const maxAncho = 1400;
+      const maxAlto = 900;
+
+      let ancho = foto.naturalWidth;
+      let alto = foto.naturalHeight;
+
+      const escala =
+        Math.min(
+          1,
+          maxAncho / ancho,
+          maxAlto / alto
+        );
+
+      ancho =
+        Math.max(
+          1,
+          Math.round(ancho * escala)
+        );
+
+      alto =
+        Math.max(
+          1,
+          Math.round(alto * escala)
+        );
+
+      const canvas =
+        document.createElement('canvas');
+
+      canvas.width = ancho;
+      canvas.height = alto;
+
+      const ctx =
+        canvas.getContext('2d');
+
+      ctx.drawImage(
+        foto,
+        0,
+        0,
+        ancho,
+        alto
+      );
+
+      let calidad = 0.82;
+      let salida =
+        canvas.toDataURL(
+          'image/webp',
+          calidad
+        );
+
+      /*
+       * Firestore limita el tamaño de cada documento.
+       * Reducimos la calidad si la imagen todavía pesa demasiado.
+       */
+      while (
+        salida.length > 430000 &&
+        calidad > 0.42
+      ) {
+
+        calidad -= 0.08;
+
+        salida =
+          canvas.toDataURL(
+            'image/webp',
+            calidad
+          );
+
+      }
+
+      if (salida.length > 520000) {
+        throw new Error(
+          'La imagen sigue siendo demasiado pesada. Usa una imagen más pequeña.'
+        );
+      }
+
+      return salida;
+
+    }
+
+    imagenArchivo
+      ?.addEventListener(
+        'change',
+        async evento => {
+
+          const archivo =
+            evento.target.files?.[0];
+
+          if (!archivo) return;
+
+          try {
+
+            mostrarMensajeNoticia(
+              '⏳ Preparando imagen principal...',
+              'ok'
+            );
+
+            imagen.value =
+              await comprimirImagenPrincipal(
+                archivo
+              );
+
+            actualizarPreviewImagenPrincipal();
+
+            mostrarMensajeNoticia(
+              '✅ Imagen principal lista para publicar.',
+              'ok'
+            );
+
+          } catch (error) {
+
+            mostrarMensajeNoticia(
+              error?.message ||
+              'No se pudo preparar la imagen.',
+              'error'
+            );
+
+          } finally {
+
+            evento.target.value = '';
+
+          }
+
+        }
+      );
+
+    imagen
+      ?.addEventListener(
+        'input',
+        actualizarPreviewImagenPrincipal
+      );
+
+    quitarImagenPrincipal
+      ?.addEventListener(
+        'click',
+        () => {
+
+          imagen.value = '';
+
+          actualizarPreviewImagenPrincipal();
+
+        }
+      );
+
+    /* ======================================================
        EDITAR NOTICIA
        ====================================================== */
 
@@ -3023,6 +3326,8 @@
       imagen.value =
         noticia.imagen ||
         '';
+
+      actualizarPreviewImagenPrincipal();
 
       contenido.innerHTML =
         noticia.contenido ||
@@ -3134,6 +3439,8 @@
 
       imagen.value =
         '';
+
+      actualizarPreviewImagenPrincipal();
 
       contenido.innerHTML =
         '';
