@@ -1074,6 +1074,41 @@ const deportes = [
   .game-card[hidden]{display:none}
   .source-note{margin-top:18px;color:#8a94a3;font-size:11px;text-align:center}
   .date-line{font-size:11px;color:#8993a2;margin-top:4px}
+.team-logo,
+.mini-logo {
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.team-logo {
+  width: 72px !important;
+  height: 72px !important;
+  padding: 7px !important;
+}
+
+.mini-logo {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 3px !important;
+}
+
+.team-logo img,
+.mini-logo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 650px) {
+  .team-logo {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
 </style>
 
 </Layout>
