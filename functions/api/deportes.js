@@ -8,7 +8,7 @@ const MLB_API =
   Embed público de Teleantillas / Dailymotion
 */
 const MLB_STREAM =
-  "https://geo.dailymotion.com/player.html?video=x8mwmvs";
+  "https://live2.eu-north-1b.cf.dmcdn.net/sec2(gqsdnfFyFub8yoqBPjtechksgBdfqtgSbrS26VEDWtTfs-akDnPsXkW2_fG4HW1Bd3j26cqdY-3-xRUY5ql3ri15bbBJRcWukT1l_rFrPKRSTiikf79kAX3xInUsFGXz)/cloud/3/x8mwmvs/s/live-480.m3u8";
 
 
 /* =========================================================
