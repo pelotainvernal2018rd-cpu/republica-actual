@@ -1419,6 +1419,12 @@
     const FIRESTORE_BASE =
       `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
 
+    const SITE_BASE_URL =
+      'https://republicaactual.net';
+
+    const DEPLOY_ENDPOINT =
+      '/api/deploy';
+
     let sesion = null;
 
     let noticiasCache = [];
@@ -2110,6 +2116,105 @@
           /^-+|-+$/g,
           ''
         );
+
+    }
+
+
+    function crearIdManualUnico() {
+
+      /*
+       * Las automatizaciones usan IDs numéricos pequeños/secuenciales.
+       * Las publicaciones manuales usan epoch en milisegundos.
+       * Así evitamos que ambos flujos choquen por el mismo ID.
+       */
+
+      return String(Date.now());
+
+    }
+
+    function crearUrlDefinitiva(slug) {
+
+      return `${SITE_BASE_URL}/noticia/${slug}/`;
+
+    }
+
+    async function solicitarDespliegue() {
+
+      const respuesta =
+        await fetch(
+          DEPLOY_ENDPOINT,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type':
+                'application/json'
+            },
+            body:
+              JSON.stringify({
+                origen:
+                  'admin-republica-actual'
+              })
+          }
+        );
+
+      if (!respuesta.ok) {
+
+        const texto =
+          await respuesta.text();
+
+        throw new Error(
+          texto ||
+          `Deploy ${respuesta.status}`
+        );
+
+      }
+
+      return true;
+
+    }
+
+    async function esperarUrlPublicada(
+      url,
+      intentos = 30,
+      pausaMs = 5000
+    ) {
+
+      for (
+        let intento = 0;
+        intento < intentos;
+        intento++
+      ) {
+
+        try {
+
+          const respuesta =
+            await fetch(
+              `${url}?verificacion=${Date.now()}`,
+              {
+                method: 'HEAD',
+                cache: 'no-store'
+              }
+            );
+
+          if (respuesta.ok) {
+            return true;
+          }
+
+        } catch {
+          // El despliegue todavía puede estar procesándose.
+        }
+
+        await new Promise(
+          resolver =>
+            setTimeout(
+              resolver,
+              pausaMs
+            )
+        );
+
+      }
+
+      return false;
 
     }
 
@@ -3226,28 +3331,8 @@
 
         } else {
 
-          const ids =
-            noticiasCache
-              .map(
-                noticia =>
-                  Number(
-                    noticia.id
-                  )
-              )
-              .filter(
-                Number.isFinite
-              );
-
           id =
-            String(
-              (
-                ids.length
-                  ? Math.max(
-                      ...ids
-                    )
-                  : 0
-              ) + 1
-            );
+            crearIdManualUnico();
 
         }
 
@@ -3272,9 +3357,25 @@
             tituloTexto,
 
           slug:
+            noticiaEditando
+              ?.slug ||
             crearSlug(
               tituloTexto
             ),
+
+          url_definitiva:
+            crearUrlDefinitiva(
+              noticiaEditando
+                ?.slug ||
+              crearSlug(
+                tituloTexto
+              )
+            ),
+
+          origen_publicacion:
+            noticiaEditando
+              ?.origen_publicacion ||
+            'manual',
 
           imagen:
             imagen.value
@@ -3352,36 +3453,87 @@
 
         actualizarEstadisticas();
 
-        mostrarMensajeNoticia(
-          publicar
-            ? '✅ Publicación guardada correctamente.'
-            : '✅ Borrador guardado correctamente.',
-          'ok'
-        );
+        if (publicar) {
 
-        /*
-         * Dejamos el mensaje visible brevemente,
-         * pero NO hacemos otra consulta a Firestore.
-         */
+          mostrarMensajeNoticia(
+            '✅ Guardada en Firestore. Publicando en la web...',
+            'ok'
+          );
 
-        await new Promise(
-          resolver =>
-            setTimeout(
-              resolver,
-              350
-            )
-        );
+          try {
 
-        limpiarEditor();
+            await solicitarDespliegue();
 
-        cambiarSeccion(
-          'noticias'
-        );
+            const disponible =
+              await esperarUrlPublicada(
+                datos.url_definitiva
+              );
 
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+            if (disponible) {
+
+              noticiaMensaje.className =
+                'mensaje ok';
+
+              noticiaMensaje.innerHTML =
+                `✅ Publicada en la web. ` +
+                `<a href="${escaparHtml(datos.url_definitiva)}" target="_blank" rel="noopener noreferrer">Ver noticia</a>`;
+
+            } else {
+
+              noticiaMensaje.className =
+                'mensaje ok';
+
+              noticiaMensaje.innerHTML =
+                `✅ Publicación guardada y despliegue iniciado. ` +
+                `La URL definitiva es: ` +
+                `<a href="${escaparHtml(datos.url_definitiva)}" target="_blank" rel="noopener noreferrer">${escaparHtml(datos.url_definitiva)}</a>`;
+
+            }
+
+          } catch (errorDeploy) {
+
+            console.error(
+              'Error iniciando despliegue:',
+              errorDeploy
+            );
+
+            noticiaMensaje.className =
+              'mensaje error';
+
+            noticiaMensaje.innerHTML =
+              `⚠️ La noticia quedó guardada en Firestore, pero no se pudo iniciar el despliegue. ` +
+              `URL reservada: ` +
+              `<a href="${escaparHtml(datos.url_definitiva)}" target="_blank" rel="noopener noreferrer">${escaparHtml(datos.url_definitiva)}</a>`;
+
+          }
+
+        } else {
+
+          mostrarMensajeNoticia(
+            '✅ Borrador guardado correctamente.',
+            'ok'
+          );
+
+          await new Promise(
+            resolver =>
+              setTimeout(
+                resolver,
+                350
+              )
+          );
+
+          limpiarEditor();
+
+          cambiarSeccion(
+            'noticias'
+          );
+
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+
+        }
 
       } catch (error) {
 
