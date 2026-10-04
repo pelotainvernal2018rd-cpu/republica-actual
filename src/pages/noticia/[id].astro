@@ -1,16 +1,110 @@
 ---
-import { cargarNoticiasPublicadas } from '../../lib/noticias-firestore.js';
+const FIREBASE_PROJECT_ID =
+  import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
 
 // ============================================================
 // REPÚBLICA ACTUAL
 // NOTICIA INDIVIDUAL RENDERIZADA POR ASTRO
 // Ruta principal: /noticia/SLUG/
 // Ruta antigua: /noticia/ID/ -> 301 al slug
+// Incluye noticias normales + República Útil
 // ============================================================
 
 export async function getStaticPaths() {
+  const FIREBASE_PROJECT_ID =
+    import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+
+  function valorFirestore(field = {}) {
+    if ('stringValue' in field) return field.stringValue;
+    if ('integerValue' in field) return Number(field.integerValue);
+    if ('doubleValue' in field) return Number(field.doubleValue);
+    if ('booleanValue' in field) return field.booleanValue;
+    if ('timestampValue' in field) return field.timestampValue;
+    if ('nullValue' in field) return null;
+
+    if ('arrayValue' in field) {
+      return (field.arrayValue.values || []).map(valorFirestore);
+    }
+
+    if ('mapValue' in field) {
+      return Object.fromEntries(
+        Object.entries(field.mapValue.fields || {}).map(
+          ([clave, valor]) => [clave, valorFirestore(valor)]
+        )
+      );
+    }
+
+    return '';
+  }
+
+  function documentoFirestore(doc = {}) {
+    const datos = Object.fromEntries(
+      Object.entries(doc.fields || {}).map(
+        ([clave, valor]) => [clave, valorFirestore(valor)]
+      )
+    );
+
+    if (!datos.id && doc.name) {
+      datos.id = doc.name.split('/').pop();
+    }
+
+    return datos;
+  }
+
   try {
-    const noticias = await cargarNoticiasPublicadas();
+    const endpoint =
+      `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
+
+    const respuesta = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        structuredQuery: {
+          from: [
+            {
+              collectionId: 'noticias'
+            }
+          ],
+          where: {
+            fieldFilter: {
+              field: {
+                fieldPath: 'publicado'
+              },
+              op: 'EQUAL',
+              value: {
+                booleanValue: true
+              }
+            }
+          }
+        }
+      })
+    });
+
+    if (!respuesta.ok) {
+      console.error(
+        'Error Firestore generando rutas:',
+        respuesta.status,
+        await respuesta.text()
+      );
+
+      return [];
+    }
+
+    const resultado = await respuesta.json();
+
+    // IMPORTANTE:
+    // Aquí se cargan TODAS las noticias publicadas.
+    // No importa si pertenecen al feed principal o a República Útil.
+    const noticias = resultado
+      .filter((fila) => fila.document)
+      .map((fila) => documentoFirestore(fila.document))
+      .sort(
+        (a, b) =>
+          (Date.parse(b.created_at || '') || 0) -
+          (Date.parse(a.created_at || '') || 0)
+      );
 
     console.log(
       `${noticias.length} noticias publicadas para rutas individuales`
@@ -129,13 +223,9 @@ function limpiarHTML(html = '') {
 
 
 function limpiarImagenesContenido(html = '') {
-  return html
-    .replace(/<img[^>]*>/gi, '');
+  return html.replace(/<img[^>]*>/gi, '');
 }
 
-
-// Optimiza la imagen principal con Cloudflare
-// y conserva la original como respaldo.
 
 function imagenCloudflare(url = '', ancho = 1100) {
   if (!/^https?:\/\//i.test(url)) {
@@ -149,6 +239,7 @@ function imagenCloudflare(url = '', ancho = 1100) {
 function crearDescripcion(noticia) {
   const descripcion =
     noticia.descripcion ||
+    noticia.meta_descripcion ||
     noticia.resumen ||
     limpiarHTML(noticia.contenido || '');
 
@@ -169,11 +260,18 @@ function crearDescripcion(noticia) {
 const titulo =
   noticia.titulo || 'República Actual';
 
+const tituloSEO =
+  noticia.titulo_seo ||
+  noticia.tituloSEO ||
+  titulo;
+
 const descripcion =
   crearDescripcion(noticia);
 
 const imagen =
-  noticia.imagen || '';
+  noticia.imagen ||
+  noticia.imagen_principal ||
+  '';
 
 const contenido =
   limpiarImagenesContenido(
@@ -205,15 +303,31 @@ const categoria =
       : 'Actualidad'
   );
 
+const keywordsGuardadas =
+  noticia.keywords ||
+  noticia.palabras_clave ||
+  '';
+
 const palabrasClave = Array.from(
-  new Set([
-    categoria,
-    ...(
-      Array.isArray(noticia.etiquetas)
-        ? noticia.etiquetas
-        : []
-    )
-  ].filter(Boolean))
+  new Set(
+    [
+      categoria,
+
+      ...(
+        Array.isArray(noticia.etiquetas)
+          ? noticia.etiquetas
+          : []
+      ),
+
+      ...(
+        Array.isArray(keywordsGuardadas)
+          ? keywordsGuardadas
+          : String(keywordsGuardadas)
+              .split(',')
+              .map((keyword) => keyword.trim())
+      )
+    ].filter(Boolean)
+  )
 ).join(', ');
 
 
@@ -225,7 +339,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'NewsArticle',
 
-  headline: titulo,
+  headline: tituloSEO,
 
   description: descripcion,
 
@@ -293,11 +407,9 @@ const schema = {
   />
 
 
-  <!-- ===================================================== -->
   <!-- SEO PRINCIPAL -->
-  <!-- ===================================================== -->
 
-  <title>{titulo} | República Actual</title>
+  <title>{tituloSEO} | República Actual</title>
 
   <meta
     name="description"
@@ -351,9 +463,7 @@ const schema = {
   />
 
 
-  <!-- ===================================================== -->
   <!-- OPEN GRAPH -->
-  <!-- ===================================================== -->
 
   <meta
     property="og:type"
@@ -367,7 +477,7 @@ const schema = {
 
   <meta
     property="og:title"
-    content={titulo}
+    content={tituloSEO}
   />
 
   <meta
@@ -391,18 +501,16 @@ const schema = {
   }
 
 
-  <!-- ===================================================== -->
   <!-- TWITTER / X -->
-  <!-- ===================================================== -->
 
   <meta
     name="twitter:card"
-    content="summary"
+    content="summary_large_image"
   />
 
   <meta
     name="twitter:title"
-    content={titulo}
+    content={tituloSEO}
   />
 
   <meta
@@ -421,9 +529,7 @@ const schema = {
   }
 
 
-  <!-- ===================================================== -->
-  <!-- GOOGLE NEWS / DATOS ESTRUCTURADOS -->
-  <!-- ===================================================== -->
+  <!-- GOOGLE / DATOS ESTRUCTURADOS -->
 
   <script
     type="application/ld+json"
@@ -446,10 +552,6 @@ const schema = {
     }
 
 
-    /* =========================================
-       BARRA SUPERIOR
-    ========================================= */
-
     .barra {
       background: #102d47;
       color: #ffffff;
@@ -459,10 +561,6 @@ const schema = {
       font-weight: bold;
     }
 
-
-    /* =========================================
-       HEADER
-    ========================================= */
 
     header {
       max-width: 1080px;
@@ -494,10 +592,6 @@ const schema = {
     }
 
 
-    /* =========================================
-       MENÚ
-    ========================================= */
-
     nav {
       border-top: 1px solid #e1e5e8;
       border-bottom: 3px solid #102d47;
@@ -527,10 +621,6 @@ const schema = {
       color: #d71920;
     }
 
-
-    /* =========================================
-       NOTICIA
-    ========================================= */
 
     main {
       max-width: 850px;
@@ -588,9 +678,33 @@ const schema = {
     }
 
 
-    /* =========================================
-       NOTICIAS RELACIONADAS
-    ========================================= */
+    .contenido :global(h2) {
+      margin: 34px 0 15px;
+      color: #102d47;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+
+    .contenido :global(h3) {
+      margin: 28px 0 12px;
+      color: #102d47;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+
+    .contenido :global(ul),
+    .contenido :global(ol) {
+      margin: 15px 0 24px;
+      padding-left: 28px;
+    }
+
+
+    .contenido :global(li) {
+      margin-bottom: 10px;
+    }
+
 
     .relacionadas {
       margin-top: 38px;
@@ -636,10 +750,6 @@ const schema = {
       line-height: 1.35;
     }
 
-
-    /* =========================================
-       COMPARTIR
-    ========================================= */
 
     .compartir-noticia {
       display: flex;
@@ -714,10 +824,6 @@ const schema = {
     }
 
 
-    /* =========================================
-       FOOTER
-    ========================================= */
-
     footer {
       margin-top: 50px;
       padding: 30px 20px;
@@ -727,10 +833,6 @@ const schema = {
       font-size: 14px;
     }
 
-
-    /* =========================================
-       MÓVIL
-    ========================================= */
 
     @media (max-width: 700px) {
 
@@ -778,18 +880,10 @@ const schema = {
 <body>
 
 
-  <!-- ===================================================== -->
-  <!-- BARRA SUPERIOR -->
-  <!-- ===================================================== -->
-
   <div class="barra">
     INFORMACIÓN CON CONTEXTO Y CLARIDAD
   </div>
 
-
-  <!-- ===================================================== -->
-  <!-- HEADER -->
-  <!-- ===================================================== -->
 
   <header>
 
@@ -808,10 +902,6 @@ const schema = {
   </header>
 
 
-  <!-- ===================================================== -->
-  <!-- MENÚ -->
-  <!-- ===================================================== -->
-
   <nav>
 
     <div>
@@ -820,36 +910,29 @@ const schema = {
         INICIO
       </a>
 
-
       <a href="/categoria/nacionales/">
         NACIONALES
       </a>
-
 
       <a href="/categoria/politica/">
         POLÍTICA
       </a>
 
-
       <a href="/categoria/economia/">
         ECONOMÍA
       </a>
-
 
       <a href="/categoria/deportes/">
         DEPORTES
       </a>
 
-
       <a href="/categoria/entretenimiento/">
         ENTRETENIMIENTO
       </a>
 
-
       <a href="/categoria/mundo/">
         MUNDO
       </a>
-
 
       <a href="/categoria/tecnologia/">
         TECNOLOGÍA
@@ -859,10 +942,6 @@ const schema = {
 
   </nav>
 
-
-  <!-- ===================================================== -->
-  <!-- CONTENIDO -->
-  <!-- ===================================================== -->
 
   <main>
 
@@ -878,21 +957,15 @@ const schema = {
     <article>
 
 
-      <!-- CATEGORÍA -->
-
       <div class="categoria">
         {categoria}
       </div>
 
 
-      <!-- TÍTULO -->
-
       <h1>
         {titulo}
       </h1>
 
-
-      <!-- IMAGEN PRINCIPAL -->
 
       {
         imagen && (
@@ -915,17 +988,11 @@ const schema = {
       }
 
 
-      <!-- CONTENIDO DE LA NOTICIA -->
-
       <div
         class="contenido"
         set:html={contenido}
       />
 
-
-      <!-- ================================================= -->
-      <!-- NOTICIAS RELACIONADAS -->
-      <!-- ================================================= -->
 
       {
         relacionadas.length > 0 && (
@@ -967,18 +1034,12 @@ const schema = {
       }
 
 
-      <!-- ================================================= -->
-      <!-- BOTONES PARA COMPARTIR -->
-      <!-- ================================================= -->
-
       <div class="compartir-noticia">
 
         <span>
           Compartir:
         </span>
 
-
-        <!-- WHATSAPP -->
 
         <a
           class="share whatsapp"
@@ -1009,8 +1070,6 @@ const schema = {
         </a>
 
 
-        <!-- X -->
-
         <a
           class="share x"
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
@@ -1028,8 +1087,6 @@ const schema = {
 
         </a>
 
-
-        <!-- FACEBOOK -->
 
         <a
           class="share facebook"
@@ -1057,10 +1114,6 @@ const schema = {
 
   </main>
 
-
-  <!-- ===================================================== -->
-  <!-- FOOTER -->
-  <!-- ===================================================== -->
 
   <footer>
     © {new Date().getFullYear()} República Actual
