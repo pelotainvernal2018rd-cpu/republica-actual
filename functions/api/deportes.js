@@ -1,708 +1,427 @@
-const JSON_HEADERS = {
-    "content-type": "application/json; charset=UTF-8",
-    "cache-control": "public, max-age=30, s-maxage=45"
-  };
-  
-  const ESPN = {
-    nba: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard",
-    nfl: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard",
-  
-    futbol: [
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard",
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard"
-    ]
-  };
-  
-  
-  // ======================================================
-  // ESPN
-  // ======================================================
-  
-  function estadoESPN(status = {}) {
-  
-    const state = status?.type?.state;
-  
-    if (state === "in") {
-      return "live";
-    }
-  
-    if (state === "post") {
-      return "post";
-    }
-  
-    return "pre";
+const ESPN_NBA =
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard";
+
+const MLB_API =
+  "https://statsapi.mlb.com/api/v1/schedule";
+
+
+/* =========================================================
+   FECHA ACTUAL EN REPÚBLICA DOMINICANA
+========================================================= */
+
+function fechaRD() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Santo_Domingo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+
+  const get = (tipo) =>
+    parts.find((p) => p.type === tipo)?.value || "";
+
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+
+/* =========================================================
+   ESTADOS DE PARTIDOS
+========================================================= */
+
+function estadoESPN(type) {
+  if (type?.state === "in") {
+    return "live";
   }
-  
-  
-  function convertirESPN(
-    evento,
-    deporte,
-    ligaFallback
-  ) {
-  
-    const comp =
-      evento?.competitions?.[0];
-  
-    if (!comp) {
-      return null;
-    }
-  
-  
+
+  if (type?.state === "post") {
+    return "post";
+  }
+
+  return "pre";
+}
+
+
+function estadoMLB(status) {
+  const code = String(
+    status?.abstractGameCode || ""
+  ).toUpperCase();
+
+  if (code === "L") {
+    return "live";
+  }
+
+  if (code === "F") {
+    return "post";
+  }
+
+  return "pre";
+}
+
+
+/* =========================================================
+   NBA
+========================================================= */
+
+async function getNBA() {
+  const response = await fetch(ESPN_NBA, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`NBA ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  return (data.events || []).map((event) => {
+    const competition =
+      event.competitions?.[0] || {};
+
+    const teams =
+      competition.competitors || [];
+
     const home =
-      comp.competitors?.find(
-        (equipo) =>
-          equipo.homeAway === "home"
-      );
-  
-  
+      teams.find(
+        (team) => team.homeAway === "home"
+      ) || {};
+
     const away =
-      comp.competitors?.find(
-        (equipo) =>
-          equipo.homeAway === "away"
-      );
-  
-  
-    if (!home || !away) {
-      return null;
-    }
-  
-  
-    const status =
-      comp.status ||
-      evento.status ||
-      {};
-  
-  
-    const state =
-      estadoESPN(status);
-  
-  
-    let icono = "🏆";
-  
-    if (deporte === "nba") {
-      icono = "🏀";
-    }
-  
-    if (deporte === "nfl") {
-      icono = "🏈";
-    }
-  
-    if (deporte === "futbol") {
-      icono = "⚽";
-    }
-  
-  
-    let detalle = "";
-  
-    if (state === "live") {
-  
-      detalle =
-        status?.type?.shortDetail ||
-        status?.displayClock ||
-        "EN VIVO";
-  
-    } else if (state === "post") {
-  
-      detalle = "Final";
-  
-    }
-  
-  
+      teams.find(
+        (team) => team.homeAway === "away"
+      ) || {};
+
+    const type =
+      event.status?.type || {};
+
     return {
-  
-      id:
-        `${deporte}-${evento.id}`,
-  
-      deporte,
-  
-      liga:
-        evento?.league?.abbreviation ||
-        ligaFallback,
-  
-      icono,
-  
-      state,
-  
-      detalle,
-  
+      id: `nba-${event.id}`,
+
+      deporte: "nba",
+
+      liga: "NBA",
+
+      icono: "🏀",
+
+      state: estadoESPN(type),
+
+      detalle:
+        type.shortDetail ||
+        type.detail ||
+        "",
+
       fecha:
-        evento.date || "",
-  
-  
+        event.date || "",
+
+      /*
+       * stream_url queda vacío por defecto.
+       *
+       * Cuando tengamos una transmisión autorizada
+       * para ese partido podemos colocar aquí la URL.
+       *
+       * El botón VER EN VIVO solamente aparecerá
+       * cuando:
+       *
+       * state === "live"
+       * y
+       * stream_url tenga una dirección.
+       */
+      stream_url: "",
+
       visitante: {
-  
         nombre:
           away.team?.displayName ||
           away.team?.name ||
           "Visitante",
-  
+
         abbr:
           away.team?.abbreviation ||
           "",
-  
+
         logo:
           away.team?.logo ||
           "",
-  
+
         score:
-          state === "pre"
-            ? "-"
-            : away.score ?? "-"
-  
+          away.score ?? "-",
       },
-  
-  
+
       local: {
-  
         nombre:
           home.team?.displayName ||
           home.team?.name ||
           "Local",
-  
+
         abbr:
           home.team?.abbreviation ||
           "",
-  
+
         logo:
           home.team?.logo ||
           "",
-  
+
         score:
-          state === "pre"
-            ? "-"
-            : home.score ?? "-"
-  
-      }
-  
+          home.score ?? "-",
+      },
     };
-  
+  });
+}
+
+
+/* =========================================================
+   MLB / LIDOM
+========================================================= */
+
+async function getBaseball(
+  sportId,
+  deporte,
+  liga
+) {
+  const date = fechaRD();
+
+  const url =
+    `${MLB_API}` +
+    `?sportId=${sportId}` +
+    `&date=${date}` +
+    `&hydrate=team`;
+
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(
+      `${liga} ${response.status}`
+    );
   }
-  
-  
-  async function cargarESPN(
-    url,
-    deporte,
-    liga
-  ) {
-  
-    const respuesta =
-      await fetch(
-        url,
-        {
-          headers: {
-            accept:
-              "application/json"
-          }
-        }
-      );
-  
-  
-    if (!respuesta.ok) {
-  
-      throw new Error(
-        `${liga}: ${respuesta.status}`
-      );
-  
-    }
-  
-  
-    const data =
-      await respuesta.json();
-  
-  
-    return (
-      data.events || []
-    )
-      .map(
-        (evento) =>
-          convertirESPN(
-            evento,
-            deporte,
-            liga
-          )
-      )
-      .filter(Boolean);
-  
-  }
-  
-  
-  // ======================================================
-  // MLB / LIGAS DE BÉISBOL
-  // ======================================================
-  
-  function estadoMLB(game = {}) {
-  
-    const estado =
-      game.status
-        ?.abstractGameState;
-  
-  
-    if (estado === "Live") {
-      return "live";
-    }
-  
-  
-    if (estado === "Final") {
-      return "post";
-    }
-  
-  
-    return "pre";
-  
-  }
-  
-  
-  function convertirMLB(
-    game,
-    deporte,
-    liga
-  ) {
-  
-    const state =
-      estadoMLB(game);
-  
-  
+
+  const data =
+    await response.json();
+
+  const games =
+    (data.dates || []).flatMap(
+      (date) => date.games || []
+    );
+
+  return games.map((game) => {
     const away =
       game.teams?.away || {};
-  
-  
+
     const home =
       game.teams?.home || {};
-  
-  
-    const inning =
-      game.linescore
-        ?.currentInningOrdinal;
-  
-  
-    const inningState =
-      game.linescore
-        ?.inningState;
-  
-  
-    let detalle = "";
-  
-  
-    if (state === "live") {
-  
-      detalle =
-        [
-          inningState,
-          inning
-        ]
-          .filter(Boolean)
-          .join(" ");
-  
-    }
-  
-  
-    if (state === "post") {
-  
-      detalle =
-        game.status
-          ?.detailedState ||
-        "Final";
-  
-    }
-  
-  
-    const crearEquipo = (
-      equipo
-    ) => {
-  
-      const id =
-        equipo.team?.id;
-  
-  
-      return {
-  
-        nombre:
-          equipo.team?.name ||
-          "Equipo",
-  
-        abbr:
-          equipo.team
-            ?.abbreviation ||
-          "",
-  
-        logo:
-          id
-            ? `https://www.mlbstatic.com/team-logos/${id}.svg`
-            : "",
-  
-        score:
-          state === "pre"
-            ? "-"
-            : equipo.score ?? "-"
-  
-      };
-  
-    };
-  
-  
+
     return {
-  
       id:
         `${deporte}-${game.gamePk}`,
-  
+
       deporte,
-  
+
       liga,
-  
+
       icono: "⚾",
-  
-      state,
-  
-      detalle,
-  
+
+      state:
+        estadoMLB(game.status),
+
+      detalle:
+        game.status?.detailedState ||
+        "",
+
       fecha:
-        game.gameDate || "",
-  
-      visitante:
-        crearEquipo(away),
-  
-      local:
-        crearEquipo(home)
-  
+        game.gameDate ||
+        "",
+
+      /*
+       * IMPORTANTE:
+       *
+       * Solo coloca aquí una transmisión
+       * que tengamos autorización para mostrar.
+       *
+       * Mientras esté vacío no aparecerá
+       * el botón VER EN VIVO.
+       */
+      stream_url: "",
+
+      visitante: {
+        nombre:
+          away.team?.name ||
+          "Visitante",
+
+        abbr: "",
+
+        logo:
+          away.team?.id
+            ? `https://www.mlbstatic.com/team-logos/${away.team.id}.svg`
+            : "",
+
+        score:
+          away.score ?? "-",
+      },
+
+      local: {
+        nombre:
+          home.team?.name ||
+          "Local",
+
+        abbr: "",
+
+        logo:
+          home.team?.id
+            ? `https://www.mlbstatic.com/team-logos/${home.team.id}.svg`
+            : "",
+
+        score:
+          home.score ?? "-",
+      },
     };
-  
-  }
-  
-  
-  // ======================================================
-  // FECHA REPÚBLICA DOMINICANA
-  // ======================================================
-  
-  function obtenerFechaRD() {
-  
-    const partes =
-      new Intl.DateTimeFormat(
-        "en-US",
-        {
-          timeZone:
-            "America/Santo_Domingo",
-  
-          year:
-            "numeric",
-  
-          month:
-            "2-digit",
-  
-          day:
-            "2-digit"
-        }
-      )
-        .formatToParts(
-          new Date()
-        );
-  
-  
-    const datos = {};
-  
-  
-    for (
-      const parte of partes
-    ) {
-  
-      if (
-        parte.type !==
-        "literal"
-      ) {
-  
-        datos[
-          parte.type
-        ] =
-          parte.value;
-  
-      }
-  
-    }
-  
-  
+  });
+}
+
+
+/* =========================================================
+   MLB
+========================================================= */
+
+async function getMLB() {
+  return getBaseball(
+    1,
+    "mlb",
+    "MLB"
+  );
+}
+
+
+/* =========================================================
+   LIDOM
+========================================================= */
+
+async function getLIDOM() {
+  const juegos =
+    await getBaseball(
+      17,
+      "lidom",
+      "LIDOM"
+    );
+
+  /*
+   * sportId 17 puede incluir otras
+   * ligas invernales.
+   *
+   * Por eso filtramos equipos / referencias
+   * relacionadas con República Dominicana.
+   */
+
+  return juegos.filter((game) => {
+    const texto =
+      JSON.stringify(game)
+        .toLowerCase();
+
     return (
-      `${datos.year}-` +
-      `${datos.month}-` +
-      `${datos.day}`
+      texto.includes("dominican") ||
+      texto.includes("lidom") ||
+
+      texto.includes("aguilas") ||
+      texto.includes("águilas") ||
+
+      texto.includes("licey") ||
+
+      texto.includes("escogido") ||
+
+      texto.includes("gigantes") ||
+
+      texto.includes("estrellas") ||
+
+      texto.includes("toros")
     );
-  
-  }
-  
-  
-  // ======================================================
-  // MLB
-  // ======================================================
-  
-  async function cargarMLB(
-    sportId,
-    deporte,
-    liga
-  ) {
-  
-    const fecha =
-      obtenerFechaRD();
-  
-  
-    const url =
-      "https://statsapi.mlb.com/api/v1/schedule" +
-      `?sportId=${sportId}` +
-      `&date=${fecha}` +
-      "&hydrate=team,linescore";
-  
-  
-    const respuesta =
-      await fetch(
-        url,
-        {
-          headers: {
-            accept:
-              "application/json"
-          }
-        }
-      );
-  
-  
-    if (!respuesta.ok) {
-  
-      throw new Error(
-        `${liga}: ${respuesta.status}`
-      );
-  
-    }
-  
-  
-    const data =
-      await respuesta.json();
-  
-  
-    let games =
-      (
-        data.dates || []
+  });
+}
+
+
+/* =========================================================
+   API CLOUDFLARE
+========================================================= */
+
+export async function onRequestGet() {
+  /*
+   * ÚNICAMENTE:
+   *
+   * MLB
+   * NBA
+   * LIDOM
+   */
+
+  const resultados =
+    await Promise.allSettled([
+      getMLB(),
+      getNBA(),
+      getLIDOM(),
+    ]);
+
+  const juegos =
+    resultados.flatMap(
+      (resultado) =>
+        resultado.status === "fulfilled"
+          ? resultado.value
+          : []
+    );
+
+
+  /*
+   * FILTRO FINAL DE SEGURIDAD
+   *
+   * Aunque alguna fuente devolviera
+   * información inesperada, ningún
+   * otro deporte podrá salir.
+   */
+
+  const deportesPermitidos =
+    new Set([
+      "mlb",
+      "nba",
+      "lidom",
+    ]);
+
+
+  const filtrados =
+    juegos.filter((game) =>
+      deportesPermitidos.has(
+        String(
+          game.deporte || ""
+        ).toLowerCase()
       )
-        .flatMap(
-          (fecha) =>
-            fecha.games || []
-        );
-  
-  
-    // ================================================
-    // LIDOM
-    // Evita presentar otra liga invernal como LIDOM.
-    // ================================================
-  
-    if (
-      deporte ===
-      "lidom"
-    ) {
-  
-      games =
-        games.filter(
-          (game) => {
-  
-            const texto =
-              JSON
-                .stringify(game)
-                .toLowerCase();
-  
-  
-            return (
-              texto.includes(
-                "dominican"
-              ) ||
-              texto.includes(
-                "lidom"
-              )
-            );
-  
-          }
-        );
-  
-    }
-  
-  
-    return games.map(
-      (game) =>
-        convertirMLB(
-          game,
-          deporte,
-          liga
-        )
     );
-  
-  }
-  
-  
-  // ======================================================
-  // ENDPOINT
-  // ======================================================
-  
-  export async function onRequestGet() {
-  
-    const tareas = [
-  
-      // MLB
-      cargarMLB(
-        1,
+
+
+  /*
+   * RESPUESTA
+   */
+
+  return new Response(
+    JSON.stringify({
+      ok: true,
+
+      actualizado:
+        new Date().toISOString(),
+
+      deportes: [
         "mlb",
-        "MLB"
-      ),
-  
-  
-      // LIGAS INVERNALES / LIDOM
-      cargarMLB(
-        17,
-        "lidom",
-        "LIDOM"
-      ),
-  
-  
-      // NBA
-      cargarESPN(
-        ESPN.nba,
         "nba",
-        "NBA"
-      ),
-  
-  
-      // NFL
-      cargarESPN(
-        ESPN.nfl,
-        "nfl",
-        "NFL"
-      ),
-  
-  
-      // FÚTBOL
-      ...ESPN.futbol.map(
-        (url) =>
-          cargarESPN(
-            url,
-            "futbol",
-            "FÚTBOL"
-          )
-      )
-  
-    ];
-  
-  
-    const resultados =
-      await Promise.allSettled(
-        tareas
-      );
-  
-  
-    const juegos =
-      resultados
-        .filter(
-          (resultado) =>
-            resultado.status ===
-            "fulfilled"
-        )
-        .flatMap(
-          (resultado) =>
-            resultado.value
-        )
-        .filter(Boolean);
-  
-  
-    // ELIMINAR DUPLICADOS
-  
-    const mapa =
-      new Map();
-  
-  
-    for (
-      const juego of juegos
-    ) {
-  
-      mapa.set(
-        juego.id,
-        juego
-      );
-  
+        "lidom",
+      ],
+
+      juegos: filtrados,
+    }),
+    {
+      headers: {
+        "content-type":
+          "application/json; charset=utf-8",
+
+        "cache-control":
+          "public, max-age=30, s-maxage=45",
+      },
     }
-  
-  
-    const unicos =
-      Array.from(
-        mapa.values()
-      );
-  
-  
-    // ORDEN:
-    // EN VIVO
-    // PRÓXIMOS
-    // FINALIZADOS
-  
-    const ordenEstado = {
-      live: 0,
-      pre: 1,
-      post: 2
-    };
-  
-  
-    unicos.sort(
-      (a, b) => {
-  
-        const estadoA =
-          ordenEstado[
-            a.state
-          ] ?? 9;
-  
-  
-        const estadoB =
-          ordenEstado[
-            b.state
-          ] ?? 9;
-  
-  
-        if (
-          estadoA !==
-          estadoB
-        ) {
-  
-          return (
-            estadoA -
-            estadoB
-          );
-  
-        }
-  
-  
-        return (
-          new Date(
-            a.fecha
-          ) -
-          new Date(
-            b.fecha
-          )
-        );
-  
-      }
-    );
-  
-  
-    return new Response(
-  
-      JSON.stringify({
-  
-        actualizado:
-          new Date()
-            .toISOString(),
-  
-        juegos:
-          unicos
-  
-      }),
-  
-      {
-        status: 200,
-  
-        headers:
-          JSON_HEADERS
-      }
-  
-    );
-  
-  }
+  );
+}
