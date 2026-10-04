@@ -1092,6 +1092,104 @@ const deportes = [
   .featured-game .team-logo{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;max-width:52px!important;max-height:52px!important;flex-basis:52px!important;padding:5px!important}
   .featured-game .team-logo img{width:42px!important;height:42px!important;max-width:42px!important;max-height:42px!important}
 }
+
+/* ===== TARJETAS PROFESIONALES DEFINITIVAS ===== */
+.games-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:stretch!important;
+}
+.games-grid .game-card{
+  display:flex!important;
+  flex-direction:column!important;
+  background:#fff!important;
+  border:1px solid #e4e9ef!important;
+  border-radius:16px!important;
+  padding:18px!important;
+  min-width:0!important;
+  min-height:190px!important;
+  overflow:hidden!important;
+  box-shadow:0 5px 18px rgba(15,35,60,.06)!important;
+  transition:transform .2s ease,box-shadow .2s ease!important;
+}
+.games-grid .game-card:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:0 14px 30px rgba(15,35,60,.11)!important;
+}
+.games-grid .card-header{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  padding-bottom:13px!important;
+  margin-bottom:7px!important;
+  border-bottom:1px solid #edf1f5!important;
+}
+.games-grid .league-small{
+  color:#26364a!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  letter-spacing:.4px!important;
+}
+.games-grid .game-state{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#f1f4f7!important;
+  color:#667085!important;
+  border-radius:999px!important;
+  padding:6px 9px!important;
+  font-size:9px!important;
+  font-weight:900!important;
+}
+.games-grid .game-state.is-live{
+  background:#ffe7ea!important;
+  color:#d81f32!important;
+}
+.games-grid .card-teams{
+  flex:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:7px 0!important;
+}
+.games-grid .small-team{
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) 34px!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:7px 0!important;
+}
+.games-grid .small-team>strong{
+  text-align:right!important;
+  font-size:20px!important;
+  font-weight:900!important;
+}
+.games-grid .card-footer{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  padding-top:13px!important;
+  margin-top:7px!important;
+  border-top:1px solid #edf1f5!important;
+  color:#778291!important;
+  font-size:10px!important;
+}
+.games-grid .game-time{
+  color:#27364a!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+}
+@media(max-width:900px){
+  .games-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:650px){
+  .games-grid{grid-template-columns:1fr!important;gap:13px!important}
+  .games-grid .game-card{padding:15px!important;min-height:175px!important}
+}
+
 </style>
 
 </Layout>
