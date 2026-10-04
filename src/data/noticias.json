@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618671,
+    "created_at": "2026-10-04T14:36:05.451Z",
+    "titulo": "Prueba automática República Actual 20261004-103604",
+    "slug": "prueba-automatica-republica-actual-20261004-103604",
+    "contenido": "<p>Esta es una prueba del nuevo sistema de publicación de República Actual directamente mediante GitHub, sin utilizar Firestore ni Supabase.</p>",
+    "imagen": "",
+    "fuente": "Prueba República Actual",
+    "url_fuente": "https://republicaactual.net/prueba-github-20261004-103604",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Prueba"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618670,
     "titulo": "Cómo sacar un duplicado de la licencia de conducir por pérdida o deterioro en República Dominicana",
     "slug": "como-sacar-un-duplicado-de-la-licencia-de-conducir-por-perdida-o-deterioro-en-republica-dominicana",
