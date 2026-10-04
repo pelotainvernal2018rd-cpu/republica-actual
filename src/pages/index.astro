@@ -79,7 +79,15 @@ function imagenCloudflare(url = '', ancho = 700) {
   if (!/^https?:\/\//i.test(url)) return url;
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=cover/${url}`;
 }
-
+function obtenerImagen(noticia = {}) {
+  return (
+    noticia.imagen ||
+    noticia.imagen_principal ||
+    noticia.image ||
+    noticia.image_url ||
+    ''
+  );
+}
 // 11 noticias en Ultimas publicaciones: 1 principal + 10 adicionales
 const noticiaPrincipal = noticias[0] || null;
 const noticiasPrincipales = noticias.slice(1, 11);
@@ -827,74 +835,105 @@ const noticiasPrincipales = noticias.slice(1, 11);
           )}
 
          <section class="evergreen" aria-labelledby="republica-util">
+
   <div class="evergreen-encabezado">
     <h2 id="republica-util">República Útil</h2>
     <span>Guías · Trámites · Turismo · RD</span>
   </div>
 
   <div class="evergreen-grid">
-    {republicaUtilPortada.map((noticia) => (
-      <article
-        class:list={[
-          "evergreen-item",
-          !noticia.imagen && "evergreen-sin-imagen"
-        ]}
-      >
-        {noticia.imagen && (
-          <a
-            class="evergreen-imagen-enlace"
-            href={enlaceNoticia(noticia)}
-          >
-            <img
-              class="evergreen-foto"
-              src={imagenCloudflare(noticia.imagen, 300)}
-              alt={noticia.titulo}
-              width="112"
-              height="82"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-              data-original={noticia.imagen}
-              onerror="
-                if (this.dataset.fallbackStage !== 'original') {
-                  this.dataset.fallbackStage = 'original';
-                  this.src = this.dataset.original;
-                } else {
-                  const enlace = this.closest('.evergreen-imagen-enlace');
-                  if (enlace) enlace.style.display = 'none';
 
-                  const articulo = this.closest('.evergreen-item');
-                  if (articulo) articulo.classList.add('evergreen-sin-imagen');
-                }
-              "
-            />
-          </a>
-        )}
+    {republicaUtilPortada.map((noticia) => {
 
-        <div class="evergreen-contenido">
-          <span class="evergreen-categoria">
-            {obtenerCategoria(noticia)}
-          </span>
+      const imagenRepublicaUtil = obtenerImagen(noticia);
 
-          <h3>
-            <a href={enlaceNoticia(noticia)}>
-              {noticia.titulo}
+      return (
+        <article
+          class:list={[
+            "evergreen-item",
+            !imagenRepublicaUtil && "evergreen-sin-imagen"
+          ]}
+        >
+
+          {imagenRepublicaUtil && (
+
+            <a
+              class="evergreen-imagen-enlace"
+              href={enlaceNoticia(noticia)}
+            >
+
+              <img
+                class="evergreen-foto"
+                src={imagenCloudflare(imagenRepublicaUtil, 300)}
+                alt={noticia.titulo}
+                width="112"
+                height="82"
+                loading="lazy"
+                decoding="async"
+                data-original={imagenRepublicaUtil}
+                onerror="
+                  if (this.dataset.fallbackStage !== 'original') {
+                    this.dataset.fallbackStage = 'original';
+                    this.src = this.dataset.original;
+                  } else {
+                    this.onerror = null;
+
+                    const enlace =
+                      this.closest('.evergreen-imagen-enlace');
+
+                    if (enlace) {
+                      enlace.style.display = 'none';
+                    }
+
+                    const articulo =
+                      this.closest('.evergreen-item');
+
+                    if (articulo) {
+                      articulo.classList.add(
+                        'evergreen-sin-imagen'
+                      );
+                    }
+                  }
+                "
+              />
+
             </a>
-          </h3>
 
-          <p class="evergreen-resumen">
-            {resumen(noticia.contenido, 85)}
-          </p>
-        </div>
-      </article>
-    ))}
+          )}
+
+          <div class="evergreen-contenido">
+
+            <span class="evergreen-categoria">
+              {obtenerCategoria(noticia)}
+            </span>
+
+            <h3>
+              <a href={enlaceNoticia(noticia)}>
+                {noticia.titulo}
+              </a>
+            </h3>
+
+            <p class="evergreen-resumen">
+              {resumen(noticia.contenido, 85)}
+            </p>
+
+          </div>
+
+        </article>
+      );
+    })}
+
 
     {republicaUtilPortada.length === 0 && (
+
       <div class="evergreen-vacio">
         Aquí aparecerán las entradas de “República Útil” que marques manualmente para mostrar en portada.
       </div>
+
     )}
+
   </div>
+
 </section>
 
         </>
