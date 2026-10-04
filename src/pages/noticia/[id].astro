@@ -1,23 +1,65 @@
 ---
 import {
-  cargarTodasLasNoticias
+  cargarTodasLasNoticias,
+  cargarRepublicaUtil
 } from '../../lib/noticias-firestore.js';
 
 // ============================================================
 // REPÚBLICA ACTUAL
 // NOTICIA INDIVIDUAL - DATOS LOCALES
+//
+// Incluye:
+// - noticias.json
+// - evergreen.json
+//
 // Ruta principal: /noticia/SLUG/
 // Ruta antigua: /noticia/ID/ -> 301 al slug
 // ============================================================
 
 export async function getStaticPaths() {
-  const noticias = await cargarTodasLasNoticias();
+
+  const [
+    noticiasNormales,
+    noticiasRepublicaUtil
+  ] = await Promise.all([
+    cargarTodasLasNoticias(),
+    cargarRepublicaUtil()
+  ]);
+
+  // Unificar noticias normales + República Útil sin duplicados.
+  const mapa = new Map();
+
+  for (
+    const noticia of [
+      ...noticiasNormales,
+      ...noticiasRepublicaUtil
+    ]
+  ) {
+
+    if (!noticia) continue;
+
+    const clave = String(
+      noticia.slug ||
+      noticia.id ||
+      noticia.titulo ||
+      ''
+    );
+
+    if (!clave) continue;
+
+    if (!mapa.has(clave)) {
+      mapa.set(clave, noticia);
+    }
+  }
+
+  const noticias = Array.from(mapa.values());
 
   console.log(
-    `${noticias.length} noticias locales para rutas individuales`
+    `${noticias.length} noticias + evergreen para rutas individuales`
   );
 
   return noticias.flatMap((noticia) => {
+
     const categoriaActual =
       noticia.categoria ||
       (
@@ -29,7 +71,12 @@ export async function getStaticPaths() {
 
     const relacionadas = noticias
       .filter((otra) => {
-        if (String(otra.id) === String(noticia.id)) {
+
+        const mismaNoticia =
+          String(otra.slug || otra.id) ===
+          String(noticia.slug || noticia.id);
+
+        if (mismaNoticia) {
           return false;
         }
 
@@ -79,6 +126,7 @@ export async function getStaticPaths() {
       : [rutaPrincipal];
   });
 }
+
 
 // ============================================================
 // DATOS DE LA NOTICIA
