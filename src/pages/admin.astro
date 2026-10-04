@@ -2015,176 +2015,49 @@
        - Esto reduce drásticamente las lecturas de Firestore.
        ====================================================== */
 
-    async function obtenerTodasLasNoticias() {
+    /* ======================================================
+       NOTICIAS EN GITHUB — SIN FIRESTORE
+       ====================================================== */
 
-      const token =
-        await obtenerToken();
+    async function apiNoticiasGitHub(method = 'GET', body = null) {
+      const token = await obtenerToken();
+      const opciones = {
+        method,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        cache: 'no-store'
+      };
+      if (body !== null) opciones.body = JSON.stringify(body);
 
-      const respuesta =
-        await fetch(
-          `${FIRESTORE_BASE}:runQuery`,
-          {
-            method: 'POST',
-
-            headers: {
-              Authorization:
-                `Bearer ${token}`,
-
-              'Content-Type':
-                'application/json'
-            },
-
-            body: JSON.stringify({
-              structuredQuery: {
-                from: [
-                  {
-                    collectionId:
-                      'noticias'
-                  }
-                ],
-
-                orderBy: [
-                  {
-                    field: {
-                      fieldPath:
-                        'created_at'
-                    },
-                    direction:
-                      'DESCENDING'
-                  }
-                ],
-
-                limit: 100
-              }
-            })
-          }
-        );
-
+      const respuesta = await fetch('/api/noticias-admin', opciones);
+      const texto = await respuesta.text();
+      let data = null;
+      try { data = texto ? JSON.parse(texto) : null; } catch { data = null; }
       if (!respuesta.ok) {
-
-        const texto =
-          await respuesta.text();
-
-        throw new Error(
-          texto ||
-          `Firestore ${respuesta.status}`
-        );
-
+        throw new Error(data?.error || texto || `GitHub ${respuesta.status}`);
       }
-
-      const filas =
-        await respuesta.json();
-
-      return filas
-        .filter(
-          fila =>
-            fila.document
-        )
-        .map(
-          fila =>
-            documentoAObjeto(
-              fila.document
-            )
-        )
-        .sort(
-          (a, b) =>
-            (
-              Date.parse(
-                b.created_at || ''
-              ) || 0
-            ) -
-            (
-              Date.parse(
-                a.created_at || ''
-              ) || 0
-            )
-        );
-
+      return data;
     }
 
-    async function guardarDocumento(
-      id,
-      datos
-    ) {
-
-      const token =
-        await obtenerToken();
-
-      const respuesta =
-        await fetch(
-          `${FIRESTORE_BASE}/noticias/${encodeURIComponent(id)}`,
-          {
-            method: 'PATCH',
-
-            headers: {
-              Authorization:
-                `Bearer ${token}`,
-
-              'Content-Type':
-                'application/json'
-            },
-
-            body:
-              JSON.stringify({
-                fields:
-                  camposFirestore(datos)
-              })
-          }
-        );
-
-      if (!respuesta.ok) {
-
-        const texto =
-          await respuesta.text();
-
-        throw new Error(
-          texto ||
-          `Firestore ${respuesta.status}`
-        );
-
-      }
-
-      return documentoAObjeto(
-        await respuesta.json()
+    async function obtenerTodasLasNoticias() {
+      const data = await apiNoticiasGitHub('GET');
+      const noticias = Array.isArray(data?.noticias) ? data.noticias : [];
+      return noticias.sort((a, b) =>
+        (Date.parse(b.created_at || '') || 0) -
+        (Date.parse(a.created_at || '') || 0)
       );
+    }
 
+    async function guardarDocumento(id, datos) {
+      const data = await apiNoticiasGitHub('PUT', { id: String(id), noticia: datos });
+      return data.noticia;
     }
 
     async function borrarDocumento(id) {
-
-      const token =
-        await obtenerToken();
-
-      const respuesta =
-        await fetch(
-          `${FIRESTORE_BASE}/noticias/${encodeURIComponent(id)}`,
-          {
-            method: 'DELETE',
-
-            headers: {
-              Authorization:
-                `Bearer ${token}`
-            }
-          }
-        );
-
-      if (
-        !respuesta.ok &&
-        respuesta.status !== 404
-      ) {
-
-        const texto =
-          await respuesta.text();
-
-        throw new Error(
-          texto ||
-          `Firestore ${respuesta.status}`
-        );
-
-      }
-
+      await apiNoticiasGitHub('DELETE', { id: String(id) });
       return true;
-
     }
 
     /* ======================================================
@@ -3806,7 +3679,7 @@
         if (publicar) {
 
           mostrarMensajeNoticia(
-            '✅ Guardada en Firestore. Publicando en la web...',
+            '✅ Guardada en GitHub. Publicando en la web...',
             'ok'
           );
 
@@ -3851,7 +3724,7 @@
               'mensaje error';
 
             noticiaMensaje.innerHTML =
-              `⚠️ La noticia quedó guardada en Firestore, pero no se pudo iniciar el despliegue. ` +
+              `⚠️ La noticia quedó guardada en GitHub, pero no se pudo iniciar el despliegue. ` +
               `URL reservada: ` +
               `<a href="${escaparHtml(datos.url_definitiva)}" target="_blank" rel="noopener noreferrer">${escaparHtml(datos.url_definitiva)}</a>`;
 
@@ -3894,7 +3767,7 @@
         mostrarMensajeNoticia(
           `No se pudo guardar: ${
             error?.message ||
-            'error de Firestore'
+            'error de GitHub'
           }`,
           'error'
         );
@@ -4014,7 +3887,7 @@
         alert(
           `No se pudo eliminar: ${
             error?.message ||
-            'error de Firestore'
+            'error de GitHub'
           }`
         );
 
