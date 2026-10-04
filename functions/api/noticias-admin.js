@@ -8,10 +8,15 @@ function respuesta(data, status = 200) {
     status,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
+      "Cache-Control": "no-store, no-cache, must-revalidate",
     },
   });
 }
+
+/* =========================================================
+   HEADERS DE GITHUB
+   El token SOLO se usa para escribir
+========================================================= */
 
 function headersGithub(token) {
   return {
@@ -19,82 +24,134 @@ function headersGithub(token) {
     Accept: "application/vnd.github+json",
     "Content-Type": "application/json",
     "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "Republica-Actual-Admin",
   };
 }
 
-async function obtenerArchivo(token) {
-  const apiUrl =
-    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}` +
-    `/contents/${ARCHIVO_NOTICIAS}?ref=${GITHUB_BRANCH}`;
+/* =========================================================
+   LEER NOTICIAS SIN TOKEN
+   Usa RAW público de GitHub
+========================================================= */
 
-  const meta = await fetch(apiUrl, {
-    headers: headersGithub(token),
-  });
+async function obtenerNoticiasPublicas() {
+  const url =
+    `https://raw.githubusercontent.com/` +
+    `${GITHUB_OWNER}/${GITHUB_REPO}/` +
+    `${GITHUB_BRANCH}/${ARCHIVO_NOTICIAS}` +
+    `?t=${Date.now()}`;
 
-  if (!meta.ok) {
-    throw new Error(
-      `GitHub no pudo localizar noticias.json. HTTP ${meta.status}`
-    );
-  }
-
-  const info = await meta.json();
-
-  const rawUrl =
-    `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}` +
-    `/${GITHUB_BRANCH}/${ARCHIVO_NOTICIAS}?t=${Date.now()}`;
-
-  const raw = await fetch(rawUrl, {
+  const r = await fetch(url, {
     headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/vnd.github.raw+json",
+      Accept: "application/json",
+      "User-Agent": "Republica-Actual-Admin",
     },
   });
 
-  if (!raw.ok) {
+  if (!r.ok) {
     throw new Error(
-      `No se pudo descargar noticias.json. HTTP ${raw.status}`
+      `No se pudo descargar noticias.json. HTTP ${r.status}`
     );
   }
 
-  const texto = await raw.text();
+  const texto = await r.text();
 
   let noticias;
 
   try {
     noticias = JSON.parse(texto);
-  } catch {
-    throw new Error("noticias.json contiene JSON inválido.");
+  } catch (error) {
+    throw new Error(
+      "El archivo noticias.json contiene JSON inválido."
+    );
   }
 
   if (!Array.isArray(noticias)) {
-    throw new Error("El archivo noticias.json no contiene una lista.");
+    throw new Error(
+      "noticias.json no contiene una lista de noticias."
+    );
   }
 
-  return {
-    noticias,
-    sha: info.sha,
-  };
+  return noticias;
 }
 
-async function guardarArchivo(token, noticias, sha, mensaje) {
-  const apiUrl =
-    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}` +
-    `/contents/${ARCHIVO_NOTICIAS}`;
+/* =========================================================
+   OBTENER SHA
+   Solo necesario para modificar noticias.json
+========================================================= */
+
+async function obtenerSha(token) {
+  if (!token) {
+    throw new Error(
+      "Falta GITHUB_TOKEN en las variables de Cloudflare."
+    );
+  }
+
+  const url =
+    `https://api.github.com/repos/` +
+    `${GITHUB_OWNER}/${GITHUB_REPO}/contents/` +
+    `${ARCHIVO_NOTICIAS}?ref=${GITHUB_BRANCH}`;
+
+  const r = await fetch(url, {
+    headers: headersGithub(token),
+  });
+
+  if (!r.ok) {
+    const detalle = await r.text();
+
+    throw new Error(
+      `GitHub rechazó GITHUB_TOKEN. HTTP ${r.status}. ${detalle}`
+    );
+  }
+
+  const info = await r.json();
+
+  if (!info.sha) {
+    throw new Error(
+      "GitHub no devolvió el SHA de noticias.json."
+    );
+  }
+
+  return info.sha;
+}
+
+/* =========================================================
+   GUARDAR ARCHIVO COMPLETO EN GITHUB
+========================================================= */
+
+async function guardarArchivo(
+  token,
+  noticias,
+  sha,
+  mensaje
+) {
+  if (!token) {
+    throw new Error(
+      "Falta GITHUB_TOKEN en las variables de Cloudflare."
+    );
+  }
+
+  const url =
+    `https://api.github.com/repos/` +
+    `${GITHUB_OWNER}/${GITHUB_REPO}/contents/` +
+    `${ARCHIVO_NOTICIAS}`;
 
   const contenido = JSON.stringify(noticias, null, 2);
 
-  // Codificación UTF-8 segura para Base64
   const bytes = new TextEncoder().encode(contenido);
 
   let binario = "";
 
-  for (let i = 0; i < bytes.length; i += 8192) {
-    binario += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  const TAMANO = 8192;
+
+  for (let i = 0; i < bytes.length; i += TAMANO) {
+    binario += String.fromCharCode(
+      ...bytes.subarray(i, i + TAMANO)
+    );
   }
 
   const base64 = btoa(binario);
 
-  const r = await fetch(apiUrl, {
+  const r = await fetch(url, {
     method: "PUT",
 
     headers: headersGithub(token),
@@ -102,7 +159,7 @@ async function guardarArchivo(token, noticias, sha, mensaje) {
     body: JSON.stringify({
       message: mensaje,
       content: base64,
-      sha,
+      sha: sha,
       branch: GITHUB_BRANCH,
     }),
   });
@@ -111,67 +168,81 @@ async function guardarArchivo(token, noticias, sha, mensaje) {
     const detalle = await r.text();
 
     throw new Error(
-      `GitHub rechazó la actualización. HTTP ${r.status}: ${detalle}`
+      `GitHub rechazó la actualización. HTTP ${r.status}. ${detalle}`
     );
   }
 
-  return r.json();
+  return await r.json();
 }
 
+/* =========================================================
+   VALIDAR SESIÓN FIREBASE
+========================================================= */
+
 async function validarUsuario(request, env) {
-  const auth = request.headers.get("Authorization") || "";
+  const auth =
+    request.headers.get("Authorization") || "";
 
   if (!auth.startsWith("Bearer ")) {
-    throw new Error("Sesión de administrador no encontrada.");
+    throw new Error(
+      "Sesión de administrador no encontrada."
+    );
   }
 
-  const idToken = auth.slice(7).trim();
+  const idToken = auth
+    .substring("Bearer ".length)
+    .trim();
 
   if (!idToken) {
-    throw new Error("Token de administrador vacío.");
+    throw new Error(
+      "Token de administrador vacío."
+    );
   }
-
-  /*
-    Validamos el token usando Firebase Authentication.
-
-    FIREBASE_API_KEY puede configurarse en Cloudflare.
-    Si ya tienes la clave en otra variable puedes cambiar
-    únicamente el nombre de esta variable.
-  */
 
   const firebaseKey = env.FIREBASE_API_KEY;
 
   if (!firebaseKey) {
     throw new Error(
-      "Falta FIREBASE_API_KEY en las variables de Cloudflare."
+      "Falta FIREBASE_API_KEY en Cloudflare."
     );
   }
 
-  const r = await fetch(
-    `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${firebaseKey}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        idToken,
-      }),
-    }
-  );
+  const url =
+    `https://identitytoolkit.googleapis.com/` +
+    `v1/accounts:lookup?key=${firebaseKey}`;
+
+  const r = await fetch(url, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify({
+      idToken: idToken,
+    }),
+  });
 
   if (!r.ok) {
-    throw new Error("Sesión de administrador inválida o vencida.");
+    throw new Error(
+      "La sesión del administrador es inválida o venció."
+    );
   }
 
   const data = await r.json();
 
   if (!data.users || !data.users.length) {
-    throw new Error("Usuario no autorizado.");
+    throw new Error(
+      "Usuario administrador no autorizado."
+    );
   }
 
   return data.users[0];
 }
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
 
 function normalizarId(valor) {
   return String(valor ?? "").trim();
@@ -180,63 +251,66 @@ function normalizarId(valor) {
 function ordenarNoticias(noticias) {
   return [...noticias].sort((a, b) => {
     const fechaA = new Date(
-      a.created_at || a.updated_at || 0
+      a.created_at ||
+      a.updated_at ||
+      0
     ).getTime();
 
     const fechaB = new Date(
-      b.created_at || b.updated_at || 0
+      b.created_at ||
+      b.updated_at ||
+      0
     ).getTime();
 
     return fechaB - fechaA;
   });
 }
 
-/* ==========================================================
+/* =========================================================
    GET
    CARGAR TODAS LAS NOTICIAS
-========================================================== */
+========================================================= */
 
 export async function onRequestGet(context) {
   try {
     const { request, env } = context;
 
+    // El usuario debe estar autenticado.
     await validarUsuario(request, env);
 
-    const token = env.GITHUB_TOKEN;
-
-    if (!token) {
-      return respuesta(
-        {
-          ok: false,
-          error:
-            "Falta GITHUB_TOKEN en las variables de Cloudflare.",
-        },
-        500
-      );
-    }
-
-    const { noticias } = await obtenerArchivo(token);
+    // Para LEER no usamos GITHUB_TOKEN.
+    const noticias =
+      await obtenerNoticiasPublicas();
 
     return respuesta({
       ok: true,
       total: noticias.length,
       noticias: ordenarNoticias(noticias),
     });
+
   } catch (error) {
+
+    console.error(
+      "ERROR GET ADMIN:",
+      error
+    );
+
     return respuesta(
       {
         ok: false,
-        error: error.message || String(error),
+        error:
+          error?.message ||
+          String(error),
       },
       500
     );
   }
 }
 
-/* ==========================================================
+/* =========================================================
    POST
-   CREAR UNA NOTICIA
-========================================================== */
+   CREAR NOTICIA MANUAL
+========================================================= */
 
 export async function onRequestPost(context) {
   try {
@@ -248,54 +322,81 @@ export async function onRequestPost(context) {
 
     if (!token) {
       throw new Error(
-        "Falta GITHUB_TOKEN en las variables de Cloudflare."
+        "Falta GITHUB_TOKEN en Cloudflare."
       );
     }
 
     const datos = await request.json();
 
-    const { noticias, sha } = await obtenerArchivo(token);
+    const noticias =
+      await obtenerNoticiasPublicas();
+
+    const sha =
+      await obtenerSha(token);
 
     const id =
       datos.id ||
-      Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`);
+      Number(
+        `${Date.now()}${Math.floor(
+          Math.random() * 1000
+        )}`
+      );
 
-    const nueva = {
+    const nuevaNoticia = {
       ...datos,
-      id,
+
+      id: id,
+
       created_at:
-        datos.created_at || new Date().toISOString(),
-      updated_at: new Date().toISOString(),
+        datos.created_at ||
+        new Date().toISOString(),
+
+      updated_at:
+        new Date().toISOString(),
     };
 
-    noticias.unshift(nueva);
+    noticias.unshift(
+      nuevaNoticia
+    );
 
     await guardarArchivo(
       token,
       noticias,
       sha,
-      `Publicar noticia: ${nueva.titulo || id}`
+      `Publicar noticia: ${
+        nuevaNoticia.titulo || id
+      }`
     );
 
     return respuesta({
       ok: true,
-      noticia: nueva,
+      noticia: nuevaNoticia,
+      total: noticias.length,
     });
+
   } catch (error) {
+
+    console.error(
+      "ERROR POST ADMIN:",
+      error
+    );
+
     return respuesta(
       {
         ok: false,
-        error: error.message || String(error),
+        error:
+          error?.message ||
+          String(error),
       },
       500
     );
   }
 }
 
-/* ==========================================================
+/* =========================================================
    PUT
-   EDITAR UNA NOTICIA
-========================================================== */
+   EDITAR NOTICIA
+========================================================= */
 
 export async function onRequestPut(context) {
   try {
@@ -307,46 +408,59 @@ export async function onRequestPut(context) {
 
     if (!token) {
       throw new Error(
-        "Falta GITHUB_TOKEN en las variables de Cloudflare."
+        "Falta GITHUB_TOKEN en Cloudflare."
       );
     }
 
-    const datos = await request.json();
+    const datos =
+      await request.json();
 
     if (!datos.id) {
       return respuesta(
         {
           ok: false,
-          error: "Falta el ID de la noticia.",
+          error:
+            "Falta el ID de la noticia.",
         },
         400
       );
     }
 
-    const { noticias, sha } = await obtenerArchivo(token);
+    const noticias =
+      await obtenerNoticiasPublicas();
 
-    const idBuscado = normalizarId(datos.id);
+    const sha =
+      await obtenerSha(token);
 
-    const indice = noticias.findIndex(
-      (n) => normalizarId(n.id) === idBuscado
-    );
+    const idBuscado =
+      normalizarId(datos.id);
+
+    const indice =
+      noticias.findIndex(
+        (noticia) =>
+          normalizarId(noticia.id) ===
+          idBuscado
+      );
 
     if (indice === -1) {
       return respuesta(
         {
           ok: false,
-          error: "La noticia no existe.",
+          error:
+            "La noticia no existe.",
         },
         404
       );
     }
 
-    const anterior = noticias[indice];
+    const anterior =
+      noticias[indice];
 
     noticias[indice] = {
       ...anterior,
       ...datos,
 
+      // Nunca cambiar ID.
       id: anterior.id,
 
       created_at:
@@ -354,7 +468,8 @@ export async function onRequestPut(context) {
         datos.created_at ||
         new Date().toISOString(),
 
-      updated_at: new Date().toISOString(),
+      updated_at:
+        new Date().toISOString(),
     };
 
     await guardarArchivo(
@@ -362,7 +477,8 @@ export async function onRequestPut(context) {
       noticias,
       sha,
       `Actualizar noticia: ${
-        noticias[indice].titulo || datos.id
+        noticias[indice].titulo ||
+        datos.id
       }`
     );
 
@@ -370,21 +486,30 @@ export async function onRequestPut(context) {
       ok: true,
       noticia: noticias[indice],
     });
+
   } catch (error) {
+
+    console.error(
+      "ERROR PUT ADMIN:",
+      error
+    );
+
     return respuesta(
       {
         ok: false,
-        error: error.message || String(error),
+        error:
+          error?.message ||
+          String(error),
       },
       500
     );
   }
 }
 
-/* ==========================================================
+/* =========================================================
    DELETE
-   BORRAR DEFINITIVAMENTE UNA NOTICIA
-========================================================== */
+   BORRAR NOTICIA DEFINITIVAMENTE
+========================================================= */
 
 export async function onRequestDelete(context) {
   try {
@@ -396,68 +521,106 @@ export async function onRequestDelete(context) {
 
     if (!token) {
       throw new Error(
-        "Falta GITHUB_TOKEN en las variables de Cloudflare."
+        "Falta GITHUB_TOKEN en Cloudflare."
       );
     }
 
-    let id = new URL(request.url).searchParams.get("id");
+    let id =
+      new URL(request.url)
+        .searchParams
+        .get("id");
+
+    /*
+      Permitimos también recibir:
+      { id: ... }
+      por JSON.
+    */
 
     if (!id) {
       try {
-        const body = await request.json();
-        id = body.id;
-      } catch {}
+        const body =
+          await request.json();
+
+        id = body?.id;
+      } catch (_) {}
     }
 
     if (!id) {
       return respuesta(
         {
           ok: false,
-          error: "Falta el ID de la noticia.",
+          error:
+            "Falta el ID de la noticia.",
         },
         400
       );
     }
 
-    const { noticias, sha } = await obtenerArchivo(token);
+    const noticias =
+      await obtenerNoticiasPublicas();
 
-    const idBuscado = normalizarId(id);
+    const sha =
+      await obtenerSha(token);
 
-    const noticia = noticias.find(
-      (n) => normalizarId(n.id) === idBuscado
-    );
+    const idBuscado =
+      normalizarId(id);
+
+    const noticia =
+      noticias.find(
+        (n) =>
+          normalizarId(n.id) ===
+          idBuscado
+      );
 
     if (!noticia) {
       return respuesta(
         {
           ok: false,
-          error: "La noticia no existe.",
+          error:
+            "La noticia no existe.",
         },
         404
       );
     }
 
-    const nuevasNoticias = noticias.filter(
-      (n) => normalizarId(n.id) !== idBuscado
-    );
+    const nuevasNoticias =
+      noticias.filter(
+        (n) =>
+          normalizarId(n.id) !==
+          idBuscado
+      );
 
     await guardarArchivo(
       token,
       nuevasNoticias,
       sha,
-      `Eliminar noticia: ${noticia.titulo || id}`
+      `Eliminar noticia: ${
+        noticia.titulo || id
+      }`
     );
 
     return respuesta({
       ok: true,
       eliminado: id,
-      total: nuevasNoticias.length,
+      titulo:
+        noticia.titulo || "",
+      total:
+        nuevasNoticias.length,
     });
+
   } catch (error) {
+
+    console.error(
+      "ERROR DELETE ADMIN:",
+      error
+    );
+
     return respuesta(
       {
         ok: false,
-        error: error.message || String(error),
+        error:
+          error?.message ||
+          String(error),
       },
       500
     );
