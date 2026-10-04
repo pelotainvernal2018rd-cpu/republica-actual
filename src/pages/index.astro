@@ -534,6 +534,34 @@ const noticiasPrincipales = noticias.slice(1, 11);
       font-size: 14px;
     }
 
+    .republica-util-ver-mas {
+      display: flex;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .republica-util-ver-mas a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 28px;
+      border: 2px solid #102d46;
+      border-radius: 4px;
+      color: #102d46;
+      background: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .republica-util-ver-mas a:hover {
+      background: #102d46;
+      color: #ffffff;
+    }
+
 
     /* =========================================
        ERROR / VACÍO
@@ -942,6 +970,12 @@ const noticiasPrincipales = noticias.slice(1, 11);
 
     )}
 
+  </div>
+
+  <div class="republica-util-ver-mas">
+    <a href="/republica-util/">
+      VER MÁS EN REPÚBLICA ÚTIL →
+    </a>
   </div>
 
 </section>
