@@ -8,7 +8,7 @@ const MLB_API =
   Embed público de Teleantillas / Dailymotion
 */
 const MLB_STREAM =
-  "https://www.dailymotion.com/embed/video/x8mwmvs";
+  "https://geo.dailymotion.com/player.html?video=x8mwmvs";
 
 
 /* =========================================================
