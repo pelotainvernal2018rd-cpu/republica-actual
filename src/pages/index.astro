@@ -5,19 +5,22 @@
 // ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-import { cargarNoticiasPublicadas, contarNoticiasPublicadas } from '../lib/noticias-firestore.js';
+import { cargarNoticiasPublicadas, contarNoticiasPublicadas, cargarRepublicaUtilPortada } from '../lib/noticias-firestore.js';
 
 let noticias = [];
 let totalNoticias = 0;
+let republicaUtilPortada = [];
 let errorConexion = '';
 
 try {
-  const [noticiasRecientes, total] = await Promise.all([
+  const [noticiasRecientes, total, republicaUtil] = await Promise.all([
     cargarNoticiasPublicadas(20),
-    contarNoticiasPublicadas()
+    contarNoticiasPublicadas(),
+    cargarRepublicaUtilPortada(9)
   ]);
   noticias = noticiasRecientes;
   totalNoticias = total;
+  republicaUtilPortada = republicaUtil;
 } catch (error) {
   console.error(error);
   errorConexion = 'No se pudieron cargar las noticias.';
@@ -81,32 +84,10 @@ function imagenCloudflare(url = '', ancho = 700) {
 const noticiaPrincipal = noticias[0] || null;
 const noticiasPrincipales = noticias.slice(1, 7);
 
-// REPÚBLICA ÚTIL: exclusivamente manual.
-// Una entrada solo aparece aquí cuando se marca de forma explícita
-// con la categoría o etiqueta "República Útil".
-// Las noticias automáticas NO entran por palabras del título.
-function esRepublicaUtilManual(noticia) {
-  const categoria = String(noticia.categoria || '')
-    .trim()
-    .toLowerCase();
+// REPÚBLICA ÚTIL ahora llega desde una consulta independiente de Firestore.
+// No depende de estar entre las 20 noticias más recientes.
+// El administrador controla esta sección con republica_util_portada=true.
 
-  const etiquetas = Array.isArray(noticia.etiquetas)
-    ? noticia.etiquetas.map(e => String(e).trim().toLowerCase())
-    : String(noticia.etiquetas || '')
-        .split(',')
-        .map(e => e.trim().toLowerCase());
-
-  return (
-    categoria === 'república útil' ||
-    categoria === 'republica util' ||
-    etiquetas.includes('república útil') ||
-    etiquetas.includes('republica util')
-  );
-}
-
-const republicaUtilPortada = noticias
-  .filter(esRepublicaUtilManual)
-  .slice(0, 9);
 ---
 
 <Layout

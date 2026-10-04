@@ -49,7 +49,6 @@ function valorFirestore(field = {}) {
   if ('mapValue' in field) {
 
     return Object.fromEntries(
-
       Object.entries(
         field.mapValue.fields || {}
       ).map(
@@ -58,7 +57,6 @@ function valorFirestore(field = {}) {
           valorFirestore(valor)
         ]
       )
-
     );
 
   }
@@ -74,7 +72,6 @@ function valorFirestore(field = {}) {
 function documentoFirestore(doc = {}) {
 
   const datos = Object.fromEntries(
-
     Object.entries(
       doc.fields || {}
     ).map(
@@ -83,7 +80,6 @@ function documentoFirestore(doc = {}) {
         valorFirestore(valor)
       ]
     )
-
   );
 
   if (
@@ -162,8 +158,7 @@ async function ejecutarQuery(structuredQuery) {
 // ============================================================
 // CARGAR NOTICIAS PUBLICADAS
 // ============================================================
-// IMPORTANTE:
-// Ya NO descarga toda la colección.
+// NO descarga toda la colección.
 // Por defecto carga solamente 20.
 // ============================================================
 
@@ -221,10 +216,103 @@ export async function cargarNoticiasPublicadas(
 
 
 // ============================================================
+// REPÚBLICA ÚTIL
+// ============================================================
+// Consulta independiente.
+// Ya NO depende de que la noticia esté entre las últimas 20.
+//
+// El administrador guarda:
+// republica_util_portada: true
+//
+// Solo descargamos las entradas necesarias para esa sección.
+// ============================================================
+
+export async function cargarRepublicaUtilPortada(
+  limite = 9
+) {
+
+  const cantidad =
+    Math.max(
+      1,
+      Number(limite) || 9
+    );
+
+  return ejecutarQuery({
+
+    from: [
+      {
+        collectionId: 'noticias'
+      }
+    ],
+
+    where: {
+
+      compositeFilter: {
+
+        op: 'AND',
+
+        filters: [
+
+          {
+            fieldFilter: {
+
+              field: {
+                fieldPath: 'publicado'
+              },
+
+              op: 'EQUAL',
+
+              value: {
+                booleanValue: true
+              }
+
+            }
+          },
+
+          {
+            fieldFilter: {
+
+              field: {
+                fieldPath: 'republica_util_portada'
+              },
+
+              op: 'EQUAL',
+
+              value: {
+                booleanValue: true
+              }
+
+            }
+          }
+
+        ]
+
+      }
+
+    },
+
+    orderBy: [
+      {
+        field: {
+          fieldPath: 'created_at'
+        },
+
+        direction: 'DESCENDING'
+      }
+    ],
+
+    limit: cantidad
+
+  });
+
+}
+
+
+// ============================================================
 // CONTAR NOTICIAS PUBLICADAS
 // ============================================================
 // Firestore hace COUNT.
-// No descarga las 400+ noticias solo para conocer el total.
+// No descarga las 400+ noticias para conocer el total.
 // ============================================================
 
 export async function contarNoticiasPublicadas() {
@@ -310,16 +398,21 @@ export async function contarNoticiasPublicadas() {
       ?.aggregateFields
       ?.total
       ?.integerValue
+
     ??
+
     resultado?.[0]
       ?.result
       ?.aggregateFields
       ?.total
       ?.doubleValue
+
     ??
+
     0;
 
   return Number(valor) || 0;
+
 }
 
 
