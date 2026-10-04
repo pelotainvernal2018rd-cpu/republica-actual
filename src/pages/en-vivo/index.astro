@@ -1,0 +1,118 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Deportes en Vivo | República Actual">
+  <main class="watch-page">
+    <a class="back" href="/deportes-en-vivo/">← Volver a Deportes en Vivo</a>
+
+    <section class="watch-grid">
+      <div>
+        <div class="player-shell" id="player-shell">
+          <div class="waiting" id="waiting">
+            <span class="eyebrow" id="player-status">PARTIDO PROGRAMADO</span>
+            <h1 id="player-title">EL JUEGO COMENZARÁ PRONTO</h1>
+            <p id="player-message">El reproductor estará disponible cuando exista una transmisión autorizada para este encuentro.</p>
+            <small>Tiempo hasta el inicio</small>
+            <div class="countdown" id="countdown">--:--:--</div>
+          </div>
+          <div class="media" id="media" hidden></div>
+        </div>
+
+        <div class="match-heading">
+          <div><span class="league-red" id="league-bottom">DEPORTE</span><h2 id="match-title">Cargando partido...</h2><p id="match-date"></p></div>
+          <span class="state-pill" id="state-pill">CARGANDO</span>
+        </div>
+      </div>
+
+      <aside class="info-card">
+        <span class="brand">REPÚBLICA ACTUAL</span>
+        <h2>Información del juego</h2>
+        <dl>
+          <div><dt>Liga</dt><dd id="info-league">—</dd></div>
+          <div><dt>Visitante</dt><dd id="info-away">—</dd></div>
+          <div><dt>Local</dt><dd id="info-home">—</dd></div>
+          <div><dt>Estado</dt><dd id="info-state">—</dd></div>
+          <div><dt>Hora RD</dt><dd id="info-time">—</dd></div>
+        </dl>
+      </aside>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const id = new URLSearchParams(location.search).get("id");
+  let timer = null;
+
+  const stateText = (s) => s === "live" ? "EN VIVO" : s === "post" ? "FINALIZADO" : "PROGRAMADO";
+  const dateRD = (iso) => iso ? new Intl.DateTimeFormat("es-DO", {timeZone:"America/Santo_Domingo", weekday:"long", day:"numeric", month:"long", hour:"numeric", minute:"2-digit"}).format(new Date(iso)) : "—";
+  const timeRD = (iso) => iso ? new Intl.DateTimeFormat("es-DO", {timeZone:"America/Santo_Domingo", hour:"numeric", minute:"2-digit"}).format(new Date(iso)) : "—";
+
+  function countdown(iso, state){
+    if (timer) clearInterval(timer);
+    if (!iso || state !== "pre") { $("countdown").textContent = state === "live" ? "EN VIVO" : "FINALIZADO"; return; }
+    const tick = () => {
+      const d = new Date(iso).getTime() - Date.now();
+      if (d <= 0) { $("countdown").textContent = "00:00:00"; clearInterval(timer); return; }
+      const h = Math.floor(d/3600000), m = Math.floor((d%3600000)/60000), s = Math.floor((d%60000)/1000);
+      $("countdown").textContent = `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    };
+    tick(); timer = setInterval(tick,1000);
+  }
+
+  function loadPlayer(g){
+    if (!g.stream_url) return;
+    const media = $("media"), waiting = $("waiting");
+    const url = String(g.stream_url);
+    waiting.hidden = true; media.hidden = false;
+    if (/\.(mp4|webm)(\?|$)/i.test(url)) {
+      media.innerHTML = `<video controls autoplay playsinline src="${url.replace(/"/g,"&quot;")}"></video>`;
+    } else if (/\.m3u8(\?|$)/i.test(url)) {
+      const v = document.createElement("video"); v.controls = true; v.autoplay = true; v.playsInline = true;
+      if (v.canPlayType("application/vnd.apple.mpegurl")) v.src = url;
+      else { media.hidden = true; waiting.hidden = false; $("player-message").textContent = "Esta transmisión HLS necesita un reproductor compatible."; }
+      media.replaceChildren(v);
+    } else {
+      const f = document.createElement("iframe"); f.src = url; f.allow = "autoplay; fullscreen; picture-in-picture"; f.allowFullscreen = true; f.referrerPolicy = "strict-origin-when-cross-origin";
+      media.replaceChildren(f);
+    }
+  }
+
+  async function init(){
+    if (!id) { $("match-title").textContent = "Partido no especificado"; return; }
+    try {
+      const r = await fetch("/api/deportes", {cache:"no-store"});
+      const data = await r.json();
+      const g = (data.juegos || []).find(x => String(x.id) === String(id));
+      if (!g) throw new Error("Partido no encontrado");
+      const title = `${g.visitante.nombre} vs ${g.local.nombre}`;
+      const st = stateText(g.state);
+      $("league-bottom").textContent = g.liga || "DEPORTE";
+      $("match-title").textContent = title;
+      $("match-date").textContent = dateRD(g.fecha);
+      $("state-pill").textContent = st;
+      $("state-pill").classList.toggle("live", g.state === "live");
+      $("info-league").textContent = g.liga || "—";
+      $("info-away").textContent = g.visitante.nombre;
+      $("info-home").textContent = g.local.nombre;
+      $("info-state").textContent = st;
+      $("info-time").textContent = timeRD(g.fecha);
+      $("player-status").textContent = g.state === "live" ? "PARTIDO EN VIVO" : g.state === "post" ? "PARTIDO FINALIZADO" : "PARTIDO PROGRAMADO";
+      $("player-title").textContent = g.state === "live" ? "TRANSMISIÓN EN VIVO" : g.state === "post" ? "EL PARTIDO HA FINALIZADO" : "EL JUEGO COMENZARÁ PRONTO";
+      countdown(g.fecha, g.state);
+      if (g.state === "live" && g.stream_url) loadPlayer(g);
+    } catch(e) {
+      $("match-title").textContent = "No pudimos cargar este partido";
+      $("player-title").textContent = "PARTIDO NO DISPONIBLE";
+      $("player-message").textContent = "Vuelve a Deportes en Vivo y selecciona otro encuentro.";
+    }
+  }
+  init();
+})();
+</script>
+
+<style is:global>
+.watch-page{max-width:1280px;margin:auto;padding:28px 22px 60px;color:#eef4ff}.watch-page .back{display:inline-block;margin-bottom:18px;color:#9eb5d4;text-decoration:none;font-weight:700}.watch-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:26px}.player-shell{aspect-ratio:16/9;background:#020305;border:1px solid #263c5a;border-radius:22px;overflow:hidden;display:flex;align-items:center;justify-content:center}.waiting{text-align:center;padding:30px}.eyebrow,.league-red,.brand{color:#ff334f;font-size:12px;font-weight:900;letter-spacing:.16em}.waiting h1{font-size:clamp(30px,4vw,58px);line-height:1;margin:12px 0}.waiting p{color:#9bb3d2}.waiting small{display:block;margin-top:34px;color:#9bb3d2;font-weight:700}.countdown{font-size:clamp(42px,6vw,76px);font-weight:900;margin-top:8px}.media,.media video,.media iframe{width:100%;height:100%;border:0;background:#000}.match-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:28px 2px}.match-heading h2{font-size:clamp(28px,4vw,50px);line-height:1.08;margin:8px 0}.match-heading p{color:#9bb3d2}.state-pill{border:1px solid #8c6b16;background:#2a2413;color:#ffd35a;padding:10px 15px;border-radius:999px;font-weight:900;font-size:12px}.state-pill.live{border-color:#ff334f;background:#3a1018;color:#ff6b7e}.info-card{background:#101e33;border:1px solid #2b405e;border-radius:22px;padding:28px;height:max-content}.info-card h2{font-size:25px;margin:12px 0 20px}.info-card dl{margin:0}.info-card dl div{padding:15px 0;border-bottom:1px solid #2a3c56}.info-card dt{font-size:12px;color:#8fa4c1;margin-bottom:7px}.info-card dd{margin:0;font-size:16px;font-weight:900}.watch-page{background:#050b16}.watch-page::before{content:"";position:fixed;inset:0;background:#050b16;z-index:-1}@media(max-width:850px){.watch-grid{grid-template-columns:1fr}.info-card{order:2}.match-heading{flex-direction:column}.watch-page{padding:18px 14px 45px}.player-shell{border-radius:14px}.waiting{padding:18px}.waiting small{margin-top:22px}}
+</style>

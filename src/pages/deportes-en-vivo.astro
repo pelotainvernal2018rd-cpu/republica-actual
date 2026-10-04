@@ -121,7 +121,20 @@ const deportes = [
     return "PRÓXIMO";
   }
 
-  function render() {
+  
+  function pitcherBlock(g){
+    if(g.deporte!=="mlb") return "";
+    const a=g.pitchers?.visitante, h=g.pitchers?.local;
+    const one=(p,label)=>{
+      if(!p) return `<div class="pitcher"><small>${label}</small><div class="pitcher-row"><div class="pitcher-photo pitcher-empty">?</div><div><b>Por anunciar</b><span>Abridor pendiente</span></div></div></div>`;
+      const photo=p.foto ? `<img src="${escapeHTML(p.foto)}" alt="${escapeHTML(p.nombre)}" loading="lazy">` : "?";
+      const line=[p.mano,p.record,p.era ? `${p.era} ERA` : ""].filter(Boolean).join(" · ");
+      return `<div class="pitcher"><small>${label}</small><div class="pitcher-row"><div class="pitcher-photo">${photo}</div><div><b>${escapeHTML(p.nombre||"Por anunciar")}</b><span>${escapeHTML(line||"Abridor anunciado")}</span></div></div></div>`;
+    };
+    return `<div class="pitchers">${one(a,"VISITANTE")}${one(h,"LOCAL")}</div>`;
+  }
+
+function render() {
     const visibles = juegos.filter(j =>
       (deporteActivo === "todos" || j.deporte === deporteActivo) &&
       (estadoActivo === "todos" || j.state === estadoActivo)
@@ -146,9 +159,14 @@ const deportes = [
               <span>${esc(j.local.nombre)}</span><strong>${esc(j.local.score ?? "-")}</strong>
             </div>
           </div>
-          <div class="card-footer">
+          ${pitcherBlock(j)}<div class="card-footer">
             <span>${esc(j.detalle || (j.state === "pre" ? horaRD(j.fecha) : estadoTexto(j)))}</span>
             <span class="game-time">${j.state === "pre" ? horaRD(j.fecha) : estadoTexto(j)}</span>
+          </div>
+          <div class="game-open-row">
+            <a class="game-open-btn ${j.state === "live" ? "is-live" : ""}" href="/en-vivo/?id=${encodeURIComponent(j.id)}">
+              ${j.state === "live" && j.stream_url ? "🔴 VER EN VIVO" : "ABRIR JUEGO"}
+            </a>
           </div>
         </article>`).join("");
     }
@@ -1188,6 +1206,55 @@ const deportes = [
   .games-grid .game-card{padding:15px!important;min-height:175px!important}
 }
 
+
+/* ===== TARJETA TIPO SCOREBOARD ===== */
+.games-grid .game-card{
+  background:#fff!important;border:1px solid #dfe4ea!important;border-radius:6px!important;
+  padding:0!important;overflow:hidden!important;box-shadow:0 2px 7px rgba(0,0,0,.13)!important;
+}
+.games-grid .game-head{
+  background:#06264c!important;color:#fff!important;border:0!important;padding:7px 11px!important;
+}
+.games-grid .game-head b{color:#fff!important;font-size:11px!important}
+.games-grid .game-head .badge{background:rgba(255,255,255,.14)!important;color:#fff!important}
+.games-grid .game-head .badge.live{background:#e52336!important;color:#fff!important}
+.games-grid .team-line{margin:0 12px!important;padding:10px 0!important;border-bottom:1px solid #eef1f4!important}
+.games-grid .team-line:last-of-type{border-bottom:0!important}
+.games-grid .team-icon{background:transparent!important}
+.games-grid .team-line strong{font-size:13px!important;color:#111827!important}
+.games-grid .team-line small{font-size:9px!important;color:#7b8796!important}
+.games-grid .team-line>b{font-size:18px!important;color:#111827!important}
+.games-grid .game-foot{
+  margin:0 12px!important;padding:10px 0!important;border-top:1px solid #e8edf2!important;
+}
+.games-grid .live-watch{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+  width:calc(100% - 24px)!important;margin:0 12px 12px!important;padding:10px 12px!important;
+  box-sizing:border-box!important;border:0!important;border-radius:5px!important;
+  background:#e52336!important;color:#fff!important;text-decoration:none!important;
+  font-size:11px!important;font-weight:900!important;letter-spacing:.25px!important;
+}
+.games-grid .live-watch:hover{background:#c9182a!important}
+.games-grid .live-watch .pulse{
+  width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18)
+}
+
+
+/* ===== ABRIDORES MLB ===== */
+.games-grid .pitchers{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;margin:0 12px!important;padding:11px 0!important;border-top:1px solid #e8edf2!important}
+.games-grid .pitcher{min-width:0!important}
+.games-grid .pitcher>small{display:block!important;margin-bottom:6px!important;color:#667085!important;font-size:8px!important;font-weight:800!important;text-transform:uppercase!important}
+.games-grid .pitcher-row{display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;align-items:center!important;gap:8px!important}
+.games-grid .pitcher-photo{width:36px!important;height:36px!important;border-radius:50%!important;overflow:hidden!important;background:#eef1f4!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#9aa3ad!important;font-weight:900!important}
+.games-grid .pitcher-photo img{display:block!important;width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important;object-fit:cover!important}
+.games-grid .pitcher-row b{display:block!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;color:#172033!important;font-size:10px!important}
+.games-grid .pitcher-row span{display:block!important;margin-top:2px!important;color:#667085!important;font-size:8px!important;line-height:1.25!important}
+@media(max-width:420px){.games-grid .pitchers{gap:8px!important}.games-grid .pitcher-row{grid-template-columns:32px minmax(0,1fr)!important;gap:6px!important}.games-grid .pitcher-photo,.games-grid .pitcher-photo img{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important}}
+
+
+.games-grid .game-open-row{padding:0 12px 12px!important}
+.games-grid .game-open-btn{display:flex!important;align-items:center!important;justify-content:center!important;min-height:36px!important;border-radius:8px!important;background:#0b1f3a!important;color:#fff!important;text-decoration:none!important;font-size:10px!important;font-weight:900!important;letter-spacing:.03em!important}
+.games-grid .game-open-btn.is-live{background:#d71920!important}
 </style>
 
 </Layout>
