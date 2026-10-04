@@ -80,9 +80,9 @@ function imagenCloudflare(url = '', ancho = 700) {
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=cover/${url}`;
 }
 
-// 6 noticias principales de portada
+// 11 noticias en Ultimas publicaciones: 1 principal + 10 adicionales
 const noticiaPrincipal = noticias[0] || null;
-const noticiasPrincipales = noticias.slice(1, 7);
+const noticiasPrincipales = noticias.slice(1, 11);
 
 // REPÚBLICA ÚTIL ahora llega desde una consulta independiente de Firestore.
 // No depende de estar entre las 20 noticias más recientes.
