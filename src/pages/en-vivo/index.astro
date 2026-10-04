@@ -6,36 +6,20 @@ import Layout from "../../layouts/Layout.astro";
 
   <main class="watch-page">
 
-    <a
-      class="back"
-      href="/deportes-en-vivo/"
-    >
+    <a class="back" href="/deportes-en-vivo/">
       ← Volver a Deportes en Vivo
     </a>
 
-
     <section class="watch-grid">
-
-      <!-- =========================================
-           REPRODUCTOR
-      ========================================== -->
 
       <div>
 
-        <div
-          class="player-shell"
-          id="player-shell"
-        >
+        <!-- REPRODUCTOR -->
+        <div class="player-shell" id="player-shell">
 
-          <div
-            class="waiting"
-            id="waiting"
-          >
+          <div class="waiting" id="waiting">
 
-            <span
-              class="eyebrow"
-              id="player-status"
-            >
+            <span class="eyebrow" id="player-status">
               PARTIDO PROGRAMADO
             </span>
 
@@ -44,45 +28,30 @@ import Layout from "../../layouts/Layout.astro";
             </h1>
 
             <p id="player-message">
-              El reproductor estará disponible cuando exista
-              una transmisión autorizada para este encuentro.
+              El reproductor estará disponible cuando exista una transmisión autorizada para este encuentro.
             </p>
 
             <small>
               Tiempo hasta el inicio
             </small>
 
-            <div
-              class="countdown"
-              id="countdown"
-            >
+            <div class="countdown" id="countdown">
               --:--:--
             </div>
 
           </div>
 
-
-          <div
-            class="media"
-            id="media"
-            hidden
-          ></div>
+          <div class="media" id="media" hidden></div>
 
         </div>
 
 
-        <!-- =========================================
-             INFORMACIÓN DEBAJO DEL REPRODUCTOR
-        ========================================== -->
-
+        <!-- INFORMACIÓN DEBAJO -->
         <div class="match-heading">
 
           <div>
 
-            <span
-              class="league-red"
-              id="league-bottom"
-            >
+            <span class="league-red" id="league-bottom">
               DEPORTE
             </span>
 
@@ -94,11 +63,7 @@ import Layout from "../../layouts/Layout.astro";
 
           </div>
 
-
-          <span
-            class="state-pill"
-            id="state-pill"
-          >
+          <span class="state-pill" id="state-pill">
             CARGANDO
           </span>
 
@@ -107,10 +72,7 @@ import Layout from "../../layouts/Layout.astro";
       </div>
 
 
-      <!-- =========================================
-           INFORMACIÓN DEL JUEGO
-      ========================================== -->
-
+      <!-- INFORMACIÓN DEL JUEGO -->
       <aside class="info-card">
 
         <span class="brand">
@@ -120,7 +82,6 @@ import Layout from "../../layouts/Layout.astro";
         <h2>
           Información del juego
         </h2>
-
 
         <dl>
 
@@ -167,18 +128,16 @@ import Layout from "../../layouts/Layout.astro";
   const $ = (id) =>
     document.getElementById(id);
 
-
   const id =
     new URLSearchParams(
       location.search
     ).get("id");
 
-
   let timer = null;
 
 
   /* =========================================
-     ESTADO DEL PARTIDO
+     ESTADOS
   ========================================== */
 
   const stateText = (s) =>
@@ -190,7 +149,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
   /* =========================================
-     FECHA REPÚBLICA DOMINICANA
+     FECHA RD
   ========================================== */
 
   const dateRD = (iso) =>
@@ -225,7 +184,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
   /* =========================================
-     HORA REPÚBLICA DOMINICANA
+     HORA RD
   ========================================== */
 
   const timeRD = (iso) =>
@@ -263,7 +222,6 @@ import Layout from "../../layouts/Layout.astro";
       clearInterval(timer);
     }
 
-
     if (
       !iso ||
       state !== "pre"
@@ -277,13 +235,11 @@ import Layout from "../../layouts/Layout.astro";
       return;
     }
 
-
     const tick = () => {
 
       const d =
         new Date(iso).getTime() -
         Date.now();
-
 
       if (d <= 0) {
 
@@ -295,12 +251,10 @@ import Layout from "../../layouts/Layout.astro";
         return;
       }
 
-
       const h =
         Math.floor(
           d / 3600000
         );
-
 
       const m =
         Math.floor(
@@ -308,13 +262,11 @@ import Layout from "../../layouts/Layout.astro";
           60000
         );
 
-
       const s =
         Math.floor(
           (d % 60000) /
           1000
         );
-
 
       $("countdown").textContent =
         `${String(h).padStart(2,"0")}:` +
@@ -323,9 +275,7 @@ import Layout from "../../layouts/Layout.astro";
 
     };
 
-
     tick();
-
 
     timer =
       setInterval(
@@ -346,30 +296,32 @@ import Layout from "../../layouts/Layout.astro";
       return;
     }
 
-
     const media =
       $("media");
 
-
     const waiting =
       $("waiting");
-
 
     const url =
       String(
         g.stream_url
       );
 
+    /*
+      OCULTAMOS LA CUENTA REGRESIVA
+      CUANDO EXISTE UNA TRANSMISIÓN
+    */
 
     waiting.hidden =
       true;
-
 
     media.hidden =
       false;
 
 
-    /* VIDEO MP4 / WEBM */
+    /* =========================================
+       MP4 / WEBM
+    ========================================== */
 
     if (
       /\.(mp4|webm)(\?|$)/i.test(
@@ -385,43 +337,47 @@ import Layout from "../../layouts/Layout.astro";
           src="${url.replace(/"/g,"&quot;")}"
         ></video>`;
 
+      return;
     }
 
 
-    /* HLS M3U8 */
+    /* =========================================
+       HLS
+    ========================================== */
 
-    else if (
+    if (
       /\.m3u8(\?|$)/i.test(
         url
       )
     ) {
 
-      const v =
+      const video =
         document.createElement(
           "video"
         );
 
-
-      v.controls =
+      video.controls =
         true;
 
-
-      v.autoplay =
+      video.autoplay =
         true;
 
-
-      v.playsInline =
+      video.playsInline =
         true;
 
 
       if (
-        v.canPlayType(
+        video.canPlayType(
           "application/vnd.apple.mpegurl"
         )
       ) {
 
-        v.src =
+        video.src =
           url;
+
+        media.replaceChildren(
+          video
+        );
 
       }
 
@@ -430,55 +386,50 @@ import Layout from "../../layouts/Layout.astro";
         media.hidden =
           true;
 
-
         waiting.hidden =
           false;
 
+        $("player-title").textContent =
+          "TRANSMISIÓN NO COMPATIBLE";
 
         $("player-message").textContent =
-          "Esta transmisión HLS necesita un reproductor compatible.";
+          "Este navegador no puede reproducir directamente esta señal HLS.";
 
       }
 
-
-      media.replaceChildren(
-        v
-      );
-
+      return;
     }
 
 
-    /* IFRAME / EMBED */
+    /* =========================================
+       IFRAME / DAILYMOTION / EMBED
+    ========================================== */
 
-    else {
-
-      const f =
-        document.createElement(
-          "iframe"
-        );
-
-
-      f.src =
-        url;
-
-
-      f.allow =
-        "autoplay; fullscreen; picture-in-picture";
-
-
-      f.allowFullscreen =
-        true;
-
-
-      f.referrerPolicy =
-        "strict-origin-when-cross-origin";
-
-
-      media.replaceChildren(
-        f
+    const iframe =
+      document.createElement(
+        "iframe"
       );
 
-    }
+    iframe.src =
+      url;
+
+    iframe.allow =
+      "autoplay; fullscreen; picture-in-picture";
+
+    iframe.allowFullscreen =
+      true;
+
+    iframe.referrerPolicy =
+      "strict-origin-when-cross-origin";
+
+    iframe.setAttribute(
+      "title",
+      "Transmisión deportiva"
+    );
+
+    media.replaceChildren(
+      iframe
+    );
 
   }
 
@@ -501,7 +452,7 @@ import Layout from "../../layouts/Layout.astro";
 
     try {
 
-      const r =
+      const response =
         await fetch(
           "/api/deportes",
           {
@@ -511,14 +462,23 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
+      if (!response.ok) {
+
+        throw new Error(
+          "Error cargando deportes"
+        );
+
+      }
+
+
       const data =
-        await r.json();
+        await response.json();
 
 
       const g =
         (data.juegos || [])
           .find(
-            x =>
+            (x) =>
               String(x.id) ===
               String(id)
           );
@@ -543,7 +503,9 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
-      /* INFORMACIÓN PRINCIPAL */
+      /* =========================================
+         INFORMACIÓN PRINCIPAL
+      ========================================== */
 
       $("league-bottom").textContent =
         g.liga ||
@@ -560,7 +522,9 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
-      /* ESTADO */
+      /* =========================================
+         ESTADO
+      ========================================== */
 
       $("state-pill").textContent =
         st;
@@ -574,7 +538,9 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
-      /* TARJETA DERECHA */
+      /* =========================================
+         TARJETA DERECHA
+      ========================================== */
 
       $("info-league").textContent =
         g.liga ||
@@ -599,7 +565,9 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
-      /* REPRODUCTOR */
+      /* =========================================
+         TEXTO DEL PLAYER
+      ========================================== */
 
       $("player-status").textContent =
 
@@ -633,8 +601,16 @@ import Layout from "../../layouts/Layout.astro";
       );
 
 
+      /* =========================================
+         CAMBIO IMPORTANTE
+
+         SI EXISTE STREAM_URL,
+         ABRIMOS EL REPRODUCTOR INMEDIATAMENTE.
+
+         NO ESPERAMOS A QUE MLB MARQUE "LIVE".
+      ========================================== */
+
       if (
-        g.state === "live" &&
         g.stream_url
       ) {
 
@@ -645,7 +621,12 @@ import Layout from "../../layouts/Layout.astro";
     }
 
 
-    catch(e) {
+    catch(error) {
+
+      console.error(
+        error
+      );
+
 
       $("match-title").textContent =
         "No pudimos cargar este partido";
@@ -674,7 +655,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   PÁGINA
+   PÁGINA BLANCA
 ========================================= */
 
 .watch-page {
@@ -808,10 +789,13 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   PANTALLA DE ESPERA
+   ESPERA
 ========================================= */
 
 .waiting {
+
+  width:
+    100%;
 
   text-align:
     center;
@@ -912,12 +896,28 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   VIDEO
+   VIDEO / IFRAME
 ========================================= */
 
-.media,
+.media {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  background:
+    #000000;
+
+}
+
+
 .media video,
 .media iframe {
+
+  display:
+    block;
 
   width:
     100%;
@@ -935,7 +935,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   INFORMACIÓN DEBAJO DEL PLAYER
+   DATOS DEBAJO
 ========================================= */
 
 .match-heading {
@@ -1038,7 +1038,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   TARJETA INFORMACIÓN
+   INFORMACIÓN DEL JUEGO
 ========================================= */
 
 .info-card {
@@ -1141,7 +1141,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   RESPONSIVE
+   MÓVIL
 ========================================= */
 
 @media(
