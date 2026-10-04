@@ -14,39 +14,51 @@ import Layout from "../../layouts/Layout.astro";
 
       <div>
 
-        <!-- REPRODUCTOR -->
+        <!-- =====================================
+             REPRODUCTOR
+        ====================================== -->
+
         <div class="player-shell" id="player-shell">
 
-          <div class="waiting" id="waiting">
+          <!-- TRANSMISIÓN -->
+          <div class="media" id="media" hidden></div>
 
-            <span class="eyebrow" id="player-status">
-              PARTIDO PROGRAMADO
-            </span>
+          <!-- CONTADOR SOBRE LA TRANSMISIÓN -->
+          <div class="countdown-overlay" id="countdown-overlay">
 
-            <h1 id="player-title">
-              EL JUEGO COMENZARÁ PRONTO
-            </h1>
+            <div class="countdown-content">
 
-            <p id="player-message">
-              El reproductor estará disponible cuando exista una transmisión autorizada para este encuentro.
-            </p>
+              <span class="eyebrow" id="player-status">
+                PARTIDO PROGRAMADO
+              </span>
 
-            <small>
-              Tiempo hasta el inicio
-            </small>
+              <h1 id="player-title">
+                EL JUEGO COMENZARÁ PRONTO
+              </h1>
 
-            <div class="countdown" id="countdown">
-              --:--:--
+              <p id="player-message">
+                La transmisión estará disponible al comenzar el encuentro.
+              </p>
+
+              <small>
+                Tiempo hasta el inicio
+              </small>
+
+              <div class="countdown" id="countdown">
+                --:--:--
+              </div>
+
             </div>
 
           </div>
 
-          <div class="media" id="media" hidden></div>
-
         </div>
 
 
-        <!-- INFORMACIÓN DEBAJO -->
+        <!-- =====================================
+             INFORMACIÓN DEBAJO
+        ====================================== -->
+
         <div class="match-heading">
 
           <div>
@@ -72,7 +84,10 @@ import Layout from "../../layouts/Layout.astro";
       </div>
 
 
-      <!-- INFORMACIÓN DEL JUEGO -->
+      <!-- =====================================
+           INFORMACIÓN DEL JUEGO
+      ====================================== -->
+
       <aside class="info-card">
 
         <span class="brand">
@@ -128,10 +143,12 @@ import Layout from "../../layouts/Layout.astro";
   const $ = (id) =>
     document.getElementById(id);
 
+
   const id =
     new URLSearchParams(
       location.search
     ).get("id");
+
 
   let timer = null;
 
@@ -140,73 +157,90 @@ import Layout from "../../layouts/Layout.astro";
      ESTADOS
   ========================================== */
 
-  const stateText = (s) =>
-    s === "live"
-      ? "EN VIVO"
-      : s === "post"
-        ? "FINALIZADO"
-        : "PROGRAMADO";
+  const stateText = (state) => {
+
+    if (state === "live") {
+      return "EN VIVO";
+    }
+
+    if (state === "post") {
+      return "FINALIZADO";
+    }
+
+    return "PROGRAMADO";
+
+  };
 
 
   /* =========================================
      FECHA RD
   ========================================== */
 
-  const dateRD = (iso) =>
+  const dateRD = (iso) => {
 
-    iso
-      ? new Intl.DateTimeFormat(
-          "es-DO",
-          {
-            timeZone:
-              "America/Santo_Domingo",
+    if (!iso) {
+      return "—";
+    }
 
-            weekday:
-              "long",
+    return new Intl.DateTimeFormat(
+      "es-DO",
+      {
+        timeZone: "America/Santo_Domingo",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        hour: "numeric",
+        minute: "2-digit"
+      }
+    ).format(
+      new Date(iso)
+    );
 
-            day:
-              "numeric",
-
-            month:
-              "long",
-
-            hour:
-              "numeric",
-
-            minute:
-              "2-digit"
-          }
-        ).format(
-          new Date(iso)
-        )
-
-      : "—";
+  };
 
 
   /* =========================================
      HORA RD
   ========================================== */
 
-  const timeRD = (iso) =>
+  const timeRD = (iso) => {
 
-    iso
-      ? new Intl.DateTimeFormat(
-          "es-DO",
-          {
-            timeZone:
-              "America/Santo_Domingo",
+    if (!iso) {
+      return "—";
+    }
 
-            hour:
-              "numeric",
+    return new Intl.DateTimeFormat(
+      "es-DO",
+      {
+        timeZone: "America/Santo_Domingo",
+        hour: "numeric",
+        minute: "2-digit"
+      }
+    ).format(
+      new Date(iso)
+    );
 
-            minute:
-              "2-digit"
-          }
-        ).format(
-          new Date(iso)
-        )
+  };
 
-      : "—";
+
+  /* =========================================
+     OCULTAR CONTADOR
+  ========================================== */
+
+  function hideCountdown() {
+
+    const overlay =
+      $("countdown-overlay");
+
+    if (!overlay) {
+      return;
+    }
+
+    overlay.classList.add(
+      "hide"
+    );
+
+  }
 
 
   /* =========================================
@@ -222,60 +256,111 @@ import Layout from "../../layouts/Layout.astro";
       clearInterval(timer);
     }
 
-    if (
-      !iso ||
-      state !== "pre"
-    ) {
 
-      $("countdown").textContent =
-        state === "live"
-          ? "EN VIVO"
-          : "FINALIZADO";
+    const overlay =
+      $("countdown-overlay");
 
+
+    const counter =
+      $("countdown");
+
+
+    if (!overlay || !counter) {
       return;
     }
 
+
+    /*
+      SI EL PARTIDO YA ESTÁ EN VIVO
+      O FINALIZÓ, QUITAMOS EL OVERLAY
+    */
+
+    if (
+      !iso ||
+      state === "live" ||
+      state === "post"
+    ) {
+
+      hideCountdown();
+
+      return;
+
+    }
+
+
+    const start =
+      new Date(iso).getTime();
+
+
     const tick = () => {
 
-      const d =
-        new Date(iso).getTime() -
-        Date.now();
+      const diff =
+        start - Date.now();
 
-      if (d <= 0) {
 
-        $("countdown").textContent =
+      /*
+        LLEGÓ LA HORA DEL PARTIDO
+      */
+
+      if (diff <= 0) {
+
+        counter.textContent =
           "00:00:00";
 
-        clearInterval(timer);
 
-        return;
-      }
+        /*
+          PEQUEÑA PAUSA PARA QUE
+          SE VEA EL 00:00:00
+        */
 
-      const h =
-        Math.floor(
-          d / 3600000
+        setTimeout(
+          () => {
+            hideCountdown();
+          },
+          500
         );
 
-      const m =
+
+        clearInterval(
+          timer
+        );
+
+
+        return;
+
+      }
+
+
+      const hours =
         Math.floor(
-          (d % 3600000) /
+          diff / 3600000
+        );
+
+
+      const minutes =
+        Math.floor(
+          (diff % 3600000) /
           60000
         );
 
-      const s =
+
+      const seconds =
         Math.floor(
-          (d % 60000) /
+          (diff % 60000) /
           1000
         );
 
-      $("countdown").textContent =
-        `${String(h).padStart(2,"0")}:` +
-        `${String(m).padStart(2,"0")}:` +
-        `${String(s).padStart(2,"0")}`;
+
+      counter.textContent =
+        `${String(hours).padStart(2,"0")}:` +
+        `${String(minutes).padStart(2,"0")}:` +
+        `${String(seconds).padStart(2,"0")}`;
 
     };
 
+
     tick();
+
 
     timer =
       setInterval(
@@ -296,24 +381,29 @@ import Layout from "../../layouts/Layout.astro";
       return;
     }
 
+
     const media =
       $("media");
 
-    const waiting =
-      $("waiting");
+
+    if (!media) {
+      return;
+    }
+
 
     const url =
       String(
         g.stream_url
       );
 
-    /*
-      OCULTAMOS LA CUENTA REGRESIVA
-      CUANDO EXISTE UNA TRANSMISIÓN
-    */
 
-    waiting.hidden =
-      true;
+    /*
+      MOSTRAMOS LA TRANSMISIÓN.
+
+      EL CONTADOR SE QUEDA ENCIMA
+      MIENTRAS EL JUEGO NO HAYA
+      COMENZADO.
+    */
 
     media.hidden =
       false;
@@ -338,6 +428,7 @@ import Layout from "../../layouts/Layout.astro";
         ></video>`;
 
       return;
+
     }
 
 
@@ -356,11 +447,14 @@ import Layout from "../../layouts/Layout.astro";
           "video"
         );
 
+
       video.controls =
         true;
 
+
       video.autoplay =
         true;
+
 
       video.playsInline =
         true;
@@ -375,6 +469,7 @@ import Layout from "../../layouts/Layout.astro";
         video.src =
           url;
 
+
         media.replaceChildren(
           video
         );
@@ -383,26 +478,24 @@ import Layout from "../../layouts/Layout.astro";
 
       else {
 
-        media.hidden =
-          true;
-
-        waiting.hidden =
-          false;
-
-        $("player-title").textContent =
-          "TRANSMISIÓN NO COMPATIBLE";
-
-        $("player-message").textContent =
-          "Este navegador no puede reproducir directamente esta señal HLS.";
+        media.innerHTML =
+          `
+          <div class="player-error">
+            Esta transmisión HLS necesita
+            un reproductor compatible.
+          </div>
+          `;
 
       }
 
+
       return;
+
     }
 
 
     /* =========================================
-       IFRAME / DAILYMOTION / EMBED
+       IFRAME / EMBED
     ========================================== */
 
     const iframe =
@@ -410,22 +503,28 @@ import Layout from "../../layouts/Layout.astro";
         "iframe"
       );
 
+
     iframe.src =
       url;
+
 
     iframe.allow =
       "autoplay; fullscreen; picture-in-picture";
 
+
     iframe.allowFullscreen =
       true;
 
+
     iframe.referrerPolicy =
       "strict-origin-when-cross-origin";
+
 
     iframe.setAttribute(
       "title",
       "Transmisión deportiva"
     );
+
 
     media.replaceChildren(
       iframe
@@ -444,6 +543,11 @@ import Layout from "../../layouts/Layout.astro";
 
       $("match-title").textContent =
         "Partido no especificado";
+
+
+      $("player-title").textContent =
+        "PARTIDO NO DISPONIBLE";
+
 
       return;
 
@@ -475,13 +579,16 @@ import Layout from "../../layouts/Layout.astro";
         await response.json();
 
 
+      const games =
+        data.juegos || [];
+
+
       const g =
-        (data.juegos || [])
-          .find(
-            (x) =>
-              String(x.id) ===
-              String(id)
-          );
+        games.find(
+          (game) =>
+            String(game.id) ===
+            String(id)
+        );
 
 
       if (!g) {
@@ -497,7 +604,7 @@ import Layout from "../../layouts/Layout.astro";
         `${g.visitante.nombre} vs ${g.local.nombre}`;
 
 
-      const st =
+      const status =
         stateText(
           g.state
         );
@@ -527,7 +634,7 @@ import Layout from "../../layouts/Layout.astro";
       ========================================== */
 
       $("state-pill").textContent =
-        st;
+        status;
 
 
       $("state-pill")
@@ -538,8 +645,16 @@ import Layout from "../../layouts/Layout.astro";
         );
 
 
+      $("state-pill")
+        .classList
+        .toggle(
+          "finished",
+          g.state === "post"
+        );
+
+
       /* =========================================
-         TARJETA DERECHA
+         INFORMACIÓN DERECHA
       ========================================== */
 
       $("info-league").textContent =
@@ -548,15 +663,17 @@ import Layout from "../../layouts/Layout.astro";
 
 
       $("info-away").textContent =
-        g.visitante.nombre;
+        g.visitante?.nombre ||
+        "—";
 
 
       $("info-home").textContent =
-        g.local.nombre;
+        g.local?.nombre ||
+        "—";
 
 
       $("info-state").textContent =
-        st;
+        status;
 
 
       $("info-time").textContent =
@@ -566,48 +683,47 @@ import Layout from "../../layouts/Layout.astro";
 
 
       /* =========================================
-         TEXTO DEL PLAYER
+         TEXTO DEL CONTADOR
       ========================================== */
 
-      $("player-status").textContent =
+      if (g.state === "live") {
 
-        g.state === "live"
-
-          ? "PARTIDO EN VIVO"
-
-          : g.state === "post"
-
-            ? "PARTIDO FINALIZADO"
-
-            : "PARTIDO PROGRAMADO";
+        $("player-status").textContent =
+          "PARTIDO EN VIVO";
 
 
-      $("player-title").textContent =
+        $("player-title").textContent =
+          "TRANSMISIÓN EN VIVO";
 
-        g.state === "live"
+      }
 
-          ? "TRANSMISIÓN EN VIVO"
+      else if (
+        g.state === "post"
+      ) {
 
-          : g.state === "post"
-
-            ? "EL PARTIDO HA FINALIZADO"
-
-            : "EL JUEGO COMENZARÁ PRONTO";
+        $("player-status").textContent =
+          "PARTIDO FINALIZADO";
 
 
-      countdown(
-        g.fecha,
-        g.state
-      );
+        $("player-title").textContent =
+          "EL PARTIDO HA FINALIZADO";
+
+      }
+
+      else {
+
+        $("player-status").textContent =
+          "PARTIDO PROGRAMADO";
+
+
+        $("player-title").textContent =
+          "EL JUEGO COMENZARÁ PRONTO";
+
+      }
 
 
       /* =========================================
-         CAMBIO IMPORTANTE
-
-         SI EXISTE STREAM_URL,
-         ABRIMOS EL REPRODUCTOR INMEDIATAMENTE.
-
-         NO ESPERAMOS A QUE MLB MARQUE "LIVE".
+         CARGAMOS EL VIDEO DESDE AHORA
       ========================================== */
 
       if (
@@ -617,6 +733,16 @@ import Layout from "../../layouts/Layout.astro";
         loadPlayer(g);
 
       }
+
+
+      /* =========================================
+         CONTADOR SOBRE EL VIDEO
+      ========================================== */
+
+      countdown(
+        g.fecha,
+        g.state
+      );
 
     }
 
@@ -655,7 +781,7 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   PÁGINA BLANCA
+   PÁGINA
 ========================================= */
 
 .watch-page {
@@ -740,7 +866,8 @@ import Layout from "../../layouts/Layout.astro";
     grid;
 
   grid-template-columns:
-    minmax(0,1fr) 320px;
+    minmax(0,1fr)
+    320px;
 
   gap:
     26px;
@@ -754,11 +881,14 @@ import Layout from "../../layouts/Layout.astro";
 
 .player-shell {
 
+  position:
+    relative;
+
   aspect-ratio:
     16 / 9;
 
   background:
-    #020305;
+    #000000;
 
   border:
     1px solid #263c5a;
@@ -768,15 +898,6 @@ import Layout from "../../layouts/Layout.astro";
 
   overflow:
     hidden;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
 
   color:
     #ffffff;
@@ -789,117 +910,16 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   ESPERA
-========================================= */
-
-.waiting {
-
-  width:
-    100%;
-
-  text-align:
-    center;
-
-  padding:
-    30px;
-
-  color:
-    #ffffff;
-
-}
-
-
-.eyebrow,
-.league-red,
-.brand {
-
-  color:
-    #ff334f;
-
-  font-size:
-    12px;
-
-  font-weight:
-    900;
-
-  letter-spacing:
-    .16em;
-
-}
-
-
-.waiting h1 {
-
-  color:
-    #ffffff;
-
-  font-size:
-    clamp(
-      30px,
-      4vw,
-      58px
-    );
-
-  line-height:
-    1;
-
-  margin:
-    12px 0;
-
-}
-
-
-.waiting p {
-
-  color:
-    #9bb3d2;
-
-}
-
-
-.waiting small {
-
-  display:
-    block;
-
-  margin-top:
-    34px;
-
-  color:
-    #9bb3d2;
-
-  font-weight:
-    700;
-
-}
-
-
-.countdown {
-
-  color:
-    #ffffff;
-
-  font-size:
-    clamp(
-      42px,
-      6vw,
-      76px
-    );
-
-  font-weight:
-    900;
-
-  margin-top:
-    8px;
-
-}
-
-
-/* =========================================
-   VIDEO / IFRAME
+   VIDEO
 ========================================= */
 
 .media {
+
+  position:
+    absolute;
+
+  inset:
+    0;
 
   width:
     100%;
@@ -909,6 +929,9 @@ import Layout from "../../layouts/Layout.astro";
 
   background:
     #000000;
+
+  z-index:
+    1;
 
 }
 
@@ -935,7 +958,263 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   DATOS DEBAJO
+   ERROR DEL PLAYER
+========================================= */
+
+.player-error {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    30px;
+
+  text-align:
+    center;
+
+  color:
+    #ffffff;
+
+}
+
+
+/* =========================================
+   DEGRADADO + CONTADOR
+========================================= */
+
+.countdown-overlay {
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    20;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.25) 0%,
+      rgba(0,0,0,.52) 35%,
+      rgba(0,0,0,.78) 70%,
+      rgba(0,0,0,.92) 100%
+    );
+
+  backdrop-filter:
+    blur(1px);
+
+  -webkit-backdrop-filter:
+    blur(1px);
+
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
+
+}
+
+
+/* =========================================
+   DESAPARECER AL COMENZAR
+========================================= */
+
+.countdown-overlay.hide {
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  pointer-events:
+    none;
+
+}
+
+
+/* =========================================
+   CONTENIDO DEL CONTADOR
+========================================= */
+
+.countdown-content {
+
+  width:
+    100%;
+
+  max-width:
+    850px;
+
+  padding:
+    30px;
+
+  text-align:
+    center;
+
+  color:
+    #ffffff;
+
+}
+
+
+.countdown-content .eyebrow {
+
+  display:
+    inline-block;
+
+  color:
+    #ff334f;
+
+  font-size:
+    13px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .16em;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,.8);
+
+}
+
+
+.countdown-content h1 {
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      58px
+    );
+
+  line-height:
+    1;
+
+  margin:
+    14px 0 12px;
+
+  text-shadow:
+    0 4px 25px
+    rgba(0,0,0,.9);
+
+}
+
+
+.countdown-content p {
+
+  margin:
+    0 auto;
+
+  color:
+    #dbeafe;
+
+  font-size:
+    15px;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,.9);
+
+}
+
+
+.countdown-content small {
+
+  display:
+    block;
+
+  margin-top:
+    30px;
+
+  margin-bottom:
+    8px;
+
+  color:
+    #dbeafe;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,.9);
+
+}
+
+
+/* =========================================
+   NÚMEROS DEL CONTADOR
+========================================= */
+
+.countdown {
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      45px,
+      6vw,
+      76px
+    );
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    .02em;
+
+  font-variant-numeric:
+    tabular-nums;
+
+  text-shadow:
+    0 5px 30px
+    rgba(0,0,0,.95);
+
+}
+
+
+/* =========================================
+   INFORMACIÓN DEBAJO
 ========================================= */
 
 .match-heading {
@@ -991,6 +1270,29 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
+   TEXTOS ROJOS
+========================================= */
+
+.eyebrow,
+.league-red,
+.brand {
+
+  color:
+    #ff334f;
+
+  font-size:
+    12px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .16em;
+
+}
+
+
+/* =========================================
    ESTADO
 ========================================= */
 
@@ -1033,6 +1335,20 @@ import Layout from "../../layouts/Layout.astro";
 
   color:
     #d81735;
+
+}
+
+
+.state-pill.finished {
+
+  border-color:
+    #94a3b8;
+
+  background:
+    #f1f5f9;
+
+  color:
+    #475569;
 
 }
 
@@ -1141,10 +1457,10 @@ import Layout from "../../layouts/Layout.astro";
 
 
 /* =========================================
-   MÓVIL
+   TABLET / MÓVIL
 ========================================= */
 
-@media(
+@media (
   max-width:
     850px
 ) {
@@ -1189,7 +1505,7 @@ import Layout from "../../layouts/Layout.astro";
   }
 
 
-  .waiting {
+  .countdown-content {
 
     padding:
       18px;
@@ -1197,10 +1513,61 @@ import Layout from "../../layouts/Layout.astro";
   }
 
 
-  .waiting small {
+  .countdown-content p {
+
+    display:
+      none;
+
+  }
+
+
+  .countdown-content small {
 
     margin-top:
-      22px;
+      18px;
+
+  }
+
+}
+
+
+/* =========================================
+   MÓVILES PEQUEÑOS
+========================================= */
+
+@media (
+  max-width:
+    520px
+) {
+
+  .countdown-content h1 {
+
+    font-size:
+      25px;
+
+  }
+
+
+  .countdown {
+
+    font-size:
+      42px;
+
+  }
+
+
+  .countdown-content small {
+
+    font-size:
+      11px;
+
+  }
+
+
+  .countdown-content .eyebrow {
+
+    font-size:
+      10px;
 
   }
 
