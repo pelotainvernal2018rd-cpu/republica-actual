@@ -1,4 +1,10 @@
 import noticiasGuardadas from '../data/noticias.json';
+import evergreenGuardadas from '../data/evergreen.json';
+
+
+/* ==================================================
+   FECHA
+================================================== */
 
 function fecha(noticia = {}) {
   return Date.parse(
@@ -8,7 +14,16 @@ function fecha(noticia = {}) {
   ) || 0;
 }
 
+
+/* ==================================================
+   NOTICIAS NORMALES
+
+   IMPORTANTE:
+   SOLO noticias.json
+================================================== */
+
 function todasPublicadas() {
+
   return [...noticiasGuardadas]
     .filter(
       (noticia) =>
@@ -21,20 +36,42 @@ function todasPublicadas() {
     );
 }
 
+
 /* ==================================================
-   TODAS LAS NOTICIAS
+   EVERGREEN
+
+   IMPORTANTE:
+   SOLO evergreen.json
+================================================== */
+
+function todasEvergreen() {
+
+  return [...evergreenGuardadas]
+    .filter(
+      (noticia) =>
+        noticia &&
+        noticia.publicado !== false
+    );
+}
+
+
+/* ==================================================
+   TODAS LAS NOTICIAS NORMALES
 ================================================== */
 
 export async function cargarTodasLasNoticias() {
+
   return todasPublicadas();
+
 }
+
 
 /* ==================================================
    FEED PRINCIPAL
 
-   IMPORTANTE:
-   República Útil NO entra aquí cuando
-   feed_principal === false
+   SOLO noticias.json
+
+   evergreen.json JAMÁS entra aquí.
 ================================================== */
 
 export async function cargarNoticiasPublicadas(
@@ -67,8 +104,11 @@ export async function cargarNoticiasPublicadas(
   );
 }
 
+
 /* ==================================================
    TOTAL DEL FEED PRINCIPAL
+
+   SOLO noticias.json
 ================================================== */
 
 export async function contarNoticiasPublicadas() {
@@ -79,10 +119,14 @@ export async function contarNoticiasPublicadas() {
         noticia.feed_principal !== false
     )
     .length;
+
 }
+
 
 /* ==================================================
    PAGINACIÓN NORMAL
+
+   SOLO noticias.json
 ================================================== */
 
 export async function cargarNoticiasParaPaginacion(
@@ -145,27 +189,75 @@ export async function cargarNoticiasParaPaginacion(
   };
 }
 
+
 /* ==================================================
-   TODAS LAS NOTICIAS DE REPÚBLICA ÚTIL
+   REPÚBLICA ÚTIL
+
+   AQUÍ SÍ LEEMOS evergreen.json
+
+   También conservamos cualquier República Útil
+   antigua que ya exista en noticias.json.
 ================================================== */
 
 export async function cargarRepublicaUtil() {
 
-  return todasPublicadas()
-    .filter(
-      (noticia) =>
-        noticia.republica_util === true
-    );
+  const antiguas =
+    todasPublicadas()
+      .filter(
+        (noticia) =>
+          noticia.republica_util === true
+      );
+
+  const evergreen =
+    todasEvergreen();
+
+  const resultado = [];
+
+  const usados = new Set();
+
+  for (
+    const noticia of [
+      ...evergreen,
+      ...antiguas
+    ]
+  ) {
+
+    const clave =
+      String(
+        noticia.slug ||
+        noticia.id ||
+        noticia.titulo
+      );
+
+    if (usados.has(clave)) {
+      continue;
+    }
+
+    usados.add(clave);
+
+    resultado.push(noticia);
+  }
+
+  return resultado;
 }
+
 
 /* ==================================================
    REPÚBLICA ÚTIL — PORTADA
 
-   ORDEN:
+   SOLO ESTA FUNCIÓN UTILIZA evergreen.json
 
-   1. Las seleccionadas manualmente para portada.
-   2. Luego las evergreen prioritarias.
-   3. Completa hasta 9 con otras República Útil.
+   PRIORIDAD:
+
+   1. Seleccionadas manualmente.
+   2. Pasaporte.
+   3. Cédula.
+   4. Licencia.
+   5. Vehículos.
+   6. Actas.
+   7. Buena conducta.
+   8. Prestaciones.
+   9. AFP / ARS.
 ================================================== */
 
 export async function cargarRepublicaUtilPortada(
@@ -178,29 +270,67 @@ export async function cargarRepublicaUtilPortada(
       Number(limite) || 9
     );
 
-  const todas =
+
+  /* ================================================
+     REPÚBLICA ÚTIL ANTIGUA
+  ================================================= */
+
+  const antiguas =
     todasPublicadas()
       .filter(
         (noticia) =>
           noticia.republica_util === true
       );
 
-  /*
-    Temas evergreen con mayor interés
-    permanente para la portada.
-  */
+
+  /* ================================================
+     NUEVAS EVERGREEN
+  ================================================= */
+
+  const evergreen =
+    todasEvergreen();
+
+
+  /* ================================================
+     UNIFICAR
+  ================================================= */
+
+  const todas = [
+    ...evergreen,
+    ...antiguas
+  ];
+
+
+  /* ================================================
+     PRIORIDADES
+  ================================================= */
 
   const prioridades = [
+
     'pasaporte-dominicano-por-primera-vez',
+
     'cedula-dominicana-por-primera-vez',
+
     'renovar-la-licencia-de-conducir',
+
     'traspaso-de-un-vehiculo',
+
     'acta-de-nacimiento',
+
     'certificado-de-buena-conducta',
+
     'prestaciones-laborales',
+
     'consultar-tu-afp',
+
     'consultar-tu-ars'
+
   ];
+
+
+  /* ================================================
+     CALCULAR PRIORIDAD
+  ================================================= */
 
   function prioridad(noticia) {
 
@@ -227,19 +357,19 @@ export async function cargarRepublicaUtilPortada(
         palabra
           .split('-')
           .filter(
-            p =>
+            (p) =>
               p.length > 3
           );
 
       const coincideSlug =
         partes.every(
-          p =>
+          (p) =>
             slug.includes(p)
         );
 
       const coincideTitulo =
         partes.every(
-          p =>
+          (p) =>
             titulo.includes(p)
         );
 
@@ -247,17 +377,19 @@ export async function cargarRepublicaUtilPortada(
         coincideSlug ||
         coincideTitulo
       ) {
+
         return i;
+
       }
     }
 
     return 999;
   }
 
-  /*
-    Primero respetamos cualquier noticia
-    seleccionada manualmente.
-  */
+
+  /* ================================================
+     SELECCIONADAS MANUALMENTE
+  ================================================= */
 
   const manuales =
     todas
@@ -266,10 +398,10 @@ export async function cargarRepublicaUtilPortada(
           noticia.republica_util_portada === true
       );
 
-  /*
-    Luego ordenamos las demás
-    por prioridad evergreen.
-  */
+
+  /* ================================================
+     AUTOMÁTICAS
+  ================================================= */
 
   const automaticas =
     todas
@@ -290,27 +422,28 @@ export async function cargarRepublicaUtilPortada(
             prioridadA !==
             prioridadB
           ) {
+
             return (
               prioridadA -
               prioridadB
             );
+
           }
 
-          return (
-            fecha(b) -
-            fecha(a)
-          );
+          return 0;
         }
       );
 
-  /*
-    Evitamos duplicados.
-  */
+
+  /* ================================================
+     EVITAR DUPLICADOS
+  ================================================= */
 
   const resultado = [];
 
   const usados =
     new Set();
+
 
   for (
     const noticia of [
@@ -321,16 +454,20 @@ export async function cargarRepublicaUtilPortada(
 
     const clave =
       String(
-        noticia.id ||
         noticia.slug ||
+        noticia.id ||
         noticia.titulo
       );
+
 
     if (
       usados.has(clave)
     ) {
+
       continue;
+
     }
+
 
     usados.add(clave);
 
@@ -338,13 +475,17 @@ export async function cargarRepublicaUtilPortada(
       noticia
     );
 
+
     if (
       resultado.length >=
       cantidad
     ) {
+
       break;
+
     }
   }
+
 
   return resultado;
 }
