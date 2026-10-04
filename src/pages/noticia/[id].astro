@@ -1,187 +1,84 @@
 ---
-const FIREBASE_PROJECT_ID =
-  import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+import {
+  cargarTodasLasNoticias
+} from '../../lib/noticias-firestore.js';
 
 // ============================================================
 // REPÚBLICA ACTUAL
-// NOTICIA INDIVIDUAL RENDERIZADA POR ASTRO
+// NOTICIA INDIVIDUAL - DATOS LOCALES
 // Ruta principal: /noticia/SLUG/
 // Ruta antigua: /noticia/ID/ -> 301 al slug
-// Incluye noticias normales + República Útil
 // ============================================================
 
 export async function getStaticPaths() {
-  const FIREBASE_PROJECT_ID =
-    import.meta.env.FIREBASE_PROJECT_ID || 'republica-actual';
+  const noticias = await cargarTodasLasNoticias();
 
-  function valorFirestore(field = {}) {
-    if ('stringValue' in field) return field.stringValue;
-    if ('integerValue' in field) return Number(field.integerValue);
-    if ('doubleValue' in field) return Number(field.doubleValue);
-    if ('booleanValue' in field) return field.booleanValue;
-    if ('timestampValue' in field) return field.timestampValue;
-    if ('nullValue' in field) return null;
+  console.log(
+    `${noticias.length} noticias locales para rutas individuales`
+  );
 
-    if ('arrayValue' in field) {
-      return (field.arrayValue.values || []).map(valorFirestore);
-    }
-
-    if ('mapValue' in field) {
-      return Object.fromEntries(
-        Object.entries(field.mapValue.fields || {}).map(
-          ([clave, valor]) => [clave, valorFirestore(valor)]
-        )
+  return noticias.flatMap((noticia) => {
+    const categoriaActual =
+      noticia.categoria ||
+      (
+        Array.isArray(noticia.etiquetas) &&
+        noticia.etiquetas.length
+          ? noticia.etiquetas[0]
+          : 'Actualidad'
       );
-    }
 
-    return '';
-  }
-
-  function documentoFirestore(doc = {}) {
-    const datos = Object.fromEntries(
-      Object.entries(doc.fields || {}).map(
-        ([clave, valor]) => [clave, valorFirestore(valor)]
-      )
-    );
-
-    if (!datos.id && doc.name) {
-      datos.id = doc.name.split('/').pop();
-    }
-
-    return datos;
-  }
-
-  try {
-    const endpoint =
-      `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents:runQuery`;
-
-    const respuesta = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        structuredQuery: {
-          from: [
-            {
-              collectionId: 'noticias'
-            }
-          ],
-          where: {
-            fieldFilter: {
-              field: {
-                fieldPath: 'publicado'
-              },
-              op: 'EQUAL',
-              value: {
-                booleanValue: true
-              }
-            }
-          }
+    const relacionadas = noticias
+      .filter((otra) => {
+        if (String(otra.id) === String(noticia.id)) {
+          return false;
         }
+
+        const categoriaOtra =
+          otra.categoria ||
+          (
+            Array.isArray(otra.etiquetas) &&
+            otra.etiquetas.length
+              ? otra.etiquetas[0]
+              : 'Actualidad'
+          );
+
+        return categoriaOtra === categoriaActual;
       })
-    });
+      .slice(0, 4);
 
-    if (!respuesta.ok) {
-      console.error(
-        'Error Firestore generando rutas:',
-        respuesta.status,
-        await respuesta.text()
-      );
+    const rutaPrincipal = {
+      params: {
+        id: noticia.slug || String(noticia.id)
+      },
 
-      return [];
-    }
+      props: {
+        noticia,
+        relacionadas,
+        redirigirA: null
+      }
+    };
 
-    const resultado = await respuesta.json();
+    const rutaAntigua =
+      noticia.slug &&
+      String(noticia.id) !== String(noticia.slug)
+        ? {
+            params: {
+              id: String(noticia.id)
+            },
 
-    // IMPORTANTE:
-    // Aquí se cargan TODAS las noticias publicadas.
-    // No importa si pertenecen al feed principal o a República Útil.
-    const noticias = resultado
-      .filter((fila) => fila.document)
-      .map((fila) => documentoFirestore(fila.document))
-      .sort(
-        (a, b) =>
-          (Date.parse(b.created_at || '') || 0) -
-          (Date.parse(a.created_at || '') || 0)
-      );
-
-    console.log(
-      `${noticias.length} noticias publicadas para rutas individuales`
-    );
-
-    return noticias.flatMap((noticia) => {
-      const categoriaActual =
-        noticia.categoria ||
-        (
-          Array.isArray(noticia.etiquetas) &&
-          noticia.etiquetas.length
-            ? noticia.etiquetas[0]
-            : 'Actualidad'
-        );
-
-      const relacionadas = noticias
-        .filter((otra) => {
-          if (String(otra.id) === String(noticia.id)) {
-            return false;
-          }
-
-          const categoriaOtra =
-            otra.categoria ||
-            (
-              Array.isArray(otra.etiquetas) &&
-              otra.etiquetas.length
-                ? otra.etiquetas[0]
-                : 'Actualidad'
-            );
-
-          return categoriaOtra === categoriaActual;
-        })
-        .slice(0, 4);
-
-      const rutaPrincipal = {
-        params: {
-          id: noticia.slug || String(noticia.id)
-        },
-
-        props: {
-          noticia,
-          relacionadas,
-          redirigirA: null
-        }
-      };
-
-      const rutaAntigua =
-        noticia.slug &&
-        String(noticia.id) !== String(noticia.slug)
-          ? {
-              params: {
-                id: String(noticia.id)
-              },
-
-              props: {
-                noticia,
-                relacionadas,
-                redirigirA: `/noticia/${noticia.slug}/`
-              }
+            props: {
+              noticia,
+              relacionadas,
+              redirigirA: `/noticia/${noticia.slug}/`
             }
-          : null;
+          }
+        : null;
 
-      return rutaAntigua
-        ? [rutaPrincipal, rutaAntigua]
-        : [rutaPrincipal];
-    });
-
-  } catch (error) {
-    console.error(
-      'Error generando rutas de noticias:',
-      error
-    );
-
-    return [];
-  }
+    return rutaAntigua
+      ? [rutaPrincipal, rutaAntigua]
+      : [rutaPrincipal];
+  });
 }
-
 
 // ============================================================
 // DATOS DE LA NOTICIA
