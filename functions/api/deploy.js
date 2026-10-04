@@ -52,14 +52,11 @@ export async function onRequestPost(context) {
           }
         }
       );
-  
     } catch (error) {
       return new Response(
         JSON.stringify({
           ok: false,
-          error:
-            error?.message ||
-            'No se pudo iniciar el despliegue.'
+          error: error?.message || 'No se pudo iniciar el despliegue.'
         }),
         {
           status: 500,
