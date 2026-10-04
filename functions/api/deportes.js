@@ -2,7 +2,7 @@ const ESPN_NBA =
   "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard";
 
 const MLB_API =
-  "https://statsapi.mlb.com/api/v1/schedule";
+  "https://statsapi.mlb.com/api/v1";
 
 
 /* =========================================================
@@ -17,8 +17,8 @@ function fechaRD() {
     day: "2-digit",
   }).formatToParts(new Date());
 
-  const get = (t) =>
-    parts.find((p) => p.type === t)?.value || "";
+  const get = (tipo) =>
+    parts.find((p) => p.type === tipo)?.value || "";
 
   return `${get("year")}-${get("month")}-${get("day")}`;
 }
@@ -53,354 +53,443 @@ function estadoMLB(status) {
 ========================================================= */
 
 async function getNBA() {
-  const r = await fetch(ESPN_NBA, {
+  try {
+    const r = await fetch(ESPN_NBA, {
+      headers: {
+        "User-Agent": "Mozilla/5.0",
+      },
+    });
+
+    if (!r.ok) {
+      throw new Error(`NBA ${r.status}`);
+    }
+
+    const data = await r.json();
+
+    return (data.events || []).map((event) => {
+      const comp =
+        event.competitions?.[0] || {};
+
+      const teams =
+        comp.competitors || [];
+
+      const home =
+        teams.find(
+          (t) => t.homeAway === "home"
+        ) || {};
+
+      const away =
+        teams.find(
+          (t) => t.homeAway === "away"
+        ) || {};
+
+      const type =
+        event.status?.type || {};
+
+      return {
+        id: `nba-${event.id}`,
+
+        deporte: "nba",
+
+        liga: "NBA",
+
+        icono: "🏀",
+
+        state:
+          estadoESPN(type),
+
+        detalle:
+          type.shortDetail ||
+          type.detail ||
+          "",
+
+        fecha:
+          event.date || "",
+
+        stream_url: "",
+
+        pitchers: null,
+
+        visitante: {
+          nombre:
+            away.team?.displayName ||
+            away.team?.name ||
+            "Visitante",
+
+          abbr:
+            away.team?.abbreviation ||
+            "",
+
+          logo:
+            away.team?.logo ||
+            "",
+
+          score:
+            away.score ?? "-",
+        },
+
+        local: {
+          nombre:
+            home.team?.displayName ||
+            home.team?.name ||
+            "Local",
+
+          abbr:
+            home.team?.abbreviation ||
+            "",
+
+          logo:
+            home.team?.logo ||
+            "",
+
+          score:
+            home.score ?? "-",
+        },
+      };
+    });
+  } catch (error) {
+    console.error(
+      "Error NBA:",
+      error
+    );
+
+    return [];
+  }
+}
+
+
+/* =========================================================
+   CONSULTAR DATOS DE UN PITCHER
+========================================================= */
+
+async function obtenerPitcher(persona) {
+  if (!persona?.id) {
+    return null;
+  }
+
+  const id =
+    persona.id;
+
+  /*
+   * IMPORTANTE:
+   * Si esta consulta falla, solamente
+   * perdemos los datos del pitcher.
+   *
+   * El partido MLB permanece visible.
+   */
+
+  try {
+    const url =
+      `${MLB_API}/people/${id}` +
+      `?hydrate=stats(group=[pitching],type=[season])`;
+
+    const r = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0",
+      },
+    });
+
+    if (!r.ok) {
+      throw new Error(
+        `Pitcher ${id}: ${r.status}`
+      );
+    }
+
+    const data =
+      await r.json();
+
+    const person =
+      data.people?.[0] ||
+      persona;
+
+    let wins = "";
+    let losses = "";
+    let era = "";
+
+    const grupos =
+      Array.isArray(person.stats)
+        ? person.stats
+        : [];
+
+    for (const grupo of grupos) {
+      const splits =
+        grupo?.splits || [];
+
+      for (const split of splits) {
+        const stat =
+          split?.stat || {};
+
+        if (
+          stat.wins !== undefined &&
+          wins === ""
+        ) {
+          wins = stat.wins;
+        }
+
+        if (
+          stat.losses !== undefined &&
+          losses === ""
+        ) {
+          losses = stat.losses;
+        }
+
+        if (
+          stat.era !== undefined &&
+          era === ""
+        ) {
+          era = stat.era;
+        }
+      }
+    }
+
+    const mano =
+      person.pitchHand?.code ||
+      persona.pitchHand?.code ||
+      "";
+
+    return {
+      id,
+
+      nombre:
+        person.fullName ||
+        persona.fullName ||
+        "Por anunciar",
+
+      mano:
+        mano
+          ? `${mano}HP`
+          : "",
+
+      record:
+        wins !== "" &&
+        losses !== ""
+          ? `${wins}-${losses}`
+          : "",
+
+      era:
+        era !== ""
+          ? String(era)
+          : "",
+
+      foto:
+        `https://img.mlbstatic.com/mlb-photos/image/upload/w_120,q_auto:best/v1/people/${id}/headshot/67/current`,
+    };
+  } catch (error) {
+    console.error(
+      "No se pudo cargar pitcher:",
+      id,
+      error
+    );
+
+    /*
+     * FALLBACK:
+     * Tenemos al menos el nombre y foto.
+     */
+
+    return {
+      id,
+
+      nombre:
+        persona.fullName ||
+        "Por anunciar",
+
+      mano:
+        persona.pitchHand?.code
+          ? `${persona.pitchHand.code}HP`
+          : "",
+
+      record: "",
+
+      era: "",
+
+      foto:
+        `https://img.mlbstatic.com/mlb-photos/image/upload/w_120,q_auto:best/v1/people/${id}/headshot/67/current`,
+    };
+  }
+}
+
+
+/* =========================================================
+   CARGAR CALENDARIO DE BÉISBOL
+========================================================= */
+
+async function cargarCalendario(
+  sportId
+) {
+  const fecha =
+    fechaRD();
+
+  /*
+   * AQUÍ NO PEDIMOS ESTADÍSTICAS.
+   *
+   * Primero obtenemos los partidos.
+   *
+   * Así los juegos nunca desaparecen
+   * por un fallo de estadísticas.
+   */
+
+  const url =
+    `${MLB_API}/schedule` +
+    `?sportId=${sportId}` +
+    `&date=${fecha}` +
+    `&hydrate=team,probablePitcher`;
+
+  const r = await fetch(url, {
     headers: {
       "User-Agent": "Mozilla/5.0",
     },
   });
 
   if (!r.ok) {
-    throw new Error(`NBA ${r.status}`);
-  }
-
-  const data = await r.json();
-
-  return (data.events || []).map((event) => {
-    const comp =
-      event.competitions?.[0] || {};
-
-    const teams =
-      comp.competitors || [];
-
-    const home =
-      teams.find((t) => t.homeAway === "home") || {};
-
-    const away =
-      teams.find((t) => t.homeAway === "away") || {};
-
-    const type =
-      event.status?.type || {};
-
-    return {
-      id: `nba-${event.id}`,
-
-      deporte: "nba",
-
-      liga: "NBA",
-
-      icono: "🏀",
-
-      state: estadoESPN(type),
-
-      detalle:
-        type.shortDetail ||
-        type.detail ||
-        "",
-
-      fecha:
-        event.date || "",
-
-      stream_url: "",
-
-      visitante: {
-        nombre:
-          away.team?.displayName ||
-          away.team?.name ||
-          "Visitante",
-
-        abbr:
-          away.team?.abbreviation || "",
-
-        logo:
-          away.team?.logo || "",
-
-        score:
-          away.score ?? "-",
-      },
-
-      local: {
-        nombre:
-          home.team?.displayName ||
-          home.team?.name ||
-          "Local",
-
-        abbr:
-          home.team?.abbreviation || "",
-
-        logo:
-          home.team?.logo || "",
-
-        score:
-          home.score ?? "-",
-      },
-    };
-  });
-}
-
-
-/* =========================================================
-   ESTADÍSTICAS DE PITCHERS
-========================================================= */
-
-function statValue(stats, key) {
-  const groups =
-    Array.isArray(stats)
-      ? stats
-      : [];
-
-  for (const group of groups) {
-    const splits =
-      group?.splits || [];
-
-    for (const split of splits) {
-      const stat =
-        split?.stat || {};
-
-      if (
-        stat[key] !== undefined &&
-        stat[key] !== null
-      ) {
-        return stat[key];
-      }
-    }
-  }
-
-  return "";
-}
-
-
-/* =========================================================
-   INFORMACIÓN DEL PITCHER
-========================================================= */
-
-function pitcherData(person) {
-  if (!person?.id) {
-    return null;
-  }
-
-  const wins =
-    statValue(
-      person.stats,
-      "wins"
-    );
-
-  const losses =
-    statValue(
-      person.stats,
-      "losses"
-    );
-
-  const era =
-    statValue(
-      person.stats,
-      "era"
-    );
-
-  const hand =
-    person.pitchHand?.code ||
-    person.pitchHand?.description ||
-    "";
-
-  return {
-    id:
-      person.id,
-
-    nombre:
-      person.fullName ||
-      person.lastFirstName ||
-      "Por anunciar",
-
-    mano:
-      hand
-        ? `${hand}HP`
-        : "",
-
-    record:
-      wins !== "" &&
-      losses !== ""
-        ? `${wins}-${losses}`
-        : "",
-
-    era:
-      era !== ""
-        ? String(era)
-        : "",
-
-    foto:
-      `https://img.mlbstatic.com/mlb-photos/image/upload/w_120,q_auto:best/v1/people/${person.id}/headshot/67/current`,
-  };
-}
-
-
-/* =========================================================
-   BASEBALL
-========================================================= */
-
-async function getBaseball(
-  sportId,
-  deporte,
-  liga
-) {
-  const date =
-    fechaRD();
-
-  /*
-   * Pedimos:
-   *
-   * - Equipos
-   * - Pitcher probable
-   * - Estadísticas de temporada
-   *
-   * Esto permite mostrar tarjetas similares
-   * a MLB con foto, récord y ERA.
-   */
-
-  const hydrate =
-    encodeURIComponent(
-      "team,probablePitcher,probablePitcher(stats(group=[pitching],type=[season]))"
-    );
-
-  const url =
-    `${MLB_API}` +
-    `?sportId=${sportId}` +
-    `&date=${date}` +
-    `&hydrate=${hydrate}`;
-
-  const r =
-    await fetch(
-      url,
-      {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0",
-        },
-      }
-    );
-
-  if (!r.ok) {
     throw new Error(
-      `${liga} ${r.status}`
+      `Calendario ${sportId}: ${r.status}`
     );
   }
 
   const data =
     await r.json();
 
-  const games =
-    (data.dates || [])
-      .flatMap(
-        (d) =>
-          d.games || []
-      );
-
-  return games.map(
-    (g) => {
-      const away =
-        g.teams?.away || {};
-
-      const home =
-        g.teams?.home || {};
-
-      return {
-        id:
-          `${deporte}-${g.gamePk}`,
-
-        deporte,
-
-        liga,
-
-        icono:
-          "⚾",
-
-        state:
-          estadoMLB(
-            g.status
-          ),
-
-        detalle:
-          g.status?.detailedState ||
-          "",
-
-        fecha:
-          g.gameDate ||
-          "",
-
-        /*
-         * IMPORTANTE:
-         *
-         * Solo se coloca una URL aquí
-         * cuando tengamos una transmisión
-         * autorizada.
-         */
-
-        stream_url:
-          "",
+  return (data.dates || [])
+    .flatMap(
+      (d) =>
+        d.games || []
+    );
+}
 
 
-        /* ===============================
-           PITCHERS PROBABLES
-        =============================== */
+/* =========================================================
+   CONVERTIR PARTIDO MLB
+========================================================= */
 
-        pitchers: {
-          visitante:
-            pitcherData(
-              away.probablePitcher
-            ),
+async function convertirJuegoMLB(
+  g,
+  deporte,
+  liga
+) {
+  const away =
+    g.teams?.away || {};
 
-          local:
-            pitcherData(
-              home.probablePitcher
-            ),
-        },
+  const home =
+    g.teams?.home || {};
+
+  /*
+   * Los pitchers se consultan DESPUÉS
+   * de tener el juego.
+   *
+   * Promise.allSettled evita que un
+   * pitcher dañe la tarjeta completa.
+   */
+
+  const pitchers =
+    await Promise.allSettled([
+      obtenerPitcher(
+        away.probablePitcher
+      ),
+
+      obtenerPitcher(
+        home.probablePitcher
+      ),
+    ]);
+
+  const pitcherVisitante =
+    pitchers[0]?.status ===
+    "fulfilled"
+      ? pitchers[0].value
+      : null;
+
+  const pitcherLocal =
+    pitchers[1]?.status ===
+    "fulfilled"
+      ? pitchers[1].value
+      : null;
 
 
-        /* ===============================
-           EQUIPO VISITANTE
-        =============================== */
+  return {
+    id:
+      `${deporte}-${g.gamePk}`,
 
-        visitante: {
-          nombre:
-            away.team?.name ||
-            "Visitante",
+    deporte,
 
-          abbr:
-            "",
+    liga,
 
-          logo:
-            away.team?.id
-              ? `https://www.mlbstatic.com/team-logos/${away.team.id}.svg`
-              : "",
+    icono:
+      "⚾",
 
-          score:
-            away.score ??
-            "-",
-        },
+    state:
+      estadoMLB(
+        g.status
+      ),
+
+    detalle:
+      g.status?.detailedState ||
+      "",
+
+    fecha:
+      g.gameDate ||
+      "",
+
+    stream_url:
+      "",
 
 
-        /* ===============================
-           EQUIPO LOCAL
-        =============================== */
+    /* ===============================
+       PITCHERS
+    =============================== */
 
-        local: {
-          nombre:
-            home.team?.name ||
-            "Local",
+    pitchers: {
+      visitante:
+        pitcherVisitante,
 
-          abbr:
-            "",
+      local:
+        pitcherLocal,
+    },
 
-          logo:
-            home.team?.id
-              ? `https://www.mlbstatic.com/team-logos/${home.team.id}.svg`
-              : "",
 
-          score:
-            home.score ??
-            "-",
-        },
-      };
-    }
-  );
+    /* ===============================
+       VISITANTE
+    =============================== */
+
+    visitante: {
+      nombre:
+        away.team?.name ||
+        "Visitante",
+
+      abbr:
+        "",
+
+      logo:
+        away.team?.id
+          ? `https://www.mlbstatic.com/team-logos/${away.team.id}.svg`
+          : "",
+
+      score:
+        away.score ??
+        "-",
+    },
+
+
+    /* ===============================
+       LOCAL
+    =============================== */
+
+    local: {
+      nombre:
+        home.team?.name ||
+        "Local",
+
+      abbr:
+        "",
+
+      logo:
+        home.team?.id
+          ? `https://www.mlbstatic.com/team-logos/${home.team.id}.svg`
+          : "",
+
+      score:
+        home.score ??
+        "-",
+    },
+  };
 }
 
 
@@ -409,16 +498,66 @@ async function getBaseball(
 ========================================================= */
 
 async function getMLB() {
-  return getBaseball(
-    1,
-    "mlb",
-    "MLB"
-  );
+  try {
+    /*
+     * PASO 1:
+     * Obtener los juegos.
+     */
+
+    const games =
+      await cargarCalendario(1);
+
+
+    /*
+     * PASO 2:
+     * Crear cada tarjeta.
+     *
+     * Si un pitcher falla,
+     * el partido continúa.
+     */
+
+    const resultados =
+      await Promise.allSettled(
+        games.map(
+          (g) =>
+            convertirJuegoMLB(
+              g,
+              "mlb",
+              "MLB"
+            )
+        )
+      );
+
+
+    /*
+     * Solamente descartamos una tarjeta
+     * si falló completamente la conversión
+     * del propio partido.
+     */
+
+    return resultados
+      .filter(
+        (r) =>
+          r.status ===
+          "fulfilled"
+      )
+      .map(
+        (r) =>
+          r.value
+      );
+  } catch (error) {
+    console.error(
+      "Error calendario MLB:",
+      error
+    );
+
+    return [];
+  }
 }
 
 
 /* =========================================================
-   EQUIPOS REALES DE LIDOM
+   EQUIPOS REALES LIDOM
 ========================================================= */
 
 const EQUIPOS_LIDOM = [
@@ -443,18 +582,29 @@ const EQUIPOS_LIDOM = [
 ];
 
 
-/* =========================================================
-   VERIFICAR EQUIPO LIDOM
-========================================================= */
+function normalizarTexto(texto) {
+  return String(
+    texto || ""
+  )
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .trim();
+}
+
 
 function esEquipoLIDOM(nombre) {
   const n =
-    String(nombre || "")
-      .toLowerCase();
+    normalizarTexto(nombre);
 
   return EQUIPOS_LIDOM.some(
     (equipo) =>
-      n.includes(equipo)
+      n.includes(
+        normalizarTexto(equipo)
+      )
   );
 }
 
@@ -464,59 +614,85 @@ function esEquipoLIDOM(nombre) {
 ========================================================= */
 
 async function getLIDOM() {
+  try {
+    /*
+     * Esta fuente puede incluir
+     * otras ligas de béisbol.
+     *
+     * NO marcamos automáticamente
+     * todos los juegos como LIDOM.
+     */
 
-  /*
-   * sportId 17 puede devolver diferentes
-   * competiciones de béisbol.
-   *
-   * Por eso NO marcamos automáticamente
-   * todo como LIDOM.
-   */
-
-  const juegos =
-    await getBaseball(
-      17,
-      "winter",
-      "Winter"
-    );
+    const games =
+      await cargarCalendario(17);
 
 
-  /*
-   * Solo aceptamos el partido cuando
-   * AMBOS equipos pertenecen realmente
-   * a LIDOM.
-   */
+    /*
+     * PRIMERO filtramos los equipos.
+     *
+     * Así Scottsdale, Peoria,
+     * Salt River, etc. NO pasan.
+     */
 
-  return juegos
+    const juegosLIDOM =
+      games.filter(
+        (g) => {
+          const visitante =
+            g.teams?.away?.team?.name ||
+            "";
 
-    .filter(
-      (g) =>
-        esEquipoLIDOM(
-          g.visitante?.nombre
-        ) &&
-        esEquipoLIDOM(
-          g.local?.nombre
+          const local =
+            g.teams?.home?.team?.name ||
+            "";
+
+          return (
+            esEquipoLIDOM(
+              visitante
+            ) &&
+            esEquipoLIDOM(
+              local
+            )
+          );
+        }
+      );
+
+
+    /*
+     * Ahora convertimos únicamente
+     * los partidos dominicanos.
+     */
+
+    const resultados =
+      await Promise.allSettled(
+        juegosLIDOM.map(
+          (g) =>
+            convertirJuegoMLB(
+              g,
+              "lidom",
+              "LIDOM"
+            )
         )
-    )
+      );
 
-    .map(
-      (g) => ({
-        ...g,
 
-        deporte:
-          "lidom",
-
-        liga:
-          "LIDOM",
-
-        id:
-          String(g.id)
-            .replace(
-              /^winter-/,
-              "lidom-"
-            ),
-      })
+    return resultados
+      .filter(
+        (r) =>
+          r.status ===
+          "fulfilled"
+      )
+      .map(
+        (r) =>
+          r.value
+      );
+  } catch (error) {
+    console.error(
+      "Error LIDOM:",
+      error
     );
+
+    return [];
+  }
 }
 
 
@@ -527,11 +703,11 @@ async function getLIDOM() {
 export async function onRequestGet() {
 
   /*
-   * Las tres ligas se consultan
+   * MLB + NBA + LIDOM se consultan
    * simultáneamente.
    *
-   * Si una falla, las demás siguen
-   * funcionando.
+   * Si una liga falla,
+   * las demás siguen funcionando.
    */
 
   const resultados =
@@ -553,13 +729,9 @@ export async function onRequestGet() {
 
 
   /*
-   * Protección adicional:
+   * PROTECCIÓN FINAL:
    *
-   * La página SOLO puede recibir:
-   *
-   * MLB
-   * NBA
-   * LIDOM
+   * Solo permitimos estas tres ligas.
    */
 
   const permitidos =
