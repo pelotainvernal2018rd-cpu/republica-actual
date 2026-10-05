@@ -61,10 +61,15 @@ const deportes = [
         </div>
 
         <div class="player-area">
-          <div class="player-placeholder">
-            <div class="player-icon">▶</div>
-            <h3>Transmisión del partido</h3>
-            <p>El reproductor aparecerá aquí cuando exista una transmisión autorizada disponible para este encuentro.</p>
+          <div class="player-frame">
+            <iframe
+              src="https://sportshow.me/player/mlb/atlanta-braves-vs-los-angeles-dodgers-2026-10-04-243d3b50"
+              title="Atlanta Braves vs Los Angeles Dodgers - En vivo"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              loading="eager"
+              referrerpolicy="no-referrer"
+            ></iframe>
           </div>
         </div>
 
@@ -1255,6 +1260,32 @@ function render() {
 .games-grid .game-open-row{padding:0 12px 12px!important}
 .games-grid .game-open-btn{display:flex!important;align-items:center!important;justify-content:center!important;min-height:36px!important;border-radius:8px!important;background:#0b1f3a!important;color:#fff!important;text-decoration:none!important;font-size:10px!important;font-weight:900!important;letter-spacing:.03em!important}
 .games-grid .game-open-btn.is-live{background:#d71920!important}
+
+/* ===== REPRODUCTOR EN VIVO ===== */
+.player-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.player-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 650px) {
+  .player-frame {
+    border-radius: 8px;
+  }
+}
+
 </style>
 
 </Layout>
