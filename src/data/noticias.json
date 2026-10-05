@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618799,
+    "created_at": "2026-10-05T23:11:57.229Z",
+    "titulo": "Mercados financieros de Brasil reaccionan con optimismo tras resultados electorales",
+    "slug": "mercados-financieros-de-brasil-reaccionan-con-optimismo-tras-resultados-electorales",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/218c6ba6-c0dc-11f1-a8a9-13420ab900a2/w:1280/p:16x9/000-D2AQ7ZP.jpg\" alt=\"Mercados financieros de Brasil reaccionan con optimismo tras resultados electorales\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El índice iBovespa, principal indicador de la bolsa de valores de São Paulo, registró un incremento significativo al inicio de la jornada bursátil. Este ascenso alcanzó casi un 9%, marcando un nuevo máximo histórico para el mercado brasileño.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De manera simultánea, la moneda local mostró un fortalecimiento frente a la divisa estadounidense. El real brasileño experimentó una apreciación del 4,5% durante la mitad del día, cotizándose apenas por encima de los 5 reales por dólar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este comportamiento positivo de los indicadores económicos responde a los resultados obtenidos por Jair Bolsonaro en la primera vuelta de las elecciones presidenciales celebradas el pasado domingo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La confianza de los inversionistas también se vio impulsada por el desempeño electoral de los aliados políticos del candidato en el Congreso. Estos avances legislativos son vistos como un factor clave para la futura gobernabilidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La composición del nuevo legislativo facilitaría la implementación de una agenda económica orientada al libre mercado. De concretarse su victoria en la presidencia, el candidato contaría con un respaldo parlamentario más sólido para ejecutar sus propuestas.</p>",
+    "imagen": "https://s.france24.com/media/display/218c6ba6-c0dc-11f1-a8a9-13420ab900a2/w:1280/p:16x9/000-D2AQ7ZP.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/econom%C3%ADa/20261005-el-mercado-de-valores-de-brasil-aplaude-la-ventaja-de-bolsonaro-en-primera-vuelta-presidencial",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618798,
     "created_at": "2026-10-05T23:09:51.999Z",
     "titulo": "Auditoría revela irregularidades administrativas y falta de transparencia en el Ministerio de la Mujer",
