@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618785,
+    "created_at": "2026-10-05T21:35:40.755Z",
+    "titulo": "Vigilancia internacional ante el fallecimiento de una investigadora por posible peste pulmonar",
+    "slug": "vigilancia-internacional-ante-el-fallecimiento-de-una-investigadora-por-posible-peste-pulmonar",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/8a5b2b4e-c0fb-11f1-8b71-dd51fcab6130/w:1280/p:16x9/ES-20261005-124218-124355-CS.jpg\" alt=\"Vigilancia internacional ante el fallecimiento de una investigadora por posible peste pulmonar\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades sanitarias de Estados Unidos y de Rusia se encuentran dando seguimiento a un caso sospechoso de peste pulmonar. La alerta se activó tras el trágico deceso de una científica que laboraba en una institución dedicada al estudio de padecimientos infecciosos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La especialista afectada comenzó a presentar un cuadro clínico de neumonía cuya causa no ha podido ser determinada con precisión. Horas más tarde, el padecimiento avanzó hasta provocarle la muerte, lo que encendió las señales de alarma en el sector científico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la preocupación generada por las circunstancias de su fallecimiento y la naturaleza de la enfermedad, el gobierno ruso optó por intervenir públicamente para pedir tranquilidad a la ciudadanía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde el Kremlin se emitieron mensajes orientados a calmar los ánimos, buscando evitar una propagación del pánico mientras continúan las indagatorias sobre este suceso en territorio siberiano y ruso.</p>",
+    "imagen": "https://s.france24.com/media/display/8a5b2b4e-c0fb-11f1-8b71-dd51fcab6130/w:1280/p:16x9/ES-20261005-124218-124355-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261005-alerta-en-rusia-y-siberia-tras-muerte-por-posible-caso-de-peste-pulmonar",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618784,
     "created_at": "2026-10-05T21:35:11.292Z",
     "titulo": "Manerra celebrará sus dos nominaciones a los Latin Grammy con un concierto en Santo Domingo",
