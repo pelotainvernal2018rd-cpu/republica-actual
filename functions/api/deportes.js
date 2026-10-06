@@ -5,10 +5,13 @@ const MLB_API =
   "https://statsapi.mlb.com/api/v1/schedule";
 
 /*
-  Embed público de Teleantillas / Dailymotion
+  =========================================================
+  TRANSMISIÓN FIJA MLB
+  =========================================================
 */
+
 const MLB_STREAM =
-  "https://live2.eu-north-1b.cf.dmcdn.net/sec2(gqsdnfFyFub8yoqBPjtechksgBdfqtgSbrS26VEDWtTfs-akDnPsXkW2_fG4HW1Bd3j26cqdY-3-xRUY5ql3ri15bbBJRcWukT1l_rFrPKRSTiikf79kAX3xInUsFGXz)/cloud/3/x8mwmvs/s/live-480.m3u8";
+  "https://live2.eu-north-1b.cf.dmcdn.net/sec2(kd5I_QdhQCSICwAuQEjbFd0w_hv2bzxt5dT5XDbB0Jhu9V3hGiXPyyXyaDZT8U8iU3aCdgUGzjL71TKV4aHFuGNLA2UTT7ENoAd21m0KrGd0q4a5OZ4wfrsFyVlEB30c)/cloud/3/x8mwmvs/s/live-480.m3u8";
 
 
 /* =========================================================
@@ -37,6 +40,7 @@ function fechaRD() {
 function estadoESPN(type) {
   if (type?.state === "in") return "live";
   if (type?.state === "post") return "post";
+
   return "pre";
 }
 
@@ -71,16 +75,24 @@ async function getNBA() {
     const data = await response.json();
 
     return (data.events || []).map((event) => {
-      const competition = event.competitions?.[0] || {};
-      const teams = competition.competitors || [];
+      const competition =
+        event.competitions?.[0] || {};
+
+      const teams =
+        competition.competitors || [];
 
       const home =
-        teams.find((team) => team.homeAway === "home") || {};
+        teams.find(
+          (team) => team.homeAway === "home"
+        ) || {};
 
       const away =
-        teams.find((team) => team.homeAway === "away") || {};
+        teams.find(
+          (team) => team.homeAway === "away"
+        ) || {};
 
-      const type = event.status?.type || {};
+      const type =
+        event.status?.type || {};
 
       return {
         id: `nba-${event.id}`,
@@ -96,11 +108,13 @@ async function getNBA() {
           type.detail ||
           "",
 
-        fecha: event.date || "",
+        fecha:
+          event.date || "",
 
         /*
-          NBA todavía sin transmisión configurada.
+          NBA sin transmisión configurada.
         */
+
         stream_url: "",
 
         visitante: {
@@ -142,7 +156,11 @@ async function getNBA() {
     });
 
   } catch (error) {
-    console.error("Error NBA:", error);
+    console.error(
+      "Error NBA:",
+      error
+    );
+
     return [];
   }
 }
@@ -154,7 +172,8 @@ async function getNBA() {
 
 async function getMLB() {
   try {
-    const fecha = fechaRD();
+    const fecha =
+      fechaRD();
 
     const url =
       `${MLB_API}` +
@@ -162,21 +181,29 @@ async function getMLB() {
       `&date=${fecha}` +
       `&hydrate=team`;
 
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0",
-      },
-    });
+    const response =
+      await fetch(url, {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0",
+        },
+      });
 
     if (!response.ok) {
-      throw new Error(`MLB ${response.status}`);
+      throw new Error(
+        `MLB ${response.status}`
+      );
     }
 
-    const data = await response.json();
+    const data =
+      await response.json();
 
     const partidos =
       (data.dates || [])
-        .flatMap((date) => date.games || []);
+        .flatMap(
+          (date) =>
+            date.games || []
+        );
 
     return partidos.map((game) => {
       const away =
@@ -186,7 +213,9 @@ async function getMLB() {
         game.teams?.home || {};
 
       const state =
-        estadoMLB(game.status);
+        estadoMLB(
+          game.status
+        );
 
       return {
         id:
@@ -212,12 +241,14 @@ async function getMLB() {
           "",
 
         /*
-          TELEANTILLAS / DAILYMOTION
+          ===================================================
+          TRANSMISIÓN MLB
 
-          El reproductor solamente será cargado
-          por la página cuando MLB marque
-          el partido como EN VIVO.
+          Esta es la URL fija que utilizará
+          la página /en-vivo/ para los juegos MLB.
+          ===================================================
         */
+
         stream_url:
           MLB_STREAM,
 
@@ -265,7 +296,11 @@ async function getMLB() {
     });
 
   } catch (error) {
-    console.error("Error MLB:", error);
+    console.error(
+      "Error MLB:",
+      error
+    );
+
     return [];
   }
 }
@@ -313,7 +348,9 @@ function esEquipoLIDOM(nombre) {
   return EQUIPOS_LIDOM.some(
     (permitido) =>
       equipo.includes(
-        normalizar(permitido)
+        normalizar(
+          permitido
+        )
       )
   );
 }
@@ -355,19 +392,26 @@ async function getLIDOM() {
         );
 
     const lidom =
-      partidos.filter((game) => {
-        const visitante =
-          game.teams?.away?.team?.name || "";
+      partidos.filter(
+        (game) => {
+          const visitante =
+            game.teams?.away?.team?.name ||
+            "";
 
-        const local =
-          game.teams?.home?.team?.name || "";
+          const local =
+            game.teams?.home?.team?.name ||
+            "";
 
-        return (
-          esEquipoLIDOM(visitante) &&
-          esEquipoLIDOM(local)
-        );
-      });
-
+          return (
+            esEquipoLIDOM(
+              visitante
+            ) &&
+            esEquipoLIDOM(
+              local
+            )
+          );
+        }
+      );
 
     return lidom.map((game) => {
       const away =
@@ -390,7 +434,9 @@ async function getLIDOM() {
           "⚾",
 
         state:
-          estadoMLB(game.status),
+          estadoMLB(
+            game.status
+          ),
 
         detalle:
           game.status?.detailedState ||
@@ -401,9 +447,11 @@ async function getLIDOM() {
           "",
 
         /*
-          No asignamos automáticamente
-          la señal MLB a LIDOM.
+          LIDOM queda independiente.
+          No utiliza automáticamente
+          la transmisión MLB.
         */
+
         stream_url:
           "",
 
@@ -464,7 +512,6 @@ async function getLIDOM() {
 ========================================================= */
 
 export async function onRequestGet() {
-
   const resultados =
     await Promise.allSettled([
       getMLB(),
@@ -472,11 +519,9 @@ export async function onRequestGet() {
       getLIDOM(),
     ]);
 
-
   const juegos =
     resultados.flatMap(
       (resultado) => {
-
         if (
           resultado.status ===
           "fulfilled"
@@ -488,14 +533,12 @@ export async function onRequestGet() {
       }
     );
 
-
   const permitidos =
     new Set([
       "mlb",
       "nba",
       "lidom",
     ]);
-
 
   const filtrados =
     juegos.filter(
@@ -506,7 +549,6 @@ export async function onRequestGet() {
           ).toLowerCase()
         )
     );
-
 
   return new Response(
     JSON.stringify({
@@ -524,7 +566,6 @@ export async function onRequestGet() {
       juegos:
         filtrados,
     }),
-
     {
       headers: {
         "content-type":
