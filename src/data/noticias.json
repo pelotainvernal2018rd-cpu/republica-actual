@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618824,
+    "created_at": "2026-10-06T01:56:50.936Z",
+    "titulo": "Aumenta la tensión en Cornell tras revelaciones sobre caso de abuso grupal",
+    "slug": "aumenta-la-tension-en-cornell-tras-revelaciones-sobre-caso-de-abuso-grupal",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/86a754be-c119-11f1-b90e-dd51fcab6130/w:1280/p:16x9/2026-10-06T000135Z-745552494-RC29XNALIUCE-RTRMADP-3-USA-CRIME-CORNELL.jpg\" alt=\"Aumenta la tensión en Cornell tras revelaciones sobre caso de abuso grupal\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Universidad de Cornell enfrenta una creciente ola de indignación tras la difusión de nuevos audios y mensajes que arrojan luz sobre los eventos posteriores a una presunta violación grupal ocurrida en 2024. El caso involucra a siete estudiantes, cuyas sanciones disciplinarias han sido recientemente reveladas, avivando el descontento en la comunidad universitaria.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El malestar alcanzó un punto crítico este lunes 5 de octubre, cuando un grupo numeroso de personas se manifestó dentro del campus. Los participantes expresaron su rechazo ante la gestión institucional del incidente y las medidas tomadas contra los jóvenes señalados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la jornada de protestas, el edificio administrativo principal de la institución fue blanco de actos vandálicos. La estructura sufrió daños en sus cristales y fue marcada con pintadas que cuestionan el proceder de las autoridades académicas frente a la denuncia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación refleja una profunda crisis de confianza en el establecimiento educativo estadounidense. Los detalles emergentes sobre el manejo del caso han intensificado las exigencias de justicia por parte de los manifestantes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades universitarias se mantienen bajo el escrutinio público mientras la comunidad estudiantil continúa movilizándose. Hasta el momento, el impacto de las nuevas evidencias sigue generando reacciones en todo el campus.</p>",
+    "imagen": "https://s.france24.com/media/display/86a754be-c119-11f1-b90e-dd51fcab6130/w:1280/p:16x9/2026-10-06T000135Z-745552494-RC29XNALIUCE-RTRMADP-3-USA-CRIME-CORNELL.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ee-uu-y-canad%C3%A1/20261006-audios-pintadas-y-protestas-crece-el-enojo-ante-el-caso-de-presunta-violaci%C3%B3n-de-los-siete-de-cornell",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618823,
     "created_at": "2026-10-06T01:54:46.089Z",
     "titulo": "Gobierno deroga aranceles a la importación de arroz tras decreto presidencial",
