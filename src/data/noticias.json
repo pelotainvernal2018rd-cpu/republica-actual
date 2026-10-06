@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618842,
+    "created_at": "2026-10-06T04:08:22.559Z",
+    "titulo": "PLD alerta sobre posible caída de ingresos en el presupuesto 2027",
+    "slug": "pld-alerta-sobre-posible-caida-de-ingresos-en-el-presupuesto-2027",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/05/6ac45620d2107.jpeg\" alt=\"PLD alerta sobre posible caída de ingresos en el presupuesto 2027\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Partido de la Liberación Dominicana (PLD) ha señalado que el Proyecto de Presupuesto General del Estado 2027, presentado recientemente al Congreso por el presidente, presenta preocupaciones no solo por su nivel de gasto, déficit y endeudamiento, sino también por el comportamiento de los ingresos públicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En una rueda de prensa, el PLD informó que entre enero y agosto los ingresos del Gobierno Central aumentaron apenas un 6,9 %, una tasa que podría quedar por debajo del crecimiento nominal del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La organización plantea la pregunta de si se trata de una desaceleración coyuntural de las recaudaciones o de los límites de la actual estructura tributaria dominicana. Señala que el presupuesto reformulado de 2026 contempla ingresos equivalentes al 15,9 % del PIB, mientras que las proyecciones para 2027 reducen ese porcentaje al 15,7 %.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El PLD también cuestiona la efectividad de la Ley sobre Medidas Pro‑crecimiento Económico, Simplificación Fiscal y Mitigación de la Crisis, promulgada el 18 de junio, y su impacto en la evolución de los ingresos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Históricamente, durante gran parte de la última década, los ingresos públicos crecieron al menos al ritmo del PIB, lo que permitió financiar una expansión del gasto sin cambios estructurales profundos en el sistema tributario. En 2025, la relación entre ingresos y PIB cayó por debajo de uno, y los datos de 2026 sugieren que la tendencia podría repetirse.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Si esta tendencia se consolida, el crecimiento económico dejaría de generar los ingresos necesarios para acompañar el aumento de las obligaciones del Estado. El PLD compara esta situación con las metas fiscales establecidas por el Gobierno, que proyectan un déficit fiscal de alrededor del 2,4 % del PIB y un superávit primario de 1,2 % para 2027.</p>",
+    "imagen": "https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/05/6ac45620d2107.jpeg",
+    "fuente": "Hoy",
+    "url_fuente": "https://hoy.com.do/el-pais/pld-llama-atencion-sobre-ingresos-pais_1104629.html/",
+    "categoria": "Política",
+    "etiquetas": [
+      "Política",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618841,
     "created_at": "2026-10-06T04:01:58.995Z",
     "titulo": "Gobierno deroga decreto que regulaba aranceles a la importación de arroz",
