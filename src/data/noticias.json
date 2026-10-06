@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618815,
+    "created_at": "2026-10-06T00:41:53.641Z",
+    "titulo": "España convoca elecciones anticipadas tras crisis por decretos de vivienda",
+    "slug": "espana-convoca-elecciones-anticipadas-tras-crisis-por-decretos-de-vivienda",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/977214f6-c0c8-11f1-b5a0-69fad0a7cb9f/w:1280/p:16x9/ES-20261005-080611-081142-CS.jpg\" alt=\"España convoca elecciones anticipadas tras crisis por decretos de vivienda\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama político en España ha dado un giro inesperado con el anuncio del presidente del Gobierno, Pedro Sánchez, sobre la disolución de las Cortes. Esta medida da paso a la convocatoria de elecciones generales, las cuales han sido fijadas para el próximo 29 de noviembre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La determinación del mandatario surge como consecuencia directa del bloqueo legislativo que sufrieron los decretos de vivienda propuestos por su administración. El rechazo en el Parlamento impidió que estas normativas, consideradas clave por el Ejecutivo, pudieran entrar en vigor.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este escenario político se desarrolla en un contexto de alta tensión social. La ciudadanía ha manifestado su descontento ante las dificultades existentes para acceder a una vivienda asequible, un problema que ha escalado en la agenda pública durante los últimos meses.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como respuesta a esta situación, se han registrado diversas movilizaciones y protestas en múltiples ciudades españolas. Miles de ciudadanos han tomado las calles para exigir soluciones más efectivas y contundentes frente a la crisis habitacional que afecta al país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sobre este acontecimiento, Ruth Ferrero, docente de Ciencia Política y Estudios Europeos en la Universidad Complutense de Madrid, ha analizado la coyuntura. En declaraciones ofrecidas a France 24, la experta señaló que la estrategia de Sánchez busca capitalizar el movimiento social que se ha generado en torno a esta problemática.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El adelanto electoral marca un punto de inflexión en la gestión actual, trasladando la resolución de los conflictos legislativos y sociales directamente a las urnas. La fecha establecida para los comicios será determinante para definir el rumbo de las políticas habitacionales en España.</p>",
+    "imagen": "https://s.france24.com/media/display/977214f6-c0c8-11f1-b5a0-69fad0a7cb9f/w:1280/p:16x9/ES-20261005-080611-081142-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261005-ruth-forero-la-intenci%C3%B3n-de-pedro-s%C3%A1nchez-es-aprovechar-la-movilizaci%C3%B3n-en-las-calles",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618814,
     "created_at": "2026-10-06T00:38:36.095Z",
     "titulo": "Gobierno destaca transformación y expansión de Ciudad Juan Bosch",
