@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618990,
+    "created_at": "2026-10-06T23:48:44.511Z",
+    "titulo": "Onda tropical traerá precipitaciones a diversas zonas del país este miércoles",
+    "slug": "onda-tropical-traera-precipitaciones-a-diversas-zonas-del-pais-este-miercoles",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/06/6ac583b164a1f.jpeg\" alt=\"Onda tropical traerá precipitaciones a diversas zonas del país este miércoles\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología (Indomet) ha emitido un informe sobre el ingreso de una onda tropical al territorio nacional durante este miércoles. Se prevé que este fenómeno atmosférico genere lluvias en diferentes puntos de la geografía dominicana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las provincias que experimentarán los efectos de este sistema incluyen a San Pedro de Macorís, La Romana, Peravia y San Cristóbal. Asimismo, se esperan precipitaciones en el Distrito Nacional y la provincia de Santo Domingo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El pronóstico también abarca localidades situadas en la región suroeste, así como áreas de la cordillera Central. De igual manera, se anticipan lluvias en diversos sectores del Valle del Cibao a medida que avance el fenómeno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Aunque la onda tropical comenzará a alejarse del país a partir del jueves, las autoridades meteorológicas advierten que el sistema dejará una carga significativa de humedad en la atmósfera. Esta condición mantendrá la posibilidad de aguaceros en varias zonas durante el resto de la jornada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama, el organismo oficial ha solicitado a la ciudadanía mantenerse informada a través de los boletines meteorológicos. Se recomienda estar atentos a las actualizaciones que se emitirán en las próximas horas para conocer la evolución del clima.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/06/6ac583b164a1f.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/onda-tropical-provocara-lluvia-regiones-dominicanas-partir-miercoles_582751.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618989,
     "created_at": "2026-10-06T23:39:42.019Z",
     "titulo": "ONCOSERV estrena podcast para educar sobre el cáncer desde una visión humana",
