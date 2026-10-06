@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618855,
+    "created_at": "2026-10-06T06:42:06.540Z",
+    "titulo": "Reportan desmantelamiento silencioso de la libreta de abastecimiento en Cuba",
+    "slug": "reportan-desmantelamiento-silencioso-de-la-libreta-de-abastecimiento-en-cuba",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/99e2a5c0-c136-11f1-8e0a-13e372f41e70/w:1280/p:16x9/ES-20261005-191050-191254-CS.jpg\" alt=\"Reportan desmantelamiento silencioso de la libreta de abastecimiento en Cuba\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El sistema de distribución de alimentos en Cuba, conocido popularmente como la libreta de abastecimiento, estaría atravesando un proceso de eliminación gradual. Diversos reportes indican que la red de bodegas estatales está siendo desmantelada de manera progresiva en todo el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta transformación se está ejecutando sin que las autoridades gubernamentales hayan emitido un comunicado oficial al respecto. La falta de información clara ha generado incertidumbre entre la población, que durante décadas ha dependido de este mecanismo para acceder a productos básicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante el cierre de estos establecimientos, los ciudadanos se han visto obligados a buscar alternativas en las tiendas de barrio. Sin embargo, estos comercios operan bajo condiciones económicas muy distintas a las que ofrecía el sistema estatal tradicional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El principal inconveniente radica en que los productos en estos puntos de venta no cuentan con los subsidios gubernamentales acostumbrados. Esto ha provocado un incremento significativo en los precios de los artículos de primera necesidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia, muchas familias cubanas enfrentan dificultades para adquirir los alimentos básicos. El poder adquisitivo de los ciudadanos resulta insuficiente para cubrir los costos actuales en el mercado minorista local.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación mantiene en vilo a los consumidores, quienes observan cómo desaparece una estructura que históricamente garantizaba el acceso a bienes esenciales a precios controlados.</p>",
+    "imagen": "https://s.france24.com/media/display/99e2a5c0-c136-11f1-8e0a-13e372f41e70/w:1280/p:16x9/ES-20261005-191050-191254-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261006-cuba-gobierno-estar%C3%ADa-retirando-sistema-de-cartillas-de-abastecimiento",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618854,
     "created_at": "2026-10-06T06:31:45.847Z",
     "titulo": "Tecnología policial permite identificar a cientos de prófugos durante patrullajes",
