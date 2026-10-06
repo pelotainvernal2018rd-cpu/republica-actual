@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618928,
+    "created_at": "2026-10-06T17:41:42.656Z",
+    "titulo": "Nuevas protestas estudiantiles paralizan los accesos a varios centros educativos en Francia",
+    "slug": "nuevas-protestas-estudiantiles-paralizan-los-accesos-a-varios-centros-educativos-en-francia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b0f7646c-c168-11f1-b850-13e372f41e70/w:1280/p:16x9/2026-10-06T092012Z-1488484626-RC2KXNAKPI81-RTRMADP-3-FRANCE-PROTEST.jpg\" alt=\"Nuevas protestas estudiantiles paralizan los accesos a varios centros educativos en Francia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las manifestaciones organizadas por los estudiantes siguen generando tensiones en territorio francés. Desde tempranas horas de este día, grupos de alumnos interrumpieron el paso hacia diferentes recintos escolares y liceos ubicados a lo largo del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El propósito principal de estas movilizaciones es manifestar el descontento ante las precarias condiciones en las que se encuentra el sistema educativo actual. Los participantes exigen mejoras tangibles en la infraestructura y en los recursos destinados a la enseñanza.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación se agrava tras cumplirse varias jornadas consecutivas marcadas por disturbios y choques directos entre los manifestantes y los cuerpos de seguridad del Estado. La escalada de conflictos ha elevado la preocupación general por la seguridad pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como medida de precaución frente a posibles altercados violentos, varios jóvenes decidieron asistir a las concentraciones en compañía de sus padres. La presencia familiar refleja el clima de incertidumbre que impera en los alrededores de los colegios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, las autoridades gubernamentales mantienen sus esfuerzos orientados a restablecer el orden y garantizar el funcionamiento regular de las instituciones académicas en medio de este escenario de movilizaciones.</p>",
+    "imagen": "https://s.france24.com/media/display/b0f7646c-c168-11f1-b850-13e372f41e70/w:1280/p:16x9/2026-10-06T092012Z-1488484626-RC2KXNAKPI81-RTRMADP-3-FRANCE-PROTEST.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261006-francia-amanece-con-escuelas-bloqueadas-por-las-masivas-protestas-estudiantiles",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618927,
     "created_at": "2026-10-06T17:39:35.420Z",
     "titulo": "Gobierno asigna 30 millones de pesos para tecnificar el riego en el sector lechero",
