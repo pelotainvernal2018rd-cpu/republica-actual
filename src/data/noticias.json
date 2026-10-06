@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618944,
+    "created_at": "2026-10-06T19:18:23.479Z",
+    "titulo": "Policía Nacional implementa tecnología móvil para identificar automóviles con reportes de robo",
+    "slug": "policia-nacional-implementa-tecnologia-movil-para-identificar-automoviles-con-reportes-de-robo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/10/05/6ac44665cc9ca.r_d.539-431-0.png\" alt=\"Policía Nacional implementa tecnología móvil para identificar automóviles con reportes de robo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Policía Nacional puso en funcionamiento un lote de diez vehículos equipados con sistemas avanzados para la lectura de matrículas mientras se encuentran en desplazamiento. Esta iniciativa forma parte de las acciones estratégicas contempladas dentro del Proyecto RPM-ALPR en territorio dominicano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las unidades móviles incorporan la tecnología ALPR combinada con la plataforma Axon Fleet 3, configurando centros rodantes de supervisión y control ciudadano. Su función principal consiste en capturar las identificaciones vehiculares y cruzarlas de manera instantánea con los registros oficiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Mediante este proceso digital, los dispositivos generan avisos inmediatos cuando detectan automóviles que poseen denuncias por sustracción o que figuran en expedientes bajo investigación. De esta manera, el personal policial optimiza su labor de fiscalización durante los recorridos habituales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde la entidad de seguridad se destacó que este recurso tecnológico incrementa significativamente el radio de vigilancia urbana y optimiza la capacidad de reacción ante situaciones delictivas. Asimismo, agiliza los protocolos de verificación para los agentes en servicio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de la continuidad del programa, la institución anunció la incorporación de cincuenta vehículos adicionales en el transcurso de los próximos meses. Con esta ampliación, la flotilla especializada alcanzará un total de sesenta unidades operativas en las calles.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/10/05/6ac44665cc9ca.r_d.539-431-0.png",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/policiales/policia-nacional-10-camionetas-leen-placas-real-detectar-vehiculos-robados_582661.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618943,
     "created_at": "2026-10-06T19:14:36.004Z",
     "titulo": "Ministerio de Trabajo oficializa incremento salarial para operadores de maquinaria agrícola pesada",
