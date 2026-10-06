@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618832,
+    "created_at": "2026-10-06T02:46:39.488Z",
+    "titulo": "Policía Nacional fortalece vigilancia vial con tecnología de reconocimiento de placas",
+    "slug": "policia-nacional-fortalece-vigilancia-vial-con-tecnologia-de-reconocimiento-de-placas",
+    "contenido": "\n      <div style=\"text-align:center;margin-bottom:25px;\">\n        <img\n          src=\"https://resources.diariolibre.com/images/2026/10/04/policia-comienza-a-usar-el-reconocimientos-de-placas-en-movimientos-521c6521-focus-0-0-1200-675.jpg\"\n          alt=\"Así funciona sistema de Reconocimiento de Placas de la Policía\"\n          style=\"\n            width:100%;\n            max-width:750px;\n            height:auto;\n            display:block;\n            margin:auto;\n            border-radius:6px;\n          \"\n        >\n      </div>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        La Policía Nacional ha implementado el proyecto RPM-ALPR, una herramienta tecnológica que permite a sus unidades de patrullaje identificar vehículos de interés policial mientras circulan por las vías públicas. Este sistema transforma las patrullas en plataformas móviles capaces de escanear matrículas de forma automatizada.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El funcionamiento se basa en cámaras integradas con tecnología de reconocimiento automático de placas (ALPR). A medida que los agentes realizan sus labores de vigilancia, los equipos captan y procesan la información de los vehículos que se encuentran en su campo de visión, comparando los datos en tiempo real con las bases de datos de la institución.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El proceso técnico se divide en varias etapas clave: captura de imagen, procesamiento digital de caracteres, comparación con registros institucionales y la emisión de alertas inmediatas. Si el sistema detecta una coincidencia con un vehículo reportado como robado o requerido por las autoridades, notifica a los agentes para que procedan con la verificación y las acciones correspondientes.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Esta tecnología ha demostrado su eficacia en la práctica, permitiendo recientemente la captura de una persona que se encontraba prófuga de la justicia. La institución destacó que el método facilita una respuesta más rápida y precisa ante situaciones que requieren intervención policial.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Actualmente, el cuerpo del orden cuenta con 10 camionetas equipadas con este sistema, el cual integra la tecnología ALPR con el equipo Axon Fleet 3. La Policía Nacional tiene proyectado expandir esta capacidad operativa mediante la incorporación de 50 unidades adicionales.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Con esta ampliación, la institución busca alcanzar un total de 60 vehículos patrulleros dotados con esta tecnología de reconocimiento. El objetivo es fortalecer la vigilancia en las calles y optimizar la detección de vehículos vinculados a investigaciones o registros de interés policial.\n      </p>\n    ",
+    "imagen": "https://resources.diariolibre.com/images/2026/10/04/policia-comienza-a-usar-el-reconocimientos-de-placas-en-movimientos-521c6521-focus-0-0-1200-675.jpg",
+    "fuente": "Diario Libre",
+    "url_fuente": "https://www.diariolibre.com/actualidad/nacional/2026/10/05/asi-funciona-sistema-de-reconocimiento-de-placas-de-la-policia/3679850",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618831,
     "created_at": "2026-10-06T02:44:42.653Z",
     "titulo": "Familias de dominicanos reclutados para el conflicto Rusia-Ucrania exigen intervención estatal",
