@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088618947,
+    "created_at": "2026-10-06T19:26:40.457Z",
+    "titulo": "Carles Puigdemont se acerca a su regreso a España tras fallo judicial",
+    "slug": "carles-puigdemont-se-acerca-a-su-regreso-a-espana-tras-fallo-judicial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/79252a4a-c1ab-11f1-800a-13e372f41e70/w:1280/p:16x9/ES-20261006-120716-120856-CS.jpg\" alt=\"Carles Puigdemont se acerca a su regreso a España tras fallo judicial\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El expresidente de la Generalitat, Carles Puigdemont, se encuentra cada vez más cerca de poder retornar a territorio español, tras cumplirse casi nueve años de su salida de Cataluña luego del proceso soberanista ocurrido en el año 2017.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación se produce después de que el Tribunal Constitucional tomara la decisión de respaldar la implementación de la ley de amnistía específicamente en lo referente al delito de malversación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia directa de esta resolución judicial dictada por el tribunal, las autoridades han procedido a dejar sin efecto la orden de arresto de carácter nacional que se mantenía activa en su contra.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este acontecimiento representa un paso significativo en la posible vuelta del exdirigente catalán al país, marcando un nuevo capítulo en su situación jurídica actual.</p>",
+    "imagen": "https://s.france24.com/media/display/79252a4a-c1ab-11f1-800a-13e372f41e70/w:1280/p:16x9/ES-20261006-120716-120856-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261006-puigdemont-m%C3%A1s-cerca-de-volver-a-espa%C3%B1a-tribunal-levanta-orden-de-detenci%C3%B3n",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088618946,
     "created_at": "2026-10-06T19:24:49.654Z",
     "titulo": "Gobierno colombiano brindará apoyo legal a exmilitares procesados por la muerte de Jovenel Moïse",
