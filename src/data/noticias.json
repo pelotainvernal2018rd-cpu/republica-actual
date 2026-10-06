@@ -1,17 +1,34 @@
 [
   {
-    "id": 1791088618823,
-    "created_at": "2026-10-06T01:58:30.184Z",
-    "titulo": "Gobierno implementa nueva estrategia integral para combatir la criminalidad",
-    "slug": "gobierno-implementa-nueva-estrategia-integral-para-combatir-la-criminalidad",
-    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/09/29/6abbe90ea158d.jpeg\" alt=\"Gobierno implementa nueva estrategia integral para combatir la criminalidad\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Gobierno dominicano ha puesto en marcha un Plan Estratégico de Seguridad Ciudadana con el objetivo de reducir los índices de delincuencia que afectan al país. Esta iniciativa contempla la creación de un proyecto de ley de convivencia enfocado en abordar las causas profundas de la inseguridad, más allá de las medidas reactivas tradicionales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La preocupación social se ha intensificado tras recientes eventos violentos, como el asalto en el que perdió la vida Zeneida Castillo, esposa del artista Julián Oro Duro, quien también sufrió heridas durante el incidente. Asimismo, se reportó un ataque contra un joven en el sector Serrallés mientras intentaba escapar de un asaltante, hechos que han generado un clima de temor en la población.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El esquema gubernamental se fundamenta en varios pilares clave, entre ellos la prevención, el fortalecimiento del trabajo comunitario y la reforma policial. Además, se priorizará la persecución efectiva del narcotráfico y el crimen organizado, buscando mejorar la coordinación estratégica entre las instituciones encargadas de la seguridad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Respecto a la persecución de sospechosos, el presidente Luis Abinader ha instado a quienes poseen órdenes de arresto a entregarse de manera voluntaria ante las autoridades. El mandatario enfatizó que esta acción es necesaria para evitar operativos de búsqueda forzosa por parte de los cuerpos del orden.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para fomentar la transparencia y reducir las dudas ciudadanas, se ha sugerido la publicación de un listado oficial que detalle quiénes son las personas buscadas y los delitos específicos que se les imputan. Esta medida buscaría clarificar el estatus de los sospechosos ante la opinión pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Aunque el plan presenta retos y posibles limitaciones en su ejecución, las autoridades lo consideran un avance necesario en la lucha contra la delincuencia. La estrategia busca superar las deficiencias de coordinación que han afectado históricamente las labores de seguridad en el territorio nacional.</p>",
-    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/09/29/6abbe90ea158d.jpeg",
-    "fuente": "El Nacional",
-    "url_fuente": "https://elnacional.com.do/opinion/plan-seguridad_582089.html/",
-    "categoria": "Política",
+    "id": 1791088618824,
+    "created_at": "2026-10-06T02:01:35.659Z",
+    "titulo": "Incidente con árbol desplomado deja 17 lesionados en clase de zumba",
+    "slug": "incidente-con-arbol-desplomado-deja-17-lesionados-en-clase-de-zumba",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Yuleisi-Portada-pagina-web-6-2.jpg\" alt=\"Incidente con árbol desplomado deja 17 lesionados en clase de zumba\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una sesión de ejercicios al aire libre en Guatemala se vio interrumpida por un accidente inesperado cuando un árbol de gran tamaño colapsó sobre los asistentes. El suceso ocurrió mientras un grupo de personas participaba en una clase de zumba.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El ejemplar, que contaba con aproximadamente 22 metros de altura y una antigüedad superior a los 60 años, cayó de manera repentina sobre el área donde se realizaba la actividad física. La rapidez del desplome impidió que los presentes pudieran ponerse a salvo a tiempo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como resultado del impacto, un total de 17 personas sufrieron lesiones. Entre los afectados se encuentra el instructor encargado de dirigir la rutina de ejercicios, así como varios de los participantes que se ejercitaban en ese momento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras el percance, los equipos de emergencia brindaron asistencia médica inmediata a los heridos en el lugar del incidente. Las autoridades locales han iniciado las investigaciones correspondientes para determinar las causas exactas que provocaron la caída del árbol.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El hecho ha generado preocupación en la comunidad, mientras se evalúan las condiciones de seguridad en las zonas donde se realizan actividades recreativas al aire libre.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Yuleisi-Portada-pagina-web-6-2.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/de-repente-arbol-se-desploma-durante-clase-de-zumba-y-deja-17-heridos/",
+    "categoria": "Mundo",
     "etiquetas": [
-      "Política",
-      "Justicia"
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
+    "id": 1791088618823,
+    "created_at": "2026-10-06T01:54:46.089Z",
+    "titulo": "Gobierno deroga aranceles a la importación de arroz tras decreto presidencial",
+    "slug": "gobierno-deroga-aranceles-a-la-importacion-de-arroz-tras-decreto-presidencial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2024/01/05/659843c369c96.jpeg\" alt=\"Gobierno deroga aranceles a la importación de arroz tras decreto presidencial\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Poder Ejecutivo ha dejado sin efecto los gravámenes que pesaban sobre la importación de arroz en el país. Esta decisión fue formalizada mediante el decreto 635-26, suscrito por el presidente Luis Abinader el pasado nueve de septiembre.</p><p>Con esta nueva disposición, queda anulado el decreto 624-24, el cual establecía un arancel del 20 por ciento ad valorem a las cuotas de arroz que ingresan desde los Estados Unidos. La medida busca ajustar las normativas comerciales vigentes.</p><p>La emisión de este decreto coincidió con una solicitud formal realizada por el presidente estadounidense, Donald Trump. El mandatario norteamericano pidió el levantamiento de las restricciones para asegurar el cumplimiento de los compromisos de acceso al mercado establecidos en el tratado CAFTA-DR.</p><p>Previamente, el Gobierno había justificado la aplicación del arancel argumentando la necesidad de proteger la capacidad productiva local. El objetivo principal era garantizar un suministro estable de alimentos para toda la población dominicana.</p><p>El decreto que ahora ha sido derogado subrayaba la importancia estratégica del sector arrocero para la estabilidad económica y social de la nación. Se destacaba especialmente el impacto de este cultivo en veintiuna provincias del territorio nacional.</p><p>La medida actual marca un cambio en la política arancelaria respecto a este producto básico, alineándose con las obligaciones internacionales asumidas por el Estado dominicano en el marco de los acuerdos comerciales regionales.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2024/01/05/659843c369c96.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-republica/gobierno/20261005/gobierno-quita-aranceles-importacion-arroz_924982.html",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Internacional"
     ],
     "publicado": true,
     "feed_principal": true
