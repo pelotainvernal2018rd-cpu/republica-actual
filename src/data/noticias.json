@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619017,
+    "created_at": "2026-10-07T03:11:40.951Z",
+    "titulo": "El impacto psicológico en Israel tras los ataques del 7 de octubre",
+    "slug": "el-impacto-psicologico-en-israel-tras-los-ataques-del-7-de-octubre",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/bd613056-c1f5-11f1-8362-13e372f41e70/w:1280/p:16x9/AP24281294610505.jpg\" alt=\"El impacto psicológico en Israel tras los ataques del 7 de octubre\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La sociedad israelí atraviesa un periodo de profunda tensión emocional al cumplirse un tiempo considerable desde los ataques perpetrados por Hamás. El recuerdo de las 1.200 víctimas mortales de aquella jornada sigue presente en la vida cotidiana de la población.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Muchos ciudadanos experimentan un proceso de revictimización constante al rememorar los hechos ocurridos aquel día. Esta situación ha generado un incremento notable en la demanda de servicios de salud mental y consultas psicológicas en todo el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El trauma colectivo se manifiesta en una población que intenta procesar la magnitud de la tragedia mientras el conflicto continúa desarrollándose. La huella de los eventos del 7 de octubre permanece como un factor determinante en el estado anímico de los israelíes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La persistencia de estas vivencias traumáticas se entrelaza con la realidad de la guerra en Gaza. Este escenario dual mantiene a la ciudadanía en un estado de alerta y duelo permanente por las pérdidas sufridas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los expertos observan cómo el impacto de los ataques ha dejado una marca indeleble en la psique nacional. La búsqueda de apoyo profesional se ha convertido en una respuesta común ante la dificultad de superar el horror vivido.</p>",
+    "imagen": "https://s.france24.com/media/display/bd613056-c1f5-11f1-8362-13e372f41e70/w:1280/p:16x9/AP24281294610505.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/medio-oriente/20261007-el-olor-del-infierno-israel-vive-entre-el-trauma-por-el-7-de-octubre-y-la-tragedia-ajena-de-gaza",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619016,
     "created_at": "2026-10-07T03:01:39.601Z",
     "titulo": "Fuerza de seguridad internacional reporta dos fallecidos tras operativo en Haití",
