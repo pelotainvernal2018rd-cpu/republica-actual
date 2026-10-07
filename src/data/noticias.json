@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619113,
+    "created_at": "2026-10-07T19:45:28.274Z",
+    "titulo": "EmprendeLab 2026: 25 finalistas seleccionados tras 120 propuestas",
+    "slug": "emprendelab-2026-25-finalistas-seleccionados-tras-120-propuestas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/07/6ac69fb0067ac.jpeg\" alt=\"EmprendeLab 2026: 25 finalistas seleccionados tras 120 propuestas\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Consejo Nacional de Promoción y Apoyo a la Micro, Pequeña y Mediana Empresa (Promipyme) inauguró la tercera edición de EmprendeLab 2026, una plataforma que convierte proyectos innovadores en iniciativas empresariales sostenibles. De los 120 proyectos recibidos, 25 fueron elegidos para pasar a la etapa final.</p><p>Fabricio Gómez, director general de Promipyme, destacó el crecimiento del ecosistema emprendedor, señalando que el número de propuestas demuestra el coraje y la perseverancia de los emprendedores dominicanos.</p><p>El director enfatizó que Promipyme busca ir más allá del financiamiento tradicional, creando condiciones que permitan a las nuevas generaciones desarrollar empresas con mayor contenido tecnológico, innovación y capacidad de crecimiento.</p><p>EmprendeLab combina financiamiento, capacitación, mentoría, asistencia técnica y acompañamiento estratégico, con especial énfasis en proyectos impulsados por jóvenes.</p><p>Diez universidades, el Banco Interamericano, el Ministerio de Hacienda y otras entidades participan en la iniciativa, junto con cuatro mentores provenientes de cuatro países.</p><p>La iniciativa se presenta como un motor clave para fortalecer el ecosistema emprendedor en la República Dominicana, ofreciendo a los emprendedores las herramientas necesarias para transformar sus ideas en negocios sostenibles.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/07/6ac69fb0067ac.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-vida/20261007/seleccionan-25-finalistas-emprendelab-2026-iniciativa-proyectos-innovadores_925230.html",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619112,
     "created_at": "2026-10-07T19:40:00.637Z",
     "titulo": "Visa y MITUR fortalecen la digitalización del sector turístico dominicano",
