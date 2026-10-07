@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619065,
+    "created_at": "2026-10-07T14:57:52.011Z",
+    "titulo": "Google habilita herramienta pública para detectar contenido creado con inteligencia artificial",
+    "slug": "google-habilita-herramienta-publica-para-detectar-contenido-creado-con-inteligencia-artificial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/05/23/6a124be54d40c.png\" alt=\"Google habilita herramienta pública para detectar contenido creado con inteligencia artificial\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>Google ha lanzado oficialmente SynthID Detector, una plataforma web diseñada para que los usuarios puedan verificar si archivos de imagen, audio o vídeo han sido producidos mediante inteligencia artificial. El servicio ya se encuentra disponible para el público general a través del portal synthid.com.</p><p>Para utilizar esta herramienta, los interesados deben iniciar sesión empleando sus cuentas de Google, Apple u OpenAI. Una vez dentro, el sistema permite cargar archivos multimedia para rastrear la presencia de una marca de agua digital específica, la cual es imperceptible para la percepción humana pero está integrada en la estructura de los datos.</p><p>El detector no solo identifica creaciones generadas por los modelos de Google, sino que también reconoce contenido producido por empresas aliadas como Nvidia, OpenAI y la firma surcoreana Kakao. La compañía tecnológica ha confirmado que Apple se sumará a este grupo de colaboradores en un futuro cercano.</p><p>La tecnología detrás de este sistema ha sido aplicada masivamente, alcanzando más de 180.000 millones de imágenes y vídeos, además de un volumen de archivos sonoros equivalente a 240.000 años de duración. Actualmente, la plataforma procesa más de un millón de solicitudes de verificación cada día.</p><p>Esta iniciativa responde a la estrategia presentada por Sundar Pichai, director ejecutivo de Alphabet, durante la conferencia Google I/O celebrada el pasado mes de mayo. En dicho evento, se adelantó la intención de integrar estas credenciales de contenido de manera nativa en el buscador y en el navegador Chrome.</p><p>El despliegue de esta herramienta busca combatir la proliferación de deepfakes en internet y las redes sociales. Estos contenidos, que utilizan inteligencia artificial para manipular la realidad, han generado preocupación al permitir que personas reales parezcan realizar acciones o emitir declaraciones que nunca ocurrieron.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/05/23/6a124be54d40c.png",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-vida/tecnologia/20261007/google-lanza-herramienta-web-identificar-fotos-videos-audios-generados-ia_925189.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619064,
     "created_at": "2026-10-07T14:52:32.993Z",
     "titulo": "El turismo dominicano supera los 9.2 millones de visitantes al cierre de septiembre",
