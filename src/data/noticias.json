@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619089,
+    "created_at": "2026-10-07T17:27:26.947Z",
+    "titulo": "La grave crisis de seguridad vial en India genera pérdidas millonarias y cobra miles de vidas",
+    "slug": "la-grave-crisis-de-seguridad-vial-en-india-genera-perdidas-millonarias-y-cobra-miles-de-vidas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/dd194662-c26e-11f1-8717-4b195755b8ed/w:1280/p:16x9/AP25325106370977.jpg\" alt=\"La grave crisis de seguridad vial en India genera pérdidas millonarias y cobra miles de vidas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los accidentes en las carreteras de India representan un problema crítico que arrebata numerosas vidas cada año. Esta situación genera un impacto devastador que trasciende la tragedia humana y afecta profundamente la economía de la nación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los incidentes viales le cuestan al país al menos el tres por ciento de su producto interno bruto. Esta cifra evidencia la magnitud del problema financiero que provocan los siniestros en el territorio nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta compleja realidad, los periodistas Navodita Kumari y Suhel Khan decidieron salir a las calles. Su objetivo principal fue observar de primera mano la situación en la ciudad de Nueva Delhi.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante su recorrido por la capital, los comunicadores buscaron comprender la dimensión de esta emergencia. Las vías urbanas continúan registrando incidentes fatales de forma constante.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La crisis en el transporte y la movilidad sigue cobrando víctimas mortales sin prisa por detenerse. Este panorama mantiene en alerta a las autoridades y a la sociedad sobre la urgencia de atender la seguridad en las calles.</p>",
+    "imagen": "https://s.france24.com/media/display/dd194662-c26e-11f1-8717-4b195755b8ed/w:1280/p:16x9/AP25325106370977.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-foco/20261007-india-una-persona-muere-cada-tres-minutos-en-las-carreteras",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619088,
     "created_at": "2026-10-07T17:24:59.812Z",
     "titulo": "Pacientes del Hospital Robert Reid Cabral llaman al diálogo para prevenir huelga médica nacional",
