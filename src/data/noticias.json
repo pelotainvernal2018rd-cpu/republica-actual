@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619055,
+    "created_at": "2026-10-07T13:51:29.768Z",
+    "titulo": "Piratas informáticos vulneran dominios de internet para generar certificados digitales falsificados",
+    "slug": "piratas-informaticos-vulneran-dominios-de-internet-para-generar-certificados-digitales-falsificados",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-1-4.jpg\" alt=\"Piratas informáticos vulneran dominios de internet para generar certificados digitales falsificados\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un reciente ataque cibernético permitió a piratas informáticos apoderarse de tres dominios nacionales de internet. Con esta maniobra, los involucrados lograron la emisión de credenciales digitales falsas que afectaron a plataformas de Google y a otras marcas de alcance internacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los dominios comprometidos correspondieron a las administraciones de Ghana, Sierra Leona y Samoa Americana. Los atacantes alteraron los registros del sistema de nombres de dominio, conocido como DNS, lo que les otorgó la capacidad de gestionar el tráfico de información como si fuesen los dueños legítimos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Mediante esta intervención, los intrusos burlaron los mecanismos de validación automatizados de las autoridades certificadoras. Esto facilitó la obtención de certificados TLS apócrifos, los cuales se emplean normalmente para autenticar páginas web y cifrar las comunicaciones con los usuarios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Google indicó que los documentos fraudulentos se destinaron a varios de sus servicios y a otras empresas de gran relevancia, aunque aclaró que los sistemas internos de las compañías no sufrieron vulneraciones. Asimismo, la firma tecnológica señaló que el fallo radicó en la toma de control de los registros nacionales y no en las entidades emisoras.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como respuesta inmediata, el navegador Chrome incorporó una actualización para inhabilitar los certificados identificados mediante su sistema de bloqueo en segundo plano. Adicionalmente, se coordinó la anulación oficial de dichos archivos para salvaguardar a los usuarios de otros navegadores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La corporación advirtió que las medidas aplicadas en los navegadores resultan insuficientes por sí solas. Por ello, instó a los administradores de sitios web a examinar los registros públicos de transparencia para detectar documentos no autorizados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como prevenciones adicionales, se recomendó la implementación de registros CAA en el sistema DNS para definir qué entidades tienen autorización para expedir certificados. Esta práctica busca evitar que los atacantes soliciten nuevas credenciales una vez que los dominios sean recuperados por sus titulares.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-1-4.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/hackers-secuestran-dominios-nacionales-para-fabricar-certificados-falsos-de-google/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619054,
     "created_at": "2026-10-07T13:44:45.073Z",
     "titulo": "Aumentan las salidas de embarcaciones ilegales hacia Puerto Rico en el presente año",
