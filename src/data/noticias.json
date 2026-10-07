@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619010,
+    "created_at": "2026-10-07T02:18:39.624Z",
+    "titulo": "Policía Nacional fortalece vigilancia con tecnología de lectura de placas en tiempo real",
+    "slug": "policia-nacional-fortalece-vigilancia-con-tecnologia-de-lectura-de-placas-en-tiempo-real",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/06/6ac5a9c597321.jpeg\" alt=\"Policía Nacional fortalece vigilancia con tecnología de lectura de placas en tiempo real\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Policía Nacional de la República Dominicana ha implementado el proyecto Reconocimiento de Placas en Movimiento, conocido como RPM-ALPR, para optimizar sus labores de patrullaje. Este sistema utiliza cámaras instaladas en camionetas oficiales que capturan y procesan los caracteres de las matrículas de los vehículos que circulan en su entorno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El funcionamiento de esta tecnología se basa en la conversión automática de las placas en datos digitales. Estos registros son contrastados instantáneamente con las bases de datos institucionales, permitiendo identificar vehículos que poseen reportes de robo, que están vinculados a investigaciones abiertas o que son requeridos por las autoridades judiciales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta herramienta, que se integra con la plataforma Axon Fleet 3, permite que los agentes reciban alertas inmediatas cuando se detecta una coincidencia. Es importante destacar que el sistema se enfoca exclusivamente en la lectura de la placa y no realiza reconocimiento facial de los conductores, por lo que cada notificación requiere una verificación presencial por parte de los oficiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Actualmente, la institución cuenta con diez unidades equipadas con este sistema de vigilancia e inteligencia móvil. Ante los resultados obtenidos, las autoridades han anunciado un plan de expansión que contempla la incorporación de otras cincuenta camionetas, alcanzando un total de sesenta vehículos operativos con esta tecnología.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La eficacia de este despliegue quedó demostrada el pasado domingo 4 de octubre en Villa Mella. Durante un recorrido preventivo, una de las unidades detectó un vehículo Honda Accord Sport rojo cuya placa estaba asociada a una orden de captura contra José Rafael Díaz de los Santos, de 36 años.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras recibir la alerta, los agentes interceptaron el automóvil en la avenida Hermanas Mirabal y procedieron con el arresto del individuo. Durante el operativo, las autoridades también lograron incautar una pistola calibre nueve milímetros que se encontraba en posesión del detenido.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/06/6ac5a9c597321.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/policiales/asi-funciona-sistema-policia-rd-leer-placas-real_582767.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619009,
     "created_at": "2026-10-07T02:14:41.732Z",
     "titulo": "Yoshinobu Yamamoto guía a los Dodgers a la ventaja en la Serie Divisional",
