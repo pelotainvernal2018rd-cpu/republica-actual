@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619020,
+    "created_at": "2026-10-07T03:26:40.779Z",
+    "titulo": "Estudiantes franceses utilizan plataformas digitales para coordinar movilizaciones",
+    "slug": "estudiantes-franceses-utilizan-plataformas-digitales-para-coordinar-movilizaciones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/66982cf8-c1f4-11f1-ac13-0f96b136895a/w:1280/p:16x9/ES-20261006-183611-183745-CS.jpg\" alt=\"Estudiantes franceses utilizan plataformas digitales para coordinar movilizaciones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El estudiantado en Francia ha integrado las herramientas digitales como un eje central para la organización de sus recientes jornadas de protesta. A través de diversas plataformas, los jóvenes logran difundir información clave sobre el desarrollo de las manifestaciones en tiempo real.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El uso de internet permite a los participantes establecer puntos de encuentro estratégicos y mantener a la comunidad informada sobre el estado de las movilizaciones. Esta dinámica ha facilitado una mayor cohesión entre los grupos que se han tomado las calles del país europeo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para potenciar el alcance de sus mensajes, los manifestantes emplean una amplia variedad de recursos multimedia. Entre los materiales compartidos destacan fotografías y grabaciones de video que documentan el avance de las protestas en diferentes sectores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, la creación de blogs especializados sirve como un canal adicional para centralizar las convocatorias y las actualizaciones del movimiento. Estos espacios digitales funcionan como un punto de referencia para quienes desean sumarse a las actividades programadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La estrategia comunicativa también ha incorporado el uso de inteligencia artificial para la generación de contenidos. Esta tecnología es utilizada para diversificar el material informativo que circula en la red con el objetivo de fomentar la participación ciudadana en las calles.</p>",
+    "imagen": "https://s.france24.com/media/display/66982cf8-c1f4-11f1-ac13-0f96b136895a/w:1280/p:16x9/ES-20261006-183611-183745-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261007-estudiantes-se-apoyan-en-las-redes-sociales-para-organizar-las-protestas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619019,
     "created_at": "2026-10-07T03:24:35.448Z",
     "titulo": "Tragedia en El Bronx: Joven dominicana fallece tras caída desde un piso 15",
