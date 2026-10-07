@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619101,
+    "created_at": "2026-10-07T18:41:39.974Z",
+    "titulo": "Henri Kagan y Kenso Soai obtienen el Premio Nobel de Química 2026 por desentrañar enigma molecular",
+    "slug": "henri-kagan-y-kenso-soai-obtienen-el-premio-nobel-de-quimica-2026-por-desentranar-enigma-molecular",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3d858790-c23d-11f1-836b-b942c38e4bd7/w:1280/p:16x9/955f143aab1fae330928f022b0b8d765e382c982.jpg\" alt=\"Henri Kagan y Kenso Soai obtienen el Premio Nobel de Química 2026 por desentrañar enigma molecular\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El galardón de la academia fue otorgado este miércoles al investigador de origen francés Henri Kagan y al científico japonés Kenso Soai.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La distinción reconoce sus contribuciones científicas centradas en el estudio y análisis de las llamadas moléculas asimétricas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Gracias a este trabajo conjunto, los expertos lograron esclarecer una incógnita científica que había permanecido sin resolver durante más de un siglo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El descubrimiento resuelve interrogantes fundamentales acerca de la naturaleza de las estructuras moleculares vinculadas con los procesos biológicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, los aportes de ambos especialistas sientan bases innovadoras que facilitan la producción de nuevos fármacos en la actualidad.</p>",
+    "imagen": "https://s.france24.com/media/display/3d858790-c23d-11f1-836b-b942c38e4bd7/w:1280/p:16x9/955f143aab1fae330928f022b0b8d765e382c982.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ciencia-y-tecnolog%C3%ADas/20261007-nobel-de-qu%C3%ADmica-2026-kagan-y-soai-resuelven-un-misterio-de-m%C3%A1s-de-un-siglo-sobre-las-mol%C3%A9culas-de-la-vida",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619100,
     "created_at": "2026-10-07T18:39:36.766Z",
     "titulo": "José Ángel Morvan pide disculpas a Karen Yapoort tras difundir información falsa",
