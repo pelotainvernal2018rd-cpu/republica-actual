@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619060,
+    "created_at": "2026-10-07T14:26:41.308Z",
+    "titulo": "Ofensiva rusa a gran escala deja al menos 20 fallecidos en territorio ucraniano",
+    "slug": "ofensiva-rusa-a-gran-escala-deja-al-menos-20-fallecidos-en-territorio-ucraniano",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/be07918c-c252-11f1-a118-ff8cff4603f0/w:1280/p:16x9/6c2c247ebec9a7c3ac9313b9b6e9dc6a4c89c043.jpg\" alt=\"Ofensiva rusa a gran escala deja al menos 20 fallecidos en territorio ucraniano\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las agencias de inteligencia de Ucrania advirtieron previamente sobre una operación militar de gran envergadura por parte de las fuerzas del Kremlin, la cual se materializó entre las jornadas del martes y el miércoles con bombardeos en múltiples zonas del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como resultado de esta serie de ataques, las autoridades locales confirmaron la muerte de 20 personas. El trágico balance de víctimas mortales incluye a cuatro menores de edad que perdieron la vida durante la ofensiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por un lado, las autoridades de Rusia afirmaron que la operación militar logró alcanzar diversos objetivos de carácter estrictamente militar, según su versión de los acontecimientos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, el gobierno de Kiev denunció públicamente que los bombardeos no solo afectaron zonas castrenses, sino que también destruyeron edificaciones residenciales y provocaron daños considerables en el sistema de infraestructura energética.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación actual en las regiones impactadas sigue siendo monitoreada por las autoridades ucranianas, mientras se evalúan los daños materiales y el alcance total de esta ofensiva coordinada desde Moscú.</p>",
+    "imagen": "https://s.france24.com/media/display/be07918c-c252-11f1-a118-ff8cff4603f0/w:1280/p:16x9/6c2c247ebec9a7c3ac9313b9b6e9dc6a4c89c043.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261007-ucrania-reporta-al-menos-20-muertos-entre-ellos-cuatro-ni%C3%B1os-por-un-ataque-masivo-de-rusia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619059,
     "created_at": "2026-10-07T14:25:19.663Z",
     "titulo": "Mandatarios internacionales se darán cita en Roma para el Foro Mundial de la Alimentación de la FAO",
