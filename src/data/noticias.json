@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619037,
+    "created_at": "2026-10-07T11:18:12.553Z",
+    "titulo": "Indomet pronostica aguaceros y tormentas para la tarde por onda tropical",
+    "slug": "indomet-pronostica-aguaceros-y-tormentas-para-la-tarde-por-onda-tropical",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/07/6ac626183c034.jpeg\" alt=\"Indomet pronostica aguaceros y tormentas para la tarde por onda tropical\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología pronosticó para la tarde de este día la ocurrencia de aguaceros de moderados a fuertes, tormentas eléctricas y ráfagas de viento. Estas condiciones meteorológicas iniciarán a partir de las dos de la tarde en varias provincias del territorio nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las demarcaciones señaladas por el organismo oficial son San Pedro de Macorís, La Romana, San Cristóbal, Peravia, La Vega y Monseñor Noel. También se prevén precipitaciones en Azua y Barahona, con posibilidad de inundaciones urbanas debido al paso de una onda tropical.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el Gran Santo Domingo, el cielo se presentará con nubosidad parcial durante las primeras horas de la mañana. Sin embargo, la cobertura nubosa aumentará en el transcurso de la tarde, acompañada de lluvias, actividad eléctrica y ráfagas de viento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La institución indicó que las precipitaciones continuarán durante la noche. Por esta razón, recomendó a la ciudadanía mantenerse atenta ante posibles anegamientos en sectores vulnerables.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, provincias como Puerto Plata, Montecristi y Samaná se mantendrán con cielo de nubosidad dispersa y sin precipitaciones significativas. En cuanto al ámbito marítimo, el oleaje en el océano Atlántico y el mar Caribe se mantiene favorable, con alturas entre tres y cinco pies aptas para la navegación de todo tipo de embarcación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el plano internacional, el organismo informó que la madrugada de hoy la depresión tropical número nueve se fortaleció hasta alcanzar la categoría de tormenta tropical bajo el nombre de Isaías. El fenómeno se ubica a unos 460 kilómetros al oeste de Progreso, México, con vientos máximos sostenidos de 65 kilómetros por hora y desplazamiento hacia el este-noreste a 13 kilómetros por hora, sin representar peligro para el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para mañana, las proyecciones meteorológicas indican que la actividad lluviosa persistirá desde las primeras horas de la madrugada. Estas precipitaciones afectarán a San Pedro de Macorís, el Gran Santo Domingo, San Cristóbal, Azua, Barahona y Pedernales, impulsadas por la humedad remanente de la onda tropical y la incidencia del viento del este-sureste.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/07/6ac626183c034.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/tarde-aguaceros-truenos-posibles-inundaciones-calles_582771.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619036,
     "created_at": "2026-10-07T11:09:34.993Z",
     "titulo": "El Banco Central da a conocer las tasas oficiales del dólar estadounidense para la jornada",
