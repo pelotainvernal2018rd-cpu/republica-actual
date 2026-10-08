@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619211,
+    "created_at": "2026-10-08T12:13:29.728Z",
+    "titulo": "Isaías asciende a huracán de categoría 1 y mantiene alejada su amenaza del territorio dominicano",
+    "slug": "isaias-asciende-a-huracan-de-categoria-1-y-mantiene-alejada-su-amenaza-del-territorio-dominicano",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/xgtwo_atl_7d0_w1920-e1791461414988.png\" alt=\"Isaías asciende a huracán de categoría 1 y mantiene alejada su amenaza del territorio dominicano\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El ciclón tropical Isaías ha incrementado su intensidad hasta alcanzar la categoría 1 como huracán, de acuerdo con el reporte emitido por el Centro Nacional de Huracanes de Estados Unidos. El sistema atmosférico registra vientos máximos sostenidos que alcanzan los 130 kilómetros por hora y se desplaza en dirección este noreste a una velocidad aproximada de 15 kilómetros por hora.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la evolución del fenómeno, las autoridades meteorológicas han confirmado que, debido a su ubicación actual y a la trayectoria que mantiene, este sistema ciclónico no representa ningún peligro para la República Dominicana. Actualmente, el meteoro se localiza a una distancia de 790 kilómetros al norte de la localidad de Progreso, en territorio mexicano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como medida preventiva ante el avance del huracán, los organismos competentes han establecido alertas de marea ciclónica dirigidas a los estados norteamericanos de Florida y Mississippi. Las previsiones indican que las inundaciones asociadas al sistema podrían generar situaciones de riesgo para los residentes de estas zonas en el transcurso de las próximas 36 horas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este desarrollo ciclónico llama la atención de los especialistas al producirse cuando han transcurrido más de cuatro meses desde el inicio oficial de la temporada de huracanes en la cuenca del Atlántico. Con este comportamiento, el fenómeno meteorológico se aproxima a igualar un registro histórico de 121 años de antigüedad relacionado con la formación tardía de un primer huracán en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los registros del Servicio Meteorológico Nacional señalan que el antecedente histórico de referencia se remonta al año 1905. En aquella ocasión, el primer huracán atlántico de la temporada se formó de manera tardía el 8 de octubre, una marca que ahora podría verse alcanzada por la evolución reciente del huracán Isaías.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/xgtwo_atl_7d0_w1920-e1791461414988.png",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/isaias-se-convierte-en-huracan-categoria-1-no-representa-peligro-para-rd/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619210,
     "created_at": "2026-10-08T12:12:08.288Z",
     "titulo": "Google impulsa la misión Suncatcher para evaluar el rendimiento de sus chips TPU en el espacio",
