@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619198,
+    "created_at": "2026-10-08T07:11:45.404Z",
+    "titulo": "Organización de las Naciones Unidas advierte sobre la intensificación del fenómeno El Niño para el cierre de año",
+    "slug": "organizacion-de-las-naciones-unidas-advierte-sobre-la-intensificacion-del-fenomeno-el-nino-para-el-cierre-de-ano",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7cd9dd4a-c2d0-11f1-a2e0-4b195755b8ed/w:1280/p:16x9/c86e890359b1df3cc32148e01f5c992c432dd406.jpg\" alt=\"Organización de las Naciones Unidas advierte sobre la intensificación del fenómeno El Niño para el cierre de año\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El fenómeno climático conocido como El Niño continuará su proceso de fortalecimiento durante los próximos meses. Así lo advirtió la Organización de las Naciones Unidas este jueves, señalando que la situación climática se encamina hacia su fase de mayor intensidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con la información emitida por el organismo internacional, el punto máximo de este ciclo climatológico está previsto para el mes de diciembre. Las proyecciones indican que el evento mantendrá una tendencia al alza en su fuerza antes de llegar a dicha etapa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las advertencias de la ONU también apuntan a la magnitud que podría alcanzar este acontecimiento natural. Los análisis sugieren que el impacto actual y futuro podría posicionarlo entre los registros más potentes observados en las últimas décadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En específico, las evaluaciones comparativas indican que la intensidad actual no se observaba de manera similar desde el año 1950. Esto enciende las alertas sobre las posibles consecuencias globales asociadas a este patrón climático.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades internacionales mantienen el monitoreo constante sobre la evolución de este fenómeno. La información recopilada permite anticipar el comportamiento del clima de cara a los siguientes meses del año en curso.</p>",
+    "imagen": "https://s.france24.com/media/display/7cd9dd4a-c2d0-11f1-a2e0-4b195755b8ed/w:1280/p:16x9/c86e890359b1df3cc32148e01f5c992c432dd406.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/medio-ambiente/20261008-el-ni%C3%B1o-se-intensificar%C3%A1-antes-de-alcanzar-su-punto-m%C3%A1ximo-en-diciembre-advierte-la-onu",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619197,
     "created_at": "2026-10-08T05:31:39.676Z",
     "titulo": "Siete personas fallecen en enfrentamientos con la Policía durante el inicio de octubre",
