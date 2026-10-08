@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619305,
+    "created_at": "2026-10-08T21:57:07.744Z",
+    "titulo": "Desbordamiento del río Pinula deja decenas de familias desplazadas en Guatemala",
+    "slug": "desbordamiento-del-rio-pinula-deja-decenas-de-familias-desplazadas-en-guatemala",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0e7bd804-c35b-11f1-8f5d-ef6152f87623/w:1280/p:16x9/ES-20261008-091243-091439-CS.jpg\" alt=\"Desbordamiento del río Pinula deja decenas de familias desplazadas en Guatemala\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Unas 100 familias tuvieron que abandonar sus hogares en el sur del área metropolitana de Ciudad de Guatemala tras el desbordamiento del río Pinula. El incidente fue provocado por fuertes precipitaciones que afectaron la zona recientemente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La crecida del afluente ha generado daños estructurales significativos en la comunidad. Según los reportes preliminares, al menos 150 viviendas se encuentran actualmente bajo riesgo de colapso debido a la fuerza del agua.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta emergencia climática ocurre en un contexto particular para la región, tras haber atravesado un periodo prolongado de sequía extrema. Las condiciones meteorológicas cambiaron drásticamente después de meses marcados por los efectos del fenómeno de El Niño.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades locales mantienen la vigilancia en el sector afectado para evaluar los daños materiales y garantizar la seguridad de los residentes. El despliegue de los equipos de emergencia busca mitigar los riesgos ante la inestabilidad del terreno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación ha movilizado a los organismos de socorro, quienes trabajan en la zona para asistir a los damnificados. Hasta el momento, el enfoque principal se centra en la evacuación preventiva de las familias cuyas residencias presentan mayores vulnerabilidades.</p>",
+    "imagen": "https://s.france24.com/media/display/0e7bd804-c35b-11f1-8f5d-ef6152f87623/w:1280/p:16x9/ES-20261008-091243-091439-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261008-creciente-de-un-r%C3%ADo-en-guatemala-colaps%C3%B3-viviendas-y-provoc%C3%B3-la-evacuaci%C3%B3n-de-cerca-de-100-familias",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619304,
     "created_at": "2026-10-08T21:55:20.178Z",
     "titulo": "Lando Norris confía en superar los problemas técnicos de McLaren en Singapur",
