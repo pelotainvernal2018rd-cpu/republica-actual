@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619199,
+    "created_at": "2026-10-08T07:26:40.865Z",
+    "titulo": "Protesta en Río de Janeiro marca el inicio de la campaña para la segunda vuelta electoral en Brasil",
+    "slug": "protesta-en-rio-de-janeiro-marca-el-inicio-de-la-campana-para-la-segunda-vuelta-electoral-en-brasil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/15b1a556-c296-11f1-a509-ef6152f87623/w:1280/p:16x9/18b1cb9c18d2aed561709c819f8858e35f72c416.jpg\" alt=\"Protesta en Río de Janeiro marca el inicio de la campaña para la segunda vuelta electoral en Brasil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una masiva manifestación se llevó a cabo el pasado miércoles en las calles de Río de Janeiro. El motivo principal de la concentración fue expresar el rechazo ciudadano hacia Flávio Bolsonaro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La movilización se da en el contexto del inicio de la campaña política rumbo a la segunda vuelta de los comicios electorales, programados para el próximo 25 de octubre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los asistentes a la marcha adoptaron el lema Bolsonaro nunca más para manifestar su preocupación ante un eventual retorno de la corriente ultraderechista al gobierno del país sudamericano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la protesta, los participantes señalaron su temor ante posibles recortes en el presupuesto nacional si el sector político mencionado recupera el poder.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, la ciudadanía mostró su descontento frente a la propuesta impulsada por el senador para otorgar una amnistía a su padre, quien actualmente cumple una condena por su participación en un intento de golpe de Estado.</p>",
+    "imagen": "https://s.france24.com/media/display/15b1a556-c296-11f1-a509-ef6152f87623/w:1280/p:16x9/18b1cb9c18d2aed561709c819f8858e35f72c416.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261007-bolsonaro-nunca-m%C3%A1s-miles-marchan-en-r%C3%ADo-contra-fl%C3%A1vio-bolsonaro-antes-del-balotaje",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619198,
     "created_at": "2026-10-08T07:11:45.404Z",
     "titulo": "Organización de las Naciones Unidas advierte sobre la intensificación del fenómeno El Niño para el cierre de año",
