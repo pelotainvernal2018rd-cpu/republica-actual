@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619247,
+    "created_at": "2026-10-08T15:41:41.018Z",
+    "titulo": "Siberia en alerta por el fallecimiento de una joven a causa de un posible cuadro de peste pulmonar",
+    "slug": "siberia-en-alerta-por-el-fallecimiento-de-una-joven-a-causa-de-un-posible-cuadro-de-peste-pulmonar",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/9f07e974-c32b-11f1-934e-c55799ef8309/w:1280/p:16x9/ES-20261008-081453-082410-CS.jpg\" alt=\"Siberia en alerta por el fallecimiento de una joven a causa de un posible cuadro de peste pulmonar\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una mujer de veintiocho años perdió la vida en la región rusa de Siberia, un hecho que activó las señales de alarma debido a la sospecha de un posible contagio de peste pulmonar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras el suceso, las autoridades sanitarias de Rusia llevaron a cabo una investigación de carácter epidemiológico y pusieron en marcha diversas acciones preventivas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, la Organización Mundial de la Salud indicó que todavía no posee una perspectiva global respecto a las hipótesis sobre un posible escape del agente patógeno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para profundizar en la situación y analizar la probabilidad de transmisión, un programa de análisis entrevistó al exdirector de Sistemas de Salud de la entidad internacional, Daniel López Acuña.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El especialista descartó que exista una alta probabilidad de propagación o la gestación de un brote epidémico de gran magnitud en la actualidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el experto enfatizó durante su intervención que este episodio específico no representa una amenaza con características de pandemia.</p>",
+    "imagen": "https://s.france24.com/media/display/9f07e974-c32b-11f1-934e-c55799ef8309/w:1280/p:16x9/ES-20261008-081453-082410-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261008-peste-pulmonar-en-rusia-riesgo-real-o-alerta-prematura",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619246,
     "created_at": "2026-10-08T15:38:20.504Z",
     "titulo": "La poeta canadiense Anne Carson recibe el Premio Nobel de Literatura por renovar las formas clásicas",
