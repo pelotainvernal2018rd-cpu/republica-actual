@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619255,
+    "created_at": "2026-10-08T16:26:44.200Z",
+    "titulo": "Protestas estudiantiles en Francia alcanzan su cuarto día consecutivo con alta tensión en las calles",
+    "slug": "protestas-estudiantiles-en-francia-alcanzan-su-cuarto-dia-consecutivo-con-alta-tension-en-las-calles",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b7eb7cee-c326-11f1-8b3f-ef6152f87623/w:1280/p:16x9/ES-20261008-080226-080432-CS.jpg\" alt=\"Protestas estudiantiles en Francia alcanzan su cuarto día consecutivo con alta tensión en las calles\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las principales ciudades de Francia registran este 8 de octubre una nueva jornada de movilizaciones protagonizadas por alumnos de secundaria y universitarios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta serie de protestas, que ya cumple cuatro días, mantiene a los jóvenes en las calles mediante el uso de pancartas y diversas consignas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El núcleo de los reclamos estudiantiles se centra en la exigencia de mayores recursos económicos y mejores condiciones para el sector educativo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación en las vías públicas se ha tornado cada vez más tensa a raíz de los señalamientos sobre supuestos actos de represión por parte de los agentes del orden.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como saldo de estas jornadas de movilización, las autoridades reportan una cifra que asciende a cientos de personas heridas y detenidas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama, la administración central ha convocado a encuentros orientados al entendimiento y a la búsqueda de soluciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, las instancias gubernamentales han rechazado las acusaciones sobre la existencia de directrices dirigidas a reprimir a los manifestantes.</p>",
+    "imagen": "https://s.france24.com/media/display/b7eb7cee-c326-11f1-8b3f-ef6152f87623/w:1280/p:16x9/ES-20261008-080226-080432-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261008-manifestaciones-estudiantiles-en-francia-c%C3%B3mo-ha-respondido-el-gobierno",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619254,
     "created_at": "2026-10-08T16:24:36.013Z",
     "titulo": "Unicef advierte que más de la mitad de la niñez dominicana sufre métodos violentos de disciplina",
