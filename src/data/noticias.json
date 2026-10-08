@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619205,
+    "created_at": "2026-10-08T11:08:38.032Z",
+    "titulo": "Lluvias matutinas y alertas meteorológicas activas en varias provincias por vaguada y onda tropical",
+    "slug": "lluvias-matutinas-y-alertas-meteorologicas-activas-en-varias-provincias-por-vaguada-y-onda-tropical",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/08/6ac775d50ff33.jpeg\" alt=\"Lluvias matutinas y alertas meteorológicas activas en varias provincias por vaguada y onda tropical\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología reportó que precipitaciones moderadas y tormentas eléctricas afectan desde la madrugada a diversas zonas del territorio nacional. La combinación de la humedad dejada por una onda tropical y una vaguada en altura provocó aniegos y charcos en distintas vías de comunicación terrestres.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el Gran Santo Domingo, las precipitaciones comenzaron alrededor de las cinco de la mañana, generando acumulación de agua en tramos de las autopistas Duarte y Seis de Noviembre, así como en importantes avenidas urbanas. Las demarcaciones afectadas por estas condiciones incluyen a San Cristóbal, Peravia, Azua, San José de Ocoa, Baoruco, Monte Plata, Barahona y Pedernales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los modelos de predicción meteorológica indican que las precipitaciones matutinas disminuirán antes de las nueve de la mañana, aunque se prevé un incremento de la actividad lluviosa durante la tarde. Para el horario vespertino se espera mayor nubosidad y aguaceros moderados en Santiago, Montecristi, Puerto Plata, Valverde y Samaná.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, las provincias de San Pedro de Macorís, La Romana y La Altagracia experimentarán precipitaciones más ligeras, manifestadas principalmente en forma de chubascos pasajeros. Ante esta situación, el Centro de Operaciones de Emergencia estableció alerta amarilla para el Distrito Nacional, Santo Domingo y San Cristóbal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dicha medida preventiva busca que los habitantes de áreas vulnerables y zonas bajas inicien los preparativos ante posibles evacuaciones. Adicionalmente, el organismo colocó en alerta verde a Azua, Barahona, San José de Ocoa, Peravia y Monte Plata para prevenir riesgos por inundaciones urbanas y crecidas de cañadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito internacional, la institución indicó que la tormenta tropical Isaías evolucionó a huracán durante la madrugada, ubicándose a una distancia de 790 kilómetros al norte de Progreso, México. El sistema presenta vientos máximos sostenidos de 130 kilómetros por hora y se desplaza hacia el este noreste a 15 kilómetros por hora, sin representar peligro para la República Dominicana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, las condiciones marítimas se mantienen estables tanto en las costas del océano Atlántico como en el mar Caribe. El oleaje oscila entre tres y cuatro pies de altura, lo cual ofrece un escenario favorable para la navegación de todo tipo de embarcaciones.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/08/6ac775d50ff33.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/aguaceros-moderados-relampagos-santo-domingo-primeras-horas-manana_582862.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619204,
     "created_at": "2026-10-08T11:01:44.668Z",
     "titulo": "Elevan a alerta amarilla el Distrito Nacional y dos provincias por onda tropical",
