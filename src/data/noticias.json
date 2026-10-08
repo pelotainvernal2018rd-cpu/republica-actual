@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619218,
+    "created_at": "2026-10-08T12:57:08.435Z",
+    "titulo": "El cine chileno brilla en el Festival Biarritz-América Latina con el galardón principal",
+    "slug": "el-cine-chileno-brilla-en-el-festival-biarritz-america-latina-con-el-galardon-principal",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/99ad6eb4-c2cb-11f1-bcbe-c55799ef8309/w:1280/p:16x9/capture-5505669476ac71359667fb1-70298660.jpg\" alt=\"El cine chileno brilla en el Festival Biarritz-América Latina con el galardón principal\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una nueva edición del Festival Biarritz-América Latina concluyó con gran asistencia de público y un reconocimiento especial para la cinematografía de Chile, que se posicionó como una de las grandes protagonistas del encuentro cultural.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la ceremonia de clausura, el largometraje chileno titulado Hangar rojo recibió el máximo galardón del certamen, conocido como el Abrazo a la Mejor película, tras destacar entre los trabajos participantes de este año.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este espacio de celebración artística también dedicó un importante apartado al ámbito literario, ofreciendo un homenaje destacado a la tradición y la calidad de las letras procedentes de Uruguay.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de estas actividades centradas en la literatura, el evento contó con la participación de la reconocida autora uruguaya Carmen Posadas, quien acudió como invitada de honor a los encuentros organizados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La presencia de la escritora sirvió para subrayar y poner en valor la significativa riqueza creativa que caracteriza a la producción literaria uruguaya dentro del panorama internacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estos acontecimientos formaron parte de un repaso especial dedicado a los momentos más sobresalientes del festival cinematográfico y cultural que reúne anualmente expresiones artísticas de la región.</p>",
+    "imagen": "https://s.france24.com/media/display/99ad6eb4-c2cb-11f1-bcbe-c55799ef8309/w:1280/p:16x9/capture-5505669476ac71359667fb1-70298660.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/carrusel-de-las-artes/20261008-biarritz-premia-al-cine-chileno-y-rinde-tributo-a-las-letras-uruguayas",
+    "categoria": "Entretenimiento",
+    "etiquetas": [
+      "Entretenimiento",
+      "Cine"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619217,
     "created_at": "2026-10-08T12:55:19.264Z",
     "titulo": "Especialista analiza la relación entre el uso frecuente del celular y las molestias en las manos",
