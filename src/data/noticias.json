@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619308,
+    "created_at": "2026-10-08T22:18:29.002Z",
+    "titulo": "Persisten las lluvias en el territorio nacional tras el paso de una onda tropical",
+    "slug": "persisten-las-lluvias-en-el-territorio-nacional-tras-el-paso-de-una-onda-tropical",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/10/08/6ac81451f0eac.r_d.388-381-16393.png\" alt=\"Persisten las lluvias en el territorio nacional tras el paso de una onda tropical\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Aunque la onda tropical que afectaba al país se ha alejado de nuestra área de pronóstico, las condiciones meteorológicas mantienen la presencia de nubosidad. Este fenómeno ha dejado remanentes que continuarán generando precipitaciones en diversas provincias durante las próximas horas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología (Indomet) informó, en su boletín emitido la tarde de este jueves, que las lluvias se mantendrán presentes de forma dispersa. No obstante, se espera que la intensidad de estos eventos disminuya significativamente a medida que avance el tiempo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación climática experimentará un cambio a partir de este viernes. Se prevé la llegada de un sistema de alta presión, conocido como anticiclón, el cual limitará la formación de nubes y reducirá la actividad lluviosa en gran parte del territorio dominicano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con el reporte oficial, la mayor parte de las provincias del país registrará una disminución notable en las precipitaciones tras el paso de este sistema. Las autoridades mantienen el monitoreo constante de la atmósfera para informar sobre cualquier variación en el estado del tiempo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, el organismo meteorológico aclaró la situación respecto al huracán Isaías. Este fenómeno, que se ha convertido en el primero de la actual temporada ciclónica en el Atlántico, se encuentra localizado en el Golfo de México.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Debido a su trayectoria y ubicación actual, el huracán Isaías no representa ningún tipo de peligro para la República Dominicana. Las autoridades instan a la población a mantenerse informada a través de los canales oficiales sobre el desarrollo de la temporada.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/10/08/6ac81451f0eac.r_d.388-381-16393.png",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/onda-tropical-aleja-pais-deja-nubes-seguiran-provocando-aguaceros_582941.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619307,
     "created_at": "2026-10-08T22:11:48.542Z",
     "titulo": "Escalada de violencia en Yemen tras ofensiva gubernamental y ataques rebeldes",
