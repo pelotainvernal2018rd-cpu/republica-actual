@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619303,
+    "created_at": "2026-10-08T21:42:09.862Z",
+    "titulo": "California se prepara para decidir sobre impuesto a las grandes fortunas",
+    "slug": "california-se-prepara-para-decidir-sobre-impuesto-a-las-grandes-fortunas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/e569e536-c35b-11f1-b89a-4b195755b8ed/w:1280/p:16x9/2026-10-08T194237Z-902823934-RC27ZNAEHPW8-RTRMADP-3-USA-TRUMP.jpg\" alt=\"California se prepara para decidir sobre impuesto a las grandes fortunas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El próximo 3 de noviembre, los votantes de California se reunirán en las urnas para decidir la Proposición 40, una medida que propone un impuesto del 5 % sobre el patrimonio de los multimillonarios del estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La propuesta, que se presenta como una respuesta a los recortes presupuestarios impulsados por la administración del presidente Donald Trump, busca generar ingresos adicionales para cubrir los déficits del gobierno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los críticos de la medida se encuentran figuras del sector tecnológico, como Sergey Brin, cofundador de Google, quien ha liderado una campaña para impedir la aplicación de dicho gravamen.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los defensores argumentan que el impuesto contribuiría a financiar servicios públicos esenciales, mientras que los opositores sostienen que podría desalentar la inversión y la creación de empleo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El resultado de la votación tendrá repercusiones significativas tanto para los residentes con altos patrimonios como para la economía del estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El día de las elecciones, los ciudadanos de California evaluarán si la propuesta logra equilibrar la balanza fiscal sin comprometer la competitividad del estado.</p>",
+    "imagen": "https://s.france24.com/media/display/e569e536-c35b-11f1-b89a-4b195755b8ed/w:1280/p:16x9/2026-10-08T194237Z-902823934-RC27ZNAEHPW8-RTRMADP-3-USA-TRUMP.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-contexto/20261008-california-vota-por-un-impuesto-a-las-grandes-fortunas-fuga-de-millonarios",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619302,
     "created_at": "2026-10-08T21:34:59.027Z",
     "titulo": "Agenda cultural: Diversas propuestas de entretenimiento para este fin de semana",
