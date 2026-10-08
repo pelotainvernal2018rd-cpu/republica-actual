@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619195,
+    "created_at": "2026-10-08T04:41:56.075Z",
+    "titulo": "Gobierno francés ratifica despliegue policial ante persistentes protestas estudiantiles",
+    "slug": "gobierno-frances-ratifica-despliegue-policial-ante-persistentes-protestas-estudiantiles",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/621f5090-c2ba-11f1-b668-c55799ef8309/w:1280/p:16x9/ES-20261007-144224-144429-CS.jpg\" alt=\"Gobierno francés ratifica despliegue policial ante persistentes protestas estudiantiles\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Gobierno de Francia ha confirmado que mantendrá un importante despliegue de fuerzas de seguridad en las calles, a pesar de las masivas movilizaciones estudiantiles que se han extendido por más de dos semanas en todo el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación ha provocado el cierre de cientos de centros educativos debido a la intensidad de las protestas. Los estudiantes continúan organizando nuevas jornadas de manifestación para expresar sus demandas ante las autoridades.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El primer ministro francés, Sébastien Lecornu, se refirió a la crisis este miércoles 7 de octubre. El funcionario admitió que el descontento manifestado por los jóvenes tiene fundamentos reales y no es un fenómeno espontáneo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de este reconocimiento, el Ejecutivo ha decidido no retirar a los agentes de seguridad de los puntos de conflicto. Esta postura ha generado un malestar adicional entre los manifestantes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los estudiantes han denunciado que la violencia ejercida por los cuerpos policiales durante las intervenciones es un factor que agrava la tensión. Este comportamiento de las autoridades se ha convertido en un nuevo motivo de rechazo por parte de los jóvenes movilizados.</p>",
+    "imagen": "https://s.france24.com/media/display/621f5090-c2ba-11f1-b668-c55799ef8309/w:1280/p:16x9/ES-20261007-144224-144429-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261008-francia-ejecutivo-anuncia-que-mantendr%C3%A1-fuerza-policial-contra-manifestaciones-estudiantiles",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619194,
     "created_at": "2026-10-08T04:39:52.323Z",
     "titulo": "Policía Nacional intensifica búsqueda de 19 individuos por diversos delitos en la región Noreste",
