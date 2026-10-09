@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619359,
+    "created_at": "2026-10-09T03:57:47.966Z",
+    "titulo": "Portaaviones USS Abraham Lincoln finaliza misión y retorna a territorio estadounidense",
+    "slug": "portaaviones-uss-abraham-lincoln-finaliza-mision-y-retorna-a-territorio-estadounidense",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b04095c0-c38e-11f1-9ea9-ef6152f87623/w:1280/p:16x9/ES-20261008-183154-183335-CS.jpg\" alt=\"Portaaviones USS Abraham Lincoln finaliza misión y retorna a territorio estadounidense\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El portaaviones USS Abraham Lincoln ha completado su travesía y regresado a Estados Unidos, marcando el fin de un periodo de despliegue prolongado que generó alivio tanto en los marineros como en sus familias.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La embarcación permaneció más de siete meses operando en altamar. Durante este tiempo, la tripulación cumplió con una misión estratégica orientada a ejercer presión sobre Irán, tras haber pasado previamente dos meses navegando en el Pacífico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El extenso periodo de navegación provocó complicaciones logísticas significativas a bordo. Según los reportes, el buque enfrentó el agotamiento de suministros básicos, incluyendo artículos de higiene personal y provisiones alimenticias esenciales para el personal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación de escasez y el tiempo prolongado lejos de tierra firme encendieron alertas sobre el estado de salud mental de los tripulantes. La preocupación por el bienestar psicológico de los marineros fue un punto central durante la etapa final de la misión.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La corresponsal Carolina Valladares ofreció detalles adicionales sobre las condiciones que enfrentaron los efectivos durante este despliegue. El retorno a puerto representa el cierre de una etapa crítica para el personal militar involucrado en estas operaciones.</p>",
+    "imagen": "https://s.france24.com/media/display/b04095c0-c38e-11f1-9ea9-ef6152f87623/w:1280/p:16x9/ES-20261008-183154-183335-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261009-uss-abraham-lincoln-regresa-a-ee-uu-tras-alarmas-por-la-salud-mental-de-la-tripulaci%C3%B3n",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619358,
     "created_at": "2026-10-09T03:44:36.309Z",
     "titulo": "Salud Pública reporta incremento del 91% en casos de leptospirosis durante 2026",
