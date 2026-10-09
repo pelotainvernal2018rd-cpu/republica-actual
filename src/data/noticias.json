@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619371,
+    "created_at": "2026-10-09T07:26:42.771Z",
+    "titulo": "Florida se alista ante el inminente paso del huracán Isaías fuera de temporada",
+    "slug": "florida-se-alista-ante-el-inminente-paso-del-huracan-isaias-fuera-de-temporada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5b289f02-c397-11f1-9acf-f50f6d982dc3/w:1280/p:16x9/ES-20261008-203633-203813-CS.jpg\" alt=\"Florida se alista ante el inminente paso del huracán Isaías fuera de temporada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades y los habitantes del estado de Florida han comenzado los preparativos necesarios ante el inminente arribo del huracán Isaías. Este fenómeno meteorológico tiene previsto tocar tierra el próximo 9 de octubre, generando atención especial debido al momento atípico en el que se registra.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por lo general, la temporada oficial de huracanes transcurre entre los meses de junio y agosto. Sin embargo, este ciclón se presenta fuera del periodo habitual, sorprendiendo a la región y activando los protocolos preventivos correspondientes en todo el territorio estatal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Especialistas en la materia han explicado que esta situación responde a alteraciones en el clima. De acuerdo con los científicos, la presencia del fenómeno de El Niño modificó las condiciones atmosféricas tradicionales, propiciando la formación de este tipo de sistemas tropicales en fechas poco comunes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La población de Florida permanece atenta a las actualizaciones oficiales mientras se completan las labores de preparación. Las autoridades locales continúan monitoreando la trayectoria del ciclón para minimizar cualquier impacto negativo derivado de su llegada a la zona.</p>",
+    "imagen": "https://s.france24.com/media/display/5b289f02-c397-11f1-9acf-f50f6d982dc3/w:1280/p:16x9/ES-20261008-203633-203813-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261009-estados-unidos-florida-se-prepara-para-la-llegada-del-hurac%C3%A1n-isa%C3%ADas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619370,
     "created_at": "2026-10-09T07:02:04.095Z",
     "titulo": "Gobierno invertirá más de 2,300 millones de pesos recuperados de la corrupción en obras deportivas",
