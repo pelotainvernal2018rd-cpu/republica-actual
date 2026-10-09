@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619441,
+    "created_at": "2026-10-09T18:26:57.469Z",
+    "titulo": "Fuerte sismo de magnitud 7,6 sacude el territorio panameño y enciende alertas preventivas",
+    "slug": "fuerte-sismo-de-magnitud-7-6-sacude-el-territorio-panameno-y-enciende-alertas-preventivas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b8cb8a72-c214-11f1-823c-13e372f41e70/w:1280/p:16x9/81513e2e6300fb3d084d69b98d1dee7f08a1559a.jpg\" alt=\"Fuerte sismo de magnitud 7,6 sacude el territorio panameño y enciende alertas preventivas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un movimiento telúrico de gran intensidad sorprendió este viernes a la capital de Panamá, generando preocupación en la región tras registrar una magnitud de 7,6, según los reportes emitidos por la agencia de noticias Reuters.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Servicio Geológico de Estados Unidos indicó que el epicentro de este fenómeno telúrico se localizó de manera precisa en la zona de la costa sur del territorio panameño.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A raíz de este fuerte evento sísmico, el sistema estadounidense especializado en alertas de tsunamis emitió un aviso oficial para advertir a la población sobre la posible formación de olas peligrosas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La advertencia de riesgo por tsunami contempla un margen de tres horas y afecta directamente a ciertas áreas costeras pertenecientes tanto a Panamá como a Colombia, según especificaron las autoridades competentes en la materia.</p>",
+    "imagen": "https://s.france24.com/media/display/b8cb8a72-c214-11f1-823c-13e372f41e70/w:1280/p:16x9/81513e2e6300fb3d084d69b98d1dee7f08a1559a.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261009-un-terremoto-de-magnitud-7-6-sacude-panam%C3%A1-y-activa-una-alerta-de-tsunami-para-nueve-pa%C3%ADses",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619440,
     "created_at": "2026-10-09T18:25:00.503Z",
     "titulo": "Authorities in Mexico dismantle extortion network that used artificial intelligence to impersonate officials",
