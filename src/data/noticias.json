@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619387,
+    "created_at": "2026-10-09T13:08:12.994Z",
+    "titulo": "Falla en el suministro eléctrico genera inconvenientes a familias en Santo Domingo Este",
+    "slug": "falla-en-el-suministro-electrico-genera-inconvenientes-a-familias-en-santo-domingo-este",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/09/6ac8e39ae70c5.jpeg\" alt=\"Falla en el suministro eléctrico genera inconvenientes a familias en Santo Domingo Este\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una interrupción en el servicio de electricidad afecta desde el día anterior a varios sectores ubicados en el municipio de Santo Domingo Este, según informaron este viernes los ciudadanos afectados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El problema se registra específicamente en el residencial Regina, situado en la zona de San Isidro, donde las viviendas ubicadas en las calles Sor Juana Inés de la Cruz y María Teresa de Calcuta permanecen sin energía desde las nueve de la mañana del jueves.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El dirigente comunitario y pastor Jesús de León indicó que la situación genera diversos inconvenientes para los habitantes del lugar, quienes han reportado la avería en reiteradas ocasiones a la empresa correspondiente sin obtener una solución efectiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con la denuncia, el personal de atención al cliente de la Empresa Distribuidora de Electricidad del Este recibe los avisos y asegura que enviará personal técnico en un plazo de dos horas, pero las brigadas no se han presentado en el sitio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los afectados señalaron que gran parte de los residentes cumplen con el pago puntual de la factura eléctrica, situación que se evidencia con los medidores instalados en la parte frontal de las propiedades.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los problemas ocasionados por el apagón figuran la posible pérdida de alimentos refrigerados, las dificultades para que los menores de edad completen sus deberes escolares ante la falta de luz e internet, y los contratiempos matutinos para preparar a los estudiantes rumbo a sus escuelas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta circunstancia, el representante comunitario hizo un llamado al administrador de la empresa eléctrica, ingeniero Emilio Contreras, para optimizar la organización de las cuadrillas de trabajo y atender con mayor rapidez las demandas de la ciudadanía.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/09/6ac8e39ae70c5.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/averia-electrica-afecta-sectores-santo-domingo_582974.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619386,
     "created_at": "2026-10-09T12:55:20.239Z",
     "titulo": "Fuerzas ucranianas impactan un segundo centro de datos de la empresa rusa Yandex mediante drones",
