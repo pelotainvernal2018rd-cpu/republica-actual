@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619357,
+    "created_at": "2026-10-09T03:41:41.463Z",
+    "titulo": "Santiago de Chile bajo estado de catástrofe tras intensas inundaciones",
+    "slug": "santiago-de-chile-bajo-estado-de-catastrofe-tras-intensas-inundaciones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7738d024-c390-11f1-aed0-f50f6d982dc3/w:1280/p:16x9/af91f25685a517f8acb6152dde04402d1666e0d8.jpg\" alt=\"Santiago de Chile bajo estado de catástrofe tras intensas inundaciones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El presidente José Antonio Kast oficializó este jueves 8 de octubre la declaratoria de estado de catástrofe para la zona de Las Condes, ubicada en el sector este de la capital chilena. La medida responde a la emergencia provocada por las fuertes precipitaciones registradas en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las intensas lluvias generaron un torrente de agua que descendió con fuerza por las calles de la capital. La corriente alcanzó tal magnitud que logró arrastrar diversos vehículos particulares y unidades de transporte público que circulaban por la zona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La geografía de las calles, caracterizada por sus pendientes pronunciadas, facilitó que el flujo de agua ganara velocidad y potencia. Esto complicó la situación para los conductores y transeúntes que se encontraban en el área afectada durante el fenómeno climático.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades han enfocado sus esfuerzos en atender los daños materiales ocasionados por el desastre natural. El decreto busca agilizar los recursos necesarios para gestionar la crisis y restaurar la normalidad en el sector de Las Condes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, el despliegue de los equipos de emergencia se mantiene activo en los puntos críticos de la capital. Se espera que la medida permita una respuesta más eficiente ante las consecuencias dejadas por el temporal.</p>",
+    "imagen": "https://s.france24.com/media/display/7738d024-c390-11f1-aed0-f50f6d982dc3/w:1280/p:16x9/af91f25685a517f8acb6152dde04402d1666e0d8.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261009-chile-decreta-estado-de-cat%C3%A1strofe-en-una-zona-de-la-capital-ante-desastre-por-fuertes-lluvias",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619356,
     "created_at": "2026-10-09T03:39:43.005Z",
     "titulo": "Hallan los cuerpos sin vida de una pareja en una vivienda de Valverde de Júcar",
