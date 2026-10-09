@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619373,
+    "created_at": "2026-10-09T07:56:44.926Z",
+    "titulo": "Expertos señalan la inusual formación fuera de temporada del huracán Isaías",
+    "slug": "expertos-senalan-la-inusual-formacion-fuera-de-temporada-del-huracan-isaias",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/6db7374c-c391-11f1-911d-ef6152f87623/w:1280/p:16x9/ES-20261008-190518-190940-CS.jpg\" alt=\"Expertos señalan la inusual formación fuera de temporada del huracán Isaías\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La actual temporada ciclónica en Estados Unidos ha registrado una particularidad notable al no presentar ningún huracán durante el mes de junio, un periodo considerado habitual para el desarrollo de estos fenómenos atmosféricos en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este escenario, la atención se centra ahora en el huracán Isaías, un sistema que se ha formado en territorio mexicano de manera atípica, quedando fuera de los tiempos tradicionales de esta clase de eventos climáticos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, el meteorólogo y fundador de Canal Meteo, Albert Martínez, ha destacado la rareza de este acontecimiento al señalar que un huracán tan tardío no se había visto en la cuenca atlántica desde el año 1905.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades y especialistas meteorológicos analizan los factores que propiciaron el surgimiento de Isaías en esta época del año y evalúan de manera específica los posibles riesgos que este ciclón representa para el estado de Florida.</p>",
+    "imagen": "https://s.france24.com/media/display/6db7374c-c391-11f1-911d-ef6152f87623/w:1280/p:16x9/ES-20261008-190518-190940-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261009-albert-mart%C3%ADnez-desde-1905-no-tenemos-un-hurac%C3%A1n-tan-tard%C3%ADo-en-la-cuenca-atl%C3%A1ntica",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619372,
     "created_at": "2026-10-09T07:41:41.554Z",
     "titulo": "Nuevas protestas estudiantiles sacuden las calles de Francia en demanda de reformas educativas",
