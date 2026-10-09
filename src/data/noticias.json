@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619445,
+    "created_at": "2026-10-09T19:01:40.087Z",
+    "titulo": "Sismo de magnitud 7.2 sacude el sur panameño tras ajustes en las mediciones",
+    "slug": "sismo-de-magnitud-7-2-sacude-el-sur-panameno-tras-ajustes-en-las-mediciones",
+    "contenido": "\n      <div style=\"text-align:center;margin-bottom:25px;\">\n        <img\n          src=\"https://resources.diariolibre.com/images/2026/10/09/terremoto-en-panama-de-magnitud-80-registrado-por-usgs-02d0947c-focus-0-0-1200-675.png\"\n          alt=\"Terremoto en Panamá de magnitud 8.0 registrado por USGS\"\n          style=\"\n            width:100%;\n            max-width:750px;\n            height:auto;\n            display:block;\n            margin:auto;\n            border-radius:6px;\n          \"\n        >\n      </div>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Un movimiento telúrico sacudió el territorio panameño este viernes 9 de octubre, de acuerdo con el reporte oficial emitido por el Instituto de Geociencias de la Universidad de Panamá.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El organismo científico fijó la magnitud final del fenómeno en 7.2, luego de que un registro preliminar del Servicio Geológico de Estados Unidos apuntara inicialmente a una cifra de 8.0 y a una profundidad de 33 kilómetros.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El evento telúrico tuvo lugar exactamente a las 12:56 del mediodía en horario panameño, equivalente a la 1:56 de la tarde en la República Dominicana, situándose a una profundidad de cuatro kilómetros.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El epicentro de este sismo fue localizado a 39 kilómetros hacia el noroeste de la localidad de Tonosí, situada en la provincia de Los Santos, dentro del área sur de la nación.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Las autoridades informaron que la variación entre las estimaciones iniciales y el reporte definitivo evidencia el proceso constante de revisión que realizan los expertos para afinar los datos técnicos.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Tras el temblor, las evaluaciones iniciales advirtieron sobre la posibilidad de que se formaran olas peligrosas de tsunami en el transcurso de las tres horas posteriores en litorales de Panamá, Colombia, Costa Rica, Ecuador, Perú, Nicaragua, Guatemala, El Salvador y México.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        La región latinoamericana ha experimentado diversos eventos sísmicos recientes, incluyendo un terremoto de magnitud 7.4 ocurrido el 10 de agosto en el departamento colombiano del Chocó, así como movimientos telúricos en Perú, Chile y Ecuador en los últimos meses.\n      </p>\n    ",
+    "imagen": "https://resources.diariolibre.com/images/2026/10/09/terremoto-en-panama-de-magnitud-80-registrado-por-usgs-02d0947c-focus-0-0-1200-675.png",
+    "fuente": "Diario Libre",
+    "url_fuente": "https://www.diariolibre.com/planeta/ciencia/2026/10/09/terremoto-en-panama-de-magnitud-80-registrado-por-usgs/3682970",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619444,
     "created_at": "2026-10-09T18:54:37.507Z",
     "titulo": "Ministerio de Trabajo abre nueva sede para acercar servicios en Santo Domingo Este",
