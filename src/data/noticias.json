@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619578,
+    "created_at": "2026-10-10T18:11:46.557Z",
+    "titulo": "Bombardeos rusos en Zaporizhia y Kiev dejan al menos quince fallecidos",
+    "slug": "bombardeos-rusos-en-zaporizhia-y-kiev-dejan-al-menos-quince-fallecidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/26b954b8-c4ce-11f1-b3b8-29a2e29ae696/w:1280/p:16x9/ES-20261010-100846-101020-CS.jpg\" alt=\"Bombardeos rusos en Zaporizhia y Kiev dejan al menos quince fallecidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una nueva oleada de ataques rusos impactó este diez de octubre la localidad de Zaporizhia, situada en el sur de territorio ucraniano. Los bombardeos provocaron la muerte de al menos quince personas, un trágico saldo que incluye a tres menores de edad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De manera simultánea a la ofensiva sobre Zaporizhia, las fuerzas de Moscú dirigieron misiles balísticos hacia la capital del país, Kiev. Estos ataques forman parte de la escalada militar registrada durante la jornada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En medio de los bombardeos, el mandatario ucraniano, Volodímir Zelenski, mantuvo una conversación telefónica con su homólogo de Francia, Emmanuel Macron. Ambos líderes analizaron la situación de seguridad en el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante sus declaraciones, el jefe de Estado ucraniano advirtió a la población que el peligro de nuevos ataques aéreos se mantendrá en niveles elevados durante los próximos días.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación de vulnerabilidad, el gobierno ucraniano solicitó a la comunidad internacional el envío urgente de más sistemas de defensa aérea para proteger a la población.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el líder ucraniano insistió en la necesidad de incrementar la presión diplomática y económica sobre Rusia para frenar las hostilidades.</p>",
+    "imagen": "https://s.france24.com/media/display/26b954b8-c4ce-11f1-b3b8-29a2e29ae696/w:1280/p:16x9/ES-20261010-100846-101020-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261010-al-menos-15-muertos-tres-de-ellos-ni%C3%B1os-en-ataques-rusos-contra-zaporizhia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619577,
     "created_at": "2026-10-10T18:09:34.001Z",
     "titulo": "Samaná proyecta su futuro económico mediante la expansión portuaria y la llegada de cruceros",
