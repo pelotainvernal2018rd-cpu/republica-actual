@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619538,
+    "created_at": "2026-10-10T13:56:39.622Z",
+    "titulo": "El emotivo regreso a la Tierra de la astronauta francesa Sophie Adenot tras ocho meses en el espacio",
+    "slug": "el-emotivo-regreso-a-la-tierra-de-la-astronauta-francesa-sophie-adenot-tras-ocho-meses-en-el-espacio",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0a5f6434-c491-11f1-abcd-53993c5f1f18/w:1280/p:16x9/cafea4f57ee426cd3237d40799ae25fc667fc29c.jpg\" alt=\"El emotivo regreso a la Tierra de la astronauta francesa Sophie Adenot tras ocho meses en el espacio\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La astronauta francesa Sophie Adenot ha completado su misión espacial, la cual tuvo una duración de ocho meses fuera de nuestro planeta.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante su estancia en el espacio, la representante de la exploración espacial experimentó una amplia variedad de sentimientos y vivencias personales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adenot confesó haber atravesado todas las emociones posibles durante su travesía orbital, abarcando desde los momentos de mayor alegría hasta las situaciones más difíciles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El retorno a tierra firme de la tripulante se materializó en territorio alemán, según los reportes oficiales de su llegada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Visiblemente conmovida por el reencuentro con el planeta, la astronauta compartió sus impresiones tras observar la Tierra sin divisiones territoriales ni fronteras visibles desde el espacio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las declaraciones sobre su vivencia emocional fueron ofrecidas por la propia Adenot durante la jornada del sábado, marcando el cierre oficial de su prolongada misión fuera de la atmósfera terrestre.</p>",
+    "imagen": "https://s.france24.com/media/display/0a5f6434-c491-11f1-abcd-53993c5f1f18/w:1280/p:16x9/cafea4f57ee426cd3237d40799ae25fc667fc29c.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/minuto-a-minuto/20261010-un-planeta-sin-divisiones-ni-fronteras-as%C3%AD-vio-la-tierra-la-astronauta-sophie-adenot",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619537,
     "created_at": "2026-10-10T13:41:25.925Z",
     "titulo": "Garantizan estabilidad en las tarifas del transporte público ante alza de combustibles",
