@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619611,
+    "created_at": "2026-10-10T22:26:39.735Z",
+    "titulo": "Gobierno panameño decreta estado de emergencia nacional tras sismo del 9 de octubre",
+    "slug": "gobierno-panameno-decreta-estado-de-emergencia-nacional-tras-sismo-del-9-de-octubre",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/20fe20ac-c4f7-11f1-82fc-3774aeac812a/w:1280/p:16x9/ES-20261010-161333-161502-CS.jpg\" alt=\"Gobierno panameño decreta estado de emergencia nacional tras sismo del 9 de octubre\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Panamá oficializaron la declaratoria de estado de emergencia en todo el territorio nacional, como consecuencia del fuerte movimento telúrico registrado el pasado 9 de octubre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta medida gubernamental tiene como objetivo principal agilizar la entrega de asistencia humanitaria a las poblaciones que sufrieron los impactos del fenómeno telúrico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el decreto busca facilitar las labores urgentes de reconstrucción y rehabilitación de las edificaciones que sufrieron daños materiales durante el evento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los bienes públicos y privados afectados por el temblor figuran diversos planteles escolares, instituciones educativas y complejos hoteleros.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la magnitud del movimiento telúrico y los daños ocasionados en la infraestructura, los reportes oficiales confirmaron que no se registraron víctimas mortales ni personas desaparecidas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde la capital del país, el enviado especial José María Torrijos continúa dando seguimiento a la evolución de las labores de recuperación y asistencia oficial.</p>",
+    "imagen": "https://s.france24.com/media/display/20fe20ac-c4f7-11f1-82fc-3774aeac812a/w:1280/p:16x9/ES-20261010-161333-161502-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261010-informe-desde-ciudad-de-panam%C3%A1-declaran-estado-de-emergencia-tras-el-terremoto",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619610,
     "created_at": "2026-10-10T22:11:40.254Z",
     "titulo": "Persisten la violencia y el estancamiento en Gaza a doce meses de la tregua impulsada por Washington",
