@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619576,
+    "created_at": "2026-10-10T17:56:39.408Z",
+    "titulo": "Astronauta Sophie Adenot vuelve a territorio terrestre tras histórica misión en el espacio",
+    "slug": "astronauta-sophie-adenot-vuelve-a-territorio-terrestre-tras-historica-mision-en-el-espacio",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/bcf47164-c4cf-11f1-944f-e362370cce2e/w:1280/p:16x9/ES-20261010-121253-121426-CS.jpg\" alt=\"Astronauta Sophie Adenot vuelve a territorio terrestre tras histórica misión en el espacio\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La representante espacial de origen francés, Sophie Adenot, completó su retorno al planeta tras permanecer cercana a un periodo de ocho meses continuos a bordo de la Estación Espacial Internacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta travesía representa una marca histórica para la permanencia orbital continua protagonizada por un representante del continente europeo en el complejo espacial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A su arribo a suelo alemán, la especialista espacial mostró evidentes muestras de cansancio físico y profunda emoción ante el reencuentro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante su recibimiento, la tripulante calificó su estancia fuera del planeta como una vivencia con un profundo impacto transformador en su persona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como siguiente paso en su agenda tras el viaje, la experta iniciará de inmediato un protocolo especializado de rehabilitación física para recuperar sus condiciones óptimas.</p>",
+    "imagen": "https://s.france24.com/media/display/bcf47164-c4cf-11f1-944f-e362370cce2e/w:1280/p:16x9/ES-20261010-121253-121426-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261010-la-astronauta-francesa-sophie-adenot-regresa-a-la-tierra-tras-casi-ocho-meses-en-la-eei",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619575,
     "created_at": "2026-10-10T17:54:35.118Z",
     "titulo": "Policía Nacional exhorta a prófugos de la justicia a presentarse de forma voluntaria",
