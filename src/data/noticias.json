@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619595,
+    "created_at": "2026-10-10T20:11:57.496Z",
+    "titulo": "Ataque contra el aeropuerto de Riad deja varios heridos y moviliza a los servicios de emergencia",
+    "slug": "ataque-contra-el-aeropuerto-de-riad-deja-varios-heridos-y-moviliza-a-los-servicios-de-emergencia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/a3556cb4-c4d3-11f1-90a7-53993c5f1f18/w:1280/p:16x9/AP314998123886.jpg\" alt=\"Ataque contra el aeropuerto de Riad deja varios heridos y moviliza a los servicios de emergencia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las instalaciones del aeropuerto de Riad sufrieron un ataque este sábado 10 de octubre que ha sido atribuido a los rebeldes hutíes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia de este suceso, varias personas resultaron heridas tras el impacto registrado en la terminal aérea.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los centros médicos de la capital de Arabia Saudita activaron de inmediato los protocolos de urgencia para hacer frente a lo que se ha catalogado como una grave situación de emergencia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una fuente diplomática que sigue de cerca los acontecimientos confirmó a la agencia AFP detalles sobre el incidente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Según la misma fuente, el impacto fue provocado por un misil que alcanzó la zona del aeropuerto aproximadamente a las tres de la tarde.</p>",
+    "imagen": "https://s.france24.com/media/display/a3556cb4-c4d3-11f1-90a7-53993c5f1f18/w:1280/p:16x9/AP314998123886.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/medio-oriente/20261010-un-nuevo-ataque-atribuido-a-los-rebeldes-hut%C3%ADes-contra-el-aeropuerto-de-riad-deja-varios-heridos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619594,
     "created_at": "2026-10-10T20:09:34.885Z",
     "titulo": "Lidom incorpora tecnología de última generación para la revisión de lanzamientos en su próximo torneo",
