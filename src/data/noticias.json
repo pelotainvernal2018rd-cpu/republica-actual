@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619624,
+    "created_at": "2026-10-11T00:12:09.944Z",
+    "titulo": "Tragedia familiar en Erie: nueve personas fallecen en un tiroteo",
+    "slug": "tragedia-familiar-en-erie-nueve-personas-fallecen-en-un-tiroteo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/ad1bcd5c-c4ff-11f1-83b4-29a2e29ae696/w:1280/p:16x9/2026-10-10T185605Z-1747714418-RC2B0OA1M601-RTRMADP-3-USA-SHOOTING-PENNSYLVANIA.jpg\" alt=\"Tragedia familiar en Erie: nueve personas fallecen en un tiroteo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una comunidad en Erie, Pensilvania, se encuentra consternada tras un violento suceso ocurrido el pasado viernes 9 de octubre. Un hombre irrumpió en una residencia y acabó con la vida de ocho personas antes de suicidarse en el mismo lugar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las víctimas mortales se encuentran dos niños y una mujer que estaba embarazada al momento del ataque. Las autoridades han confirmado que el agresor mantenía un vínculo familiar con siete de las personas fallecidas en el incidente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras el hallazgo de los cuerpos, los agentes policiales iniciaron una investigación exhaustiva en la escena del crimen. El objetivo principal de las autoridades es esclarecer las circunstancias que rodearon este lamentable episodio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, los investigadores no han logrado determinar el motivo que impulsó al atacante a cometer la masacre. La policía local continúa trabajando en la recolección de evidencias para comprender qué desencadenó la violencia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El caso ha generado un profundo impacto en la localidad, mientras las fuerzas del orden mantienen el proceso de indagación abierto. Se espera que conforme avancen las pesquisas se puedan ofrecer más detalles sobre este trágico evento familiar.</p>",
+    "imagen": "https://s.france24.com/media/display/ad1bcd5c-c4ff-11f1-83b4-29a2e29ae696/w:1280/p:16x9/2026-10-10T185605Z-1747714418-RC2B0OA1M601-RTRMADP-3-USA-SHOOTING-PENNSYLVANIA.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ee-uu-y-canad%C3%A1/20261010-qu%C3%A9-se-sabe-del-tiroteo-que-dej%C3%B3-nueve-muertos-en-una-misma-familia-de-erie-pensilvania",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619623,
     "created_at": "2026-10-11T00:11:48.329Z",
     "titulo": "Donald Trump propone renombrar océanos y ríos en Estados Unidos",
