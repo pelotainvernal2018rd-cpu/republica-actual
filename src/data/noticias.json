@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619718,
+    "created_at": "2026-10-12T19:41:50.753Z",
+    "titulo": "El huracán Simón impacta las costas mexicanas y mantiene en alerta al sector turístico",
+    "slug": "el-huracan-simon-impacta-las-costas-mexicanas-y-mantiene-en-alerta-al-sector-turistico",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c4b0a93e-c666-11f1-8175-53993c5f1f18/w:1280/p:16x9/ES-20261012-074542-075122-CS.jpg\" alt=\"El huracán Simón impacta las costas mexicanas y mantiene en alerta al sector turístico\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El fenómeno meteorológico conocido como huracán Simón ha disminuido su intensidad a la categoría 3 luego de ingresar a territorio mexicano. Actualmente, el sistema tropical mantiene su trayectoria mientras se desplaza de manera paralela frente a los litorales de los estados de Jalisco y Colima.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A causa de su desplazamiento, las extensas bandas nubosas asociadas al ciclón continúan provocando condiciones de riesgo en la región occidental del país. Las autoridades mantienen la vigilancia ante la persistencia de precipitaciones fuertes, anegamientos y posibles deslizamientos de tierra en diversas zonas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las áreas amenazadas por el temporal se encuentra Puerto Vallarta, reconocido como uno de los polos turísticos más importantes de México. La presencia del meteoro genera preocupación sobre el impacto que estas condiciones climáticas severas podrían ocasionar en la infraestructura y la actividad vacacional de la zona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La información sobre la evolución del ciclón y su incidencia en los enclaves recreativos ha sido reportada por el corresponsal Jorge Hurtado, quien sigue de cerca los acontecimientos derivados del paso del fenómeno natural por tierras mexicanas.</p>",
+    "imagen": "https://s.france24.com/media/display/c4b0a93e-c666-11f1-8175-53993c5f1f18/w:1280/p:16x9/ES-20261012-074542-075122-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261012-directo-latam-y-las-consecuencias-para-el-turismo-tras-el-paso-del-hurac%C3%A1n-sim%C3%B3n-por-m%C3%A9xico",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619717,
     "created_at": "2026-10-12T19:41:26.132Z",
     "titulo": "El crudo de Texas alcanza los 93,74 dólares por barril tras tensiones geopolíticas",
