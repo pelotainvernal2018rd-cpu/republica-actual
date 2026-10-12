@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619633,
+    "created_at": "2026-10-12T13:12:44.485Z",
+    "titulo": "Los retos de la inclusión en República Dominicana: entre las leyes y las barreras cotidianas",
+    "slug": "los-retos-de-la-inclusion-en-republica-dominicana-entre-las-leyes-y-las-barreras-cotidianas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/11/6acc54dcdd411.jpeg\" alt=\"Los retos de la inclusión en República Dominicana: entre las leyes y las barreras cotidianas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La legislación dominicana reconoce formalmente los derechos de las personas con discapacidad a través de marcos normativos como la Ley 5-13, la cual aborda áreas clave como la educación, la inserción laboral y la accesibilidad universal. Sin embargo, los datos del X Censo Nacional de Población y Vivienda 2022 evidencian marcadas diferencias entre la población con y sin discapacidad en su desarrollo educativo y participación en el mercado laboral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito educativo, las estadísticas muestran que el 22.3 % de las personas de cinco años y más con discapacidad no saben leer ni escribir, en contraste con el 8.2 % de quienes no tienen esta condición. Asimismo, el 20.8 % de este sector nunca ha asistido a la educación formal, superando el 6.2 % registrado en la población general, mientras que la presencia en niveles superiores como secundaria y universidad disminuye de manera considerable.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Especialistas en educación inclusiva señalan que, a pesar de los avances normativos y de recursos, persisten desafíos en la práctica escolar diaria. No todos los centros educativos cuentan con la infraestructura adecuada ni con la suficiente preparación docente para atender las necesidades de los estudiantes, y aunque existen aulas transitorias, su disponibilidad no es uniforme en todos los planteles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La accesibilidad física representa otra de las grandes dificultades que enfrenta este sector de la población. Representantes de la Asociación Dominicana de Rehabilitación explican que las barreras se extienden desde el interior de las viviendas hasta las calles, aceras, edificaciones y sistemas de transporte, lo que limita la movilidad y restringe la participación en la vida social y comunitaria.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de los obstáculos arquitectónicos, existen barreras de comunicación y actitudes sociales que dificultan la integración. La falta de dominio de la lengua de señas por parte de los prestadores de servicios afecta a las personas sordas, mientras que los prejuicios sociales continúan limitando el pleno desarrollo de las capacidades de los ciudadanos con alguna discapacidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El mercado laboral refleja otra brecha significativa, con una tasa de participación del 43.3 % para las personas con discapacidad, frente al 58.7 % de la población sin discapacidad. Aunque la ley establece cuotas de contratación obligatorias tanto en el sector público como en el privado, las instituciones señalan que el país aún carece de una medición integral que permita verificar el cumplimiento efectivo de estas disposiciones.</p>",
+    "imagen": "https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/11/6acc54dcdd411.jpeg",
+    "fuente": "Hoy",
+    "url_fuente": "https://hoy.com.do/el-pais/inclusion-exige-transformar-espacios-mirada-derribar-barreras_1105246.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619632,
     "created_at": "2026-10-11T01:34:45.062Z",
     "titulo": "Milwaukee y Los Ángeles se reencuentran en una esperada Serie de Campeonato",
