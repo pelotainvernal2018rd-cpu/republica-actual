@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619761,
+    "created_at": "2026-10-12T23:41:54.181Z",
+    "titulo": "Manifestantes de Nueva Delhi marchan hacia la Corte Suprema tras detenciones masivas",
+    "slug": "manifestantes-de-nueva-delhi-marchan-hacia-la-corte-suprema-tras-detenciones-masivas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/67cfae58-c68a-11f1-9f96-29a2e29ae696/w:1280/p:16x9/FORMATO-1-51.jpg\" alt=\"Manifestantes de Nueva Delhi marchan hacia la Corte Suprema tras detenciones masivas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Después de un fin de semana de protestas masivas, miles de jóvenes fueron detenidos, entre ellos los tres líderes del \"Partido de las Cucarachas\", quienes fueron liberados tras 24 horas de custodia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los manifestantes se dirigen ahora a la Corte Suprema para exigir la destitución del presidente de la Comisión Electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El cargo está acusado de manipular el censo electoral para favorecer al primer ministro Narendra Modi.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La coalición que lidera la protesta pide rendición de cuentas y mayor transparencia en el proceso electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades han reforzado la seguridad a lo largo de la ruta, pero la marcha continúa de manera pacífica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Se espera que la Corte Suprema revise las acusaciones y decida sobre el futuro del presidente de la Comisión Electoral.</p>",
+    "imagen": "https://s.france24.com/media/display/67cfae58-c68a-11f1-9f96-29a2e29ae696/w:1280/p:16x9/FORMATO-1-51.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261012-india-miles-de-manifestantes-marchan-en-nueva-delhi-hacia-la-corte-suprema",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619760,
     "created_at": "2026-10-12T23:39:44.046Z",
     "titulo": "Defensas de exprocurador intentan retrasar juicio y evitar extinción de la acción penal",
