@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619659,
+    "created_at": "2026-10-12T15:11:40.117Z",
+    "titulo": "Circula video falso en redes sociales sobre un supuesto golpe de Estado de Lula en Brasil",
+    "slug": "circula-video-falso-en-redes-sociales-sobre-un-supuesto-golpe-de-estado-de-lula-en-brasil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/862718ce-c3fa-11f1-a7d2-3774aeac812a/w:1280/p:16x9/IVS-DESINFO-PORTADA-WEB-00623-5.jpg\" alt=\"Circula video falso en redes sociales sobre un supuesto golpe de Estado de Lula en Brasil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En las plataformas digitales circulan diversas publicaciones en idioma portugués que aseguran que el actual mandatario y candidato presidencial, Luiz Inácio Lula da Silva, habría amenazado con ejecutar un golpe de Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Según los mensajes difundidos por los usuarios, esta supuesta advertencia ocurriría en el escenario de que su contrincante de la ultraderecha, Flávio Bolsonaro, resulte ganador en los comicios electorales del país sudamericano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, las investigaciones sobre el material audiovisual han determinado que se trata de un contenido completamente falso que circula en el entorno digital.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El archivo multimedia emplea de manera fraudulenta la figura de un conocido comunicador de la cadena televisiva CNN Brasil para dar credibilidad al mensaje.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Específicamente, el contenido corresponde a una técnica conocida como deepfake, la cual manipula de forma digital tanto la imagen como el espectro de voz del reconocido periodista.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Mediante el uso de esta tecnología, el video simula de manera artificial que el comunicador transmite la noticia sobre el presunto golpe de Estado atribuido al mandatario brasileño.</p>",
+    "imagen": "https://s.france24.com/media/display/862718ce-c3fa-11f1-a7d2-3774aeac812a/w:1280/p:16x9/IVS-DESINFO-PORTADA-WEB-00623-5.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/des-informando/20261012-lula-dijo-que-dar%C3%A1-un-golpe-de-estado-si-gana-bolsonaro-en-las-elecciones-de-brasil",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619658,
     "created_at": "2026-10-12T15:04:40.065Z",
     "titulo": "Familia y allegados darán el último adiós a la destacada actriz Yamilé Scheker este miércoles",
