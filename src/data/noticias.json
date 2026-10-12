@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791088619656,
+    "created_at": "2026-10-12T14:56:43.452Z",
+    "titulo": "Expertos debaten sobre el real peligro de extinción humana planteado por la inteligencia artificial",
+    "slug": "expertos-debaten-sobre-el-real-peligro-de-extincion-humana-planteado-por-la-inteligencia-artificial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/51bdcc86-5b72-11f1-ad4e-005056a97e36/w:1280/p:16x9/IA-Dieu1.jpg\" alt=\"Expertos debaten sobre el real peligro de extinción humana planteado por la inteligencia artificial\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Representantes del sector tecnológico han señalado recientemente que los sistemas avanzados de inteligencia artificial podrian representar una amenaza existencial para la humanidad. De acuerdo con estas advertencias, este escenario podria materializarse incluso antes de que finalice la actual década.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, estas declaraciones conviven con un análisis opuesto que circula en el sector. Dicha perspectiva sugiere que el nivel de alerta podria haber sido magnificado de manera intencional con el objetivo de resguardar intereses comerciales y consolidar posiciones monopólicas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama de posturas encontradas, el espacio periodístico Primera Plana ha decidido profundizar en el tema. Para ello, el programa cuenta con la participación de diversos especialistas con el fin de dimensionar con precisión el alcance real de estas advertencias sobre el futuro tecnológico.</p>",
+    "imagen": "https://s.france24.com/media/display/51bdcc86-5b72-11f1-ad4e-005056a97e36/w:1280/p:16x9/IA-Dieu1.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-primera-plana/20261012-est%C3%A1n-justificadas-las-alarmas-de-una-ia-descontrolada",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619655,
     "created_at": "2026-10-12T14:54:38.994Z",
     "titulo": "Colegio Médico Dominicano advierte con revelar secretos gubernamentales y ratifica paro nacional",
