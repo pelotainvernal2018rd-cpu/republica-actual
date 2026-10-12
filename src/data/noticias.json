@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619765,
+    "created_at": "2026-10-12T23:56:53.240Z",
+    "titulo": "Ciberataques masivos paralizan cadenas de supermercados en Europa",
+    "slug": "ciberataques-masivos-paralizan-cadenas-de-supermercados-en-europa",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5311f5d6-c688-11f1-a8cf-29a2e29ae696/w:1280/p:16x9/000-D3247KH.jpg\" alt=\"Ciberataques masivos paralizan cadenas de supermercados en Europa\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una serie de ataques informáticos afectó durante la madrugada del lunes 12 de octubre a ocho importantes cadenas de supermercados en Francia, Bélgica y los Países Bajos. El incidente provocó una interrupción significativa en las operaciones comerciales de estos establecimientos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el territorio francés, el impacto fue particularmente grave debido a la manipulación remota de los sistemas de refrigeración. El aumento de temperatura en los frigoríficos de cientos de tiendas derivó en la pérdida total de productos alimenticios y generó focos de incendio en las instalaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, las cadenas Delhaize y Albert Heijn reportaron alteraciones críticas en sus plataformas digitales. Los atacantes lograron modificar los precios de los artículos y desestabilizar las aplicaciones móviles utilizadas por los clientes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los sistemas de abastecimiento y logística de estas empresas también sufrieron daños, dejando gran parte de sus servicios fuera de línea. Esta situación impidió la gestión normal de inventarios y la atención al público en los puntos de venta afectados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades y los equipos técnicos de las compañías trabajan para determinar el alcance total de los daños. Hasta el momento, se han confirmado pérdidas económicas millonarias como consecuencia directa de esta incursión cibernética coordinada.</p>",
+    "imagen": "https://s.france24.com/media/display/5311f5d6-c688-11f1-a8cf-29a2e29ae696/w:1280/p:16x9/000-D3247KH.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261012-ciberataques-a-supermercados-europeos-incendios-comida-descompuesta-y-servicios-fuera-de-l%C3%ADnea",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619764,
     "created_at": "2026-10-12T23:55:00.444Z",
     "titulo": "Cantante Chabelly denuncia incidente vial con conductor de transporte público",
