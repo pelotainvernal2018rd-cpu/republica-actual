@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619693,
+    "created_at": "2026-10-12T17:56:48.628Z",
+    "titulo": "El cine y la historia se entrelazan en la nueva obra de Annemarie Jacir",
+    "slug": "el-cine-y-la-historia-se-entrelazan-en-la-nueva-obra-de-annemarie-jacir",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5e9af164-c638-11f1-8ad8-e362370cce2e/w:1280/p:16x9/palestine36-photo1.jpg\" alt=\"El cine y la historia se entrelazan en la nueva obra de Annemarie Jacir\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama cultural internacional trae consigo diversas expresiones artísticas que destacan en el ámbito cinematográfico, literario y musical, abarcando acontecimientos históricos y reconocimientos a figuras de la cultura global.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el terreno cinematográfico, la directora Annemarie Jacir presenta el filme titulado Palestina 36, una propuesta histórica que se centra en un periodo clave para el Medio Oriente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La cinta aborda los acontecimientos de la gran revuelta árabe desarrollada entre los años 1936 y 1939, un episodio fundamental en la resistencia contra el dominio colonial británico en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, en el ámbito de las letras, el territorio canadiense experimenta un sentimiento de celebración colectiva tras el galardón del Premio Nobel de Literatura concedido a la destacada poeta y escritora Anne Carson.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el sector de la música popular transita por momentos de luto debido al fallecimiento del reconocido cantautor argentino Piero, quien dejó una huella profunda en la canción latinoamericana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, la agenda musical en Colombia celebra tres décadas de trayectoria ininterrumpida del festival Rock al Parque, consolidándose como un espacio histórico para el género en el continente.</p>",
+    "imagen": "https://s.france24.com/media/display/5e9af164-c638-11f1-8ad8-e362370cce2e/w:1280/p:16x9/palestine36-photo1.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/cultura/20261012-palestina-36-contar-un-cap%C3%ADtulo-desconocido-pero-decisivo-para-medio-oriente",
+    "categoria": "Entretenimiento",
+    "etiquetas": [
+      "Entretenimiento",
+      "Cine"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619692,
     "created_at": "2026-10-12T17:54:34.871Z",
     "titulo": "Capturan a presunto implicado en robos de cables y contadores en La Romana",
