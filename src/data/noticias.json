@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791088619721,
+    "created_at": "2026-10-12T19:56:40.847Z",
+    "titulo": "Los monarcas españoles realizarán su primera visita oficial a Ceuta en un contexto de alta sensibilidad diplomática",
+    "slug": "los-monarcas-espanoles-realizaran-su-primera-visita-oficial-a-ceuta-en-un-contexto-de-alta-sensibilidad-diplomatica",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/555fca24-c648-11f1-b4ac-29a2e29ae696/w:1280/p:16x9/000-C9NF78R.jpg\" alt=\"Los monarcas españoles realizarán su primera visita oficial a Ceuta en un contexto de alta sensibilidad diplomática\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los reyes de España, Felipe VI y Letizia, tienen programado un viaje oficial a la ciudad autónoma de Ceuta para el martes 13 de octubre. Esta visita marca la primera ocasión en que ambos acuden a la localidad desde el inicio de su reinado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El desplazamiento de los jefes de Estado ocurre tres meses después del ingreso masivo de más de 70.000 migrantes que llegaron desde territorio marroquí.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El desplazamiento institucional busca manifestar respaldo a los habitantes de la zona. Sin embargo, el movimiento podría generar fricciones con el gobierno de Rabat.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Estado marroquí mantiene reclamaciones de soberanía sobre este enclave español y sobre la ciudad de Melilla.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras su paso por Ceuta, la agenda real contempla continuar hacia Melilla el día siguiente para completar su recorrido por las ciudades norteafricanas.</p>",
+    "imagen": "https://s.france24.com/media/display/555fca24-c648-11f1-b4ac-29a2e29ae696/w:1280/p:16x9/000-C9NF78R.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261012-por-qu%C3%A9-los-reyes-de-espa%C3%B1a-protagonizan-una-visita-altamente-sensible-a-ceuta",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791088619720,
     "created_at": "2026-10-12T19:54:36.301Z",
     "titulo": "El Poder Ejecutivo emite decreto para ordenar y asegurar las inversiones tecnológicas estatales",
