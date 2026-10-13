@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730717,
+    "created_at": "2026-10-13T16:13:25.386Z",
+    "titulo": "Detienen en La Vega a hombre acusado de agredir y amenazar a un comerciante",
+    "slug": "detienen-en-la-vega-a-hombre-acusado-de-agredir-y-amenazar-a-un-comerciante",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/13/6ace49536d409.jpeg\" alt=\"Detienen en La Vega a hombre acusado de agredir y amenazar a un comerciante\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Agentes de la Subdirección Regional de Investigación (DICRIM) en La Vega lograron la captura de Emmanuel Concepción García, conocido popularmente como El Plátano. El arresto se efectuó en cumplimiento de una orden judicial emitida por las autoridades competentes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El individuo era buscado activamente por su supuesta participación en actos de violencia y amenazas contra un vendedor local. La detención responde a la orden judicial número 2025-AJ0071182, gestionada tras las denuncias interpuestas por la víctima.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Según los detalles del caso, el altercado tuvo lugar en un puesto de venta de frituras ubicado en las proximidades de la zona franca. El reporte señala que el detenido habría intimidado al comerciante y lo persiguió utilizando un machete, forzando al afectado a escapar para salvaguardar su integridad física.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La denuncia también especifica que el agresor advirtió al dueño del negocio sobre su intención de retornar al establecimiento portando un arma de fuego. Estas amenazas generaron una profunda preocupación en la víctima, quien procedió a formalizar la querella ante las autoridades.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte fundamental del proceso investigativo, se integraron grabaciones de cámaras de seguridad que registraron el incidente. Estas evidencias visuales fueron entregadas a los investigadores para sustentar la acusación contra Concepción García.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras su captura, el detenido ha sido trasladado a las instalaciones policiales correspondientes. En las próximas horas, será entregado al Ministerio Público para que se proceda con el proceso legal pertinente ante los tribunales.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/13/6ace49536d409.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/policiales/pn-apresa-vega-platano-buscado-amenazas-agresion-comerciante_583326.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730716,
     "created_at": "2026-10-13T16:11:37.690Z",
     "titulo": "Juicio contra Jean Andrés Pumarol aplazado hasta noviembre",
