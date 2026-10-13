@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730803,
+    "created_at": "2026-10-13T23:38:58.988Z",
+    "titulo": "Pope Leo XIV se somete a cirugía que confirma cáncer de pulmón",
+    "slug": "pope-leo-xiv-se-somete-a-cirugia-que-confirma-cancer-de-pulmon",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/13/6aceb89b92a78.jpeg\" alt=\"Pope Leo XIV se somete a cirugía que confirma cáncer de pulmón\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El martes la cirugía del papa León XIV confirmó que padece cáncer de pulmón, con la extirpación del lóbulo inferior del pulmón derecho, según un comunicado del Vaticano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El diagnóstico de adenocarcinoma pulmonar se confirmó durante la operación, después de sospecharlo en pruebas preoperatorias.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La intervención, dirigida por el jefe de cirugía torácica del Gemelli, el Dr. Stefano Margaritora, duró aproximadamente 90 minutos y el papa permaneció en quirófano unas tres horas; el procedimiento se describió como exitoso y sin complicaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">León XIV llegó al hospital Gemelli caminando y saludó a decenas de personas que lo recibieron antes de la cirugía, mostrando un nivel de transparencia poco común sobre su salud.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Vaticano canceló las audiencias del papa hasta el 20 de octubre y se mantiene la posibilidad de que el pontífice realice su viaje a Sudamérica en noviembre, siempre que la recuperación sea adecuada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El papa, de 71 años, ha sido hospitalizado previamente por fiebre tifoidea en 1985, pero la cirugía actual representa su primer problema de salud divulgado públicamente en su pontificado.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/13/6aceb89b92a78.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/mundo/cirugia-confirma-papa-leon-xiv-cancer-pulmon_583375.html/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730802,
     "created_at": "2026-10-13T23:31:46.479Z",
     "titulo": "Dirección de Juegos de Azar entra en funciones con nuevas restricciones al sector",
