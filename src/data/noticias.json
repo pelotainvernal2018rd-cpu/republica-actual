@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730667,
+    "created_at": "2026-10-13T11:28:16.156Z",
+    "titulo": "Vaguada provocará aguaceros, tronadas y posibles granizadas en varias provincias",
+    "slug": "vaguada-provocara-aguaceros-tronadas-y-posibles-granizadas-en-varias-provincias",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/uploads/2026/10/13/6ace0e50baf89.gif\" alt=\"Vaguada provocará aguaceros, tronadas y posibles granizadas en varias provincias\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología pronosticó para la tarde de este día la ocurrencia de precipitaciones de intensidad moderada, acompañadas de actividad eléctrica, ráfagas de viento y la posible caída de granizos en algunas zonas del territorio nacional. Este fenómeno meteorológico es causado por una vaguada derivada de un sistema de baja presión situado en la región norte.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las demarcaciones que experimentarán las principales precipitaciones durante la tarde y el inicio de la noche son María Trinidad Sánchez, Samaná, Monte Plata, Santiago, Puerto Plata y Duarte. De igual manera, el pronóstico abarca a La Vega, Monseñor Nouel, Peravia, San Cristóbal, Montecristi, Valverde, Azua, San Pedro de Macorís, La Romana y San Juan.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para el territorio de Santo Domingo se prevé un cielo con nubosidad parcial y precipitaciones ligeras en puntos específicos durante el mediodía. Por otro lado, la provincia de La Altagracia registrará probabilidad de precipitaciones reducidas, limitadas a chubascos breves al llegar la tarde.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como medida preventiva ante los aguaceros anunciados, el Centro de Operaciones de Emergencias estableció alerta verde en Santiago, La Vega y Valverde. La finalidad es evitar riesgos por anegamientos en áreas urbanas y rurales, recomendando a los habitantes de zonas vulnerables mantenerse en contacto con las autoridades de protección.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En cuanto a las condiciones marítimas, los informes indican que el oleaje en el océano Atlántico y el mar Caribe se mantiene estable, con alturas que oscilan entre tres y cuatro pies. Esta situación permite la navegación segura para todo tipo de embarcaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Respecto a la actividad ciclónica, el organismo meteorológico vigila un área desorganizada de lluvias y tormentas eléctricas vinculada a una baja presión, ubicada a gran distancia al suroeste de las islas Cabo Verde. Dicho sistema mantiene una baja probabilidad de evolución ciclónica para los próximos nueve días.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para la jornada de mañana, la influencia de la vaguada persistirá sobre el territorio dominicano, ocasionando lluvias intensas, actividad eléctrica, ráfagas de viento y eventuales granizadas. Estas manifestaciones atmosféricas se concentrarán con mayor frecuencia en la zona norte, noreste, sureste, la Cordillera Central, el valle del Cibao y la frontera.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/uploads/2026/10/13/6ace0e50baf89.gif",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/aguaceros-truenos-granizada-porcion-norte-noreste-pais_583293.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730666,
     "created_at": "2026-10-13T11:24:37.137Z",
     "titulo": "Vaguada traerá aguaceros y tormentas eléctricas a varias regiones del país",
