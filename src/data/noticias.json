@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730751,
+    "created_at": "2026-10-13T18:57:55.851Z",
+    "titulo": "Protestas estudiantiles en Francia alcanzan su quinto día con más de doscientos centros bloqueados",
+    "slug": "protestas-estudiantiles-en-francia-alcanzan-su-quinto-dia-con-mas-de-doscientos-centros-bloqueados",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/fbe7582a-c72a-11f1-9104-77317c09f325/w:1280/p:16x9/ES-20261013-071509-071956-CS.jpg\" alt=\"Protestas estudiantiles en Francia alcanzan su quinto día con más de doscientos centros bloqueados\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las movilizaciones convocadas por estudiantes, docentes y padres de familia en territorio francés cumplieron este martes su quinta jornada consecutiva de protestas en contra de las políticas gubernamentales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de las acciones de presión, un total de 214 liceos amanecieron con accesos bloqueados por parte de los manifestantes, interrumpiendo las actividades presenciales habituales en estas instituciones educativas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de las restricciones en los accesos físicos a los planteles, la actividad académica no se ha detenido por completo, ya que en algunos cursos los alumnos continúan recibiendo lecciones mediante la modalidad a distancia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las manifestaciones han generado una fuerte reacción por parte de las autoridades de seguridad, registrándose una respuesta intensa de las fuerzas policiales frente a las concentraciones juveniles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, los sectores participantes en las protestas han manifestado su descontento con la postura oficial, señalando que las respuestas del Ejecutivo representan únicamente soluciones menores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los manifestantes enfatizan que sus principales demandas y reivindicaciones sectoriales todavía no han recibido una atención adecuada ni han sido escuchadas de forma genuina por el Gobierno.</p>",
+    "imagen": "https://s.france24.com/media/display/fbe7582a-c72a-11f1-9104-77317c09f325/w:1280/p:16x9/ES-20261013-071509-071956-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261013-directo-par%C3%ADs-y-los-bloqueos-de-los-estudiantes-a-las-instituciones-educativas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730750,
     "created_at": "2026-10-13T18:56:59.547Z",
     "titulo": "Diputada Millys Martínez rompe el silencio y denuncia agresión policial en Elías Piña",
