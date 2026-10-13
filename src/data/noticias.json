@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730735,
+    "created_at": "2026-10-13T17:42:12.404Z",
+    "titulo": "Brasil intensifica la recta final de la contienda electoral hacia la segunda vuelta",
+    "slug": "brasil-intensifica-la-recta-final-de-la-contienda-electoral-hacia-la-segunda-vuelta",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/85f694fc-c71e-11f1-9558-e362370cce2e/w:1280/p:16x9/ES-20261013-074522-074958-CS.jpg\" alt=\"Brasil intensifica la recta final de la contienda electoral hacia la segunda vuelta\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La carrera por la presidencia de Brasil ha entrado en su fase definitiva, con los candidatos Luiz Inácio Lula da Silva y Flavio Bolsonaro desplegando estrategias intensivas para captar el respaldo necesario de cara a la segunda vuelta electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ambos aspirantes al Ejecutivo han programado una serie de actividades proselitistas en los últimos días, buscando consolidar su base de apoyo y atraer a los votantes indecisos en un momento crucial del proceso democrático.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El despliegue de los equipos de campaña se ha concentrado en sumar adeptos en diversas regiones, con el objetivo de fortalecer sus posiciones antes de que la ciudadanía acuda nuevamente a las urnas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con los sondeos de opinión pública más recientes, el actual mandatario, Jair Bolsonaro, mantiene una ventaja en la intención de voto frente a su contrincante, Luiz Inácio Lula da Silva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La corresponsal Valeria Saccone ha ofrecido detalles adicionales sobre el desarrollo de estas jornadas de campaña, marcadas por la urgencia de los candidatos por asegurar la victoria en la próxima jornada electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama político brasileño se mantiene expectante ante el cierre de estas actividades, que definirán el rumbo del país tras la conclusión de este proceso de segunda vuelta.</p>",
+    "imagen": "https://s.france24.com/media/display/85f694fc-c71e-11f1-9558-e362370cce2e/w:1280/p:16x9/ES-20261013-074522-074958-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261013-directo-a-r%C3%ADo-de-janeiro-y-las-campa%C3%B1as-de-lula-y-bolsonaro-a-pocos-d%C3%AFas-de-la-segunda-vuelta",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730734,
     "created_at": "2026-10-13T17:40:39.813Z",
     "titulo": "Sigfrido Pared Pérez descarta intervención militar dominicana en Haití y respalda firmeza policial",
