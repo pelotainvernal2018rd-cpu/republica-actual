@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623730694,
+    "created_at": "2026-10-13T14:11:59.331Z",
+    "titulo": "Amatera se consolida como el programa malicioso de robo de datos con mayor incidencia en la región",
+    "slug": "amatera-se-consolida-como-el-programa-malicioso-de-robo-de-datos-con-mayor-incidencia-en-la-region",
+    "contenido": "\n    <div style=\"text-align:center;margin-bottom:25px;\">\n      <img\n        src=\"https://cdn.deultimominuto.com/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-13-at-9.43.56-AM.jpeg\"\n        alt=\"Amatera se consolida como el programa malicioso de robo de datos con mayor incidencia en la región\"\n        style=\"\n          width:100%;\n          max-width:750px;\n          height:auto;\n          display:block;\n          margin:auto;\n          border-radius:6px;\n        \"\n      >\n    </div>\n  \n    <p style=\"\n      font-size:18px;\n      line-height:1.7;\n      font-weight:400;\n      margin-bottom:20px;\n    \">\n      Un software malicioso enfocado en la sustracción de datos personales y corporativos se ubicó en la posición principal de detecciones de su tipo en la región latinoamericana durante los primeros seis meses de 2026. Los registros de la firma especializada ESET detallan que esta amenaza informática posee la capacidad de sustraer claves de acceso, historiales de navegación, información financiera y credenciales de uso empresarial.\n    </p>\n  \n    <p style=\"\n      font-size:18px;\n      line-height:1.7;\n      font-weight:400;\n      margin-bottom:20px;\n    \">\n      El programa opera bajo un esquema conocido como software malicioso como servicio. En este modelo comercial, los creadores del código se encargan de mantener la infraestructura tecnológica y el soporte, mientras que terceros adquieren una suscripción mensual para ejecutar campañas propias de ataque. Los análisis técnicos indican que este desarrollo informático comparte similitudes de código con una versión previa denominada ACR Stealer.\n    </p>\n  \n    <p style=\"\n      font-size:18px;\n      line-height:1.7;\n      font-weight:400;\n      margin-bottom:20px;\n    \">\n      Las vías de propagación de esta amenaza son variadas e incluyen la utilización de portales web comprometidos, documentos alterados, mensajes electrónicos dirigidos y publicidad en motores de búsqueda. Entre los métodos más frecuentes destaca una técnica denominada ClickFix, la cual simula verificaciones de seguridad de tipo CAPTCHA o avisos de errores en el navegador para inducir al usuario a copiar y ejecutar comandos en su propio equipo.\n    </p>\n  \n    <p style=\"\n      font-size:18px;\n      line-height:1.7;\n      font-weight:400;\n      margin-bottom:20px;\n    \">\n      Los riesgos asociados a una vulneración de seguridad de este tipo abarcan desde la apropiación ilegítima de perfiles personales y empresariales hasta la extracción de fondos en activos digitales. Asimismo, los atacantes pueden obtener acceso a repositorios de desarrollo, claves de conexión remota y servicios de almacenamiento en la nube, lo que incrementa el peligro para las organizaciones donde laboran las personas afectadas.\n    </p>\n  \n    <p style=\"\n      font-size:18px;\n      line-height:1.7;\n      font-weight:400;\n      margin-bottom:20px;\n    \">\n      Los especialistas en ciberseguridad recomiendan mantener una separación estricta entre los perfiles de uso personal y laboral dentro de los navegadores, además de supervisar la ejecución de herramientas del sistema operativo. Ante una posible infección, las medidas de respuesta aconsejadas incluyen el aislamiento inmediato del equipo, la revocación de sesiones activas y la modificación general de credenciales y claves de acceso desde un dispositivo seguro.\n    </p>\n  ",
+    "imagen": "https://cdn.deultimominuto.com/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-13-at-9.43.56-AM.jpeg",
+    "fuente": "De Último Minuto",
+    "url_fuente": "https://deultimominuto.com/tecnologia/amatera-infostealer-malware/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730693,
     "created_at": "2026-10-13T14:09:49.989Z",
     "titulo": "Exdirectora de la DIDA critica trabas en la entrega de fondos de pensiones a mayores de 60 años",
