@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730801,
+    "created_at": "2026-10-13T23:28:15.800Z",
+    "titulo": "Detención de dirigente social intensifica protestas en Bonao",
+    "slug": "detencion-de-dirigente-social-intensifica-protestas-en-bonao",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/13/6acebd0017015.jpeg\" alt=\"Detención de dirigente social intensifica protestas en Bonao\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La tensión aumentó significativamente este martes en el sector Los Transformadores, en Bonao, tras el arresto de Valentín Capellán de la Cruz. El joven es uno de los principales organizadores del paro de labores de 48 horas que se desarrolla en la provincia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras conocerse la detención de Capellán de la Cruz, manifestantes iniciaron una serie de protestas en la zona, incluyendo la quema de neumáticos. Los participantes exigen la liberación inmediata del dirigente popular.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El movimiento huelgario, que busca llamar la atención de las autoridades, se fundamenta en cuatro reclamos principales. Entre ellos destacan el incremento en los precios de los combustibles y la tarifa eléctrica, así como el costo de los productos de la canasta básica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, los residentes de Bonao demandan soluciones definitivas ante la escasez de agua potable y la falta de pavimentación en diversas calles de la demarcación. Según los manifestantes, estas problemáticas han sido denunciadas durante años sin recibir respuestas satisfactorias del gobierno central.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La jornada de protesta cuenta con el respaldo de la Coordinación Provincial del Frente Amplio de Lucha Popular (FALPO) y el Frente Integral de Lucha Nacional (FILNA). A estas organizaciones se ha sumado el apoyo de la seccional de Monseñor Nouel de la Asociación Dominicana de Profesores (ADP).</p>",
+    "imagen": "https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2026/10/13/6acebd0017015.jpeg",
+    "fuente": "Hoy",
+    "url_fuente": "https://hoy.com.do/el-pais/apresan-dirigente-convocante-paro-actividades-bonao_1105482.html/",
+    "categoria": "Política",
+    "etiquetas": [
+      "Política",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730800,
     "created_at": "2026-10-13T23:24:51.263Z",
     "titulo": "Inauguran moderno techado deportivo en el ensanche Espaillat tras décadas de espera",
