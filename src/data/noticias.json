@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730760,
+    "created_at": "2026-10-13T19:42:29.597Z",
+    "titulo": "Ciberataque altera sistemas de refrigeración en supermercados de Francia",
+    "slug": "ciberataque-altera-sistemas-de-refrigeracion-en-supermercados-de-francia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/cb86dbce-c739-11f1-9fc9-53993c5f1f18/w:1280/p:16x9/Tiendas-sufren-ciberataques-contra-refrigeradores-y-congeladores.jpg\" alt=\"Ciberataque altera sistemas de refrigeración en supermercados de Francia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una serie de establecimientos comerciales en Francia han sido blanco de una intrusión informática que afectó directamente sus sistemas de refrigeración. Los atacantes lograron acceder de manera remota a los controles de temperatura de frigoríficos y congeladores industriales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia de esta manipulación externa, los equipos elevaron sus niveles térmicos de forma inesperada. Este cambio en la configuración provocó que los productos almacenados en el interior de las unidades perdieran su cadena de frío.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El incidente ha resultado en la pérdida de una cantidad significativa de alimentos que se encontraban en exhibición y almacenamiento. Las autoridades y los responsables de las cadenas afectadas evalúan el impacto de este sabotaje digital en sus operaciones diarias.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La vulnerabilidad permitió que personas ajenas a las empresas tomaran el control de los dispositivos conectados a la red. Este suceso pone de relieve los riesgos de seguridad que enfrentan las infraestructuras tecnológicas en el sector minorista.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, se ha confirmado que cientos de tiendas fueron impactadas por esta acción malintencionada. Los equipos técnicos trabajan para asegurar los sistemas y evitar que este tipo de intrusiones vuelvan a comprometer la mercancía perecedera.</p>",
+    "imagen": "https://s.france24.com/media/display/cb86dbce-c739-11f1-9fc9-53993c5f1f18/w:1280/p:16x9/Tiendas-sufren-ciberataques-contra-refrigeradores-y-congeladores.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261013-supermercados-franceses-sufren-ciberataques-contra-refrigeradores-y-congeladores",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730759,
     "created_at": "2026-10-13T19:41:46.448Z",
     "titulo": "Apple expande su ecosistema domótico con el lanzamiento de su primera pantalla inteligente",
