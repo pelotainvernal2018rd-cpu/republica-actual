@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623730660,
+    "created_at": "2026-10-13T07:41:41.400Z",
+    "titulo": "Estudiantes franceses mantienen las movilizaciones en una nueva jornada de protesta",
+    "slug": "estudiantes-franceses-mantienen-las-movilizaciones-en-una-nueva-jornada-de-protesta",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b5928d18-c6d5-11f1-a757-3774aeac812a/w:1280/p:16x9/2026-10-13T070327Z-248343684-RC272OAQ19KT-RTRMADP-3-FRANCE-PROTEST.jpg\" alt=\"Estudiantes franceses mantienen las movilizaciones en una nueva jornada de protesta\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los alumnos de la educación secundaria en Francia han llamado a una nueva movilización para este martes 13 de octubre. Se trata de la quinta jornada de protestas a nivel nacional organizada por este sector.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El motivo principal de esta convocatoria es la insatisfacción de los estudiantes ante las medidas y respuestas ofrecidas hasta el momento por las autoridades gubernamentales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, Édouard Geffray, quien ocupa el cargo de ministro de Educación, indicó que se ha observado una reducción en la participación ciudadana en comparación con las semanas pasadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el titular de la cartera educativa calculó que aproximadamente unos 200 planteles escolares mantendrán sus puertas cerradas durante el desarrollo de esta jornada de protesta.</p>",
+    "imagen": "https://s.france24.com/media/display/b5928d18-c6d5-11f1-a757-3774aeac812a/w:1280/p:16x9/2026-10-13T070327Z-248343684-RC272OAQ19KT-RTRMADP-3-FRANCE-PROTEST.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/francia/20261013-en-directo-los-estudiantes-franceses-vuelven-a-las-calles-en-su-quinta-jornada-de-protestas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730659,
     "created_at": "2026-10-13T06:41:40.174Z",
     "titulo": "Europa mantiene compras de energía a Rusia por más de 300.000 millones de dólares desde el inicio del conflicto",
