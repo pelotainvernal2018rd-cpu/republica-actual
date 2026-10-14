@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730989,
+    "created_at": "2026-10-14T21:54:54.968Z",
+    "titulo": "YouTube implementa etiquetas para identificar música creada con inteligencia artificial",
+    "slug": "youtube-implementa-etiquetas-para-identificar-musica-creada-con-inteligencia-artificial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2023/02/22/653a7aaeab847.jpeg\" alt=\"YouTube implementa etiquetas para identificar música creada con inteligencia artificial\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>La plataforma YouTube ha iniciado un proceso de transparencia para sus usuarios al comenzar a etiquetar las canciones que han sido producidas principalmente mediante inteligencia artificial generativa. Esta medida busca informar a la audiencia sobre el origen del contenido musical que consumen tanto en la aplicación principal como en YouTube Music.</p><p>El despliegue de estas identificaciones comenzó este miércoles en YouTube Music y se extenderá próximamente a la plataforma de videos. La compañía utilizará sus propios sistemas de detección, además de herramientas desarrolladas en colaboración con sus socios de la industria musical, para determinar qué pistas han sido creadas con estas tecnologías.</p><p>Desde la empresa destacaron que la inteligencia artificial está permitiendo a los artistas explorar nuevas formas de creación y experimentación musical. Esta iniciativa responde directamente a la demanda de los usuarios, quienes han manifestado su interés en conocer cuándo una pieza ha sido elaborada mediante procesos automatizados.</p><p>Con esta actualización, YouTube se alinea con las tendencias actuales de la industria del streaming musical, donde otros servicios han adoptado políticas similares. El objetivo es mantener un entorno digital claro y transparente frente al avance de las herramientas generativas.</p><p>Otras plataformas líderes en el mercado también han tomado medidas en este sentido. Por ejemplo, Apple Music ha confirmado la incorporación de etiquetas para señalar contenido generado por IA, mientras que Spotify ha comenzado a identificar perfiles de artistas que parecen haber sido creados mediante el uso de estas tecnologías.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2023/02/22/653a7aaeab847.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/entretenimiento/musica/20261014/youtube-etiquetara-canciones-generadas-ia-plataformas_926196.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Música"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730988,
     "created_at": "2026-10-14T21:52:09.689Z",
     "titulo": "Cancillería dominicana reanuda el envío de notificaciones judiciales hacia Venezuela",
