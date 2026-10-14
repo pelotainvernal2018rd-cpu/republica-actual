@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730843,
+    "created_at": "2026-10-14T03:01:47.113Z",
+    "titulo": "Tormenta en La Vega deja daños en el tendido eléctrico sin víctimas",
+    "slug": "tormenta-en-la-vega-deja-danos-en-el-tendido-electrico-sin-victimas",
+    "contenido": "\n      <div style=\"text-align:center;margin-bottom:25px;\">\n        <img\n          src=\"https://resources.diariolibre.com/images/2026/10/14/lluvias-y-fuertes-vientos-causan-danos-en-tendido-electrico-en-la-vega-c4fc231e-focus-0-0-1200-675.jpg\"\n          alt=\"Lluvias y fuertes vientos causan daños en tendido eléctrico en La Vega\"\n          style=\"\n            width:100%;\n            max-width:750px;\n            height:auto;\n            display:block;\n            margin:auto;\n            border-radius:6px;\n          \"\n        >\n      </div>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El martes por la tarde y noche, fuertes lluvias y vientos provocaron la caída de árboles y daños en el tendido eléctrico de varias comunidades de la provincia La Vega, sin que se reporten personas heridas.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Un árbol se desplomó sobre una vivienda, lo que obligó a los bomberos de La Vega y a la Defensa Civil a intervenir para retirar el escombros y restablecer la energía.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Las zonas más afectadas fueron El Pino y Burende, además de otras localidades situadas fuera del núcleo urbano de la ciudad.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El Centro de Operaciones de Emergencias (COE) mantiene a la provincia en alerta verde, alertando sobre el riesgo de inundaciones urbanas, crecidas de pequeños arroyos y cañadas.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        La medida responde a las precipitaciones registradas y a las previstas en las próximas horas, impulsadas por la presencia de una vaguada.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Hasta la fecha, no se han registrado heridos, pero las autoridades continúan monitoreando la situación y coordinando las labores de reparación.\n      </p>\n    ",
+    "imagen": "https://resources.diariolibre.com/images/2026/10/14/lluvias-y-fuertes-vientos-causan-danos-en-tendido-electrico-en-la-vega-c4fc231e-focus-0-0-1200-675.jpg",
+    "fuente": "Diario Libre",
+    "url_fuente": "https://www.diariolibre.com/actualidad/nacional/2026/10/13/lluvias-y-fuertes-vientos-causan-danos-en-tendido-electrico-en-la-vega/3688285",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730842,
     "created_at": "2026-10-14T02:56:51.043Z",
     "titulo": "Argentina busca intervención internacional para frenar proyecto petrolero en Malvinas",
