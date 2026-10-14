@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730863,
+    "created_at": "2026-10-14T05:26:41.377Z",
+    "titulo": "Francia registra nueva jornada de protestas sociales con incidentes violentos",
+    "slug": "francia-registra-nueva-jornada-de-protestas-sociales-con-incidentes-violentos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/71330baa-c768-11f1-bf6c-77317c09f325/w:1280/p:16x9/ES-20261013-180240-180419-CS.jpg\" alt=\"Francia registra nueva jornada de protestas sociales con incidentes violentos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una nueva oleada de manifestaciones recorrió diversas ciudades de Francia este jueves, marcando la quinta jornada de protestas impulsada por diferentes sectores de la sociedad civil. La movilización reunió a una multitudinaria representación de estudiantes, docentes y diversos gremios sindicales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El objetivo central de los manifestantes fue exigir a las autoridades gubernamentales un incremento en la asignación de recursos destinados al sector, así como una mejora sustancial en las condiciones laborales y educativas actuales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La jornada, que comenzó con un carácter reivindicativo, se tornó tensa al caer la tarde. En varios puntos estratégicos del país, las concentraciones derivaron en disturbios que alteraron el orden público.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las fuerzas de seguridad intervinieron para contener los desórdenes, registrándose enfrentamientos directos entre los manifestantes y los agentes policiales. Como medida de control, la policía recurrió al uso de gases lacrimógenos para dispersar a los grupos más activos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un elemento destacado de esta convocatoria fue la presencia de la reconocida activista climática Greta Thunberg, quien se sumó a los participantes para respaldar las demandas planteadas por los colectivos presentes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, las autoridades mantienen el monitoreo de la situación tras el cierre de esta quinta jornada de movilizaciones, la cual ha dejado en evidencia el descontento persistente de los sectores involucrados.</p>",
+    "imagen": "https://s.france24.com/media/display/71330baa-c768-11f1-bf6c-77317c09f325/w:1280/p:16x9/ES-20261013-180240-180419-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261014-francia-quinta-jornada-de-manifestaciones-culmin%C3%B3-con-disturbios-en-algunos-puntos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730862,
     "created_at": "2026-10-14T05:24:40.982Z",
     "titulo": "Nueva York proyecta el fin de los paseos en carruajes para el año 2028",
