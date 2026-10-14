@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730827,
+    "created_at": "2026-10-14T01:44:39.346Z",
+    "titulo": "Hallan nueva especie de dinosaurio tras permanecer un siglo olvidado en un museo",
+    "slug": "hallan-nueva-especie-de-dinosaurio-tras-permanecer-un-siglo-olvidado-en-un-museo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2022/08/31/6430d1e945298.jpeg\" alt=\"Hallan nueva especie de dinosaurio tras permanecer un siglo olvidado en un museo\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>Un grupo de investigadores británicos identificó una nueva especie de dinosaurio carnívoro a partir de un fragmento craneal que permaneció almacenado en un cajón durante más de cien años. El fósil, hallado originalmente en la Isla de Wight, fue adquirido por el Museo de Historia Natural en 1924 y no había sido objeto de estudios científicos hasta la actualidad.</p><p>El espécimen ha sido bautizado como Invictibellatrix amberina y pertenece al grupo de los megaraptoranos, siendo el primer ejemplar de esta familia descubierto en territorio europeo. Este hallazgo, publicado en la revista Royal Society Open Science, aporta datos clave sobre la distribución geográfica de estos depredadores, que se cree se originaron en Asia antes de expandirse por otros continentes.</p><p>Los expertos utilizaron tomografías computarizadas y modelos matemáticos para analizar el fragmento óseo y reconstruir tanto la estructura del cráneo como el interior del cerebro. Este dinosaurio vivió hace aproximadamente 120 millones de años, durante el periodo Cretácico Temprano, y se caracterizaba por ser una de las variantes más pequeñas y antiguas de su grupo.</p><p>Físicamente, el Invictibellatrix amberina medía entre tres y cuatro metros de largo y superaba el metro y medio de altura. Se estima que poseía plumas y contaba con garras curvas de entre 10 y 20 centímetros, las cuales utilizaba para cazar presas como lagartos, mamíferos y otros dinosaurios pequeños, cumpliendo un rol ecológico similar al de las hienas modernas.</p><p>A diferencia de los tiranosaurios, con quienes guardan parentesco, los megaraptoranos se distinguían por tener cabezas esbeltas y por utilizar sus potentes brazos y garras para atacar, en lugar de depender exclusivamente de sus mandíbulas. La comunidad científica considera a este grupo como uno de los más enigmáticos debido a la escasez de restos fósiles encontrados hasta la fecha.</p><p>El nombre asignado a esta especie, Invictibellatrix, significa guerrera invicta, mientras que el término amberina alude al ámbar presente en las rocas donde se localizó el resto fósil. Los investigadores destacaron la importancia de este descubrimiento, sugiriendo que aún existen numerosos especímenes esperando ser identificados en las colecciones de los museos.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2022/08/31/6430d1e945298.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261013/identifican-nuevo-dinosaurio-partir-fosil-estuvo-cajon-100-anos_926069.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730826,
     "created_at": "2026-10-14T01:41:42.072Z",
     "titulo": "Tribunal Supremo de España ratifica restricción al voto para miles de nacionalizados",
