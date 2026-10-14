@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730990,
+    "created_at": "2026-10-14T21:56:41.376Z",
+    "titulo": "Bogotá se convierte en epicentro de expertos internacionales para la búsqueda de desaparecidos",
+    "slug": "bogota-se-convierte-en-epicentro-de-expertos-internacionales-para-la-busqueda-de-desaparecidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7bf8c420-c804-11f1-a0f9-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-074254-074511-CS.jpg\" alt=\"Bogotá se convierte en epicentro de expertos internacionales para la búsqueda de desaparecidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La ciudad de Bogotá es sede de un importante simposio organizado por la Unidad de Búsqueda de Personas dadas por Desaparecidas. El evento reúne a especialistas de diversas partes del mundo con el objetivo de analizar los retos y avances en esta materia fundamental para la sociedad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La jornada cuenta con la presencia del expresidente Juan Manuel Santos, quien participa en las sesiones de trabajo. Su asistencia se enmarca en un contexto de reflexión sobre los procesos de paz y la atención a las víctimas del conflicto armado en Colombia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El encuentro se desarrolla en una fecha significativa, al aproximarse el aniversario del acuerdo de paz suscrito entre el Estado colombiano y la antigua guerrilla de las Farc. Este marco temporal subraya la relevancia de los esfuerzos institucionales por esclarecer el paradero de miles de personas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante el simposio, los expertos internacionales comparten experiencias y metodologías aplicadas en otros contextos de violencia. El intercambio busca fortalecer las capacidades locales para la localización y entrega digna de los restos de quienes fueron reportados como desaparecidos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este espacio académico y técnico se ha consolidado como un escenario clave para la memoria histórica. Los participantes coinciden en que la búsqueda es un pilar esencial para la construcción de justicia y la reparación integral de las familias afectadas por el conflicto.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La cobertura de este evento está a cargo del periodista Rodrigo Sedano, quien sigue de cerca las ponencias y los debates centrales. Las conclusiones de este simposio pretenden ofrecer nuevas rutas de acción para las entidades encargadas de esta labor humanitaria en el país.</p>",
+    "imagen": "https://s.france24.com/media/display/7bf8c420-c804-11f1-a0f9-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-074254-074511-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261014-colombia-anfitri%C3%B3n-de-simposio-de-expertos-en-b%C3%BAsqueda-de-desaparecidos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730989,
     "created_at": "2026-10-14T21:54:54.968Z",
     "titulo": "YouTube implementa etiquetas para identificar música creada con inteligencia artificial",
