@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730979,
+    "created_at": "2026-10-14T21:11:31.143Z",
+    "titulo": "Inestabilidad en Oriente Medio impulsa alza del petróleo WTI",
+    "slug": "inestabilidad-en-oriente-medio-impulsa-alza-del-petroleo-wti",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Petroleo-de-Texas-5-1.webp\" alt=\"Inestabilidad en Oriente Medio impulsa alza del petróleo WTI\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El precio del petróleo intermedio de Texas (WTI) registró un incremento del 1,01 % al finalizar la jornada de este miércoles. Con este ajuste, el barril alcanzó una cotización de 95,09 dólares, reflejando un aumento de 95 centavos en comparación con la sesión previa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este comportamiento en los mercados internacionales responde principalmente a las inquietudes sobre el suministro energético global. La escalada de tensiones en la región de Oriente Medio ha generado incertidumbre entre los inversores respecto a la estabilidad del flujo de crudo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El mercado reaccionó ante el reporte de la Guardia Revolucionaria iraní sobre el hundimiento de un portacontenedores en el estrecho de Ormuz. Según la información oficial, la embarcación habría colisionado con una mina naval mientras intentaba atravesar esta ruta estratégica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adicionalmente, los rebeldes hutíes del Yemen se atribuyeron ataques con drones y misiles dirigidos a instalaciones de la petrolera Aramco en Riad y Dhahran. El portavoz militar, Yahya Sarea, emitió una advertencia instando a la evacuación de las zonas afectadas al considerarlas objetivos legítimos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En otro orden, el gobierno de Estados Unidos otorgó una autorización temporal para operar con diésel proveniente de Rusia hasta abril de 2027. Esta disposición, impulsada por Donald Trump, busca mitigar el impacto en los precios de los combustibles para los consumidores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">No obstante, expertos del sector energético, como Jim Mitchell de Wood Mackenzie, han expresado sus reservas sobre esta medida. Según el analista, la decisión no logra solucionar el problema de fondo relacionado con la escasez actual de diésel en el mercado.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Petroleo-de-Texas-5-1.webp",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/petroleo-de-texas-sube-un-101-y-cierra-en-9509-dolares/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730978,
     "created_at": "2026-10-14T21:09:44.762Z",
     "titulo": "Diputados respaldan solicitud para instalar sucursal de Banreservas en Arroyo Barril",
