@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730832,
+    "created_at": "2026-10-14T02:11:36.252Z",
+    "titulo": "Empleado de OpenAI enfrenta cargos federales por espionaje interno",
+    "slug": "empleado-de-openai-enfrenta-cargos-federales-por-espionaje-interno",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Yuleisi-Portada-pagina-web-4-8.jpg\" alt=\"Empleado de OpenAI enfrenta cargos federales por espionaje interno\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Departamento de Justicia de los Estados Unidos ha presentado cargos penales contra Abdulrahman Alfozan, un ingeniero de nacionalidad saudí que laboraba para OpenAI. El individuo es señalado por instalar un equipo de grabación clandestino en una sala de juntas de la sede de la empresa en San Francisco.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El hallazgo ocurrió el pasado 30 de septiembre, cuando trabajadores de la compañía localizaron un dispositivo cifrado oculto tras un televisor en un área destinada a tratar temas de alta confidencialidad. Según las autoridades, el aparato estaba envuelto en papel higiénico y conectado a un puerto USB para capturar información estratégica sobre tecnología de superinteligencia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las investigaciones del FBI, apoyadas por el propio personal de seguridad de OpenAI, permitieron identificar al sospechoso tras revisar grabaciones de cámaras de vigilancia. El acusado, de 35 años, fue visto merodeando la sala de reuniones en fechas cercanas al descubrimiento del equipo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Posteriormente, el 5 de octubre, el equipo de seguridad recuperó una bolsa que contenía documentos de identidad del ingeniero y un segundo dispositivo de grabación. Tras estos hechos, la empresa procedió con el despido inmediato del trabajador, quien fue arrestado el 9 de octubre y compareció ante un tribunal federal este martes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">OpenAI comunicó a través de sus canales oficiales que utilizó sus propios modelos de inteligencia artificial para analizar el equipo encontrado y determinar su procedencia. La firma aclaró que, hasta el momento, no existen pruebas de que el acusado haya logrado extraer código fuente, datos de clientes o información crítica sobre sus modelos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El caso es tratado por las autoridades como un asunto de seguridad nacional, enmarcado en los esfuerzos por proteger los avances tecnológicos estadounidenses. De ser hallado culpable, Alfozan podría enfrentar una condena de hasta cinco años de cárcel, una multa de 250,000 dólares y tres años de libertad bajo vigilancia.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Yuleisi-Portada-pagina-web-4-8.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/escandalo-en-openai-acusan-a-empleado-de-ocultar-una-grabadora/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730831,
     "created_at": "2026-10-14T02:09:41.295Z",
     "titulo": "Incidente con válvula de gas deja un hombre lesionado en Puerto Plata",
