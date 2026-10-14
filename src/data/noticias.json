@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623730934,
+    "created_at": "2026-10-14T17:26:52.395Z",
+    "titulo": "Preocupación en México por el impacto de los discursos de odio y la misoginia digital en las juventudes",
+    "slug": "preocupacion-en-mexico-por-el-impacto-de-los-discursos-de-odio-y-la-misoginia-digital-en-las-juventudes",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/bbb14c68-c72d-11f1-ac3d-77317c09f325/w:1280/p:16x9/WEB-PORTADA-13OCT-ELL.jpg\" alt=\"Preocupación en México por el impacto de los discursos de odio y la misoginia digital en las juventudes\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Recientes incidentes violentos con armas de fuego en centros educativos de México han encendido las alarmas sobre la propagación de ideologías misóginas y discursos de odio a través de las plataformas digitales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A raíz de estos hechos, diversos análisis se han centrado en examinar el fenómeno conocido como incel y la manera en que este tipo de corrientes de pensamiento logra calar y difundirse entre la población más joven.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La propagación de estas ideas en la red expone a los menores y adolescentes a contenidos nocivos que promueven la hostilidad y la discriminación basada en el género.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el mismo contexto informativo, se ha destacado la destacada trayectoria de Navi Pillay, galardonada con el Premio Nobel de la Paz y reconocida por su labor en la defensa del derecho internacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por último, la agenda informativa también ha incorporado los resultados de una investigación científica que sugiere que los síntomas asociados a la menopausia pueden manifestarse de manera mucho más abrupta de lo que se pensaba anteriormente.</p>",
+    "imagen": "https://s.france24.com/media/display/bbb14c68-c72d-11f1-ac3d-77317c09f325/w:1280/p:16x9/WEB-PORTADA-13OCT-ELL.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/ellas-hoy/20261014-m%C3%A9xico-c%C3%B3mo-se-propaga-la-misoginia-entre-los-j%C3%B3venes",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730933,
     "created_at": "2026-10-14T17:24:42.818Z",
     "titulo": "Gobierno firma acuerdo en California para impulsar la industria de semiconductores en el país",
