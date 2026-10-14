@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731001,
+    "created_at": "2026-10-14T22:51:26.299Z",
+    "titulo": "República Dominicana se consolida como líder en innovación tecnológica regional",
+    "slug": "republica-dominicana-se-consolida-como-lider-en-innovacion-tecnologica-regional",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Edgar-Batista.jpeg\" alt=\"República Dominicana se consolida como líder en innovación tecnológica regional\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El director de la Oficina Gubernamental de Tecnologías de la Información y Comunicación (OGTIC), Edgar Batista, aseguró que el país ha logrado posicionarse como un referente en materia tecnológica dentro de la cuenca del Caribe. Este avance es atribuido al impulso gubernamental en la transformación digital y a la adopción de nuevas herramientas por parte del sector privado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Batista señaló que el compromiso del presidente Luis Abinader ha sido clave para fortalecer la gobernanza tecnológica y modernizar la gestión pública. Según el funcionario, esta visión ha permitido que el Estado dominicano avance significativamente hacia una economía más conectada y eficiente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El titular de la OGTIC enfatizó que el desarrollo tecnológico no debe restringirse únicamente a las instituciones estatales. Por el contrario, destacó la importancia de integrar al sector privado en este ecosistema de innovación para mejorar la competitividad nacional frente a las exigencias del mercado global.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un pilar fundamental de esta estrategia es la formación académica de los jóvenes dominicanos. El funcionario subrayó la necesidad de capacitar a las nuevas generaciones en áreas críticas como la inteligencia artificial, la ciberseguridad, el análisis de datos y otras habilidades técnicas especializadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La preparación del capital humano es vista como una vía esencial para ampliar las oportunidades laborales y fomentar la creatividad en el país. De acuerdo con Batista, dotar a los ciudadanos de estas competencias permitirá que la transformación digital tenga un impacto real y positivo en la sociedad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, el director de la OGTIC reiteró que la modernización del Estado y la educación tecnológica son elementos indispensables para asegurar el futuro del país. El objetivo es mantener el liderazgo regional mediante la mejora continua de los servicios públicos y el fortalecimiento de las capacidades digitales de toda la nación.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Edgar-Batista.jpeg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/director-de-la-ogtic-afirma-que-rd-es-referente-tecnologico-regional/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731000,
     "created_at": "2026-10-14T22:49:59.651Z",
     "titulo": "Meteorología prevé condiciones estables con escasas lluvias para este jueves",
