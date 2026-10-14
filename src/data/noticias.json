@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730906,
+    "created_at": "2026-10-14T14:42:21.349Z",
+    "titulo": "Estudiantes franceses intensifican protestas por presupuesto educativo mientras se suman nuevos sectores",
+    "slug": "estudiantes-franceses-intensifican-protestas-por-presupuesto-educativo-mientras-se-suman-nuevos-sectores",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0fee2546-c6f0-11f1-a0a9-53993c5f1f18/w:1024/p:16x9/2026-10-13T100447Z-448707717-RC292OA5399B-RTRMADP-3-FRANCE-PROTEST.jpg\" alt=\"Estudiantes franceses intensifican protestas por presupuesto educativo mientras se suman nuevos sectores\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las movilizaciones estudiantiles en territorio francés alcanzaron una nueva etapa con la convocatoria de lo que los organizadores denominan el quinto acto de protestas. Los participantes exigen un incremento en los recursos financieros destinados al sistema educativo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta serie de marchas coincide con el proceso de defensa del proyecto de presupuesto para el año 2027 que lleva a cabo el primer ministro Sébastien Lecornu frente a la Asamblea Nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El escenario actual se caracteriza por un incremento de la tensión tanto en el ámbito social como en el político, marcando el pulso de la administración pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de la evolución de estos acontecimientos, se han anunciado nuevas jornadas de huelga y se prevé la incorporación del movimiento de los denominados chalecos amarillos a las protestas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación plantea interrogantes sobre el impacto real que estas expresiones de descontento en las calles podrían generar en la estrategia presupuestaria del Ejecutivo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, analistas observan cómo este clima de agitación social se transforma en un espacio de confrontación para los partidos políticos en medio de la coyuntura electoral.</p>",
+    "imagen": "https://s.france24.com/media/display/0fee2546-c6f0-11f1-a0a9-53993c5f1f18/w:1024/p:16x9/2026-10-13T100447Z-448707717-RC292OA5399B-RTRMADP-3-FRANCE-PROTEST.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/el-debate/20261014-se-intensifican-las-protestas-estudiantiles-en-francia-influye-el-a%C3%B1o-electoral",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730905,
     "created_at": "2026-10-14T14:41:27.316Z",
     "titulo": "Tornado en La Vega derriba árboles y suspende clases en escuela",
