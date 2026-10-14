@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730971,
+    "created_at": "2026-10-14T20:38:17.920Z",
+    "titulo": "Autoridades educativas investigan presunta agresión contra alumna en Santiago",
+    "slug": "autoridades-educativas-investigan-presunta-agresion-contra-alumna-en-santiago",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/14/6acfe5d836b60.jpeg\" alt=\"Autoridades educativas investigan presunta agresión contra alumna en Santiago\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Dirección Regional de Educación en Santiago de los Caballeros ha iniciado una investigación formal tras recibir una denuncia sobre un supuesto caso de violencia escolar. El incidente involucra a una estudiante de trece años de la escuela Ana Gloria de la Cruz Estrella.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con la información suministrada, la menor alega haber sido víctima de un secuestro y maltrato físico dentro del plantel educativo. La estudiante sostiene que tres de sus compañeras la retuvieron contra su voluntad en uno de los baños del centro escolar para posteriormente agredirla físicamente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El suceso habría tenido lugar durante la tarde del pasado viernes, 10 de octubre. El centro educativo donde se reportó el hecho se encuentra localizado en la Avenida 27 de Febrero, en la ciudad de Santiago.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, Pedro Pablo Marte, director regional de Educación, confirmó que la institución ha activado de inmediato a su equipo de psicología. El objetivo principal de estas acciones es esclarecer los detalles de lo ocurrido y brindar el apoyo necesario a la parte afectada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades educativas han manifestado su compromiso con la seguridad de los alumnos. En ese sentido, se informó que, de confirmarse la veracidad de la denuncia, se aplicarán las medidas correctivas pertinentes para prevenir que situaciones de esta naturaleza vuelvan a presentarse en el futuro.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/14/6acfe5d836b60.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/investigan-supuesta-agresion-estudiante-escuela-santiago-caballeros_583458.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Educación"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730970,
     "created_at": "2026-10-14T20:28:21.230Z",
     "titulo": "Investigan a pastor guatemalteco tras caso de joven que despertó en un ataúd",
