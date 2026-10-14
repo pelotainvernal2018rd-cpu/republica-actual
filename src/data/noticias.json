@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731000,
+    "created_at": "2026-10-14T22:49:59.651Z",
+    "titulo": "Meteorología prevé condiciones estables con escasas lluvias para este jueves",
+    "slug": "meteorologia-preve-condiciones-estables-con-escasas-lluvias-para-este-jueves",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/14/6ad004ed9fdc6.jpeg\" alt=\"Meteorología prevé condiciones estables con escasas lluvias para este jueves\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología (Indomet) informó que para este jueves se espera un panorama meteorológico marcado por la estabilidad, debido a la influencia de un sistema de alta presión sobre el territorio nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante las primeras horas de la madrugada, se prevé la ocurrencia de chubascos aislados en cuatro provincias específicas del país. Las demarcaciones señaladas son La Altagracia y El Seibo en la región este, así como Barahona y Pedernales en la zona sur.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Al avanzar la mañana, el sistema de alta presión tomará el control de las condiciones atmosféricas en todo el país. Esto resultará en un ambiente caracterizado por cielos despejados con abundante sol y una reducción significativa en las probabilidades de precipitaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para el transcurso de la tarde, el informe meteorológico anticipa un incremento en la nubosidad. Este cambio se deberá principalmente al arrastre de humedad provocado por el viento predominante del este.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, la institución comunicó que, tras el análisis de las condiciones actuales, no se contempla la formación de ciclones tropicales en el área del Caribe durante las próximas horas.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/14/6ad004ed9fdc6.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/meteorologia-pronostica-escasa-lluvia-jueves_583471.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730999,
     "created_at": "2026-10-14T22:44:44.310Z",
     "titulo": "Laurent Mekies asegura su permanencia en Red Bull hasta el 2031",
