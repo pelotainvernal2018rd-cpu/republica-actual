@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623730917,
+    "created_at": "2026-10-14T15:54:37.992Z",
+    "titulo": "Los riesgos ocultos detrás de compartir tu número telefónico en la actualidad",
+    "slug": "los-riesgos-ocultos-detras-de-compartir-tu-numero-telefonico-en-la-actualidad",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/files/fp/uploads/2026/10/14/6acfa2876b93d.r_d.892-179-0.jpeg\" alt=\"Los riesgos ocultos detrás de compartir tu número telefónico en la actualidad\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El número telefónico se ha convertido en una pieza fundamental dentro del entorno digital de las personas. Aunque a simple vista parezca un dato sin importancia, la compañía especializada en seguridad informática ESET señala que esta información es altamente codiciada por los ciberdelincuentes.</p><p>David González, investigador de seguridad de la firma, aclara que un atacante no puede acceder directamente a los dispositivos o cuentas bancarias con solo conocer el número. Sin embargo, esta información funciona como el punto de partida para ejecutar diversas estafas y vulnerar la seguridad digital.</p><p>Una de las primeras acciones que realizan los atacantes consiste en buscar datos personales adicionales vinculados a ese número. Mediante redes sociales o filtraciones previas, recopilan nombres y perfiles para diseñar engaños mucho más convincentes contra la víctima.</p><p>Los criminales también emplean técnicas de ingeniería social para contactar a las personas por llamadas o mensajes. Al suplantar la identidad de instituciones bancarias o empresas de servicios, intentan persuadir a los usuarios para que entreguen claves, códigos o accedan a enlaces maliciosos.</p><p>Otro riesgo latente es el secuestro de cuentas mediante los sistemas de recuperación por SMS. Un ejemplo común ocurre cuando se solicita un código de acceso a WhatsApp y un tercero intenta engañar al usuario para obtenerlo y apoderarse del perfil.</p><p>Asimismo, existe una modalidad conocida como SIM swapping, donde los atacantes manipulan a los operadores telefónicos para transferir el número a otra tarjeta SIM. De este modo, los códigos de verificación y mensajes llegan directamente al dispositivo del delincuente.</p><p>Todas estas maniobras exponen a los usuarios a la pérdida de control sobre sus correos electrónicos, redes sociales y aplicaciones de mensajería. Esto puede derivar en el cambio de credenciales y en estafas dirigidas a los contactos de la persona afectada.</p><p>Para prevenir estos incidentes, los expertos aconsejan no compartir códigos de verificación, evitar dar información personal a desconocidos, verificar las solicitudes por canales oficiales y activar la autenticación de doble factor en todas las cuentas.</p>",
+    "imagen": "https://listindiario.com/files/main_image/files/fp/uploads/2026/10/14/6acfa2876b93d.r_d.892-179-0.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-vida/20261014/que-ciberdelincuente-mi-numero-telefono_926134.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730916,
     "created_at": "2026-10-14T15:51:26.842Z",
     "titulo": "Abatido supuesto delincuente tras enfrentarse a tiros con el Dicrim en Baní",
