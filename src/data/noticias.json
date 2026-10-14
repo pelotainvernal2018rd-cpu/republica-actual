@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730914,
+    "created_at": "2026-10-14T15:31:32.273Z",
+    "titulo": "Ciudadano denuncia supuesta agresión policial durante protesta por escasez de agua en Cotuí",
+    "slug": "ciudadano-denuncia-supuesta-agresion-policial-durante-protesta-por-escasez-de-agua-en-cotui",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-4-10.jpg\" alt=\"Ciudadano denuncia supuesta agresión policial durante protesta por escasez de agua en Cotuí\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un residente de la provincia Sánchez Ramírez denunció haber sido agredido por miembros de la institución del orden en la localidad de Cotuí.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El denunciante fue identificado como Juan José Frías Hilario, quien indicó que el incidente ocurrió en el contexto de una manifestación huelgaria.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los participantes en la protesta reclamaban la reposición del servicio de agua potable, el cual aseguraron que lleva aproximadamente tres meses ausente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con la versión ofrecida por Frías Hilario, durante los hechos resultó con una herida en la cabeza.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El afectado señaló que la lesión fue ocasionada presuntamente con el arma de reglamento perteneciente a uno de los agentes presentes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, el ciudadano hizo un llamado directo al director de la Policía Nacional para que intervenga y preste atención a los acontecimientos registrados en esa demarcación.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-4-10.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/video-denuncian-presuntas-agresiones-policiales-tras-huelga-por-falta-de-agua/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730913,
     "created_at": "2026-10-14T15:26:53.725Z",
     "titulo": "Colombia registra jornada de protestas y marchas contra la administración actual",
