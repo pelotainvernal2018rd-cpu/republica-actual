@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730947,
+    "created_at": "2026-10-14T18:41:54.750Z",
+    "titulo": "Ataque ucraniano a instalaciones de Yandex genera fallas tecnológicas en Rusia",
+    "slug": "ataque-ucraniano-a-instalaciones-de-yandex-genera-fallas-tecnologicas-en-rusia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/1a3d6b22-c7fb-11f1-97b0-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-073454-073643-CS.jpg\" alt=\"Ataque ucraniano a instalaciones de Yandex genera fallas tecnológicas en Rusia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las instalaciones de Yandex, la principal empresa tecnológica de Rusia y frecuentemente denominada como el Google de ese país, fueron blanco reciente de una ofensiva lanzada por Ucrania.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este incidente cibernético ha generado inconvenientes significativos para millones de usuarios en territorio ruso, quienes experimentan limitaciones en el acceso a diversas plataformas digitales cotidianas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los servicios que presentan irregularidades figuran las aplicaciones destinadas al transporte de pasajeros, las herramientas de geolocalización y mapas, las plataformas de reproducción musical y los portales de comercio electrónico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de los problemas en el mercado interno ruso, la agresión tecnológica provocó una reducción en el rendimiento de los denominados bots de origen ruso que operan habitualmente en sitios web de occidente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades y usuarios rusos han confirmado la presencia de estas interrupciones generalizadas mientras los sistemas afectados intentan recuperar su funcionamiento normal tras el impacto recibido.</p>",
+    "imagen": "https://s.france24.com/media/display/1a3d6b22-c7fb-11f1-97b0-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-073454-073643-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261014-ucrania-ataca-instalaciones-de-yandex-el-google-ruso-y-afecta-varios-sectores-tecnol%C3%B3gicos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730946,
     "created_at": "2026-10-14T18:41:34.278Z",
     "titulo": "Dirigentes del PRM movilizan respaldo a David Collado en la provincia Sánchez Ramírez",
