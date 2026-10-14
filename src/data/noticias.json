@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623730932,
+    "created_at": "2026-10-14T17:11:41.169Z",
+    "titulo": "México impulsa el fracking en Veracruz para alcanzar su autosuficiencia energética",
+    "slug": "mexico-impulsa-el-fracking-en-veracruz-para-alcanzar-su-autosuficiencia-energetica",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/fa357b98-c0e4-11f1-9aa2-1ff0321dbbd3/w:1280/p:16x9/FR-NW-OOV-ECRAN-FOCUS-MEXIQUE-FRACKING-GOUGEON-Guillaume.jpg\" alt=\"México impulsa el fracking en Veracruz para alcanzar su autosuficiencia energética\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El gobierno de México ha decidido incrementar la extracción de sus reservas de petróleo y gas de esquisto. Para lograr este objetivo, el país recurre a la fracturación hidráulica, un método conocido habitualmente como fracking.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta polémica técnica industrial ya se encuentra en funcionamiento dentro del estado de Veracruz, situado en el sureste del territorio mexicano, con el propósito de obtener crudo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La administración encabezada por la presidenta Claudia Sheinbaum respalda esta estrategia energética con una meta clara. El gobierno busca disminuir la dependencia que mantiene con Estados Unidos y consolidar la autonomía energética nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, la aplicación de este procedimiento ha generado un fuerte rechazo entre los habitantes de la zona. Las comunidades locales han protestado de forma reiterada durante los últimos años debido al impacto ecológico negativo provocado por estas operaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación en el terreno, los corresponsales Quentin Duval y Laurence Cuvillier se han trasladado a la región veracruzana. Su misión principal consiste en registrar de manera directa las consecuencias ambientales que enfrentan las poblaciones indígenas.</p>",
+    "imagen": "https://s.france24.com/media/display/fa357b98-c0e4-11f1-9aa2-1ff0321dbbd3/w:1280/p:16x9/FR-NW-OOV-ECRAN-FOCUS-MEXIQUE-FRACKING-GOUGEON-Guillaume.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-foco/20261014-fracking-a-qu%C3%A9-precio-busca-m%C3%A9xico-su-independencia-energ%C3%A9tica",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623730931,
     "created_at": "2026-10-14T17:08:32.100Z",
     "titulo": "Exigen traslado de plantas flotantes en Azua por daños ambientales",
