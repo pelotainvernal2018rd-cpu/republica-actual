@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731131,
+    "created_at": "2026-10-15T16:26:45.456Z",
+    "titulo": "Ucrania advierte que las limitaciones en Starlink complican sus operaciones con drones",
+    "slug": "ucrania-advierte-que-las-limitaciones-en-starlink-complican-sus-operaciones-con-drones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b478b8e4-c89c-11f1-850d-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261015-070334-070512-CS.jpg\" alt=\"Ucrania advierte que las limitaciones en Starlink complican sus operaciones con drones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Ucrania han señalado recientemente que las limitaciones impuestas en el funcionamiento de la red satelital Starlink evidencian la profunda dependencia que mantiene el país sobre esta tecnología para sus comunicaciones y logística.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con las denuncias emitidas desde Kiev, las restricciones afectan tanto al servicio comercial de Starlink como a su variante militar denominada Starshield, interfiriendo directamente con las labores de defensa antiaérea.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas trabas tecnológicas están generando inconvenientes específicos en el desarrollo y la ejecución de las operaciones en las que participan vehículos aéreos no tripulados por parte de las fuerzas ucranianas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Frente a esta situación, Elon Musk, quien se desempeña como director ejecutivo de SpaceX, respondió a los señalamientos aclarando que la aplicación de cualquier límite sobre el sistema Starshield es una decisión exclusiva del Gobierno de los Estados Unidos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El empresario puntualizó que su compañía no tiene el control sobre dichas restricciones, desligando a la empresa privada de las directrices que regulan el uso operativo de esta plataforma militar en el territorio afectado.</p>",
+    "imagen": "https://s.france24.com/media/display/b478b8e4-c89c-11f1-850d-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261015-070334-070512-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-ucrania-denuncia-restricciones-a-starlink-y-starshield-que-afectan-a-sus-drones",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731130,
     "created_at": "2026-10-15T16:24:56.346Z",
     "titulo": "Luis Henry Molina encabeza juramentación de 955 nuevos profesionales del derecho en la Suprema Corte de Justicia",
