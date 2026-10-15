@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731163,
+    "created_at": "2026-10-15T19:11:55.905Z",
+    "titulo": "Un repunte histórico en Francia: más de 21.000 personas reciben el bautismo",
+    "slug": "un-repunte-historico-en-francia-mas-de-21-000-personas-reciben-el-bautismo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/d498365a-b685-11f1-935e-e554abee39f5/w:1280/p:16x9/FRMG-CEF-EGLISE-260921-2027-Ep-3-transfer.jpg\" alt=\"Un repunte histórico en Francia: más de 21.000 personas reciben el bautismo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Iglesia católica en territorio francés ha documentado un incremento sin precedentes en la cantidad de personas que deciden recibir el sacramento del bautismo. Durante el transcurso del año 2026, un total que supera los 21.000 individuos, abarcando tanto a adolescentes como a adultos, se han sumado a esta práctica religiosa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este fenómeno llama la atención debido al contexto social en el que se produce, marcado por un proceso continuo de secularización en el país europeo. La situación actual abre el debate sobre los factores que motivan a las nuevas generaciones a vincularse con las instituciones eclesiásticas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las razones manifestadas por quienes han tomado la decisión de bautizarse destacan la búsqueda de un propósito vital y las vivencias personales de cada individuo. Asimismo, se señala el interés por integrarse dentro de una colectividad como otro de los motores principales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los análisis sobre esta tendencia detallan las circunstancias que rodean este crecimiento inusual en la participación religiosa. No obstante, los expertos aclaran que este incremento puntual no representa una reversión de la disminución general que ha experimentado el catolicismo en la región.</p>",
+    "imagen": "https://s.france24.com/media/display/d498365a-b685-11f1-935e-e554abee39f5/w:1280/p:16x9/FRMG-CEF-EGLISE-260921-2027-Ep-3-transfer.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/francia-en-foco/20261015-francia-registra-un-r%C3%A9cord-de-bautizos-vuelve-la-fe-entre-los-j%C3%B3venes",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731162,
     "created_at": "2026-10-15T19:09:37.340Z",
     "titulo": "Dotan de termos con capacidad de 12 galones a planteles de Azua dentro del programa Escuelas Abiertas",
