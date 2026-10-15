@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731067,
+    "created_at": "2026-10-15T07:26:56.280Z",
+    "titulo": "Los mandatarios europeos negocian el futuro presupuesto comunitario en una cumbre decisiva",
+    "slug": "los-mandatarios-europeos-negocian-el-futuro-presupuesto-comunitario-en-una-cumbre-decisiva",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0aa7737e-c83c-11f1-af7d-638c1c1f5fd6/w:1280/p:16x9/90bd5f4c90f09eb957948de43a7ce1797745125f.jpg\" alt=\"Los mandatarios europeos negocian el futuro presupuesto comunitario en una cumbre decisiva\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los principales representantes de la Unión Europea se han citado este jueves en un encuentro cumbre con la meta de lograr un pacto sobre las cuentas comunitarias que abarcan el periodo entre 2028 y 2034. La cifra total en discusión se aproxima a los dos billones de euros para los próximos años.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, las conversaciones se desarrollan en un escenario marcado por diferencias significativas entre los Estados miembros en lo referente a la asignación y el manejo de los fondos económicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de la complejidad técnica de las cuentas, las negociaciones están condicionadas por el contexto político actual en el continente europeo. En particular, existe preocupación ante la posibilidad de que los próximos procesos electorales incrementen el respaldo a los sectores políticos de carácter euroescéptico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Francia figura de manera destacada entre los territorios donde se teme este fortalecimiento político, lo que añade urgencia a las deliberaciones de los mandatarios en este momento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama, la intención de los líderes del bloque es destrabar las discusiones y cerrar una postura consensuada antes de la llegada de las festividades navideñas.</p>",
+    "imagen": "https://s.france24.com/media/display/0aa7737e-c83c-11f1-af7d-638c1c1f5fd6/w:1280/p:16x9/90bd5f4c90f09eb957948de43a7ce1797745125f.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261015-los-l%C3%ADderes-de-la-ue-afrontan-una-decisiva-batalla-presupuestaria-ante-la-proximidad-de-las-elecciones",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731066,
     "created_at": "2026-10-15T06:26:55.104Z",
     "titulo": "Rumania indaga incidente con drones cerca de un buque petrolero en el mar Negro",
