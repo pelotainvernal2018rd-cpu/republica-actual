@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731066,
+    "created_at": "2026-10-15T06:26:55.104Z",
+    "titulo": "Rumania indaga incidente con drones cerca de un buque petrolero en el mar Negro",
+    "slug": "rumania-indaga-incidente-con-drones-cerca-de-un-buque-petrolero-en-el-mar-negro",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3ec22678-c84a-11f1-85e1-4dd8ac2cf3bf/w:1280/p:16x9/000-B6L73WH.jpg\" alt=\"Rumania indaga incidente con drones cerca de un buque petrolero en el mar Negro\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Rumania han iniciado una investigación tras reportarse un posible ataque con drones contra un buque petrolero que navegaba frente a sus costas. Este suceso se suma a una serie de eventos similares registrados en los últimos días en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde la semana pasada, se ha documentado que diversas embarcaciones han sido impactadas por drones en aguas próximas a las fronteras marítimas de Rumania y Bulgaria. Estos incidentes han generado preocupación sobre la seguridad de la navegación en el mar Negro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito político, el presidente de Ucrania, Volodímir Zelenski, confirmó recientemente que su país tiene la intención de retomar las operaciones ofensivas dirigidas contra las refinerías de petróleo situadas en territorio ruso.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta declaración fue difundida a través de una entrevista concedida al diario Financial Times, donde el mandatario ucraniano expuso la estrategia de su gobierno frente a la infraestructura energética de Moscú.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, el gobierno del Reino Unido ha solicitado formalmente que se intensifiquen las medidas restrictivas contra la denominada flota fantasma utilizada por Rusia para evadir controles internacionales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La comunidad internacional mantiene una estrecha vigilancia sobre estos acontecimientos, ante el riesgo que representan para la estabilidad del transporte marítimo y la seguridad energética en el contexto del conflicto actual.</p>",
+    "imagen": "https://s.france24.com/media/display/3ec22678-c84a-11f1-85e1-4dd8ac2cf3bf/w:1280/p:16x9/000-B6L73WH.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261015-en-directo-guerra-en-ucrania-rumania-investiga-un-posible-ataque-contra-un-buque-petrolero-en-el-mar-negro",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731065,
     "created_at": "2026-10-15T05:57:00.646Z",
     "titulo": "Gobierno y oposición venezolana reanudan conversaciones en busca de una salida política",
