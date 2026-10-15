@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731038,
+    "created_at": "2026-10-15T02:41:58.216Z",
+    "titulo": "Policía turca interrumpe transmisión de Halk TV durante redada",
+    "slug": "policia-turca-interrumpe-transmision-de-halk-tv-durante-redada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/94473978-c839-11f1-a080-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-190752-190942-CS.jpg\" alt=\"Policía turca interrumpe transmisión de Halk TV durante redada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La policía turca llevó a cabo una redada en la sede de Halk TV, uno de los canales de oposición más importantes del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La operación fue ordenada por la Fiscalía, según informes oficiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la intervención, la transmisión en vivo del canal se detuvo de forma abrupta.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El espacio vacante fue ocupado por una película turca de los años 70, mientras los agentes ingresaban al edificio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los agentes continuaron su entrada en la sede, controlando el acceso y las instalaciones del medio.</p>",
+    "imagen": "https://s.france24.com/media/display/94473978-c839-11f1-a080-d1d2c32ebb87/w:1280/p:16x9/ES-20261014-190752-190942-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-canal-opositor-queda-bajo-control-policial-durante-una-redada-en-turqu%C3%ADa",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731037,
     "created_at": "2026-10-15T02:26:59.624Z",
     "titulo": "Inflación en Estados Unidos desafía las proyecciones económicas antes de las elecciones",
