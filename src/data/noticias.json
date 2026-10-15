@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731140,
+    "created_at": "2026-10-15T17:12:03.241Z",
+    "titulo": "El Vaticano informa sobre la favorable evolución médica del papa León XIV desde Roma",
+    "slug": "el-vaticano-informa-sobre-la-favorable-evolucion-medica-del-papa-leon-xiv-desde-roma",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c904fe00-c8b8-11f1-86ee-2d1c143cdef3/w:1280/p:16x9/ES-20261015-100836-100957-CS.jpg\" alt=\"El Vaticano informa sobre la favorable evolución médica del papa León XIV desde Roma\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El estado de salud del papa León XIV muestra signos alentadores de mejoría, de acuerdo con el reciente parte médico emitido para los representantes de los medios de comunicación en el Vaticano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los resultados obtenidos en una nueva radiografía torácica confirman que el tejido pulmonar intervenido quirúrgicamente progresa de manera satisfactoria y positiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante su estancia en el centro hospitalario, el sumo pontífice logró movilizar su anatomía por completo y llevar a cabo diversas acciones de manera independiente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reporte oficial detalla también que el líder de la Iglesia católica ofició una ceremonia religiosa desde las instalaciones del hospital Gemelli en la capital italiana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El obispo de Roma continúa internado en dicho recinto médico romano bajo observación, mientras se mantiene la difusión de los detalles sobre su proceso de convalecencia.</p>",
+    "imagen": "https://s.france24.com/media/display/c904fe00-c8b8-11f1-86ee-2d1c143cdef3/w:1280/p:16x9/ES-20261015-100836-100957-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-informe-desde-el-vaticano-la-salud-del-papa-le%C3%B3n-xiv-evoluciona-de-manera-positiva",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731139,
     "created_at": "2026-10-15T17:11:32.614Z",
     "titulo": "Nuevas autoridades del Club de Ideas Políticas de la PUCMM sostienen encuentro institucional con Danilo Medina",
