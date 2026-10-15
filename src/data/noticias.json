@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731083,
+    "created_at": "2026-10-15T12:26:46.300Z",
+    "titulo": "Edi Rama rechaza dimitir en Albania pese a tres días de protestas universitarias y disturbios",
+    "slug": "edi-rama-rechaza-dimitir-en-albania-pese-a-tres-dias-de-protestas-universitarias-y-disturbios",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/fbf524c2-c820-11f1-9100-2d1c143cdef3/w:1280/p:16x9/2026-10-14T222222Z-1949817444-RC233OAJSBMG-RTRMADP-3-ALBANIA-PROTESTS.jpg\" alt=\"Edi Rama rechaza dimitir en Albania pese a tres días de protestas universitarias y disturbios\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El jefe de Gobierno de Albania, Edi Rama, ha descartado este jueves abandonar su puesto a raíz de las movilizaciones protagonizadas por estudiantes universitarios durante las últimas tres jornadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las protestas, impulsadas por colectivos estudiantiles, se centran en el rechazo a los elevados precios de la enseñanza superior, el estado de las instalaciones académicas y la corrupción en el sector.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación de tensión generada en las calles derivó en enfrentamientos con los cuerpos de seguridad del Estado, lo que se tradujo en la detención de decenas de personas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Debido a la intensidad de los altercados y las movilizaciones, las autoridades se vieron en la obligación de cancelar la sesión que el Parlamento tenía programada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Frente a esta presión social y política, el Ejecutivo albanés ha ratificado su decisión de mantenerse en funciones y continuar con su mandato actual.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, desde el Gobierno se ha señalado directamente a la oposición, a la que acusa de utilizar el conflicto para obstaculizar el proceso de integración del país en la Unión Europea.</p>",
+    "imagen": "https://s.france24.com/media/display/fbf524c2-c820-11f1-9100-2d1c143cdef3/w:1280/p:16x9/2026-10-14T222222Z-1949817444-RC233OAJSBMG-RTRMADP-3-ALBANIA-PROTESTS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261015-albania-rama-descarta-dimitir-tras-tres-d%C3%ADas-de-protestas-estudiantiles-y-disturbios",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731082,
     "created_at": "2026-10-15T12:24:38.131Z",
     "titulo": "Organización de las Naciones Unidas para la Alimentación y la Agricultura señala que la pobreza indígena responde a factores estructurales y climáticos",
