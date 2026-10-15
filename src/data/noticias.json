@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731078,
+    "created_at": "2026-10-15T11:41:40.532Z",
+    "titulo": "Organización de las Naciones Unidas advierte sobre posible aumento de la pobreza global hacia 2026",
+    "slug": "organizacion-de-las-naciones-unidas-advierte-sobre-posible-aumento-de-la-pobreza-global-hacia-2026",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/74219896-c85c-11f1-ae87-2d1c143cdef3/w:1280/p:16x9/538cdd4b2c9f135c976f7ddefe6fe1b0533a31bf.jpg\" alt=\"Organización de las Naciones Unidas advierte sobre posible aumento de la pobreza global hacia 2026\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un nuevo informe emitido por el Programa de Naciones Unidas para el Desarrollo señala que una gran cantidad de habitantes a nivel global enfrenta el riesgo de descender a situaciones de pobreza durante el año 2026.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El organismo internacional indicó que esta problemática estaría impulsada principalmente por el incremento sostenido en los costos de los productos alimenticios y de los recursos energéticos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Alexander de Croo, dirigente de la entidad, explicó que el escenario económico actual se complica aún más para las naciones en desarrollo debido a sus elevados niveles de endeudamiento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A esta carga financiera se suman las altas tasas de interés aplicadas en los mercados, lo cual limita la capacidad de respuesta de los gobiernos afectados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adicionalmente, el informe destaca la amenaza latente de un fuerte fenómeno climático de El Niño en estas regiones vulnerables.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este evento atmosférico podría desencadenar diversos episodios extremos, incluyendo inundaciones severas y periodos prolongados de sequía.</p>",
+    "imagen": "https://s.france24.com/media/display/74219896-c85c-11f1-ae87-2d1c143cdef3/w:1280/p:16x9/538cdd4b2c9f135c976f7ddefe6fe1b0533a31bf.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/econom%C3%ADa-y-tecnolog%C3%ADa/20261015-onu-130-millones-de-personas-podr%C3%ADan-caer-en-la-pobreza-por-el-alza-de-la-energ%C3%ADa-y-los-alimentos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731077,
     "created_at": "2026-10-15T11:39:35.261Z",
     "titulo": "Indomet pronostica jueves caluroso con lluvias dispersas y tronadas en varias provincias",
