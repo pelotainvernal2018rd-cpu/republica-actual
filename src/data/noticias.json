@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731143,
+    "created_at": "2026-10-15T17:26:43.820Z",
+    "titulo": "Costa Rica impulsa nueva cárcel de máxima seguridad basada en el modelo salvadoreño",
+    "slug": "costa-rica-impulsa-nueva-carcel-de-maxima-seguridad-basada-en-el-modelo-salvadoreno",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c4d3e96c-c8b9-11f1-9ac2-6313a763b466/w:1280/p:16x9/ES-20261015-101054-101238-CS.jpg\" alt=\"Costa Rica impulsa nueva cárcel de máxima seguridad basada en el modelo salvadoreño\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Costa Rica anunciaron la puesta en marcha de un moderno centro penitenciario de máxima seguridad. La infraestructura tendrá la capacidad de albergar a más de cinco mil personas privadas de libertad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El diseño de este recinto carcelario incluye celdas dotadas de rejas metálicas y mobiliario de hormigón. El objetivo principal es mantener condiciones de vida estrictamente austeras para la población recluida en el lugar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de la normativa interna, los reclusos contarán con un permiso limitado de apenas una hora diaria para realizar actividades al aire libre. Esta disposición ha sido respaldada públicamente por la mandataria costarricense, Laura Fernández.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El proyecto penitenciario toma como referencia principal el esquema de alta seguridad implementado por el mandatario de El Salvador, Nayib Bukele, en su país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la implementación de estas medidas en territorio costarricense, diversos grupos defensores de los derechos humanos han manifestado su preocupación. Estas organizaciones han señalado la existencia de supuestas irregularidades, detenciones sin orden previa y múltiples fallecimientos de personas bajo la custodia del sistema carcelario salvadoreño.</p>",
+    "imagen": "https://s.france24.com/media/display/c4d3e96c-c8b9-11f1-9ac2-6313a763b466/w:1280/p:16x9/ES-20261015-101054-101238-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-costa-rica-construye-megac%C3%A1rcel-inspirada-en-las-prisiones-de-bukele-en-el-salvador",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731142,
     "created_at": "2026-10-15T17:24:46.335Z",
     "titulo": "Selección colombiana de béisbol sub-18 se ausentará del clasificatorio en territorio dominicano",
