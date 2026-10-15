@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731165,
+    "created_at": "2026-10-15T19:26:50.687Z",
+    "titulo": "La inflación francesa escala al 3,1 por ciento en septiembre por la crisis energética",
+    "slug": "la-inflacion-francesa-escala-al-3-1-por-ciento-en-septiembre-por-la-crisis-energetica",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/10e572be-c89a-11f1-83d6-6313a763b466/w:1280/p:16x9/AP26286557031206.jpg\" alt=\"La inflación francesa escala al 3,1 por ciento en septiembre por la crisis energética\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La economía de Francia ha experimentado su nivel de inflación más elevado de los últimos dos años durante el pasado mes de septiembre, de acuerdo con los datos económicos recientes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El índice de precios al consumo interanual se situó en el 3,1 por ciento, superando de manera significativa la meta del dos por ciento fijada por el Banco Central Europeo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este incremento generalizado en el costo de la vida responde principalmente al fuerte encarecimiento del sector energético en el territorio francés.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los registros oficiales indican que los precios de la energía aumentaron por encima del 21 por ciento, mientras que los productos petrolíferos registraron un salto drástico del 36,2 por ciento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación inflacionaria se desarrolla en un escenario de malestar social generalizado entre la población debido al encarecimiento de los productos básicos y servicios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El actual escenario económico desfavorable ha sido agravado por la crisis energética global, la cual está vinculada directamente a los bloqueos registrados en el Estrecho de Ormuz, situado en el Golfo Pérsico.</p>",
+    "imagen": "https://s.france24.com/media/display/10e572be-c89a-11f1-83d6-6313a763b466/w:1280/p:16x9/AP26286557031206.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/econom%C3%ADa/20261015-francia-registra-su-mayor-inflaci%C3%B3n-en-dos-a%C3%B1os-impulsada-por-el-encarecimiento-de-la-energ%C3%ADa",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731164,
     "created_at": "2026-10-15T19:24:40.890Z",
     "titulo": "Sectores judiciales y profesionales respaldan la postulación de Eury Feliz Castillo al Premio Nacional de la Juventud 2027",
