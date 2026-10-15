@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731068,
+    "created_at": "2026-10-15T09:11:40.408Z",
+    "titulo": "Tragedia escolar en Pakistán: el colapso de un techo deja 28 fallecidos",
+    "slug": "tragedia-escolar-en-pakistan-el-colapso-de-un-techo-deja-28-fallecidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/aa866466-c86b-11f1-b34b-6313a763b466/w:1280/p:16x9/AP26288241083154.jpg\" alt=\"Tragedia escolar en Pakistán: el colapso de un techo deja 28 fallecidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un trágico incidente en una institución educativa situada en la región noroccidental de Pakistán ha cobrado la vida de veintiocho personas tras venirse abajo la estructura superior del edificio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reporte oficial confirma entre las víctimas fatales a veintisiete alumnos y a un docente que se encontraba laborando en el establecimiento al momento del colapso.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las labores de rescate continúan desarrollándose en el área afectada con el propósito de localizar a los menores que permanecen bajo los restos materiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la magnitud del suceso, los equipos de emergencia y las autoridades locales expresan su preocupación ante la posibilidad de que el recuento total de fallecidos se incremente en las próximas horas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En paralelo a las tareas de salvamento, las instancias correspondientes han abierto una indagatoria para esclarecer los motivos que originaron la caída del techo en la ciudad de Peshawar.</p>",
+    "imagen": "https://s.france24.com/media/display/aa866466-c86b-11f1-b34b-6313a763b466/w:1280/p:16x9/AP26288241083154.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/asia-pac%C3%ADfico/20261015-derrumbe-de-una-escuela-en-pakist%C3%A1n-deja-al-menos-28-muertos-y-decenas-de-heridos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731067,
     "created_at": "2026-10-15T07:26:56.280Z",
     "titulo": "Los mandatarios europeos negocian el futuro presupuesto comunitario en una cumbre decisiva",
