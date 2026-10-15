@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731204,
+    "created_at": "2026-10-15T22:41:51.103Z",
+    "titulo": "El Salón del Automóvil de París destaca el auge de la tecnología china y la conducción autónoma",
+    "slug": "el-salon-del-automovil-de-paris-destaca-el-auge-de-la-tecnologia-china-y-la-conduccion-autonoma",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/f302c598-c8e0-11f1-961e-638c1c1f5fd6/w:1280/p:16x9/Automovil-Paris.jpg\" alt=\"El Salón del Automóvil de París destaca el auge de la tecnología china y la conducción autónoma\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La reciente edición del Mundial del Automóvil de París ha puesto de relieve dos tendencias que marcan el rumbo del sector automotriz a nivel global. El evento ha servido como escenario para observar el creciente protagonismo de las innovaciones tecnológicas y la expansión de los fabricantes asiáticos en el mercado europeo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Uno de los puntos de mayor interés durante la feria ha sido la exhibición de vehículos con capacidades de conducción autónoma. Aunque la legislación vigente en Francia limita el uso de estas tecnologías a sistemas de asistencia al conductor, la capital francesa ha sido testigo de pruebas con prototipos capaces de desplazarse de manera independiente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, la presencia de las marcas provenientes de China ha alcanzado una cifra significativa dentro del recinto ferial. Según los datos registrados en esta edición, los fabricantes de dicho país ya ocupan una tercera parte del total de los espacios destinados a los expositores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este fenómeno subraya la competitividad que están alcanzando las empresas chinas en el ámbito internacional. Su participación masiva en un evento de la relevancia del Salón de París confirma su intención de consolidar su influencia en el mercado automotor de Europa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La combinación de estos avances en autonomía y la fuerte irrupción de las marcas asiáticas define el panorama actual de la industria. El evento continúa siendo un referente para analizar cómo la tecnología y la competencia global están transformando la movilidad moderna.</p>",
+    "imagen": "https://s.france24.com/media/display/f302c598-c8e0-11f1-961e-638c1c1f5fd6/w:1280/p:16x9/Automovil-Paris.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-la-puja-tecnol%C3%B3gica-entre-europa-y-china-en-el-sal%C3%B3n-del-autom%C3%B3vil-de-par%C3%ADs",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731203,
     "created_at": "2026-10-15T22:41:25.646Z",
     "titulo": "Evacúan politécnico en San Isidro tras registrarse un conato de incendio",
