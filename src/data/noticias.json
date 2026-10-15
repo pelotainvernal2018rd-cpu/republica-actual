@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731162,
+    "created_at": "2026-10-15T19:08:15.373Z",
+    "titulo": "Buscan a niño de cuatro años desaparecido en el sector Los Tres Brazos",
+    "slug": "buscan-a-nino-de-cuatro-anos-desaparecido-en-el-sector-los-tres-brazos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/15/6ad1240fd378c.jpeg\" alt=\"Buscan a niño de cuatro años desaparecido en el sector Los Tres Brazos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un niño de cuatro años de edad permanece desaparecido desde la noche del pasado miércoles en el sector Los Tres Brazos, ubicado en el municipio Santo Domingo Este.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La información fue ofrecida este jueves por la madre del menor, identificada como Chanthal Gabriel, quien detalló que la desaparición ocurrió en las inmediaciones de la estación del teleférico de la zona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con los datos disponibles, el menor jugaba en la acera frente a su vivienda cuando una mujer presuntamente lo llevó consigo, perdiéndose su rastro alrededor de las diez de la noche.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, la madre acudió al destacamento policial de la demarcación para reportar el hecho, mientras que su esposo se trasladó hasta la sede principal de la Policía Nacional en el Distrito Nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Gabriel indicó que las autoridades policiales asumieron el caso y que un sargento le comunicó que se debe aguardar el cumplimiento del plazo de 24 horas para activar de manera oficial los protocolos de búsqueda.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/15/6ad1240fd378c.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/policiales/desaparece-nino-residente-sector-tres-brazos-santo-domingo_583558.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731161,
     "created_at": "2026-10-15T18:56:44.454Z",
     "titulo": "Gobierno francés y líderes estudiantiles sostienen su tercera mesa de diálogo en busca de acuerdos",
