@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731103,
+    "created_at": "2026-10-15T14:11:54.343Z",
+    "titulo": "El Mont Blanc registra un incremento en su altitud tras la última medición oficial",
+    "slug": "el-mont-blanc-registra-un-incremento-en-su-altitud-tras-la-ultima-medicion-oficial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/fa134b50-c89f-11f1-b418-d1d2c32ebb87/w:1280/p:16x9/ES-20261015-071031-071219-CS.jpg\" alt=\"El Mont Blanc registra un incremento en su altitud tras la última medición oficial\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La montaña más elevada de Europa occidental y de la cordillera de los Alpes ha modificado sus registros oficiales de altitud. De acuerdo con el más reciente análisis topográfico, la cumbre se sitúa ahora en los 4.807,47 metros sobre el nivel del mar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este nuevo cálculo representa un aumento de casi dos metros en comparación con el registro obtenido durante el año 2023. El incremento llama la atención de la comunidad científica debido a los reportes previos sobre el impacto del deshielo en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para alcanzar esta cima y efectuar el levantamiento de datos, un grupo conformado por 32 especialistas realizó una rigurosa expedición. La labor de ascenso requirió diez horas de trayecto en el mes de septiembre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante este trabajo de campo, los expertos lograron capturar un total de 1.300 imágenes fotográficas. Asimismo, el equipo técnico recolectó un registro estimado de 15 millones de puntos de datos para asegurar la precisión.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las mediciones oficiales en este punto geográfico se llevan a cabo de manera sistemática desde el año 2001. A pesar del repunte registrado en esta ocasión frente a las cifras del periodo anterior, los datos acumulados muestran un panorama diferente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Al analizar el comportamiento de la montaña a lo largo del último cuarto de siglo, los especialistas señalan que la tendencia general ha sido a la baja, a pesar de fluctuaciones puntuales como la actual.</p>",
+    "imagen": "https://s.france24.com/media/display/fa134b50-c89f-11f1-b418-d1d2c32ebb87/w:1280/p:16x9/ES-20261015-071031-071219-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-el-mont-blanc-gana-casi-dos-metros-y-alcanza-los-4-807-metros-pese-al-deshielo-de-los-glaciares",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731102,
     "created_at": "2026-10-15T14:10:19.523Z",
     "titulo": "Tribunal Superior Electoral desestima recurso del Partido Humanista Dominicano y toma decisiones sobre otros expedientes",
