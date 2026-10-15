@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731161,
+    "created_at": "2026-10-15T18:56:44.454Z",
+    "titulo": "Gobierno francés y líderes estudiantiles sostienen su tercera mesa de diálogo en busca de acuerdos",
+    "slug": "gobierno-frances-y-lideres-estudiantiles-sostienen-su-tercera-mesa-de-dialogo-en-busca-de-acuerdos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5b0931ec-c8b7-11f1-bd44-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261015-072225-072812-CS.jpg\" alt=\"Gobierno francés y líderes estudiantiles sostienen su tercera mesa de diálogo en busca de acuerdos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las delegaciones estudiantiles que encabezan las recientes movilizaciones en territorio francés mantienen este encuentro con representantes gubernamentales para revisar los puntos centrales de sus peticiones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta cita representa el tercer cara a cara oficial entre ambas partes, un espacio donde los organizadores de las protestas esperan recibir contestaciones claras y definitivas sobre sus planteamientos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la complejidad de los temas sobre la mesa, los portavoces de los estudiantes han manifestado una postura favorable respecto al desarrollo de estas conversaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los participantes en el proceso confinan en que el intercambio de propuestas permita destrabar los puntos de mayor fricción y conduzca a soluciones tangibles para el sector.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde la capital francesa, la corresponsal Natalia Ruiz mantiene el seguimiento continuo a los acontecimientos para ofrecer los pormenores de este proceso de concertación.</p>",
+    "imagen": "https://s.france24.com/media/display/5b0931ec-c8b7-11f1-bd44-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261015-072225-072812-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-directo-par%C3%ADs-y-el-avance-de-la-tercera-reuni%C3%B3n-entre-el-gobierno-y-l%C3%ADderes-estudiantiles",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731160,
     "created_at": "2026-10-15T18:54:35.926Z",
     "titulo": "El embajador Víctor Suárez acompaña al presidente Abinader en su agenda diplomática en el Vaticano",
