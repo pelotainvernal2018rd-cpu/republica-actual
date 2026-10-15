@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731106,
+    "created_at": "2026-10-15T14:26:53.311Z",
+    "titulo": "Incendio de buques cisterna en el mar Negro eleva la tensión regional tras ataques con drones",
+    "slug": "incendio-de-buques-cisterna-en-el-mar-negro-eleva-la-tension-regional-tras-ataques-con-drones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3ec22678-c84a-11f1-85e1-4dd8ac2cf3bf/w:1280/p:16x9/000-B6L73WH.jpg\" alt=\"Incendio de buques cisterna en el mar Negro eleva la tensión regional tras ataques con drones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dos barcos cisterna resultaron afectados por incendios luego de recibir impactos de drones en aguas del mar Negro, situadas frente al litoral de Rumania.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia de estos incidentes ocurridos este jueves, un total de siete tripulantes fueron reportados como desaparecidos y continuaban sin ser localizados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Nicușor Dan, mandatario de Rumania, señaló directamente a Rusia de intentar generar inestabilidad en la frontera oriental de la Alianza Atlántica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de estas acusaciones gubernamentales, las autoridades indicaron que la responsabilidad exacta por los ataques permanece bajo indagación oficial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estos acontecimientos negativos se integran a una escalada previa de agresiones dirigidas contra embarcaciones de transporte comercial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La zona afectada representa un corredor marítimo fundamental para el tránsito de las exportaciones procedentes de Ucrania.</p>",
+    "imagen": "https://s.france24.com/media/display/3ec22678-c84a-11f1-85e1-4dd8ac2cf3bf/w:1280/p:16x9/000-B6L73WH.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261015-ataques-con-drones-contra-buques-mercantes-agravan-la-tensi%C3%B3n-en-el-mar-negro",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731105,
     "created_at": "2026-10-15T14:25:53.723Z",
     "titulo": "Diego Poncelet rompe récord mundial de velocidad en monopatín en Canadá",
