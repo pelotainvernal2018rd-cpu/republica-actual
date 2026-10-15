@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731117,
+    "created_at": "2026-10-15T15:26:46.279Z",
+    "titulo": "Trump frena la transmisión en vivo de la ejecución del atacante de Fort Hood",
+    "slug": "trump-frena-la-transmision-en-vivo-de-la-ejecucion-del-atacante-de-fort-hood",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5d85b08a-c15a-11f1-a949-b942c38e4bd7/w:1280/p:16x9/ea1c3d12c8887041340d085bacee203cbc979e43.jpg\" alt=\"Trump frena la transmisión en vivo de la ejecución del atacante de Fort Hood\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El mandatario estadounidense Donald Trump decidió no seguir adelante con la retransmisión en directo de la ejecución de Nidal Malik Hasan. La medida se produce luego de que surgieran diversas críticas en contra de la iniciativa propuesta por el gobernante.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasan recibió una condena a pena de muerte por su responsabilidad en el asesinato de trece personas. El trágico suceso ocurrió en el año 2009 dentro de las instalaciones de la base militar de Fort Hood, ubicada en el estado de Texas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Previamente, el presidente había respaldado la idea de televisar el proceso legal como un método preventivo. Según su planteamiento inicial, esta medida serviría para disuadir la comisión de futuros actos de carácter terrorista.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la rectificación sobre la transmisión pública, los planes judiciales se mantienen firmes. La ejecución del condenado continúa programada para llevarse a cabo el próximo 3 de diciembre.</p>",
+    "imagen": "https://s.france24.com/media/display/5d85b08a-c15a-11f1-a949-b942c38e4bd7/w:1280/p:16x9/ea1c3d12c8887041340d085bacee203cbc979e43.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ee-uu-y-canad%C3%A1/20261015-trump-descarta-retransmitir-en-directo-la-ejecuci%C3%B3n-del-autor-de-la-matanza-de-fort-hood",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731116,
     "created_at": "2026-10-15T15:25:41.214Z",
     "titulo": "Leonel Fernández solicita a Estados Unidos revisar el DR-Cafta para proteger al sector arrocero dominicano",
