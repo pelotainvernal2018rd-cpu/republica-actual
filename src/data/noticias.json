@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731147,
+    "created_at": "2026-10-15T17:42:09.247Z",
+    "titulo": "Movilizaciones sociales marcan la jornada en Colombia bajo estrictas medidas de seguridad gubernamentales",
+    "slug": "movilizaciones-sociales-marcan-la-jornada-en-colombia-bajo-estrictas-medidas-de-seguridad-gubernamentales",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c8753104-c8b7-11f1-bd43-6313a763b466/w:1280/p:16x9/ES-20261015-074201-075003-CS.jpg\" alt=\"Movilizaciones sociales marcan la jornada en Colombia bajo estrictas medidas de seguridad gubernamentales\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El territorio colombiano fue escenario este 14 de octubre de una serie de marchas organizadas por colectivos sindicales, comunidades indígenas y agrupaciones opositoras a la administración del presidente Abelardo De la Espriella.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Previo al desarrollo de estas protestas, el jefe de Estado manifestó públicamente que implementará acciones con total firmeza ante cualquier intento de desestabilización nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de las disposiciones previas a las movilizaciones, el mandatario suscribió un decreto especial destinado a normar el protocolo de actuación de los cuerpos de seguridad del Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la tensión generada por los antecedentes y las advertencias oficiales, las manifestaciones populares transcurrieron en completa calma y sin alteraciones del orden público.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los detalles de esta jornada de movilización fueron reportados por el periodista Rodrigo Sedano, quien además ofreció información sobre la reciente apertura de una sede diplomática de Colombia en Jerusalén.</p>",
+    "imagen": "https://s.france24.com/media/display/c8753104-c8b7-11f1-bd43-6313a763b466/w:1280/p:16x9/ES-20261015-074201-075003-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261015-directo-latam-y-la-jornada-de-manifestaciones-contra-de-la-espriella-en-colombia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731146,
     "created_at": "2026-10-15T17:39:56.046Z",
     "titulo": "Productores agropecuarios demandan mayor acceso a financiamiento para impulsar el sector",
