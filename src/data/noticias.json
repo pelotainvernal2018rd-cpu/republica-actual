@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731096,
+    "created_at": "2026-10-15T13:26:57.782Z",
+    "titulo": "Ataque con drones ucranianos a infraestructura de Yandex genera debate sobre operaciones digitales de Moscú",
+    "slug": "ataque-con-drones-ucranianos-a-infraestructura-de-yandex-genera-debate-sobre-operaciones-digitales-de-moscu",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3112fa02-c804-11f1-ab3d-d1d2c32ebb87/w:1280/p:16x9/WEB-PORTADA-14OCT-CYT.jpg\" alt=\"Ataque con drones ucranianos a infraestructura de Yandex genera debate sobre operaciones digitales de Moscú\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las fuerzas ucranianas llevaron a cabo una ofensiva con drones dirigida contra tres centros de datos pertenecientes a la empresa tecnológica rusa Yandex. Esta acción militar afectó de manera directa la infraestructura digital de una de las compañías más grandes del país euroasiático.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como consecuencia de estos ataques, diversos servicios digitales operados por la firma sufrieron interrupciones temporales. La destrucción parcial de estas instalaciones tecnológicas evidenció la vulnerabilidad de los sistemas de almacenamiento y procesamiento de datos en territorio ruso.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras el operativo, el mandatario ucraniano Volodímir Zelenski comentó que las plataformas de redes sociales mostraban un ambiente menos hostil. Atribuyó esta percepción a una posible disminución en la actividad de cuentas automatizadas o bots tras las afectaciones técnicas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, expertos en el análisis de desinformación señalaron que hasta el momento no existen evidencias concretas que confirmen una reducción sustancial en las operaciones de influencia patrocinadas por el Kremlin.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Especialistas en ciberseguridad y estrategia digital continúan evaluando el verdadero impacto de este tipo de ataques contra la infraestructura tecnológica rusa y su relevancia dentro del conflicto actual.</p>",
+    "imagen": "https://s.france24.com/media/display/3112fa02-c804-11f1-ab3d-d1d2c32ebb87/w:1280/p:16x9/WEB-PORTADA-14OCT-CYT.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/ciencia-y-tecnolog%C3%ADa/20261015-menos-bots-rusos-ucrania-golpea-la-infraestructura-digital-de-mosc%C3%BA",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731095,
     "created_at": "2026-10-15T13:24:40.124Z",
     "titulo": "Pronostican chubascos aislados y temperaturas calurosas para este jueves en el país",
