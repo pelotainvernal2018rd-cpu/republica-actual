@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731344,
+    "created_at": "2026-10-16T17:01:46.283Z",
+    "titulo": "Dicat alerta a usuarios de compras online: verifica antes de pagar",
+    "slug": "dicat-alerta-a-usuarios-de-compras-online-verifica-antes-de-pagar",
+    "contenido": "\n      <div style=\"text-align:center;margin-bottom:25px;\">\n        <img\n          src=\"https://resources.diariolibre.com/images/2026/10/16/marketplace-como-comprar-y-vender-con-menor-riesgo-c01acf42-focus-0-0-1200-675.jpg\"\n          alt=\"Marketplace: cómo comprar y vender con menor riesgo\"\n          style=\"\n            width:100%;\n            max-width:750px;\n            height:auto;\n            display:block;\n            margin:auto;\n            border-radius:6px;\n          \"\n        >\n      </div>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El auge de las compras y ventas por internet ha impulsado el uso de plataformas como Facebook Marketplace, donde compradores y vendedores se conectan fácilmente.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Para evitar estafas, la Dirección de Área de Policía Cibernética (Dicat) recomienda revisar minuciosamente la publicación y el perfil del vendedor: comentarios, antigüedad de la cuenta, fotos y descripción del artículo. También es aconsejable solicitar imágenes adicionales y verificar las valoraciones disponibles.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Dicat advierte contra ofertas con precios excesivamente bajos sin justificación. Se sugiere solicitar información clara del comercio, como dirección, teléfono y, cuando corresponda, el Registro Nacional de Contribuyentes (RNC).\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Antes de realizar cualquier depósito o transferencia, el comprador debe confirmar el destinatario, el monto y las condiciones de la transacción. El vendedor debe verificar que los fondos se hayan acreditado en su cuenta bancaria a través de canales oficiales, no solo por capturas de pantalla.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Para la entrega presencial, se recomienda elegir un lugar público, concurrido y bien iluminado, informar a una persona de confianza y evitar zonas aisladas. El comprador debe inspeccionar el producto antes de entregarlo y el vendedor debe confirmar el pago antes de entregar la mercancía.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Es fundamental no compartir contraseñas, códigos de verificación ni credenciales bancarias. Los usuarios deben desconfiar de enlaces sospechosos, conservar todas las conversaciones y comprobantes, y en caso de sospecha de estafa, contactar a su banco, reportar el anuncio a la plataforma y denunciar al Dic.\n      </p>\n    ",
+    "imagen": "https://resources.diariolibre.com/images/2026/10/16/marketplace-como-comprar-y-vender-con-menor-riesgo-c01acf42-focus-0-0-1200-675.jpg",
+    "fuente": "Diario Libre",
+    "url_fuente": "https://www.diariolibre.com/planeta/tecnologia/2026/10/16/marketplace-como-comprar-y-vender-con-menor-riesgo/3691171",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731343,
     "created_at": "2026-10-16T16:58:35.691Z",
     "titulo": "El rector de la UASD destaca la expansión nacional y el rol de la universidad en el desarrollo del país",
