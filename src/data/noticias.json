@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731315,
+    "created_at": "2026-10-16T14:57:14.593Z",
+    "titulo": "Costa Rica implementa modelo de megacárcel inspirado en Bukele para combatir el narcotráfico",
+    "slug": "costa-rica-implementa-modelo-de-megacarcel-inspirado-en-bukele-para-combatir-el-narcotrafico",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3e0395ae-9ee9-11f0-a2d0-005056a90284/w:1280/p:16x9/El-Salvador-la-megac%C3%A1rcel-de-Bukele.jpg\" alt=\"Costa Rica implementa modelo de megacárcel inspirado en Bukele para combatir el narcotráfico\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Costa Rica han decidido adoptar esquemas penitenciarios similares a los implementados por Nayib Bukele para contrarrestar la expansión de las estructuras criminales en su territorio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de esta estrategia, la presidenta Laura Fernández inauguró el Centro de Alta Contención contra el Crimen Organizado, conocido como CACCO.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta nueva infraestructura carcelaria cuenta con una capacidad total para albergar a 5.100 personas privadas de libertad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El objetivo principal de este centro penitenciario de alta seguridad es mantener completamente aislados a los delincuentes considerados de mayor peligrosidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La puesta en marcha de esta instalación surge en un contexto marcado por la violencia, tras registrarse 873 homicidios durante el año 2025.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dicho indicador de criminalidad evidencia la fuerte presión generada por las actividades del narcotráfico en la nación centroamericana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama, surge el debate nacional sobre si el encarcelamiento masivo será suficiente para disminuir los asesinatos o si se requerirán políticas complementarias.</p>",
+    "imagen": "https://s.france24.com/media/display/3e0395ae-9ee9-11f0-a2d0-005056a90284/w:1280/p:16x9/El-Salvador-la-megac%C3%A1rcel-de-Bukele.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/el-debate/20261016-puede-costa-rica-frenar-al-narco-con-una-megac%C3%A1rcel-al-estilo-bukele",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731314,
     "created_at": "2026-10-16T14:54:53.316Z",
     "titulo": "INFOTEP celebra 46 años y destaca su impacto en la empleabilidad dominicana",
