@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731288,
+    "created_at": "2026-10-16T12:12:00.431Z",
+    "titulo": "Zelenski destaca la dependencia ucraniana de Starlink frente a los drones rusos",
+    "slug": "zelenski-destaca-la-dependencia-ucraniana-de-starlink-frente-a-los-drones-rusos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b7ff5510-c8c2-11f1-b7ff-2d1c143cdef3/w:1280/p:16x9/b7a42219d1d3fa19c9a2f65ffa632d8ace41de11.jpg\" alt=\"Zelenski destaca la dependencia ucraniana de Starlink frente a los drones rusos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El presidente de Ucrania, Volodímir Zelenski, señaló que su país necesita el sistema Starlink para contrarrestar los ataques aéreos enemigos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La declaración fue emitida el pasado viernes durante la cumbre de líderes de la Unión Europea celebrada en Bruselas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El mandatario explicó que la tecnología estadounidense de inteligencia por satélite resulta fundamental para las operaciones de intercepción.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En su intervención, Zelenski especificó que los aparatos rusos que intentan neutralizar operan impulsados por motores a reacción.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La información fue dada a conocer en el marco de las reuniones de alto nivel que congregan a los principales representantes comunitarios.</p>",
+    "imagen": "https://s.france24.com/media/display/b7ff5510-c8c2-11f1-b7ff-2d1c143cdef3/w:1280/p:16x9/b7a42219d1d3fa19c9a2f65ffa632d8ace41de11.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261016-ucrania-depende-de-starlink-para-interceptar-drones-rusos-afirma-zelenski-en-bruselas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731287,
     "created_at": "2026-10-16T12:09:48.775Z",
     "titulo": "Día Mundial de la Alimentación: El agua como eje central para la seguridad alimentaria global",
