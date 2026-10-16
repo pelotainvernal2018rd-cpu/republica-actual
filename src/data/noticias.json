@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731361,
+    "created_at": "2026-10-16T18:56:53.765Z",
+    "titulo": "La dependencia de Ucrania respecto a Starlink genera inquietud entre los líderes de la Unión Europea en Bruselas",
+    "slug": "la-dependencia-de-ucrania-respecto-a-starlink-genera-inquietud-entre-los-lideres-de-la-union-europea-en-bruselas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/8c48c988-c958-11f1-b364-6313a763b466/w:1280/p:16x9/000-D3GY8GV.jpg\" alt=\"La dependencia de Ucrania respecto a Starlink genera inquietud entre los líderes de la Unión Europea en Bruselas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los jefes de Estado y de Gobierno de la Unión Europea se han reunido en Bruselas para debatir diversos asuntos estratégicos, centrando parte de su atención en la situación actual que enfrenta el territorio ucraniano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante el encuentro, las autoridades comunitarias reconocieron abiertamente que la situación actual no permite resolver de manera inmediata la alta dependencia que Ucrania mantiene sobre el sistema de internet satelital estadounidense Starlink.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta problemática surge en un contexto marcado por recientes limitaciones en la red de conectividad, las cuales han generado alteraciones significativas en las actividades tácticas que se desarrollan en las líneas del frente bélico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este escenario, los altos representantes del bloque europeo manifestaron su consenso en cuanto a la urgencia de endurecer las medidas punitivas contra Rusia y de mantener el respaldo militar destinado a Kiev.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar del acuerdo general sobre la necesidad de brindar ayuda y presionar a Moscú, las discusiones en la cumbre evidenciaron que todavía existen discrepancias entre los miembros respecto al volumen y los límites del presupuesto asignado.</p>",
+    "imagen": "https://s.france24.com/media/display/8c48c988-c958-11f1-b364-6313a763b466/w:1280/p:16x9/000-D3GY8GV.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261016-la-dependencia-de-starlink-y-la-defensa-a%C3%A9rea-de-ucrania-preocupan-en-la-cumbre-de-la-ue-en-bruselas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731360,
     "created_at": "2026-10-16T18:55:03.996Z",
     "titulo": "Llegará a la gran pantalla dominicana la comedia de enredos La esquina ta en candela",
