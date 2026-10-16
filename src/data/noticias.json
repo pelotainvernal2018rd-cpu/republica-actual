@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731244,
+    "created_at": "2026-10-16T02:11:54.820Z",
+    "titulo": "Policía turca detiene la transmisión de Halk TV durante redada",
+    "slug": "policia-turca-detiene-la-transmision-de-halk-tv-durante-redada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/a8781484-c902-11f1-81d0-2d1c143cdef3/w:1280/p:16x9/FORMATO-1-53.jpg\" alt=\"Policía turca detiene la transmisión de Halk TV durante redada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La policía turca tomó control de la sede de Halk TV, uno de los principales canales de oposición en el país, durante una operación ordenada por la Fiscalía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La redada se llevó a cabo en la madrugada, cuando los agentes ingresaron a las instalaciones del medio sin previo aviso.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La transmisión en vivo se interrumpió de forma abrupta, dejando a los espectadores sin contenido.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En lugar de la programación habitual, la pantalla mostró una película turca de los años 70.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los agentes permanecieron en la sede durante varias horas, mientras se realizaban inspecciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El incidente sigue bajo investigación y se espera que la Fiscalía presente cargos relacionados con la acción policial.</p>",
+    "imagen": "https://s.france24.com/media/display/a8781484-c902-11f1-81d0-2d1c143cdef3/w:1280/p:16x9/FORMATO-1-53.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261016-canal-opositor-queda-bajo-control-policial-durante-una-redada-en-turqu%C3%ADa",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731243,
     "created_at": "2026-10-16T02:09:45.866Z",
     "titulo": "Debate sobre protocolos de internamiento involuntario en RD",
