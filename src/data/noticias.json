@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731241,
+    "created_at": "2026-10-16T01:58:10.280Z",
+    "titulo": "Costa Rica implementa nuevo modelo penitenciario de alta seguridad",
+    "slug": "costa-rica-implementa-nuevo-modelo-penitenciario-de-alta-seguridad",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/96b0941e-c903-11f1-b68b-4dd8ac2cf3bf/w:1280/p:16x9/FORMATO-5-1.jpg\" alt=\"Costa Rica implementa nuevo modelo penitenciario de alta seguridad\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El gobierno de Costa Rica se prepara para la apertura de un nuevo centro penitenciario de máxima seguridad, diseñado para albergar a más de 5.000 personas privadas de libertad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La infraestructura destaca por un diseño austero que incluye celdas equipadas con rejas y mobiliario fabricado en hormigón, siguiendo estándares estrictos de control.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este proyecto ha sido desarrollado tomando como referencia el modelo de prisiones de alta seguridad que actualmente se aplica en El Salvador bajo la administración de Nayib Bukele.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dentro de las normativas de este recinto, se ha establecido que los reclusos dispondrán únicamente de una hora al día para realizar actividades al aire libre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La presidenta costarricense, Laura Fernández, ha defendido la implementación de estas medidas como parte de la estrategia de seguridad del Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con esta inauguración, el país busca fortalecer su capacidad de reclusión y endurecer las condiciones de vida dentro del sistema carcelario nacional.</p>",
+    "imagen": "https://s.france24.com/media/display/96b0941e-c903-11f1-b68b-4dd8ac2cf3bf/w:1280/p:16x9/FORMATO-5-1.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261016-costa-rica-construye-megac%C3%A1rcel-inspirada-en-las-prisiones-de-bukele-en-el-salvador",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731240,
     "created_at": "2026-10-16T01:54:58.477Z",
     "titulo": "Especialista detalla las normativas legales para internamientos psiquiátricos en el país",
