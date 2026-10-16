@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731299,
+    "created_at": "2026-10-16T13:05:01.690Z",
+    "titulo": "Indomet pronostica precipitaciones dispersas y temperaturas calurosas para este viernes",
+    "slug": "indomet-pronostica-precipitaciones-dispersas-y-temperaturas-calurosas-para-este-viernes",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2025/06/28/685fe529f2a92.jpeg\" alt=\"Indomet pronostica precipitaciones dispersas y temperaturas calurosas para este viernes\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Instituto Dominicano de Meteorología indicó que las condiciones del tiempo para la mañana de este viernes estarán influenciadas por un sistema de alta presión que mantendrá las lluvias reducidas en gran parte del territorio nacional.</p><p>Durante las primeras horas del día se prevén únicamente chubascos de carácter aislado hacia zonas cercanas a la costa atlántica, específicamente en provincias como María Trinidad Sánchez, Samaná, Hato Mayor, El Seibo, La Altagracia y Espaillat.</p><p>Para el período de la tarde, la combinación del viento y la orografía local, sumada al calentamiento diurno, propiciará la ocurrencia de aguaceros locales acompañados de posibles tronadas aisladas y ráfagas de viento.</p><p>Estas precipitaciones vespertinas afectarán localidades situadas en Monte Plata, Monseñor Nouel, Sánchez Ramírez, San José de Ocoa, San Cristóbal, el norte de Santo Domingo, Azua, San Juan, Elías Piña y el sector sur de La Vega.</p><p>En cuanto a las temperaturas, el organismo meteorológico señaló que se mantendrán elevadas, con valores máximos que fluctuarán entre los 31 y los 35 grados Celsius en la mayor parte del país.</p><p>Debido a este ambiente caluroso, las autoridades aconsejan a la ciudadanía tomar agua de manera constante, vestir prendas ligeras y de tonos claros, y permanecer en espacios frescos y ventilados.</p><p>Asimismo, se sugiere prevenir la exposición directa a la radiación solar sin protección en el horario comprendido entre las 11:00 de la mañana y las 4:00 de la tarde.</p><p>Finalmente, el Indomet recordó que los niños, los adultos mayores y las mujeres embarazadas presentan mayor vulnerabilidad ante las altas temperaturas, por lo que necesitan cuidados especiales.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2025/06/28/685fe529f2a92.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-republica/provincias/20261016/pronostican-aguaceros-tarde_926390.html",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731298,
     "created_at": "2026-10-16T13:01:49.490Z",
     "titulo": "Hermanos Espaillat regresan a la sala para decidir su culpabilidad en el colapso de Jet Set",
