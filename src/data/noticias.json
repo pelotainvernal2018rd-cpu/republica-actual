@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731407,
+    "created_at": "2026-10-16T22:58:32.052Z",
+    "titulo": "Ministerio Público destaca la solidez de la acusación contra los hermanos Espaillat",
+    "slug": "ministerio-publico-destaca-la-solidez-de-la-acusacion-contra-los-hermanos-espaillat",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/16/6ad2a815a38cc.jpeg\" alt=\"Ministerio Público destaca la solidez de la acusación contra los hermanos Espaillat\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Ministerio Público de la República Dominicana ha resaltado la gran cantidad de pruebas que sustenta la acusación contra Antonio y Maribel Espaillat por la muerte de 236 personas y las heridas de más de 180 durante el colapso del techo de la discoteca Jet Set el 8 de abril de 2025.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El procurador adjunto, Wilson Camacho, confirmó su respeto por la decisión del juez Franni González de la Cuarta Sala Penal de cambiar la clasificación de homicidio involuntario a homicidio con \"dolo eventual\", y anunció que el Ministerio seguirá presentando los hechos en el juicio con la evidencia acumulada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Según el Código Penal, el delito de homicidio con \"dolo eventual\" implica la intención de causar la muerte, y el tribunal ha reconocido la calidad de la investigación del Ministerio Público, calificándola como casi perfecta.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El proceso continuará cuando el tribunal envíe el caso a la Coordinación de los Juzgados de Primera Instancia para un sorteo que determinará el juez que llevará a cabo la audiencia, donde se reanudará la producción de pruebas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Ministerio Público sostiene que el colapso se debió a la sobrecarga del techo, provocada por la colocación de equipos de climatización, tinacos, casetas y sistemas de sonido, sin calcular el peso que soportaba la estructura.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El expediente acusatorio, de 156 páginas, incluye 84 testigos y peritajes de ingeniería sismorresistente y patológica que confirman la negligencia de los imputados y la responsabilidad de los propietarios del Jet Set.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/16/6ad2a815a38cc.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/ministerio-publico-resalta-fortaleza-acusacion-antonio-maribel-espaillat_583663.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731406,
     "created_at": "2026-10-16T22:54:59.231Z",
     "titulo": "Caso Jet Set: Tribunal modifica calificación jurídica contra los imputados",
