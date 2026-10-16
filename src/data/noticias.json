@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731242,
+    "created_at": "2026-10-16T02:01:52.495Z",
+    "titulo": "Cervezas suben 10-15 pesos, preocupa a comerciantes y consumidores",
+    "slug": "cervezas-suben-10-15-pesos-preocupa-a-comerciantes-y-consumidores",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-15-a-las-9.43.58-p.-m.jpg\" alt=\"Cervezas suben 10-15 pesos, preocupa a comerciantes y consumidores\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El precio de la cerveza en Santo Domingo ha aumentado entre 10 y 15 pesos, pasando de RD$185 a RD$200 por unidad. Este incremento ha generado inquietud entre consumidores y comerciantes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los compradores perciben una mayor carga en sus gastos cotidianos, ya que el aumento reduce su poder adquisitivo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los vendedores detallistas temen que la subida se refleje en la demanda, especialmente en la temporada de béisbol invernal y las festividades de diciembre, cuando el consumo suele crecer.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Algunos comerciantes argumentan que los ajustes deben trasladarse al consumidor final, lo que podría provocar una caída en las ventas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además, el alza en la tarifa eléctrica incrementa los costos operativos de los negocios, agravando la presión sobre los márgenes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La nota “Alzas de precios presionan los bolsillos de consumidores y comerciantes” fue publicada originalmente en Noticias Telemicro.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-15-a-las-9.43.58-p.-m.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/alzas-de-precios-presionan-los-bolsillos-de-consumidores-y-comerciantes/",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Béisbol"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731241,
     "created_at": "2026-10-16T01:58:10.280Z",
     "titulo": "Costa Rica implementa nuevo modelo penitenciario de alta seguridad",
