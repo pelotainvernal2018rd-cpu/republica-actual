@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731222,
+    "created_at": "2026-10-16T00:38:19.219Z",
+    "titulo": "Vaguada dejará lluvias moderadas y fuertes en varios puntos del territorio nacional",
+    "slug": "vaguada-dejara-lluvias-moderadas-y-fuertes-en-varios-puntos-del-territorio-nacional",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/15/6ad1700e34539.jpeg\" alt=\"Vaguada dejará lluvias moderadas y fuertes en varios puntos del territorio nacional\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología emitió su boletín vespertino este jueves, donde pronosticó la ocurrencia de precipitaciones en diferentes regiones del país durante las próximas horas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La incidencia de una vaguada débil será la responsable de generar los aguaceros, los cuales afectarán principalmente el sureste del territorio nacional, áreas próximas a la cordillera Central y la Zona Fronteriza.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El organismo meteorológico indicó que las lluvias podrían alcanzar una intensidad moderada en ciertas localidades, mientras que en otros puntos específicos se prevé que sean de carácter fuerte.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En contraste con las zonas que recibirán precipitaciones, el resto del país permanecerá bajo la influencia de un sistema de alta presión que mantendrá limitada la formación de nubosidad significativa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Respecto a la actividad ciclónica, el informe oficial descartó la formación de ciclones tropicales en el área del mar Caribe para el transcurso de los próximos días.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las condiciones ambientales mantendrán un ambiente caluroso en gran parte de la geografía nacional, registrando temperaturas máximas que se situarán entre los 31 y los 35 grados Celsius.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante las altas temperaturas, las autoridades aconsejan a la ciudadanía mantenerse hidratada mediante el consumo constante de agua, vestir prendas ligeras y de tonalidades claras, y buscar espacios frescos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, el organismo sugirió evitar la exposición directa a los rayos solares en el horario comprendido entre las 11:00 de la mañana y las 4:00 de la tarde, prestando especial cuidado a menores de edad, mujeres embarazadas y adultos mayores.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/15/6ad1700e34539.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/vaguada-provocara-aguaceros-zonas-dominicanas_583573.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731221,
     "created_at": "2026-10-16T00:34:38.007Z",
     "titulo": "UASD impulsa integración ética de la inteligencia artificial en la academia",
