@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731368,
+    "created_at": "2026-10-16T19:26:53.520Z",
+    "titulo": "Estados Unidos exige a Líbano evitar la transferencia de explosivos a Hezbolá",
+    "slug": "estados-unidos-exige-a-libano-evitar-la-transferencia-de-explosivos-a-hezbola",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/3d7d24d4-c994-11f1-b791-2d1c143cdef3/w:1280/p:16x9/ES-20261016-124934-125633-CS.jpg\" alt=\"Estados Unidos exige a Líbano evitar la transferencia de explosivos a Hezbolá\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Líbano se encuentran investigando un cargamento de material explosivo que ha sido vinculado directamente con el grupo Hezbolá.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este suceso ha generado reacciones diplomáticas internacionales, destacando una reciente llamada telefónica entre altos funcionarios de Washington y Beirut.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El pasado 15 de octubre, el presidente Joseph Aoun mantuvo una conversación oficial con el secretario de Estado de Estados Unidos, Marco Rubio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante este intercambio diplomático, el representante estadounidense formuló una solicitud directa a las autoridades libanesas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La exigencia principal de Estados Unidos consistió en impedir que el material explosivo incautado sea entregado a la organización Hezbolá.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los detalles de esta importante comunicación fueron dados a conocer desde la capital libanesa por la corresponsal Ethel Bonet para ampliar la cobertura de los hechos.</p>",
+    "imagen": "https://s.france24.com/media/display/3d7d24d4-c994-11f1-b791-2d1c143cdef3/w:1280/p:16x9/ES-20261016-124934-125633-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261016-directo-a-beirut-y-la-exigencia-de-ee-uu-a-l%C3%ADbano-de-no-entregar-material-explosivo-a-hezbol%C3%A1",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731367,
     "created_at": "2026-10-16T19:24:53.864Z",
     "titulo": "ADP plantea revisión curricular integral tras resultados de la evaluación PISA 2025",
