@@ -1,0 +1,547 @@
+
+---
+const titulo = 'Calculadora de Prestaciones Laborales RD 2026 | República Actual';
+const descripcion = 'Calcula una estimación de cesantía, preaviso y salario de Navidad en República Dominicana. Calculadora gratuita de prestaciones laborales RD.';
+const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
+---
+
+<!doctype html>
+<html lang="es-DO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{titulo}</title>
+  <meta name="description" content={descripcion} />
+  <link rel="canonical" href={url} />
+  <meta property="og:title" content={titulo} />
+  <meta property="og:description" content={descripcion} />
+  <meta property="og:url" content={url} />
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Calculadora de Prestaciones Laborales RD",
+    url,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "DOP"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "República Actual",
+      url: "https://republicaactual.net/"
+    }
+  })} />
+
+  <style>
+    :global(*) { box-sizing: border-box; }
+    :global(body) {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f2f5fa;
+      color: #15233b;
+    }
+    .header {
+      background: #082b60;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #e52d39;
+    }
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-size: 26px;
+      font-weight: 900;
+    }
+    .nav {
+      background: white;
+      padding: 13px 20px;
+      border-bottom: 1px solid #e0e5ee;
+    }
+    .nav div {
+      max-width: 1100px;
+      margin: auto;
+    }
+    .nav a { color: #0757bc; text-decoration: none; }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 16px 50px;
+    }
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+    .intro {
+      color: #52627a;
+      line-height: 1.7;
+      max-width: 850px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+    .card {
+      background: white;
+      padding: 26px;
+      border-radius: 16px;
+      border: 1px solid #e0e7f0;
+      box-shadow: 0 5px 20px #1020400c;
+    }
+    h2 { font-size: 23px; margin-top: 0; }
+    .field { margin-bottom: 19px; }
+    label {
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #bdc9d9;
+      border-radius: 9px;
+      font-size: 16px;
+      background: white;
+      color: #15233b;
+    }
+    input:focus, select:focus {
+      outline: 2px solid #1164d7;
+      border-color: #1164d7;
+    }
+    .dates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .hint {
+      font-size: 12px;
+      color: #65758a;
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #075cc9;
+      color: white;
+      border: 0;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #03479f; }
+    .result {
+      background: linear-gradient(135deg,#082b60,#075ac4);
+      color: white;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 18px;
+    }
+    .result small { color: #dce9fa; }
+    .result strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 38px);
+      margin: 12px 0;
+      overflow-wrap: anywhere;
+    }
+    .line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e6ebf2;
+    }
+    .line b { text-align: right; }
+    .warning {
+      background: #fff7e6;
+      border-left: 4px solid #e8a52b;
+      padding: 16px;
+      border-radius: 7px;
+      margin-top: 22px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .article {
+      margin-top: 28px;
+      line-height: 1.8;
+    }
+    .article h2 { margin-top: 25px; }
+    .article a, .warning a { color: #075ac9; }
+    .error { color: #c32030; font-weight: bold; }
+    footer {
+      text-align: center;
+      background: #082b60;
+      color: white;
+      padding: 25px;
+    }
+    footer a { color: white; }
+    @media(max-width:760px) {
+      .grid,.dates { grid-template-columns: 1fr; }
+      .card { padding: 19px; }
+      .header a { font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="/">REPÚBLICA ACTUAL</a>
+  </header>
+
+  <nav class="nav">
+    <div>
+      <a href="/">Inicio</a> /
+      Calculadora de prestaciones
+    </div>
+  </nav>
+
+  <main>
+    <h1>Calculadora de Prestaciones Laborales RD 2026</h1>
+
+    <p class="intro">
+      Estima cuánto podrías recibir por concepto de
+      prestaciones laborales en República Dominicana.
+      Calcula cesantía, preaviso y salario de Navidad
+      según tu salario, antigüedad y tipo de terminación.
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Datos del trabajador</h2>
+
+        <form id="formulario">
+          <div class="field">
+            <label for="salario">Salario mensual ordinario (RD$)</label>
+            <input id="salario" type="number" min="1" step="0.01"
+              placeholder="Ejemplo: 30000" required />
+            <p class="hint">
+              Para salarios variables o comisiones, utiliza
+              el promedio legal aplicable.
+            </p>
+          </div>
+
+          <div class="dates">
+            <div class="field">
+              <label for="inicio">Fecha de ingreso</label>
+              <input id="inicio" type="date" required />
+            </div>
+            <div class="field">
+              <label for="fin">Fecha de salida</label>
+              <input id="fin" type="date" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="tipo">Tipo de terminación</label>
+            <select id="tipo">
+              <option value="desahucio">
+                Desahucio por el empleador
+              </option>
+              <option value="renuncia">
+                Renuncia voluntaria
+              </option>
+              <option value="justificado">
+                Despido justificado
+              </option>
+            </select>
+            <p class="hint">
+              Despidos injustificados y dimisiones justificadas
+              requieren una evaluación adicional.
+            </p>
+          </div>
+
+          <div class="field" id="grupoAviso">
+            <label for="aviso">¿Se cumplió el preaviso?</label>
+            <select id="aviso">
+              <option value="no">No se cumplió</option>
+              <option value="si">Sí, completamente</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="devengado">
+              Salario ordinario devengado en el año (RD$)
+            </label>
+            <input id="devengado" type="number" min="0"
+              step="0.01" placeholder="Opcional" />
+            <p class="hint">
+              Si no introduces este dato, se estimará
+              proporcionalmente según el salario mensual.
+            </p>
+          </div>
+
+          <button type="submit">
+            CALCULAR PRESTACIONES
+          </button>
+
+          <p id="error" class="error" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <h2>Resultado estimado</h2>
+
+        <div class="result">
+          <small>Total orientativo</small>
+          <strong id="total">RD$ 0.00</strong>
+          <small id="antiguedad">
+            Completa el formulario para calcular
+          </small>
+        </div>
+
+        <div class="line">
+          <span>Preaviso</span>
+          <b id="preaviso">RD$ 0.00</b>
+        </div>
+
+        <div class="line">
+          <span>Cesantía</span>
+          <b id="cesantia">RD$ 0.00</b>
+        </div>
+
+        <div class="line">
+          <span>Salario de Navidad</span>
+          <b id="navidad">RD$ 0.00</b>
+        </div>
+
+        <div class="line">
+          <span>Vacaciones pendientes</span>
+          <b>No incluidas</b>
+        </div>
+
+        <div class="warning">
+          <strong>Aviso importante:</strong>
+          Esta calculadora ofrece una estimación,
+          no una liquidación oficial.
+
+          No incluye vacaciones pendientes,
+          salarios atrasados, bonificaciones,
+          indemnizaciones judiciales ni otros conceptos.
+
+          El salario de Navidad estimado no descuenta
+          cantidades ya pagadas ni aplica automáticamente
+          el límite legal.
+
+          Verifica los resultados con la
+          <a href="https://calculo.mt.gob.do/"
+             target="_blank"
+             rel="noopener noreferrer">
+            calculadora del Ministerio de Trabajo
+          </a>.
+        </div>
+      </section>
+    </div>
+
+    <article class="card article">
+      <h2>¿Cómo calcular las prestaciones laborales en RD?</h2>
+      <p>
+        Las prestaciones laborales en República Dominicana
+        dependen del tiempo trabajado, el salario ordinario
+        y la causa de terminación del contrato.
+        Su regulación principal está contenida en el
+        Código de Trabajo dominicano.
+      </p>
+
+      <h2>¿Cuántos días corresponden de preaviso?</h2>
+      <p>
+        El artículo 76 del Código de Trabajo establece
+        períodos generales de 7 días para una antigüedad
+        desde tres hasta menos de seis meses,
+        14 días desde seis meses hasta menos de un año,
+        y 28 días a partir de un año.
+      </p>
+
+      <h2>¿Cómo se calcula la cesantía?</h2>
+      <p>
+        El artículo 80 establece escalas de cesantía
+        según la duración del contrato. Para períodos
+        desde tres meses hasta menos de un año,
+        se contemplan 6 o 13 días, según corresponda.
+        Para contratos de un año o más se aplican
+        las escalas de 21 o 23 días por año,
+        además de las reglas para fracciones.
+      </p>
+
+      <h2>¿Qué es el salario de Navidad?</h2>
+      <p>
+        Es la duodécima parte del salario ordinario
+        devengado durante el año calendario, sujeto
+        a los límites y condiciones de la legislación.
+      </p>
+
+      <h2>¿La renuncia genera cesantía?</h2>
+      <p>
+        La renuncia voluntaria ordinaria no genera
+        automáticamente auxilio de cesantía.
+        Sin embargo, pueden corresponder derechos
+        adquiridos y otras cantidades pendientes.
+      </p>
+
+      <h2>¿Dónde verificar las prestaciones laborales?</h2>
+      <p>
+        Consulta la
+        <a href="https://calculo.mt.gob.do/"
+           target="_blank"
+           rel="noopener noreferrer">
+          herramienta oficial del Ministerio de Trabajo
+        </a>
+        para contrastar los resultados.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 República Actual</p>
+    <a href="/">Volver al periódico</a>
+  </footer>
+
+  <script>
+    const campo = (id: string) =>
+      document.getElementById(id) as HTMLInputElement;
+
+    const formato = (valor: number) =>
+      new Intl.NumberFormat('es-DO', {
+        style: 'currency',
+        currency: 'DOP'
+      }).format(valor);
+
+    function leerFecha(valor: string): Date | null {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) return null;
+
+      const [y,m,d] = valor.split('-').map(Number);
+      const fecha = new Date(Date.UTC(y,m-1,d));
+
+      if (
+        fecha.getUTCFullYear() !== y ||
+        fecha.getUTCMonth() !== m-1 ||
+        fecha.getUTCDate() !== d
+      ) return null;
+
+      return fecha;
+    }
+
+    function mesesCompletos(a: Date,b: Date) {
+      let meses =
+        (b.getUTCFullYear()-a.getUTCFullYear())*12 +
+        b.getUTCMonth()-a.getUTCMonth();
+
+      if (b.getUTCDate()<a.getUTCDate()) meses--;
+      return Math.max(0,meses);
+    }
+
+    function diasCesantia(meses: number) {
+      if (meses<3) return 0;
+      if (meses<6) return 6;
+      if (meses<12) return 13;
+
+      const anos = Math.floor(meses/12);
+      const resto = meses%12;
+
+      const diasPorAno = meses>=60 ? 23 : 21;
+      let dias = anos*diasPorAno;
+
+      if (resto>=6) dias+=13;
+      else if (resto>=3) dias+=6;
+
+      return dias;
+    }
+
+    function calcular(event: Event) {
+      event.preventDefault();
+
+      campo('error').textContent = '';
+
+      const salario = Number(campo('salario').value);
+      const inicio = leerFecha(campo('inicio').value);
+      const fin = leerFecha(campo('fin').value);
+
+      if (
+        !inicio || !fin || fin<inicio ||
+        !Number.isFinite(salario) || salario<=0
+      ) {
+        campo('error').textContent =
+          'Verifica el salario y las fechas introducidas.';
+        return;
+      }
+
+      const meses = mesesCompletos(inicio,fin);
+      const diario = salario/23.83;
+      const desahucio = campo('tipo').value==='desahucio';
+
+      let diasAviso = 0;
+
+      if (meses>=12) diasAviso=28;
+      else if (meses>=6) diasAviso=14;
+      else if (meses>=3) diasAviso=7;
+
+      const preaviso =
+        desahucio && campo('aviso').value==='no'
+          ? diasAviso*diario : 0;
+
+      const cesantia =
+        desahucio ? diasCesantia(meses)*diario : 0;
+
+      const primerDiaAno = new Date(
+        Date.UTC(fin.getUTCFullYear(),0,1)
+      );
+
+      const comienzo =
+        inicio>primerDiaAno ? inicio : primerDiaAno;
+
+      const dias = Math.max(
+        0,
+        Math.round(
+          (fin.getTime()-comienzo.getTime())/86400000
+        )+1
+      );
+
+      const proximoAno = new Date(
+        Date.UTC(fin.getUTCFullYear()+1,0,1)
+      );
+
+      const diasAno =
+        (proximoAno.getTime()-primerDiaAno.getTime())/86400000;
+
+      const manual = campo('devengado').value.trim();
+
+      const devengado = manual!==''
+        ? Number(manual)
+        : salario*12*dias/diasAno;
+
+      if (!Number.isFinite(devengado) || devengado<0) {
+        campo('error').textContent =
+          'Introduce un salario devengado válido.';
+        return;
+      }
+
+      const navidad = devengado/12;
+      const total = preaviso+cesantia+navidad;
+
+      campo('preaviso').textContent = formato(preaviso);
+      campo('cesantia').textContent = formato(cesantia);
+      campo('navidad').textContent = formato(navidad);
+      campo('total').textContent = formato(total);
+
+      campo('antiguedad').textContent =
+        `${meses} meses completos de servicio`;
+    }
+
+    campo('formulario').addEventListener('submit',calcular);
+
+    campo('tipo').addEventListener('change',()=>{
+      campo('grupoAviso').hidden =
+        campo('tipo').value!=='desahucio';
+    });
+  </script>
+</body>
+</html>
