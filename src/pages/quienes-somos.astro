@@ -1,155 +1,353 @@
+
 ---
-const siteUrl = 'https://republicaactual.net/';
+const siteUrl = 'https://republicaactual.net';
+const canonical = `${siteUrl}/quienes-somos/`;
+
 const titulo = 'Quiénes somos | República Actual';
-const descripcion = 'Conoce República Actual, medio digital dedicado a informar sobre los acontecimientos de República Dominicana y el mundo.';
+const descripcion =
+  'Conoce República Actual, medio digital de noticias de República Dominicana. Nuestra misión, compromiso editorial y canales de contacto.';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${canonical}#aboutpage`,
+  url: canonical,
+  name: titulo,
+  description: descripcion,
+  inLanguage: 'es-DO',
+  isPartOf: {
+    '@id': `${siteUrl}/#website`,
+  },
+  about: {
+    '@id': `${siteUrl}/#organization`,
+  },
+  publisher: {
+    '@id': `${siteUrl}/#organization`,
+  },
+};
 ---
 
 <!doctype html>
-<html lang="es">
-<head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es-DO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{titulo}</title>
-  <meta name="description" content={descripcion} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={`${siteUrl}quienes-somos/`} />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="República Actual" />
-  <meta property="og:title" content={titulo} />
-  <meta property="og:description" content={descripcion} />
-  <meta property="og:url" content={`${siteUrl}quienes-somos/`} />
+    <!-- Código oficial de Google AdSense: NO CAMBIAR -->
+    <meta
+      name="google-adsense-account"
+      content="ca-pub-3370737258151824"
+    />
 
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#172033}
-    header{background:#fff;border-bottom:1px solid #e5e7eb}
-    .header-inner{max-width:1000px;margin:auto;padding:28px 20px}
-    .logo{display:inline-block;text-decoration:none;color:#071a3d;font-size:30px;font-weight:900;letter-spacing:-1.5px}
-    .logo span{color:#e60023}
-    nav{border-bottom:3px solid #102d46;background:#fff}
-    .menu{max-width:1000px;margin:auto;padding:13px 20px;display:flex;gap:25px;overflow-x:auto}
-    .menu a{color:#102d46;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap;text-transform:uppercase}
-    .menu a:hover{color:#e60023}
-    main{max-width:900px;margin:40px auto 60px;background:#fff;padding:45px}
-    .etiqueta{color:#e60023;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-    h1{font-size:38px;color:#071a3d;margin:0 0 28px;line-height:1.15}
-    h2{font-size:24px;color:#071a3d;margin:38px 0 14px}
-    p{font-size:17px;line-height:1.8;margin:0 0 20px}
-    ul{padding-left:25px;margin:0 0 25px}
-    li{font-size:17px;line-height:1.8;margin-bottom:8px}
-    .bloque{border-top:1px solid #e1e6ea;padding-top:8px}
-    .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
-    .volver:hover{color:#e60023}
-    footer{background:#102d46;color:#fff;text-align:center;padding:28px 20px;font-size:13px}
-    @media(max-width:700px){
-      .header-inner{padding:22px 20px}
-      .logo{font-size:27px}
-      main{margin:0;padding:32px 20px 45px}
-      h1{font-size:30px}
-      h2{font-size:21px}
-      p,li{font-size:16px}
-      .menu{gap:20px}
-    }
-  </style>
-</head>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="República Actual" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonical} />
 
-<body>
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
-    </div>
-  </header>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
 
-  <nav>
-    <div class="menu">
-      <a href="/">Inicio</a>
-      <a href="/categoria/nacionales/">Nacionales</a>
-      <a href="/categoria/politica/">Política</a>
-      <a href="/categoria/economia/">Economía</a>
-      <a href="/categoria/deportes/">Deportes</a>
-      <a href="/categoria/entretenimiento/">Entretenimiento</a>
-      <a href="/categoria/mundo/">Mundo</a>
-      <a href="/categoria/tecnologia/">Tecnología</a>
-    </div>
-  </nav>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(aboutSchema)}
+    />
+  </head>
 
-  <main>
-    <div class="etiqueta">República Actual</div>
-    <h1>Quiénes somos</h1>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="brand" aria-label="República Actual, inicio">
+          República <span>Actual</span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/contacto/">Contacto</a>
+        </nav>
+      </div>
+    </header>
 
-    <p>
-      República Actual es un medio digital dedicado a informar sobre los principales
-      acontecimientos de República Dominicana y el mundo.
-    </p>
+    <main class="container">
+      <article>
+        <p class="eyebrow">CONOCE NUESTRO MEDIO</p>
 
-    <p>
-      Nuestro objetivo es ofrecer información de actualidad de manera clara,
-      organizada y accesible para nuestros lectores, abordando temas nacionales,
-      política, economía, deportes, entretenimiento, tecnología y acontecimientos
-      internacionales.
-    </p>
+        <h1>Quiénes somos: República Actual</h1>
 
-    <section class="bloque">
-      <h2>Nuestra misión</h2>
-      <p>
-        Trabajamos para mantener una plataforma informativa moderna que permita a
-        nuestros lectores conocer los hechos y temas que forman parte de la actualidad.
-      </p>
-      <p>
-        Nuestro compromiso es continuar desarrollando República Actual como un espacio
-        útil para quienes buscan mantenerse informados.
-      </p>
-    </section>
+        <p class="intro">
+          <strong>República Actual</strong> es un medio digital de
+          noticias enfocado en ofrecer información de interés para
+          los lectores de República Dominicana y la comunidad
+          dominicana en el exterior.
+        </p>
 
-    <section class="bloque">
-      <h2>Política editorial</h2>
-      <p>
-        República Actual procura presentar la información de forma clara, organizada
-        y comprensible. Los contenidos publicados se estructuran de acuerdo con las
-        distintas áreas informativas del medio y se actualizan cuando resulta necesario.
-      </p>
-      <p>
-        La presentación de una noticia busca distinguir los hechos informativos de
-        opiniones, análisis o declaraciones atribuidas a terceros.
-      </p>
-    </section>
+        <section aria-labelledby="sobre-nosotros">
+          <h2 id="sobre-nosotros">Sobre República Actual</h2>
+          <p>
+            En República Actual trabajamos para acercar a nuestros
+            lectores a los acontecimientos de actualidad, con
+            información organizada, accesible y fácil de consultar.
+          </p>
+          <p>
+            Nuestro portal reúne contenidos sobre noticias nacionales,
+            internacionales, deportes, economía, entretenimiento y
+            otros temas de interés general.
+          </p>
+        </section>
 
-    <section class="bloque">
-      <h2>Fuentes y actualización</h2>
-      <p>
-        República Actual utiliza información procedente de distintas fuentes
-        informativas y recursos disponibles para la elaboración y actualización de
-        sus contenidos. Cuando una información requiere una actualización, el contenido
-        puede ser revisado y modificado.
-      </p>
-    </section>
+        <section aria-labelledby="mision">
+          <h2 id="mision">Nuestra misión</h2>
+          <p>
+            Nuestra misión es facilitar el acceso a información
+            relevante y útil para que nuestros lectores puedan
+            mantenerse al tanto de los acontecimientos que afectan
+            su entorno y su vida cotidiana.
+          </p>
+        </section>
 
-    <section class="bloque">
-      <h2>Correcciones</h2>
-      <p>
-        Si detectas un error factual o una información que necesite ser corregida,
-        puedes comunicarlo a República Actual a través de nuestros canales de contacto
-        para que pueda ser revisado.
-      </p>
-    </section>
+        <section aria-labelledby="compromiso">
+          <h2 id="compromiso">Nuestro compromiso editorial</h2>
+          <p>
+            Aspiramos a publicar contenidos claros, responsables y
+            comprensibles, diferenciando la información de las
+            opiniones cuando corresponda.
+          </p>
+          <p>
+            Reconocemos la importancia de verificar los datos,
+            consultar fuentes identificables y actualizar o corregir
+            los contenidos cuando se detecten errores.
+          </p>
+        </section>
 
-    <section class="bloque">
-      <h2>Contacto</h2>
-      <p>
-        Para consultas, comentarios o comunicaciones relacionadas con nuestros
-        contenidos, visita nuestra página de contacto.
-      </p>
-      <a class="volver" href="/contacto/">Ir a contacto →</a>
-    </section>
+        <section aria-labelledby="contenidos">
+          <h2 id="contenidos">¿Qué encontrarás en nuestro portal?</h2>
 
-    <a class="volver" href="/">← Volver a República Actual</a>
-  </main>
+          <ul>
+            <li>
+              <strong>Noticias nacionales:</strong> acontecimientos
+              relevantes de República Dominicana.
+            </li>
+            <li>
+              <strong>Noticias internacionales:</strong> hechos de
+              interés mundial.
+            </li>
+            <li>
+              <strong>Deportes:</strong> información y actualidad
+              deportiva.
+            </li>
+            <li>
+              <strong>Economía:</strong> temas económicos y financieros
+              de interés público.
+            </li>
+            <li>
+              <strong>República Útil:</strong> guías prácticas y
+              contenidos informativos de consulta.
+            </li>
+            <li>
+              <strong>Empleos:</strong> información sobre oportunidades
+              laborales.
+            </li>
+          </ul>
+        </section>
 
-  <footer>
-    © {new Date().getFullYear()} República Actual
-  </footer>
-</body>
+        <section aria-labelledby="correcciones">
+          <h2 id="correcciones">Correcciones y actualizaciones</h2>
+          <p>
+            Si identificas información incorrecta, desactualizada
+            o que requiera aclaración, puedes comunicarlo a través
+            de nuestra página de contacto para su revisión.
+          </p>
+        </section>
+
+        <section aria-labelledby="contacto">
+          <h2 id="contacto">Contacto</h2>
+          <p>
+            Para consultas, sugerencias o solicitudes relacionadas
+            con nuestros contenidos, visita nuestra página de contacto.
+          </p>
+          <a class="contact-button" href="/contacto/">
+            Contactar con República Actual
+          </a>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} República Actual.</p>
+      <div class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/politica-de-privacidad/">Privacidad</a>
+        <a href="/terminos-y-condiciones/">Términos</a>
+        <a href="/contacto/">Contacto</a>
+      </div>
+    </footer>
+  </body>
 </html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #202938;
+    line-height: 1.75;
+  }
+
+  .site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .brand {
+    font-size: 25px;
+    font-weight: 800;
+    color: #172b4d;
+    text-decoration: none;
+  }
+
+  .brand span {
+    color: #e32732;
+  }
+
+  nav {
+    display: flex;
+    gap: 18px;
+  }
+
+  nav a,
+  .footer-links a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 18px;
+  }
+
+  article {
+    background: #ffffff;
+    padding: 45px;
+    border: 1px solid #e6eaf0;
+    border-radius: 14px;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.04);
+  }
+
+  .eyebrow {
+    color: #d72332;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 5vw, 43px);
+    line-height: 1.2;
+    color: #132744;
+    margin: 12px 0 24px;
+  }
+
+  h2 {
+    font-size: 23px;
+    line-height: 1.35;
+    color: #172b4d;
+    margin: 0 0 15px;
+  }
+
+  .intro {
+    font-size: 19px;
+    color: #3c4a5c;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #e6eaf0;
+  }
+
+  section {
+    margin-top: 34px;
+  }
+
+  p {
+    margin: 0 0 15px;
+  }
+
+  ul {
+    padding-left: 23px;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
+
+  .contact-button {
+    display: inline-block;
+    background: #d92332;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .contact-button:hover {
+    background: #b91c2b;
+  }
+
+  footer {
+    background: #14243c;
+    color: white;
+    text-align: center;
+    padding: 28px 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    article {
+      padding: 25px 20px;
+    }
+
+    .container {
+      margin: 20px auto;
+    }
+
+    h2 {
+      font-size: 21px;
+    }
+  }
+</style>
