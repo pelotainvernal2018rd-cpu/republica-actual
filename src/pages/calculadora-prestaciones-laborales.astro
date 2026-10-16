@@ -1,450 +1,79 @@
-
 ---
-const titulo = 'Calculadora de Prestaciones Laborales RD 2026 | República Actual';
-const descripcion = 'Calculadora de prestaciones laborales RD 2026: estima cesantía, preaviso, salario de Navidad, vacaciones, bonificación y pagos pendientes en República Dominicana.';
-const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
+const title = 'Calculadora de Prestaciones Laborales RD 2026 | Cesantía, Preaviso y Liquidación';
+const description = 'Calcula prestaciones laborales en República Dominicana 2026: cesantía, preaviso, vacaciones, salario de Navidad y bonificación. Salarios y comisiones de 12 meses. Gratis.';
+const canonical = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
+const faq = [
+  {q:'¿Cómo calcular las prestaciones laborales en República Dominicana?',a:'Se utilizan la antigüedad, el salario ordinario y el tipo de terminación. El cálculo puede incluir preaviso, cesantía, vacaciones pendientes y salario de Navidad según corresponda.'},
+  {q:'¿Cómo se calcula la cesantía en RD?',a:'El artículo 80 del Código de Trabajo establece días de salario según la antigüedad. El resultado depende también de la causa de terminación del contrato.'},
+  {q:'¿Cómo calcular el salario de Navidad?',a:'Como regla general, equivale a una duodécima parte de los salarios ordinarios devengados durante el año calendario, sujeto a las condiciones y límites legales.'},
+  {q:'¿La bonificación laboral es lo mismo que la cesantía?',a:'No. La participación en beneficios depende de las utilidades y condiciones de la empresa; no se paga automáticamente en todos los casos.'},
+  {q:'¿Puedo calcular prestaciones laborales por renuncia?',a:'Sí. La renuncia ordinaria no da lugar automáticamente a preaviso y cesantía a favor del trabajador, pero pueden existir derechos adquiridos y otros pagos pendientes.'}
+];
+const schema = {'@context':'https://schema.org','@graph':[
+  {'@type':'WebApplication',name:'Calculadora de Prestaciones Laborales RD 2026',url:canonical,applicationCategory:'FinanceApplication',operatingSystem:'All',inLanguage:'es-DO',description,offers:{'@type':'Offer',price:'0',priceCurrency:'DOP'},publisher:{'@type':'Organization',name:'República Actual',url:'https://republicaactual.net/'}},
+  {'@type':'FAQPage',mainEntity:faq.map(x=>({'@type':'Question',name:x.q,acceptedAnswer:{'@type':'Answer',text:x.a}}))},
+  {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Inicio',item:'https://republicaactual.net/'},{'@type':'ListItem',position:2,name:'Calculadora de prestaciones laborales',item:canonical}]}
+]};
 ---
-
 <!doctype html>
 <html lang="es-DO">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{titulo}</title>
-  <meta name="description" content={descripcion} />
-  <link rel="canonical" href={url} />
-  <meta property="og:title" content={titulo} />
-  <meta property="og:description" content={descripcion} />
-  <meta property="og:url" content={url} />
-  <meta property="og:type" content="website" />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculadora de Prestaciones Laborales RD",
-    url,
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "DOP"
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "República Actual",
-      url: "https://republicaactual.net/"
-    }
-  })} />
-
-  <style>
-    :global(*) { box-sizing: border-box; }
-    :global(body) {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f2f5fa;
-      color: #15233b;
-    }
-    .header {
-      background: #082b60;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 5px solid #e52d39;
-    }
-    .header a {
-      color: white;
-      text-decoration: none;
-      font-size: 26px;
-      font-weight: 900;
-    }
-    .nav {
-      background: white;
-      padding: 13px 20px;
-      border-bottom: 1px solid #e0e5ee;
-    }
-    .nav div {
-      max-width: 1100px;
-      margin: auto;
-    }
-    .nav a { color: #0757bc; text-decoration: none; }
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 28px 16px 50px;
-    }
-    h1 {
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.2;
-      margin: 10px 0;
-    }
-    .intro {
-      color: #52627a;
-      line-height: 1.7;
-      max-width: 850px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      margin-top: 26px;
-    }
-    .card {
-      background: white;
-      padding: 26px;
-      border-radius: 16px;
-      border: 1px solid #e0e7f0;
-      box-shadow: 0 5px 20px #1020400c;
-    }
-    h2 { font-size: 23px; margin-top: 0; }
-    .field { margin-bottom: 19px; }
-    label {
-      display: block;
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-    input, select {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #bdc9d9;
-      border-radius: 9px;
-      font-size: 16px;
-      background: white;
-      color: #15233b;
-    }
-    input:focus, select:focus {
-      outline: 2px solid #1164d7;
-      border-color: #1164d7;
-    }
-    .dates {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .hint {
-      font-size: 12px;
-      color: #65758a;
-      line-height: 1.5;
-      margin-top: 6px;
-    }
-    button {
-      width: 100%;
-      padding: 16px;
-      background: #075cc9;
-      color: white;
-      border: 0;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { background: #03479f; }
-    .result {
-      background: linear-gradient(135deg,#082b60,#075ac4);
-      color: white;
-      border-radius: 14px;
-      padding: 25px;
-      margin-bottom: 18px;
-    }
-    .result small { color: #dce9fa; }
-    .secondary-button { margin-top: 10px; background: #24466f; }
-    @media print { .header,.nav,footer,button,.warning { display: none !important; } body { background: white !important; } main { padding: 0; } .grid { grid-template-columns: 1fr 1fr; } .card { box-shadow: none; break-inside: avoid; } }
-    .result strong {
-      display: block;
-      font-size: clamp(28px, 4vw, 38px);
-      margin: 12px 0;
-      overflow-wrap: anywhere;
-    }
-    .line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 15px 0;
-      border-bottom: 1px solid #e6ebf2;
-    }
-    .line b { text-align: right; }
-    .warning {
-      background: #fff7e6;
-      border-left: 4px solid #e8a52b;
-      padding: 16px;
-      border-radius: 7px;
-      margin-top: 22px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-    .article {
-      margin-top: 28px;
-      line-height: 1.8;
-    }
-    .article h2 { margin-top: 25px; }
-    .article a, .warning a { color: #075ac9; }
-    .error { color: #c32030; font-weight: bold; }
-    footer {
-      text-align: center;
-      background: #082b60;
-      color: white;
-      padding: 25px;
-    }
-    footer a { color: white; }
-    @media(max-width:760px) {
-      .grid,.dates { grid-template-columns: 1fr; }
-      .card { padding: 19px; }
-      .header a { font-size: 22px; }
-    }
-  </style>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title><meta name="description" content={description} /><meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="canonical" href={canonical} /><meta property="og:type" content="website" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta name="twitter:card" content="summary" />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<style is:global>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#14243e;background:#f2f5fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0}a{color:#115dc1}.top{background:#092c60;color:white;padding:20px 24px;border-bottom:4px solid #e63345}.top-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.top a{color:white;text-decoration:none;font-weight:850;letter-spacing:.04em}.top small{color:#c9dbf5}.wrap{max-width:1180px;margin:auto;padding:28px 18px 55px}.crumb{font-size:13px;color:#61708a;margin-bottom:20px}.hero{background:linear-gradient(115deg,#0a326b,#0c62c6);border-radius:22px;padding:35px;color:white;box-shadow:0 12px 35px #0d3d7a24}.hero h1{font-size:clamp(26px,3.4vw,42px);line-height:1.18;margin:0 0 13px}.hero p{max-width:800px;color:#e3efff;line-height:1.7;margin:0}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.chip{background:#ffffff22;border:1px solid #ffffff55;border-radius:40px;padding:7px 12px;font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:20px;margin-top:22px;align-items:start}.card{background:white;border:1px solid #dfe7f1;border-radius:18px;padding:24px;box-shadow:0 8px 25px #123b6c0a;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 18px}.card h3{font-size:17px;margin:18px 0 12px}.section-num{display:inline-grid;place-items:center;background:#e7f0ff;color:#0a55b8;border-radius:10px;width:31px;height:31px;margin-right:8px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:15px;min-width:0}label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}input,select{font:inherit;color:#162943;background:white;width:100%;border:1px solid #bfcee1;border-radius:10px;padding:12px;min-width:0}input:focus,select:focus{outline:2px solid #8ab6ff;border-color:#1769d0}.hint{font-size:12px;color:#66778f;line-height:1.55;margin:5px 0 0}.radio-row{display:flex;gap:8px;flex-wrap:wrap}.radio-row label{display:flex;align-items:center;gap:7px;border:1px solid #d9e3f0;border-radius:10px;padding:10px 13px;cursor:pointer;font-weight:600;margin:0}.radio-row input{width:auto}.salary-table{width:100%;border-collapse:collapse;font-size:13px}.salary-table th{background:#eef4fc;color:#254469;text-align:left;padding:10px 6px}.salary-table td{border-bottom:1px solid #e9eef6;padding:6px}.salary-table td:first-child{font-weight:700;color:#677991;width:42px}.salary-table input{padding:9px 7px;font-size:14px}.salary-table td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.scroll{overflow-x:auto}.summary{background:linear-gradient(120deg,#082e69,#0d61c5);color:white;padding:24px;border-radius:15px;margin-bottom:17px}.summary .total{font-size:clamp(27px,3vw,39px);font-weight:850;margin:8px 0}.summary small{color:#d8e8fc}.line{display:flex;align-items:start;justify-content:space-between;gap:12px;border-bottom:1px solid #e7edf5;padding:12px 0;font-size:14px}.line strong{text-align:right;white-space:nowrap}.line.total-line{font-weight:800;font-size:17px;border-top:2px solid #dbe5f3}.muted{color:#61738d}.warning{background:#fff7e9;border-left:4px solid #efa82b;border-radius:9px;padding:15px;line-height:1.65;font-size:13px;margin-top:15px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.btn{border:0;border-radius:10px;padding:13px 16px;font-weight:800;cursor:pointer;background:#095dcb;color:white}.btn.secondary{background:#e9f1fc;color:#124b98}.btn:focus-visible{outline:3px solid #80b6ff}.error{color:#bd2431;font-weight:700;font-size:14px}.article{line-height:1.85}.article h2{margin-top:25px}.article p{color:#435570}.faq details{border-top:1px solid #e5ebf3;padding:15px 0}.faq summary{cursor:pointer;font-weight:700}.faq p{color:#4a5c73}.note{background:#eff5fd;border-radius:10px;padding:13px;color:#405a78;font-size:13px;line-height:1.6}footer{background:#092c60;color:white;text-align:center;padding:25px}footer a{color:white}.optional{font-size:11px;font-weight:500;color:#71829b}.hidden{display:none!important}@media(max-width:850px){.layout{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.hero{padding:24px}.card{padding:18px}.top small{display:none}}@media print{.top,.crumb,.hero .chips,.actions,.article,.faq,footer,.no-print{display:none!important}.wrap{padding:0}.hero{box-shadow:none;background:white;color:black;padding:0}.hero p{color:#333}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.summary{background:#eee;color:#111}.summary small{color:#333}}
+</style>
 </head>
-
 <body>
-  <header class="header">
-    <a href="/">REPÚBLICA ACTUAL</a>
-  </header>
-
-  <nav class="nav">
-    <div>
-      <a href="/">Inicio</a> /
-      Calculadora de prestaciones
-    </div>
-  </nav>
-
-  <main>
-    <h1>Calculadora de Prestaciones Laborales RD 2026</h1>
-
-    <p class="intro">
-      Estima cuánto podrías recibir por concepto de
-      prestaciones laborales en República Dominicana.
-      Calcula cesantía, preaviso y salario de Navidad
-      según tu salario, antigüedad y tipo de terminación.
-    </p>
-
-    <div class="grid">
-      <section class="card">
-        <h2>Datos del trabajador</h2>
-
-        <form id="formulario">
-          <div class="field">
-            <label for="salario">Salario mensual ordinario (RD$)</label>
-            <input id="salario" type="number" min="1" step="0.01"
-              placeholder="Ejemplo: 30000" required />
-            <p class="hint">
-              Para salarios variables o comisiones, utiliza
-              el promedio legal aplicable.
-            </p>
-          </div>
-
-          <div class="dates">
-            <div class="field">
-              <label for="inicio">Fecha de ingreso</label>
-              <input id="inicio" type="date" required />
-            </div>
-            <div class="field">
-              <label for="fin">Fecha de salida</label>
-              <input id="fin" type="date" required />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="tipo">Tipo de terminación</label>
-            <select id="tipo">
-              <option value="desahucio">
-                Desahucio por el empleador
-              </option>
-              <option value="renuncia">
-                Renuncia voluntaria
-              </option>
-              <option value="justificado">Despido justificado</option>
-              <option value="injustificado">Despido injustificado (estimación de prestaciones)</option>
-              <option value="dimension">Dimisión justificada (requiere validación legal)</option>
-            </select>
-            <p class="hint">
-              Despidos injustificados y dimisiones justificadas
-              requieren una evaluación adicional.
-            </p>
-          </div>
-
-          <div class="field" id="grupoAviso">
-            <label for="aviso">¿Se cumplió el preaviso?</label>
-            <select id="aviso">
-              <option value="no">No se cumplió</option>
-              <option value="si">Sí, completamente</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="devengado">
-              Salario ordinario devengado en el año (RD$)
-            </label>
-            <input id="devengado" type="number" min="0"
-              step="0.01" placeholder="Opcional" />
-            <p class="hint">
-              Si no introduces este dato, se estimará
-              proporcionalmente según el salario mensual.
-            </p>
-          </div>
-
-          <h2>Derechos adquiridos y pagos pendientes</h2>
-          <div class="dates">
-            <div class="field"><label for="vacaciones">Días de vacaciones pendientes</label><input id="vacaciones" type="number" min="0" step="0.5" value="0" /><p class="hint">Introduce los días remunerados pendientes que correspondan; no se presume que todos los días de vacaciones estén pendientes.</p></div>
-            <div class="field"><label for="navidadPagada">Salario de Navidad ya pagado (RD$)</label><input id="navidadPagada" type="number" min="0" step="0.01" value="0" /></div>
-            <div class="field"><label for="salariosPendientes">Salarios pendientes (RD$)</label><input id="salariosPendientes" type="number" min="0" step="0.01" value="0" /></div>
-            <div class="field"><label for="comisiones">Comisiones pendientes (RD$)</label><input id="comisiones" type="number" min="0" step="0.01" value="0" /></div>
-            <div class="field"><label for="extras">Horas extras y recargos pendientes (RD$)</label><input id="extras" type="number" min="0" step="0.01" value="0" /></div>
-            <div class="field"><label for="otros">Otros pagos pendientes (RD$)</label><input id="otros" type="number" min="0" step="0.01" value="0" /></div>
-          </div>
-          <h2>Bonificación anual</h2>
-          <div class="field"><label for="bonificacion">Bonificación que corresponde pagar (RD$)</label><input id="bonificacion" type="number" min="0" step="0.01" value="0" /><p class="hint">Indica el monto confirmado o estimado a partir de los beneficios netos distribuibles de la empresa y los días de participación correspondientes. No se presume que exista bonificación ni se calcula solo con el salario.</p></div>
-          <div class="dates">
-            <div class="field"><label for="descuentos">Anticipos y descuentos aplicables (RD$)</label><input id="descuentos" type="number" min="0" step="0.01" value="0" /></div>
-            <div class="field"><label for="navidadTope">Tope aplicable al salario de Navidad (RD$, opcional)</label><input id="navidadTope" type="number" min="0" step="0.01" placeholder="Si se conoce" /><p class="hint">Verifica el límite legal de cinco salarios mínimos aplicable al caso; si lo dejas vacío no se aplica un tope automático.</p></div>
-          </div>
-          <button type="submit">CALCULAR LIQUIDACIÓN COMPLETA</button>
-          <button type="button" id="imprimir" class="secondary-button">IMPRIMIR / GUARDAR EN PDF</button>
-
-          <p id="error" class="error" role="alert"></p>
-        </form>
-      </section>
-
-      <section class="card" aria-live="polite">
-        <h2>Resultado estimado</h2>
-
-        <div class="result">
-          <small>Total orientativo</small>
-          <strong id="total">RD$ 0.00</strong>
-          <small id="antiguedad">
-            Completa el formulario para calcular
-          </small>
-        </div>
-
-        <div class="line">
-          <span>Preaviso</span>
-          <b id="preaviso">RD$ 0.00</b>
-        </div>
-
-        <div class="line">
-          <span>Cesantía</span>
-          <b id="cesantia">RD$ 0.00</b>
-        </div>
-
-        <div class="line">
-          <span>Salario de Navidad</span>
-          <b id="navidad">RD$ 0.00</b>
-        </div>
-
-        <div class="line"><span>Vacaciones pendientes</span><b id="vacacionesResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Bonificación anual (monto introducido)</span><b id="bonificacionResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Salarios pendientes</span><b id="salariosResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Comisiones pendientes</span><b id="comisionesResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Horas extras y recargos pendientes</span><b id="extrasResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Otros pagos pendientes</span><b id="otrosResultado">RD$ 0.00</b></div>
-        <div class="line"><span>Descuentos aplicables</span><b id="descuentosResultado">RD$ 0.00</b></div>
-        <p id="detalleCalculo" class="hint" aria-live="polite"></p>
-
-        <div class="warning"><strong>Aviso importante:</strong> Cálculo orientativo, no liquidación oficial ni asesoría legal. Las prestaciones dependen de la causa de terminación y de los hechos comprobados. La bonificación depende de los beneficios empresariales y de los requisitos legales; el importe debe verificarse. Vacaciones y pagos pendientes requieren datos reales. El salario de Navidad puede estar sujeto a límite legal y pagos anteriores. Las indemnizaciones judiciales no se calculan aquí. Contrasta el resultado con la <a href="https://calculo.mt.gob.do/" target="_blank" rel="noopener noreferrer">calculadora del Ministerio de Trabajo</a> y con un profesional cuando corresponda.</div>
-      </section>
-    </div>
-
-    <article class="card article">
-      <h2>¿Cómo calcular las prestaciones laborales en RD?</h2>
-      <p>
-        Las prestaciones laborales en República Dominicana
-        dependen del tiempo trabajado, el salario ordinario
-        y la causa de terminación del contrato.
-        Su regulación principal está contenida en el
-        Código de Trabajo dominicano.
-      </p>
-
-      <h2>¿Cuántos días corresponden de preaviso?</h2>
-      <p>
-        El artículo 76 del Código de Trabajo establece
-        períodos generales de 7 días para una antigüedad
-        desde tres hasta menos de seis meses,
-        14 días desde seis meses hasta menos de un año,
-        y 28 días a partir de un año.
-      </p>
-
-      <h2>¿Cómo se calcula la cesantía?</h2>
-      <p>
-        El artículo 80 establece escalas de cesantía
-        según la duración del contrato. Para períodos
-        desde tres meses hasta menos de un año,
-        se contemplan 6 o 13 días, según corresponda.
-        Para contratos de un año o más se aplican
-        las escalas de 21 o 23 días por año,
-        además de las reglas para fracciones.
-      </p>
-
-      <h2>¿Qué es el salario de Navidad?</h2>
-      <p>
-        Es la duodécima parte del salario ordinario
-        devengado durante el año calendario, sujeto
-        a los límites y condiciones de la legislación.
-      </p>
-
-      <h2>¿La renuncia genera cesantía?</h2>
-      <p>
-        La renuncia voluntaria ordinaria no genera
-        automáticamente auxilio de cesantía.
-        Sin embargo, pueden corresponder derechos
-        adquiridos y otras cantidades pendientes.
-      </p>
-
-      <h2>¿Dónde verificar las prestaciones laborales?</h2>
-      <p>
-        Consulta la
-        <a href="https://calculo.mt.gob.do/"
-           target="_blank"
-           rel="noopener noreferrer">
-          herramienta oficial del Ministerio de Trabajo
-        </a>
-        para contrastar los resultados.
-      </p>
-    </article>
-  </main>
-
-  <footer>
-    <p>© 2026 República Actual</p>
-    <a href="/">Volver al periódico</a>
-  </footer>
-
-  <script>
-    const campo = (id: string) => document.getElementById(id) as HTMLInputElement;
-    const formato = (n: number) => new Intl.NumberFormat('es-DO', {style:'currency', currency:'DOP'}).format(n);
-    const numero = (id: string) => { const raw=campo(id).value.trim(); const n=raw===''?0:Number(raw); if (!Number.isFinite(n)||n<0) throw new Error('Revisa el valor de '+campo(id).previousElementSibling?.textContent); return n; };
-    const leerFecha = (v: string) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null; const [y,m,d]=v.split('-').map(Number); const f=new Date(Date.UTC(y,m-1,d)); return f.getUTCFullYear()===y&&f.getUTCMonth()===m-1&&f.getUTCDate()===d?f:null; };
-    const sumarMeses = (fecha: Date, meses: number) => { const y=fecha.getUTCFullYear(),m=fecha.getUTCMonth()+meses,d=fecha.getUTCDate(); const primer=new Date(Date.UTC(y,m,1)); const ultimo=new Date(Date.UTC(primer.getUTCFullYear(),primer.getUTCMonth()+1,0)).getUTCDate(); return new Date(Date.UTC(primer.getUTCFullYear(),primer.getUTCMonth(),Math.min(d,ultimo))); };
-    function mesesCompletos(a: Date,b: Date) { let n=(b.getUTCFullYear()-a.getUTCFullYear())*12+b.getUTCMonth()-a.getUTCMonth(); while(n>0&&sumarMeses(a,n)>b)n--; return Math.max(0,n); }
-    function diasCesantia(meses: number) { if(meses<3)return 0; if(meses<6)return 6; if(meses<12)return 13; const anos=Math.floor(meses/12),resto=meses%12; const base=meses>=60?23:21; return anos*base+(resto>=6?13:resto>=3?6:0); }
-    function calcular(event: Event) {
-      event.preventDefault(); campo('error').textContent='';
-      try {
-        const salario=numero('salario'),inicio=leerFecha(campo('inicio').value),fin=leerFecha(campo('fin').value);
-        if(salario<=0||!inicio||!fin||fin<inicio) throw new Error('Verifica salario y fechas: la salida debe ser igual o posterior al ingreso.');
-        const meses=mesesCompletos(inicio,fin),diario=salario/23.83,tipo=campo('tipo').value;
-        const elegible=['desahucio','injustificado','dimension'].includes(tipo);
-        const diasAviso=meses>=12?28:meses>=6?14:meses>=3?7:0;
-        const preaviso=elegible&&campo('aviso').value==='no'?diasAviso*diario:0;
-        const cesantia=elegible?diasCesantia(meses)*diario:0;
-        const inicioAno=new Date(Date.UTC(fin.getUTCFullYear(),0,1));
-        const comienzo=inicio>inicioAno?inicio:inicioAno;
-        const diasTrabajados=(fin.getTime()-comienzo.getTime())/86400000+1;
-        const diasAno=(Date.UTC(fin.getUTCFullYear()+1,0,1)-inicioAno.getTime())/86400000;
-        const devengado=campo('devengado').value.trim()===''?salario*12*diasTrabajados/diasAno:numero('devengado');
-        const navidadBruta=devengado/12;
-        const tope=campo('navidadTope').value.trim()===''?Infinity:numero('navidadTope');
-        const navidad=Math.max(0,Math.min(navidadBruta,tope)-numero('navidadPagada'));
-        const vacaciones=numero('vacaciones')*diario;
-        const bonificacion=numero('bonificacion');
-        const salarios=numero('salariosPendientes'),comisiones=numero('comisiones'),extras=numero('extras'),otros=numero('otros'),descuentos=numero('descuentos');
-        const total=preaviso+cesantia+navidad+vacaciones+bonificacion+salarios+comisiones+extras+otros-descuentos;
-        const valores={preaviso,cesantia,navidad,vacacionesResultado:vacaciones,bonificacionResultado:bonificacion,salariosResultado:salarios,comisionesResultado:comisiones,extrasResultado:extras,otrosResultado:otros,descuentosResultado:-descuentos,total};
-        for(const [id,n] of Object.entries(valores)) campo(id).textContent=formato(n);
-        campo('antiguedad').textContent=`${meses} meses completos de servicio`;
-        campo('detalleCalculo').textContent=`Salario diario orientativo: ${formato(diario)}. Preaviso: ${elegible?diasAviso:0} días si no se otorgó. Cesantía: ${elegible?diasCesantia(meses):0} días. Navidad bruta: ${formato(navidadBruta)}. ${tipo==='injustificado'||tipo==='dimension'?'La procedencia de estos conceptos debe validarse según la decisión o situación legal.':''}`;
-      } catch(e) {campo('error').textContent=e instanceof Error?e.message:'No fue posible calcular.';}
-    }
-    campo('formulario').addEventListener('submit',calcular);
-    campo('tipo').addEventListener('change',()=>{campo('grupoAviso').hidden=!['desahucio','injustificado','dimension'].includes(campo('tipo').value);});
-    campo('imprimir').addEventListener('click',()=>window.print());
-  </script>
-</body>
-</html>
+<header class="top"><div class="top-inner"><a href="/">REPÚBLICA ACTUAL</a><small>Herramientas gratuitas para República Dominicana</small></div></header>
+<main class="wrap"><div class="crumb"><a href="/">Inicio</a> / Calculadora de prestaciones laborales</div>
+<section class="hero"><h1>Calculadora de Prestaciones Laborales RD 2026</h1><p>Calcula una estimación de tu liquidación laboral en República Dominicana: preaviso, cesantía, vacaciones, salario de Navidad y bonificación cuando corresponda. Incluye los salarios y comisiones de los últimos 12 meses, como en el formulario del Ministerio de Trabajo.</p><div class="chips"><span class="chip">✓ Gratis y sin registro</span><span class="chip">✓ Salarios y comisiones</span><span class="chip">✓ Fechas DD/MM/AAAA</span><span class="chip">✓ Desglose imprimible</span></div></section>
+<div class="layout"><div>
+<form id="formulario" novalidate>
+<section class="card"><h2><span class="section-num">1</span> Datos del solicitante</h2><div class="fields"><div class="field"><label for="nombre">Nombre <span class="optional">(opcional)</span></label><input id="nombre" autocomplete="name" placeholder="Nombre completo" /></div><div class="field"><label for="documento">Documento de identidad <span class="optional">(opcional)</span></label><input id="documento" autocomplete="off" placeholder="Cédula o pasaporte" /></div></div><div class="field"><label for="empresa">Nombre de la empresa <span class="optional">(opcional)</span></label><input id="empresa" placeholder="Empleador" /></div><p class="hint">Los datos personales se usan solo para mostrar el reporte en tu navegador; no se envían a un servidor por esta calculadora.</p></section>
+<section class="card"><h2><span class="section-num">2</span> Fechas y jornada laboral</h2><div class="fields"><div class="field"><label for="inicio">Fecha de ingreso (día/mes/año)</label><input id="inicio" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" required /></div><div class="field"><label for="fin">Fecha de salida (día/mes/año)</label><input id="fin" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" required /></div></div><div class="field"><label>Frecuencia de pago</label><div class="radio-row"><label><input type="radio" name="periodo" value="mensual" checked /> Mensual</label><label><input type="radio" name="periodo" value="quincenal" /> Quincenal</label><label><input type="radio" name="periodo" value="semanal" /> Semanal</label><label><input type="radio" name="periodo" value="diario" /> Diario</label></div></div><div class="field"><label>Tipo de jornada</label><div class="radio-row"><label><input type="radio" name="jornada" value="ordinaria" checked /> Ordinaria</label><label><input type="radio" name="jornada" value="intermitente" /> Intermitente</label></div><p class="hint">Se utiliza un divisor mensual de referencia de 23,83 para jornada ordinaria y 26 para intermitente. Verifica que tu actividad corresponda a la categoría elegida.</p></div><div class="field"><label for="terminacion">Causa de terminación</label><select id="terminacion"><option value="desahucio">Desahucio ejercido por el empleador</option><option value="renuncia">Renuncia voluntaria ordinaria</option><option value="justificado">Despido justificado</option><option value="otro">Otro caso / por verificar</option></select><p class="hint">La procedencia de cada prestación depende de la causa real de terminación; selecciona los conceptos aplicables abajo.</p></div></section>
+<section class="card"><h2><span class="section-num">3</span> Salarios y comisiones de los últimos 12 meses</h2><p class="hint">Introduce los importes <b>por período de pago</b>, del más antiguo (1) al más reciente (12). Si el salario fue fijo, usa “Completar los 12 meses”. No introduzcas ceros para meses sin información: usa solamente los períodos realmente trabajados.</p><div class="fields" style="margin-top:15px"><div class="field"><label for="salarioBase">Salario por período (RD$)</label><input type="number" min="0" step="0.01" id="salarioBase" placeholder="Ej.: 35000" /></div><div class="field"><label for="comisionBase">Comisión habitual por período (RD$)</label><input type="number" min="0" step="0.01" id="comisionBase" value="0" /></div></div><div class="actions" style="margin:0 0 16px"><button type="button" class="btn secondary" id="completar">Completar los 12 meses</button><button type="button" class="btn secondary" id="vaciarSalarios">Vaciar tabla</button></div><div class="scroll"><table class="salary-table"><thead><tr><th>Mes</th><th>Salarios (RD$)</th><th>Comisiones (RD$)</th><th>Total</th></tr></thead><tbody id="salariosTabla">{Array.from({length:12},(_,i)=><tr><td>{i+1}</td><td><input aria-label={`Salario mes ${i+1}`} type="number" min="0" step="0.01" class="mes-salario" placeholder="0.00" /></td><td><input aria-label={`Comisión mes ${i+1}`} type="number" min="0" step="0.01" class="mes-comision" placeholder="0.00" /></td><td class="mes-total">RD$0.00</td></tr>)}</tbody></table></div><div class="note" style="margin-top:14px">Para pagos quincenales, semanales o diarios, registra los importes correspondientes a cada período y asegúrate de que los 12 renglones representen correctamente los meses del último año. El botón de completar convierte el salario por período a su equivalente mensual.</div></section>
+<section class="card"><h2><span class="section-num">4</span> Conceptos que deseas calcular</h2><div class="fields"><div class="field"><label for="preavisado">¿Se cumplió el preaviso?</label><select id="preavisado"><option value="no">No, incluir pago de preaviso</option><option value="si">Sí, no incluir pago</option></select></div><div class="field"><label for="cesantiaIncluir">¿Incluir auxilio de cesantía?</label><select id="cesantiaIncluir"><option value="si">Sí</option><option value="no">No</option></select></div><div class="field"><label for="vacacionesTomadas">¿Tomó las vacaciones correspondientes?</label><select id="vacacionesTomadas"><option value="si">Sí, no incluir</option><option value="no">No, estimar pendientes</option><option value="manual">Indicar días pendientes</option></select></div><div class="field" id="vacacionesManualBox" hidden><label for="diasVacaciones">Días de vacaciones pendientes</label><input type="number" min="0" max="60" step="1" id="diasVacaciones" value="0" /></div><div class="field"><label for="navidadIncluir">¿Incluir salario de Navidad?</label><select id="navidadIncluir"><option value="si">Sí</option><option value="no">No</option></select></div><div class="field"><label for="devengadoAno">Salario ordinario devengado en el año (RD$) <span class="optional">(opcional)</span></label><input type="number" min="0" step="0.01" id="devengadoAno" placeholder="Si lo conoces, introdúcelo" /></div><div class="field"><label for="navidadPagada">Salario de Navidad ya pagado (RD$)</label><input type="number" min="0" step="0.01" id="navidadPagada" value="0" /></div></div><p class="hint">Si no indicas el salario devengado durante el año de salida, se calcula una aproximación proporcional según los días trabajados y el salario mensual promedio.</p><h3>Pagos adicionales <span class="optional">(opcionales, separados de las prestaciones)</span></h3><div class="fields"><div class="field"><label for="bonificacion">Bonificación laboral pendiente (RD$)</label><input id="bonificacion" type="number" min="0" step="0.01" value="0" /><p class="hint">Introduce un monto confirmado o calculado aparte según los beneficios de la empresa.</p></div><div class="field"><label for="salariosPendientes">Salarios pendientes (RD$)</label><input id="salariosPendientes" type="number" min="0" step="0.01" value="0" /></div><div class="field"><label for="otros">Otros pagos pendientes (RD$)</label><input id="otros" type="number" min="0" step="0.01" value="0" /></div><div class="field"><label for="descuentos">Descuentos legalmente aplicables (RD$)</label><input id="descuentos" type="number" min="0" step="0.01" value="0" /></div></div><div class="actions"><button class="btn" type="submit">CALCULAR PRESTACIONES</button><button class="btn secondary" type="button" id="limpiar">Limpiar</button></div><p id="error" class="error" role="alert" aria-live="assertive"></p></section>
+</form></div>
+<aside><section class="card" aria-live="polite"><h2>Resultado estimado</h2><div class="summary"><small>Total orientativo a recibir</small><div id="total" class="total">RD$0.00</div><small id="antiguedad">Introduce tus datos y pulsa calcular</small></div><div class="line"><span>Sumatoria de salarios (12 renglones)</span><strong id="sumatoria">RD$0.00</strong></div><div class="line"><span>Salario promedio mensual</span><strong id="promedio">RD$0.00</strong></div><div class="line"><span>Salario promedio diario</span><strong id="diario">RD$0.00</strong></div><h3>Prestaciones y derechos adquiridos</h3><div class="line"><span>Preaviso (art. 76)</span><strong id="preaviso">RD$0.00</strong></div><div class="line"><span>Cesantía anterior al 29/05/1992</span><strong id="cesantiaAntes">RD$0.00</strong></div><div class="line"><span>Cesantía desde el 29/05/1992</span><strong id="cesantiaDespues">RD$0.00</strong></div><div class="line"><span>Vacaciones pendientes</span><strong id="vacaciones">RD$0.00</strong></div><div class="line"><span>Salario de Navidad</span><strong id="navidad">RD$0.00</strong></div><div class="line"><span>Subtotal laboral</span><strong id="subtotal">RD$0.00</strong></div><h3>Otros conceptos</h3><div class="line"><span>Bonificación pendiente</span><strong id="rBonificacion">RD$0.00</strong></div><div class="line"><span>Salarios pendientes</span><strong id="rSalarios">RD$0.00</strong></div><div class="line"><span>Otros pagos</span><strong id="rOtros">RD$0.00</strong></div><div class="line"><span>Descuentos aplicables</span><strong id="rDescuentos">RD$0.00</strong></div><div class="line total-line"><span>Total estimado</span><strong id="totalLinea">RD$0.00</strong></div><div class="actions"><button type="button" class="btn secondary" id="imprimir">Imprimir / Guardar PDF</button></div><div class="warning"><b>Aviso importante.</b> Esta herramienta es independiente del Ministerio de Trabajo y ofrece únicamente estimaciones informativas. No reproduce ni certifica su algoritmo oficial. Las relaciones anteriores a mayo de 1992, situaciones especiales, indemnizaciones judiciales y los derechos de personas con protección especial requieren cálculo individual. Contrasta los resultados en <a href="https://calculo.mt.gob.do/" target="_blank" rel="noopener noreferrer">la calculadora oficial del Ministerio de Trabajo</a>.</div></section></aside></div>
+<article class="card article"><h2>¿Cómo calcular las prestaciones laborales en República Dominicana?</h2><p>La <strong>calculadora de prestaciones laborales RD 2026</strong> permite estimar cuánto corresponde por <strong>preaviso, cesantía, vacaciones no disfrutadas y salario de Navidad</strong> según el Código de Trabajo dominicano (Ley 16-92). Para calcular prestaciones laborales en República Dominicana se necesitan la fecha de ingreso, la fecha de salida, la remuneración ordinaria y el motivo de terminación.</p><h2>Cálculo de cesantía y preaviso en RD</h2><p>El artículo 76 regula el preaviso y el artículo 80 establece las escalas de auxilio de cesantía. Para antigüedades de tres a seis meses y de seis a doce meses se aplican reglas distintas de las de contratos de uno o más años. La causa de terminación es fundamental para determinar qué pagos corresponden.</p><h2>Salarios y comisiones: cómo usar la tabla</h2><p>Si el salario cambió durante los últimos 12 meses, introduce cada mes en orden cronológico. Añade las comisiones habituales que formen parte de la remuneración ordinaria. Puedes elegir pago mensual, quincenal, semanal o diario y jornada ordinaria o intermitente. La remuneración variable y las particularidades de cada contrato pueden requerir revisión profesional.</p><h2>Vacaciones pendientes y salario de Navidad</h2><p>Las vacaciones se rigen por los artículos 177 y siguientes del Código de Trabajo. El salario de Navidad o regalía pascual se calcula generalmente a partir de la duodécima parte del salario ordinario devengado en el año, con sus límites y condiciones. Puedes introducir la cantidad ya recibida para evitar duplicarla.</p><h2>¿Cómo calcular la bonificación laboral en República Dominicana?</h2><p>La bonificación o participación en los beneficios de la empresa no es lo mismo que la cesantía. Su procedencia y cuantía dependen de la existencia de beneficios y las reglas de los artículos 223 y siguientes. Esta herramienta permite sumar un importe de bonificación <strong>previamente determinado</strong>, pero no lo inventa ni lo presume.</p><h2>Calculadora de liquidación laboral RD: resultados orientativos</h2><p>Si buscas “cálculo de prestaciones”, “calcular prestaciones laborales”, “prestaciones laborales República Dominicana”, “tabla de prestaciones laborales RD” o “cálculo de prestaciones laborales Santo Domingo”, esta herramienta puede ayudarte a obtener una referencia inicial. No reemplaza el servicio oficial ni una evaluación jurídica del caso concreto.</p><p><a href="https://calculo.mt.gob.do/" target="_blank" rel="noopener noreferrer">Verificar cálculo en el Ministerio de Trabajo dominicano</a>.</p></article>
+<section class="card faq"><h2>Preguntas frecuentes sobre prestaciones laborales RD</h2>{faq.map(item=><details><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
+</main><footer>© 2026 República Actual · <a href="/">Volver al periódico</a></footer>
+<script>
+const $=(id:string)=>document.getElementById(id) as HTMLInputElement;
+const money=(n:number)=>new Intl.NumberFormat('es-DO',{style:'currency',currency:'DOP'}).format(n);
+const val=(id:string)=>Number($(id).value||0);
+const checked=(name:string)=>((document.querySelector(`input[name="${name}"]:checked`) as HTMLInputElement)?.value||'');
+const parseDate=(str:string):Date|null=>{const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(str);if(!m)return null;const d=+m[1],mo=+m[2],y=+m[3];const x=new Date(Date.UTC(y,mo-1,d));return x.getUTCFullYear()===y&&x.getUTCMonth()===mo-1&&x.getUTCDate()===d?x:null};
+const days=(a:Date,b:Date)=>Math.floor((b.getTime()-a.getTime())/86400000);
+function age(a:Date,b:Date){let years=b.getUTCFullYear()-a.getUTCFullYear();let months=b.getUTCMonth()-a.getUTCMonth();let d=b.getUTCDate()-a.getUTCDate();if(d<0){months--;const prev=new Date(Date.UTC(b.getUTCFullYear(),b.getUTCMonth(),0));d+=prev.getUTCDate()}if(months<0){years--;months+=12}return {years,months,days:d,totalMonths:years*12+months}}
+function ceDays(months:number){if(months<3)return 0;if(months<6)return 6;if(months<12)return 13;const years=Math.floor(months/12),rest=months%12;const rate=years>=5?23:21;return years*rate+(rest>=6?13:rest>=3?6:0)}
+function noticeDays(months:number){return months>=12?28:months>=6?14:months>=3?7:0}
+function periodToMonthly(n:number){switch(checked('periodo')){case 'quincenal':return n*2;case 'semanal':return n*52/12;case 'diario':return n*(checked('jornada')==='intermitente'?26:23.83);default:return n}}
+function formatDate(el:HTMLInputElement){let s=el.value.replace(/\D/g,'').slice(0,8);if(s.length>4)s=s.slice(0,2)+'/'+s.slice(2,4)+'/'+s.slice(4);else if(s.length>2)s=s.slice(0,2)+'/'+s.slice(2);el.value=s}
+['inicio','fin'].forEach(id=>$(id).addEventListener('input',()=>formatDate($(id))));
+function updateRows(){document.querySelectorAll('#salariosTabla tr').forEach(tr=>{const inputs=tr.querySelectorAll('input');const total=Number((inputs[0] as HTMLInputElement).value||0)+Number((inputs[1] as HTMLInputElement).value||0);(tr.querySelector('.mes-total') as HTMLElement).textContent=money(total)})}
+$('salariosTabla').addEventListener('input',updateRows);
+$('completar').addEventListener('click',()=>{const s=val('salarioBase'),c=val('comisionBase');if(s<=0){$('error').textContent='Introduce un salario positivo para completar la tabla.';return}document.querySelectorAll('#salariosTabla tr').forEach(tr=>{const ins=tr.querySelectorAll('input');(ins[0] as HTMLInputElement).value=String(periodToMonthly(s));(ins[1] as HTMLInputElement).value=String(periodToMonthly(c))});$('error').textContent='';updateRows()});
+$('vaciarSalarios').addEventListener('click',()=>{document.querySelectorAll('#salariosTabla input').forEach(el=>(el as HTMLInputElement).value='');updateRows()});
+$('vacacionesTomadas').addEventListener('change',()=>{$('vacacionesManualBox').hidden=$('vacacionesTomadas').value!=='manual'});
+$('terminacion').addEventListener('change',()=>{const auto=$('terminacion').value==='desahucio';$('cesantiaIncluir').value=auto?'si':'no';$('preavisado').value=auto?'no':'si'});
+$('limpiar').addEventListener('click',()=>location.reload());
+$('imprimir').addEventListener('click',()=>window.print());
+$('formulario').addEventListener('submit',(e)=>{e.preventDefault();$('error').textContent='';const a=parseDate($('inicio').value),b=parseDate($('fin').value);if(!a||!b||b<a){$('error').textContent='Introduce fechas válidas en formato DD/MM/AAAA; la salida no puede ser anterior al ingreso.';return}
+const rows=Array.from(document.querySelectorAll('#salariosTabla tr')).map(tr=>{const x=tr.querySelectorAll('input');return {s:Number((x[0] as HTMLInputElement).value||0),c:Number((x[1] as HTMLInputElement).value||0),filled:(x[0] as HTMLInputElement).value!==''||(x[1] as HTMLInputElement).value!==''}});
+if(rows.some(r=>![r.s,r.c].every(Number.isFinite)||r.s<0||r.c<0)){ $('error').textContent='Corrige los salarios y comisiones de la tabla.';return}
+const active=rows.filter(r=>r.filled&&(r.s+r.c)>0),sum=active.reduce((n,r)=>n+r.s+r.c,0);if(!active.length){$('error').textContent='Introduce al menos un mes de salario y comisiones, o utiliza “Completar los 12 meses”.';return}
+const average=sum/active.length;const divisor=checked('jornada')==='intermitente'?26:23.83;const daily=average/divisor;const duration=age(a,b);const months=duration.totalMonths;const preaviso=$('preavisado').value==='no'?noticeDays(months)*daily:0;
+let cesantia= $('cesantiaIncluir').value==='si'?ceDays(months)*daily:0;let antes=0,despues=cesantia;
+const cut=new Date(Date.UTC(1992,4,29));if(a<cut){antes=0;despues=0;cesantia=0;$('error').textContent='Aviso: el servicio anterior al 29/05/1992 requiere un cálculo legal especializado; la cesantía se deja en cero para evitar cifras incorrectas.'}
+let vacationDays=0;if($('vacacionesTomadas').value==='manual')vacationDays=val('diasVacaciones');else if($('vacacionesTomadas').value==='no')vacationDays=months>=60?18:months>=12?14:months>=11?12:months>=10?11:months>=9?10:months>=8?9:months>=7?8:months>=6?7:months>=5?6:0;
+const vac=vacationDays*daily;const jan1=new Date(Date.UTC(b.getUTCFullYear(),0,1));const start=a>jan1?a:jan1;const yrDays=days(jan1,new Date(Date.UTC(b.getUTCFullYear()+1,0,1)));const earned= $('devengadoAno').value.trim()?val('devengadoAno'):average*12*(days(start,b)+1)/yrDays;const nav=$('navidadIncluir').value==='si'?Math.max(0,earned/12-val('navidadPagada')):0;
+const extras=['bonificacion','salariosPendientes','otros','descuentos','navidadPagada','devengadoAno','diasVacaciones'].map(id=>val(id));if(extras.some(n=>!Number.isFinite(n)||n<0)||!Number.isFinite(earned)||earned<0){$('error').textContent='No se permiten importes negativos ni valores inválidos.';return}
+const subtotal=preaviso+cesantia+vac+nav;const total=subtotal+val('bonificacion')+val('salariosPendientes')+val('otros')-val('descuentos');
+const out:{[key:string]:number}={sumatoria:sum,promedio:average,diario:daily,preaviso,cesantiaAntes:antes,cesantiaDespues:despues,vacaciones:vac,navidad:nav,subtotal,rBonificacion:val('bonificacion'),rSalarios:val('salariosPendientes'),rOtros:val('otros'),rDescuentos:val('descuentos'),total,totalLinea:total};Object.entries(out).forEach(([id,n])=>$(id).textContent=money(n));$('antiguedad').textContent=`${duration.years} años, ${duration.months} meses y ${duration.days} días de servicio · ${active.length} período(s) salariales registrados`;
+});
+</script>
+</body></html>
