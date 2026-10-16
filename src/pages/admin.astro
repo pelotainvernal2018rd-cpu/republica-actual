@@ -1,6 +1,3 @@
----
----
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -2813,6 +2810,8 @@
 
           const destinos = [];
 
+          if (noticia.__fuente === "evergreen") destinos.push("Archivo permanente");
+
           if (
             noticia.feed_principal !==
             false
@@ -3538,7 +3537,8 @@
 
       if (
         !feedPrincipal?.checked &&
-        !republicaUtil?.checked
+        !republicaUtil?.checked &&
+        noticiaEditando?.__fuente !== 'evergreen' 
       ) {
 
         mostrarMensajeNoticia(
@@ -3645,9 +3645,8 @@
               : true,
 
           republica_util:
-            republicaUtil
-              ? republicaUtil.checked
-              : false,
+            noticiaEditando?.__fuente === 'evergreen' ||
+            (republicaUtil ? republicaUtil.checked : false),
 
           republica_util_portada:
             republicaUtilPortada
@@ -3688,14 +3687,9 @@
          * No volvemos a descargar toda la colección.
          */
 
-        await guardarDocumento(
-          id,
-          datos
-        );
+        const guardada = await guardarDocumento(id, datos);
 
-        reemplazarEnCache(
-          datos
-        );
+        reemplazarEnCache(guardada || datos);
 
         renderNoticias();
 
