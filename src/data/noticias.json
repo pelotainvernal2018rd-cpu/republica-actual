@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731344,
+    "created_at": "2026-10-16T16:56:58.643Z",
+    "titulo": "El dramático caso de un nicaragüense deportado a África tras ocho años en Estados Unidos",
+    "slug": "el-dramatico-caso-de-un-nicaraguense-deportado-a-africa-tras-ocho-anos-en-estados-unidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7a29d632-c8f1-11f1-96fb-2d1c143cdef3/w:1280/p:16x9/Luis26.jpg\" alt=\"El dramático caso de un nicaragüense deportado a África tras ocho años en Estados Unidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Luis Carlos Mendoza abandonó Nicaragua en el año 2018 con el propósito de escapar de la represión gubernamental que afectaba a su país en ese momento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras su llegada a territorio estadounidense, logró establecerse y dedicó ocho años a reconstruir su vida y buscar estabilidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante su estancia en Estados Unidos, una jueza le otorgó protección legal oficial contra la deportación, reconociendo los riesgos que enfrentaba.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de contar con este amparo judicial, su situación dio un giro inesperado que lo llevó a quedar atrapado en un complejo limbo migratorio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El resultado de este proceso culminó con su envío hacia un destino en el continente africano, lejos del país donde buscó refugio inicialmente.</p>",
+    "imagen": "https://s.france24.com/media/display/7a29d632-c8f1-11f1-96fb-2d1c143cdef3/w:1280/p:16x9/Luis26.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261016-llegu%C3%A9-a-ee-uu-el-pa%C3%ADs-de-la-libertad-para-perderla-el-limbo-de-un-nicarag%C3%BCense-deportado-a-%C3%A1frica",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731343,
     "created_at": "2026-10-16T16:55:02.489Z",
     "titulo": "Ministerio de Trabajo aconseja revisar propuestas de empleo en el exterior para prevenir fraudes",
