@@ -1,7 +1,7 @@
 
 ---
 const titulo = 'Calculadora de Prestaciones Laborales RD 2026 | República Actual';
-const descripcion = 'Calcula una estimación de cesantía, preaviso y salario de Navidad en República Dominicana. Calculadora gratuita de prestaciones laborales RD.';
+const descripcion = 'Calculadora de prestaciones laborales RD 2026: estima cesantía, preaviso, salario de Navidad, vacaciones, bonificación y pagos pendientes en República Dominicana.';
 const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
 ---
 
@@ -148,6 +148,8 @@ const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
       margin-bottom: 18px;
     }
     .result small { color: #dce9fa; }
+    .secondary-button { margin-top: 10px; background: #24466f; }
+    @media print { .header,.nav,footer,button,.warning { display: none !important; } body { background: white !important; } main { padding: 0; } .grid { grid-template-columns: 1fr 1fr; } .card { box-shadow: none; break-inside: avoid; } }
     .result strong {
       display: block;
       font-size: clamp(28px, 4vw, 38px);
@@ -250,9 +252,9 @@ const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
               <option value="renuncia">
                 Renuncia voluntaria
               </option>
-              <option value="justificado">
-                Despido justificado
-              </option>
+              <option value="justificado">Despido justificado</option>
+              <option value="injustificado">Despido injustificado (estimación de prestaciones)</option>
+              <option value="dimension">Dimisión justificada (requiere validación legal)</option>
             </select>
             <p class="hint">
               Despidos injustificados y dimisiones justificadas
@@ -280,9 +282,23 @@ const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
             </p>
           </div>
 
-          <button type="submit">
-            CALCULAR PRESTACIONES
-          </button>
+          <h2>Derechos adquiridos y pagos pendientes</h2>
+          <div class="dates">
+            <div class="field"><label for="vacaciones">Días de vacaciones pendientes</label><input id="vacaciones" type="number" min="0" step="0.5" value="0" /><p class="hint">Introduce los días remunerados pendientes que correspondan; no se presume que todos los días de vacaciones estén pendientes.</p></div>
+            <div class="field"><label for="navidadPagada">Salario de Navidad ya pagado (RD$)</label><input id="navidadPagada" type="number" min="0" step="0.01" value="0" /></div>
+            <div class="field"><label for="salariosPendientes">Salarios pendientes (RD$)</label><input id="salariosPendientes" type="number" min="0" step="0.01" value="0" /></div>
+            <div class="field"><label for="comisiones">Comisiones pendientes (RD$)</label><input id="comisiones" type="number" min="0" step="0.01" value="0" /></div>
+            <div class="field"><label for="extras">Horas extras y recargos pendientes (RD$)</label><input id="extras" type="number" min="0" step="0.01" value="0" /></div>
+            <div class="field"><label for="otros">Otros pagos pendientes (RD$)</label><input id="otros" type="number" min="0" step="0.01" value="0" /></div>
+          </div>
+          <h2>Bonificación anual</h2>
+          <div class="field"><label for="bonificacion">Bonificación que corresponde pagar (RD$)</label><input id="bonificacion" type="number" min="0" step="0.01" value="0" /><p class="hint">Indica el monto confirmado o estimado a partir de los beneficios netos distribuibles de la empresa y los días de participación correspondientes. No se presume que exista bonificación ni se calcula solo con el salario.</p></div>
+          <div class="dates">
+            <div class="field"><label for="descuentos">Anticipos y descuentos aplicables (RD$)</label><input id="descuentos" type="number" min="0" step="0.01" value="0" /></div>
+            <div class="field"><label for="navidadTope">Tope aplicable al salario de Navidad (RD$, opcional)</label><input id="navidadTope" type="number" min="0" step="0.01" placeholder="Si se conoce" /><p class="hint">Verifica el límite legal de cinco salarios mínimos aplicable al caso; si lo dejas vacío no se aplica un tope automático.</p></div>
+          </div>
+          <button type="submit">CALCULAR LIQUIDACIÓN COMPLETA</button>
+          <button type="button" id="imprimir" class="secondary-button">IMPRIMIR / GUARDAR EN PDF</button>
 
           <p id="error" class="error" role="alert"></p>
         </form>
@@ -314,31 +330,16 @@ const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
           <b id="navidad">RD$ 0.00</b>
         </div>
 
-        <div class="line">
-          <span>Vacaciones pendientes</span>
-          <b>No incluidas</b>
-        </div>
+        <div class="line"><span>Vacaciones pendientes</span><b id="vacacionesResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Bonificación anual (monto introducido)</span><b id="bonificacionResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Salarios pendientes</span><b id="salariosResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Comisiones pendientes</span><b id="comisionesResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Horas extras y recargos pendientes</span><b id="extrasResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Otros pagos pendientes</span><b id="otrosResultado">RD$ 0.00</b></div>
+        <div class="line"><span>Descuentos aplicables</span><b id="descuentosResultado">RD$ 0.00</b></div>
+        <p id="detalleCalculo" class="hint" aria-live="polite"></p>
 
-        <div class="warning">
-          <strong>Aviso importante:</strong>
-          Esta calculadora ofrece una estimación,
-          no una liquidación oficial.
-
-          No incluye vacaciones pendientes,
-          salarios atrasados, bonificaciones,
-          indemnizaciones judiciales ni otros conceptos.
-
-          El salario de Navidad estimado no descuenta
-          cantidades ya pagadas ni aplica automáticamente
-          el límite legal.
-
-          Verifica los resultados con la
-          <a href="https://calculo.mt.gob.do/"
-             target="_blank"
-             rel="noopener noreferrer">
-            calculadora del Ministerio de Trabajo
-          </a>.
-        </div>
+        <div class="warning"><strong>Aviso importante:</strong> Cálculo orientativo, no liquidación oficial ni asesoría legal. Las prestaciones dependen de la causa de terminación y de los hechos comprobados. La bonificación depende de los beneficios empresariales y de los requisitos legales; el importe debe verificarse. Vacaciones y pagos pendientes requieren datos reales. El salario de Navidad puede estar sujeto a límite legal y pagos anteriores. Las indemnizaciones judiciales no se calculan aquí. Contrasta el resultado con la <a href="https://calculo.mt.gob.do/" target="_blank" rel="noopener noreferrer">calculadora del Ministerio de Trabajo</a> y con un profesional cuando corresponda.</div>
       </section>
     </div>
 
@@ -406,142 +407,44 @@ const url = 'https://republicaactual.net/calculadora-prestaciones-laborales/';
   </footer>
 
   <script>
-    const campo = (id: string) =>
-      document.getElementById(id) as HTMLInputElement;
-
-    const formato = (valor: number) =>
-      new Intl.NumberFormat('es-DO', {
-        style: 'currency',
-        currency: 'DOP'
-      }).format(valor);
-
-    function leerFecha(valor: string): Date | null {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) return null;
-
-      const [y,m,d] = valor.split('-').map(Number);
-      const fecha = new Date(Date.UTC(y,m-1,d));
-
-      if (
-        fecha.getUTCFullYear() !== y ||
-        fecha.getUTCMonth() !== m-1 ||
-        fecha.getUTCDate() !== d
-      ) return null;
-
-      return fecha;
-    }
-
-    function mesesCompletos(a: Date,b: Date) {
-      let meses =
-        (b.getUTCFullYear()-a.getUTCFullYear())*12 +
-        b.getUTCMonth()-a.getUTCMonth();
-
-      if (b.getUTCDate()<a.getUTCDate()) meses--;
-      return Math.max(0,meses);
-    }
-
-    function diasCesantia(meses: number) {
-      if (meses<3) return 0;
-      if (meses<6) return 6;
-      if (meses<12) return 13;
-
-      const anos = Math.floor(meses/12);
-      const resto = meses%12;
-
-      const diasPorAno = meses>=60 ? 23 : 21;
-      let dias = anos*diasPorAno;
-
-      if (resto>=6) dias+=13;
-      else if (resto>=3) dias+=6;
-
-      return dias;
-    }
-
+    const campo = (id: string) => document.getElementById(id) as HTMLInputElement;
+    const formato = (n: number) => new Intl.NumberFormat('es-DO', {style:'currency', currency:'DOP'}).format(n);
+    const numero = (id: string) => { const raw=campo(id).value.trim(); const n=raw===''?0:Number(raw); if (!Number.isFinite(n)||n<0) throw new Error('Revisa el valor de '+campo(id).previousElementSibling?.textContent); return n; };
+    const leerFecha = (v: string) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null; const [y,m,d]=v.split('-').map(Number); const f=new Date(Date.UTC(y,m-1,d)); return f.getUTCFullYear()===y&&f.getUTCMonth()===m-1&&f.getUTCDate()===d?f:null; };
+    const sumarMeses = (fecha: Date, meses: number) => { const y=fecha.getUTCFullYear(),m=fecha.getUTCMonth()+meses,d=fecha.getUTCDate(); const primer=new Date(Date.UTC(y,m,1)); const ultimo=new Date(Date.UTC(primer.getUTCFullYear(),primer.getUTCMonth()+1,0)).getUTCDate(); return new Date(Date.UTC(primer.getUTCFullYear(),primer.getUTCMonth(),Math.min(d,ultimo))); };
+    function mesesCompletos(a: Date,b: Date) { let n=(b.getUTCFullYear()-a.getUTCFullYear())*12+b.getUTCMonth()-a.getUTCMonth(); while(n>0&&sumarMeses(a,n)>b)n--; return Math.max(0,n); }
+    function diasCesantia(meses: number) { if(meses<3)return 0; if(meses<6)return 6; if(meses<12)return 13; const anos=Math.floor(meses/12),resto=meses%12; const base=meses>=60?23:21; return anos*base+(resto>=6?13:resto>=3?6:0); }
     function calcular(event: Event) {
-      event.preventDefault();
-
-      campo('error').textContent = '';
-
-      const salario = Number(campo('salario').value);
-      const inicio = leerFecha(campo('inicio').value);
-      const fin = leerFecha(campo('fin').value);
-
-      if (
-        !inicio || !fin || fin<inicio ||
-        !Number.isFinite(salario) || salario<=0
-      ) {
-        campo('error').textContent =
-          'Verifica el salario y las fechas introducidas.';
-        return;
-      }
-
-      const meses = mesesCompletos(inicio,fin);
-      const diario = salario/23.83;
-      const desahucio = campo('tipo').value==='desahucio';
-
-      let diasAviso = 0;
-
-      if (meses>=12) diasAviso=28;
-      else if (meses>=6) diasAviso=14;
-      else if (meses>=3) diasAviso=7;
-
-      const preaviso =
-        desahucio && campo('aviso').value==='no'
-          ? diasAviso*diario : 0;
-
-      const cesantia =
-        desahucio ? diasCesantia(meses)*diario : 0;
-
-      const primerDiaAno = new Date(
-        Date.UTC(fin.getUTCFullYear(),0,1)
-      );
-
-      const comienzo =
-        inicio>primerDiaAno ? inicio : primerDiaAno;
-
-      const dias = Math.max(
-        0,
-        Math.round(
-          (fin.getTime()-comienzo.getTime())/86400000
-        )+1
-      );
-
-      const proximoAno = new Date(
-        Date.UTC(fin.getUTCFullYear()+1,0,1)
-      );
-
-      const diasAno =
-        (proximoAno.getTime()-primerDiaAno.getTime())/86400000;
-
-      const manual = campo('devengado').value.trim();
-
-      const devengado = manual!==''
-        ? Number(manual)
-        : salario*12*dias/diasAno;
-
-      if (!Number.isFinite(devengado) || devengado<0) {
-        campo('error').textContent =
-          'Introduce un salario devengado válido.';
-        return;
-      }
-
-      const navidad = devengado/12;
-      const total = preaviso+cesantia+navidad;
-
-      campo('preaviso').textContent = formato(preaviso);
-      campo('cesantia').textContent = formato(cesantia);
-      campo('navidad').textContent = formato(navidad);
-      campo('total').textContent = formato(total);
-
-      campo('antiguedad').textContent =
-        `${meses} meses completos de servicio`;
+      event.preventDefault(); campo('error').textContent='';
+      try {
+        const salario=numero('salario'),inicio=leerFecha(campo('inicio').value),fin=leerFecha(campo('fin').value);
+        if(salario<=0||!inicio||!fin||fin<inicio) throw new Error('Verifica salario y fechas: la salida debe ser igual o posterior al ingreso.');
+        const meses=mesesCompletos(inicio,fin),diario=salario/23.83,tipo=campo('tipo').value;
+        const elegible=['desahucio','injustificado','dimension'].includes(tipo);
+        const diasAviso=meses>=12?28:meses>=6?14:meses>=3?7:0;
+        const preaviso=elegible&&campo('aviso').value==='no'?diasAviso*diario:0;
+        const cesantia=elegible?diasCesantia(meses)*diario:0;
+        const inicioAno=new Date(Date.UTC(fin.getUTCFullYear(),0,1));
+        const comienzo=inicio>inicioAno?inicio:inicioAno;
+        const diasTrabajados=(fin.getTime()-comienzo.getTime())/86400000+1;
+        const diasAno=(Date.UTC(fin.getUTCFullYear()+1,0,1)-inicioAno.getTime())/86400000;
+        const devengado=campo('devengado').value.trim()===''?salario*12*diasTrabajados/diasAno:numero('devengado');
+        const navidadBruta=devengado/12;
+        const tope=campo('navidadTope').value.trim()===''?Infinity:numero('navidadTope');
+        const navidad=Math.max(0,Math.min(navidadBruta,tope)-numero('navidadPagada'));
+        const vacaciones=numero('vacaciones')*diario;
+        const bonificacion=numero('bonificacion');
+        const salarios=numero('salariosPendientes'),comisiones=numero('comisiones'),extras=numero('extras'),otros=numero('otros'),descuentos=numero('descuentos');
+        const total=preaviso+cesantia+navidad+vacaciones+bonificacion+salarios+comisiones+extras+otros-descuentos;
+        const valores={preaviso,cesantia,navidad,vacacionesResultado:vacaciones,bonificacionResultado:bonificacion,salariosResultado:salarios,comisionesResultado:comisiones,extrasResultado:extras,otrosResultado:otros,descuentosResultado:-descuentos,total};
+        for(const [id,n] of Object.entries(valores)) campo(id).textContent=formato(n);
+        campo('antiguedad').textContent=`${meses} meses completos de servicio`;
+        campo('detalleCalculo').textContent=`Salario diario orientativo: ${formato(diario)}. Preaviso: ${elegible?diasAviso:0} días si no se otorgó. Cesantía: ${elegible?diasCesantia(meses):0} días. Navidad bruta: ${formato(navidadBruta)}. ${tipo==='injustificado'||tipo==='dimension'?'La procedencia de estos conceptos debe validarse según la decisión o situación legal.':''}`;
+      } catch(e) {campo('error').textContent=e instanceof Error?e.message:'No fue posible calcular.';}
     }
-
     campo('formulario').addEventListener('submit',calcular);
-
-    campo('tipo').addEventListener('change',()=>{
-      campo('grupoAviso').hidden =
-        campo('tipo').value!=='desahucio';
-    });
+    campo('tipo').addEventListener('change',()=>{campo('grupoAviso').hidden=!['desahucio','injustificado','dimension'].includes(campo('tipo').value);});
+    campo('imprimir').addEventListener('click',()=>window.print());
   </script>
 </body>
 </html>
