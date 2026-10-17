@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731425,
+    "created_at": "2026-10-17T00:41:49.130Z",
+    "titulo": "La comunidad científica redefine la medición del tiempo para evitar fallos tecnológicos",
+    "slug": "la-comunidad-cientifica-redefine-la-medicion-del-tiempo-para-evitar-fallos-tecnologicos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/ebc5ce24-331c-11f1-a112-005056a90284/w:1280/p:16x9/AP26097509348086.jpg\" alt=\"La comunidad científica redefine la medición del tiempo para evitar fallos tecnológicos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La comunidad científica internacional ha implementado un cambio significativo en la manera en que se mide el tiempo. A partir de ahora, el sistema dejará de ajustarse estrictamente al ritmo de la rotación de la Tierra, marcando un hito en la gestión temporal global.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta modificación responde a una solicitud directa de diversas empresas tecnológicas. Estos sectores habían advertido sobre la necesidad de ajustar los estándares actuales para prevenir posibles errores y fallos operativos en sus sistemas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La preocupación de las compañías del sector tecnológico se centraba en los riesgos que una medición desfasada podría representar para la estabilidad de sus infraestructuras digitales. La medida busca mitigar estos peligros potenciales que amenazaban con generar incidentes técnicos de gran escala.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El debate ha generado comparaciones con la incertidumbre que rodeó al cambio de milenio, cuando existía un temor generalizado por el impacto que el nuevo siglo tendría en los sistemas informáticos. Sin embargo, este ajuste actual se presenta como una solución técnica planificada para garantizar la precisión necesaria en la era digital.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con esta nueva metodología, los expertos buscan desvincular la medición del tiempo de las variaciones naturales de la rotación terrestre. El objetivo principal es asegurar que los sistemas globales operen bajo un estándar constante y predecible, evitando así las complicaciones que el ritmo natural del planeta imponía anteriormente.</p>",
+    "imagen": "https://s.france24.com/media/display/ebc5ce24-331c-11f1-a112-005056a90284/w:1280/p:16x9/AP26097509348086.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-contexto/20261017-cambia-la-forma-de-medir-el-tiempo-por-qu%C3%A9-ya-no-seguir%C3%A1-el-ritmo-exacto-de-la-rotaci%C3%B3n-terrestre",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731424,
     "created_at": "2026-10-17T00:41:26.080Z",
     "titulo": "Madre denuncia desaparición de su bebé y asegura recibir extorsiones tras parto en maternidad",
