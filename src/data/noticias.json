@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731541,
+    "created_at": "2026-10-17T21:26:41.341Z",
+    "titulo": "Estambul se alista ante la amenaza de nuevas precipitaciones e inundaciones",
+    "slug": "estambul-se-alista-ante-la-amenaza-de-nuevas-precipitaciones-e-inundaciones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7bf0b13e-ca68-11f1-8c79-d1d2c32ebb87/w:1280/p:16x9/ES-20261017-123802-123937-CS.jpg\" alt=\"Estambul se alista ante la amenaza de nuevas precipitaciones e inundaciones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La ciudad de Estambul enfrenta una nueva alerta meteorológica tras varios días marcados por precipitaciones persistentes y anegamientos en distintas zonas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este escenario, las autoridades locales han emitido recomendaciones urgentes dirigidas a la población para prevenir situaciones de riesgo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Se ha solicitado de manera expresa a los habitantes que permanezcan en sus hogares y limiten los desplazamientos en la vía pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las directrices oficiales indican que solo se debe salir a la calle en situaciones de absoluta necesidad mientras duren las condiciones adversas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La información sobre esta situación de alerta ha sido reportada desde el lugar por el corresponsal Adrià Rocha.</p>",
+    "imagen": "https://s.france24.com/media/display/7bf0b13e-ca68-11f1-8c79-d1d2c32ebb87/w:1280/p:16x9/ES-20261017-123802-123937-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261017-estambul-se-prepara-para-una-nueva-jornada-de-lluvias-y-posibles-inundaciones",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731540,
     "created_at": "2026-10-17T21:24:44.471Z",
     "titulo": "Organizaciones criminales internacionales transforman a Bolivia en su base de operaciones",
