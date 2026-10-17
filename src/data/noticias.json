@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731548,
+    "created_at": "2026-10-17T22:11:39.708Z",
+    "titulo": "El papa León XIV abandona el hospital en Roma tras exitosa intervención pulmonar",
+    "slug": "el-papa-leon-xiv-abandona-el-hospital-en-roma-tras-exitosa-intervencion-pulmonar",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b59b9780-ca5b-11f1-a350-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261017-070703-070946-CS.jpg\" alt=\"El papa León XIV abandona el hospital en Roma tras exitosa intervención pulmonar\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El sumo pontífice ha abandonado las instalaciones del hospital Gemelli de Roma durante la jornada de este 17 de octubre. La salida se produce cuatro días después de que el religioso fuera sometido a una intervención quirúrgica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La operación a la que hizo frente el máximo representante de la Iglesia católica consistió en la extirpación de un tumor canceroso localizado en el pulmón derecho.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras recibir el alta médica correspondiente por parte del equipo de especialistas, el jerarca retomará de forma progresiva sus actividades habituales en los próximos días.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La primera aparición pública del pontífice tras su procedimiento médico está programada para este próximo domingo, fecha en la que dirigirá el tradicional rezo del ángelus.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El encuentro dominical con los fieles se llevará a cabo como es costumbre frente a la concurrida plaza de San Pedro, marcando su retorno a los compromisos públicos.</p>",
+    "imagen": "https://s.france24.com/media/display/b59b9780-ca5b-11f1-a350-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261017-070703-070946-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261017-papa-le%C3%B3n-xiv-sale-del-hospital-tras-someterse-a-una-cirug%C3%ADa-de-pulm%C3%B3n",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731547,
     "created_at": "2026-10-17T22:09:34.087Z",
     "titulo": "Aeronave de Vueling regresa a Barcelona y aterriza de emergencia tras impacto de aves",
