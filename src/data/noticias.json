@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731481,
+    "created_at": "2026-10-17T13:56:47.102Z",
+    "titulo": "Nuevos frentes de tensión geopolítica rodean el conflicto en Ucrania",
+    "slug": "nuevos-frentes-de-tension-geopolitica-rodean-el-conflicto-en-ucrania",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/983937b0-c99d-11f1-a7be-6313a763b466/w:1280/p:16x9/IMG-0213.jpg\" alt=\"Nuevos frentes de tensión geopolítica rodean el conflicto en Ucrania\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El proceso judicial que se lleva a cabo en territorio alemán por el ataque contra los gasoductos Nord Stream ha colocado nuevamente en el centro de atención los posibles vínculos de esta acción con integrantes de los cuerpos de seguridad y las fuerzas armadas de Ucrania. Las autoridades oficiales de Kiev han rechazado de manera tajante cualquier tipo de participación en este sabotaje.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el plano de las operaciones en el terreno, el mandatario ucraniano Volodímir Zelenski ha manifestado su preocupación al denunciar la existencia de limitaciones en las comunicaciones militares que se realizan a través de sistemas de satélite, un elemento clave para la coordinación de la defensa nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La confrontación bélica también muestra una escalada en el plano logístico y material. Tanto el gobierno de Rusia como el de Ucrania han incrementado de forma notable sus respectivas ofensivas dirigidas de manera directa contra las instalaciones y redes dedicadas al suministro de energía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por otro lado, surgen movimientos en el ámbito político internacional que podrían influir en el mercado energético. El expresidente estadounidense Donald Trump ha mostrado interés en propiciar el ingreso de combustible diésel proveniente de Rusia hacia los mercados internacionales con el propósito de disminuir los costos de los carburantes de cara a los comicios de medio mandato.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La coincidencia de estos diversos acontecimientos abre interrogantes sobre la dirección actual que toma el conflicto armado, así como sobre la estabilidad de los apoyos internacionales que recibe el gobierno ucraniano en medio de la crisis.</p>",
+    "imagen": "https://s.france24.com/media/display/983937b0-c99d-11f1-a7be-6313a763b466/w:1280/p:16x9/IMG-0213.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/una-semana-en-el-mundo/20261017-nord-stream-y-starlink-se-resquebraja-el-apoyo-de-ee-uu-a-ucrania",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731480,
     "created_at": "2026-10-17T13:51:26.981Z",
     "titulo": "Tragedia en Bangladés: Al menos diez personas pierden la vida tras un incendio en un complejo turístico",
