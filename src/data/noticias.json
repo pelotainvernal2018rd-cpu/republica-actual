@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731469,
+    "created_at": "2026-10-17T12:11:40.485Z",
+    "titulo": "Protestas en Francia generan momentos de tensión y choques con la policía en varias ciudades",
+    "slug": "protestas-en-francia-generan-momentos-de-tension-y-choques-con-la-policia-en-varias-ciudades",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/1c4f8a14-ca0b-11f1-a0b5-6313a763b466/w:1280/p:16x9/000-D3K887M.jpg\" alt=\"Protestas en Francia generan momentos de tensión y choques con la policía en varias ciudades\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos sectores sociales se han congregado este sábado en territorio francés para participar en una nueva jornada de movilizaciones. Entre los participantes se encuentran representantes sindicales, estudiantes y miembros del movimiento de los chalecos amarillos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El motivo central de estas protestas es manifestar el descontento ante el incremento en el costo de la vida. Asimismo, los convocantes exigen mejoras sustanciales en las condiciones del sector educativo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Horas antes del inicio de las marchas oficiales, programadas para las dos de la tarde, se produjeron diversas acciones de protesta que no contaban con autorización oficial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En urbes como París, Marsella y Lyon, los manifestantes realizaron cortes de vías públicas mediante la instalación de barricadas improvisadas para obstaculizar el tránsito.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante estos bloqueos y desórdenes previos, las fuerzas del orden intervinieron directamente en los puntos conflictivos para restablecer el orden.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para dispersar a los grupos congregados, los agentes policiales utilizaron material antidisturbios, específicamente gases lacrimógenos y porras.</p>",
+    "imagen": "https://s.france24.com/media/display/1c4f8a14-ca0b-11f1-a0b5-6313a763b466/w:1280/p:16x9/000-D3K887M.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/francia/20261017-en-directo-fuertes-tensiones-entre-manifestantes-y-fuerzas-del-orden-en-una-jornada-de-protestas-en-francia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731468,
     "created_at": "2026-10-17T11:39:34.301Z",
     "titulo": "Conmemoran el Día Mundial contra el Dolor para destacar la necesidad de atención médica integral",
