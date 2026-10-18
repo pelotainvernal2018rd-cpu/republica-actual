@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731582,
+    "created_at": "2026-10-18T02:26:43.610Z",
+    "titulo": "Diplomáticos europeos y agricultores palestinos son atacados por colonos en Cisjordania",
+    "slug": "diplomaticos-europeos-y-agricultores-palestinos-son-atacados-por-colonos-en-cisjordania",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/64ce20b2-ca7d-11f1-aea5-2d1c143cdef3/w:1280/p:16x9/ES-20261017-133806-134008-CS.jpg\" alt=\"Diplomáticos europeos y agricultores palestinos son atacados por colonos en Cisjordania\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un grupo de colonos israelíes con el rostro cubierto protagonizó un incidente violento en la localidad de Taybeh, donde agredieron a un convoy diplomático europeo que transitaba por la zona. El ataque ocurrió apenas un día después de que se reportara una agresión similar contra una periodista del diario The Washington Post.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la comitiva internacional se encontraban el alcalde francés Bernard Baudoux y dos representantes diplomáticos de Bélgica. El grupo realizaba un recorrido por el área cuando fueron interceptados por los agresores, quienes también arremetieron contra agricultores palestinos que se dedicaban a la recolección de aceitunas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de las autoridades europeas y los trabajadores agrícolas, varios civiles que acompañaban el convoy se vieron involucrados en el altercado. La situación generó momentos de tensión durante la jornada en esta región de Cisjordania.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La corresponsal Janira Gómez Muñoz informó sobre los detalles del suceso, explicando la dinámica de los hechos ocurridos en Taybeh. El reporte detalla cómo se desarrolló la confrontación y el impacto que tuvo sobre los integrantes de la delegación extranjera.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, se ha analizado la postura y la respuesta oficial del Gobierno encabezado por Benjamin Netanyahu ante estos actos de violencia. Las autoridades continúan evaluando las repercusiones de este incidente que involucra a representantes de la Unión Europea.</p>",
+    "imagen": "https://s.france24.com/media/display/64ce20b2-ca7d-11f1-aea5-2d1c143cdef3/w:1280/p:16x9/ES-20261017-133806-134008-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261018-colonos-israel%C3%ADes-atacan-en-taybeh-a-agricultores-palestinos-y-una-comitiva-de-diplom%C3%A1ticos-europeos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731581,
     "created_at": "2026-10-18T02:24:57.425Z",
     "titulo": "Protestas en Colombia por retiro de obras artísticas en el Museo Nacional",
