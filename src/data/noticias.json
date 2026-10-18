@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731583,
+    "created_at": "2026-10-18T02:56:51.791Z",
+    "titulo": "Protestas en Francia derivan en disturbios tras masiva movilización",
+    "slug": "protestas-en-francia-derivan-en-disturbios-tras-masiva-movilizacion",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7bc87f90-ca7a-11f1-8cca-638c1c1f5fd6/w:1280/p:16x9/ES-20261017-133230-133653-CS.jpg\" alt=\"Protestas en Francia derivan en disturbios tras masiva movilización\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una reciente jornada de manifestaciones en territorio francés concluyó con episodios de violencia y enfrentamientos directos entre los asistentes y los cuerpos de seguridad del Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Aunque el grueso de la movilización, compuesta principalmente por trabajadores y estudiantes, transcurrió bajo un ambiente de calma, la situación se tornó tensa en diversos sectores de la capital.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En puntos específicos del recorrido, grupos de personas con el rostro cubierto fueron vistos utilizando herramientas como martillos para causar daños materiales en la infraestructura de establecimientos comerciales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las cifras sobre la participación ciudadana presentan una notable disparidad según las fuentes oficiales y sindicales. El Gobierno francés estimó que más de 500.000 personas se sumaron a la convocatoria nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, la Confederación General del Trabajo (CGT) ofreció un balance superior, asegurando que la asistencia superó los 800.000 manifestantes en todo el país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La periodista Natalia Ruiz Giraldo reportó los hechos desde París, detallando cómo la jornada pasó de ser una expresión de descontento social a un escenario de altercados públicos.</p>",
+    "imagen": "https://s.france24.com/media/display/7bc87f90-ca7a-11f1-8cca-638c1c1f5fd6/w:1280/p:16x9/ES-20261017-133230-133653-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261017-informe-desde-par%C3%ADs-jornada-de-manifestaciones-termina-en-violentos-enfrentamientos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731582,
     "created_at": "2026-10-18T02:54:42.767Z",
     "titulo": "El trío latinoamericano impulsa la ofensiva de los Rays ante Cleveland",
