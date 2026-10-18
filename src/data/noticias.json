@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731655,
+    "created_at": "2026-10-18T18:41:25.103Z",
+    "titulo": "Ciudadanos realizan manifestación pacífica en el Parque Independencia para exigir mayor seguridad",
+    "slug": "ciudadanos-realizan-manifestacion-pacifica-en-el-parque-independencia-para-exigir-mayor-seguridad",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-18-a-las-2.37.40-p.-m.jpg\" alt=\"Ciudadanos realizan manifestación pacífica en el Parque Independencia para exigir mayor seguridad\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un grupo de ciudadanos se congregó este domingo en las instalaciones del Parque Independencia, ubicado en la ciudad de Santo Domingo, para llevar a cabo una protesta pacífica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La manifestación fue organizada por el Movimiento Dominicanos Unidos con el propósito principal de expresar su rechazo ante diversos homicidios de dominicanos que han sido atribuidos a ciudadanos de nacionalidad haitiana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la actividad, los organizadores señalaron de forma específica los casos de Simeón Reyes, Juan Miguel Figuereo, José Carlos Brito, Elido Zapata y Nauriel Misael Medina como víctimas de estos hechos ocurridos en distintos momentos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, los integrantes del movimiento hicieron un llamado formal a las autoridades gubernamentales para que ejecuten un proceso de deportación efectivo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los manifestantes argumentaron que las normativas vigentes no se están aplicando de la manera adecuada, señalando de forma directa el incumplimiento de la Ley de Migración en el territorio nacional.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-18-a-las-2.37.40-p.-m.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/protestan-en-el-parque-independencia-por-muertes-de-dominicanos-atribuidas-a-haitianos/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731654,
     "created_at": "2026-10-18T18:39:37.262Z",
     "titulo": "Google extiende su red de aviso sísmico a más de 200 territorios, incluyendo el país",
