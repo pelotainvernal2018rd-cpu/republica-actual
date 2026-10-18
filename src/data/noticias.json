@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731571,
+    "created_at": "2026-10-18T00:56:53.365Z",
+    "titulo": "Conmoción en Guatemala tras el asesinato de reconocido exfiscal anticorrupción",
+    "slug": "conmocion-en-guatemala-tras-el-asesinato-de-reconocido-exfiscal-anticorrupcion",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/8bb1c552-ca8d-11f1-9b24-d1d2c32ebb87/w:1280/p:16x9/2026-10-17T184949Z-831765094-RC205OA0PVAE-RTRMADP-3-GUATEMALA-VIOLENCE.jpg\" alt=\"Conmoción en Guatemala tras el asesinato de reconocido exfiscal anticorrupción\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El país centroamericano se encuentra consternado tras el violento fallecimiento de Juan Francisco Solórzano, quien fuera una figura clave en la lucha contra la corrupción y exdirector de la entidad recaudadora de impuestos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con los reportes iniciales, el abogado fue interceptado por dos individuos mientras se encontraba en un campo de fútbol. Los atacantes habrían seguido sus movimientos previos antes de ejecutar el crimen.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Solórzano era ampliamente reconocido por su trayectoria en el ámbito legal y su papel fundamental en la persecución de delitos financieros y actos ilícitos dentro de la administración pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades locales han iniciado las investigaciones correspondientes para esclarecer los hechos y determinar la identidad de los responsables del ataque armado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este suceso ha generado una fuerte reacción en diversos sectores de la sociedad guatemalteca, quienes han expresado su preocupación por la seguridad de quienes han liderado procesos contra la impunidad en la nación.</p>",
+    "imagen": "https://s.france24.com/media/display/8bb1c552-ca8d-11f1-9b24-d1d2c32ebb87/w:1280/p:16x9/2026-10-17T184949Z-831765094-RC205OA0PVAE-RTRMADP-3-GUATEMALA-VIOLENCE.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261018-asesinato-de-destacado-exfiscal-anticorrupci%C3%B3n-juan-francisco-sol%C3%B3rzano-sacude-a-guatemala",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731570,
     "created_at": "2026-10-18T00:55:00.319Z",
     "titulo": "José Jáquez sella victoria agónica de Moca FC con espectacular chilena",
