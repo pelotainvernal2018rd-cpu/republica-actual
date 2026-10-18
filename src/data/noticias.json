@@ -1,16 +1,17 @@
 [
   {
     "id": 1791850623731576,
-    "created_at": "2026-10-18T01:25:12.001Z",
-    "titulo": "Fallece el señor Yván Manuel Nanita Español",
-    "slug": "fallece-el-senor-yvan-manuel-nanita-espanol",
-    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/08/14/6a7fbc2ea3f42.jpeg\" alt=\"Fallece el señor Yván Manuel Nanita Español\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El pasado sábado 17 de octubre se produjo el deceso de Yván Manuel Nanita Español, una noticia que ha causado pesar entre sus allegados y seres queridos.</p><p>La familia del fallecido ha comunicado la triste pérdida, extendiendo el anuncio a toda la sociedad dominicana y a quienes compartieron en vida con él.</p><p>Le sobreviven sus hijos, Yván Manuel, Alejandro José y Manuel José, quienes atraviesan este difícil momento junto a sus hermanos, María del Pilar, Alejandro José y María Teresa.</p><p>Asimismo, la familia Rodríguez Español se une al duelo por la partida de su pariente, recibiendo las condolencias de amigos y relacionados.</p><p>Para quienes deseen presentar sus respetos, se ha informado que las honras fúnebres se llevarán a cabo el próximo lunes 19 de octubre.</p><p>El acto de despedida tendrá lugar en la funeraria Blandino, ubicada en la avenida Abraham Lincoln, en un horario comprendido entre las 9:00 de la mañana y las 3:00 de la tarde.</p>",
-    "imagen": "https://listindiario.com/files/main_image/uploads/2026/08/14/6a7fbc2ea3f42.jpeg",
-    "fuente": "Listín Diario",
-    "url_fuente": "https://listindiario.com/la-republica/20261017/fallecio-sabado-senor-yvan-manuel-nanita-espanol_926560.html",
-    "categoria": "Nacionales",
+    "created_at": "2026-10-18T01:26:45.510Z",
+    "titulo": "Meta admite error técnico que afectó cuentas de Lula da Silva en Brasil",
+    "slug": "meta-admite-error-tecnico-que-afecto-cuentas-de-lula-da-silva-en-brasil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/665449f0-ca89-11f1-b56c-d1d2c32ebb87/w:1280/p:16x9/ES-20261017-153936-154419-CS.jpg\" alt=\"Meta admite error técnico que afectó cuentas de Lula da Silva en Brasil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La compañía tecnológica Meta, propietaria de las redes sociales Facebook e Instagram, reconoció recientemente la existencia de un fallo técnico que impactó negativamente en los perfiles digitales del presidente brasileño Luiz Inácio Lula da Silva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El inconveniente se registró a pocos días de celebrarse la segunda vuelta de las elecciones presidenciales en Brasil. Durante el periodo previo al reporte oficial, diversos usuarios habían manifestado su preocupación al notar que la cuenta del mandatario no aparecía en los resultados de búsqueda.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas irregularidades generaron una ola de denuncias por parte de los seguidores del candidato, quienes señalaron una posible intervención deliberada de la plataforma para perjudicar su campaña electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la controversia generada, expertos en el ámbito tecnológico han comenzado a evaluar las implicaciones de este tipo de fallos en el ecosistema digital durante procesos democráticos de alta relevancia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ulises Cortés, catedrático especializado en Inteligencia Artificial de la Universidad Politécnica de Cataluña, ha sido una de las voces que ha analizado este suceso, cuestionando la naturaleza de las fallas que afectan a cuentas de figuras políticas en momentos críticos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La confirmación por parte de Meta busca aclarar el origen del problema técnico, mientras persiste el debate sobre la transparencia y la influencia de las grandes plataformas digitales en la contienda política brasileña.</p>",
+    "imagen": "https://s.france24.com/media/display/665449f0-ca89-11f1-b56c-d1d2c32ebb87/w:1280/p:16x9/ES-20261017-153936-154419-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261018-ulises-cort%C3%A9s-los-fallos-de-meta-contra-cuentas-de-candidatos-siempre-tienen-intensi%C3%B3n",
+    "categoria": "Mundo",
     "etiquetas": [
-      "Nacionales"
+      "Mundo",
+      "Tecnología"
     ],
     "publicado": true,
     "feed_principal": true
