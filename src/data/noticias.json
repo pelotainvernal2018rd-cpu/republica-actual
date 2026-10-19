@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731722,
+    "created_at": "2026-10-19T02:26:47.714Z",
+    "titulo": "Lula y Bolsonaro protagonizan primer debate electoral en Brasil",
+    "slug": "lula-y-bolsonaro-protagonizan-primer-debate-electoral-en-brasil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b0dec64c-cb5d-11f1-bf17-638c1c1f5fd6/w:1280/p:16x9/ES-20261018-200229-200721-CS.jpg\" alt=\"Lula y Bolsonaro protagonizan primer debate electoral en Brasil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El actual presidente de Brasil, Luiz Inácio Lula da Silva, y el candidato ultraderechista Flávio Bolsonaro sostuvieron su primer encuentro televisado este 18 de octubre. El evento ocurrió a solo siete días de la celebración de los comicios presidenciales en el país sudamericano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante el intercambio, los aspirantes a la jefatura del Estado abordaron ejes temáticos fundamentales como la situación económica nacional, las políticas de seguridad ciudadana y la postura de Brasil en el ámbito internacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El desarrollo del debate estuvo marcado por una dinámica tensa, caracterizada por constantes interrupciones y ataques verbales directos entre ambos contendientes. Estas confrontaciones fueron el sello distintivo de la jornada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El analista político Michael López Stewart, consultado por France 24, ofreció su perspectiva sobre el impacto de este encuentro en el electorado. Según el experto, el tono y el contenido del debate difícilmente lograrán modificar la intención de voto de los ciudadanos que aún se mantienen indecisos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este cara a cara representa un momento clave en la recta final de la campaña brasileña. La ciudadanía observa con atención cómo estas posturas influyen en el clima político a pocos días de acudir a las urnas.</p>",
+    "imagen": "https://s.france24.com/media/display/b0dec64c-cb5d-11f1-bf17-638c1c1f5fd6/w:1280/p:16x9/ES-20261018-200229-200721-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261019-elecciones-brasil-2026-qu%C3%A9-deja-el-primer-cara-a-cara-entre-lula-y-bolsonaro",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731721,
     "created_at": "2026-10-19T02:24:37.849Z",
     "titulo": "Experto señala limitaciones del seguro médico para asegurar servicios de calidad en el país",
