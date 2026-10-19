@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731838,
+    "created_at": "2026-10-19T20:27:06.593Z",
+    "titulo": "Clima de tensión en Francia tras disturbios y saqueos en diversas ciudades",
+    "slug": "clima-de-tension-en-francia-tras-disturbios-y-saqueos-en-diversas-ciudades",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/fdc57996-cbcc-11f1-9ac6-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261019-073637-073821-CS.jpg\" alt=\"Clima de tensión en Francia tras disturbios y saqueos en diversas ciudades\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El territorio francés vivió un fin de semana convulso, caracterizado por una serie de movilizaciones multitudinarias que se extendieron por distintos puntos de la nación. Estas jornadas de protesta culminaron durante la noche del domingo con episodios de violencia y saqueos en varios centros urbanos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación ha generado una rápida respuesta por parte de los diversos sectores de la clase política francesa. Las críticas se han centrado principalmente en la administración actual, cuestionando la eficacia de las medidas tomadas para contener los desórdenes públicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, diversos actores políticos han expresado su descontento ante lo que consideran una falta de intervención contundente por parte de las fuerzas del orden. Según señalan, la actuación policial no fue suficiente para garantizar la seguridad y restablecer la tranquilidad en las zonas afectadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estos acontecimientos ocurren en un contexto político particular, donde la atención de los líderes nacionales está puesta en el próximo proceso electoral. La gestión de esta crisis se ha convertido en un punto de debate relevante de cara a las venideras elecciones presidenciales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por el momento, el impacto de estos sucesos sigue siendo objeto de análisis en el ámbito público, mientras la clase política mantiene el foco en las repercusiones que estos eventos podrían tener en el panorama electoral del país.</p>",
+    "imagen": "https://s.france24.com/media/display/fdc57996-cbcc-11f1-9ac6-4dd8ac2cf3bf/w:1280/p:16x9/ES-20261019-073637-073821-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261019-reacciones-de-la-pol%C3%ADtica-francesa-a-los-desmanes-tras-las-masivas-protestas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731837,
     "created_at": "2026-10-19T20:25:24.093Z",
     "titulo": "Fuerza del Pueblo organiza mercado popular en Santo Domingo Este para aliviar costo de vida",
