@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731761,
+    "created_at": "2026-10-19T13:47:15.564Z",
+    "titulo": "Vivienda, Ceuta y corrupción marcan la tensa precampaña electoral en España",
+    "slug": "vivienda-ceuta-y-corrupcion-marcan-la-tensa-precampana-electoral-en-espana",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/320d67d6-df5b-11f0-9a9f-005056bf30b7/w:1024/p:16x9/2025-12-11T065241Z-1035643736-RC2Y6IAAJ8AK-RTRMADP-3-SPAIN-CORRUPTION-PROTEST.jpg\" alt=\"Vivienda, Ceuta y corrupción marcan la tensa precampaña electoral en España\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama político en España se encamina hacia un nuevo proceso electoral en un ambiente caracterizado por una marcada tensión entre las distintas fuerzas. Los temas centrales de la discusión pública abarcan asuntos de gran impacto social y administrativo que dominan la agenda nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los asuntos principales que configuran el debate se encuentran las dificultades actuales relacionadas con el acceso a la vivienda y la administración de los acontecimientos ocurridos en Ceuta. Estos dos factores han generado intensas discusiones entre los diferentes actores políticos del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, las investigaciones vinculadas a presuntos actos de corrupción que afectan al círculo cercano del presidente del Gobierno, Pedro Sánchez, ocupan un lugar destacado en la confrontación política actual y en la atención de la ciudadanía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los sondeos de opinión recientes muestran una tendencia favorable hacia el bloque conservador. Estos estudios estadísticos apuntan a la posibilidad real de una transformación en la titularidad del Ejecutivo nacional tras los próximos comicios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos analistas y especialistas en el ámbito político han evaluado estas circunstancias y su repercusión directa en las expectativas de voto de los ciudadanos, ofreciendo una perspectiva detallada sobre el momento que atraviesa la nación europea.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las repercusiones de estos acontecimientos continúan desarrollándose mientras los partidos políticos ajustan sus estrategias de cara a la cita con las urnas, en un escenario donde cada sector busca capitalizar el descontento social existente.</p>",
+    "imagen": "https://s.france24.com/media/display/320d67d6-df5b-11f0-9a9f-005056bf30b7/w:1024/p:16x9/2025-12-11T065241Z-1035643736-RC2Y6IAAJ8AK-RTRMADP-3-SPAIN-CORRUPTION-PROTEST.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-primera-plana/20261019-la-crisis-de-la-vivienda-y-la-gesti%C3%B3n-de-ceuta-sacuden-la-carrera-electoral-en-espa%C3%B1a",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731760,
     "created_at": "2026-10-19T13:11:53.078Z",
     "titulo": "Emmanuel Macron inicia viaje oficial al golfo Pérsico para asegurar abastecimiento de combustibles",
