@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731733,
+    "created_at": "2026-10-19T09:48:31.558Z",
+    "titulo": "Pronostican lluvias y tormentas eléctricas para varias zonas del país este martes",
+    "slug": "pronostican-lluvias-y-tormentas-electricas-para-varias-zonas-del-pais-este-martes",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/18/6ad4b8ac09474.jpeg\" alt=\"Pronostican lluvias y tormentas eléctricas para varias zonas del país este martes\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología informó que las condiciones atmosféricas presentarán un cambio significativo durante el transcurso del día, pasando de un inicio de jornada mayormente estable a un incremento de la nubosidad en la tarde.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La combinación de una vaguada y el viento del este propiciará aguaceros moderados acompañados de tormentas eléctricas en demarcaciones como Puerto Plata, Duarte, La Vega y Monseñor Nouel.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El organismo meteorológico indicó que este panorama lluvioso también afectará a las provincias de Samaná, Montecristi y San Juan, así como a zonas de San Pedro de Macorís, La Romana y La Altagracia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para el Gran Santo Domingo se prevé un cielo despejado durante las primeras horas matutinas, dando paso a nublados pasajeros en la tarde, un comportamiento similar al que se registrará en Peravia y Barahona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En las regiones restantes del territorio nacional prevalecerán cielos con escasa nubosidad y ausencia de precipitaciones de consideración, según detalló el informe oficial del tiempo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades confirmaron que las condiciones marítimas en las costas del océano Atlántico y el mar Caribe se mantendrán estables, con olas que oscilarán entre tres y cuatro pies de altura.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este comportamiento permite la libre navegación de todas las embarcaciones y garantiza que los bañistas puedan disfrutar de las playas nacionales sin ningún tipo de restricción.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para el día siguiente, el paso de una débil vaguada provocará un nuevo incremento de la humedad atmosférica, generando lluvias fuertes, tormentas y ráfagas de viento en el sureste, nordeste y el valle del Cibao.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/18/6ad4b8ac09474.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/tarde-aguaceros-regiones-cibao-noreste-noche-cielo-despejado_583746.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731732,
     "created_at": "2026-10-19T09:41:40.222Z",
     "titulo": "Macron dirige un mensaje a la nación tras la jornada de disturbios y saqueos en Francia",
