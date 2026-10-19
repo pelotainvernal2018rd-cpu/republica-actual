@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731737,
+    "created_at": "2026-10-19T10:48:14.693Z",
+    "titulo": "Indomet pronostica aguaceros, tronadas y ráfagas de viento por incidencia de vaguada",
+    "slug": "indomet-pronostica-aguaceros-tronadas-y-rafagas-de-viento-por-incidencia-de-vaguada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/uploads/2026/10/19/6ad5f249e3667.gif\" alt=\"Indomet pronostica aguaceros, tronadas y ráfagas de viento por incidencia de vaguada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología informó que las condiciones atmosféricas durante la mañana de este día presentarán un cielo mayormente despejado y con escasas probabilidades de precipitaciones en la mayor parte del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, el organismo indicó que el viento arrastrará campos nubosos que provocarán chubascos de carácter pasajero en las primeras horas hacia las provincias de La Altagracia, Samaná y María Trinidad Sánchez.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para el transcurso de la tarde, la combinación de una vaguada y el calentamiento diurno propiciará un aumento de la nubosidad, generando aguaceros moderados, tormentas eléctricas y ráfagas de viento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas condiciones lluviosas afectarán a demarcaciones como Hato Mayor, El Seibo, Monte Plata, Duarte, San Pedro de Macorís, Azua, San Juan, Independencia, Pedernales y Elías Piña.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reporte oficial señala que al finalizar la tarde y durante el periodo nocturno, las precipitaciones se trasladarán hacia sectores de La Vega, Monseñor Nouel, Santiago, Valverde y Puerto Plata, para luego disminuir en la madrugada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En cuanto al Distrito Nacional y la provincia Santo Domingo, se espera un cielo medio nublado durante gran parte del día, con la ocurrencia de chubascos pasajeros en la tarde y temperaturas máximas que oscilarán entre los 31 y 33 grados Celsius.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito marino, las autoridades comunicaron que el oleaje permanece en condiciones normales en la costa caribeña, mientras que en el océano Atlántico se aconsejó a las pequeñas embarcaciones navegar con cautela cerca del litoral debido a un incremento del oleaje mar adentro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para mañana, la presencia de una vaguada prefrontal asociada a un sistema frontal en proceso de disipación dejará lluvias matutinas en el sureste y noreste, mientras que en la tarde los aguaceros fuertes con tormentas eléctricas y ráfagas de viento se concentrarán en Dajabón, Santiago Rodríguez, Valverde y Santiago.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/uploads/2026/10/19/6ad5f249e3667.gif",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/manana-cielo-despejado-tarde-ocurriran-aguaceros-regiones-noreste_583821.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731736,
     "created_at": "2026-10-19T10:39:34.616Z",
     "titulo": "Vaguada provocará aguaceros y tormentas eléctricas en diversas provincias del país",
