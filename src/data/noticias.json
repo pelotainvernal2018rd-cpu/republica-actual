@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731829,
+    "created_at": "2026-10-19T19:41:47.969Z",
+    "titulo": "El futuro ambiental de Brasil entra en juego ante la segunda vuelta electoral",
+    "slug": "el-futuro-ambiental-de-brasil-entra-en-juego-ante-la-segunda-vuelta-electoral",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7e4bc604-cbf2-11f1-82e0-2d1c143cdef3/w:1280/p:16x9/WEB-PORTADA-ARTICULO-BRASIK-19OCT.jpg\" alt=\"El futuro ambiental de Brasil entra en juego ante la segunda vuelta electoral\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama político brasileño se encamina hacia una segunda vuelta electoral caracterizada por el enfrentamiento de dos proyectos de nación completamente diferentes. Esta contienda política pone sobre la mesa el rumbo ecológico que tomará la nación en los próximos años.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de haber permanecido relegado durante las etapas iniciales de la campaña, el ámbito medioambiental ha ganado una relevancia central para este decisivo balotaje. Los votantes tendrán que elegir entre las propuestas presentadas por los candidatos Luiz Inácio Lula da Silva y Flávio Bolsonaro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos sectores de la sociedad civil muestran una profunda inquietud por el destino de la región amazónica. Tanto analistas como defensores del medio ambiente siguen de cerca este proceso debido a las implicaciones ecológicas que conlleva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Amazonía representa un ecosistema de vital importancia para la biodiversidad del planeta entero. Este territorio enfrenta actualmente un delicado equilibrio marcado por diversas tensiones de índole climática y económica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El resultado de esta confrontación electoral definirá no solo la administración del país, sino también la gestión y protección de sus recursos naturales más preciados. La atención internacional y nacional permanece fija en este debate sobre el futuro del medio ambiente brasileño.</p>",
+    "imagen": "https://s.france24.com/media/display/7e4bc604-cbf2-11f1-82e0-2d1c143cdef3/w:1280/p:16x9/WEB-PORTADA-ARTICULO-BRASIK-19OCT.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261019-medio-ambiente-extractivismo-y-amazon%C3%ADa-qu%C3%A9-se-juega-brasil-en-la-contienda-entre-lula-y-bolsonaro",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731828,
     "created_at": "2026-10-19T19:39:38.999Z",
     "titulo": "República Dominicana destaca en Estados Unidos como centro estratégico para la industria de dispositivos médicos",
