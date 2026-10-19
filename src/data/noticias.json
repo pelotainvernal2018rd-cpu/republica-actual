@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731715,
+    "created_at": "2026-10-19T01:26:41.748Z",
+    "titulo": "Chile marca el séptimo aniversario del estallido social con movilizaciones en Santiago",
+    "slug": "chile-marca-el-septimo-aniversario-del-estallido-social-con-movilizaciones-en-santiago",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/a42dcaa4-cb4b-11f1-a86f-6313a763b466/w:1280/p:16x9/ES-20261018-160952-161154-CS.jpg\" alt=\"Chile marca el séptimo aniversario del estallido social con movilizaciones en Santiago\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este 18 de octubre se cumplen siete años desde el inicio del estallido social ocurrido en Chile durante el 2019. La fecha es recordada por los eventos que dejaron un saldo de 36 personas fallecidas y numerosos heridos tras la represión de las manifestaciones en aquel entonces.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos sectores sociales y organizaciones han convocado a nuevas jornadas de protesta en el país. El objetivo principal de estas movilizaciones es expresar el rechazo a las medidas de recortes económicos que promueve el presidente de extrema derecha, José Antonio Kast.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la ciudad de Santiago, la capital chilena, se han registrado incidentes desde el inicio de las marchas. Según los reportes, se produjeron enfrentamientos entre los manifestantes y los efectivos de la Policía local.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El corresponsal Alberto Peña se encuentra en el lugar de los hechos para dar seguimiento a la situación. La jornada se mantiene bajo la atención de diversos sectores que observan el desarrollo de las protestas en el aniversario del conflicto social.</p>",
+    "imagen": "https://s.france24.com/media/display/a42dcaa4-cb4b-11f1-a86f-6313a763b466/w:1280/p:16x9/ES-20261018-160952-161154-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261018-informe-desde-santiago-manifestantes-conmemoran-el-estallido-social-en-chile",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731714,
     "created_at": "2026-10-19T01:25:36.327Z",
     "titulo": "Street Fighter lidera la taquilla norteamericana mientras un documental sobre Elizabeth Holmes sorprende",
