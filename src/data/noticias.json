@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731719,
+    "created_at": "2026-10-19T02:01:29.273Z",
+    "titulo": "Accidente vial en la autopista 6 de Noviembre deja una víctima mortal",
+    "slug": "accidente-vial-en-la-autopista-6-de-noviembre-deja-una-victima-mortal",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-18-a-las-9.56.00-p.-m.jpg\" alt=\"Accidente vial en la autopista 6 de Noviembre deja una víctima mortal\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un trágico accidente de tránsito se registró la noche de este domingo en la autopista 6 de Noviembre, específicamente en las proximidades de las instalaciones de Semilla, en la provincia de San Cristóbal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El suceso tuvo como saldo una persona fallecida y otra que resultó con heridas de diversa consideración, según los reportes preliminares ofrecidos sobre el incidente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras recibir el aviso, las autoridades competentes se trasladaron de inmediato al lugar del hecho para gestionar la situación y realizar las labores de asistencia necesarias.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, los organismos de seguridad no han revelado las identidades de los involucrados en este percance vial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, se mantienen bajo investigación las circunstancias exactas que provocaron este accidente en la citada vía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades continúan trabajando en la zona para esclarecer los detalles de este lamentable suceso.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-18-a-las-9.56.00-p.-m.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/un-fallecido-y-un-herido-en-accidente-de-transito-en-la-autopista-6-de-noviembre/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731718,
     "created_at": "2026-10-19T01:54:36.039Z",
     "titulo": "Lula y Flávio Bolsonaro protagonizan tenso debate marcado por acusaciones de corrupción",
