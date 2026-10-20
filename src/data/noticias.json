@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623731998,
+    "created_at": "2026-10-20T16:35:43.854Z",
+    "titulo": "Una falla técnica en la infraestructura de Google Cloud en Londres afecta operaciones de bancos británicos",
+    "slug": "una-falla-tecnica-en-la-infraestructura-de-google-cloud-en-londres-afecta-operaciones-de-bancos-britanicos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2025/01/28/679921c2764eb.jpeg\" alt=\"Una falla técnica en la infraestructura de Google Cloud en Londres afecta operaciones de bancos británicos\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>Un problema eléctrico registrado en la infraestructura de Google situada en la región de Londres generó este martes interrupciones en diferentes herramientas digitales de la compañía tecnológica estadounidense, lo que repercutió en el normal funcionamiento de varias entidades financieras del Reino Unido.</p><p>A través de su sitio web oficial de monitoreo de incidencias, la empresa comunicó que múltiples prestaciones de su plataforma en la nube presentaban fallos operativos y dificultades de conexión de carácter intermitente en el área identificada como europe-west2, nomenclatura que corresponde a la capital británica.</p><p>Horas más tarde, la corporación tecnológica informó que algunas de sus prestaciones comenzaron a funcionar con normalidad nuevamente y estimó que el servicio completo quedaría restablecido en el transcurso del mismo día.</p><p>El banco digital Revolut experimentó complicaciones en distintas áreas de su plataforma, situaciones que una persona vinculada a la institución financiera relacionó de manera directa con los inconvenientes presentados por el proveedor tecnológico.</p><p>Desde Revolut indicaron mediante un comunicado enviado a la agencia AFP que sus equipos técnicos se abocaron a solucionar el problema desde el momento en que fue detectado durante las primeras horas de la jornada del martes.</p><p>La entidad financiera aclaró formalmente que tanto el patrimonio monetario como la información confidencial de todos sus usuarios se encontraban bajo total resguardo y seguridad.</p><p>Por otro lado, la institución Lloyds reportó que una parte de sus usuarios experimentó inconvenientes para operar mediante su aplicación digital y las plataformas de banca por internet.</p><p>Asimismo, el banco HSBC confirmó que algunos de sus clientes enfrentaron dificultades para ingresar a las distintas herramientas de atención y servicios financieros habilitados por la entidad.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2025/01/28/679921c2764eb.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261020/fallo-google-cloud-interrumpe-servicios-bancos-britanicos_926838.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731997,
     "created_at": "2026-10-20T16:32:52.442Z",
     "titulo": "Sectores comercial y de transporte en Santo Domingo advierten sobre impacto de los precios de los combustibles",
