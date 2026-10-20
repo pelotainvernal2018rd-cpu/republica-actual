@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732023,
+    "created_at": "2026-10-20T18:54:56.523Z",
+    "titulo": "Un paro imprevisto en el sistema subterráneo de Buenos Aires afecta a miles de usuarios",
+    "slug": "un-paro-imprevisto-en-el-sistema-subterraneo-de-buenos-aires-afecta-a-miles-de-usuarios",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/20/6ad7aeaf34250.jpeg\" alt=\"Un paro imprevisto en el sistema subterráneo de Buenos Aires afecta a miles de usuarios\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>Las operaciones de la red de transporte subterráneo y del tranvía en la capital argentina quedaron completamente suspendidas durante este martes. La interrupción del servicio ocurrió de manera repentina como consecuencia de una protesta gremial.</p><p>La medida de fuerza se originó tras el arresto de tres representantes sindicales durante una manifestación. La compañía encargada de la operación confirmó que la totalidad de las líneas se encontraban fuera de servicio desde las diez de la mañana.</p><p>El sindicato responsable del sector indicó que la suspensión continuará hasta que se produzca la liberación de los operarios apresados. Asimismo, la organización gremial rechazó lo que calificó como una criminalización de sus protestas.</p><p>El conflicto inicial surgió a partir de una medida disciplinaria aplicada a un empleado que el gremio calificó como injusta. En respuesta a dicha sanción, los trabajadores permitieron el acceso libre de los usuarios en una de las estaciones principales.</p><p>Las fuerzas de seguridad intervinieron para frenar esta acción, lo que generó un enfrentamiento y la posterior captura de tres personas por obstruir el trabajo policial. Las autoridades locales detallaron que también existe una orden de arresto contra otro empleado involucrado que permanece dentro de una oficina.</p><p>El alcalde de la ciudad se pronunció sobre los hechos a través de sus redes sociales para respaldar la actuación policial frente a la interrupción de un servicio fundamental. Por su parte, la administración municipal había establecido previamente que estas redes de transporte deben operar al menos a la mitad de su capacidad durante las huelgas por tratarse de actividades esenciales.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/20/6ad7aeaf34250.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261020/sorpresiva-huelga-paraliza-metro-buenos-aires-detencion-sindicalistas_926864.html",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732022,
     "created_at": "2026-10-20T18:49:05.503Z",
     "titulo": "Guardia Costera de Puerto Rico repatría a 63 migrantes tras interceptar embarcación en el Canal de la Mona",
