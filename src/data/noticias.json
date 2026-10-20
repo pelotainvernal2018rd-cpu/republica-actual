@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732013,
+    "created_at": "2026-10-20T17:57:12.816Z",
+    "titulo": "El Gobierno francés movilizará al ejército y ajustará su estrategia tras disturbios",
+    "slug": "el-gobierno-frances-movilizara-al-ejercito-y-ajustara-su-estrategia-tras-disturbios",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/93dd99d2-cc99-11f1-a87d-d1d2c32ebb87/w:1280/p:16x9/2026-10-20T145836Z-370295816-RC227OA69I9M-RTRMADP-3-FRANCE-POLITICS.jpg\" alt=\"El Gobierno francés movilizará al ejército y ajustará su estrategia tras disturbios\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de Francia han anunciado un importante despliegue de seguridad con motivo de las manifestaciones que se llevarán a cabo el sábado 24 de octubre. El operativo incluirá la participación de efectivos militares para respaldar las labores de la policía en las calles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta decisión responde a los actos de violencia, incendios y saqueos que tuvieron lugar durante las protestas del fin de semana pasado. Ante estos hechos, el Ejecutivo ha decidido llevar a cabo una revisión profunda de los protocolos de intervención.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sébastien Lecornu, primer ministro del país europeo, admitió públicamente que existieron deficiencias en la capacidad de reacción del Estado frente a los disturbios recientes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El funcionario remarcó que el objetivo principal y más urgente para la administración actual es garantizar el restablecimiento absoluto del orden público en todo el territorio nacional.</p>",
+    "imagen": "https://s.france24.com/media/display/93dd99d2-cc99-11f1-a87d-d1d2c32ebb87/w:1280/p:16x9/2026-10-20T145836Z-370295816-RC227OA69I9M-RTRMADP-3-FRANCE-POLITICS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/francia/20261020-francia-desplegar%C3%A1-militares-y-reforzar%C3%A1-la-seguridad-ante-nuevas-protestas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732012,
     "created_at": "2026-10-20T17:55:04.264Z",
     "titulo": "Organizaciones convocan a caminata familiar para concientizar sobre la prevención y el tratamiento temprano del accidente cerebrovascular",
