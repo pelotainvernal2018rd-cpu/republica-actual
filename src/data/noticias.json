@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732057,
+    "created_at": "2026-10-20T21:57:39.615Z",
+    "titulo": "Cohete japonés lanza primera sonda a Fobos, la luna de Marte",
+    "slug": "cohete-japones-lanza-primera-sonda-a-fobos-la-luna-de-marte",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/8b824d76-ccb4-11f1-988e-2d1c143cdef3/w:1280/p:16x9/ES-20261020-074052-074231-CS.jpg\" alt=\"Cohete japonés lanza primera sonda a Fobos, la luna de Marte\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El cohete japonés ha despegado con éxito, marcando el inicio de la primera misión dedicada a explorar Fobos, la luna más grande de Marte. La sonda, denominada Martian Moons eXploration (MMX), es un vehículo espacial no tripulado que llevará a cabo una serie de estudios científicos en el entorno marciano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">MMX está diseñada para viajar a través del espacio interplanetario y llegar a Fobos en agosto de 2027. Durante su estancia, la sonda recopilará datos sobre la composición, la estructura y la historia de la luna, así como su relación con el planeta Marte.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una vez completado el estudio, MMX regresará a la Tierra en 2031, trayendo consigo las primeras muestras de material proveniente del sistema de Marte. Este retorno permitirá a los investigadores analizar los compuestos en detalle.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La obtención de muestras de Fobos es crucial para comprender mejor el origen del Sistema Solar. Los científicos esperan que los análisis revelen pistas sobre la formación de los planetas y la evolución de los cuerpos celestes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de los datos sobre la luna, la misión también proporcionará información sobre la interacción entre Marte y sus satélites, lo que puede tener implicaciones para futuras exploraciones robóticas y humanas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El éxito del lanzamiento abre una nueva era de investigación en el sistema marciano, ofreciendo una ventana única para estudiar la historia del planeta rojo y sus lunas.</p>",
+    "imagen": "https://s.france24.com/media/display/8b824d76-ccb4-11f1-988e-2d1c143cdef3/w:1280/p:16x9/ES-20261020-074052-074231-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-despega-con-%C3%A9xito-misi%C3%B3n-que-explorar%C3%A1-una-de-las-lunas-de-marte-por-primera-vez-en-la-historia",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732056,
     "created_at": "2026-10-20T21:54:50.537Z",
     "titulo": "Profesionales agropecuarios reclaman títulos de propiedad tras casi tres décadas de espera",
