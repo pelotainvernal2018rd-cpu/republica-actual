@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732076,
+    "created_at": "2026-10-20T23:27:21.294Z",
+    "titulo": "PSG y Liverpool se afianzan en la fase de grupos de la Champions",
+    "slug": "psg-y-liverpool-se-afianzan-en-la-fase-de-grupos-de-la-champions",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/5a50b1aa-ccd9-11f1-805b-6313a763b466/w:1280/p:16x9/d71a953e84cf2ea82274dd7dcac6937f2050311d.jpg\" alt=\"PSG y Liverpool se afianzan en la fase de grupos de la Champions\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Paris Saint‑Germain superó al Barcelona con un contundente 4‑2, manteniendo su liderazgo en la fase de grupos. La victoria le suma nueve puntos al club francés.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la misma jornada, el Liverpool venció al Villarreal 4‑3, también acumulando nueve puntos en su grupo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con la derrota del Barça, el PSG se mantiene a la cabeza de su grupo, con una ventaja de tres puntos sobre el segundo puesto.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Liverpool, tras su triunfo, ocupa la segunda posición, con la misma cantidad de puntos que el PSG, pero sin la ventaja de la diferencia de goles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ambos equipos ahora se preparan para sus próximos encuentros, donde la presión por asegurar la clasificación a la siguiente fase aumenta.</p>",
+    "imagen": "https://s.france24.com/media/display/5a50b1aa-ccd9-11f1-805b-6313a763b466/w:1280/p:16x9/d71a953e84cf2ea82274dd7dcac6937f2050311d.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/deportes/20261020-liga-de-campeones-el-psg-doblega-al-bar%C3%A7a-y-el-liverpool-resiste-ante-el-villarreal",
+    "categoria": "Deportes",
+    "etiquetas": [
+      "Deportes",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732075,
     "created_at": "2026-10-20T23:25:27.665Z",
     "titulo": "Incendio consume varias viviendas en el sector Pueblo Nuevo de Santiago",
