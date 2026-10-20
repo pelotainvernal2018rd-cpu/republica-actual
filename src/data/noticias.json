@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731920,
+    "created_at": "2026-10-20T04:56:49.580Z",
+    "titulo": "Comerciantes franceses enfrentan pérdidas tras ola de saqueos y vandalismo",
+    "slug": "comerciantes-franceses-enfrentan-perdidas-tras-ola-de-saqueos-y-vandalismo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/ad59849e-cc2f-11f1-88ba-638c1c1f5fd6/w:1280/p:16x9/ES-20261019-180403-180551-CS.jpg\" alt=\"Comerciantes franceses enfrentan pérdidas tras ola de saqueos y vandalismo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El sector comercial en Francia atraviesa un momento crítico tras los disturbios y actos de violencia registrados durante las protestas masivas del pasado 17 de octubre. Numerosos propietarios se encontraron con sus establecimientos gravemente afectados al intentar retomar sus actividades habituales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Uno de los casos más impactantes involucra a un comerciante que, tras finalizar los preparativos para la inauguración de una nueva sucursal, halló su local completamente saqueado. A pesar de contar con una póliza de seguro, el afectado confirmó que la cobertura resulta insuficiente para recuperar la totalidad de la inversión perdida.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación no es un hecho aislado, ya que miles de dueños de negocios en todo el territorio francés atraviesan una realidad similar. La magnitud de los incidentes ha dejado un rastro de destrucción que afecta la estabilidad económica de los emprendedores locales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con los reportes preliminares, aproximadamente 3.000 tiendas han sido blanco de actos vandálicos o saqueos directos. La cifra refleja la intensidad de los disturbios que sacudieron diversas zonas del país durante la jornada de manifestaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, las autoridades y gremios comerciales no han logrado determinar el costo económico total derivado de los daños materiales. La evaluación de las pérdidas continúa en proceso mientras los afectados intentan cuantificar el impacto real en sus finanzas.</p>",
+    "imagen": "https://s.france24.com/media/display/ad59849e-cc2f-11f1-88ba-638c1c1f5fd6/w:1280/p:16x9/ES-20261019-180403-180551-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-el-costo-de-los-saqueos-y-disturbios-para-los-comerciantes-en-francia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731919,
     "created_at": "2026-10-20T04:55:00.528Z",
     "titulo": "Liderazgo de la Fuerza del Pueblo en Samaná sostiene encuentro estratégico para el desarrollo provincial",
