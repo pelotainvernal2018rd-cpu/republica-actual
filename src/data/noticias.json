@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732035,
+    "created_at": "2026-10-20T19:56:55.810Z",
+    "titulo": "Gobierno brasileño anticipa entrega de subsidios sociales previo a la segunda vuelta electoral",
+    "slug": "gobierno-brasileno-anticipa-entrega-de-subsidios-sociales-previo-a-la-segunda-vuelta-electoral",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0c33ca98-cca7-11f1-9098-638c1c1f5fd6/w:1280/p:16x9/4a757083695a486aa28ef2131f20ee74beaa133d.jpg\" alt=\"Gobierno brasileño anticipa entrega de subsidios sociales previo a la segunda vuelta electoral\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La administración encabezada por Luiz Inácio Lula da Silva informó este lunes sobre una modificación en el calendario de desembolsos de su principal iniciativa de ayuda económica. La medida consiste en adelantar las fechas de pago para los ciudadanos inscritos en el sistema de asistencia estatal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta decisión impactará directamente a un universo de 50 millones de personas que reciben el beneficio. El objetivo central de la disposición es asegurar que los fondos sean recibidos por los usuarios antes de la jornada electoral definitiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El proceso de entrega de los recursos se llevará a cabo durante los días previos al balotaje, programado para este próximo domingo en Brasil. Con este ajuste, el Ejecutivo busca garantizar que los beneficiarios dispongan de sus asignaciones antes de acudir a las urnas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La medida ha sido comunicada oficialmente al inicio de la semana, marcando un cambio en la logística habitual de distribución de los subsidios. Las autoridades han priorizado este cronograma para facilitar el acceso al dinero en un momento clave del proceso democrático nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con este movimiento, el gobierno brasileño concluye los preparativos para que la totalidad de los beneficiarios cuente con sus recursos económicos antes de que la ciudadanía participe en la elección final del domingo.</p>",
+    "imagen": "https://s.france24.com/media/display/0c33ca98-cca7-11f1-9098-638c1c1f5fd6/w:1280/p:16x9/4a757083695a486aa28ef2131f20ee74beaa133d.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/minuto-a-minuto/20261020-el-gobierno-de-lula-adelanta-los-pagos-de-un-programa-social-antes-del-balotaje-en-brasil",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732034,
     "created_at": "2026-10-20T19:54:47.295Z",
     "titulo": "Unicef recauda fondos para la niñez dominicana en su sexta gala gastronómica",
