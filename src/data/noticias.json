@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731915,
+    "created_at": "2026-10-20T04:13:12.059Z",
+    "titulo": "Texas inicia proceso de votación anticipada para las elecciones legislativas",
+    "slug": "texas-inicia-proceso-de-votacion-anticipada-para-las-elecciones-legislativas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/1ddb395a-cc3b-11f1-b2bb-4dd8ac2cf3bf/w:1280/p:16x9/MIDTERMS-Ana.jpg\" alt=\"Texas inicia proceso de votación anticipada para las elecciones legislativas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El estado de Texas ha dado apertura oficial al periodo de votación anticipada, permitiendo que los ciudadanos ejerzan su derecho al sufragio antes de la jornada electoral definitiva. Este proceso se extenderá desde el 19 hasta el 30 de octubre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un total de 19 millones de personas se encuentran registradas en el padrón electoral tejano para participar en estos comicios. La medida busca facilitar la afluencia de votantes a los centros habilitados antes de la fecha final.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los resultados definitivos de este proceso electoral se darán a conocer el próximo 3 de noviembre. La expectativa se centra en la participación ciudadana durante estos días previos a la elección oficial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El corresponsal Andrés Espinal, ubicado en Houston, ha estado dando seguimiento a los acontecimientos electorales. Su cobertura incluye un análisis detallado sobre las contiendas más relevantes que se definen en este estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el reporte incluye una revisión sobre las tendencias que reflejan las encuestas actuales. Estos datos ofrecen una perspectiva sobre el panorama político que enfrentan los candidatos en Texas durante esta contienda legislativa.</p>",
+    "imagen": "https://s.france24.com/media/display/1ddb395a-cc3b-11f1-b2bb-4dd8ac2cf3bf/w:1280/p:16x9/MIDTERMS-Ana.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-directo-midterms-y-texas-el-estado-donde-casi-19-millones-de-votantes-ya-pueden-ir-a-las-urnas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731914,
     "created_at": "2026-10-20T04:08:19.259Z",
     "titulo": "Obra Salesiana cuestiona estrategia de seguridad y critica ejecuciones extrajudiciales",
