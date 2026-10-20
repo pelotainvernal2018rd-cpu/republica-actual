@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731910,
+    "created_at": "2026-10-20T03:34:46.240Z",
+    "titulo": "México bloquea importaciones avícolas desde Brasil por brote de Newcastle",
+    "slug": "mexico-bloquea-importaciones-avicolas-desde-brasil-por-brote-de-newcastle",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2020/01/07/6433c9d885d1f.jpeg\" alt=\"México bloquea importaciones avícolas desde Brasil por brote de Newcastle\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Gobierno de México ha determinado la suspensión inmediata de las importaciones de productos avícolas provenientes de Brasil. Esta medida fue comunicada por la Secretaría de Agricultura y Desarrollo Rural tras confirmarse un brote de la enfermedad de Newcastle en el municipio de Nova Itaberaba, ubicado en el estado de Santa Catarina.</p><p>La restricción, ejecutada por el Servicio Nacional de Sanidad, Inocuidad y Calidad Agroalimentaria (Senasica), incluye la prohibición de entrada de carne, despojos, huevos fértiles y pollos de corta edad. Asimismo, la normativa se extiende a aves canoras, de ornato y rapaces, afectando tanto a los envíos comerciales como a los artículos que transporten los viajeros.</p><p>Para garantizar el cumplimiento de esta disposición, las autoridades mexicanas han desactivado las hojas de requisitos sanitarios en su plataforma oficial, impidiendo cualquier trámite de ingreso para estas mercancías. La medida busca salvaguardar la producción avícola nacional mientras se espera más información sobre el control del foco infeccioso en territorio brasileño.</p><p>Existe una discrepancia sobre el origen del brote, ya que mientras las autoridades mexicanas señalan una granja de pollos, el Ministerio de Agricultura y Ganadería de Brasil precisó que el caso se detectó en una instalación con cerca de 6,000 pavos. Según la parte brasileña, los animales fueron inmovilizados y no se destinaron al consumo humano.</p><p>El ministro de Agricultura de Brasil, André de Paula, aseguró que los productos avícolas que cuentan con inspección sanitaria oficial no representan un peligro para la salud de las personas. Por su parte, la Organización Mundial de Sanidad Animal define a la enfermedad de Newcastle como una infección viral altamente contagiosa que puede causar una alta mortalidad en las aves.</p><p>El virus se propaga mediante el contacto con animales enfermos o a través de agua, alimentos y equipos contaminados, provocando afecciones respiratorias, nerviosas y digestivas. México, que se mantiene libre de la variante velogénica de esta enfermedad desde el año 2015, no ha fijado una fecha para el levantamiento de estas restricciones.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2020/01/07/6433c9d885d1f.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261019/mexico-suspende-importaciones-avicolas-brasil-brote-enfermedad-newcastle_926814.html",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731909,
     "created_at": "2026-10-20T03:25:06.344Z",
     "titulo": "Unicef alerta que más de la mitad de los menores dominicanos sufre violencia en sus hogares",
