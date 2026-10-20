@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732063,
+    "created_at": "2026-10-20T22:26:58.373Z",
+    "titulo": "Ecuador y Perú estrechan lazos para combatir el crimen en la zona fronteriza",
+    "slug": "ecuador-y-peru-estrechan-lazos-para-combatir-el-crimen-en-la-zona-fronteriza",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/d6675dfe-ccc8-11f1-8301-6313a763b466/w:1280/p:16x9/ES-20261020-124532-125107-CS.jpg\" alt=\"Ecuador y Perú estrechan lazos para combatir el crimen en la zona fronteriza\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El presidente de Ecuador, Daniel Noboa, sostuvo un encuentro oficial en la ciudad de Lima con Keiko Fujimori con el objetivo de consolidar la cooperación bilateral entre ambas naciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La agenda de trabajo estuvo enfocada principalmente en el fortalecimiento de la seguridad en los límites territoriales que comparten los dos países sudamericanos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante las conversaciones, los líderes abordaron estrategias conjuntas para enfrentar las amenazas que representa el crimen organizado en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El corresponsal Francisco Zacarías, quien se encuentra en la capital peruana, informó que este acercamiento busca mejorar la coordinación institucional frente a los desafíos comunes de seguridad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades destacaron la importancia de mantener un diálogo fluido para garantizar la estabilidad y el control en las áreas fronterizas de Ecuador y Perú.</p>",
+    "imagen": "https://s.france24.com/media/display/d6675dfe-ccc8-11f1-8301-6313a763b466/w:1280/p:16x9/ES-20261020-124532-125107-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-directo-a-lima-y-la-reuni%C3%B3n-entre-fujimori-y-noboa-sobre-seguridad-fronteriza",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732062,
     "created_at": "2026-10-20T22:25:36.718Z",
     "titulo": "Italia endurece sanciones contra la violencia en manifestaciones",
