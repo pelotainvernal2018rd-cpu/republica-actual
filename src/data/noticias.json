@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732070,
+    "created_at": "2026-10-20T22:57:00.767Z",
+    "titulo": "Tensión diplomática entre Corea del Sur y Ucrania por soldados norcoreanos",
+    "slug": "tension-diplomatica-entre-corea-del-sur-y-ucrania-por-soldados-norcoreanos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/73430b26-ccd0-11f1-99ba-2d1c143cdef3/w:1280/p:16x9/AP26293229714912.jpg\" alt=\"Tensión diplomática entre Corea del Sur y Ucrania por soldados norcoreanos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Gobierno de Corea del Sur ha tomado la determinación de reducir su presencia diplomática en Kiev tras el surgimiento de una inesperada crisis en sus relaciones bilaterales con Ucrania.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El conflicto tiene su origen en la gestión de dos militares norcoreanos que fueron capturados en el marco del conflicto bélico que atraviesa el territorio ucraniano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades surcoreanas han denunciado que el Ejecutivo ucraniano incumplió un pacto previo de confidencialidad que se había establecido sobre el traslado y la situación de estos prisioneros.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, el Gobierno de Ucrania ha rechazado categóricamente las acusaciones de Seúl, negando la existencia de cualquier compromiso formal que obligara a mantener estos detalles bajo reserva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la falta de entendimiento sobre lo ocurrido, Corea del Sur optó por retirar a una parte de su personal destacado en la capital ucraniana como medida de respuesta.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta situación marca un punto de fricción diplomática entre ambas naciones, mientras se mantienen las discrepancias sobre los acuerdos de información compartida respecto a la participación de efectivos de Corea del Norte en la guerra.</p>",
+    "imagen": "https://s.france24.com/media/display/73430b26-ccd0-11f1-99ba-2d1c143cdef3/w:1280/p:16x9/AP26293229714912.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-corea-del-sur-retira-diplom%C3%A1ticos-de-ucrania-tras-una-disputa-por-soldados-norcoreanos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732069,
     "created_at": "2026-10-20T22:55:15.875Z",
     "titulo": "Más de 10.500 pandilleros condenados en El Salvador",
