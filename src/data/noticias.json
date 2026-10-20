@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731944,
+    "created_at": "2026-10-20T11:48:23.821Z",
+    "titulo": "Indomet pronostica escasas lluvias y un leve respiro en las temperaturas para este día",
+    "slug": "indomet-pronostica-escasas-lluvias-y-un-leve-respiro-en-las-temperaturas-para-este-dia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/uploads/2026/10/20/6ad74aec59d2d.gif\" alt=\"Indomet pronostica escasas lluvias y un leve respiro en las temperaturas para este día\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología comunicó que las probabilidades de precipitaciones se mantienen bajas en la mayor parte del territorio nacional durante la jornada de hoy.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama general muestra cielos con nubes dispersas y momentos de nubosidad parcial, a excepción de la zona noroeste, donde se esperan aguaceros de intensidad moderada al llegar la tarde.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En cuanto al termómetro, las máximas oscilan entre los 32 y 34 grados Celsius, lo que representa un ambiente menos caluroso en comparación con los valores registrados en los meses de julio y agosto.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La demarcación de Santo Domingo exhibe nubes dispersas durante gran parte de la jornada, acompañada de temperaturas que se sitúan igualmente en el rango de los 32 a 34 grados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Otras localidades como San Pedro de Macorís, La Romana, San Cristóbal, Peravia y Duarte transcurren sin precipitaciones, con episodios de cielo medio nublado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para la tarde, la influencia de una vaguada propiciará un aumento de la nubosidad y el desarrollo de aguaceros moderados con tormentas eléctricas en provincias como Monte Cristi, La Altagracia, El Seibo, Pedernales, La Vega, Santiago, Valverde, Elías Piña, Santiago Rodríguez, Dajabón, Puerto Plata, Hato Mayor, Espaillat y Hermanas Mirabal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito marítimo, la costa caribeña presenta olas normales de tres a cuatro pies, permitiendo la libre navegación, mientras que en el océano Atlántico se aconseja prudencia a las embarcaciones pequeñas por condiciones de peligro mar adentro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las proyecciones meteorológicas indican que el miércoles continuará la ausencia de lluvias significativas, pero el jueves se prevé un incremento de la humedad y la inestabilidad por una vaguada, generando fuertes aguaceros, tormentas eléctricas y ráfagas de viento en el norte, noroeste, suroeste y zona fronteriza.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/uploads/2026/10/20/6ad74aec59d2d.gif",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/cielo-despejado-gran-parte-pais-temperaturas-meno-calurosas_583922.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731943,
     "created_at": "2026-10-20T11:41:29.967Z",
     "titulo": "Nuevos datos apuntan al trágico fin de agentes salvadoreños en territorio haitiano",
