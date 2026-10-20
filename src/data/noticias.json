@@ -1,33 +1,16 @@
 [
   {
-    "id": 1791850623732041,
-    "created_at": "2026-10-20T20:41:59.442Z",
-    "titulo": "Denuncian muerte de ocho pescadores tras ataques aéreos en Yemen",
-    "slug": "denuncian-muerte-de-ocho-pescadores-tras-ataques-aereos-en-yemen",
-    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b3eb9826-ccb4-11f1-b4de-638c1c1f5fd6/w:1280/p:16x9/AP26095432088817.jpg\" alt=\"Denuncian muerte de ocho pescadores tras ataques aéreos en Yemen\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un grupo de pescadores perdió la vida durante una serie de bombardeos ejecutados por fuerzas aéreas saudíes. El incidente ocurrió frente a las costas de Al Kadaha, una zona situada en el suroeste de Yemen.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La información fue difundida este martes 20 de octubre por los rebeldes hutíes, quienes señalaron que el ataque impactó directamente contra dos embarcaciones dedicadas a la pesca en la región.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, la coalición militar que encabeza Arabia Saudita en el conflicto yemení confirmó haber realizado operaciones en el mar Rojo. Según la versión de la alianza, el objetivo de sus acciones fue la destrucción de varios barcos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades de la coalición justificaron la ofensiva alegando que las embarcaciones estaban siendo utilizadas para actividades de contrabando en aguas territoriales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, las partes involucradas mantienen versiones contrapuestas sobre la naturaleza de las naves atacadas y las circunstancias que rodearon el suceso en la costa yemení.</p>",
-    "imagen": "https://s.france24.com/media/display/b3eb9826-ccb4-11f1-b4de-638c1c1f5fd6/w:1280/p:16x9/AP26095432088817.jpg",
-    "fuente": "France 24 Español",
-    "url_fuente": "https://www.france24.com/es/medio-oriente/20261020-yemen-los-hut%C3%ADes-afirman-que-ocho-pescadores-murieron-en-bombardeos-de-arabia-saudita",
-    "categoria": "Mundo",
-    "etiquetas": [
-      "Mundo",
-      "Justicia"
-    ],
-    "publicado": true,
-    "feed_principal": true
-  },
-  {
     "id": 1791850623732040,
-    "created_at": "2026-10-20T20:41:35.539Z",
-    "titulo": "Gobierno de EE. UU. lanza programa de incentivos para denunciar fraudes fiscales",
-    "slug": "gobierno-de-ee-uu-lanza-programa-de-incentivos-para-denunciar-fraudes-fiscales",
-    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/TRUMP_EVADIENDO_RESPONSABILIDAD_57_93.webp\" alt=\"Gobierno de EE. UU. lanza programa de incentivos para denunciar fraudes fiscales\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El presidente Donald Trump ha presentado una nueva iniciativa destinada a combatir la evasión de impuestos en el país. El proyecto, denominado Programa de incentivos a delatores de fraude, busca fomentar la colaboración ciudadana para recuperar fondos públicos mediante la entrega de recompensas económicas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La administración federal ha destinado un presupuesto de 25 millones de dólares para financiar este plan, el cual será gestionado por el Departamento de Justicia. Los denunciantes podrán recibir pagos de hasta 30.000 dólares por información relevante, además de un porcentaje del 1 % sobre los montos recuperados, cifra que podría elevarse considerablemente en casos de gran escala.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para facilitar el proceso, el Gobierno ha habilitado un portal web oficial donde cualquier persona, incluyendo periodistas y profesionales, podrá reportar irregularidades. El mandatario señaló que esta medida pretende atraer a un gran número de colaboradores interesados en exponer actos de corrupción contra la administración pública.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta estrategia complementa las labores del grupo de trabajo contra el fraude, el cual es liderado por el vicepresidente JD Vance desde hace siete meses. La iniciativa busca fortalecer la vigilancia sobre el uso correcto de los subsidios y recursos del Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como primer caso de éxito, el creador de contenido Nick Shirley recibió una compensación de 10.000 dólares. El pago fue otorgado tras la difusión de un video a finales de 2025, en el cual denunció la existencia de guarderías ficticias en Minnesota utilizadas para obtener subsidios federales de manera ilícita.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Precisamente, el Departamento de Justicia confirmó que, en julio pasado, una mujer admitió su culpabilidad por cargos de fraude electrónico y conspiración. La implicada presentó reclamaciones infladas por servicios de alimentación infantil que nunca fueron prestados, evidenciando la necesidad de mecanismos de control más estrictos.</p>",
-    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/TRUMP_EVADIENDO_RESPONSABILIDAD_57_93.webp",
-    "fuente": "Noticias Telemicro",
-    "url_fuente": "https://ntelemicro.com/trump-anuncia-recompensas-de-hasta-30-000-dolares-a-quienes-delaten-casos-de-fraude-fiscal/",
-    "categoria": "Política",
+    "created_at": "2026-10-20T20:46:25.046Z",
+    "titulo": "Policía de Los Frailes rechaza detener a dos jóvenes acusados de asaltos con machete",
+    "slug": "policia-de-los-frailes-rechaza-detener-a-dos-jovenes-acusados-de-asaltos-con-machete",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/20/6ad767741ef38.png\" alt=\"Policía de Los Frailes rechaza detener a dos jóvenes acusados de asaltos con machete\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Comité Dominicano de los Derechos Humanos en San Luis denunció que el destacamento policial de Los Frailes se negó a recibir a dos jóvenes señalados por presuntos hechos delictivos, alegando falta de orden de arresto.</p><p>Los jóvenes, Antonio Manuel Montero, de 24 años, y Héctor Santo Soriano, fueron identificados por el coordinador Diógenes Ozuna como sospechosos de asaltos con machete en la avenida Las Américas.</p><p>Según Ozuna, miembros de la Dirección Central de Investigación mostraron videos que supuestamente los muestran cometiendo los delitos y que sus domicilios han sido allanados en varias ocasiones.</p><p>Los agentes tomaron datos personales y fotografías de los jóvenes, pero no los recibieron formalmente en el destacamento, devolviéndolos a sus familiares.</p><p>El activista cuestionó el procedimiento policial y expresó preocupación por la integridad física de los jóvenes, dada la persistente denuncia de muertes de presuntos delincuentes en intercambios de disparos con la Policía Nacional.</p><p>Ozuna afirmó que, cuando existen denuncias, evidencias audiovisuales o investigaciones abiertas, las autoridades deben actuar conforme a la ley, evitando dejar el caso en un limbo que pueda generar mayores riesgos para los señalados y la comunidad.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/20/6ad767741ef38.png",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-republica/justicia/20261020/denuncian-policia-rechazo-recibir-dos-jovenes-frailes-acusados-presuntos-hechos-delictivos_926825.html",
+    "categoria": "Nacionales",
     "etiquetas": [
-      "Política",
+      "Nacionales",
       "Justicia"
     ],
     "publicado": true,
