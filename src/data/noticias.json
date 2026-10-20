@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731935,
+    "created_at": "2026-10-20T10:21:25.923Z",
+    "titulo": "Pronostican fuertes aguaceros, granizadas y posibles inundaciones en varias provincias para este martes",
+    "slug": "pronostican-fuertes-aguaceros-granizadas-y-posibles-inundaciones-en-varias-provincias-para-este-martes",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/portada-Copia-de-ARMANDO-12-1.jpg\" alt=\"Pronostican fuertes aguaceros, granizadas y posibles inundaciones en varias provincias para este martes\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El pronóstico meteorológico para este martes anticipa la ocurrencia de precipitaciones significativas, acompañadas de granizadas y posibles inundaciones en diferentes demarcaciones del territorio dominicano, con mayor incidencia hacia la región del Cibao y la línea noroeste.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante las primeras horas del día, las imágenes satelitales y los radares detectaron lluvias en puntos específicos como Macao, Bávaro, Punta Cana, Baní, San Cristóbal y ciertas zonas de Barahona y Pedernales, impulsadas por un flujo de viento proveniente del este.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A partir de las cuatro de la tarde, las condiciones atmosféricas cambiarán de manera notable para dar paso a aguaceros fuertes que podrían venir acompañados de ráfagas de viento y caída de granizos en las áreas bajo mayor vigilancia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las localidades señaladas figuran la provincia Valverde, particularmente Esperanza y Jicomé, así como varios municipios de Santiago, entre ellos Navarrete, Villa González, San José de las Matas, Tamboril y Puñal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, se prevén lluvias intensas en Montecristi, abarcando Villa Vásquez, Castañuelas, Palo Verde y La Mata de Santa Cruz, además de Dajabón, Loma de Cabrera, Restauración y varios puntos de Puerto Plata.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Debido al riesgo de inundaciones en sectores vulnerables, las recomendaciones oficiales sugieren precaución a los residentes de estas zonas, así como a trabajadores al aire libre para que adelanten sus labores a las primeras horas del día.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En contraste, el informe indica que el Gran Santo Domingo, la región este, Baní, San Cristóbal y Pedernales no registrarán precipitaciones importantes durante la tarde, quedando las lluvias matutinas como los eventos más relevantes para esas demarcaciones.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/portada-Copia-de-ARMANDO-12-1.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/pocas-lluvias-en-la-capital-pero-aguaceros-en-varias-provincias-para-este-martes/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731934,
     "created_at": "2026-10-20T10:11:40.352Z",
     "titulo": "Japón inicia una misión histórica para explorar una de las lunas marcianas",
