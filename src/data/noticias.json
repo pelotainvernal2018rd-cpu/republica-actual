@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732024,
+    "created_at": "2026-10-20T18:57:24.853Z",
+    "titulo": "Zelenski sostiene que Ucrania preserva la posición en el conflicto pero sufre la pérdida de vidas",
+    "slug": "zelenski-sostiene-que-ucrania-preserva-la-posicion-en-el-conflicto-pero-sufre-la-perdida-de-vidas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/44a485fe-cc87-11f1-aa77-6313a763b466/w:1280/p:16x9/2026-10-20T130240Z-522570672-RC207OAT5BB7-RTRMADP-3-UKRAINE-CRISIS.jpg\" alt=\"Zelenski sostiene que Ucrania preserva la posición en el conflicto pero sufre la pérdida de vidas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El presidente de Ucrania, Volodímir Zelenski, declaró este martes que el país mantiene su resistencia frente a la ofensiva militar de Rusia, aunque advirtió sobre el elevado costo humano que esto representa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante sus declaraciones tras las conversaciones sostenidas en Oslo, el mandatario ucraniano puntualizó que la nación no se encuentra perdiendo la contienda bélica en el terreno militar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, Zelenski enfatizó que el verdadero impacto negativo se refleja en la pérdida constante de población a consecuencia de las acciones armadas rusas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el mismo contexto, el jefe de Estado aprovechó la oportunidad para expresar su agradecimiento al gobierno de Estados Unidos por el apoyo brindado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este respaldo norteamericano incluye la restitución de los servicios de inteligencia fundamentales para la defensa del territorio ucraniano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el mandatario valoró de forma positiva la reactivación de los sistemas de alertas tempranas frente a los ataques con misiles balísticos ejecutados por las fuerzas rusas.</p>",
+    "imagen": "https://s.france24.com/media/display/44a485fe-cc87-11f1-aa77-6313a763b466/w:1280/p:16x9/2026-10-20T130240Z-522570672-RC207OAT5BB7-RTRMADP-3-UKRAINE-CRISIS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261020-ucrania-est%C3%A1-perdiendo-gente-y-tiempo-afirma-zelenski-tras-las-conversaciones-en-oslo",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732023,
     "created_at": "2026-10-20T18:54:56.523Z",
     "titulo": "Un paro imprevisto en el sistema subterráneo de Buenos Aires afecta a miles de usuarios",
