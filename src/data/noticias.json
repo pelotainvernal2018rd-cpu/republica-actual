@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732054,
+    "created_at": "2026-10-20T21:45:33.262Z",
+    "titulo": "Brasil se prepara para las urnas en un clima de alta tensión política",
+    "slug": "brasil-se-prepara-para-las-urnas-en-un-clima-de-alta-tension-politica",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/7d340ac8-ccb6-11f1-98d7-2d1c143cdef3/w:1280/p:16x9/ES-20261020-074235-074956-CS.jpg\" alt=\"Brasil se prepara para las urnas en un clima de alta tensión política\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Brasil se encuentra en la recta final de su proceso electoral para definir quién ocupará la presidencia del país. La contienda se disputa entre los candidatos Luiz Inácio Lula da Silva y Jair Bolsonaro, quienes han protagonizado una campaña marcada por la confrontación directa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reciente debate televisivo entre ambos aspirantes se caracterizó por la ausencia de propuestas programáticas concretas. En su lugar, el encuentro estuvo dominado por un intercambio constante de acusaciones personales e insultos entre los dos contendientes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La periodista Ángela Gómez Galeano, en un análisis para el programa Directo Latam, destacó que este intercambio refleja el complejo panorama que atraviesa la nación sudamericana a pocos días de la votación definitiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Otro de los puntos abordados durante el análisis fue la controversia surgida en torno a la empresa Meta. Se han presentado señalamientos sobre una supuesta injerencia de la compañía en las cuentas digitales de Lula da Silva, un tema que ha generado diversas reacciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el reporte incluyó un repaso sobre las proyecciones realizadas por distintas empresas encuestadoras. Estos datos forman parte del escenario que los ciudadanos brasileños evalúan antes de acudir a las urnas para elegir a su próximo mandatario.</p>",
+    "imagen": "https://s.france24.com/media/display/7d340ac8-ccb6-11f1-98d7-2d1c143cdef3/w:1280/p:16x9/ES-20261020-074235-074956-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261020-directo-latam-y-el-tenso-debate-entre-lula-y-bolsonaro-en-el-que-predominaron-los-insultos",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732053,
     "created_at": "2026-10-20T21:41:00.624Z",
     "titulo": "Pacto Histórico convoca protesta contra el PGN 2027",
