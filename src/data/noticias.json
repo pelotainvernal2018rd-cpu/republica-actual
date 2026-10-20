@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623731993,
+    "created_at": "2026-10-20T16:12:59.542Z",
+    "titulo": "Crece la preocupación en Argentina tras convertirse el suicidio en la principal causa de muerte violenta juvenil",
+    "slug": "crece-la-preocupacion-en-argentina-tras-convertirse-el-suicidio-en-la-principal-causa-de-muerte-violenta-juvenil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/84644890-cc8d-11f1-ba4c-4dd8ac2cf3bf/w:1280/p:16x9/IMG-0214.jpg\" alt=\"Crece la preocupación en Argentina tras convertirse el suicidio en la principal causa de muerte violenta juvenil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El incremento sostenido de los casos de suicidio en territorio argentino, con especial incidencia en la población juvenil, genera preocupación en torno al estado actual de la salud mental en el país sudamericano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dentro del grupo etario que comprende a los ciudadanos de entre 25 y 34 años, esta problemática desplazó a los accidentes viales, posicionándose como el motivo principal de fallecimiento violento.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, surgen interrogantes fundamentales respecto a los factores que impulsan este fenómeno y la manera correcta de reconocer los indicadores de riesgo para lograr una intervención oportuna.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con el propósito de analizar a fondo esta problemática social y sanitaria, este medio mantuvo una entrevista con el especialista en salud mental Demian Rodante.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El doctor Rodante, quien se desempeña como médico psiquiatra y psicoterapeuta, aportó su perspectiva profesional para comprender las complejidades que rodean a la prevención del suicidio en la actualidad.</p>",
+    "imagen": "https://s.france24.com/media/display/84644890-cc8d-11f1-ba4c-4dd8ac2cf3bf/w:1280/p:16x9/IMG-0214.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/la-entrevista/20261020-suicidio-en-argentina-por-qu%C3%A9-es-la-principal-causa-de-muerte-violenta-entre-los-j%C3%B3venes",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623731992,
     "created_at": "2026-10-20T16:09:51.004Z",
     "titulo": "El Servicio Nacional de Salud impulsa la prevención del cáncer de mama y el diagnóstico temprano en el país",
