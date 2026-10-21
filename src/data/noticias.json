@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732264,
+    "created_at": "2026-10-21T22:28:48.071Z",
+    "titulo": "Tribunal Constitucional revisa 15 expedientes de inconstitucionalidad en la República Dominicana",
+    "slug": "tribunal-constitucional-revisa-15-expedientes-de-inconstitucionalidad-en-la-republica-dominicana",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad93ab29c55d.jpeg\" alt=\"Tribunal Constitucional revisa 15 expedientes de inconstitucionalidad en la República Dominicana\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Tribunal Constitucional (TC) llevó a cabo una audiencia pública en la que se analizaron 15 expedientes de acción directa de inconstitucionalidad. Entre las normativas examinadas se encuentran el Código Penal, la Ley Orgánica de la Policía Nacional y el Reglamento sobre Licencias de Conducir.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito penal, el expediente TC-01-2026-0052, promovido por Gery Manuel Reyes Soriano, impugnó varios artículos del Código Penal, mientras que la Federación Dominicana de Lucha contra las Drogas atacó el artículo 318 en el expediente TC-01-2026-0046. Otros juristas presentaron recursos contra artículos 284, 290, 297 y 299, y el Colegio de Abogados refutó el artículo 310.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En materia policial, Méndez González & Asociados recurrió los párrafos VII y VIII del artículo 83 de la Ley 590-16, y el expediente TC-01-2026-0051 incluyó impugnaciones de varios artículos de la misma ley, del Estatuto de la Carrera Policial y del Reglamento Académico de la Escuela de Entrenamiento, además de una resolución del Consejo Superior Policial y otros actos administrativos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las regulaciones de tránsito y licencias de conducir también fueron objeto de debate. Franklin R. Muñoz Castaños cuestionó el artículo 21 del Decreto 6-19, y Leonel Antonio de los Santos solicitó la anulación total de dicho decreto. Otros expedientes atacaron el artículo 4 del Decreto 30-23 y la Ley 75-25.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El TC también recibió demandas en sectores financiero y laboral. Pedro Arturo Pichardo González recurrió la resolución 455-22 de la Superintendencia de Pensiones, y Pedro José Chevalier Espinal presentó expedientes contra la Ley 3-19 del Colegio de Abogados, la Ley 146-02 sobre Seguros y Fianzas y la Ley 153-98 de Telecomunicaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Al finalizar la jornada, el Pleno del tribunal conoció los 15 expedientes y, tras las conclusiones orales, dejó todos los casos pendientes de fallo, conforme al artículo 41 de la Ley 137-11. La alta corte determinará en una etapa posterior si las disposiciones impugnadas se mantienen vigentes, se anulan o requieren modificación.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad93ab29c55d.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/judicial/impugnan-codigo-penal-ley-policial-licencias-conducir-tribunal-constitucional_584091.html/",
+    "categoria": "Política",
+    "etiquetas": [
+      "Política",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732263,
     "created_at": "2026-10-21T22:26:58.867Z",
     "titulo": "PHP bajo la lupa: dos vulnerabilidades obligan a cerrar sitios de gobierno y educación",
