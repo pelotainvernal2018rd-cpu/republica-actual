@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732223,
+    "created_at": "2026-10-21T19:11:47.184Z",
+    "titulo": "Fallas críticas en PHP provocan el cierre preventivo de portales estatales a nivel global",
+    "slug": "fallas-criticas-en-php-provocan-el-cierre-preventivo-de-portales-estatales-a-nivel-global",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/16067f7e-cd7f-11f1-9173-4da0d2c6855d/w:1280/p:16x9/c21d9edfd9034363013e42387258608207a99eb3.jpg\" alt=\"Fallas críticas en PHP provocan el cierre preventivo de portales estatales a nivel global\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversas administraciones públicas y corporaciones internacionales decidieron suspender el acceso a sus plataformas digitales durante la jornada del miércoles 21 de octubre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La medida de precaución se adoptó tras revelarse dos vulnerabilidades graves asociadas con PHP, el lenguaje de programación que sustenta una porción significativa de la red.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la alerta de seguridad emitida por estos fallos informáticos, los gobiernos de Francia y de los Países Bajos ya han implementado acciones concretas para proteger sus sistemas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La magnitud de las deficiencias descubiertas ha obligado a las autoridades a proceder con la clausura temporal de sus páginas web oficiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los expertos continúan evaluando el impacto de estas brechas en la infraestructura tecnológica internacional.</p>",
+    "imagen": "https://s.france24.com/media/display/16067f7e-cd7f-11f1-9173-4da0d2c6855d/w:1280/p:16x9/c21d9edfd9034363013e42387258608207a99eb3.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ciencia-y-tecnolog%C3%ADas/20261021-caos-en-la-red-por-php-gobiernos-en-todo-el-mundo-cierran-sitios-web-tras-alerta-de-seguridad",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732222,
     "created_at": "2026-10-21T19:11:26.848Z",
     "titulo": "Militares dominicanos son detenidos preventivamente por protagonizar pelea en base castrense",
