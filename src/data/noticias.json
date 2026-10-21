@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732258,
+    "created_at": "2026-10-21T22:12:10.601Z",
+    "titulo": "PSG vence al Barcelona 4-2 y ambos equipos se preparan para el fin de semana",
+    "slug": "psg-vence-al-barcelona-4-2-y-ambos-equipos-se-preparan-para-el-fin-de-semana",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/6ce51092-cd90-11f1-a126-eb48fa034ddc/w:1280/p:16x9/ES-20261020-201424-201604-CS.jpg\" alt=\"PSG vence al Barcelona 4-2 y ambos equipos se preparan para el fin de semana\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Paris Saint‑Germain superó al FC Barcelona por 4‑2 en un vibrante encuentro de la Champions League en París.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El partido, marcado por la contundencia de los parisinos, dejó al Barcelona con una derrota que les obliga a replantear su estrategia para la próxima fase.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Mientras tanto, el Barcelona ya se concentra en el próximo Clásico contra el Real Madrid, un duelo que promete ser decisivo para la tabla de la Liga.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El PSG, por su parte, se prepara para regresar a la acción en la Ligue 1, donde se enfrenta al Olympique Lyon el fin de semana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ambos equipos están centrados en sus próximos compromisos, buscando recuperarse y consolidar su posición en sus respectivas competiciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El informe fue elaborado por la periodista Natalia Ruiz.</p>",
+    "imagen": "https://s.france24.com/media/display/6ce51092-cd90-11f1-a126-eb48fa034ddc/w:1280/p:16x9/ES-20261020-201424-201604-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261021-informe-desde-par%C3%ADs-tras-el-4-2-barcelona-y-psg-se-enfocan-en-sus-pr%C3%B3ximos-duelos",
+    "categoria": "Deportes",
+    "etiquetas": [
+      "Deportes",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732257,
     "created_at": "2026-10-21T22:11:39.981Z",
     "titulo": "JCE modifica sistema de atención para renovación de cédulas en el exterior",
