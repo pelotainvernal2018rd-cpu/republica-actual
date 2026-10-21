@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732116,
+    "created_at": "2026-10-21T03:11:33.789Z",
+    "titulo": "Lluvias provocan inundaciones y caos vial en diversos puntos de Santiago",
+    "slug": "lluvias-provocan-inundaciones-y-caos-vial-en-diversos-puntos-de-santiago",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-20-a-las-11.03.00-p.-m-e1792551819955.jpg\" alt=\"Lluvias provocan inundaciones y caos vial en diversos puntos de Santiago\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las intensas precipitaciones caídas este martes en Santiago de los Caballeros han provocado la anegación de importantes vías, afectando significativamente la movilidad de conductores y peatones en la ciudad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos materiales audiovisuales compartidos por ciudadanos muestran cómo la acumulación de agua ha dificultado el tránsito, generando extensos taponamientos en zonas estratégicas del casco urbano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los puntos más afectados se encuentra la avenida 27 de Febrero, específicamente en los alrededores del Hospital Regional Universitario José María Cabral y Báez, donde el nivel del agua ha complicado el desplazamiento vehicular.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La avenida Antonio Guzmán Fernández y la Circunvalación Sur también han registrado acumulaciones de agua, lo que ha generado preocupación entre los residentes de estas áreas por los riesgos que estas condiciones representan.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante este panorama, las autoridades han instado a la población a transitar con extrema precaución, evitar cruzar calles inundadas y optar por rutas alternativas para prevenir incidentes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación ha motivado un llamado a las entidades competentes para que realicen labores de mantenimiento en el sistema de alcantarillado y ejecuten intervenciones en los sectores más vulnerables de la ciudad.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Captura-de-pantalla-2026-10-20-a-las-11.03.00-p.-m-e1792551819955.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/fuertes-aguaceros-inundan-calles-de-santiago-y-complican-el-transito-vehicular/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732115,
     "created_at": "2026-10-21T03:09:37.436Z",
     "titulo": "República Dominicana transfiere a Perú la coordinación de la Red Iberoamericana de Mejora Regulatoria",
