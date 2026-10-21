@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732095,
+    "created_at": "2026-10-21T01:12:41.800Z",
+    "titulo": "Ola de protestas recorre Europa ante crisis económica y social",
+    "slug": "ola-de-protestas-recorre-europa-ante-crisis-economica-y-social",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/b3999910-cc76-11f1-ad51-d1d2c32ebb87/w:1280/p:16x9/2f63c51621cd5566420df5f7588ac5e1c4b15e16.jpg\" alt=\"Ola de protestas recorre Europa ante crisis económica y social\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversas ciudades europeas se han convertido en el escenario de manifestaciones ciudadanas motivadas por una serie de demandas sociales y económicas. La población ha salido a las calles para expresar su descontento ante una situación que consideran insostenible en varios aspectos fundamentales de su vida diaria.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre los principales motivos de estas movilizaciones se encuentra la dificultad para acceder a una vivienda digna. Este problema, sumado al deterioro progresivo de los servicios educativos, ha generado un malestar generalizado entre los habitantes de distintas naciones del continente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El incremento en el costo de la vida es otro de los factores determinantes que impulsa las protestas. Los ciudadanos señalan que la inflación y la carestía de productos básicos han mermado significativamente su capacidad adquisitiva en los últimos tiempos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Además de los reclamos económicos, la lucha contra la corrupción se ha posicionado como un eje central de las exigencias sociales. Los manifestantes demandan mayor transparencia y una gestión más ética por parte de sus representantes públicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este fenómeno de descontento social se ha hecho notar con fuerza en países como España, Italia, Francia y Portugal. Asimismo, la nación de Albania también ha registrado jornadas de protesta donde la ciudadanía ha alzado su voz por causas similares.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Desde nuestra sección En Contexto, analizamos la evolución de los indicadores económicos durante las últimas décadas. Este estudio permite comprender mejor el trasfondo de las movilizaciones actuales y cómo han cambiado las condiciones de vida en la región europea.</p>",
+    "imagen": "https://s.france24.com/media/display/b3999910-cc76-11f1-ad51-d1d2c32ebb87/w:1280/p:16x9/2f63c51621cd5566420df5f7588ac5e1c4b15e16.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261021-por-qu%C3%A9-protestan-en-europa-educaci%C3%B3n-vivienda-y-la-carest%C3%ADa-de-la-vida-agita-las-calles",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732094,
     "created_at": "2026-10-21T01:10:39.122Z",
     "titulo": "Ciudadanos respaldan restricción de uso de estadios dominicanos por selecciones haitianas",
