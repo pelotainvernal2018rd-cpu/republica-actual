@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732144,
+    "created_at": "2026-10-21T12:08:22.380Z",
+    "titulo": "Los riesgos y la estructura oculta del internet profundo en la era digital",
+    "slug": "los-riesgos-y-la-estructura-oculta-del-internet-profundo-en-la-era-digital",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad8a051b391d.jpeg\" alt=\"Los riesgos y la estructura oculta del internet profundo en la era digital\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una gran parte de la ciudadanía desconoce la existencia del Internet profundo, un espacio virtual que opera al margen de los sistemas habituales de indexación y cuyos contenidos resultan inaccesibles para los motores tradicionales de búsqueda.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este entorno abarca el noventa por ciento de la red no indexada e incluye información privada como correos electrónicos y plataformas de banca en línea, además de albergar la denominada Dark Web, accesible mediante programas especiales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de los riesgos de ciberseguridad y la presencia de mercados clandestinos, este sector también es utilizado por diversas organizaciones para divulgar investigaciones independientes y archivos legítimos que no aparecen en canales comerciales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para acceder a estas profundidades se emplean herramientas como el navegador Tor, un software gratuito desarrollado inicialmente por el Laboratorio de Investigación Naval de Estados Unidos para garantizar comunicaciones seguras.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El sistema utiliza un método de enrutamiento que permite a los usuarios navegar de forma anónima mediante saltos entre diferentes nodos, ocultando la dirección IP y protegiendo la identidad del emisor y receptor.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Dentro de estos dominios, las transacciones comerciales suelen realizarse utilizando criptomonedas como el bitcoin, lo que facilita el intercambio confidencial de productos y servicios sin la intervención de instituciones bancarias.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un caso emblemático fue el de Silk Road, considerado el mayor mercado negro operado en la red oculta, el cual fue clausurado por el Buró Federal de Investigaciones en octubre de dos mil trece con el arresto de su creador, Ross William Ulbricht.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad8a051b391d.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/fama-y-vida/ciencia-y-tecnologia/red-oculta-enigmas-riesgos-internet-profundo_584020.html/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732143,
     "created_at": "2026-10-21T11:48:14.663Z",
     "titulo": "Emiten alertas por aguaceros y tormentas eléctricas que afectarán diversas zonas del país",
