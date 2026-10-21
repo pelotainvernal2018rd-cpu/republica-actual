@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732231,
+    "created_at": "2026-10-21T20:11:53.056Z",
+    "titulo": "IA y voto: el debate tecnológico que marca la segunda vuelta brasileña",
+    "slug": "ia-y-voto-el-debate-tecnologico-que-marca-la-segunda-vuelta-brasilena",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0b993d48-cca7-11f1-8ee6-638c1c1f5fd6/w:1280/p:16x9/71de5ac5f5b428fd73d2889232ea73c14104667f.jpg\" alt=\"IA y voto: el debate tecnológico que marca la segunda vuelta brasileña\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la fase final de la campaña presidencial brasileña, el uso de la inteligencia artificial se ha convertido en un tema central.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los ciudadanos y organizaciones han señalado la falta de regulaciones claras para las empresas tecnológicas, lo que ha alimentado la discusión.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los candidatos Flávio Bolsonaro y Luiz Inácio Lula da Silva están siendo evaluados en las redes sociales, donde los algoritmos influyen en la difusión de sus mensajes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La justicia brasileña ha exigido a compañías como Meta que moderen el contenido y apliquen medidas para evitar la difusión de desinformación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este escenario refleja la creciente importancia de la tecnología en la política y la necesidad de un marco regulatorio que proteja la integridad electoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con la segunda vuelta programada, la atención se centra en cómo las plataformas digitales gestionarán la información y en qué medida la IA afectará el resultado final.</p>",
+    "imagen": "https://s.france24.com/media/display/0b993d48-cca7-11f1-8ee6-638c1c1f5fd6/w:1280/p:16x9/71de5ac5f5b428fd73d2889232ea73c14104667f.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-contexto/20261021-el-voto-del-algoritmo-en-brasil-qu%C3%A9-rol-juega-la-ia",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732230,
     "created_at": "2026-10-21T20:05:01.435Z",
     "titulo": "Relato de un náufrago: la lucha por la verdad en la dictadura colombiana",
