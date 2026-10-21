@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732105,
+    "created_at": "2026-10-21T01:56:53.728Z",
+    "titulo": "Crisis humanitaria en Taiz se agrava por el bloqueo de los rebeldes hutíes",
+    "slug": "crisis-humanitaria-en-taiz-se-agrava-por-el-bloqueo-de-los-rebeldes-huties",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/39b97d6c-ccd6-11f1-bf87-6313a763b466/w:1280/p:16x9/ES-20261020-161026-161225-CS.jpg\" alt=\"Crisis humanitaria en Taiz se agrava por el bloqueo de los rebeldes hutíes\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La ciudad de Taiz, ubicada en Yemen, enfrenta una situación de creciente preocupación debido al cerco que mantienen los rebeldes hutíes en la zona. Este bloqueo ha generado una crisis que afecta directamente a la población civil.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El acceso a suministros básicos se ha visto seriamente comprometido por las restricciones impuestas. La entrada de ayuda humanitaria, medicamentos y combustible es cada vez más difícil, lo que pone en riesgo la estabilidad de los servicios esenciales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación se torna más crítica a medida que los enfrentamientos armados se desplazan hacia áreas con alta densidad poblacional. Este acercamiento de los combates aumenta el peligro para los residentes que permanecen en la ciudad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las organizaciones internacionales han manifestado su alarma ante el impacto que estas medidas tienen sobre los habitantes. La falta de recursos vitales es una constante que marca el día a día en esta región yemení.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las autoridades y organismos siguen monitoreando el desarrollo de los eventos en Taiz. La prioridad actual es encontrar vías que permitan mitigar el sufrimiento de los ciudadanos atrapados por el conflicto.</p>",
+    "imagen": "https://s.france24.com/media/display/39b97d6c-ccd6-11f1-bf87-6313a763b466/w:1280/p:16x9/ES-20261020-161026-161225-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261021-taiz-bajo-asedio-crece-la-alarma-por-el-bloqueo-hut%C3%AD-y-la-crisis-humanitaria-en-yemen",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732104,
     "created_at": "2026-10-21T01:54:49.721Z",
     "titulo": "Piura se convierte en el epicentro del dengue en Perú tras intensas lluvias",
