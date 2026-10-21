@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732175,
+    "created_at": "2026-10-21T15:13:26.478Z",
+    "titulo": "Donald Trump respalda la candidatura de Benjamin Netanyahu para las elecciones en Israel",
+    "slug": "donald-trump-respalda-la-candidatura-de-benjamin-netanyahu-para-las-elecciones-en-israel",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/833ba96a-cbfa-11f1-87dc-4dd8ac2cf3bf/w:1280/p:16x9/AP26291551882349.jpg\" alt=\"Donald Trump respalda la candidatura de Benjamin Netanyahu para las elecciones en Israel\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El expresidente estadounidense Donald Trump ha expresado su respaldo oficial a la campaña electoral del primer ministro israelí, Benjamin Netanyahu. Este apoyo se produce a pesar de un periodo previo de distanciamiento entre ambas figuras políticas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La decisión de Washington llega en un momento complejo para el mandatario israelí, quien enfrenta un panorama electoral desfavorable de acuerdo con las encuestas de intención de voto de cara a los comicios.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los comicios legislativos en Israel están programados para celebrarse el próximo 27 de octubre, una fecha clave para el futuro político del actual jefe de gobierno.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante las dificultades reflejadas en los sondeos, el primer ministro israelí confía en capitalizar el espaldarazo político proveniente desde la capital estadounidense para impulsar sus aspiraciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El alcance y las motivaciones detrás de este movimiento estratégico por parte de la administración norteamericana a escasos días de la votación han sido objeto de análisis en el programa Expreso de Oriente por Agustín Berea.</p>",
+    "imagen": "https://s.france24.com/media/display/833ba96a-cbfa-11f1-87dc-4dd8ac2cf3bf/w:1280/p:16x9/AP26291551882349.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/expreso-de-oriente/20261021-trump-vuelve-a-apostar-por-netanyahu-qu%C3%A9-busca",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732174,
     "created_at": "2026-10-21T15:12:46.902Z",
     "titulo": "De asesora de imagen a creadora: la transformación digital de Melanie Jovanovic",
