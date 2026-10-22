@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732389,
+    "created_at": "2026-10-22T17:15:21.599Z",
+    "titulo": "Bangkok se posiciona como un referente global en el turismo reproductivo",
+    "slug": "bangkok-se-posiciona-como-un-referente-global-en-el-turismo-reproductivo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/feaa323e-ce1f-11f1-a867-7967b15eed96/w:1280/p:16x9/EN-FOCO-3.jpg\" alt=\"Bangkok se posiciona como un referente global en el turismo reproductivo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La capital de Tailandia registra un incremento notable en su relevancia dentro del sector de la salud internacional. El país asiático atrae cada vez a un mayor número de viajeros interesados en procedimientos de fertilidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El principal motor de este fenómeno radica en la presencia de centros médicos altamente especializados. Estas instalaciones ofrecen tratamientos avanzados, entre los que destaca la fertilización in vitro y diversas alternativas de reproducción asistida.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ciudadanos procedentes de diferentes naciones de Asia y Europa eligen este destino por motivaciones económicas. Los costos de los procedimientos médicos resultan considerablemente más accesibles en comparación con sus lugares de origen.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Otro de los factores determinantes en la elección de Bangkok es la optimización del tiempo. Los pacientes experimentan períodos de espera notablemente menores para iniciar sus procesos médicos frente a las demoras habituales en sus naciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, las diferencias en los marcos normativos influyen en la decisión de quienes buscan estas alternativas terapéuticas. Las regulaciones vigentes en Tailandia permiten acceder a opciones que a menudo se encuentran limitadas en los territorios de residencia de los visitantes.</p>",
+    "imagen": "https://s.france24.com/media/display/feaa323e-ce1f-11f1-a867-7967b15eed96/w:1280/p:16x9/EN-FOCO-3.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-foco/20261022-bangkok-destino-internacional-de-la-fertilidad",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732388,
     "created_at": "2026-10-22T17:12:06.081Z",
     "titulo": "Administración central asegura protección fronteriza tras disturbios recientes",
