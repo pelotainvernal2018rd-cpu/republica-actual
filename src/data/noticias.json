@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732371,
+    "created_at": "2026-10-22T15:55:06.845Z",
+    "titulo": "PHP lanza parches críticos tras auditoría y detección IA",
+    "slug": "php-lanza-parches-criticos-tras-auditoria-y-deteccion-ia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/22/6ada296fe223b.jpeg\" alt=\"PHP lanza parches críticos tras auditoría y detección IA\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>La Fundación PHP ha publicado hoy los parches 8.5.12, 8.4.27, 8.3.36 y 8.2.35 para corregir dos vulnerabilidades críticas que permiten la ejecución remota de código en servidores que utilizan el lenguaje. El comunicado destaca que la actualización es imperativa para cualquier usuario de PHP.</p><p>Los fallos fueron identificados durante la primera auditoría externa de seguridad de PHP en 2024, realizada por Quarkslab, y se remontan a un problema de agotamiento de memoria detectado en 2024. La resolución se retrasó por una “falla estructural” en el proceso de decisión y recursos del proyecto.</p><p>En 2026 la Fundación creó un equipo de seguridad ampliado y colaboró con el proyecto Alpha‑Omega, empleando herramientas de IA como Claude Mythos y Daybreak Red para validar reportes y exploits. Esta colaboración aceleró la detección de la causa raíz compartida por los atacantes.</p><p>Investigadores de Calif, OpenAI y Wiz reportaron la ejecución remota de código en julio y agosto, lo que llevó a la Fundación a priorizar la corrección del problema a partir del 11 de agosto. La IA se utilizó para agrupar los vectores de ataque y acelerar la respuesta.</p><p>La publicación de los parches se vio obstaculizada por filtraciones de identificadores de vulnerabilidades el 20 de octubre y por un video de prueba de concepto publicado por error por Calif. Además, Chainguard rompió el embargo, lo que según la Fundación permitió a atacantes estudiar el parche antes de su lanzamiento oficial.</p><p>La entidad concluyó su comunicado pidiendo una financiación sostenida de empresas, proveedores de alojamiento, plataformas de nube y gobiernos que dependen de PHP, subrayando que la IA acelera la detección pero no sustituye a los ingenieros experimentados. OpenAI, por su parte, resaltó su coordinación internacional bajo la iniciativa “Patch the planet” y solicitó mayores recursos para los defensores del ecosistema.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/22/6ada296fe223b.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261022/desarrolladores-php-instan-instalar-parches-prevenir-riesgos-seguridad-servidores_927133.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732370,
     "created_at": "2026-10-22T15:52:09.620Z",
     "titulo": "Investigación sugiere que los embarazos muy cercanos aceleran el envejecimiento biológico femenino",
