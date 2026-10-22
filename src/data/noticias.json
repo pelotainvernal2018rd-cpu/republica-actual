@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732377,
+    "created_at": "2026-10-22T16:28:05.381Z",
+    "titulo": "El crecimiento de los centros de datos para inteligencia artificial genera oposición en Estados Unidos",
+    "slug": "el-crecimiento-de-los-centros-de-datos-para-inteligencia-artificial-genera-oposicion-en-estados-unidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0ef88bc2-ce34-11f1-808f-23d55109f116/w:1280/p:16x9/WEB-PORTADA-22OCT-CYT.jpg\" alt=\"El crecimiento de los centros de datos para inteligencia artificial genera oposición en Estados Unidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El desarrollo de la infraestructura tecnológica necesaria para respaldar la inteligencia artificial genera un creciente debate en el ámbito político estadounidense. La instalación de nuevos centros de datos enfrenta resistencia entre los ciudadanos, lo que complica los planes de expansión del sector.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una encuesta difundida en septiembre por la Universidad de Massachusetts revela que el 65 por ciento de los ciudadanos en Estados Unidos rechaza la construcción de estas estructuras cerca de sus lugares de residencia. Esta postura de desaprobación se extiende de manera transversal, incluyendo a los electores que se identifican con el Partido Republicano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Frente a este escenario, el expresidente Donald Trump respalda firmemente el incremento de estas instalaciones. Sus argumentos se basan en consideraciones económicas y en la necesidad de garantizar la seguridad nacional del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">No obstante, la oposición ciudadana se alimenta de preocupaciones concretas relacionadas con el funcionamiento de estos complejos tecnológicos. Entre los principales motivos de reticencia figuran el elevado consumo de energía y de recursos naturales que requieren.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, existe un temor generalizado entre la población de que la operación de estos centros provoque un incremento en las tarifas eléctricas personales. Estas inquietudes abren interrogantes sobre el impacto político que este tema podría tener para los republicanos en los próximos comicios de medio mandato.</p>",
+    "imagen": "https://s.france24.com/media/display/0ef88bc2-ce34-11f1-808f-23d55109f116/w:1280/p:16x9/WEB-PORTADA-22OCT-CYT.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/ciencia-y-tecnolog%C3%ADa/20261022-trump-apuesta-por-la-ia-pero-los-centros-de-datos-generan-rechazo-en-ee-uu",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732376,
     "created_at": "2026-10-22T16:26:16.701Z",
     "titulo": "Empresarias dominicanas unen fuerzas para proyectar la moda local en Nueva York",
