@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732336,
+    "created_at": "2026-10-22T12:26:48.845Z",
+    "titulo": "Organizaciones y figuras públicas convocan protestas contra el racismo en territorio español",
+    "slug": "organizaciones-y-figuras-publicas-convocan-protestas-contra-el-racismo-en-territorio-espanol",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/8fc48040-c569-11f1-99b6-77317c09f325/w:1280/p:16x9/59b9f9b064ae244229540ea9ba0c46e97fba40e6.jpg\" alt=\"Organizaciones y figuras públicas convocan protestas contra el racismo en territorio español\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un numeroso grupo de entidades sociales y personalidades públicas en España ha convocado a una serie de protestas en diferentes localidades del país. La iniciativa busca manifestar el rechazo ante el incremento de mensajes xenófobos en la sociedad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la convocatoria participan más de 280 organizaciones de diversa índole. A esta movilización se han sumado también noventa figuras destacadas procedentes de sectores como el cultural, el académico y el ámbito jurídico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El propósito principal de estas marchas es exigir la garantía y el respeto de los derechos fundamentales de los migrantes y refugiados que residen en territorio español.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los organizadores han señalado que las concentraciones se llevarán a cabo de forma simultánea en varias ciudades, buscando visibilizar la problemática y promover una convivencia basada en la inclusión.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta respuesta surge como una iniciativa colectiva frente a la creciente preocupación por la polarización y la discriminación que afectan a las poblaciones vulnerables en la actualidad.</p>",
+    "imagen": "https://s.france24.com/media/display/8fc48040-c569-11f1-99b6-77317c09f325/w:1280/p:16x9/59b9f9b064ae244229540ea9ba0c46e97fba40e6.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261022-m%C3%A1s-de-280-organizaciones-convocan-movilizaciones-en-espa%C3%B1a-contra-el-racismo-hacia-los-migrantes",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732335,
     "created_at": "2026-10-22T12:24:41.292Z",
     "titulo": "Capturan en territorio alemán a un ciudadano ucraniano acusado de espionaje para Moscú",
