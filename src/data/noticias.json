@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732346,
+    "created_at": "2026-10-22T13:28:19.294Z",
+    "titulo": "Aramco ordena el teletrabajo para su personal tras recientes ataques desde Yemen",
+    "slug": "aramco-ordena-el-teletrabajo-para-su-personal-tras-recientes-ataques-desde-yemen",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c4e10a10-bf64-11f1-a7b5-dd51fcab6130/w:1280/p:16x9/2026-10-03T114745Z-1586814942-RC2LVNAGGALR-RTRMADP-3-IRAN-CRISIS-SAUDI-ARAMCO.jpg\" alt=\"Aramco ordena el teletrabajo para su personal tras recientes ataques desde Yemen\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La empresa petrolera estatal de Arabia Saudita, Aramco, ha tomado la determinación de desalojar las instalaciones de su sede principal ubicada en la localidad de Dhahran, en la zona oriental del territorio saudí.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta medida de seguridad implementada por la compañía energética surge como respuesta directa al incremento de la tensión y a los nuevos enfrentamientos registrados con el grupo hutí de Yemen.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A partir de esta disposición administrativa, los trabajadores de la corporación han sido instruidos para continuar con sus labores cotidianas bajo la modalidad de trabajo a distancia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación de seguridad en la región ha motivado esta acción preventiva por parte de la directiva de la principal empresa petrolera del reino.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, estas acciones de carácter operativo se centran en salvaguardar al personal mientras persisten las tensiones derivadas del conflicto en la frontera sur del país.</p>",
+    "imagen": "https://s.france24.com/media/display/c4e10a10-bf64-11f1-a7b5-dd51fcab6130/w:1280/p:16x9/2026-10-03T114745Z-1586814942-RC2LVNAGGALR-RTRMADP-3-IRAN-CRISIS-SAUDI-ARAMCO.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/medio-oriente/20261022-arabia-saudita-evac%C3%BAa-la-sede-de-aramco-tras-nuevos-ataques-de-los-hut%C3%ADes-y-se-dispara-el-precio-del-petr%C3%B3leo",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732345,
     "created_at": "2026-10-22T13:24:57.234Z",
     "titulo": "El Senado proyecta aprobar la nueva Ley de Seguridad Social antes de concluir el mandato de Abinader",
