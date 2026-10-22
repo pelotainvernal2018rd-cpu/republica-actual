@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732353,
+    "created_at": "2026-10-22T14:05:16.944Z",
+    "titulo": "Fuertes aguaceros provocan inundaciones y dificultades viales en Santiago",
+    "slug": "fuertes-aguaceros-provocan-inundaciones-y-dificultades-viales-en-santiago",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/22/6ada0a68c9b4f.jpeg\" alt=\"Fuertes aguaceros provocan inundaciones y dificultades viales en Santiago\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>Las recientes precipitaciones registradas en Santiago dejaron un saldo preliminar de 150 viviendas con daños por inundación en dos sectores específicos, de acuerdo con los datos suministrados por la Defensa Civil. Las lluvias comenzaron a intensificarse a partir de las siete de la noche del pasado miércoles como consecuencia de una vaguada que incide sobre el territorio.</p><p>El organismo de socorro detalló que el sector Hoya de Caimito concentró unas 100 residencias afectadas, mientras que otras 50 sufrieron daños similares en la zona de Francisco del Rosario Sánchez. Paralelamente, las principales arterias viales de la ciudad experimentaron acumulación significativa de agua, complicando la movilidad urbana.</p><p>Avenidas de alto flujo como la 27 de Febrero, la Estrella Sadhalá y la Circunvalación Sur presentaron anegamientos que elevaron el riesgo tanto para los conductores como para los transeúntes. Los efectos de este sistema atmosférico también alcanzaron a diversas demarcaciones de la provincia, reportándose precipitaciones en Puñal, Licey al Medio, Baitoa, Tamboril, Navarrete, Villa González, San José de las Matas, Jánico y Sabana Iglesia.</p><p>Durante el aguacero en la avenida Circunvalación Sur se produjo un incidente cuando una ciudadana cayó dentro de una alcantarilla destapada al intentar cruzar la vía. Transeúntes que circulaban por la zona intervinieron de inmediato para rescatarla y evitar un desenlace grave.</p><p>Francisco Arias, director regional de la Defensa Civil, advirtió que la fuerza del caudal puede desplazar las protecciones de los imbornales o dejar los registros al descubierto, ocultando los peligros bajo el agua. Ante esta situación, el funcionario aconsejó a los ciudadanos abstenerse de atravesar calles inundadas y seguir las recomendaciones preventivas.</p><p>Como parte de las acciones locales, la Corporación del Acueducto y Alcantarillado de Santiago ha comenzado a implementar tapas plásticas en sustitución de los elementos tradicionales para frenar la sustracción ilegal. Los comités de prevención permanecen activos ante la previsión de nuevas lluvias en la región.</p><p>Las evaluaciones de las autoridades continuarán para determinar la magnitud total de los daños en las comunidades impactadas y atender cualquier eventualidad derivada del clima.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/22/6ada0a68c9b4f.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-republica/20261022/aguaceros-afectan-viviendas-complican-transito-santiago_927116.html",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732352,
     "created_at": "2026-10-22T14:02:05.800Z",
     "titulo": "Propuesta de reforma a la seguridad social plantea elevar pensiones y ajustar aportes hasta 2036",
