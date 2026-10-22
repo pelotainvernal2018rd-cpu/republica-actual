@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732305,
+    "created_at": "2026-10-22T07:26:40.660Z",
+    "titulo": "Francia prohíbe marchas en París y Lyon para prevenir nuevos altercados",
+    "slug": "francia-prohibe-marchas-en-paris-y-lyon-para-prevenir-nuevos-altercados",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/e6542354-cd2d-11f1-98ff-d1d2c32ebb87/w:1280/p:16x9/2026-10-19T163214Z-822313225-RC225OAF9AN0-RTRMADP-3-FRANCE-PROTEST-ELECTRIC-BIKES.jpg\" alt=\"Francia prohíbe marchas en París y Lyon para prevenir nuevos altercados\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El gobierno de Francia ha decidido prohibir las protestas programadas para este jueves en zonas específicas de París. La medida restrictiva también abarca una marcha planificada en la ciudad de Lyon.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas restricciones se implementan ante la posibilidad de que se desaten nuevos disturbios en el país europeo, según informaron las autoridades competentes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En paralelo a estas prohibiciones, el primer ministro Sébastien andará en reuniones con representantes de distintas formaciones políticas para abordar la situación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, el presidente Emmanuel Macron mantendrá un encuentro con los servicios de inteligencia del Estado.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estos organismos de seguridad han sido objeto de cuestionamientos por no haber previsto la dimensión real que alcanzarían las recientes movilizaciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las determinaciones gubernamentales se producen luego de que el mandatario francés sugiriera que Donald Trump intentó sacar provecho político de la violencia.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las declaraciones presidenciales apuntaban al contexto de las elecciones legislativas que se celebran en los Estados Unidos.</p>",
+    "imagen": "https://s.france24.com/media/display/e6542354-cd2d-11f1-98ff-d1d2c32ebb87/w:1280/p:16x9/2026-10-19T163214Z-822313225-RC225OAF9AN0-RTRMADP-3-FRANCE-PROTEST-ELECTRIC-BIKES.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/francia/20261022-en-directo-francia-restringe-las-protestas-en-par%C3%ADs-y-lyon-ante-el-riesgo-de-nuevos-disturbios",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732304,
     "created_at": "2026-10-22T07:24:38.010Z",
     "titulo": "Un muerto y ocho heridos deja un ataque contra el aeropuerto de Dammam en Arabia Saudí",
