@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732303,
+    "created_at": "2026-10-22T07:11:50.892Z",
+    "titulo": "Meta enfrenta una millonaria sanción judicial en Nuevo México por el caso Cambridge Analytica",
+    "slug": "meta-enfrenta-una-millonaria-sancion-judicial-en-nuevo-mexico-por-el-caso-cambridge-analytica",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/61bd523a-cdb1-11f1-b8d0-ab78a7fed2ce/w:1280/p:16x9/7556d68f38536bf467bad2236ea4c8d933e4e776.jpg\" alt=\"Meta enfrenta una millonaria sanción judicial en Nuevo México por el caso Cambridge Analytica\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un juez del estado de Nuevo México ha emitido una orden judicial que exige a la empresa Meta el pago de una multa de 25.000 millones de dólares. La medida responde a las acciones de la compañía, a la que se acusa de haber engañado a los usuarios respecto al manejo de su información personal. Esta determinación surge en el marco de las investigaciones relacionadas con el conocido escándalo de privacidad de Cambridge Analytica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La decisión judicial ha trascendido a la opinión pública a través de diversos informes difundidos por medios de comunicación en Estados Unidos. La controversia se centra en la forma en que la plataforma gestionó los datos privados de las personas que utilizaban sus servicios, un asunto que ha generado múltiples cuestionamientos legales a lo largo de los años.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la resolución emitida por el tribunal, la compañía tecnológica no tardó en manifestar su total desacuerdo con el fallo. Los representantes de la empresa emitieron declaraciones públicas en las que calificaron la millonaria sanción económica impuesta por la justicia de Nuevo México como un impuesto que afecta de manera directa a la libertad de expresión.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de su estrategia legal tras conocerse el veredicto, los portavoces de la corporación confirmaron que interpondrán los recursos necesarios para apelar la decisión judicial. El objetivo de la empresa es revertir el fallo en las instancias superiores y evitar el pago de la cifra establecida por el juez estadounidense.</p>",
+    "imagen": "https://s.france24.com/media/display/61bd523a-cdb1-11f1-b8d0-ab78a7fed2ce/w:1280/p:16x9/7556d68f38536bf467bad2236ea4c8d933e4e776.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ciencia-y-tecnolog%C3%ADas/20261022-caso-cambridge-analytica-meta-recibe-una-sanci%C3%B3n-de-25-000-millones-de-d%C3%B3lares-en-nuevo-m%C3%A9xico",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732302,
     "created_at": "2026-10-22T07:09:36.509Z",
     "titulo": "Meteorología pronostica aguaceros que sobrepasarán los 200 milímetros y el COE se declara en sesión permanente",
