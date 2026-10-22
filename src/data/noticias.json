@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623732334,
+    "created_at": "2026-10-22T12:11:42.164Z",
+    "titulo": "Una vulnerabilidad informática detectada por inteligencia artificial deja fuera de línea a miles de páginas web",
+    "slug": "una-vulnerabilidad-informatica-detectada-por-inteligencia-artificial-deja-fuera-de-linea-a-miles-de-paginas-web",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/0fd90dc4-cd7a-11f1-a4e8-8bea73bbe173/w:1280/p:16x9/a124f0bb89ec46c4df7283858cbb107567bc402a.jpg\" alt=\"Una vulnerabilidad informática detectada por inteligencia artificial deja fuera de línea a miles de páginas web\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un gran número de sitios web fueron desconectados de manera preventiva durante la jornada del miércoles. La medida se adoptó tras el descubrimiento de un fallo de seguridad que afecta a un programa de programación de uso masivo en la red.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La detección de esta vulnerabilidad se logró mediante el empleo de herramientas de inteligencia artificial. Este suceso demuestra la relevancia y el alcance que están adquiriendo los sistemas inteligentes dentro del ámbito de la ciberseguridad actual.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El problema se localizó en un software fundamental para el desarrollo y funcionamiento de diversas plataformas digitales. Ante el riesgo potencial que implicaba la falla, se optó por interrumpir el acceso a los portales afectados como precaución.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La intervención rápida de los sistemas automatizados permitió identificar el punto crítico en la infraestructura tecnológica. Las acciones preventivas buscan evitar posibles ataques o vulneraciones mayores en los servicios conectados a la red.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este acontecimiento destaca cómo la tecnología de análisis avanzado se ha convertido en un recurso clave para la protección de datos. La detección temprana de errores complejos sigue siendo un desafío constante para los administradores de sistemas en todo el mundo.</p>",
+    "imagen": "https://s.france24.com/media/display/0fd90dc4-cd7a-11f1-a4e8-8bea73bbe173/w:1280/p:16x9/a124f0bb89ec46c4df7283858cbb107567bc402a.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/ciencia-y-tecnolog%C3%ADas/20261022-miles-de-sitios-web-desconectados-por-una-falla-de-seguridad-detectada-con-inteligencia-artificial",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732333,
     "created_at": "2026-10-22T12:09:42.949Z",
     "titulo": "Impugnan candidatura de Flávio Bolsonaro por presunto uso indebido de redes sociales",
