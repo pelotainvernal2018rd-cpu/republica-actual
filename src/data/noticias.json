@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732422,
+    "created_at": "2026-10-22T19:42:16.048Z",
+    "titulo": "Manifestaciones desafían restricciones gubernamentales en Francia",
+    "slug": "manifestaciones-desafian-restricciones-gubernamentales-en-francia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/9b830bc0-ce49-11f1-943b-3f59e19fd7f8/w:1280/p:16x9/ES-20261022-120247-120755-CS.jpg\" alt=\"Manifestaciones desafían restricciones gubernamentales en Francia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Diversos grupos de ciudadanos han salido a las calles en Francia para expresar sus demandas, a pesar de las restricciones impuestas por la administración del presidente Emmanuel Macron que limitan las movilizaciones ajenas a los sindicatos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La situación en el país se mantiene tensa mientras distintos sectores de la sociedad civil buscan espacios para manifestarse, desafiando las directrices oficiales que buscan restringir las protestas no sindicales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el caso específico de París, la prefectura de policía había emitido una prohibición para impedir la realización de una marcha estudiantil programada para este 22 de octubre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Sin embargo, esta medida restrictiva fue revocada tras la intervención de las autoridades judiciales, quienes decidieron levantar el veto que pesaba sobre la movilización de los estudiantes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La periodista Natalia Ruiz Giraldo, quien se encuentra cubriendo los hechos directamente desde el lugar, ha estado informando sobre el desarrollo de los acontecimientos y el clima social que se vive en territorio francés.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El seguimiento de esta situación permite observar cómo se equilibran las medidas de control gubernamental frente al derecho a la protesta en el contexto actual del país.</p>",
+    "imagen": "https://s.france24.com/media/display/9b830bc0-ce49-11f1-943b-3f59e19fd7f8/w:1280/p:16x9/ES-20261022-120247-120755-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261022-protestas-en-francia-a-pesar-de-las-limitaciones-del-gobierno-de-macron",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732421,
     "created_at": "2026-10-22T19:41:26.061Z",
     "titulo": "Lanzador dominicano Yaramil Hiraldo citado a los tribunales de Santiago por acusaciones de violencia",
