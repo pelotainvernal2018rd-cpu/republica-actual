@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732469,
+    "created_at": "2026-10-23T08:26:41.657Z",
+    "titulo": "El electorado latino muestra divisiones de cara a las elecciones legislativas de medio término",
+    "slug": "el-electorado-latino-muestra-divisiones-de-cara-a-las-elecciones-legislativas-de-medio-termino",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/260cec68-ce66-11f1-a09b-23d55109f116/w:1280/p:16x9/ES-20261022-143603-143817-CS.jpg\" alt=\"El electorado latino muestra divisiones de cara a las elecciones legislativas de medio término\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La comunidad latina representa un sector determinante para el desarrollo de los próximos comicios legislativos en Estados Unidos, donde su participación podría inclinar la balanza en diferentes contiendas políticas clave.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un sector de los votantes hispanos que apoyó la candidatura presidencial de Donald Trump en 2024 manifiesta actualmente su inconformidad con las políticas migratorias impulsadas por la administración.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este grupo de ciudadanos también expresa su malestar por el impacto de la inflación y el incremento generalizado en el costo de vida que afecta sus economías domésticas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En contraste con este descontento, otros integrantes de la misma comunidad conservan su respaldo intacto hacia el liderazgo republicano y defienden su gestión anterior.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los partidarios de esta postura activa realizan gestiones para persuadir a más miembros de la población latina de emitir su voto a favor del Partido Republicano en las urnas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas posturas encontradas reflejan la complejidad de un electorado que no presenta una sola dirección política y cuyos intereses económicos y sociales varían considerablemente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los detalles sobre este panorama electoral forman parte de un análisis presentado recientemente por el periodista Héctor Estepa.</p>",
+    "imagen": "https://s.france24.com/media/display/260cec68-ce66-11f1-a09b-23d55109f116/w:1280/p:16x9/ES-20261022-143603-143817-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261022-el-descontento-de-los-votantes-latinos-con-trump-de-cara-a-las-midterms",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732468,
     "created_at": "2026-10-23T08:24:36.806Z",
     "titulo": "Donald Trump asegura en Iowa que le asiste el derecho a una nueva postulación presidencial",
