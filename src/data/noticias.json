@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732496,
+    "created_at": "2026-10-23T13:11:57.103Z",
+    "titulo": "El Gobierno italiano destina millonarios fondos para frenar el paro de transportistas",
+    "slug": "el-gobierno-italiano-destina-millonarios-fondos-para-frenar-el-paro-de-transportistas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/125c649e-cd2d-11f1-a2d2-2d1c143cdef3/w:1280/p:16x9/2026-10-17T182841Z-1264999653-RC245OAX9RWQ-RTRMADP-3-ITALY-PROTEST.jpg\" alt=\"El Gobierno italiano destina millonarios fondos para frenar el paro de transportistas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La administración encabezada por Giorgia Meloni autorizó un paquete económico valuado en cientos de millones de euros. El objetivo principal de esta medida es mitigar las consecuencias económicas provocadas por el fuerte incremento en los precios de los combustibles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Esta inyección de recursos financieros busca desactivar las movilizaciones y el cese de actividades protagonizado por los conductores de camiones. Las protestas habían generado complicaciones significativas en la cadena de suministros, impactando de manera notable en las regiones del sur del territorio italiano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tras una serie de mesas de diálogo y negociaciones sostenidas con la administración central, los bloqueos en las rutas comenzaron a disolverse de manera paulatina. Esta desmovilización alivia temporalmente la tensión en los sectores logísticos y comerciales del país europeo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de la distensión lograda en las carreteras, las fuerzas de seguridad del Estado se mantienen en alerta ante posibles incidentes futuros. El Ministerio del Interior dispuso un operativo especial para los próximos días con el fin de resguardar el orden público.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte de este plan preventivo, las autoridades confirmaron la movilización de quinientos efectivos militares en la ciudad de Milán. Esta presencia castrense tiene la misión específica de evitar desmanes y actos violentos durante el transcurso del fin de semana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las medidas de vigilancia reforzada responden a los disturbios reportados el sábado anterior. Durante esas jornadas previas, varios establecimientos comerciales sufrieron agresiones y ataques vandálicos en medio del clima de protesta.</p>",
+    "imagen": "https://s.france24.com/media/display/125c649e-cd2d-11f1-a2d2-2d1c143cdef3/w:1280/p:16x9/2026-10-17T182841Z-1264999653-RC245OAX9RWQ-RTRMADP-3-ITALY-PROTEST.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/europa/20261023-italia-libera-ayudas-para-frenar-la-huelga-de-camioneros-y-refuerza-la-seguridad-ante-nuevas-protestas",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732495,
     "created_at": "2026-10-23T13:09:49.148Z",
     "titulo": "Consejo Nacional de la Magistratura posterga juramentación de nuevos jueces de la Suprema Corte",
