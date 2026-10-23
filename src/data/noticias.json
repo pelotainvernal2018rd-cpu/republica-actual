@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732453,
+    "created_at": "2026-10-23T02:28:27.548Z",
+    "titulo": "Incendio afecta restaurante Las Dunas en el corazón de Baní",
+    "slug": "incendio-afecta-restaurante-las-dunas-en-el-corazon-de-bani",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/22/6adabfd920fe7.jpeg\" alt=\"Incendio afecta restaurante Las Dunas en el corazón de Baní\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un siniestro afectó este jueves la estructura del techo del restaurante Las Dunas, ubicado en la intersección de las calles Mella y 16 de Agosto, en el centro de la ciudad de Baní.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La rápida intervención del cuerpo de bomberos local fue determinante para controlar las llamas y evitar que el fuego se propagara hacia otras áreas del establecimiento comercial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El propietario del negocio, Wilfredo Peña, señaló que el incendio habría sido provocado intencionalmente por personas que aún no han sido identificadas por las autoridades.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El aviso sobre el incidente fue dado por un ciudadano que transitaba por la zona, quien alertó a la estación de bomberos más cercana al percatarse de la situación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Peña informó que este hecho se suma a una serie de incidentes delictivos previos, mencionando que el pasado martes su local fue víctima de un robo de mercancías durante la madrugada.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El empresario destacó que esta es la tercera ocasión en la que su establecimiento, que opera desde 1998 brindando servicios a familias y viajeros, sufre un acto delictivo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, la Policía Nacional ha iniciado las investigaciones correspondientes con el objetivo de identificar y capturar a los responsables tanto del incendio como de los robos registrados.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/22/6adabfd920fe7.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/restaurante-dunas-sufre-incendio-centro-bani_584214.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732452,
     "created_at": "2026-10-23T02:09:38.052Z",
     "titulo": "SIP advierte sobre crecientes amenazas a la libertad de prensa en las Américas",
