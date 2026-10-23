@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732475,
+    "created_at": "2026-10-23T09:41:40.060Z",
+    "titulo": "Italia y España superan sus diferencias migratorias tras un periodo de tensiones diplomáticas",
+    "slug": "italia-y-espana-superan-sus-diferencias-migratorias-tras-un-periodo-de-tensiones-diplomaticas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/011dbdd2-ce49-11f1-8c57-23d55109f116/w:1280/p:16x9/ES-20261022-090945-091108-CS.jpg\" alt=\"Italia y España superan sus diferencias migratorias tras un periodo de tensiones diplomáticas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los gobiernos de Italia y España han decidido poner fin a los controles migratorios que mantenían vigentes en sus respectivas fronteras. Esta medida había sido adoptada inicialmente por la administración liderada por la primera ministra italiana, Giorgia Meloni.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Posteriormente, el Ejecutivo español implementó restricciones similares durante el mes de agosto. Aquellas acciones se originaron como una respuesta directa a la crisis migratoria registrada en la ciudad autónoma de Ceuta.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La normalización de la situación fronteriza se logró tras una serie de conversaciones de carácter diplomático entre ambas naciones europeas, según detalló el reporte de la corresponsal Irene Savio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con este entendimiento bilateral, se disipan las fricciones políticas generadas en las últimas semanas a raíz del manejo de los flujos migratorios y las medidas de reciprocidad adoptadas por los dos Estados.</p>",
+    "imagen": "https://s.france24.com/media/display/011dbdd2-ce49-11f1-8c57-23d55109f116/w:1280/p:16x9/ES-20261022-090945-091108-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261022-fin-a-la-tensi%C3%B3n-migratoria-entre-italia-y-espa%C3%B1a-tras-los-controles-por-la-crisis-en-ceuta",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732474,
     "created_at": "2026-10-23T09:26:45.926Z",
     "titulo": "Sismo de magnitud 7 en el Tíbet deja saldo mortal y cuantiosos daños materiales",
