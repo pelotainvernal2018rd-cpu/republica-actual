@@ -1,17 +1,34 @@
 [
   {
-    "id": 1791850623732497,
-    "created_at": "2026-10-23T13:25:40.641Z",
-    "titulo": "Arquitecto Jesús Mayobanex Suazo debuta con su cuarto libro enfocado en los desafíos urbanos globales",
-    "slug": "arquitecto-jesus-mayobanex-suazo-debuta-con-su-cuarto-libro-enfocado-en-los-desafios-urbanos-globales",
-    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/23/6adb5d4debbe2.jpeg\" alt=\"Arquitecto Jesús Mayobanex Suazo debuta con su cuarto libro enfocado en los desafíos urbanos globales\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El arquitecto y urbanista Jesús Mayobanex Suazo dio a conocer su más reciente publicación literaria, titulada La ciudad que nace desde adentro, la cual representa su cuarto libro editado. En esta obra, el autor analiza problemáticas profundas como la informalidad urbana, la desigualdad en el territorio y la debilidad institucional.</p><p>El contenido del texto examina la manera en que los habitantes organizan, ocupan y modifican los espacios urbanos. Para ilustrar estas realidades, la publicación incluye las historias ficticias de dos urbanistas llamados José Gregorio Sepúlveda y Michaello Forastieri.</p><p>A través de estos personajes, cuyas historias se desarrollan desde orígenes formativos y sociales diferentes, el libro retrata las complejas situaciones territoriales que experimentan ciudades como Tegucigalpa, Mumbai y Puerto Príncipe.</p><p>El prólogo del volumen estuvo a cargo de Julián Mora Aliseda, quien se desempeña como catedrático de Ordenación del Territorio en la Universidad de Extremadura, en España. Mora Aliseda fue asimismo director del trabajo final del máster en Urbanismo Sostenible que cursó el autor entre los años 2014 y 2016.</p><p>Durante la presentación, Suazo señaló que es indispensable analizar el funcionamiento de los territorios antes de ejecutar cualquier intervención. Afirmó que el sistema urbano integra la movilidad, la vivienda, los usos del suelo, las infraestructuras, la economía, el medio ambiente y la sociedad.</p><p>El especialista abogó por la implementación de un enfoque urbanístico innovador, heterotópico, holístico, disruptivo y progresista para atender las necesidades de los centros urbanos en América Latina. Asimismo, apuntó hacia la urgencia de actualizar los mecanismos de planificación vigentes en la República Dominicana.</p><p>Mencionó que la Ley 675 sobre Urbanización, Ornato Público y Construcciones fue establecida en 1944, cumpliendo este año 82 desde su promulgación original, la cual calificó como visionaria en su momento.</p><p>Mediante esta nueva obra, Suazo emplea la literatura como herramienta de análisis para resumir su perspectiva en tres ejes fundamentales: pensar a escala metropolitana, gestionar de manera integral y actuar en el territorio, bajo la premisa de que el urbanismo venidero debe centrarse en comprender mejor antes de imponer.</p>",
-    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/23/6adb5d4debbe2.jpeg",
-    "fuente": "Listín Diario",
-    "url_fuente": "https://listindiario.com/las-sociales/20261023/mayobanex-suazo-presenta-libro-ciudad-nace-adentro_927253.html",
-    "categoria": "Nacionales",
+    "id": 1791850623732498,
+    "created_at": "2026-10-23T13:27:53.516Z",
+    "titulo": "Estudiantes de La Plata conquista el Maracaná y avanza a la final de la Copa Libertadores",
+    "slug": "estudiantes-de-la-plata-conquista-el-maracana-y-avanza-a-la-final-de-la-copa-libertadores",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/c579786e-ce90-11f1-aa36-1da646a5f16c/w:1280/p:16x9/d5a864ff5c1d15f7d1ced2eb64925854b7ba133c.jpg\" alt=\"Estudiantes de La Plata conquista el Maracaná y avanza a la final de la Copa Libertadores\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El conjunto argentino de Estudiantes de La Plata logró una clasificación histórica a la final de la Copa Libertadores en el año 2026. El boleto al partido definitivo se consiguió en condición de visitante, tras un enfrentamiento disputado en el emblemático estadio Maracaná de la ciudad de Río de Janeiro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para alcanzar esta instancia decisiva, el equipo platense tuvo que superar al vigente campeón del torneo continental, el club brasileño Flamengo. La eliminatoria se definió en una emocionante y dramática tanda de penaltis que inclinó la balanza a favor del cuadro argentino.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Con este resultado memorable en territorio brasileño, Estudiantes aseguró su presencia en el último partido del certamen internacional. El equipo argentino ahora se prepara para disputar el título de la máxima competición sudamericana de clubes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El rival que le espera a Estudiantes en la gran final de la Copa Libertadores 2026 será otro peso pesado del fútbol brasileño, el conjunto de Palmeiras. De esta manera, la escuadra argentina buscará alzar el codiciado trofeo continental frente a uno de los equipos más sólidos de la región.</p>",
+    "imagen": "https://s.france24.com/media/display/c579786e-ce90-11f1-aa36-1da646a5f16c/w:1280/p:16x9/d5a864ff5c1d15f7d1ced2eb64925854b7ba133c.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/deportes/20261023-estudiantes-elimina-a-flamengo-en-el-maracan%C3%A1-y-jugar%C3%A1-la-final-de-la-libertadores-ante-palmeiras",
+    "categoria": "Deportes",
     "etiquetas": [
-      "Nacionales",
-      "Educación"
+      "Deportes",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
+    "id": 1791850623732497,
+    "created_at": "2026-10-23T13:22:07.122Z",
+    "titulo": "Cabecilla de la pandilla 400 Mawozo reta al presidente Nayib Bukele en un video",
+    "slug": "cabecilla-de-la-pandilla-400-mawozo-reta-al-presidente-nayib-bukele-en-un-video",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/Collage-político-entre-banderas-y-municiones.jpg\" alt=\"Cabecilla de la pandilla 400 Mawozo reta al presidente Nayib Bukele en un video\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un video difundido en las plataformas digitales muestra a Wilson Joseph, cabecilla de la agrupación delictiva haitiana 400 Mawozo y conocido como Lanmò San Jou, mientras exhibe una importante cantidad de proyectiles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la grabación de cerca de minuto y medio de duración, el líder criminal muestra una bandeja y diversos recipientes de plástico llenos de cartuchos de distintos calibres.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante el material audiovisual, el sujeto lanza un reto directo al mandatario salvadoreño, Nayib Bukele, afirmando que no piensa escapar y que aguarda preparado para enfrentarlo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este pronunciamiento ocurre en un escenario de alta tensión generado tras la desaparición de cuatro especialistas en aviación originarios de El Salvador en territorio haitiano.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El pasado miércoles 21 de octubre, el gobernante salvadoreño informó sobre el despliegue de una misión militar con el propósito de liberar a los ciudadanos de su nación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los técnicos de aviación se encuentran sin localizar desde el 18 de octubre, fecha en la que sufrieron una emboscada adjudicada a grupos criminales en la zona de Croix-des-Bouquets.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, el registro audiovisual refleja la confrontación pública del cabecilla pandillero, aunque la información y el contexto de su grabación no han podido ser verificados de forma independiente.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/Collage-político-entre-banderas-y-municiones.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/te-estoy-esperando-lider-de-banda-400-mawozo-exhibe-municiones-y-desafia-a-bukele/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
     ],
     "publicado": true,
     "feed_principal": true
