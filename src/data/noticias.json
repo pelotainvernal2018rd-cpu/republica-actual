@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732596,
+    "created_at": "2026-10-23T22:19:05.581Z",
+    "titulo": "OPS advierte sobre riesgos de intoxicación por plomo en la infancia",
+    "slug": "ops-advierte-sobre-riesgos-de-intoxicacion-por-plomo-en-la-infancia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/23/6adb66ee4a6bb.jpeg\" alt=\"OPS advierte sobre riesgos de intoxicación por plomo en la infancia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Organización Panamericana de la Salud (OPS) ha emitido un llamado a los padres y madres de América Latina y el Caribe para intensificar las medidas de prevención y detección de la intoxicación por plomo en la población infantil. Según la entidad, la exposición a este metal tóxico representa una amenaza significativa para el desarrollo cerebral, la capacidad intelectual y los procesos de aprendizaje de los menores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Datos citados por la organización indican que cerca del 30 % de los niños evaluados en la región presentan concentraciones de plomo en sangre superiores a 5 microgramos por decilitro (µg/dL), mientras que un 6,78 % supera los 10 µg/dL. La OPS enfatiza que no existe un nivel de exposición considerado seguro, señalando que concentraciones tan bajas como 3,5 µg/dL pueden asociarse con dificultades de comportamiento y problemas cognitivos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las fuentes de exposición identificadas incluyen actividades mineras e industriales, el reciclaje informal de baterías de plomo-ácido, pinturas con contenido de plomo y cerámicas esmaltadas. En el entorno doméstico, el uso de baterías para sistemas de respaldo eléctrico, como los inversores, puede convertirse en un riesgo si se liberan partículas contaminantes. Los niños son especialmente vulnerables al inhalar partículas o ingerir polvo, tierra, agua y alimentos contaminados, además de su tendencia natural a llevarse objetos a la boca.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La OPS advierte que la intoxicación suele ser silenciosa, ya que los menores pueden estar expuestos sin mostrar síntomas evidentes. Esta problemática se enmarca en la Semana Internacional de Prevención de la Intoxicación por Plomo, celebrada del 18 al 24 de octubre, periodo en el que se busca concienciar sobre la necesidad de identificar y eliminar las fuentes de contaminación en los hogares y comunidades.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Finalmente, el organismo subraya que los efectos del plomo trascienden la infancia, afectando también la salud cardiovascular de los adultos. La Organización Mundial de la Salud (OMS) estima que, en 2023, más de 3,5 millones de muertes a nivel global estuvieron vinculadas a la exposición a este metal, reafirmando la importancia de la prevención y la detección temprana como estrategias fundamentales para proteger la salud pública.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/23/6adb66ee4a6bb.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/ops-pide-padres-cuidado-intoxicacion-ninos-plomo-viviendas_584244.html/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732595,
     "created_at": "2026-10-23T22:15:11.676Z",
     "titulo": "Chile expulsa a 75 inmigrantes de Colombia, Perú y República Dominicana",
