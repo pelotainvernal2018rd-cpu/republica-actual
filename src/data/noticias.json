@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732476,
+    "created_at": "2026-10-23T09:56:41.811Z",
+    "titulo": "Informe revela aumento en arrestos y deportaciones de menores bajo la política migratoria en Estados Unidos",
+    "slug": "informe-revela-aumento-en-arrestos-y-deportaciones-de-menores-bajo-la-politica-migratoria-en-estados-unidos",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/6c6196da-ce45-11f1-bd73-7967b15eed96/w:1280/p:16x9/ES-20261022-071831-072907-CS.jpg\" alt=\"Informe revela aumento en arrestos y deportaciones de menores bajo la política migratoria en Estados Unidos\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las medidas de control migratorio implementadas por la administración de Donald Trump en territorio estadounidense están afectando de manera significativa a la población infantil. Así lo indica una reciente investigación difundida por The Marshall Project, un medio enfocado en el análisis del sistema de justicia en esa nación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reporte detalla que las detenciones de menores ejecutadas por el Servicio de Inmigración y Control de Aduanas experimentaron un incremento del doble durante los primeros seis meses de 2026. Esta cifra se determinó al contrastar los datos con el mismo intervalo de tiempo correspondiente al año anterior.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el documento periodístico detalla que la cantidad de menores de edad que han sido expulsados del país supera los veintidós mil desde el inicio de enero de 2025. Estos datos ponen de relieve la magnitud de las operaciones dirigidas por la agencia federal.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante esta situación, el tema fue abordado en el espacio radial o televisivo conocido como el Invitado Del Día F24. En dicho segmento se contó con la participación de Ernesto Castañeda, quien ejerce como director del Centro de Estudios Latinoamericanos y Latinos.</p>",
+    "imagen": "https://s.france24.com/media/display/6c6196da-ce45-11f1-bd73-7967b15eed96/w:1280/p:16x9/ES-20261022-071831-072907-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261022-m%C3%A1s-de-22-000-ni%C3%B1os-deportados-por-ice-qu%C3%A9-revelan-las-cifras",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732475,
     "created_at": "2026-10-23T09:41:40.060Z",
     "titulo": "Italia y España superan sus diferencias migratorias tras un periodo de tensiones diplomáticas",
