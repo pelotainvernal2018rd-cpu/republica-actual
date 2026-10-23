@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732473,
+    "created_at": "2026-10-23T09:11:51.011Z",
+    "titulo": "El rediseño de los mapas electorales en Estados Unidos calienta la antesala de las midterms",
+    "slug": "el-rediseno-de-los-mapas-electorales-en-estados-unidos-calienta-la-antesala-de-las-midterms",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/38ea7d5c-ce50-11f1-873f-3f59e19fd7f8/w:1280/p:16x9/AP26251747749795.jpg\" alt=\"El rediseño de los mapas electorales en Estados Unidos calienta la antesala de las midterms\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La sección En Contexto pone la mira en las modificaciones aplicadas a la cartografía electoral en territorio estadounidense, un proceso que cobra relevancia de cara a los comicios legislativos del próximo 3 de noviembre.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El centro de esta disputa política y judicial es la práctica conocida como gerrymandering, un mecanismo mediante el cual se alteran los límites de los distritos de votación.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Tanto el Partido Republicano como el Partido Demócrata se encuentran inmersos en una intensa pugna para dominar este proceso y asegurar una ventaja estratégica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El objetivo principal de ambas fuerzas políticas en esta confrontación es inclinar la balanza a su favor para garantizar el control de la Cámara de Representantes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las repercusiones de estas maniobras cartográficas son determinantes, ya que la configuración de las circunscripciones puede definir el equilibrio de poder en el Congreso tras las urnas.</p>",
+    "imagen": "https://s.france24.com/media/display/38ea7d5c-ce50-11f1-873f-3f59e19fd7f8/w:1280/p:16x9/AP26251747749795.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/programas/en-contexto/20261022-estados-unidos-redibuja-los-mapas-electorales-para-las-midterms",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732472,
     "created_at": "2026-10-23T09:09:38.055Z",
     "titulo": "Alcalde de Bogotá respalda la libertad de prensa durante la Asamblea General de la SIP",
