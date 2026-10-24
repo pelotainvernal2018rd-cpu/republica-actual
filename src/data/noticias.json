@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732658,
+    "created_at": "2026-10-24T11:28:21.871Z",
+    "titulo": "Lluvias recientes afectan a más de 2,300 personas y mantienen provincias en alerta",
+    "slug": "lluvias-recientes-afectan-a-mas-de-2-300-personas-y-mantienen-provincias-en-alerta",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2025/12/03/69301b3f02964.webp\" alt=\"Lluvias recientes afectan a más de 2,300 personas y mantienen provincias en alerta\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las fuertes precipitaciones registradas durante los últimos días en gran parte del territorio nacional han dejado un saldo preliminar de 2,360 personas afectadas y 590 viviendas averiadas, con mayor incidencia en las provincias de Puerto Plata y Santiago, según informó el Centro de Operaciones de Emergencias (COE).</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En la provincia de Santiago, el organismo reportó de manera preliminar el colapso de la pared perimetral de una vivienda e inundaciones urbanas en el sector Hoyo de Caimito, donde 101 casas resultaron afectadas. Asimismo, se registraron daños en 40 viviendas del sector Francisco del Rosario Sánchez, 36 en el Barrio La Gloria en Santiago Oeste (Cienfuegos), 20 en El Ingenio y otras 20 en El Ensueño.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Ante la persistencia de riesgos por crecidas de ríos, arroyos y cañadas, inundaciones repentinas y urbanas, así como deslizamientos de tierra, el COE redujo a seis el número de provincias bajo alerta. Las demarcaciones que permanecen en este nivel son Montecristi, Puerto Plata, Santiago, Espaillat, Santo Domingo y el Distrito Nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, el Instituto Dominicano de Meteorología (Indomet) pronosticó que las precipitaciones continuarán con intensidad débil a moderada durante la mañana, y fuerte en la tarde y primeras horas de la noche, debido a la incidencia de una vaguada y un alto contenido de humedad en la atmósfera.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas condiciones meteorológicas, que incluirán tormentas eléctricas y ocasionales ráfagas de viento, afectarán a provincias como La Altagracia, La Romana, Peravia, San Cristóbal, Santo Domingo, el Distrito Nacional, María Trinidad Sánchez, Samaná, Monte Plata, San Pedro de Macorís, Hato Mayor, El Seibo, Puerto Plata y Espaillat.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de las lluvias, el Indomet indicó que las temperaturas se mantendrán elevadas, con mínimas entre los 23 °C y 25 °C y máximas que oscilarán entre los 32 °C y 34 °C. Para el próximo domingo, el organismo prevé lluvias moderadas ocasionales en zonas del litoral caribeño que podrían extenderse a otras localidades, por lo que las autoridades recomendaron a la ciudadanía mantenerse atenta a las actualizaciones oficiales.</p>",
+    "imagen": "https://imagenes.hoy.com.do/files/og_thumbnail/uploads/2025/12/03/69301b3f02964.webp",
+    "fuente": "Hoy",
+    "url_fuente": "https://hoy.com.do/el-pais/lluvias-afectan-2-360-persona-590-viviendas_1106624.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732657,
     "created_at": "2026-10-24T11:18:22.051Z",
     "titulo": "Pronostican lluvias, tormentas eléctricas y ráfagas de viento para este sábado por incidencia de vaguada",
