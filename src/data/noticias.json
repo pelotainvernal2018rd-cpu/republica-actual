@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732664,
+    "created_at": "2026-10-24T13:11:49.411Z",
+    "titulo": "Acusaciones contra Meta por supuesta parcialidad en campaña presidencial de Brasil",
+    "slug": "acusaciones-contra-meta-por-supuesta-parcialidad-en-campana-presidencial-de-brasil",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/e3e6180a-cfa5-11f1-9b85-bdb9616e85cf/w:1280/p:16x9/web-portada-23oct-sem.jpg\" alt=\"Acusaciones contra Meta por supuesta parcialidad en campaña presidencial de Brasil\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La campaña electoral del presidente brasileño Luiz Inácio Lula da Silva ha señalado a la empresa Meta, propietaria de plataformas como Instagram, Facebook y WhatsApp, por presuntamente perjudicar sus contenidos en favor de los mensajes vinculados a su rival político, Flávio Bolsonaro.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La controversia surge tras la publicación de mensajes internos difundidos por el medio 'Folha de S.Paulo'. Según dichos registros, empleados de la compañía tecnológica detectaron restricciones que afectaban de manera directa a la campaña de Lula da Silva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, los documentos internos señalan la existencia de supuestas recomendaciones algorítmicas que otorgaban una mayor visibilidad y favorabilidad a los contenidos del candidato del Partido Liberal, Flávio Bolsonaro, durante el proceso electoral en Brasil.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, la empresa Meta ha rechazado categóricamente estas acusaciones. La compañía negó haber intervenido para favorecer a alguna de las candidaturas contendientes y atribuyó los incidentes reportados a fallas de carácter técnico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El caso pone bajo cuestionamiento el impacto y el poder que ejercen las grandes corporaciones tecnológicas y sus algoritmos en la configuración del equilibrio democrático y los procesos electorales en las plataformas digitales.</p>",
+    "imagen": "https://s.france24.com/media/display/e3e6180a-cfa5-11f1-9b85-bdb9616e85cf/w:1280/p:16x9/web-portada-23oct-sem.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261024-por-qu%C3%A9-quisiera-meta-que-gane-flavio-bolsonaro-en-brasil",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Política"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732663,
     "created_at": "2026-10-24T13:09:35.532Z",
     "titulo": "Flávio Bolsonaro y Lula se enfrentan en su último debate antes de la segunda vuelta en Brasil",
