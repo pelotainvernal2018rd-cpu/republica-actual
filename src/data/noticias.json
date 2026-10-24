@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732645,
+    "created_at": "2026-10-24T03:41:40.931Z",
+    "titulo": "Brasil afronta el cierre de campaña electoral ante el balotaje del 25 de octubre",
+    "slug": "brasil-afronta-el-cierre-de-campana-electoral-ante-el-balotaje-del-25-de-octubre",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/4b39c072-cf58-11f1-9e7d-5b4a75578ebb/w:1280/p:16x9/1ae128fbd285ad0911fa3c7032f2b685dafb9fee.jpg\" alt=\"Brasil afronta el cierre de campaña electoral ante el balotaje del 25 de octubre\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama electoral en Brasil se intensifica ante la proximidad del balotaje programado para este 25 de octubre. En esta etapa final, los candidatos Luiz Inácio Lula da Silva y Flávio Bolsonaro han concluido sus actividades de campaña, marcando el cierre de un proceso que definirá la jefatura del Estado brasileño.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Lula da Silva, quien aspira a obtener su cuarto mandato presidencial, se enfrenta a Flávio Bolsonaro, aspirante que busca consolidar el retorno al poder de su dinastía familiar. Ambos candidatos llegan a esta instancia decisiva con márgenes estrechos en la intención de voto, lo que refleja una contienda altamente competitiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Más allá de las cifras, la contienda ha evidenciado marcadas diferencias en las estrategias de comunicación y en la forma en que cada aspirante se dirige al electorado para captar el apoyo necesario. Estas divergencias en el discurso han sido un elemento constante durante el desarrollo de la campaña.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En paralelo al desarrollo de los actos proselitistas, diversos sectores han comenzado a reaccionar ante el desenlace de la jornada electoral. Según la información disponible, tanto el ámbito diplomático como el sector cultural han iniciado movimientos estratégicos en el tablero político brasileño, anticipando el impacto que tendrá el resultado de las urnas.</p>",
+    "imagen": "https://s.france24.com/media/display/4b39c072-cf58-11f1-9e7d-5b4a75578ebb/w:1280/p:16x9/1ae128fbd285ad0911fa3c7032f2b685dafb9fee.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/am%C3%A9rica-latina/20261024-la-hora-de-la-verdad-entre-lula-y-bolsonaro-esperanza-y-cambio-promesas-comunes-con-v%C3%ADas-divergentes",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732644,
     "created_at": "2026-10-24T03:39:38.303Z",
     "titulo": "Flávio Bolsonaro propone eliminar edad mínima de responsabilidad penal para violadores",
