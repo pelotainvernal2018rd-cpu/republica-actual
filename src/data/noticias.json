@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732772,
+    "created_at": "2026-10-25T01:51:38.584Z",
+    "titulo": "Estudio vincula el consumo de café con cambios en la microbiota y el estado de ánimo",
+    "slug": "estudio-vincula-el-consumo-de-cafe-con-cambios-en-la-microbiota-y-el-estado-de-animo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-3-16.jpg\" alt=\"Estudio vincula el consumo de café con cambios en la microbiota y el estado de ánimo\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Una investigación realizada por la University College Cork, en Irlanda, y publicada en la revista Nature Communications en abril de 2026, sugiere que el café influye en el estado de ánimo, la memoria y la salud intestinal. El estudio analizó la interacción de esta bebida con el eje intestino-cerebro, un sistema que conecta la microbiota con funciones neurológicas y emocionales, concluyendo que el café actúa como un factor alimentario complejo que impacta el metabolismo y el bienestar.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El experimento contó con 62 adultos sanos de entre 30 y 50 años. Tras un periodo de abstinencia de dos semanas, los participantes fueron divididos en dos grupos que consumieron café con cafeína o descafeinado durante 21 días. Al retomar la ingesta, ambos grupos reportaron menores niveles de estrés percibido, síntomas depresivos e impulsividad. Adicionalmente, el café con cafeína se asoció con una menor ansiedad y un mejor desempeño en pruebas de atención.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los investigadores observaron que el consumo habitual de café modifica la composición de la microbiota intestinal, aumentando la presencia de bacterias como Cryptobacterium curtum y especies de Eggerthella. Según el coautor John Cryan, estos cambios podrían estar relacionados con los polifenoles, compuestos vegetales presentes en la bebida. No obstante, el estudio detectó que, al inicio, los consumidores habituales presentaban mayor impulsividad y reactividad emocional que los no consumidores.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Se identificaron diferencias cognitivas según el tipo de café: el descafeinado favoreció el aprendizaje y la memoria, mientras que el convencional mejoró la vigilancia y la atención. Los autores señalan que factores como el sueño y la actividad física pudieron influir en estos resultados, los cuales no prueban que el café prevenga o trate la depresión ni que los cambios intestinales sean la causa directa de las variaciones emocionales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Debido a que la muestra fue reducida y la intervención duró solo tres semanas, los investigadores advierten que los hallazgos no permiten determinar una cantidad óptima de consumo ni asegurar beneficios a largo plazo. La investigación fue financiada por el Institute for Scientific Information on Coffee (ISIC) y, según lo reportado por Noticias Telemicro, los resultados no implican necesariamente que la mayor abundancia de ciertas bacterias signifique una mejora en la salud general.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-3-16.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/tomar-cafe-podria-influir-en-el-estado-de-animo-la-memoria-y-la-salud-intestinal/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732771,
     "created_at": "2026-10-25T01:41:26.900Z",
     "titulo": "Investigadores desarrollan plataforma para digitalizar y transmitir aromas a distancia",
