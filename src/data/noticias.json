@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732771,
+    "created_at": "2026-10-25T01:41:26.900Z",
+    "titulo": "Investigadores desarrollan plataforma para digitalizar y transmitir aromas a distancia",
+    "slug": "investigadores-desarrollan-plataforma-para-digitalizar-y-transmitir-aromas-a-distancia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-1-20.jpg\" alt=\"Investigadores desarrollan plataforma para digitalizar y transmitir aromas a distancia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un equipo internacional de científicos de la Universidad Estatal de Ohio, en Estados Unidos, y el Laboratorio Zhejiang de China, ha desarrollado Scentronic, una plataforma tecnológica capaz de detectar, transmitir y reproducir olores a través de internet. El sistema utiliza inteligencia artificial para convertir patrones olfativos en señales digitales, permitiendo que dispositivos remotos liberen fragancias específicas, integrando además un simulador de gusto para ampliar la experiencia sensorial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El funcionamiento del sistema se basa en dos módulos conectados por la nube. El primero actúa como una nariz electrónica equipada con seis sensores de óxido metálico que detectan compuestos orgánicos volátiles. Estos datos son procesados por algoritmos de aprendizaje automático que identifican el aroma. Posteriormente, el módulo receptor utiliza actuadores piezoeléctricos para atomizar fragancias almacenadas, logrando una latencia de transmisión de 65 milisegundos, lo que permite una respuesta prácticamente inmediata.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante las pruebas de laboratorio, el sistema alcanzó una precisión del 100% en la clasificación de los patrones evaluados bajo condiciones controladas. Los investigadores han adaptado esta tecnología en dispositivos portátiles como pulseras, dispositivos de mano y collares, demostrando su versatilidad para entornos de realidad virtual y comunicación sensorial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el ámbito sanitario, la plataforma se perfila como una herramienta para evaluar alteraciones olfativas como la hiposmia y la parosmia, condiciones asociadas a traumatismos o infecciones virales como la covid-19. En experimentos con 16 voluntarios, el sistema logró determinar umbrales de percepción y reconocer combinaciones de aromas, aunque los autores subrayan que se requieren evaluaciones adicionales para su uso clínico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adicionalmente, la tecnología ha sido integrada con visores de realidad mixta y tazas inteligentes que dosifican líquidos aromatizados, buscando recrear experiencias sensoriales completas, como el consumo de café o cerveza. A pesar de los avances, los creadores advierten que el proyecto se mantiene en fase experimental y que su viabilidad en productos de uso cotidiano aún debe ser determinada.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/NO-TOCAR-Portada-EIZABETH-NO-TOCARRRRR-1-20.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/investigadores-desarrollan-una-plataforma-tecnologica-capaz-de-detectar-olores-y-transmitir-informacion-quimica-por-internet/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732770,
     "created_at": "2026-10-25T01:31:56.160Z",
     "titulo": "Bukele desmiente que restos hallados en Haití pertenezcan a militares salvadoreños",
