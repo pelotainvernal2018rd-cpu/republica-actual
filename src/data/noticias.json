@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732778,
+    "created_at": "2026-10-25T04:14:37.945Z",
+    "titulo": "Cubanos recurren a pozos artesanales ante la crisis de suministro de agua",
+    "slug": "cubanos-recurren-a-pozos-artesanales-ante-la-crisis-de-suministro-de-agua",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/21/6ad8c2a1cbd02.jpeg\" alt=\"Cubanos recurren a pozos artesanales ante la crisis de suministro de agua\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>La escasez de agua potable afecta actualmente a casi el 29% de la población cubana, lo que equivale a 2,7 millones de personas que no reciben el suministro en sus hogares. Esta situación, agravada por una severa crisis económica, ha llevado a ciudadanos y emprendedores a buscar alternativas propias, como la excavación de pozos artesanales, para garantizar el acceso al recurso básico.</p><p>El problema se ve intensificado por la crisis energética que atraviesa el país. Según datos oficiales, entre el 80% y el 85% del agua en Cuba requiere ser bombeada hacia los hogares, un proceso que depende de turbinas eléctricas. Los constantes apagones y la falta de combustible han paralizado gran parte de este sistema, sumándose a otros factores como la sequía, las fugas en la red y el deterioro de los equipos de bombeo.</p><p>Ante la falta de suministro, la cotidianidad de muchos cubanos se ha transformado en una búsqueda constante de agua. En barrios como La Habana Vieja, los vecinos deben hacer filas para llenar recipientes en manantiales y transportar la carga manualmente en carretillas, bicitaxis o vehículos improvisados hasta sus viviendas. Esta realidad ha generado malestar social, derivando en protestas en diversos municipios de la capital.</p><p>Para mitigar la crisis, el gobierno cubano ha iniciado la instalación de bombas de agua alimentadas por energía solar, con 870 unidades puestas en marcha de una meta de 1,300, beneficiando a medio millón de personas. Asimismo, se han incorporado generadores de respaldo en infraestructuras críticas como el Acueducto de Albear. No obstante, las autoridades reconocen que estos programas de transformación energética son costosos y de implementación gradual.</p><p>Mientras tanto, la práctica de perforar pozos privados se ha extendido, a pesar de los costos que implica para las familias y los negocios. Esta tendencia, junto con la instalación de bombas de succión particulares, busca reducir la dependencia de un servicio estatal intermitente, aunque el uso masivo de estos dispositivos en los vecindarios puede afectar la presión de la red pública para otros usuarios.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/21/6ad8c2a1cbd02.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261025/cubanos-cavan-pozos-enfrentar-escasez-agua-afecta-29-poblacion_927394.html",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732777,
     "created_at": "2026-10-25T03:09:39.519Z",
     "titulo": "Luis Urueta admite falta de producción ofensiva en las Águilas Cibaeñas",
