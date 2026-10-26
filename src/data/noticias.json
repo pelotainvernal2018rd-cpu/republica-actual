@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623732891,
+    "created_at": "2026-10-26T00:31:42.898Z",
+    "titulo": "Luiz Inácio Lula da Silva gana la presidencia de Brasil en segunda vuelta",
+    "slug": "luiz-inacio-lula-da-silva-gana-la-presidencia-de-brasil-en-segunda-vuelta",
+    "contenido": "\n      <div style=\"text-align:center;margin-bottom:25px;\">\n        <img\n          src=\"https://resources.diariolibre.com/images/2026/10/24/pedro-almodovar-a-javier-bardem-artistas-piden-votos-para-lula-4eecdb70-focus-0-0-1200-675.jpg\"\n          alt=\"Lula gana las elecciones presidenciales\"\n          style=\"\n            width:100%;\n            max-width:750px;\n            height:auto;\n            display:block;\n            margin:auto;\n            border-radius:6px;\n          \"\n        >\n      </div>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El presidente brasileño, Luiz Inácio Lula da Silva, resultó ganador de la segunda vuelta de las elecciones presidenciales celebradas este domingo. Con el 97.69 % de las urnas escrutadas, los resultados oficiales otorgan al dirigente progresista un 51.74 % de los votos, frente al 48.26 % obtenido por el senador ultraderechista Flávio Bolsonaro.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Este triunfo marca un hito en la historia democrática del país, al representar una remontada inédita. Es la primera ocasión desde el fin de la dictadura militar, periodo comprendido entre 1964 y 1985, en la que un candidato que ocupó el segundo lugar en la primera ronda electoral logra imponerse en la segunda vuelta frente a su adversario.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        El escenario electoral mostró un cambio significativo respecto a la primera jornada de votaciones. En aquella instancia, Flávio Bolsonaro había sido el candidato más votado con el 47 % de los apoyos, superando por dos puntos porcentuales a Lula da Silva, lo que equivalía a una diferencia de 2.2 millones de votos a su favor.\n      </p>\n    \n      <p style=\"\n        font-size:18px;\n        line-height:1.7;\n        font-weight:400;\n      \">\n        Sin embargo, durante la jornada de este domingo, la tendencia se revirtió. El dirigente progresista logró superar a su contrincante por un margen superior a los cuatro millones de sufragios, consolidando así su victoria en el proceso electoral.\n      </p>\n    ",
+    "imagen": "https://resources.diariolibre.com/images/2026/10/24/pedro-almodovar-a-javier-bardem-artistas-piden-votos-para-lula-4eecdb70-focus-0-0-1200-675.jpg",
+    "fuente": "Diario Libre",
+    "url_fuente": "https://www.diariolibre.com/mundo/america-latina/2026/10/25/lula-gana-las-elecciones-presidenciales/3700344",
+    "categoria": "Política",
+    "etiquetas": [
+      "Política",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623732890,
     "created_at": "2026-10-26T00:28:25.439Z",
     "titulo": "Lula da Silva gana la presidencia de Brasil tras remontada electoral",
