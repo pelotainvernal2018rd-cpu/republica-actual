@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733136,
+    "created_at": "2026-10-28T23:38:37.044Z",
+    "titulo": "Indomet mantiene alerta verde en 11 provincias y el Distrito Nacional por vaguada",
+    "slug": "indomet-mantiene-alerta-verde-en-11-provincias-y-el-distrito-nacional-por-vaguada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/28/6ae2852877005.jpeg\" alt=\"Indomet mantiene alerta verde en 11 provincias y el Distrito Nacional por vaguada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología (Indomet) informó que, tras una disminución significativa en las precipitaciones registradas en las últimas horas, se ha descontinuado el nivel de alerta que pesaba sobre ocho provincias del país. Las demarcaciones excluidas de la medida son Juan Sánchez Ramírez, Independencia, Bahoruco, Peravia, San Juan, San Pedro de Macorís, La Altagracia y La Romana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de esta mejoría en las condiciones climáticas, el organismo mantiene el nivel de alerta verde en once provincias y el Distrito Nacional. Esta decisión responde a que la vaguada que ha afectado al territorio nacional continúa presente en la zona, manteniendo niveles de humedad que favorecen la ocurrencia de aguaceros.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Según el pronóstico oficial, se espera que el fenómeno meteorológico comience a alejarse del país a partir de este jueves, lo que resultaría en una reducción gradual de las lluvias. No obstante, Meteorología advirtió que las precipitaciones persistirán en áreas cercanas a la cordillera Central, el litoral caribeño y la región este.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las intensas lluvias de los últimos días han dejado consecuencias materiales considerables en diversas zonas. Según los reportes, el desbordamiento de ríos y arroyos provocó daños significativos en el sector agrícola, además de ocasionar el colapso de puentes y carreteras en las áreas afectadas.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/28/6ae2852877005.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/aguaceros-seguiran-disminuyendo-mantendran-zonas_584770.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733135,
     "created_at": "2026-10-28T23:30:29.114Z",
     "titulo": "Expertos instan a tratar el cambio climático como una emergencia sanitaria global",
