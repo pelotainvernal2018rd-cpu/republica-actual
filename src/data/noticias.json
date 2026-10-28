@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733125,
+    "created_at": "2026-10-28T22:26:45.716Z",
+    "titulo": "Meta y Snap enfrentan juicio por presuntos daños a la salud mental de adolescentes",
+    "slug": "meta-y-snap-enfrentan-juicio-por-presuntos-danos-a-la-salud-mental-de-adolescentes",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/693c1728-d2ff-11f1-aa22-47de50b3c1e4/w:1280/p:16x9/ES-20261028-071125-071321-CS.jpg\" alt=\"Meta y Snap enfrentan juicio por presuntos daños a la salud mental de adolescentes\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un proceso judicial contra Meta y Snap inició este 28 de octubre en Los Ángeles, tras una demanda presentada por adolescentes que acusan a ambas plataformas de provocar adicción y deteriorar la salud mental de sus usuarios. El juicio, que se extenderá por varias semanas, busca determinar la responsabilidad de las empresas tecnológicas en los daños alegados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las demandantes, de 16 y 18 años, sostienen que las redes sociales son intrínsecamente adictivas y perjudiciales para los jóvenes. Según los argumentos presentados, el uso de estas plataformas afecta negativamente a usuarios cuyos cerebros aún se encuentran en etapas de desarrollo, vinculando esta exposición con diversas afectaciones a su bienestar psicológico.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como parte del desarrollo del proceso, se ha confirmado que los directivos de ambas compañías deberán comparecer ante el tribunal. Tanto Mark Zuckerberg, por parte de Meta, como Evan Spiegel, de Snap, han sido requeridos para testificar durante las audiencias programadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Cabe destacar que la demanda original incluía también a las plataformas YouTube y TikTok. Sin embargo, estas empresas lograron llegar a acuerdos con las partes demandantes antes del inicio de esta etapa del juicio, por lo que han quedado excluidas del proceso actual.</p>",
+    "imagen": "https://s.france24.com/media/display/693c1728-d2ff-11f1-aa22-47de50b3c1e4/w:1280/p:16x9/ES-20261028-071125-071321-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261028-meta-y-snap-llegan-a-juicio-por-acusaciones-de-adicci%C3%B3n-y-da%C3%B1os-a-la-salud-mental-en-adolescentes",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733124,
     "created_at": "2026-10-28T22:24:40.071Z",
     "titulo": "Grupo ITM proyecta finalizar construcción de Port Samaná en noviembre",
