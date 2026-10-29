@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733163,
+    "created_at": "2026-10-29T01:41:43.784Z",
+    "titulo": "Pequeños empresarios en EE. UU. enfrentan dificultades financieras por aranceles e inflación",
+    "slug": "pequenos-empresarios-en-ee-uu-enfrentan-dificultades-financieras-por-aranceles-e-inflacion",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://s.france24.com/media/display/a607080c-d322-11f1-afe4-75c7729144f1/w:1280/p:16x9/ES-20261028-131024-131240-CS.jpg\" alt=\"Pequeños empresarios en EE. UU. enfrentan dificultades financieras por aranceles e inflación\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los pequeños negocios en Estados Unidos, sector que genera aproximadamente la mitad de los empleos en el país, atraviesan una etapa de inestabilidad financiera marcada por el incremento de los costos operativos. Esta situación es atribuida principalmente a la presión inflacionaria y a las consecuencias directas derivadas de la aplicación de aranceles.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con los testimonios de diversos empresarios, la rentabilidad de sus operaciones se ha visto reducida considerablemente. Esta contracción en los márgenes de ganancia ha generado un clima de incertidumbre económica que dificulta la planificación de nuevas inversiones y la contratación de personal adicional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El panorama actual ha provocado que muchos dueños de negocios opten por mantener silencio sobre su situación ante la opinión pública. Según se ha reportado, esta reserva responde al temor de enfrentar posibles represalias de índole política o comercial.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por su parte, diversos analistas han advertido que este descontento generalizado en el sector de las pequeñas empresas podría traducirse en consecuencias electorales. Se estima que el malestar acumulado por las condiciones económicas actuales tiene el potencial de influir en el comportamiento de los votantes durante los próximos procesos en las urnas.</p>",
+    "imagen": "https://s.france24.com/media/display/a607080c-d322-11f1-afe4-75c7729144f1/w:1280/p:16x9/ES-20261028-131024-131240-CS.jpg",
+    "fuente": "France 24 Español",
+    "url_fuente": "https://www.france24.com/es/video/20261029-ee-uu-los-peque%C3%B1os-empresarios-enfrentan-una-ola-de-quiebras-tras-los-aranceles-de-trump",
+    "categoria": "Economía",
+    "etiquetas": [
+      "Economía",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733162,
     "created_at": "2026-10-29T01:39:37.192Z",
     "titulo": "Félix Portes cuestiona al Ministerio Público por ejecuciones policiales y manejo del caso Jet Set",
