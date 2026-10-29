@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733237,
+    "created_at": "2026-10-29T15:19:43.893Z",
+    "titulo": "Con una conversación imaginaria en el 85 cumpleaños de Narciso González, recuerdan reclamo de justicia",
+    "slug": "con-una-conversacion-imaginaria-en-el-85-cumpleanos-de-narciso-gonzalez-recuerdan-reclamo-de-justicia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae350584eb68.jpeg\" alt=\"Con una conversación imaginaria en el 85 cumpleaños de Narciso González, recuerdan reclamo de justicia\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Altagracia Ramírez (Taty), esposa del desaparecido periodista, profesor universitario y activista social Narciso González (Narcisazo), conmemoró el cumpleaños número 85 del intelectual mediante una conversación imaginaria en la que repasan las consecuencias de su secuestro, ocurrido el 26 de mayo de 1994 durante los diez años del gobierno del extinto presidente Joaquín Balaguer.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En el diálogo simulado, Taty y Narcisazo abordan la incesante búsqueda del cuerpo del profesor y recuerdan que su desaparición forzada constituyó una flagrante violación a la Constitución de la República Dominicana y a la Declaración Universal de los Derechos Humanos. Asimismo, repasan los pasos dados por la familia para exigir justicia, los cuales incluyeron la presentación del caso ante la Comisión Interamericana de los Derechos Humanos en Washington, Estados Unidos, y ante la Corte Interamericana de Derechos Humanos en Costa Rica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante la recreación de la charla, la esposa enfatiza su convicción de que el intelectual fue víctima de un crimen de Estado y reafirma que no desmayará en su propósito de esclarecer su paradero y las circunstancias del hecho. \"Que lo sepan los culpables\", expresa Taty, quien además exige al Estado dominicano cumplir con su obligación de identificar a los responsables y utilizar todos sus recursos para sancionarlos, evitando que permanezcan bajo la impunidad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El diálogo también evoca los detalles del secuestro recordados por Narcisazo, quien menciona haber sido introducido aquel 26 de mayo de 1994 en una jeepeta Mitsubishi Montero de color azul, con placa oficial número 01117214, asignada al Banco Central. En la conversación participan de manera simbólica sus hijos Ernesto, Rhina Yokasta, Jennie Rosanna y Amaury González Ramírez, junto a sus nietos Giamarcos, Jeliana y Albert José.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Narciso González, nacido en 1941, se desempeñó como abogado, periodista, dramaturgo, profesor de la Universidad Autónoma de Santo Domingo (UASD) y férreo opositor a los regímenes de Rafael Leónidas Trujillo y Joaquín Balaguer. Fue conocido por su columna de crítica social \"El pueblo se queja en versos\", por escribir guiones para programas televisivos como El Show del Mediodía y por fundar la revista satírica La Muralla.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Previo a su detención clandestina por fuerzas de seguridad del Estado en Santo Domingo, ocurrida en mayo de 1994 tras las elecciones generales de ese año, González publicó un artículo titulado \"10 pruebas que demuestran que Balaguer es lo más perverso que ha surgido en América\" y participó en asambleas universitarias para denunciar un fraude electoral.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae350584eb68.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/conversacion-profesor-narcisazo-esposa-32-anos-secuestro-desaparicion_584817.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Justicia"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733236,
     "created_at": "2026-10-29T15:10:28.161Z",
     "titulo": "Implementan nuevas herramientas de seguridad digital para enfrentar amenazas basadas en inteligencia artificial",
