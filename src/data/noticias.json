@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733293,
+    "created_at": "2026-10-29T21:05:21.890Z",
+    "titulo": "Investigación científica revela mecanismos moleculares que alteran el desarrollo cerebral en prematuros",
+    "slug": "investigacion-cientifica-revela-mecanismos-moleculares-que-alteran-el-desarrollo-cerebral-en-prematuros",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/ORIGINAL-POST-VERTICAL-2-1-8.jpg\" alt=\"Investigación científica revela mecanismos moleculares que alteran el desarrollo cerebral en prematuros\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un equipo de investigadores ha descrito en la revista Science los mecanismos moleculares y celulares que explican cómo el nacimiento prematuro altera la maduración del cerebelo. Esta región del encéfalo, responsable de modular funciones desde el movimiento hasta el lenguaje y la conducta social, experimenta su fase de crecimiento más acelerado durante el último trimestre de gestación, periodo que se ve interrumpido por los partos prematuros.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para profundizar en este fenómeno, los científicos analizaron a 176 bebés vivos de entre 9 y 36 meses y 83 muestras post mortem, comparando a individuos nacidos prematuramente con aquellos nacidos a término. Mediante el uso de técnicas de imagen cerebral, perfiles de expresión génica y aprendizaje profundo, el equipo logró elaborar el primer mapa del desarrollo del cerebelo en un amplio rango de edades gestacionales.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Los resultados indican que la prematuridad modifica la trayectoria de desarrollo cerebelar, provocando una alteración en la coordinación entre las células de Purkinje y las células granulares. Esta asincronía en la maduración de las neuronas, según los autores, podría perjudicar el perfeccionamiento de las conexiones neuronales, lo que ayudaría a comprender las dificultades motoras y cognitivas asociadas a los nacimientos antes de tiempo.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Marta Nieto, investigadora del Centro Nacional de Biotecnología (CNB-CSIC), destacó que el estudio define la arquitectura del desarrollo cerebelar y representa un paso inicial para el diseño de futuras vías terapéuticas. Por su parte, Juan Antonio Moreno-Bravo, del Instituto de Neurociencias CSIC-UMH, señaló que estos hallazgos invitan a considerar que los bebés prematuros podrían seguir un curso de maduración cerebral distinto al de los nacidos a término.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Aunque el estudio identifica estas alteraciones biológicas, los expertos advierten que aún no se ha determinado si los cambios observados persisten a largo plazo o si podrían compensarse en el futuro. Los investigadores coinciden en que, si bien es pronto para trasladar estos hallazgos a la práctica clínica, el conocimiento sobre la maduración celular podría orientar en el futuro el seguimiento médico y la aplicación de tratamientos neuroprotectores.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/ORIGINAL-POST-VERTICAL-2-1-8.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/desvelan-como-nacimiento-prematuro-altera-el-desarrollo-cerebral/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733292,
     "created_at": "2026-10-29T20:58:39.779Z",
     "titulo": "Productores avícolas solicitan intervención del Gobierno ante crisis del sector",
