@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733205,
+    "created_at": "2026-10-29T12:15:31.407Z",
+    "titulo": "Médicos Sin Fronteras advierte sobre una explosión de violencia en Puerto Príncipe tras ataques",
+    "slug": "medicos-sin-fronteras-advierte-sobre-una-explosion-de-violencia-en-puerto-principe-tras-ataques",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/28/6ae2a52cf3db3.jpeg\" alt=\"Médicos Sin Fronteras advierte sobre una explosión de violencia en Puerto Príncipe tras ataques\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>La organización Médicos Sin Fronteras (MSF) alertó sobre una grave escalada de violencia en varios barrios densamente poblados de Puerto Príncipe. De acuerdo con la entidad humanitaria, el repunte se registra a raíz de los enfrentamientos desatados tras un ataque perpetrado el pasado 18 de octubre contra un vehículo que transportaba a cuatro militares salvadoreños pertenecientes a la Fuerza de Supresión de Pandillas (GSF).</p><p>Entre el 18 y el 26 de octubre, los hospitales que MSF opera en Tabarre y Cité Soleil recibieron y atendieron a treinta pacientes con heridas de bala o causadas por explosiones de drones. La jefa de misión de la ONG en Haití, Davina Hayles, señaló que entre las víctimas figuran varias mujeres y niños afectados por proyectiles y detonaciones, y advirtió que algunos heridos demoraron horas en recibir asistencia debido a carreteras y puentes bloqueados.</p><p>La organización indicó que los equipos médicos han sido testigos de tiroteos cruzados, detonaciones y balas perdidas, lo que obligó al personal de salud a abandonar sus domicilios para refugiarse en instalaciones de la ONG. Asimismo, MSF informó que debió suspender temporalmente sus actividades de clínicas móviles y el suministro de agua tratada en los barrios afectados por los conflictos.</p><p>Tras el ataque contra los efectivos salvadoreños, cuya suerte se mantiene sin esclarecerse oficialmente tras varios días, la GSF emprendió una operación a gran escala contra las bandas armadas que controlan gran parte de la capital haitiana. A estas acciones se sumaron desde la semana pasada centenares de militares enviados por el Gobierno de El Salvador, en medio de un despliegue marcado por el hermetismo y restricciones de acceso a la prensa en el aeropuerto internacional Toussaint Louverture.</p><p>Por su parte, la GSF emitió un comunicado en el que acusó a las bandas armadas de difundir rumores y narrativas falsas para entorpecer las operaciones de seguridad y generar confusión. Ante este panorama, MSF hizo un llamamiento urgente a las autoridades y a las partes implicadas para salvaguardar a los civiles y garantizar el acceso sin restricciones a los centros médicos operativos.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/28/6ae2a52cf3db3.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/las-mundiales/20261029/msf-advierte-sobre-explosion-violencia-puerto-principe_927989.html",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733204,
     "created_at": "2026-10-29T12:08:39.398Z",
     "titulo": "La historia de la carabina San Cristóbal fabricada en República Dominicana y usada por el Che Guevara",
