@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733176,
+    "created_at": "2026-10-29T03:35:42.314Z",
+    "titulo": "Lluvias incrementan reservas hídricas en presas dominicanas",
+    "slug": "lluvias-incrementan-reservas-hidricas-en-presas-dominicanas",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/egehid-pospone-vaciado-de-presa-aguacate-por-el-temporal-focus-0-0-353-227.jpg\" alt=\"Lluvias incrementan reservas hídricas en presas dominicanas\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las principales presas de la República Dominicana han experimentado una recuperación de 92.94 millones de metros cúbicos de agua desde el pasado 16 de septiembre. Según datos del Instituto Nacional de Recursos Hidráulicos (INDRHI), el volumen almacenado al 28 de octubre alcanzó los 1,252.95 millones de metros cúbicos, lo que representa el 62.07 % de la capacidad total del sistema, cifrada en 2,018.63 millones de metros cúbicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El director ejecutivo del INDRHI, Olmedo Caba Romano, confirmó el aumento en las reservas, mientras que la directora del Instituto Dominicano de Meteorología (Indomet), Gloria Ceballos, atribuyó el fenómeno a la incidencia de vaguadas y al transporte de humedad desde el mar Caribe. Las precipitaciones acumuladas superaron los 200 milímetros en diversas estaciones ubicadas en la región suroeste del país.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El reporte detalla disparidades en los niveles de los embalses. Entre los que presentan mayor disponibilidad se encuentran Sabaneta, con un 90.7 % de su capacidad, y Monción, con un 89.3 %. Por su parte, Valdesia registra un 79.2 %, Bao un 64.1 % y Tavera un 63.2 %. En contraparte, los embalses de Jigüey, Sabana Yegua y Montegrande mantienen niveles inferiores, con un 45.4 %, 46.4 % y 46 % de su capacidad, respectivamente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">No obstante, el impacto de las lluvias ha generado daños significativos en diversas provincias. El Centro de Operaciones de Emergencias (COE) informó que las precipitaciones han afectado 534 viviendas, provocado el desplazamiento de 67 personas y dejado 32 comunidades incomunicadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adicionalmente, el Instituto Nacional de Aguas Potables y Alcantarillados (INAPA) notificó que 67 acueductos se encuentran fuera de servicio y dos operan de manera parcial. Esta interrupción en el suministro afecta a un total de 948,603 usuarios a nivel nacional, reflejando el contraste entre la recuperación de las reservas hídricas y las consecuencias materiales derivadas de los eventos climáticos recientes.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/egehid-pospone-vaciado-de-presa-aguacate-por-el-temporal-focus-0-0-353-227.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/lluvias-mejoran-los-niveles-de-las-presas-que-recuperan-92-94-millones-de-metros-cubicos-de-agua/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733175,
     "created_at": "2026-10-29T03:20:24.758Z",
     "titulo": "Autoridades intervienen cañada en Santo Domingo Norte tras inundaciones",
