@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623733207,
+    "created_at": "2026-10-29T12:30:18.507Z",
+    "titulo": "Apple presenta una nueva MacBook Pro con pantalla táctil, procesadores M5 y mayor autonomía",
+    "slug": "apple-presenta-una-nueva-macbook-pro-con-pantalla-tactil-procesadores-m5-y-mayor-autonomia",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/10/29/6ae32cd347651.jpeg\" alt=\"Apple presenta una nueva MacBook Pro con pantalla táctil, procesadores M5 y mayor autonomía\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>La corporación Apple presentó este miércoles una nueva versión de su ordenador portátil MacBook Pro, la cual incorpora una pantalla Proled con funcionalidades táctiles y estará disponible en tamaños de 14 y 16 pulgadas, con una frecuencia de actualización de hasta 120 hercios.</p><p>El dispositivo ofrece hasta 24 horas de autonomía y presenta un diseño más fino y ligero, con un peso de 1,38 o 1,82 kilogramos según el modelo. Para garantizar la estabilidad al utilizar la pantalla táctil —útil para dibujo o desarrollo de software—, la empresa ha diseñado una nueva bisagra.</p><p>En su interior, el equipo integra los procesadores M5 Pro o M5 Max, descritos por la compañía como los chips más potentes creados por la marca. Estos pueden configurarse con hasta 128 gigabytes de memoria unificada y hasta 16 terabytes de almacenamiento, permitiendo ejecutar modelos de lenguaje de gran tamaño y procesos exigentes como efectos visuales o posproducción de vídeo 8K.</p><p>Las aplicaciones de Apple están optimizadas para este modelo y son compatibles con el control táctil, ya que el sistema operativo interpreta los toques automáticamente como clics del ratón. Asimismo, los portátiles incluyen una nueva versión del asistente digital Siri con inteligencia artificial, alojada en la llamada 'Dynamic Island'.</p><p>Entre otras características, el equipo cuenta con bordes de pantalla más finos que amplían las dimensiones visuales a 14,2 y 16,3 pulgadas, un sistema rediseñado de seis altavoces con graves un 50 % más profundos y una arquitectura térmica renovada para mantener el rendimiento.</p><p>El nuevo ordenador está fabricado con un 55 % de materiales reciclados, incluyendo aluminio 100 % reciclado en la carcasa, cobalto en la batería y tantalio en varios condensadores. La corporación indicó que los interesados pueden realizar la reserva del dispositivo a partir de este miércoles, mientras que su disponibilidad oficial para adquisición será desde el próximo 6 de noviembre.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/10/29/6ae32cd347651.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-vida/tecnologia/20261029/nueva-macbook-pro-apple-viene-pantalla-tactil_928007.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733206,
     "created_at": "2026-10-29T12:20:41.631Z",
     "titulo": "Perú presenta el helicóptero 'Papacóptero' para la visita del papa León XIV",
