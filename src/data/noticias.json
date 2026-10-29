@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733284,
+    "created_at": "2026-10-29T20:08:21.435Z",
+    "titulo": "Líderes empresariales debaten sobre gobernanza y uso responsable de la inteligencia artificial",
+    "slug": "lideres-empresariales-debaten-sobre-gobernanza-y-uso-responsable-de-la-inteligencia-artificial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae39d701f269.jpeg\" alt=\"Líderes empresariales debaten sobre gobernanza y uso responsable de la inteligencia artificial\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Destacados líderes del empresariado dominicano analizaron el impacto de la inteligencia artificial en la productividad y la transformación de los modelos de negocio durante el cierre del \"Summit Internacional HUMANOS 5.0: Del Algoritmo al Propósito\". El evento, celebrado en el Hotel El Embajador, reunió a 400 participantes para discutir cómo integrar esta tecnología manteniendo la competitividad y la responsabilidad corporativa.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Durante el panel central, Pedro Brache, del Grupo Rica, subrayó la necesidad de implementar mecanismos de gobernanza y supervisión para orientar el uso de la inteligencia artificial. Por su parte, Steven Puig, del Banco BHD, destacó que la tecnología ha permitido generar empleos de mayor valor agregado, mientras que Eduardo Cruz, del Grupo Humano, señaló su utilidad para agilizar procesos operativos. Manuel Corripio, del Grupo Corripio, enfatizó la importancia de mantener el criterio humano en la toma de decisiones frente a las recomendaciones automatizadas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El encuentro también presentó el Índice HUMANOS 5.0, elaborado por la Academia Internacional de Innovación y Tecnología (AIITEC), el cual reveló que, aunque el 70 % de los líderes consultados utiliza inteligencia artificial diariamente, el 66 % carece de políticas internas que regulen su uso. Ante este panorama, el 85 % de los encuestados coincidió en la necesidad de establecer un marco legal específico para esta tecnología.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Zoraima Cuello, presidenta de AIITEC, destacó que el país tiene la oportunidad de convertir la inteligencia artificial en un motor de desarrollo si se adopta una visión estratégica a largo plazo. Las jornadas abordaron además retos en ciberseguridad, gestión de riesgos y la preparación del capital humano ante las nuevas exigencias del mercado laboral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Como cierre del evento, se firmó el primer Manifiesto Dominicano por una Inteligencia Artificial Centrada en las Personas. Esta iniciativa busca promover principios éticos y responsables, asegurando que la transformación tecnológica priorice el bienestar colectivo y el pensamiento crítico en la toma de decisiones organizacionales.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae39d701f269.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/pedro-brache-steven-puig-manuel-corripio-eduardo-cruz-analizan-retos-transformacion-tecnologica_584856.html/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Nacionales"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733283,
     "created_at": "2026-10-29T20:05:27.795Z",
     "titulo": "Tren de alta velocidad queda inmovilizado en un túnel en España",
