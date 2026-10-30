@@ -1,56 +1,158 @@
 ---
+const siteUrl = 'https://republicaactual.net';
+const canonical = `${siteUrl}/contacto/`;
+const titulo = 'Contacto | República Actual';
+const descripcion = 'Contacta con República Actual para consultas, sugerencias, solicitudes de corrección de noticias y asuntos comerciales. Conoce nuestros canales de comunicación.';
+const correo = 'licfranciscosegura@gmail.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${canonical}#contactpage`,
+  url: canonical,
+  name: titulo,
+  description: descripcion,
+  inLanguage: 'es-DO',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  about: { '@id': `${siteUrl}/#organization` },
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'República Actual',
+    url: siteUrl,
+    email: correo,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: correo,
+      contactType: 'Atención a lectores',
+      availableLanguage: 'Spanish'
+    }
+  }
+};
 ---
 <!doctype html>
-<html lang="es">
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto | República Actual</title>
-  <meta name="description" content="Información de contacto de República Actual." />
-  <link rel="canonical" href="https://republicaactual.net/contacto/" />
-</head>
+<html lang="es-DO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
 
-<body>
-  <main>
-    <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
+    <!-- Se conserva el identificador presente en el archivo original.
+         Verificar que coincida con la cuenta de AdSense activa antes de cambiarlo. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
 
-    <h1>Contacto</h1>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="República Actual" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="República Actual, inicio">REPÚBLICA<span>·</span>ACTUAL</a>
+        <nav aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/quienes-somos/">Quiénes somos</a>
+        </nav>
+      </div>
+    </header>
 
-    <p>
-      En República Actual valoramos la comunicación con nuestros lectores.
-    </p>
+    <main class="container">
+      <article>
+        <p class="eyebrow">ESTAMOS PARA ESCUCHARTE</p>
+        <h1>Contacto</h1>
+        <p class="intro">En <strong>República Actual</strong> valoramos la comunicación con nuestros lectores. Puedes escribirnos para compartir sugerencias, solicitar una revisión editorial, realizar consultas o tratar asuntos relacionados con el medio.</p>
 
-    <p>
-      Para consultas, sugerencias, correcciones, asuntos comerciales o cualquier
-      comunicación relacionada con nuestro contenido, puedes escribirnos por correo
-      electrónico.
-    </p>
+        <section class="contact-card" aria-labelledby="correo-titulo">
+          <div class="contact-icon" aria-hidden="true">✉</div>
+          <div>
+            <h2 id="correo-titulo">Correo electrónico</h2>
+            <p>Este es nuestro canal de contacto disponible:</p>
+            <a class="email" href={`mailto:${correo}`}>{correo}</a>
+            <div><a class="contact-button" href={`mailto:${correo}?subject=${encodeURIComponent('Consulta para República Actual')}`}>Enviar correo</a></div>
+          </div>
+        </section>
 
-    <div class="caja">
-      <strong>Correo electrónico</strong>
-      <p>licfranciscosegura@gmail.com</p>
-    </div>
+        <section aria-labelledby="motivos-titulo">
+          <h2 id="motivos-titulo">¿En qué podemos ayudarte?</h2>
+          <div class="topics">
+            <div class="topic"><h3>Consultas y sugerencias</h3><p>Comparte tus comentarios sobre nuestro sitio, sus secciones y los contenidos publicados.</p></div>
+            <div class="topic"><h3>Correcciones y aclaraciones</h3><p>Si encuentras un dato inexacto o desactualizado, indícanos qué noticia debe revisarse y por qué.</p></div>
+            <div class="topic"><h3>Asuntos comerciales</h3><p>Escríbenos para plantear propuestas publicitarias, colaboraciones o consultas de carácter comercial.</p></div>
+            <div class="topic"><h3>Privacidad y derechos</h3><p>También puedes comunicar solicitudes relacionadas con tus datos personales o con derechos sobre contenidos.</p></div>
+          </div>
+        </section>
 
-    <p>
-      Revisaremos las comunicaciones recibidas y responderemos cuando corresponda.
-    </p>
+        <section class="guidance" aria-labelledby="correcciones-titulo">
+          <h2 id="correcciones-titulo">Cómo solicitar la corrección de una noticia</h2>
+          <p>Para que podamos identificar el contenido, incluye en tu mensaje el <strong>enlace de la noticia</strong>, el dato que consideras incorrecto y, si dispones de ella, una fuente o explicación que permita revisarlo.</p>
+          <p>Las comunicaciones recibidas se revisarán según su contenido. No establecemos un plazo de respuesta garantizado.</p>
+          <a href={`mailto:${correo}?subject=${encodeURIComponent('Solicitud de corrección - República Actual')}`}>Solicitar revisión por correo</a>
+        </section>
 
-    <a class="volver" href="/">← Volver a República Actual</a>
-  </main>
-</body>
+        <section aria-labelledby="transparencia-titulo">
+          <h2 id="transparencia-titulo">Transparencia y atención a lectores</h2>
+          <p>Las consultas y solicitudes se reciben a través del correo indicado en esta página. La publicación de una solicitud no implica automáticamente la modificación o retirada de una noticia: cada caso requiere su revisión.</p>
+          <p>Puedes conocer más sobre el proyecto en <a href="/quienes-somos/">Quiénes somos</a> y consultar nuestra <a href="/politica-de-privacidad/">Política de privacidad</a>.</p>
+        </section>
+
+        <a class="back" href="/">← Volver a República Actual</a>
+      </article>
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} República Actual.</p>
+      <div class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/quienes-somos/">Quiénes somos</a>
+        <a href="/politica-de-privacidad/">Privacidad</a>
+        <a href="/terminos-y-condiciones/">Términos</a>
+        <a href="/contacto/" aria-current="page">Contacto</a>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style>
-  body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#172033}
-  main{max-width:900px;margin:50px auto;background:white;padding:45px;box-sizing:border-box}
-  .logo{display:block;text-decoration:none;color:#071a3d;font-size:26px;font-weight:800;margin-bottom:45px}
-  .logo span{color:#e60023}
-  h1{font-size:36px;color:#071a3d}
-  p{font-size:17px;line-height:1.8}
-  .caja{background:#f3f6fa;padding:20px;margin:30px 0;border-left:4px solid #e60023}
-  .caja p{margin-bottom:0}
-  .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
-  @media(max-width:700px){main{margin:0;padding:30px 20px}h1{font-size:30px}}
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #202938; line-height: 1.7; }
+  .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .header-inner { max-width: 1100px; margin: auto; padding: 19px 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .brand { font-size: clamp(20px, 3vw, 26px); font-weight: 900; letter-spacing: -1px; color: #102d47; text-decoration: none; }
+  .brand span { color: #d71920; }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav a, .footer-links a { color: inherit; text-decoration: none; }
+  nav a:hover, .footer-links a:hover { text-decoration: underline; }
+  .container { max-width: 1000px; margin: 40px auto; padding: 0 18px; }
+  article { background: #fff; padding: clamp(24px, 5vw, 48px); border: 1px solid #e6eaf0; border-radius: 14px; box-shadow: 0 6px 28px rgba(0,0,0,.04); }
+  .eyebrow { color: #d71920; font-weight: 800; letter-spacing: 1.4px; font-size: 12px; margin: 0 0 10px; }
+  h1 { font-size: clamp(32px, 5vw, 44px); line-height: 1.15; color: #132744; margin: 0 0 22px; }
+  h2 { font-size: 24px; line-height: 1.3; color: #172b4d; margin: 0 0 13px; }
+  h3 { font-size: 18px; line-height: 1.35; color: #172b4d; margin: 0 0 8px; }
+  p { margin: 0 0 15px; }
+  .intro { font-size: 18px; color: #3c4a5c; padding-bottom: 25px; border-bottom: 1px solid #e6eaf0; }
+  section { margin-top: 32px; }
+  .contact-card { background: #f3f7fc; border: 1px solid #dce6f2; border-left: 5px solid #d71920; padding: 25px; border-radius: 10px; display: flex; gap: 20px; }
+  .contact-icon { width: 52px; height: 52px; flex: 0 0 52px; display: grid; place-items: center; background: #102d47; color: #fff; border-radius: 12px; font-size: 27px; }
+  .email { color: #0c4a83; font-weight: 700; font-size: clamp(15px, 2.5vw, 19px); overflow-wrap: anywhere; }
+  .contact-button { display: inline-block; margin-top: 18px; padding: 11px 20px; background: #d71920; color: #fff; text-decoration: none; border-radius: 7px; font-weight: 700; }
+  .contact-button:hover { background: #ad151b; }
+  .topics { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  .topic { padding: 21px; border: 1px solid #e6eaf0; border-radius: 10px; background: #fff; }
+  .topic p { margin: 0; font-size: 15px; }
+  .guidance { padding: 24px; background: #f8fafc; border-radius: 10px; border: 1px solid #e6eaf0; }
+  .guidance a, section > p a { color: #0c4a83; font-weight: 700; }
+  .back { display: inline-block; margin-top: 34px; color: #102d47; font-weight: 700; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  footer { background: #14243c; color: #fff; text-align: center; padding: 28px 20px; }
+  .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; font-size: 14px; }
+  @media (max-width: 700px) { .container { margin: 20px auto; } .header-inner { flex-direction: column; gap: 10px; } .topics { grid-template-columns: 1fr; } .contact-card { padding: 20px; } }
+  @media (max-width: 420px) { .contact-card { display: block; } .contact-icon { margin-bottom: 14px; } }
 </style>
