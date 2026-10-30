@@ -1,81 +1,161 @@
 ---
+const siteUrl = 'https://republicaactual.net';
+const canonical = `${siteUrl}/terminos-y-condiciones/`;
+const titulo = 'Términos y condiciones de uso | República Actual';
+const descripcion = 'Consulta las condiciones de uso de República Actual: información periodística, propiedad intelectual, enlaces externos, correcciones y contacto.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: titulo,
+  description: descripcion,
+  inLanguage: 'es-DO',
+  isPartOf: { '@type': 'WebSite', name: 'República Actual', url: siteUrl },
+  publisher: { '@type': 'Organization', name: 'República Actual', url: siteUrl },
+};
 ---
 <!doctype html>
-<html lang="es">
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Términos y condiciones | República Actual</title>
-  <meta name="description" content="Términos y condiciones de uso de República Actual." />
-  <link rel="canonical" href="https://republicaactual.net/terminos-y-condiciones/" />
-</head>
+<html lang="es-DO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="República Actual" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <!-- Se conserva el identificador de AdSense del archivo original; verificar titularidad. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="República Actual, inicio">REPÚBLICA<span>·</span>ACTUAL</a>
+        <nav aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/quienes-somos/">Quiénes somos</a>
+          <a href="/contacto/">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <article>
+        <p class="eyebrow">INFORMACIÓN DEL SITIO</p>
+        <h1>Términos y condiciones</h1>
+        <p class="intro">Estas condiciones describen las reglas generales para acceder y utilizar <strong>República Actual</strong>, disponible en <a href="https://republicaactual.net/">republicaactual.net</a>. Te recomendamos leerlas junto con nuestra <a href="/politica-de-privacidad/">Política de privacidad</a>.</p>
 
-<body>
-  <main>
-    <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
+        <section aria-labelledby="alcance">
+          <h2 id="alcance">1. Alcance y aceptación</h2>
+          <p>Al navegar por el sitio aceptas estas condiciones en la medida permitida por la legislación aplicable. Si no estás de acuerdo con ellas, puedes dejar de utilizar el sitio. Estas condiciones no limitan los derechos que la ley reconozca a los usuarios.</p>
+        </section>
 
-    <h1>Términos y condiciones</h1>
+        <section aria-labelledby="informacion">
+          <h2 id="informacion">2. Naturaleza informativa de los contenidos</h2>
+          <p>República Actual publica noticias, contenidos de actualidad y guías de consulta sobre distintos temas. Nos esforzamos por presentar información clara y contextualizada; sin embargo, los hechos pueden evolucionar y algunos contenidos pueden requerir aclaraciones, actualizaciones o correcciones.</p>
+          <p>Las publicaciones sobre economía, empleo, trámites, cálculos laborales u otros asuntos especializados son de carácter general y no sustituyen el asesoramiento profesional adaptado a cada situación.</p>
+        </section>
 
-    <p>
-      Al utilizar República Actual aceptas los presentes términos y condiciones
-      de uso.
-    </p>
+        <section aria-labelledby="editorial">
+          <h2 id="editorial">3. Fuentes, atribución y correcciones</h2>
+          <p>Algunas publicaciones pueden basarse en declaraciones públicas, documentos, comunicados o informaciones difundidas por otras fuentes. Procuramos distinguir los hechos de las opiniones y atribuir la información cuando corresponde.</p>
+          <p>Si identificas un dato inexacto, una atribución incorrecta o un contenido que deba actualizarse, puedes solicitar su revisión desde nuestra <a href="/contacto/">página de contacto</a>, indicando el enlace de la publicación y el motivo de la solicitud.</p>
+        </section>
 
-    <h2>Contenido informativo</h2>
+        <section aria-labelledby="propiedad">
+          <h2 id="propiedad">4. Propiedad intelectual y uso permitido</h2>
+          <p>Los textos originales, elementos gráficos propios, diseño y organización del sitio pueden estar protegidos por las normas de propiedad intelectual aplicables. No se autoriza su reproducción sustancial o explotación comercial sin permiso cuando la ley exija dicha autorización.</p>
+          <p>Se permite compartir enlaces a nuestras publicaciones y citar extractos breves dentro de los límites legales, con la atribución correspondiente. Los derechos sobre fotografías, marcas, nombres y materiales de terceros pertenecen a sus respectivos titulares; su aparición en el sitio no implica transferencia de esos derechos.</p>
+          <p>Si consideras que algún material vulnera tus derechos, escríbenos mediante <a href="/contacto/">Contacto</a> con la URL afectada y los datos necesarios para evaluar la solicitud.</p>
+        </section>
 
-    <p>
-      El contenido publicado tiene fines informativos. Aunque procuramos mantener
-      la información actualizada y correcta, pueden producirse errores,
-      modificaciones o actualizaciones posteriores.
-    </p>
+        <section aria-labelledby="uso">
+          <h2 id="uso">5. Uso responsable del sitio</h2>
+          <p>Los visitantes deben utilizar el sitio de forma lícita y evitar acciones que afecten su seguridad, disponibilidad o funcionamiento, como intentos de acceso no autorizado, introducción de código malicioso o utilización abusiva de sus recursos.</p>
+        </section>
 
-    <h2>Uso del contenido</h2>
+        <section aria-labelledby="herramientas">
+          <h2 id="herramientas">6. Herramientas y resultados orientativos</h2>
+          <p>Algunas secciones pueden incluir calculadoras, recopilaciones de datos u otras herramientas informativas. Sus resultados son orientativos y pueden depender de la información introducida, las fuentes consultadas y las reglas vigentes. Antes de tomar decisiones importantes, contrasta los resultados con fuentes oficiales o profesionales competentes.</p>
+        </section>
 
-    <p>
-      El diseño, organización y contenido propio de República Actual están destinados
-      al uso de nuestros lectores. No se permite reproducir de forma sustancial
-      contenido propio del sitio sin autorización cuando dicha autorización sea
-      legalmente necesaria.
-    </p>
+        <section aria-labelledby="terceros">
+          <h2 id="terceros">7. Enlaces y servicios de terceros</h2>
+          <p>Podemos enlazar a páginas externas o integrar servicios de terceros. Esos sitios y servicios tienen sus propias condiciones y políticas. No controlamos su contenido, disponibilidad ni prácticas de privacidad, sin perjuicio de las responsabilidades que establezca la legislación aplicable.</p>
+        </section>
 
-    <h2>Fuentes y terceros</h2>
+        <section aria-labelledby="publicidad">
+          <h2 id="publicidad">8. Publicidad y privacidad</h2>
+          <p>El sitio puede mostrar publicidad proporcionada por terceros, incluido Google. El tratamiento de datos, el uso de cookies y las opciones disponibles para los visitantes se explican en nuestra <a href="/politica-de-privacidad/">Política de privacidad</a>. La presencia de anuncios no implica que República Actual respalde necesariamente los productos o servicios anunciados.</p>
+        </section>
 
-    <p>
-      Algunas informaciones pueden estar basadas en acontecimientos, declaraciones,
-      documentos u otras fuentes informativas. Los nombres, marcas, imágenes y
-      materiales pertenecientes a terceros corresponden a sus respectivos titulares.
-    </p>
+        <section aria-labelledby="disponibilidad">
+          <h2 id="disponibilidad">9. Disponibilidad y modificaciones del servicio</h2>
+          <p>Podemos realizar tareas de mantenimiento, reorganizar secciones, actualizar publicaciones o retirar contenido cuando resulte necesario. No garantizamos que el sitio permanezca disponible de forma ininterrumpida.</p>
+        </section>
 
-    <h2>Enlaces externos</h2>
+        <section aria-labelledby="responsabilidad">
+          <h2 id="responsabilidad">10. Responsabilidad</h2>
+          <p>Procuramos mantener la información y el funcionamiento del sitio en condiciones adecuadas. No obstante, en la medida permitida por la ley, no asumimos responsabilidad por decisiones tomadas exclusivamente sobre la base de información general que no haya sido contrastada para el caso particular. Ninguna disposición de estos términos excluye responsabilidades que legalmente no puedan limitarse.</p>
+        </section>
 
-    <p>
-      Podemos incluir enlaces hacia sitios de terceros. República Actual no controla
-      ni asume responsabilidad por el contenido o funcionamiento de esos sitios.
-    </p>
+        <section aria-labelledby="cambios">
+          <h2 id="cambios">11. Cambios en los términos</h2>
+          <p>Podemos modificar estas condiciones para reflejar cambios en el sitio, en nuestros servicios o en la normativa aplicable. La versión vigente estará disponible en esta página. Cuando corresponda legalmente, informaremos sobre cambios relevantes por medios apropiados.</p>
+        </section>
 
-    <h2>Modificaciones</h2>
-
-    <p>
-      Estos términos pueden ser actualizados cuando sea necesario. La utilización
-      continuada del sitio después de una actualización implica la aceptación de
-      los términos vigentes.
-    </p>
-
-    <a class="volver" href="/">← Volver a República Actual</a>
-  </main>
-</body>
+        <section aria-labelledby="contacto">
+          <h2 id="contacto">12. Consultas y solicitudes</h2>
+          <p>Para preguntas sobre estos términos, correcciones o derechos relacionados con contenido publicado, utiliza nuestra página de contacto.</p>
+          <a class="contact-button" href="/contacto/">Contactar con República Actual</a>
+        </section>
+        <a class="volver" href="/">← Volver a República Actual</a>
+      </article>
+    </main>
+    <footer>
+      <p>© {new Date().getFullYear()} República Actual.</p>
+      <div class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/quienes-somos/">Quiénes somos</a>
+        <a href="/politica-de-privacidad/">Privacidad</a>
+        <a href="/contacto/">Contacto</a>
+      </div>
+    </footer>
+  </body>
 </html>
-
 <style>
-  body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#172033}
-  main{max-width:900px;margin:50px auto;background:white;padding:45px;box-sizing:border-box}
-  .logo{display:block;text-decoration:none;color:#071a3d;font-size:26px;font-weight:800;margin-bottom:45px}
-  .logo span{color:#e60023}
-  h1{font-size:36px;color:#071a3d}
-  h2{color:#071a3d;margin-top:32px}
-  p{font-size:17px;line-height:1.8}
-  .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
-  @media(max-width:700px){main{margin:0;padding:30px 20px}h1{font-size:30px}}
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #202938; line-height: 1.75; }
+  .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .header-inner { max-width: 1100px; margin: auto; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .brand { color: #172b4d; font-size: 25px; font-weight: 900; text-decoration: none; white-space: nowrap; }
+  .brand span { color: #e32732; }
+  nav { display: flex; flex-wrap: wrap; gap: 18px; }
+  nav a, .footer-links a { color: inherit; text-decoration: none; }
+  nav a:hover, .footer-links a:hover { text-decoration: underline; }
+  .container { max-width: 1000px; margin: 40px auto; padding: 0 18px; }
+  article { background: #fff; padding: 45px; border: 1px solid #e6eaf0; border-radius: 14px; box-shadow: 0 6px 28px rgba(0,0,0,.04); }
+  .eyebrow { color: #d72332; font-weight: 800; letter-spacing: 1.4px; font-size: 12px; }
+  h1 { font-size: clamp(30px, 5vw, 43px); line-height: 1.2; color: #132744; margin: 12px 0 24px; }
+  h2 { font-size: 23px; line-height: 1.35; color: #172b4d; margin: 0 0 15px; }
+  .intro { font-size: 19px; color: #3c4a5c; padding-bottom: 26px; border-bottom: 1px solid #e6eaf0; }
+  section { margin-top: 34px; }
+  p { margin: 0 0 15px; }
+  a { color: #b91c2b; }
+  .contact-button { display: inline-block; background: #d92332; color: #fff; padding: 12px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; }
+  .contact-button:hover { background: #b91c2b; }
+  .volver { display: inline-block; margin-top: 35px; font-weight: 700; text-decoration: none; }
+  footer { background: #14243c; color: #fff; text-align: center; padding: 28px 20px; }
+  .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 14px; }
+  @media (max-width: 700px) { .header-inner { flex-direction: column; align-items: flex-start; } .container { margin: 20px auto; } article { padding: 25px 20px; } h2 { font-size: 21px; } .brand { font-size: 22px; } }
 </style>
