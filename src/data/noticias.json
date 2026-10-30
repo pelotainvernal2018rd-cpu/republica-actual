@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733328,
+    "created_at": "2026-10-30T00:38:16.518Z",
+    "titulo": "DASAC despliega asistencia alimentaria en provincias afectadas por inundaciones",
+    "slug": "dasac-despliega-asistencia-alimentaria-en-provincias-afectadas-por-inundaciones",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae3e450354cd.jpeg\" alt=\"DASAC despliega asistencia alimentaria en provincias afectadas por inundaciones\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Dirección de Asistencia Social y Alimentación Comunitaria (DASAC) mantiene operativos de asistencia directa en diversas provincias del país para atender a las familias damnificadas por las recientes inundaciones y fuertes lluvias. La institución busca garantizar el acceso a la alimentación y cubrir las necesidades más urgentes de los ciudadanos afectados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Por disposición del director general, Edgar Augusto Féliz Arbona, se han desplegado acciones que incluyen la distribución de raciones alimenticias cocidas y crudas. Este despliegue se realiza mediante comedores comunitarios, cocinas móviles y operativos casa por casa en demarcaciones como La Vega, Monseñor Nouel, Sánchez Ramírez, Monte Plata, San Juan de la Maguana, Elías Piña, Pedernales, Barahona, Bahoruco, Independencia, Azua y el Distrito Nacional.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Féliz Arbona informó que la entidad se encuentra en sesión permanente, coordinando sus labores con los organismos de socorro, las gobernaciones provinciales y las alcaldías para identificar las zonas de mayor impacto. El funcionario destacó que, una vez superada la fase de emergencia alimentaria, se activará una segunda etapa del protocolo institucional para realizar un levantamiento de daños y gestionar la reposición de ajuares y enseres domésticos perdidos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El director de DASAC señaló que el presidente Luis Abinader Corona sigue de cerca el desarrollo de estas operaciones de respuesta. Asimismo, la institución ha instruido a sus equipos en todo el territorio nacional a mantener una vigilancia constante y reportar las necesidades de las comunidades para asegurar una intervención rápida y efectiva frente a los efectos de los fenómenos atmosféricos.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/29/6ae3e450354cd.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/despliegan-asistencia-alimentaria-provincias-afectadas-inundaciones_584877.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733327,
     "created_at": "2026-10-30T00:31:39.735Z",
     "titulo": "El Salvador despliega contingente militar en Haití para rescatar a soldados desaparecidos",
