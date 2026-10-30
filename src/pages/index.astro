@@ -1,11 +1,12 @@
+
 ---
-// ==================================================
-// REPÚBLICA ACTUAL - PORTADA
-// Astro + Firestore optimizado
-// ==================================================
 import VisitantesEnVivo from '../components/VisitantesEnVivo.astro';
 import Layout from '../layouts/Layout.astro';
-import { cargarNoticiasPublicadas, contarNoticiasPublicadas, cargarRepublicaUtilPortada } from '../lib/noticias-firestore.js';
+import {
+  cargarNoticiasPublicadas,
+  contarNoticiasPublicadas,
+  cargarRepublicaUtilPortada
+} from '../lib/noticias-firestore.js';
 
 let noticias = [];
 let totalNoticias = 0;
@@ -18,6 +19,7 @@ try {
     contarNoticiasPublicadas(),
     cargarRepublicaUtilPortada(9)
   ]);
+
   noticias = noticiasRecientes;
   totalNoticias = total;
   republicaUtilPortada = republicaUtil;
@@ -30,10 +32,6 @@ const totalPaginas = Math.max(1, Math.ceil(totalNoticias / 10));
 const paginaActual = 1;
 const inicioPagina = 1;
 const finPagina = Math.min(5, totalPaginas);
-
-// ======================================================
-// FUNCIONES
-// ======================================================
 
 function limpiarHTML(html = '') {
   return html
@@ -77,8 +75,10 @@ function enlaceNoticia(noticia) {
 
 function imagenCloudflare(url = '', ancho = 700) {
   if (!/^https?:\/\//i.test(url)) return url;
+
   return `/cdn-cgi/image/width=${ancho},quality=75,format=auto,fit=cover/${url}`;
 }
+
 function obtenerImagen(noticia = {}) {
   return (
     noticia.imagen ||
@@ -86,21 +86,15 @@ function obtenerImagen(noticia = {}) {
     noticia.image ||
     noticia.image_url ||
     (
-      noticia.republica_util === true &&
-      noticia.slug
+      noticia.republica_util === true && noticia.slug
         ? `/evergreen/${noticia.slug}.webp`
         : ''
     )
   );
 }
-// 11 noticias en Ultimas publicaciones: 1 principal + 10 adicionales
+
 const noticiaPrincipal = noticias[0] || null;
 const noticiasPrincipales = noticias.slice(1, 11);
-
-// REPÚBLICA ÚTIL ahora llega desde una consulta independiente de Firestore.
-// No depende de estar entre las 20 noticias más recientes.
-// El administrador controla esta sección con republica_util_portada=true.
-
 ---
 
 <Layout
@@ -113,40 +107,82 @@ const noticiasPrincipales = noticias.slice(1, 11);
 
       const cargarAnalytics = () => {
         if (analyticsCargado) return;
+
         analyticsCargado = true;
 
         window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+        window.gtag = window.gtag || function () {
+          window.dataLayer.push(arguments);
+        };
+
         window.gtag('js', new Date());
         window.gtag('config', 'G-XWZNB17LDS');
 
         const script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS';
+        script.src =
+          'https://www.googletagmanager.com/gtag/js?id=G-XWZNB17LDS';
+
         document.head.appendChild(script);
       };
 
       ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach((evento) => {
-        window.addEventListener(evento, cargarAnalytics, { once: true, passive: true });
+        window.addEventListener(evento, cargarAnalytics, {
+          once: true,
+          passive: true
+        });
       });
 
-      window.addEventListener('load', () => {
-        window.setTimeout(cargarAnalytics, 3500);
-      }, { once: true });
+      window.addEventListener(
+        'load',
+        () => {
+          window.setTimeout(cargarAnalytics, 3500);
+        },
+        { once: true }
+      );
     })();
   </script>
-  <link slot="head" rel="preconnect" href="https://listindiario.com" crossorigin />
-  <link slot="head" rel="preconnect" href="https://resources.diariolibre.com" crossorigin />
-  <link slot="head" rel="preconnect" href="https://cdn.deultimominuto.com" crossorigin />
+
+  <link
+    slot="head"
+    rel="preconnect"
+    href="https://listindiario.com"
+    crossorigin
+  />
+
+  <link
+    slot="head"
+    rel="preconnect"
+    href="https://resources.diariolibre.com"
+    crossorigin
+  />
+
+  <link
+    slot="head"
+    rel="preconnect"
+    href="https://cdn.deultimominuto.com"
+    crossorigin
+  />
+
   <link slot="head" rel="dns-prefetch" href="//listindiario.com" />
   <link slot="head" rel="dns-prefetch" href="//resources.diariolibre.com" />
   <link slot="head" rel="dns-prefetch" href="//cdn.deultimominuto.com" />
 
-  <meta slot="head" name="google-adsense-account" content="ca-pub-8245405038839408" />
-  <script slot="head" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3370737258151824" crossorigin="anonymous"></script>
+  <meta
+    slot="head"
+    name="google-adsense-account"
+    content="ca-pub-8245405038839408"
+  />
 
-<style>
+  <script
+    slot="head"
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3370737258151824"
+    crossorigin="anonymous"
+  ></script>
 
+  <style>
     * {
       box-sizing: border-box;
     }
@@ -158,10 +194,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       color: #102a43;
     }
 
-
-    /* =========================================
-       BARRA SUPERIOR
-    ========================================= */
+    /* BARRA SUPERIOR */
 
     .topbar {
       background: #102d46;
@@ -173,10 +206,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       letter-spacing: .5px;
     }
 
-
-    /* =========================================
-       CABECERA
-    ========================================= */
+    /* CABECERA */
 
     header {
       max-width: 1100px;
@@ -203,10 +233,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       letter-spacing: 1.5px;
     }
 
-
-    /* =========================================
-       MENÚ
-    ========================================= */
+    /* MENÚ PRINCIPAL */
 
     nav {
       border-top: 1px solid #e3e7eb;
@@ -235,18 +262,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       color: #e52b32;
     }
 
-    .menu .menu-en-vivo {
-      color: #e52b32;
-    }
-
-    .menu .menu-en-vivo:hover {
-      color: #b5121b;
-    }
-
-
-    /* =========================================
-       CONTENEDOR
-    ========================================= */
+    /* CONTENEDOR */
 
     main {
       max-width: 1100px;
@@ -254,10 +270,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       padding: 24px 20px 50px;
     }
 
-
-    /* =========================================
-       EN PORTADA
-    ========================================= */
+    /* ÚLTIMA HORA */
 
     .franja {
       background: #f3f5f7;
@@ -272,10 +285,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       margin-right: 12px;
     }
 
-
-    /* =========================================
-       TÍTULO SECCIÓN
-    ========================================= */
+    /* TÍTULOS DE SECCIONES */
 
     .titulo-seccion {
       color: #e52b32;
@@ -287,10 +297,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       margin-bottom: 5px;
     }
 
-
-    /* =========================================
-       PORTADA MODERNA
-    ========================================= */
+    /* NOTICIAS */
 
     .noticias {
       width: 100%;
@@ -304,7 +311,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       margin: 20px 0 22px;
       border: 1px solid #e1e6ea;
       background: #fff;
-      box-shadow: 0 5px 18px rgba(16,45,70,.07);
+      box-shadow: 0 5px 18px rgba(16, 45, 70, .07);
       overflow: hidden;
     }
 
@@ -359,7 +366,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       border: 1px solid #e1e6ea;
       background: #fff;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(16,45,70,.05);
+      box-shadow: 0 3px 12px rgba(16, 45, 70, .05);
     }
 
     .noticia-imagen-enlace {
@@ -438,9 +445,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       flex-wrap: wrap;
     }
 
-    /* =========================================
-       REPÚBLICA ÚTIL: 9 DESTACADAS EN PORTADA
-    ========================================= */
+    /* REPÚBLICA ÚTIL */
 
     .evergreen {
       margin-top: 48px;
@@ -567,20 +572,14 @@ const noticiasPrincipales = noticias.slice(1, 11);
       color: #ffffff;
     }
 
-
-    /* =========================================
-       ERROR / VACÍO
-    ========================================= */
+    /* MENSAJES */
 
     .mensaje {
       padding: 30px 0;
       color: #687986;
     }
 
-
-    /* =========================================
-       FOOTER
-    ========================================= */
+    /* PIE DE PÁGINA */
 
     footer {
       margin-top: 50px;
@@ -591,10 +590,7 @@ const noticiasPrincipales = noticias.slice(1, 11);
       font-size: 13px;
     }
 
-
-    /* =========================================
-       MÓVIL
-    ========================================= */
+    /* TABLET */
 
     @media (max-width: 950px) and (min-width: 701px) {
       .evergreen-grid {
@@ -602,8 +598,9 @@ const noticiasPrincipales = noticias.slice(1, 11);
       }
     }
 
-    @media (max-width: 700px) {
+    /* MÓVIL */
 
+    @media (max-width: 700px) {
       header {
         padding-top: 22px;
       }
@@ -677,19 +674,14 @@ const noticiasPrincipales = noticias.slice(1, 11);
         width: 118px;
         height: 86px;
       }
-
     }
-
   </style>
-
 
   <div class="topbar">
     INFORMACIÓN CON CONTEXTO Y CLARIDAD
   </div>
 
-
   <header>
-
     <h1 class="logo">
       REPÚBLICA<span>·</span>ACTUAL
     </h1>
@@ -697,93 +689,74 @@ const noticiasPrincipales = noticias.slice(1, 11);
     <div class="slogan">
       LO QUE PASA. LO QUE IMPORTA.
     </div>
-
   </header>
 
+  <!-- MENÚ CORREGIDO: SIN DEPORTES, EN VIVO NI LOTERÍAS -->
 
-  <nav>
-
+  <nav aria-label="Navegación principal">
     <div class="menu">
-
       <a href="/">Inicio</a>
-
       <a href="/categoria/nacionales">Nacionales</a>
-
       <a href="/categoria/politica">Política</a>
-
       <a href="/categoria/economia">Economía</a>
-
-      <a href="/categoria/deportes">Deportes</a>
-
-      <a href="/deportes-en-vivo/" class="menu-en-vivo">🔴 En Vivo</a>
-
-      <a href="/resultados-loterias/">Loterías</a>
-
       <a href="/categoria/entretenimiento">Entretenimiento</a>
-
       <a href="/categoria/mundo">Mundo</a>
-
       <a href="/categoria/tecnologia">Tecnología</a>
-
     </div>
-
   </nav>
-
 
   <main>
 
+    <!-- ÚLTIMA HORA -->
+
     <div class="franja">
-  <strong>ÚLTIMA HORA</strong>
+      <strong>ÚLTIMA HORA</strong>
 
-  <a
-    id="ticker-noticia"
-    href={noticias.length > 0 ? enlaceNoticia(noticias[0]) : "/"}
-  >
-    {noticias.length > 0 ? noticias[0].titulo : "República Actual"}
-  </a>
-</div>
+      <a
+        id="ticker-noticia"
+        href={noticias.length > 0 ? enlaceNoticia(noticias[0]) : "/"}
+      >
+        {noticias.length > 0 ? noticias[0].titulo : "República Actual"}
+      </a>
+    </div>
 
-<script define:vars={{
-  tickerNoticias: noticias.slice(0, 6).map(n => ({
-    titulo: n.titulo,
-    enlace: enlaceNoticia(n)
-  }))
-}}>
-  const ticker = document.getElementById("ticker-noticia");
+    <script define:vars={{
+      tickerNoticias: noticias.slice(0, 6).map(n => ({
+        titulo: n.titulo,
+        enlace: enlaceNoticia(n)
+      }))
+    }}>
+      const ticker = document.getElementById("ticker-noticia");
 
-  if (ticker && tickerNoticias.length > 1) {
-    let posicion = 0;
+      if (ticker && tickerNoticias.length > 1) {
+        let posicion = 0;
 
-    setInterval(() => {
-      posicion = (posicion + 1) % tickerNoticias.length;
+        setInterval(() => {
+          posicion = (posicion + 1) % tickerNoticias.length;
+          ticker.style.opacity = "0";
 
-      ticker.style.opacity = "0";
+          setTimeout(() => {
+            ticker.textContent = tickerNoticias[posicion].titulo;
+            ticker.href = tickerNoticias[posicion].enlace;
+            ticker.style.opacity = "1";
+          }, 250);
+        }, 5000);
+      }
+    </script>
 
-      setTimeout(() => {
-        ticker.textContent = tickerNoticias[posicion].titulo;
-        ticker.href = tickerNoticias[posicion].enlace;
-        ticker.style.opacity = "1";
-      }, 250);
+    <style>
+      #ticker-noticia {
+        color: #102d46;
+        text-decoration: none;
+        transition: opacity .25s ease;
+      }
 
-    }, 5000);
-  }
-</script>
+      #ticker-noticia:hover {
+        color: #e52b32;
+      }
+    </style>
 
-
-
-
-<style>
-  #ticker-noticia {
-    color: #102d46;
-    text-decoration: none;
-    transition: opacity .25s ease;
-  }
-
-  #ticker-noticia:hover {
-    color: #e52b32;
-  }
-</style>
-
+    <!-- ÚLTIMAS PUBLICACIONES -->
 
     <h3 class="titulo-seccion">
       Últimas publicaciones
@@ -801,10 +774,15 @@ const noticiasPrincipales = noticias.slice(1, 11);
       ) : (
         <>
           <section class="noticias" aria-label="Últimas publicaciones">
+
             {noticiaPrincipal && (
               <article class="principal">
+
                 {noticiaPrincipal.imagen && (
-                  <a class="principal-imagen-enlace" href={enlaceNoticia(noticiaPrincipal)}>
+                  <a
+                    class="principal-imagen-enlace"
+                    href={enlaceNoticia(noticiaPrincipal)}
+                  >
                     <img
                       class="principal-imagen"
                       src={imagenCloudflare(noticiaPrincipal.imagen, 900)}
@@ -820,24 +798,45 @@ const noticiasPrincipales = noticias.slice(1, 11);
                     />
                   </a>
                 )}
+
                 <div class="principal-contenido">
-                  <div class="categoria">{obtenerCategoria(noticiaPrincipal)}</div>
+
+                  <div class="categoria">
+                    {obtenerCategoria(noticiaPrincipal)}
+                  </div>
+
                   <h2>
                     <a href={enlaceNoticia(noticiaPrincipal)}>
                       {noticiaPrincipal.titulo}
                     </a>
                   </h2>
-                  <p class="resumen">{resumen(noticiaPrincipal.contenido, 230)}</p>
-                  <a class="leer" href={enlaceNoticia(noticiaPrincipal)}>Leer más →</a>
+
+                  <p class="resumen">
+                    {resumen(noticiaPrincipal.contenido, 230)}
+                  </p>
+
+                  <a
+                    class="leer"
+                    href={enlaceNoticia(noticiaPrincipal)}
+                  >
+                    Leer más →
+                  </a>
+
                 </div>
+
               </article>
             )}
 
             <div class="noticias-grid">
+
               {noticiasPrincipales.map((noticia) => (
                 <article class="noticia">
+
                   {noticia.imagen && (
-                    <a class="noticia-imagen-enlace" href={enlaceNoticia(noticia)}>
+                    <a
+                      class="noticia-imagen-enlace"
+                      href={enlaceNoticia(noticia)}
+                    >
                       <img
                         class="noticia-imagen"
                         src={imagenCloudflare(noticia.imagen, 420)}
@@ -852,138 +851,192 @@ const noticiasPrincipales = noticias.slice(1, 11);
                       />
                     </a>
                   )}
+
                   <div class="noticia-contenido">
-                    <div class="categoria">{obtenerCategoria(noticia)}</div>
-                    <h2><a href={enlaceNoticia(noticia)}>{noticia.titulo}</a></h2>
-                    <p class="resumen">{resumen(noticia.contenido, 90)}</p>
-                    <a class="leer" href={enlaceNoticia(noticia)}>Leer más →</a>
+
+                    <div class="categoria">
+                      {obtenerCategoria(noticia)}
+                    </div>
+
+                    <h2>
+                      <a href={enlaceNoticia(noticia)}>
+                        {noticia.titulo}
+                      </a>
+                    </h2>
+
+                    <p class="resumen">
+                      {resumen(noticia.contenido, 90)}
+                    </p>
+
+                    <a
+                      class="leer"
+                      href={enlaceNoticia(noticia)}
+                    >
+                      Leer más →
+                    </a>
+
                   </div>
+
                 </article>
               ))}
+
             </div>
+
           </section>
 
+          <!-- PAGINACIÓN -->
+
           {totalPaginas > 1 && (
-            <nav class="paginacion paginacion-portada" aria-label="Páginas de noticias">
+            <nav
+              class="paginacion paginacion-portada"
+              aria-label="Páginas de noticias"
+            >
+
               {Array.from(
                 { length: finPagina - inicioPagina + 1 },
                 (_, i) => inicioPagina + i
               ).map((pagina) => {
-                if (pagina === paginaActual) return <span class="activa">{pagina}</span>;
-                return <a href={pagina === 1 ? '/' : `/pagina/${pagina}/`}>{pagina}</a>;
+                if (pagina === paginaActual) {
+                  return <span class="activa">{pagina}</span>;
+                }
+
+                return (
+                  <a href={pagina === 1 ? '/' : `/pagina/${pagina}/`}>
+                    {pagina}
+                  </a>
+                );
               })}
-              {finPagina < totalPaginas && <span class="puntos">…</span>}
-              {finPagina < totalPaginas && <a href={`/pagina/${finPagina + 1}/`}>→</a>}
+
+              {finPagina < totalPaginas && (
+                <span class="puntos">…</span>
+              )}
+
+              {finPagina < totalPaginas && (
+                <a href={`/pagina/${finPagina + 1}/`}>
+                  →
+                </a>
+              )}
+
             </nav>
           )}
 
-         <section class="evergreen" aria-labelledby="republica-util">
+          <!-- REPÚBLICA ÚTIL -->
 
-  <div class="evergreen-encabezado">
-    <h2 id="republica-util">República Útil</h2>
-    <span>Guías · Trámites · Turismo · RD</span>
-  </div>
+          <section
+            class="evergreen"
+            aria-labelledby="republica-util"
+          >
 
-  <div class="evergreen-grid">
+            <div class="evergreen-encabezado">
+              <h2 id="republica-util">
+                República Útil
+              </h2>
 
-    {republicaUtilPortada.map((noticia) => {
+              <span>
+                Guías · Trámites · Turismo · RD
+              </span>
+            </div>
 
-      const imagenRepublicaUtil = obtenerImagen(noticia);
+            <div class="evergreen-grid">
 
-      return (
-        <article
-          class:list={[
-            "evergreen-item",
-            !imagenRepublicaUtil && "evergreen-sin-imagen"
-          ]}
-        >
+              {republicaUtilPortada.map((noticia) => {
 
-          {imagenRepublicaUtil && (
+                const imagenRepublicaUtil = obtenerImagen(noticia);
 
-            <a
-              class="evergreen-imagen-enlace"
-              href={enlaceNoticia(noticia)}
-            >
+                return (
+                  <article
+                    class:list={[
+                      "evergreen-item",
+                      !imagenRepublicaUtil && "evergreen-sin-imagen"
+                    ]}
+                  >
 
-              <img
-                class="evergreen-foto"
-                src={imagenCloudflare(imagenRepublicaUtil, 300)}
-                alt={noticia.titulo}
-                width="112"
-                height="82"
-                loading="lazy"
-                decoding="async"
-                data-original={imagenRepublicaUtil}
-                onerror="
-                  if (this.dataset.fallbackStage !== 'original') {
-                    this.dataset.fallbackStage = 'original';
-                    this.src = this.dataset.original;
-                  } else {
-                    this.onerror = null;
+                    {imagenRepublicaUtil && (
 
-                    const enlace =
-                      this.closest('.evergreen-imagen-enlace');
+                      <a
+                        class="evergreen-imagen-enlace"
+                        href={enlaceNoticia(noticia)}
+                      >
 
-                    if (enlace) {
-                      enlace.style.display = 'none';
-                    }
+                        <img
+                          class="evergreen-foto"
+                          src={imagenCloudflare(imagenRepublicaUtil, 300)}
+                          alt={noticia.titulo}
+                          width="112"
+                          height="82"
+                          loading="lazy"
+                          decoding="async"
+                          data-original={imagenRepublicaUtil}
+                          onerror="
+                            if (this.dataset.fallbackStage !== 'original') {
+                              this.dataset.fallbackStage = 'original';
+                              this.src = this.dataset.original;
+                            } else {
+                              this.onerror = null;
 
-                    const articulo =
-                      this.closest('.evergreen-item');
+                              const enlace =
+                                this.closest('.evergreen-imagen-enlace');
 
-                    if (articulo) {
-                      articulo.classList.add(
-                        'evergreen-sin-imagen'
-                      );
-                    }
-                  }
-                "
-              />
+                              if (enlace) {
+                                enlace.style.display = 'none';
+                              }
 
-            </a>
+                              const articulo =
+                                this.closest('.evergreen-item');
 
-          )}
+                              if (articulo) {
+                                articulo.classList.add(
+                                  'evergreen-sin-imagen'
+                                );
+                              }
+                            }
+                          "
+                        />
 
-          <div class="evergreen-contenido">
+                      </a>
 
-            <span class="evergreen-categoria">
-              {obtenerCategoria(noticia)}
-            </span>
+                    )}
 
-            <h3>
-              <a href={enlaceNoticia(noticia)}>
-                {noticia.titulo}
+                    <div class="evergreen-contenido">
+
+                      <span class="evergreen-categoria">
+                        {obtenerCategoria(noticia)}
+                      </span>
+
+                      <h3>
+                        <a href={enlaceNoticia(noticia)}>
+                          {noticia.titulo}
+                        </a>
+                      </h3>
+
+                      <p class="evergreen-resumen">
+                        {resumen(noticia.contenido, 85)}
+                      </p>
+
+                    </div>
+
+                  </article>
+                );
+              })}
+
+              {republicaUtilPortada.length === 0 && (
+
+                <div class="evergreen-vacio">
+                  Aquí aparecerán las entradas de “República Útil”
+                  que marques manualmente para mostrar en portada.
+                </div>
+
+              )}
+
+            </div>
+
+            <div class="republica-util-ver-mas">
+              <a href="/republica-util/">
+                VER MÁS EN REPÚBLICA ÚTIL →
               </a>
-            </h3>
+            </div>
 
-            <p class="evergreen-resumen">
-              {resumen(noticia.contenido, 85)}
-            </p>
-
-          </div>
-
-        </article>
-      );
-    })}
-
-
-    {republicaUtilPortada.length === 0 && (
-
-      <div class="evergreen-vacio">
-        Aquí aparecerán las entradas de “República Útil” que marques manualmente para mostrar en portada.
-      </div>
-
-    )}
-
-  </div>
-
-  <div class="republica-util-ver-mas">
-    <a href="/republica-util/">
-      VER MÁS EN REPÚBLICA ÚTIL →
-    </a>
-  </div>
-
-</section>
+          </section>
 
         </>
       )
@@ -991,113 +1044,128 @@ const noticiasPrincipales = noticias.slice(1, 11);
 
   </main>
 
+  <!-- FOOTER -->
 
- <footer class="footer">
-  <div class="footer-contenido">
+  <footer class="footer">
 
+    <div class="footer-contenido">
 
+      <div class="footer-logo">
+        REPÚBLICA<span>·</span>ACTUAL
+      </div>
 
-    <div class="footer-logo">
-      REPÚBLICA<span>·</span>ACTUAL
+      <div class="footer-enlaces">
+        <a href="/quienes-somos/">
+          Quiénes somos
+        </a>
+
+        <a href="/contacto/">
+          Contacto
+        </a>
+
+        <a href="/politica-de-privacidad/">
+          Política de privacidad
+        </a>
+
+        <a href="/terminos-y-condiciones/">
+          Términos y condiciones
+        </a>
+      </div>
+
+      <p>
+        © 2026 República Actual. Todos los derechos reservados.
+      </p>
+
     </div>
 
-    <div class="footer-enlaces">
-      <a href="/quienes-somos/">Quiénes somos</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="/politica-de-privacidad/">Política de privacidad</a>
-      <a href="/terminos-y-condiciones/">Términos y condiciones</a>
-    </div>
+    <VisitantesEnVivo />
 
-    <p>
-      © 2026 República Actual. Todos los derechos reservados.
-    </p>
+  </footer>
 
-  </div>
-  <VisitantesEnVivo />
-</footer>
+  <style>
+    .footer {
+      margin-top: 60px;
+      background: #071a3d;
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+    }
 
-<style>
-  .footer {
-    margin-top: 60px;
-    background: #071a3d;
-    color: white;
-    padding: 35px 20px;
-    text-align: center;
-  }
+    .footer-contenido {
+      max-width: 1200px;
+      margin: auto;
+    }
 
-  .footer-contenido {
-    max-width: 1200px;
-    margin: auto;
-  }
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
 
-  .footer-logo {
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 18px;
-  }
+    .footer-logo span {
+      color: #e60023;
+    }
 
-  .footer-logo span {
-    color: #e60023;
-  }
+    .footer-enlaces {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
 
-  .footer-enlaces {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 18px;
-  }
+    .footer-enlaces a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-  .footer-enlaces a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-  }
+    .footer-enlaces a:hover {
+      text-decoration: underline;
+    }
 
-  .footer-enlaces a:hover {
-    text-decoration: underline;
-  }
+    .footer p {
+      margin: 0;
+      font-size: 13px;
+      opacity: .75;
+    }
 
-  .footer p {
-    margin: 0;
-    font-size: 13px;
-    opacity: .75;
-  }
-  .paginacion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 35px 0;
-}
+    .paginacion {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 35px 0;
+    }
 
-.paginacion a,
-.paginacion span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid #d8dde2;
-  border-radius: 5px;
-  background: #ffffff;
-  color: #102d46;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  box-sizing: border-box;
-}
+    .paginacion a,
+    .paginacion span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid #d8dde2;
+      border-radius: 5px;
+      background: #ffffff;
+      color: #102d46;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      box-sizing: border-box;
+    }
 
-.paginacion a:hover {
-  border-color: #ed1c24;
-  color: #ed1c24;
-}
+    .paginacion a:hover {
+      border-color: #ed1c24;
+      color: #ed1c24;
+    }
 
-.paginacion .activa {
-  background: #ed1c24;
-  border-color: #ed1c24;
-  color: #ffffff;
-}
-</style>
+    .paginacion .activa {
+      background: #ed1c24;
+      border-color: #ed1c24;
+      color: #ffffff;
+    }
+  </style>
+
 </Layout>
