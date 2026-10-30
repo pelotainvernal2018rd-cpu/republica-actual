@@ -1,86 +1,124 @@
 ---
+const siteUrl = 'https://republicaactual.net';
+const canonical = `${siteUrl}/politica-de-privacidad/`;
+const titulo = 'Política de privacidad | República Actual';
+const descripcion = 'Consulta cómo República Actual trata la información de navegación, las cookies, la publicidad de terceros y las solicitudes relacionadas con privacidad.';
+const contacto = 'licfranciscosegura@gmail.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: titulo,
+  description: descripcion,
+  url: canonical,
+  inLanguage: 'es-DO',
+  isPartOf: { '@type': 'WebSite', name: 'República Actual', url: siteUrl },
+};
 ---
 <!doctype html>
-<html lang="es">
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de privacidad | República Actual</title>
-  <meta name="description" content="Política de privacidad de República Actual." />
-  <link rel="canonical" href="https://republicaactual.net/politica-de-privacidad/" />
-</head>
+<html lang="es-DO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <!-- Se conserva el identificador presente en el archivo original; verificar con el titular de AdSense. -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8706713311488194" crossorigin="anonymous"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="República Actual" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="cabecera-interior">
+        <a href="/" class="logo" aria-label="República Actual, inicio">REPÚBLICA<span>·</span>ACTUAL</a>
+        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/quienes-somos/">Quiénes somos</a><a href="/contacto/">Contacto</a></nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <p class="etiqueta">TRANSPARENCIA Y PROTECCIÓN DE DATOS</p>
+        <h1>Política de privacidad</h1>
+        <p class="introduccion">En <strong>República Actual</strong> reconocemos la importancia de la privacidad. Esta página explica qué información puede tratarse cuando visitas <a href={siteUrl}>{siteUrl}</a>, cómo pueden intervenir servicios externos y cómo contactarnos para realizar consultas.</p>
+        <p>Esta política se refiere a este sitio web. El tratamiento efectivo de datos depende de las funciones y los servicios que estén habilitados en cada momento.</p>
 
-<body>
-  <main>
-    <a href="/" class="logo">REPÚBLICA<span>·</span>ACTUAL</a>
-
-    <h1>Política de privacidad</h1>
-
-    <p>
-      En República Actual respetamos la privacidad de nuestros visitantes y
-      procuramos proteger la información relacionada con el uso de nuestro sitio web.
-    </p>
-
-    <h2>Información recopilada</h2>
-
-    <p>
-      El sitio puede recopilar automáticamente información técnica y estadística,
-      como tipo de navegador, dispositivo, páginas visitadas y otros datos relacionados
-      con la navegación.
-    </p>
-
-    <h2>Cookies</h2>
-
-    <p>
-      República Actual puede utilizar cookies y tecnologías similares para mejorar
-      la experiencia de navegación, analizar el funcionamiento del sitio y ofrecer
-      contenidos o publicidad.
-    </p>
-
-    <h2>Publicidad de terceros</h2>
-
-    <p>
-      Podemos utilizar servicios publicitarios de terceros, incluido Google AdSense.
-      Estos proveedores pueden utilizar cookies para mostrar anuncios y medir su
-      rendimiento de acuerdo con sus propias políticas de privacidad.
-    </p>
-
-    <h2>Servicios de terceros</h2>
-
-    <p>
-      Algunos servicios utilizados por el sitio pueden recopilar información de
-      acuerdo con sus propias políticas y condiciones.
-    </p>
-
-    <h2>Enlaces externos</h2>
-
-    <p>
-      República Actual puede contener enlaces a sitios externos. No somos responsables
-      de las políticas de privacidad ni del contenido de sitios web de terceros.
-    </p>
-
-    <h2>Cambios en esta política</h2>
-
-    <p>
-      Esta política puede actualizarse cuando sea necesario para reflejar cambios
-      en el funcionamiento del sitio o en los servicios utilizados.
-    </p>
-
-    <a class="volver" href="/">← Volver a República Actual</a>
-  </main>
-</body>
+        <section aria-labelledby="datos"><h2 id="datos">1. Información que podemos recibir</h2>
+          <p>Al navegar por el sitio, los servidores y servicios técnicos que intervienen pueden procesar datos como la dirección IP, fecha y hora de acceso, tipo de navegador, dispositivo, páginas solicitadas y datos técnicos necesarios para la seguridad y el funcionamiento del servicio.</p>
+          <p>Si nos escribes por correo electrónico, recibiremos la dirección desde la que contactas y la información que decidas incluir en tu mensaje. Te recomendamos no enviar documentos de identidad, contraseñas ni otros datos sensibles que no sean necesarios para tu consulta.</p>
+        </section>
+        <section aria-labelledby="finalidades"><h2 id="finalidades">2. Para qué se utiliza la información</h2>
+          <ul><li>Permitir el funcionamiento, mantenimiento y seguridad del sitio.</li><li>Detectar problemas técnicos y mejorar la navegación.</li><li>Responder consultas, solicitudes de corrección y comunicaciones recibidas.</li><li>Mostrar y medir publicidad cuando los servicios publicitarios estén habilitados.</li></ul>
+        </section>
+        <section aria-labelledby="cookies"><h2 id="cookies">3. Cookies y tecnologías similares</h2>
+          <p>El sitio y determinados proveedores externos pueden utilizar cookies, identificadores y tecnologías similares. Estas herramientas pueden ser necesarias para funciones técnicas, medición de uso o publicidad, según los servicios activos y tus preferencias.</p>
+          <p>Puedes gestionar o eliminar cookies desde la configuración de tu navegador. Algunas funciones pueden verse afectadas si las bloqueas. Cuando la normativa aplicable requiera consentimiento para determinadas cookies, este deberá solicitarse mediante un mecanismo apropiado; publicar esta política no sustituye ese consentimiento.</p>
+        </section>
+        <section aria-labelledby="adsense"><h2 id="adsense">4. Google AdSense y publicidad de terceros</h2>
+          <p>República Actual incluye integración técnica con Google AdSense. Si se muestran anuncios, Google y sus socios pueden utilizar cookies u otros identificadores para ofrecer, limitar y medir publicidad, incluida publicidad personalizada cuando corresponda y esté permitida.</p>
+          <p>Para conocer más sobre el tratamiento de datos de Google, consulta <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">cómo utiliza Google la información de sitios y aplicaciones que usan sus servicios</a>. También puedes revisar <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer">Mi centro de anuncios</a> para administrar determinadas preferencias publicitarias.</p>
+          <p>La presencia del código publicitario no significa necesariamente que se estén mostrando anuncios en todas las páginas.</p>
+        </section>
+        <section aria-labelledby="terceros"><h2 id="terceros">5. Proveedores y contenido externo</h2>
+          <p>Para ofrecer las páginas pueden intervenir proveedores de alojamiento, distribución de contenido y servicios técnicos. Algunas noticias pueden incluir imágenes, enlaces o recursos alojados por terceros; al cargar dichos recursos, esos proveedores podrían recibir información técnica de la conexión.</p>
+          <p>Los sitios externos enlazados tienen sus propias políticas. Te recomendamos revisarlas antes de proporcionarles información.</p>
+        </section>
+        <section aria-labelledby="conservacion"><h2 id="conservacion">6. Conservación y seguridad</h2>
+          <p>Las comunicaciones enviadas por correo pueden conservarse durante el tiempo necesario para atenderlas y realizar el seguimiento correspondiente. Los registros técnicos y los datos procesados por terceros pueden estar sujetos a sus propios plazos de conservación.</p>
+          <p>Procuramos aplicar medidas razonables para proteger la información, aunque ningún sistema conectado a Internet puede garantizar seguridad absoluta.</p>
+        </section>
+        <section aria-labelledby="derechos"><h2 id="derechos">7. Consultas y solicitudes sobre privacidad</h2>
+          <p>Puedes escribirnos para consultar sobre el tratamiento de información que nos hayas proporcionado o solicitar, cuando corresponda, su acceso, rectificación o eliminación, sujeto a la legislación aplicable y a las obligaciones de conservación.</p>
+          <div class="contacto"><strong>Correo de contacto</strong><a href={`mailto:${contacto}?subject=Consulta%20de%20privacidad%20-%20Rep%C3%BAblica%20Actual`}>{contacto}</a></div>
+          <p>Si tu solicitud se refiere a datos tratados directamente por un proveedor externo, es posible que también debas ejercer tus opciones ante ese proveedor.</p>
+        </section>
+        <section aria-labelledby="menores"><h2 id="menores">8. Privacidad de menores</h2>
+          <p>República Actual es un portal informativo de carácter general y no está diseñado para solicitar deliberadamente datos personales de menores. Si consideras que hemos recibido información personal de un menor de forma inapropiada, contáctanos para revisarla.</p>
+        </section>
+        <section aria-labelledby="cambios"><h2 id="cambios">9. Actualizaciones de esta política</h2>
+          <p>Podemos modificar esta política para reflejar cambios en el sitio, los servicios utilizados o las obligaciones legales. La versión vigente estará disponible en esta dirección.</p>
+        </section>
+        <section aria-labelledby="responsable"><h2 id="responsable">10. Información de contacto del sitio</h2>
+          <p><strong>Medio:</strong> República Actual<br /><strong>Sitio web:</strong> <a href={siteUrl}>republicaactual.net</a><br /><strong>Contacto:</strong> <a href={`mailto:${contacto}`}>{contacto}</a></p>
+          <p>Para información general sobre el proyecto, visita <a href="/quienes-somos/">Quiénes somos</a>. También puedes consultar nuestros <a href="/terminos-y-condiciones/">Términos y condiciones</a>.</p>
+        </section>
+        <a class="volver" href="/">← Volver a República Actual</a>
+      </article>
+    </main>
+    <footer><p>© {new Date().getFullYear()} República Actual.</p><div class="enlaces"><a href="/">Inicio</a><a href="/quienes-somos/">Quiénes somos</a><a href="/contacto/">Contacto</a><a href="/terminos-y-condiciones/">Términos y condiciones</a></div></footer>
+  </body>
 </html>
-
 <style>
-  body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#172033}
-  main{max-width:900px;margin:50px auto;background:white;padding:45px;box-sizing:border-box}
-  .logo{display:block;text-decoration:none;color:#071a3d;font-size:26px;font-weight:800;margin-bottom:45px}
-  .logo span{color:#e60023}
-  h1{font-size:36px;color:#071a3d}
-  h2{color:#071a3d;margin-top:32px}
-  p{font-size:17px;line-height:1.8}
-  .volver{display:inline-block;margin-top:25px;color:#071a3d;font-weight:bold;text-decoration:none}
-  @media(max-width:700px){main{margin:0;padding:30px 20px}h1{font-size:30px}}
+  :global(*){box-sizing:border-box}
+  :global(body){margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:#243044;line-height:1.75}
+  .cabecera{background:#fff;border-bottom:1px solid #e3e8ee}
+  .cabecera-interior{max-width:1100px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .logo{font-size:25px;font-weight:900;letter-spacing:-1px;color:#102d47;text-decoration:none;white-space:nowrap}
+  .logo span{color:#d71920}
+  nav{display:flex;gap:18px;flex-wrap:wrap}
+  nav a,.enlaces a{color:inherit;text-decoration:none}
+  nav a:hover,.enlaces a:hover{text-decoration:underline}
+  main{max-width:1000px;margin:38px auto;padding:0 18px}
+  article{background:#fff;padding:44px;border:1px solid #e6eaf0;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.04)}
+  .etiqueta{font-size:12px;letter-spacing:1.4px;font-weight:800;color:#c71f2c}
+  h1{font-size:clamp(30px,5vw,42px);line-height:1.2;color:#102d47;margin:10px 0 24px}
+  h2{font-size:23px;line-height:1.35;color:#102d47;margin:0 0 14px}
+  .introduccion{font-size:19px;color:#40516a;padding-bottom:22px;border-bottom:1px solid #e6eaf0}
+  section{margin-top:34px}
+  p{margin:0 0 16px}
+  li{margin-bottom:9px}
+  a{color:#b51e2c;overflow-wrap:anywhere}
+  .contacto{display:flex;flex-direction:column;gap:4px;background:#f1f5fa;border-left:4px solid #d71920;padding:18px 20px;margin:20px 0;border-radius:4px}
+  .contacto a{font-weight:700}
+  .volver{display:inline-block;margin-top:30px;font-weight:700;text-decoration:none}
+  footer{background:#102d47;color:#fff;text-align:center;padding:28px 20px;margin-top:40px}
+  .enlaces{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;font-size:14px}
+  @media(max-width:650px){.cabecera-interior{flex-direction:column;align-items:flex-start}.logo{font-size:23px}nav{gap:14px}main{margin:20px auto}article{padding:26px 20px}h2{font-size:21px}}
 </style>
