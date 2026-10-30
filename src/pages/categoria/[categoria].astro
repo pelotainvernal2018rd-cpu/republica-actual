@@ -94,92 +94,57 @@ function obtenerCategoria(noticia) {
 // ============================================================
 
 export async function getStaticPaths() {
-
-  // IMPORTANTE:
-  // Astro ejecuta getStaticPaths en un contexto aislado.
-  // Por eso definimos aquí las categorías necesarias
-  // para generar las rutas.
-
+  // Estas rutas se generan durante cada compilación de Astro.
   const categoriasRutas = [
-    'nacionales',
-    'politica',
-    'economia',
-    'deportes',
-    'entretenimiento',
-    'mundo',
-    'tecnologia'
+    'nacionales', 'politica', 'economia', 'deportes',
+    'entretenimiento', 'mundo', 'tecnologia'
   ];
 
+  const normalizarValor = (valor = '') => String(valor ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-  const normalizarRuta = (texto = '') => {
-
-    return String(texto)
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .trim();
-
+  // Solo sinónimos explícitos: evita asignar una noticia por
+  // palabras que aparecen casualmente en su título o descripción.
+  const alias = {
+    nacionales: ['nacionales', 'nacional', 'actualidad nacional', 'republica dominicana', 'rd', 'sucesos', 'sociedad'],
+    politica: ['politica', 'politica nacional', 'politica dominicana', 'gobierno', 'congreso'],
+    economia: ['economia', 'economia nacional', 'finanzas', 'negocios', 'economia y negocios'],
+    deportes: ['deportes', 'deporte', 'deportivo', 'beisbol', 'mlb', 'baloncesto'],
+    entretenimiento: ['entretenimiento', 'farándula', 'farandula', 'espectaculos', 'musica', 'cine', 'television'],
+    mundo: ['mundo', 'internacionales', 'internacional', 'noticias internacionales'],
+    tecnologia: ['tecnologia', 'tecnologia e innovacion', 'innovacion', 'inteligencia artificial']
   };
 
-
-  const obtenerCategoriaRuta = (noticia) => {
-
-    if (noticia.categoria) {
-
-      return normalizarRuta(
-        noticia.categoria
-      );
-
+  const identificarCategoria = (valor) => {
+    const limpio = normalizarValor(valor);
+    if (!limpio) return '';
+    for (const [clave, nombres] of Object.entries(alias)) {
+      if (nombres.some(nombre => normalizarValor(nombre) === limpio)) return clave;
     }
-
-
-    if (
-      Array.isArray(noticia.etiquetas) &&
-      noticia.etiquetas.length > 0
-    ) {
-
-      return normalizarRuta(
-        noticia.etiquetas[0]
-      );
-
-    }
-
-
     return '';
-
   };
 
+  const categoriasDeNoticia = (noticia) => {
+    // La categoría principal tiene prioridad; las etiquetas sirven
+    // de respaldo cuando no se reconoce la categoría principal.
+    const principal = identificarCategoria(noticia.categoria);
+    if (principal) return [principal];
+    const etiquetas = Array.isArray(noticia.etiquetas) ? noticia.etiquetas : [];
+    return [...new Set(etiquetas.map(identificarCategoria).filter(Boolean))];
+  };
 
-  const todas =
-    await cargarNoticiasPublicadas();
-
-
-  return categoriasRutas.map(
-    (categoria) => {
-
-      const noticias =
-        todas.filter(
-          (noticia) =>
-            obtenerCategoriaRuta(noticia) ===
-            normalizarRuta(categoria)
-        );
-
-
-      return {
-
-        params: {
-          categoria
-        },
-
-        props: {
-          noticias
-        }
-
-      };
-
+  const todas = await cargarNoticiasPublicadas();
+  return categoriasRutas.map(categoria => ({
+    params: { categoria },
+    props: {
+      noticias: todas.filter(noticia => categoriasDeNoticia(noticia).includes(categoria))
     }
-  );
-
+  }));
 }
 
 
@@ -626,11 +591,6 @@ const canonical =
 
       <a href="/categoria/economia/">
         Economía
-      </a>
-
-
-      <a href="/categoria/deportes/">
-        Deportes
       </a>
 
 
