@@ -226,18 +226,40 @@ const contenido =
 const canonical =
   `https://republicaactual.net/noticia/${noticia.slug || noticia.id}/`;
 
-const fechaPublicacion =
-  noticia.created_at || '';
+// Fecha real almacenada en el JSON; nunca inventar la fecha actual.
+function fechaValida(valor) {
+  if (valor === null || valor === undefined || valor === '') return '';
+  let fecha;
+  if (typeof valor === 'number' || /^\d{10,13}$/.test(String(valor))) {
+    const numero = Number(valor);
+    fecha = new Date(numero < 1e12 ? numero * 1000 : numero);
+  } else {
+    fecha = new Date(valor);
+  }
+  return Number.isNaN(fecha.getTime()) ? '' : fecha.toISOString();
+}
 
-const fechaModificacion =
-  noticia.updated_at ||
-  noticia.modified_at ||
-  fechaPublicacion;
+const fechaPublicacion = fechaValida(
+  noticia.fecha_publicacion ||
+  noticia.created_at ||
+  noticia.fecha ||
+  noticia.published_at ||
+  noticia.date
+);
 
-const autorNombre =
-  noticia.autor ||
-  noticia.author ||
-  '';
+const fechaModificacion = fechaValida(
+  noticia.updated_at || noticia.modified_at
+) || fechaPublicacion;
+
+const fechaVisible = fechaPublicacion
+  ? new Intl.DateTimeFormat('es-DO', {
+      timeZone: 'America/Santo_Domingo',
+      day: 'numeric', month: 'long', year: 'numeric'
+    }).format(new Date(fechaPublicacion))
+  : '';
+
+const autorNombre = String(noticia.autor || noticia.author || '').trim() || 'Redacción República Actual';
+const autorEsRedaccion = /^(redacci[oó]n\s+)?rep[uú]blica actual$/i.test(autorNombre);
 
 const categoria =
   noticia.categoria ||
@@ -295,9 +317,9 @@ const schema = {
     '@id': canonical
   },
 
-  datePublished: fechaPublicacion,
+  ...(fechaPublicacion ? { datePublished: fechaPublicacion } : {}),
 
-  dateModified: fechaModificacion,
+  ...(fechaModificacion ? { dateModified: fechaModificacion } : {}),
 
   articleSection: categoria,
 
@@ -307,15 +329,15 @@ const schema = {
       }
     : {}),
 
-  author: autorNombre
+  author: autorEsRedaccion
     ? {
-        '@type': 'Person',
-        name: autorNombre
-      }
-    : {
         '@type': 'Organization',
         name: 'República Actual',
         url: 'https://republicaactual.net/'
+      }
+    : {
+        '@type': 'Person',
+        name: autorNombre
       },
 
   publisher: {
@@ -601,6 +623,24 @@ const schema = {
       line-height: 1.12;
     }
 
+
+    .datos-editoriales {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin: -8px 0 24px;
+      padding: 12px 0;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      color: #566579;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .datos-editoriales strong {
+      color: #102d47;
+    }
 
     .imagen-principal {
       width: 100%;
@@ -911,6 +951,13 @@ const schema = {
         {titulo}
       </h1>
 
+
+      <div class="datos-editoriales" aria-label="Información editorial">
+        <span>Por <strong>{autorNombre}</strong></span>
+        {fechaVisible && (
+          <span>Publicado el <time datetime={fechaPublicacion}>{fechaVisible}</time></span>
+        )}
+      </div>
 
       {
         imagen && (
