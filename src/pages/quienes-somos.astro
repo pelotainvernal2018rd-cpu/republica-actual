@@ -1,12 +1,8 @@
-
 ---
 const siteUrl = 'https://republicaactual.net';
 const canonical = `${siteUrl}/quienes-somos/`;
-
-const titulo = 'Quiénes somos | República Actual';
-const descripcion =
-  'Conoce República Actual, medio digital de noticias de República Dominicana. Nuestra misión, compromiso editorial y canales de contacto.';
-
+const titulo = 'Quiénes somos y principios editoriales | República Actual';
+const descripcion = 'Conoce República Actual, sus contenidos, principios editoriales, uso de herramientas digitales y vías para solicitar aclaraciones o correcciones.';
 const aboutSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
@@ -15,60 +11,40 @@ const aboutSchema = {
   name: titulo,
   description: descripcion,
   inLanguage: 'es-DO',
-  isPartOf: {
-    '@id': `${siteUrl}/#website`,
-  },
-  about: {
-    '@id': `${siteUrl}/#organization`,
-  },
-  publisher: {
-    '@id': `${siteUrl}/#organization`,
-  },
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  about: { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: 'República Actual', url: `${siteUrl}/` },
+  publisher: { '@id': `${siteUrl}/#organization` },
 };
 ---
-
 <!doctype html>
 <html lang="es-DO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>{titulo}</title>
     <meta name="description" content={descripcion} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
-
-    <!-- Código oficial de Google AdSense: NO CAMBIAR -->
-    <meta
-      name="google-adsense-account"
-      content="ca-pub-3370737258151824"
-    />
-
+    <!-- Conservar el identificador existente de AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-3370737258151824" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_DO" />
     <meta property="og:site_name" content="República Actual" />
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:url" content={canonical} />
-
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={titulo} />
     <meta name="twitter:description" content={descripcion} />
-
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(aboutSchema)}
-    />
+    <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
   </head>
-
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a href="/" class="brand" aria-label="República Actual, inicio">
-          República <span>Actual</span>
-        </a>
+        <a href="/" class="brand" aria-label="República Actual, inicio">República <span>Actual</span></a>
         <nav aria-label="Navegación principal">
           <a href="/">Inicio</a>
+          <a href="/republica-util/">República Útil</a>
           <a href="/contacto/">Contacto</a>
         </nav>
       </div>
@@ -77,103 +53,79 @@ const aboutSchema = {
     <main class="container">
       <article>
         <p class="eyebrow">CONOCE NUESTRO MEDIO</p>
+        <h1>Quiénes somos</h1>
+        <p class="intro"><strong>República Actual</strong> es un portal digital de información dirigido principalmente a lectores de República Dominicana y a quienes desean seguir la actualidad dominicana desde el exterior.</p>
 
-        <h1>Quiénes somos: República Actual</h1>
-
-        <p class="intro">
-          <strong>República Actual</strong> es un medio digital de
-          noticias enfocado en ofrecer información de interés para
-          los lectores de República Dominicana y la comunidad
-          dominicana en el exterior.
-        </p>
+        <div class="summary" aria-label="Resumen del portal">
+          <div><strong>Actualidad</strong><span>Noticias y temas de interés público</span></div>
+          <div><strong>Utilidad</strong><span>Guías y recursos de consulta</span></div>
+          <div><strong>Transparencia</strong><span>Información editorial y contacto</span></div>
+        </div>
 
         <section aria-labelledby="sobre-nosotros">
           <h2 id="sobre-nosotros">Sobre República Actual</h2>
-          <p>
-            En República Actual trabajamos para acercar a nuestros
-            lectores a los acontecimientos de actualidad, con
-            información organizada, accesible y fácil de consultar.
-          </p>
-          <p>
-            Nuestro portal reúne contenidos sobre noticias nacionales,
-            internacionales, deportes, economía, entretenimiento y
-            otros temas de interés general.
-          </p>
+          <p>El sitio reúne noticias nacionales e internacionales, deportes, economía, entretenimiento y otros asuntos de interés general. También publica recursos prácticos en la sección <a href="/republica-util/">República Útil</a>, pensados para responder preguntas frecuentes y facilitar consultas cotidianas.</p>
+          <p>Buscamos que cada página permita identificar con claridad su tema, su fecha de publicación cuando esté disponible y la atribución editorial correspondiente.</p>
         </section>
 
         <section aria-labelledby="mision">
           <h2 id="mision">Nuestra misión</h2>
-          <p>
-            Nuestra misión es facilitar el acceso a información
-            relevante y útil para que nuestros lectores puedan
-            mantenerse al tanto de los acontecimientos que afectan
-            su entorno y su vida cotidiana.
-          </p>
+          <p>Facilitar el acceso a información comprensible, contextualizada y útil sobre acontecimientos que interesan a la sociedad dominicana, procurando que los lectores puedan distinguir los hechos comunicados, las explicaciones y las opiniones.</p>
         </section>
 
-        <section aria-labelledby="compromiso">
-          <h2 id="compromiso">Nuestro compromiso editorial</h2>
-          <p>
-            Aspiramos a publicar contenidos claros, responsables y
-            comprensibles, diferenciando la información de las
-            opiniones cuando corresponda.
-          </p>
-          <p>
-            Reconocemos la importancia de verificar los datos,
-            consultar fuentes identificables y actualizar o corregir
-            los contenidos cuando se detecten errores.
-          </p>
+        <section aria-labelledby="principios">
+          <h2 id="principios">Principios editoriales</h2>
+          <ul>
+            <li><strong>Claridad:</strong> presentar títulos y contenidos que describan el tema sin exageraciones innecesarias.</li>
+            <li><strong>Contexto:</strong> procurar explicar por qué un acontecimiento es relevante y qué información se conoce.</li>
+            <li><strong>Atribución:</strong> identificar las fuentes utilizadas cuando corresponda y distinguir información de terceros de contenido propio.</li>
+            <li><strong>Precisión:</strong> evitar presentar rumores, hipótesis o afirmaciones no confirmadas como hechos establecidos.</li>
+            <li><strong>Correcciones:</strong> ofrecer un canal para comunicar errores, solicitar aclaraciones o señalar información desactualizada.</li>
+          </ul>
+          <p>Estos principios orientan el desarrollo editorial del portal. Su cumplimiento requiere atención continua y no significa que cada publicación esté libre de errores.</p>
+        </section>
+
+        <section aria-labelledby="produccion">
+          <h2 id="produccion">Cómo se elaboran los contenidos</h2>
+          <p>República Actual utiliza herramientas digitales y procesos automatizados para apoyar la recopilación, organización y preparación de parte de sus publicaciones. Algunas tareas de redacción pueden contar con asistencia de inteligencia artificial.</p>
+          <p>La automatización no constituye por sí misma una garantía de exactitud. Por eso, recomendamos a los lectores consultar las fuentes identificadas en cada publicación y comunicarnos cualquier dato que requiera revisión.</p>
+          <p>Las noticias deben diferenciarse de las guías informativas y de los recursos de cálculo. En particular, las herramientas y calculadoras del portal ofrecen resultados orientativos y no sustituyen la asesoría profesional cuando esta sea necesaria.</p>
+        </section>
+
+        <section aria-labelledby="autoria">
+          <h2 id="autoria">Autoría y firma editorial</h2>
+          <p>La firma <strong>«Redacción República Actual»</strong> identifica publicaciones atribuidas al medio como entidad editorial. No debe interpretarse como la firma de una persona específica ni como una afirmación de que cada texto haya sido escrito íntegramente por un periodista humano.</p>
+          <p>Cuando una publicación identifique una fuente externa, esa referencia corresponde al origen de la información y no implica que dicha fuente participe en la administración de República Actual.</p>
         </section>
 
         <section aria-labelledby="contenidos">
-          <h2 id="contenidos">¿Qué encontrarás en nuestro portal?</h2>
-
+          <h2 id="contenidos">Qué encontrarás en nuestro portal</h2>
           <ul>
-            <li>
-              <strong>Noticias nacionales:</strong> acontecimientos
-              relevantes de República Dominicana.
-            </li>
-            <li>
-              <strong>Noticias internacionales:</strong> hechos de
-              interés mundial.
-            </li>
-            <li>
-              <strong>Deportes:</strong> información y actualidad
-              deportiva.
-            </li>
-            <li>
-              <strong>Economía:</strong> temas económicos y financieros
-              de interés público.
-            </li>
-            <li>
-              <strong>República Útil:</strong> guías prácticas y
-              contenidos informativos de consulta.
-            </li>
-            <li>
-              <strong>Empleos:</strong> información sobre oportunidades
-              laborales.
-            </li>
+            <li><strong>Nacionales:</strong> acontecimientos y asuntos de interés en República Dominicana.</li>
+            <li><strong>Mundo:</strong> información internacional relevante para nuestros lectores.</li>
+            <li><strong>Deportes:</strong> resultados, acontecimientos y actualidad deportiva.</li>
+            <li><strong>Economía:</strong> información económica y temas financieros de interés general.</li>
+            <li><strong>Entretenimiento:</strong> novedades culturales y del espectáculo.</li>
+            <li><strong>República Útil:</strong> guías prácticas, explicaciones y recursos informativos.</li>
           </ul>
         </section>
 
         <section aria-labelledby="correcciones">
-          <h2 id="correcciones">Correcciones y actualizaciones</h2>
-          <p>
-            Si identificas información incorrecta, desactualizada
-            o que requiera aclaración, puedes comunicarlo a través
-            de nuestra página de contacto para su revisión.
-          </p>
+          <h2 id="correcciones">Correcciones, aclaraciones y actualizaciones</h2>
+          <p>Si detectas un posible error factual, una atribución incorrecta, un enlace roto o contenido desactualizado, puedes comunicarlo desde nuestra <a href="/contacto/">página de contacto</a>.</p>
+          <p>Para facilitar la revisión, incluye el enlace de la publicación, el fragmento que consideras incorrecto y, si dispones de ella, una referencia que respalde tu observación. Las solicitudes recibidas podrán dar lugar a una corrección, actualización o aclaración cuando corresponda.</p>
+        </section>
+
+        <section aria-labelledby="independencia">
+          <h2 id="independencia">Publicidad y contenido editorial</h2>
+          <p>El portal puede mostrar publicidad para contribuir a su sostenimiento. La presencia de anuncios no convierte automáticamente el contenido editorial en una recomendación de los productos o servicios anunciados.</p>
+          <p>Consulta nuestra <a href="/politica-de-privacidad/">política de privacidad</a> para conocer la información publicada sobre el tratamiento de datos y las tecnologías publicitarias.</p>
         </section>
 
         <section aria-labelledby="contacto">
-          <h2 id="contacto">Contacto</h2>
-          <p>
-            Para consultas, sugerencias o solicitudes relacionadas
-            con nuestros contenidos, visita nuestra página de contacto.
-          </p>
-          <a class="contact-button" href="/contacto/">
-            Contactar con República Actual
-          </a>
+          <h2 id="contacto">Comunícate con nosotros</h2>
+          <p>Recibimos consultas, sugerencias y comunicaciones relacionadas con el contenido del portal a través de nuestra página de contacto.</p>
+          <a class="contact-button" href="/contacto/">Contactar con República Actual <span aria-hidden="true">→</span></a>
         </section>
       </article>
     </main>
@@ -182,6 +134,7 @@ const aboutSchema = {
       <p>© {new Date().getFullYear()} República Actual.</p>
       <div class="footer-links">
         <a href="/">Inicio</a>
+        <a href="/quienes-somos/">Quiénes somos</a>
         <a href="/politica-de-privacidad/">Privacidad</a>
         <a href="/terminos-y-condiciones/">Términos</a>
         <a href="/contacto/">Contacto</a>
@@ -191,163 +144,34 @@ const aboutSchema = {
 </html>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
-  }
-
-  :global(body) {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fa;
-    color: #202938;
-    line-height: 1.75;
-  }
-
-  .site-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .header-inner {
-    max-width: 1100px;
-    margin: auto;
-    padding: 18px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .brand {
-    font-size: 25px;
-    font-weight: 800;
-    color: #172b4d;
-    text-decoration: none;
-  }
-
-  .brand span {
-    color: #e32732;
-  }
-
-  nav {
-    display: flex;
-    gap: 18px;
-  }
-
-  nav a,
-  .footer-links a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  nav a:hover,
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-
-  .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 18px;
-  }
-
-  article {
-    background: #ffffff;
-    padding: 45px;
-    border: 1px solid #e6eaf0;
-    border-radius: 14px;
-    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.04);
-  }
-
-  .eyebrow {
-    color: #d72332;
-    font-weight: 800;
-    letter-spacing: 1.4px;
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: clamp(30px, 5vw, 43px);
-    line-height: 1.2;
-    color: #132744;
-    margin: 12px 0 24px;
-  }
-
-  h2 {
-    font-size: 23px;
-    line-height: 1.35;
-    color: #172b4d;
-    margin: 0 0 15px;
-  }
-
-  .intro {
-    font-size: 19px;
-    color: #3c4a5c;
-    padding-bottom: 26px;
-    border-bottom: 1px solid #e6eaf0;
-  }
-
-  section {
-    margin-top: 34px;
-  }
-
-  p {
-    margin: 0 0 15px;
-  }
-
-  ul {
-    padding-left: 23px;
-  }
-
-  li {
-    margin-bottom: 12px;
-  }
-
-  .contact-button {
-    display: inline-block;
-    background: #d92332;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 7px;
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-  .contact-button:hover {
-    background: #b91c2b;
-  }
-
-  footer {
-    background: #14243c;
-    color: white;
-    text-align: center;
-    padding: 28px 20px;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 14px;
-  }
-
-  @media (max-width: 600px) {
-    .header-inner {
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    article {
-      padding: 25px 20px;
-    }
-
-    .container {
-      margin: 20px auto;
-    }
-
-    h2 {
-      font-size: 21px;
-    }
-  }
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #202938; line-height: 1.75; }
+  .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .header-inner { max-width: 1100px; margin: auto; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .brand { font-size: 25px; font-weight: 800; color: #172b4d; text-decoration: none; white-space: nowrap; }
+  .brand span { color: #e32732; }
+  nav { display: flex; gap: 18px; flex-wrap: wrap; }
+  nav a, .footer-links a { color: inherit; text-decoration: none; }
+  nav a:hover, .footer-links a:hover { text-decoration: underline; }
+  .container { max-width: 1000px; margin: 40px auto; padding: 0 18px; }
+  article { background: #fff; padding: 45px; border: 1px solid #e6eaf0; border-radius: 14px; box-shadow: 0 6px 28px rgba(0,0,0,.04); }
+  .eyebrow { color: #d72332; font-weight: 800; letter-spacing: 1.4px; font-size: 12px; }
+  h1 { font-size: clamp(30px,5vw,43px); line-height: 1.2; color: #132744; margin: 12px 0 24px; }
+  h2 { font-size: 23px; line-height: 1.35; color: #172b4d; margin: 0 0 15px; }
+  .intro { font-size: 19px; color: #3c4a5c; padding-bottom: 26px; border-bottom: 1px solid #e6eaf0; }
+  section { margin-top: 34px; }
+  p { margin: 0 0 15px; }
+  ul { padding-left: 23px; }
+  li { margin-bottom: 12px; }
+  article a:not(.contact-button) { color: #b91c2b; text-underline-offset: 3px; }
+  .summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 24px 0 10px; }
+  .summary div { background: #f5f8fc; border: 1px solid #e5ebf2; border-radius: 10px; padding: 15px; }
+  .summary strong { display: block; color: #142b4b; font-size: 15px; }
+  .summary span { display: block; color: #556476; font-size: 13px; line-height: 1.5; }
+  .contact-button { display: inline-block; background: #d92332; color: white; padding: 12px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; }
+  .contact-button:hover { background: #b91c2b; }
+  footer { background: #14243c; color: white; text-align: center; padding: 28px 20px; }
+  .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 14px; }
+  @media(max-width:700px) { .summary { grid-template-columns: 1fr; } }
+  @media(max-width:600px) { .header-inner { flex-direction: column; gap: 8px; } article { padding: 25px 20px; } .container { margin: 20px auto; } h2 { font-size: 21px; } nav { justify-content: center; } }
 </style>
