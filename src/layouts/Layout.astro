@@ -2,187 +2,210 @@
 import RegistrarVisita from '../components/RegistrarVisita.astro';
 
 interface Props {
-	title?: string;
-	description?: string;
-	image?: string;
-	canonical?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
 }
 
 const {
-	title = 'República Actual | Noticias de República Dominicana y el Mundo',
-	description = 'República Actual: últimas noticias de República Dominicana sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad nacional e internacional.',
-	image = '/logo.png',
-	canonical
+  title = 'República Actual | Noticias de República Dominicana y el Mundo',
+  description = 'República Actual: últimas noticias de República Dominicana sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad nacional e internacional.',
+  image = '/logo.png',
+  canonical
 } = Astro.props;
 
 const siteUrl = 'https://republicaactual.net';
-
-const canonicalURL =
-	canonical ||
-	new URL(Astro.url.pathname, siteUrl).toString();
-
-const imageURL = image.startsWith('http')
-	? image
-	: new URL(image, siteUrl).toString();
+const canonicalURL = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const imageURL = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
 
 const organizationSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'NewsMediaOrganization',
-	'@id': `${siteUrl}/#organization`,
-	name: 'República Actual',
-	alternateName: 'Republica Actual',
-	url: siteUrl,
-	logo: {
-		'@type': 'ImageObject',
-		url: `${siteUrl}/logo.png`
-	},
-	description:
-		'Medio digital de noticias de República Dominicana con información nacional e internacional sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad.',
-	areaServed: {
-		'@type': 'Country',
-		name: 'República Dominicana'
-	}
+  '@context': 'https://schema.org',
+  '@type': 'NewsMediaOrganization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'República Actual',
+  alternateName: 'Republica Actual',
+  url: siteUrl,
+  logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+  description: 'Medio digital de noticias de República Dominicana con información nacional e internacional sobre política, economía, deportes, entretenimiento, tecnología, empleos y actualidad.',
+  areaServed: { '@type': 'Country', name: 'República Dominicana' }
 };
 
 const websiteSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'WebSite',
-	'@id': `${siteUrl}/#website`,
-	url: siteUrl,
-	name: 'República Actual',
-	alternateName: 'Republica Actual',
-	description:
-		'Noticias de República Dominicana y el mundo.',
-	publisher: {
-		'@id': `${siteUrl}/#organization`
-	},
-	inLanguage: 'es-DO'
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'República Actual',
+  alternateName: 'Republica Actual',
+  description: 'Noticias de República Dominicana y el mundo.',
+  publisher: { '@id': `${siteUrl}/#organization` },
+  inLanguage: 'es-DO'
 };
 ---
-
 <!doctype html>
-
 <html lang="es-DO">
-	<head>
+  <head>
+    <meta name="google-adsense-account" content="ca-pub-3370737258151824" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="República Actual" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="es_DO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="application-name" content="República Actual" />
+    <meta name="author" content="República Actual" />
+    <meta name="theme-color" content="#ffffff" />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head" />
+  </head>
+  <body>
+    <RegistrarVisita />
+    <slot />
 
-	<meta name="google-adsense-account" content="ca-pub-3370737258151824" />
-		<meta charset="utf-8" />
+    <aside id="ra-cookie-banner" class="ra-cookie-banner" aria-labelledby="ra-cookie-title" hidden>
+      <div class="ra-cookie-inner">
+        <div class="ra-cookie-copy">
+          <h2 id="ra-cookie-title">Tu privacidad importa</h2>
+          <p>Utilizamos almacenamiento necesario para recordar tus preferencias y, cuando estén habilitados, servicios opcionales de medición y publicidad. Puedes aceptar o rechazar los opcionales y cambiar tu elección más adelante. Consulta nuestra <a href="/politica-de-privacidad/">política de privacidad</a>.</p>
+        </div>
+        <div class="ra-cookie-actions">
+          <button type="button" id="ra-cookie-accept" class="ra-cookie-primary">Aceptar todas</button>
+          <button type="button" id="ra-cookie-reject" class="ra-cookie-secondary">Rechazar opcionales</button>
+          <button type="button" id="ra-cookie-configure" class="ra-cookie-text">Configurar</button>
+        </div>
+      </div>
+    </aside>
 
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1"
-		/>
+    <div id="ra-cookie-settings" class="ra-cookie-backdrop" hidden>
+      <section class="ra-cookie-dialog" role="dialog" aria-modal="true" aria-labelledby="ra-cookie-settings-title" tabindex="-1">
+        <h2 id="ra-cookie-settings-title">Preferencias de privacidad</h2>
+        <p>El almacenamiento necesario permite recordar tu elección. Los servicios opcionales solo deben activarse cuando exista una integración que respete estas preferencias.</p>
+        <div class="ra-cookie-setting"><span><strong>Necesarias</strong><small>Preferencias básicas y funcionamiento.</small></span><span class="ra-cookie-required">Siempre activas</span></div>
+        <label class="ra-cookie-setting"><span><strong>Medición opcional</strong><small>Herramientas de análisis, si se habilitan.</small></span><input type="checkbox" id="ra-cookie-analytics" /></label>
+        <label class="ra-cookie-setting"><span><strong>Publicidad opcional</strong><small>Servicios publicitarios sujetos a consentimiento, si se habilitan.</small></span><input type="checkbox" id="ra-cookie-ads" /></label>
+        <div class="ra-cookie-dialog-actions">
+          <button type="button" id="ra-cookie-save" class="ra-cookie-primary">Guardar preferencias</button>
+          <button type="button" id="ra-cookie-cancel" class="ra-cookie-secondary">Cancelar</button>
+        </div>
+      </section>
+    </div>
 
-		<!-- TÍTULO SEO -->
-		<title>{title}</title>
+    <button type="button" id="ra-cookie-reopen" class="ra-cookie-reopen" aria-label="Cambiar preferencias de cookies" hidden>Cookies</button>
 
-		<!-- DESCRIPCIÓN SEO -->
-		<meta
-			name="description"
-			content={description}
-		/>
+    <script is:inline>
+      (() => {
+        const KEY = 'ra_cookie_preferences_v1';
+        const banner = document.getElementById('ra-cookie-banner');
+        const settings = document.getElementById('ra-cookie-settings');
+        const reopen = document.getElementById('ra-cookie-reopen');
+        const analytics = document.getElementById('ra-cookie-analytics');
+        const ads = document.getElementById('ra-cookie-ads');
+        const dialog = settings.querySelector('.ra-cookie-dialog');
+        let previousFocus = null;
+        let saved = null;
+        try {
+          const value = JSON.parse(localStorage.getItem(KEY) || 'null');
+          if (value && value.version === 1 && typeof value.analytics === 'boolean' && typeof value.ads === 'boolean') saved = value;
+        } catch (_) {}
 
-		<!-- INDEXACIÓN -->
-		<meta
-			name="robots"
-			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-		/>
-
-		<meta name="googlebot" content="index, follow" />
-
-		<!-- CANONICAL -->
-		<link rel="canonical" href={canonicalURL} />
-
-		<!-- FAVICON -->
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/favicon.svg"
-		/>
-
-		<link
-			rel="icon"
-			type="image/x-icon"
-			href="/favicon.ico"
-		/>
-
-		<!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="República Actual" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:image" content={imageURL} />
-		<meta property="og:locale" content="es_DO" />
-
-		<!-- X / TWITTER -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={imageURL} />
-
-		<!-- INFORMACIÓN DEL SITIO -->
-		<meta
-			name="application-name"
-			content="República Actual"
-		/>
-
-		<meta
-			name="author"
-			content="República Actual"
-		/>
-
-		<meta
-			name="theme-color"
-			content="#ffffff"
-		/>
-
-		<!-- DATOS ESTRUCTURADOS DEL MEDIO -->
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify(organizationSchema)}
-		/>
-
-		<!-- DATOS ESTRUCTURADOS DEL SITIO -->
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify(websiteSchema)}
-		/>
-
-		<meta
-			name="generator"
-			content={Astro.generator}
-		/>
-		<slot name="head" />
-	</head>
-
-	<body>
-
-		<RegistrarVisita />
-
-		<slot />
-
-	</body>
+        const notify = (value) => {
+          window.dispatchEvent(new CustomEvent('ra:cookie-consent', { detail: value }));
+        };
+        const closeSettings = () => {
+          settings.hidden = true;
+          document.body.classList.remove('ra-cookie-modal-open');
+          if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+        };
+        const openSettings = () => {
+          previousFocus = document.activeElement;
+          analytics.checked = saved ? saved.analytics : false;
+          ads.checked = saved ? saved.ads : false;
+          settings.hidden = false;
+          document.body.classList.add('ra-cookie-modal-open');
+          dialog.focus();
+        };
+        const save = (a, p) => {
+          const value = { version: 1, necessary: true, analytics: a, ads: p, updatedAt: new Date().toISOString() };
+          try { localStorage.setItem(KEY, JSON.stringify(value)); } catch (_) {}
+          saved = value;
+          banner.hidden = true;
+          reopen.hidden = false;
+          closeSettings();
+          notify(value);
+        };
+        banner.hidden = !!saved;
+        reopen.hidden = !saved;
+        if (saved) notify(saved);
+        document.getElementById('ra-cookie-accept').addEventListener('click', () => save(true, true));
+        document.getElementById('ra-cookie-reject').addEventListener('click', () => save(false, false));
+        document.getElementById('ra-cookie-configure').addEventListener('click', openSettings);
+        document.getElementById('ra-cookie-save').addEventListener('click', () => save(analytics.checked, ads.checked));
+        document.getElementById('ra-cookie-cancel').addEventListener('click', closeSettings);
+        reopen.addEventListener('click', openSettings);
+        settings.addEventListener('click', (event) => { if (event.target === settings) closeSettings(); });
+        document.addEventListener('keydown', (event) => {
+          if (settings.hidden) return;
+          if (event.key === 'Escape') { closeSettings(); return; }
+          if (event.key !== 'Tab') return;
+          const controls = Array.from(settings.querySelectorAll('button, input:not([disabled])'));
+          const first = controls[0], last = controls[controls.length - 1];
+          if (event.shiftKey && (document.activeElement === first || document.activeElement === dialog)) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        });
+      })();
+    </script>
+  </body>
 </html>
-
 <style is:global>
-
-	html {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		min-height: 100%;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		min-height: 100%;
-	}
-
-	* {
-		box-sizing: border-box;
-	}
-
+  html { margin: 0; padding: 0; width: 100%; min-height: 100%; }
+  body { margin: 0; padding: 0; width: 100%; min-height: 100%; }
+  * { box-sizing: border-box; }
+  .ra-cookie-banner[hidden], .ra-cookie-backdrop[hidden], .ra-cookie-reopen[hidden] { display: none !important; }
+  .ra-cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 2147483000; background: #fff; color: #17253b; border-top: 1px solid #dce3ed; box-shadow: 0 -8px 35px rgba(14,32,60,.16); font-family: Arial,Helvetica,sans-serif; }
+  .ra-cookie-inner { max-width: 1200px; margin: auto; padding: 20px 24px; display: flex; align-items: center; gap: 26px; justify-content: space-between; }
+  .ra-cookie-copy { max-width: 740px; }
+  .ra-cookie-copy h2 { font-size: 19px; margin: 0 0 8px; }
+  .ra-cookie-copy p { font-size: 14px; line-height: 1.6; margin: 0; }
+  .ra-cookie-copy a { color: #1454a0; text-decoration: underline; }
+  .ra-cookie-actions, .ra-cookie-dialog-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+  .ra-cookie-actions { min-width: 270px; justify-content: flex-end; }
+  .ra-cookie-actions button, .ra-cookie-dialog-actions button, .ra-cookie-reopen { font: 600 13px Arial,Helvetica,sans-serif; padding: 12px 15px; border-radius: 8px; cursor: pointer; }
+  .ra-cookie-primary { background: #1455a0; color: #fff; border: 1px solid #1455a0; }
+  .ra-cookie-secondary { background: #fff; color: #173a68; border: 1px solid #b8c8da; }
+  .ra-cookie-text { background: transparent; color: #1455a0; border: 1px solid transparent; text-decoration: underline; }
+  .ra-cookie-backdrop { position: fixed; inset: 0; z-index: 2147483001; background: rgba(8,20,40,.62); display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial,Helvetica,sans-serif; }
+  .ra-cookie-dialog { width: min(100%, 510px); max-height: 90vh; overflow-y: auto; background: #fff; color: #17253b; padding: 26px; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+  .ra-cookie-dialog h2 { margin: 0 0 12px; font-size: 22px; }
+  .ra-cookie-dialog p { font-size: 14px; line-height: 1.6; }
+  .ra-cookie-setting { display: flex; align-items: center; justify-content: space-between; gap: 18px; border-top: 1px solid #e0e5ed; padding: 16px 0; font-size: 14px; }
+  .ra-cookie-setting strong, .ra-cookie-setting small { display: block; }
+  .ra-cookie-setting small { margin-top: 5px; color: #58677a; line-height: 1.4; }
+  .ra-cookie-setting input { width: 21px; height: 21px; accent-color: #1455a0; flex: none; }
+  .ra-cookie-required { font-size: 12px; color: #366b47; white-space: nowrap; }
+  .ra-cookie-dialog-actions { justify-content: flex-end; margin-top: 16px; }
+  .ra-cookie-modal-open { overflow: hidden; }
+  .ra-cookie-reopen { position: fixed; bottom: 14px; left: 14px; z-index: 2147482999; background: #fff; color: #1455a0; border: 1px solid #c7d3e2; box-shadow: 0 3px 14px rgba(0,0,0,.12); }
+  @media (max-width: 700px) {
+    .ra-cookie-inner { display: block; padding: 18px; }
+    .ra-cookie-actions { min-width: 0; justify-content: stretch; margin-top: 16px; }
+    .ra-cookie-actions button { flex: 1 1 135px; }
+    .ra-cookie-dialog { padding: 20px; }
+  }
 </style>
