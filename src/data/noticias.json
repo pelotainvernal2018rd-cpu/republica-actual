@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733471,
+    "created_at": "2026-10-31T19:50:37.494Z",
+    "titulo": "Panamá registra sismo de 5.9 magnitud y alerta de Google",
+    "slug": "panama-registra-sismo-de-5-9-magnitud-y-alerta-de-google",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/10/AWFMOCK76VGFXHY24UOCHZXVD4.avif\" alt=\"Panamá registra sismo de 5.9 magnitud y alerta de Google\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El sábado 31 de octubre, Panamá experimentó un movimiento sísmico que fue percibido en distintos puntos del país. Los usuarios reportaron que sus teléfonos celulares recibieron primero una notificación de alerta sísmica de Google y luego sintieron el temblor. La alerta de Google indicó una magnitud inicial de 5.6, mientras que el Instituto de Geociencias de la Universidad de Panamá (IGC) informó preliminarmente una magnitud de 6.1, la cual ajustó a 5.9 tras revisar los registros.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El director del IGC, Néstor Luque, descartó la posibilidad de un tsunami tras el sismo y recordó que después de un evento de esta magnitud pueden producirse movimientos posteriores o réplicas, por lo que es necesario mantener las medidas de prevención y seguridad.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El movimiento telúrico obligó al Metro de Panamá a suspender sus operaciones y evacuar a los usuarios de todas las estaciones y trenes, evitando posibles riesgos en la infraestructura.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El episodio puso en evidencia el funcionamiento del sistema de alertas sísmicas de Android, habilitado en Panamá el 29 de octubre. La herramienta utiliza los acelerómetros de los teléfonos Android para detectar movimientos que podrían corresponder a un terremoto y enviar notificaciones a los dispositivos ubicados en las zonas que podrían verse afectadas. Se destaca que el sistema no predice terremotos, sino que detecta un movimiento que ya comenzó, pudiendo advertir a los usuarios antes de que lleguen las ondas sísmicas más fuertes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El 9 de octubre, Panamá fue sacudido por un terremoto de magnitud 7.5, registrado a las 12:56 p.m. con epicentro a 39 kilómetros al noroeste de Tonosí. El balance más reciente contabiliza tres personas fallecidas y 27 lesionadas, 17,058 viviendas evaluadas, 55,245 personas afectadas, daños en 120 instalaciones de salud y evacuación de aproximadamente 300 personas de Isla Cañas en la provincia de Los Santos.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://ntelemicro.com/en-menos-de-un-segundo-dos-fuertes-sismos-de-magnitudes-5-8-y-5-9-sacuden-panama/\" target=\"_blank\" rel=\"noopener noreferrer\">Noticias Telemicro</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/10/AWFMOCK76VGFXHY24UOCHZXVD4.avif",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/en-menos-de-un-segundo-dos-fuertes-sismos-de-magnitudes-5-8-y-5-9-sacuden-panama/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Tecnología"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733470,
     "created_at": "2026-10-31T19:45:21.069Z",
     "titulo": "Gaby Puche presenta su nuevo álbum “Simplemente Gaby”",
