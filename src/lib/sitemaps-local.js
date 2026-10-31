@@ -12,10 +12,31 @@ export const escapar = (valor = '') =>
     .replace(/'/g, '&apos;');
 
 export const fecha = valor => {
-  if (!valor) return null;
-  const d = new Date(valor);
+  if (valor === null || valor === undefined || valor === '') return null;
+
+  let d;
+
+  if (
+    typeof valor === 'number' ||
+    /^\d{10,13}$/.test(String(valor))
+  ) {
+    const numero = Number(valor);
+    d = new Date(numero < 1e12 ? numero * 1000 : numero);
+  } else {
+    d = new Date(valor);
+  }
+
   return Number.isNaN(d.getTime()) ? null : d;
 };
+
+export const fechaPublicacion = n =>
+  fecha(
+    n.fecha_publicacion ||
+    n.created_at ||
+    n.fecha ||
+    n.published_at ||
+    n.date
+  );
 
 export const noticias = (
   Array.isArray(datos) ? datos : []
@@ -29,20 +50,10 @@ export const esUtil = n =>
     .replace(/[\u0300-\u036f]/g, '') === 'republica util';
 
 export const enlace = n => {
-  const definitiva = String(n.url_definitiva || '').trim();
+  const identificador = String(n.slug || n.id);
+  const ruta = '/noticia/' + encodeURIComponent(identificador) + '/';
 
-  if (definitiva) {
-    try {
-      const u = new URL(definitiva, SITE);
-      if (
-        u.origin === SITE &&
-        u.pathname.startsWith('/noticia/')
-      ) return u.href;
-    } catch {}
-  }
-
-  return SITE + '/noticia/' +
-    encodeURIComponent(String(n.slug || n.id)) + '/';
+  return SITE + ruta;
 };
 
 export const entrada = (loc, mod = null, extra = '') =>
