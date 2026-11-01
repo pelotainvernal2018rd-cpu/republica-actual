@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733515,
+    "created_at": "2026-11-01T16:30:19.721Z",
+    "titulo": "Ricardo Trotti advierte que la tecnología erosiona las bases económicas del periodismo",
+    "slug": "ricardo-trotti-advierte-que-la-tecnologia-erosiona-las-bases-economicas-del-periodismo",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/11/01/6ae7414749667.jpeg\" alt=\"Ricardo Trotti advierte que la tecnología erosiona las bases económicas del periodismo\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El exdirector ejecutivo de la Sociedad Interamericana de Prensa (SIP) y defensor de la libertad de expresión, Ricardo Trotti, analizó los desafíos actuales que enfrenta la profesión periodística a nivel global frente al avance de internet, las redes sociales y la inteligencia artificial. Según indicó, el balance de estas tecnologías resulta deficitario para los medios de comunicación, a pesar de reconocer su utilidad operativa.</p><p>Trotti señaló que, desde finales del siglo XX, las herramientas tecnológicas han erosionado de manera paulatina las bases económicas del sector. Explicó que primero se afectó el modelo publicitario, posteriormente las redes sociales atraparon la atención mediante algoritmos que incentivan la indignación, y en la actualidad la inteligencia artificial amenaza con apropiarse del trabajo intelectual al extraer contenidos sin realizar pagos a las fuentes.</p><p>Respecto al impacto de las plataformas digitales, el experto calificó como un error estratégico haber considerado inicialmente a estas empresas como aliadas. Indicó que dichas compañías operan sin los controles y regulaciones de los medios, priorizando contenidos que explotan emociones como la rabia y el miedo para retener la atención de las audiencias mediante la polarización.</p><p>Ante la crisis de los medios impresos y la contracción del soporte físico en papel, Trotti afirmó que el periodismo mantiene un futuro indispensable. Sostuvo que la salida a esta problemática no radica en competir con la agresividad o el «clickbait» en redes sociales, sino en fortalecer la independencia frente a los poderes económicos y políticos, documentar los abusos y priorizar la investigación.</p><p>Asimismo, el especialista advirtió sobre el acoso judicial y la estigmatización por parte de gobiernos autoritarios que buscan silenciar a la prensa independiente. Para contrarrestar estas presiones y la propagación de desinformación, recomendó la solidaridad y las alianzas estratégicas entre medios y organizaciones periodísticas, mencionando coaliciones como SPUR para negociar con las plataformas tecnológicas y exigir compensaciones justas por la utilización de contenidos.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://listindiario.com/especial/20261101/ricardo-trotti-defensor-libertad-prensa-periodismo-debe-investigar-mas_928340.html\" target=\"_blank\" rel=\"noopener noreferrer\">Listín Diario</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/11/01/6ae7414749667.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/especial/20261101/ricardo-trotti-defensor-libertad-prensa-periodismo-debe-investigar-mas_928340.html",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Economía"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733514,
     "created_at": "2026-11-01T16:28:14.789Z",
     "titulo": "Asociación de Productores Avícolas Independientes garantiza abastecimiento de pollo para la Navidad",
