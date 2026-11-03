@@ -1,5 +1,21 @@
 [
   {
+    "id": 1791850623733637,
+    "created_at": "2026-11-03T16:19:28.792Z",
+    "titulo": "EdeEste reporta averías eléctricas en Santo Domingo Este e Higüey",
+    "slug": "edeeste-reporta-averias-electricas-en-santo-domingo-este-e-higuey",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad8b6653d7ed.png\" alt=\"EdeEste reporta averías eléctricas en Santo Domingo Este e Higüey\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La Empresa Distribuidora de Electricidad del Este (EdeEste) informó este martes sobre interrupciones en el suministro eléctrico que afectan a diversos sectores de Santo Domingo Este y la provincia La Altagracia, debido a fallas técnicas en sus redes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En Santo Domingo Este, la avería se localiza en el circuito KM2404, provocada por problemas en un jumper de media tensión situado en la Autovía del Nordeste, esquina carretera Mella, en la comunidad de San Isidro Arriba. Esta situación impacta a los sectores de San Isidro, San Isidro Arriba, así como de forma parcial a El Cabreto, Mojarra y Nueva Jerusalén. Brigadas contratistas se encuentran trabajando en el lugar para restablecer el servicio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Simultáneamente, en Higüey, se registró una falla en la subestación de 138 kV tras la salida automática del transformador de potencia T02. Esta incidencia afecta total o parcialmente a comunidades como El Naranjo, Los Rosales, San Pedro, Los Prados, Villa Cristal, Anamuya y el centro de la ciudad. Personal técnico de subestaciones interviene los equipos para normalizar la energía en la zona.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">A pesar de estos inconvenientes, el informe de la Dirección de Control de Abastecimiento de EdeEste, con corte a las 9:00 de la mañana, indicó un abastecimiento general del 98.78 % en su área de concesión. La demanda reportada fue de 1,020.1 MWh, con un total de dos circuitos fuera de servicio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La distribuidora solicitó la comprensión de los usuarios ante estas averías y recomendó utilizar sus canales de atención no presenciales para reportar cualquier incidencia adicional o verificar el estado de sus circuitos.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://elnacional.com.do/economia/apagones-santo-domingo-e-higuey-edeeste-reporta-fallas_585285.html/\" target=\"_blank\" rel=\"noopener noreferrer\">El Nacional</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/10/21/6ad8b6653d7ed.png",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/economia/apagones-santo-domingo-e-higuey-edeeste-reporta-fallas_585285.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733636,
     "created_at": "2026-11-03T16:09:30.178Z",
     "titulo": "Decomisan cargamento de cocaína oculto en latas de habichuelas en puerto Caucedo",
