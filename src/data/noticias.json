@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733622,
+    "created_at": "2026-11-03T14:09:56.144Z",
+    "titulo": "Colegio Médico Dominicano suspende paro de 24 horas y marcha al Palacio Nacional",
+    "slug": "colegio-medico-dominicano-suspende-paro-de-24-horas-y-marcha-al-palacio-nacional",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/11/03/6ae9e93d76f84.jpeg\" alt=\"Colegio Médico Dominicano suspende paro de 24 horas y marcha al Palacio Nacional\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Colegio Médico Dominicano (CMD) dejó sin efecto el paro de labores por 24 horas que había programado para este miércoles en los hospitales estatales, así como la marcha hacia el Palacio Nacional que estaba pautada para el próximo 11 de este mes.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La medida fue informada a través de un comunicado emitido por la organización gremial y leído por su presidente, Luis Peña Núñez, en compañía de otros directivos del sector salud.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">De acuerdo con la entidad, la decisión de suspender las movilizaciones se adoptó atendiendo al llamado para un encuentro con el presidente de la República, Luis Abinader, el cual se llevará a cabo la próxima semana.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El CMD indicó que con esta acción se busca dar continuidad a las negociaciones que mantiene el gremio con el Gobierno, con el propósito de alcanzar un pacto que resulte beneficioso tanto para el sector médico como para la ciudadanía.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, la Junta Directiva Nacional reiteró su disposición al diálogo y a la búsqueda de soluciones a sus demandas, al tiempo que exhortó a sus miembros a mantenerse atentos a las informaciones oficiales que se emitan próximamente.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las demandas que los médicos al servicio del Estado exigen a las autoridades se encuentran el pago por antigüedad para más de mil profesionales en el Servicio Nacional de Salud (SNS), además de la revisión y el incremento de los incentivos correspondientes a guardias presenciales, distancia y ubicación fronteriza.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Adicionalmente, el gremio ha denunciado que los galenos que prestan servicios en el Ministerio de Obras Públicas y Comunicaciones (MOPC) perciben salarios que rondan los 35,000 pesos.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://elnacional.com.do/nacionales/medicos-suspenden-paro-manana-marcha-palacio-nacional_585271.html/\" target=\"_blank\" rel=\"noopener noreferrer\">El Nacional</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/11/03/6ae9e93d76f84.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/medicos-suspenden-paro-manana-marcha-palacio-nacional_585271.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Salud"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733621,
     "created_at": "2026-11-03T14:06:45.056Z",
     "titulo": "Confirman la primera muerte por sarampión en Nueva York en tres décadas",
