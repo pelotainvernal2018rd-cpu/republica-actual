@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733663,
+    "created_at": "2026-11-04T11:28:26.828Z",
+    "titulo": "Prevén aguaceros de moderados a fuertes en el Cibao y el noroeste por incidencia de vaguada",
+    "slug": "preven-aguaceros-de-moderados-a-fuertes-en-el-cibao-y-el-noroeste-por-incidencia-de-vaguada",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/uploads/2026/11/04/6aeb0e7788d65.gif\" alt=\"Prevén aguaceros de moderados a fuertes en el Cibao y el noroeste por incidencia de vaguada\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El Instituto Dominicano de Meteorología (Indomet) pronosticó que durante la tarde de este día continuarán los aguaceros acompañados de tormentas eléctricas y ráfagas de viento en varias provincias del país. Las precipitaciones afectarán principalmente a La Vega, Monseñor Nouel, Duarte, Espaillat, María Trinidad Sánchez, Hermanas Mirabal, San Juan, Santiago Rodríguez y Dajabón.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Estas condiciones meteorológicas son provocadas por la incidencia de una vaguada combinada con la nubosidad que es arrastrada por el viento del sureste. En contraste con estas regiones, en el Distrito Nacional y la provincia Santo Domingo predominarán las horas de sol, aunque el organismo prevé la posibilidad de chubascos pasajeros durante la tarde.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para otras localidades de la geografía nacional, como Azua, Barahona, Peravia y San Cristóbal, el pronóstico oficial indica la ocurrencia de chubascos en el período comprendido entre las 2:00 y las 6:00 de la tarde. Las precipitaciones también se extenderán al día siguiente debido al incremento de los niveles de humedad en la masa de aire.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Para mañana se espera un aumento de la nubosidad que generará nuevos aguaceros de moderados a fuertes, con tormentas eléctricas y ráfagas de viento, centrados en las provincias de Monte Cristi, Puerto Plata, La Altagracia, Samaná, María Trinidad Sánchez y Monte Plata.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">En cuanto a las condiciones marítimas, el Indomet informó que el oleaje en las costas del océano Atlántico y el mar Caribe se mantiene normal, con alturas que oscilan entre los 3 y 4 pies. Esta situación resulta favorable para la navegación de todo tipo de embarcaciones y permite el uso de las playas por parte de los bañistas sin restricciones.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Asimismo, el organismo mantiene bajo seguimiento un sistema de baja presión localizado al sur de la isla de Bermudas, en el océano Atlántico. Dicho fenómeno presenta una probabilidad de desarrollo ciclónico del 20 % en las próximas 48 horas y del 40 % en los siguientes siete días, aunque debido a su ubicación y distancia actual no representa peligro para el territorio nacional.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://elnacional.com.do/nacionales/aguaceros-moderados-fuertes-tarde-regiones-cibao-noroeste_585348.html/\" target=\"_blank\" rel=\"noopener noreferrer\">El Nacional</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/uploads/2026/11/04/6aeb0e7788d65.gif",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/aguaceros-moderados-fuertes-tarde-regiones-cibao-noroeste_585348.html/",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733662,
     "created_at": "2026-11-04T11:24:53.243Z",
     "titulo": "Indomet pronostica aguaceros, tormentas eléctricas y vigilancia de baja presión",
