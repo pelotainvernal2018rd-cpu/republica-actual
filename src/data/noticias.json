@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733707,
+    "created_at": "2026-11-05T12:45:38.222Z",
+    "titulo": "Indomet pronostica fuertes aguaceros para este jueves por vaguada y baja presión",
+    "slug": "indomet-pronostica-fuertes-aguaceros-para-este-jueves-por-vaguada-y-baja-presion",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://listindiario.com/files/main_image/uploads/2026/07/08/6a4e80611597e.jpeg\" alt=\"Indomet pronostica fuertes aguaceros para este jueves por vaguada y baja presión\" style=\"width:100%;max-width:750px;height:auto;\" loading=\"lazy\"></div><p>El Instituto Dominicano de Meteorología (Indomet) informó que para este jueves se espera un incremento en la nubosidad y precipitaciones significativas debido a la incidencia de una vaguada asociada a una zona de baja presión sobre el océano Atlántico. Este fenómeno, que se manifiesta en varios niveles de la troposfera, interactuará con un alto contenido de humedad para generar condiciones inestables durante la tarde.</p><p>La entidad meteorológica advirtió que la actividad pluvial vendrá acompañada de tormentas eléctricas y ráfagas de viento. Las zonas con mayor probabilidad de experimentar aguaceros localmente fuertes incluyen las regiones noroeste, norte y noreste, así como la llanura oriental, la zona fronteriza y la Cordillera Central.</p><p>Entre las provincias señaladas como más propensas a recibir estas lluvias se encuentran Monte Plata, Hato Mayor, Sánchez Ramírez, San Cristóbal, El Seibo, Santiago, La Vega, Monseñor Nouel, Santiago Rodríguez, el Gran Santo Domingo, Barahona, San Juan, Puerto Plata, Espaillat, Samaná, María Trinidad Sánchez y Duarte.</p><p>Respecto a la actividad ciclónica, Indomet comunicó que monitorea una zona de baja presión no tropical ubicada a cientos de kilómetros al sur de Bermuda. Aunque presenta una probabilidad de desarrollo ciclónico del 30 % en las próximas 48 horas y del 50 % en los siguientes siete días, el organismo aclaró que, por su posición y trayectoria, no representa un peligro para la República Dominicana.</p><p>En cuanto a las temperaturas, se prevé una disminución gradual, aunque los valores máximos continuarán oscilando entre los 30 °C y 33 °C, con registros superiores en puntos específicos. Debido a que la sensación térmica se mantendrá elevada, las autoridades recomiendan a la población mantenerse hidratada, utilizar ropa ligera y evitar la exposición directa al sol entre las 11:00 de la mañana y las 4:00 de la tarde.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://listindiario.com/la-republica/provincias/20261105/esperan-fuertes-aguaceros-vaguada-tarde_928958.html\" target=\"_blank\" rel=\"noopener noreferrer\">Listín Diario</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://listindiario.com/files/main_image/uploads/2026/07/08/6a4e80611597e.jpeg",
+    "fuente": "Listín Diario",
+    "url_fuente": "https://listindiario.com/la-republica/provincias/20261105/esperan-fuertes-aguaceros-vaguada-tarde_928958.html",
+    "categoria": "Nacionales",
+    "etiquetas": [
+      "Nacionales",
+      "Clima"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733706,
     "created_at": "2026-11-05T12:28:37.255Z",
     "titulo": "Persiste la precariedad de personas en situación de calle en el Gran Santo Domingo",
