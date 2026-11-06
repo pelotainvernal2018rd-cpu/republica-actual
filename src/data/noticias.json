@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733722,
+    "created_at": "2026-11-06T13:05:35.772Z",
+    "titulo": "Un terremoto de magnitud 6,1 sacude la costa oriental de Japón sin dejar daños reportados",
+    "slug": "un-terremoto-de-magnitud-6-1-sacude-la-costa-oriental-de-japon-sin-dejar-danos-reportados",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://ntelemicro.com/wp-content/uploads/2026/11/PORTADA-YAMILEX-9.jpg\" alt=\"Un terremoto de magnitud 6,1 sacude la costa oriental de Japón sin dejar daños reportados\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Un seísmo de magnitud 6,1 sacudió este viernes Japón y se dejó percibir en Tokio, la capital del país, según la información difundida por la Agencia Meteorológica de Japón (JMA).</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El movimiento telúrico se registró a las 19:39 hora local, equivalente a las 10:39 hora GMT. De acuerdo con los datos oficiales, el epicentro se situó en el mar, a una profundidad de diez kilómetros, frente a la costa oriental de la región de Kanto, una zona de la isla principal japonesa que incluye a Tokio.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El temblor alcanzó el nivel 3 en la escala sísmica nipona, un sistema que consta de siete niveles enfocado en medir la agitación sobre la superficie y los potenciales daños. Dicha intensidad se registró específicamente en las prefecturas de Miyagi, Fukushima e Ibaraki.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Hasta el momento, tras la ocurrencia del terremoto, no se han reportado daños materiales ni personales. Asimismo, las autoridades competentes decidieron no activar la alerta de tsunami, aunque advirtieron que el movimiento podría ocasionar ligeras variaciones en el nivel del mar a lo largo del litoral.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Japón se encuentra ubicado sobre el Anillo de Fuego, reconocido como una de las zonas sísmicas más activas de todo el mundo. Debido a la frecuencia con la que el país sufre este tipo de fenómenos, sus infraestructuras están diseñadas de manera especial para soportar los temblores, conforme a los datos proporcionados por Noticias Telemicro.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://ntelemicro.com/un-terremoto-de-magnitud-61-sacude-japon-y-se-percibe-en-tokio/\" target=\"_blank\" rel=\"noopener noreferrer\">Noticias Telemicro</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://ntelemicro.com/wp-content/uploads/2026/11/PORTADA-YAMILEX-9.jpg",
+    "fuente": "Noticias Telemicro",
+    "url_fuente": "https://ntelemicro.com/un-terremoto-de-magnitud-61-sacude-japon-y-se-percibe-en-tokio/",
+    "categoria": "Mundo",
+    "etiquetas": [
+      "Mundo",
+      "Internacional"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733721,
     "created_at": "2026-11-06T12:59:20.532Z",
     "titulo": "Exárbitros de las Grandes Ligas demandan a MLB por más de dos millones de dólares en pensiones",
