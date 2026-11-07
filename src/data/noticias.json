@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733777,
+    "created_at": "2026-11-07T09:08:32.493Z",
+    "titulo": "Gobierno promulga Código de Ética para regular el uso de inteligencia artificial en el Estado",
+    "slug": "gobierno-promulga-codigo-de-etica-para-regular-el-uso-de-inteligencia-artificial-en-el-estado",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/11/06/6aee6dd64c81c.r_d.720-478-8333.jpeg\" alt=\"Gobierno promulga Código de Ética para regular el uso de inteligencia artificial en el Estado\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El director general de la Oficina Gubernamental de Tecnologías de la Información y Comunicación (OGTIC), Edgar Batista, calificó como un paso trascendental para la gobernanza digital de la República Dominicana la promulgación del Decreto 787-26, normativa que establece el Código de Ética para el uso de la inteligencia artificial en los servicios públicos.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La iniciativa fue impulsada por el presidente Luis Abinader en conjunto con la OGTIC y la Dirección General de Ética e Integridad Gubernamental (DIGEIG), con el acompañamiento de la Alianza para el Gobierno Abierto (OGP). De acuerdo con los promotores, el propósito central es construir un modelo en el que la innovación tecnológica se encuentre al servicio de las personas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Batista explicó que este nuevo instrumento fija reglas claras y salvaguardas orientadas a garantizar un uso responsable, seguro y transparente de estas herramientas dentro del Estado. Asimismo, indicó que su implementación busca asegurar que los procesos respeten los derechos fundamentales, protejan la privacidad de los ciudadanos y fortalezcan la confianza pública, evitando limitarse a una mera adopción tecnológica.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La normativa sitúa a la República Dominicana a la vanguardia regional en materia tecnológica. Entre sus componentes operativos figuran la realización de evaluaciones de impacto ético de manera previa al despliegue de cualquier sistema, además de la prohibición explícita de prácticas como la vigilancia masiva.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El texto oficial también incluye disposiciones específicas que destacan la transparencia algorítmica, una protección reforzada dirigida a la infancia y la aplicación de estrictos criterios de soberanía digital.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://elnacional.com.do/nacionales/califican-trascendental-nuevo-codigo-etica-inteligencia-artificial_585593.html/\" target=\"_blank\" rel=\"noopener noreferrer\">El Nacional</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/files/fp/uploads/2026/11/06/6aee6dd64c81c.r_d.720-478-8333.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/nacionales/califican-trascendental-nuevo-codigo-etica-inteligencia-artificial_585593.html/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Nacionales"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733776,
     "created_at": "2026-11-07T08:59:09.363Z",
     "titulo": "Centro Nacional de Huracanes descarta formación ciclónica en el Caribe durante los próximos cinco días",
