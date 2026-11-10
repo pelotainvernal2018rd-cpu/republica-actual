@@ -1,5 +1,22 @@
 [
   {
+    "id": 1791850623733998,
+    "created_at": "2026-11-10T16:08:35.715Z",
+    "titulo": "El auge de las videonovelas y programas de entretenimiento creados con inteligencia artificial",
+    "slug": "el-auge-de-las-videonovelas-y-programas-de-entretenimiento-creados-con-inteligencia-artificial",
+    "contenido": "<div style=\"text-align:center;margin:0 0 24px 0;\"><img src=\"https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/11/10/6af33b8d40923.jpeg\" alt=\"El auge de las videonovelas y programas de entretenimiento creados con inteligencia artificial\" style=\"width:100%;max-width:750px;height:auto;display:block;margin:auto;border-radius:6px;\" loading=\"lazy\"></div><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Las redes sociales han experimentado una transformación en la producción y consumo de contenido audiovisual gracias al desarrollo de la inteligencia artificial generativa de video. Lo que inició como una fase tecnológica de imágenes distorsionadas y movimientos poco naturales ha evolucionado hacia la creación de escenas con diálogos, expresiones faciales, efectos sonoros y tramas completas.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Este fenómeno ha dado lugar a producciones virales como las llamadas Frutinovelas, que utilizan frutas antropomórficas para protagonizar historias con conflictos sentimentales e infidelidades, combinando una apariencia inocente con temáticas adultas y humor de doble sentido. Asimismo, la tendencia incluye adaptaciones de populares programas de resolución de conflictos y talk shows, donde animales como perros y gatos ocupan los roles de presentadores, invitados y acusados.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">La accesibilidad de estas tecnologías permite que personas sin grandes presupuestos ni conocimientos avanzados de animación elaboren producciones desde sus hogares. El proceso de creación suele iniciar a partir de instrucciones escritas o indicaciones textuales conocidas como prompts, además del uso de imágenes de referencia para diseñar los escenarios, definir la apariencia de los personajes y fijar los movimientos de cámara.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">Entre las plataformas que impulsan este tipo de contenidos destacan Google Veo, para la generación audiovisual a partir de textos e imágenes; Runway, orientada al control de movimientos y continuidad visual; y Kling AI, utilizada para animaciones realistas y sincronización de labios. También figuran Adobe Firefly, Google Flow e Higgsfield AI, una plataforma fundada en 2023 por Alex Mashrabov y Mahi De Silva con sede en San Francisco.</p><p style=\"font-size:18px;line-height:1.7;font-weight:400;margin-bottom:20px;\">El flujo de trabajo digital comprende además la generación de voces sintéticas y la sincronización labial para dotar de diálogos a los personajes. Finalmente, mediante programas tradicionales de edición se unen las diferentes secuencias, se incorporan la música, los efectos de sonido y los subtítulos para entregar el producto final que circula masivamente en Internet.</p><p class=\"ra-fuente-editorial\"><strong>Fuente consultada:</strong> <a href=\"https://elnacional.com.do/fama-y-vida/ciencia-y-tecnologia/maravilloso-mundo-video-historias-noveleras-hechas-ia-generativa-videos_585840.html/\" target=\"_blank\" rel=\"noopener noreferrer\">El Nacional</a>. Información elaborada a partir de la fuente indicada; no constituye investigación propia.</p>",
+    "imagen": "https://imagenes.elnacional.com.do/files/og_thumbnail/uploads/2026/11/10/6af33b8d40923.jpeg",
+    "fuente": "El Nacional",
+    "url_fuente": "https://elnacional.com.do/fama-y-vida/ciencia-y-tecnologia/maravilloso-mundo-video-historias-noveleras-hechas-ia-generativa-videos_585840.html/",
+    "categoria": "Tecnología",
+    "etiquetas": [
+      "Tecnología",
+      "Entretenimiento"
+    ],
+    "publicado": true,
+    "feed_principal": true
+  },
+  {
     "id": 1791850623733997,
     "created_at": "2026-11-10T15:37:16.453Z",
     "titulo": "Raquel Peña denuncia campaña interna en su contra y cuestiona desempeño de funcionarios",
